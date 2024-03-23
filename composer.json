@@ -26,7 +26,6 @@
 	"prefer-stable": true,
 	"require": {
 		"php": "^8.1",
-		"ext-curl": "*",
 		"ext-json": "*",
 		"ext-sodium": "*",
 		"chillerlan/php-http-message-utils": "^2.2.1",

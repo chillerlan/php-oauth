@@ -1,0 +1,70 @@
+{
+	"name": "chillerlan/php-oauth",
+	"description": "A fully transparent, framework agnostic PSR-18 OAuth client.",
+	"homepage": "https://github.com/chillerlan/php-oauth",
+	"license": "MIT",
+	"type": "library",
+	"keywords": [
+		"oauth", "oauth1", "oauth2", "authorization", "authentication",
+		"client", "psr-7", "psr-17", "psr-18", "rfc5849", "rfc6749"
+	],
+	"authors": [
+		{
+			"name": "smiley",
+			"email": "smiley@chillerlan.net",
+			"homepage": "https://github.com/codemasher"
+		}
+	],
+	"support": {
+		"issues": "https://github.com/chillerlan/php-oauth/issues",
+		"source": "https://github.com/chillerlan/php-oauth"
+	},
+	"provide": {
+		"psr/http-client-implementation": "1.0"
+	},
+	"minimum-stability": "stable",
+	"prefer-stable": true,
+	"require": {
+		"php": "^8.1",
+		"ext-curl": "*",
+		"ext-json": "*",
+		"ext-sodium": "*",
+		"chillerlan/php-http-message-utils": "^2.2.1",
+		"chillerlan/php-settings-container": "^3.2",
+		"psr/http-client": "^1.0",
+		"psr/http-message": "^1.1 || ^2.0",
+		"psr/log": "^1.1 || ^2.0 || ^3.0"
+	},
+	"require-dev": {
+		"chillerlan/php-dotenv": "^3.0",
+		"chillerlan/phpunit-http": "^1.0",
+		"guzzlehttp/guzzle": "^7.8",
+		"monolog/monolog": "^3.5",
+		"phan/phan": "^5.4",
+		"phpmd/phpmd": "^2.15",
+		"phpunit/phpunit": "^10.5",
+		"squizlabs/php_codesniffer": "^3.9"
+	},
+	"suggest": {
+		"chillerlan/php-httpinterface": "^6.0 - an alternative PSR-18 HTTP Client"
+	},
+	"autoload": {
+		"psr-4": {
+			"chillerlan\\OAuth\\": "src/"
+		}
+	},
+	"autoload-dev": {
+		"psr-4": {
+			"chillerlan\\OAuthTest\\": "tests/"
+		}
+	},
+	"scripts": {
+		"phpunit": "@php vendor/bin/phpunit",
+		"phan": "@php vendor/bin/phan"
+	},
+	"config": {
+		"lock": false,
+		"sort-packages": true,
+		"platform-check": true
+	}
+}

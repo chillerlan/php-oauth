@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+	<title>Last.fm top albums chart</title>
+	<style>
+		body{font-size: 20px; line-height: 1.4em; font-family: "Trebuchet MS", sans-serif; color: #000;}
+		input, textarea, select{font-family: Consolas, "Liberation Mono", Courier, monospace; font-size: 75%; line-height: 1.25em; border: 1px solid #aaa;}
+		input:focus, textarea:focus, select:focus{ border: 1px solid #ccc;}
+		input[type=number]{width: 4em;}
+		label{cursor: pointer;}
+		#image-settings, div#image-output{ text-align: center; padding: 1em;}
+		#footer{text-align: center;font-size: 75%;}
+	</style>
+</head>
+<body>
+
+<form id="image-settings">
+
+	<label for="username">last.fm username</label>
+	<input id="username" name="username" type="text" autocomplete="off" spellcheck="false"/>
+
+	<label for="period">period</label>
+	<select id="period" name="period">
+		<option value="7day">7 day</option>
+		<option value="1month" selected="selected">1 month</option>
+		<option value="3month">3 month</option>
+		<option value="6month">6 month</option>
+		<option value="12month">12 month</option>
+		<option value="overall">overall</option>
+	</select>
+
+	<label for="width">width</label>
+	<input id="width" name="width" type="number" min="1" max="10" value="5" placeholder="width"/>
+
+	<label for="height">height</label>
+	<input id="height" name="height" type="number" min="1" max="10" value="5" placeholder="height"/>
+
+	<label for="imagesize">size</label>
+	<input id="imagesize" name="imagesize" type="number" min="30" max="150" value="125" placeholder="imagesize"/>
+
+	<button type="submit">generate</button>
+</form>
+<div id="image-output"></div>
+<div id="footer">[ <a href="https://github.com/chillerlan/php-oauth/tree/master/examples/LastFM">github</a> ]</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/prototype/1.7.3/prototype.js"></script>
+<script>
+	((form, output, url) => {
+		$(form).observe('submit', ev => {
+			Event.stop(ev);
+			new Ajax.Request(url, {
+				method         : 'post',
+				parameters     : JSON.stringify(ev.target.serialize(true)),
+				onUninitialized: $(output).update(),
+				onLoading      : $(output).update('<img src="https://media.giphy.com/media/3o6nV1reufhmjUXMJi/giphy.gif"/>'),
+				onFailure      : response => $(output).update(response.responseJSON.error),
+				onSuccess      : response => $(output).update(response.responseJSON.image),
+			});
+		});
+	})('image-settings', 'image-output', './topalbum-patchwork.php');
+</script>
+
+</body>
+</html>

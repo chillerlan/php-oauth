@@ -1,0 +1,59 @@
+<?xml version="1.0"?>
+<phpunit xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:noNamespaceSchemaLocation="https://schema.phpunit.de/10.5/phpunit.xsd"
+         bootstrap="vendor/autoload.php"
+         cacheDirectory=".build/phpunit.cache"
+         cacheResultFile=".build/phpunit.result.cache"
+         colors="true"
+         beStrictAboutCoverageMetadata="true"
+>
+	<testsuites>
+		<testsuite name="php-oauth-core">
+			<directory>tests/Core</directory>
+		</testsuite>
+		<testsuite name="php-oauth-core token storage">
+			<directory>tests/Core</directory>
+		</testsuite>
+		<testsuite name="php-oauth-providers unit tests">
+			<directory>tests/Providers/Unit</directory>
+		</testsuite>
+		<testsuite name="php-oauth-providers live API tests">
+			<directory>tests/Providers/Live</directory>
+		</testsuite>
+	</testsuites>
+	<source>
+		<include>
+			<directory>src</directory>
+		</include>
+	</source>
+	<coverage>
+		<report>
+			<clover outputFile=".build/coverage/clover.xml"/>
+			<xml outputDirectory=".build/coverage/coverage-xml"/>
+		</report>
+	</coverage>
+	<groups>
+		<exclude>
+			<!--
+			<group>slow</group>
+			<group>shortTokenExpiry</group>
+			-->
+			<group>providerLiveTest</group>
+		</exclude>
+	</groups>
+	<php>
+		<!-- whether the test runs on CI - set to false to allow live API tests to run -->
+		<const name="TEST_IS_CI" value="true"/>
+		<!-- the config directory, where .env, cacert.pem and test oauth tokens reside, relative from project root -->
+		<const name="TEST_CFGDIR" value="config"/>
+		<!-- the filename of your .env file -->
+		<const name="TEST_ENVFILE" value=".env_example"/>
+		<!-- the http client factory for live api tests -->
+		<const name="HTTP_CLIENT_FACTORY" value="chillerlan\PHPUnitHttp\GuzzleHttpClientFactory"/>
+		<!-- PSR-17 factories to use in tests -->
+		<const name="REQUEST_FACTORY" value="GuzzleHttp\Psr7\HttpFactory"/>
+		<const name="RESPONSE_FACTORY" value="GuzzleHttp\Psr7\HttpFactory"/>
+		<const name="STREAM_FACTORY" value="GuzzleHttp\Psr7\HttpFactory"/>
+		<const name="URI_FACTORY" value="GuzzleHttp\Psr7\HttpFactory"/>
+	</php>
+</phpunit>

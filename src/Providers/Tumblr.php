@@ -6,13 +6,14 @@
  * @author       Smiley <smiley@chillerlan.net>
  * @copyright    2017 Smiley
  * @license      MIT
+ *
+ * @noinspection PhpUnused
  */
 
 namespace chillerlan\OAuth\Providers;
 
 use chillerlan\HTTP\Utils\MessageUtil;
-use chillerlan\OAuth\Core\{AccessToken, OAuth1Provider};
-use Psr\Http\Message\ResponseInterface;
+use chillerlan\OAuth\Core\{AccessToken, AuthenticatedUser, OAuth1Provider};
 use function sprintf;
 
 /**
@@ -33,18 +34,24 @@ class Tumblr extends OAuth1Provider{
 	/**
 	 * @inheritDoc
 	 */
-	public function me():ResponseInterface{
+	public function me():AuthenticatedUser{
 		$response = $this->request('/v2/user/info');
 		$status   = $response->getStatusCode();
+		$json     = MessageUtil::decodeJSON($response, true);
 
 		if($status === 200){
-			return $response;
+
+			$userdata = [
+				'data'   => $json,
+				'handle' => $json['response']['user']['name'],
+				'url'    => sprintf('https://www.tumblr.com/%s', $json['response']['user']['name']),
+			];
+
+			return new AuthenticatedUser($userdata);
 		}
 
-		$json = MessageUtil::decodeJSON($response);
-
-		if(isset($json->meta, $json->meta->msg)){
-			throw new ProviderException($json->meta->msg);
+		if(isset($json['meta'], $json['meta']['msg'])){
+			throw new ProviderException($json['meta']['msg']);
 		}
 
 		throw new ProviderException(sprintf('user info error HTTP/%s', $status));

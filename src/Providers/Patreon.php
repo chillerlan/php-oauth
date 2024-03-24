@@ -6,14 +6,15 @@
  * @author       smiley <smiley@chillerlan.net>
  * @copyright    2019 smiley
  * @license      MIT
+ *
+ * @noinspection PhpUnused
  */
 
 namespace chillerlan\OAuth\Providers;
 
 use chillerlan\HTTP\Utils\MessageUtil;
-use chillerlan\OAuth\Core\{CSRFToken, OAuth2Provider, TokenRefresh};
-use Psr\Http\Message\ResponseInterface;
-use function explode, in_array, sprintf;
+use chillerlan\OAuth\Core\{AuthenticatedUser, CSRFToken, OAuth2Provider, TokenRefresh};
+use function in_array, sprintf;
 
 /**
  * Patreon v2 OAuth2
@@ -55,15 +56,14 @@ class Patreon extends OAuth2Provider implements CSRFToken, TokenRefresh{
 	/**
 	 * @inheritDoc
 	 */
-	public function me():ResponseInterface{
-		$token  = $this->storage->getAccessToken($this->serviceName);
-		$scopes = explode(' ', $token->extraParams['scope']);
+	public function me():AuthenticatedUser{
+		$token = $this->storage->getAccessToken($this->serviceName);
 
-		if(in_array(self::SCOPE_V2_IDENTITY, $scopes)){
+		if(in_array($this::SCOPE_V2_IDENTITY, $token->scopes)){
 			$endpoint = '/v2/identity';
 			$params   = ['fields[user]' => 'about,created,email,first_name,full_name,image_url,last_name,social_connections,thumb_url,url,vanity'];
 		}
-		elseif(in_array(self::SCOPE_V1_USERS, $scopes)){
+		elseif(in_array($this::SCOPE_V1_USERS, $token->scopes)){
 			$endpoint = '/api/current_user';
 			$params   = [];
 		}
@@ -73,18 +73,28 @@ class Patreon extends OAuth2Provider implements CSRFToken, TokenRefresh{
 
 		$response = $this->request($endpoint, $params);
 		$status   = $response->getStatusCode();
+		$json     = MessageUtil::decodeJSON($response, true);
 
 		if($status === 200){
-			return $response;
+
+			$userdata = [
+				'data'        => $json,
+				'handle'      => $json['data']['attributes']['vanity'],
+				'avatar'      => $json['data']['attributes']['image_url'],
+				'displayName' => $json['data']['attributes']['full_name'],
+				'email'       => $json['data']['attributes']['email'],
+				'id'          => $json['data']['id'],
+				'url'         => $json['data']['attributes']['url'],
+			];
+
+			return new AuthenticatedUser($userdata);
 		}
 
-		$json = MessageUtil::decodeJSON($response);
-
-		if(isset($json->errors[0]->code_name)){
-			throw new ProviderException($json->errors[0]->code_name);
+		if(isset($json['errors'][0]['code_name'])){
+			throw new ProviderException($json['errors'][0]['code_name']);
 		}
 
-		throw new ProviderException(sprintf('user info error error HTTP/%s', $status));
+		throw new ProviderException(sprintf('user info error HTTP/%s', $status));
 	}
 
 }

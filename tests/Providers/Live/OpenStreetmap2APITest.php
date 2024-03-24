@@ -10,9 +10,9 @@
 
 namespace chillerlan\OAuthTest\Providers\Live;
 
+use chillerlan\OAuth\Core\AuthenticatedUser;
 use chillerlan\OAuth\Providers\OpenStreetmap2;
 use PHPUnit\Framework\Attributes\Group;
-use Psr\Http\Message\ResponseInterface;
 
 /**
  * @property \chillerlan\OAuth\Providers\OpenStreetmap2 $provider
@@ -28,8 +28,8 @@ class OpenStreetmap2APITest extends OAuth2ProviderLiveTestAbstract{
 		return 'OPENSTREETMAP2';
 	}
 
-	protected function assertMeResponse(ResponseInterface $response, object|null $json):void{
-		$this::assertSame($this->TEST_USER, $json->user->display_name);
+	protected function assertMeResponse(AuthenticatedUser $user):void{
+		$this::assertSame($this->TEST_USER, $user->displayName);
 	}
 
 }

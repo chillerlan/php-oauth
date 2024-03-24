@@ -10,10 +10,8 @@
 
 namespace chillerlan\OAuthTest\Providers\Live;
 
-use chillerlan\HTTP\Utils\MessageUtil;
 use chillerlan\OAuth\Providers\Mixcloud;
 use PHPUnit\Framework\Attributes\Group;
-use Psr\Http\Message\ResponseInterface;
 
 /**
  * @property \chillerlan\OAuth\Providers\Mixcloud $provider
@@ -27,13 +25,6 @@ class MixcloudAPITest extends OAuth2ProviderLiveTestAbstract{
 
 	protected function getEnvPrefix():string{
 		return 'MIXCLOUD';
-	}
-
-	protected function assertMeResponse(ResponseInterface $response, object|null $json):void{
-		// mixcloud sends "Content-Type: text/javascript" for JSON content (????)
-		$json = MessageUtil::decodeJSON($response);
-
-		$this::assertSame($this->TEST_USER,$json->username);
 	}
 
 }

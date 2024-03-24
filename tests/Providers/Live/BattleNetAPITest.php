@@ -10,9 +10,9 @@
 
 namespace chillerlan\OAuthTest\Providers\Live;
 
+use chillerlan\OAuth\Core\AuthenticatedUser;
 use chillerlan\OAuth\Providers\BattleNet;
 use PHPUnit\Framework\Attributes\Group;
-use Psr\Http\Message\ResponseInterface;
 use function explode;
 
 /**
@@ -30,8 +30,8 @@ class BattleNetAPITest extends OAuth2ProviderLiveTestAbstract{
 		return 'BATTLENET';
 	}
 
-	protected function assertMeResponse(ResponseInterface $response, object|null $json):void{
-		$this::assertSame($this->TEST_USER, explode('#', $json->battletag)[0]);
+	protected function assertMeResponse(AuthenticatedUser $user):void{
+		$this::assertSame($this->TEST_USER, explode('#', $user->handle)[0]);
 	}
 
 }

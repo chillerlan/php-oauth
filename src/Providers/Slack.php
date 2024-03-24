@@ -6,13 +6,14 @@
  * @author       Smiley <smiley@chillerlan.net>
  * @copyright    2017 Smiley
  * @license      MIT
+ *
+ * @noinspection PhpUnused
  */
 
 namespace chillerlan\OAuth\Providers;
 
 use chillerlan\HTTP\Utils\MessageUtil;
-use chillerlan\OAuth\Core\{CSRFToken, InvalidAccessTokenException, OAuth2Provider};
-use Psr\Http\Message\ResponseInterface;
+use chillerlan\OAuth\Core\{AuthenticatedUser, CSRFToken, InvalidAccessTokenException, OAuth2Provider};
 use function sprintf;
 
 /**
@@ -96,26 +97,37 @@ class Slack extends OAuth2Provider implements CSRFToken{
 
 	/**
 	 * @inheritDoc
+	 *
+	 * HTTP/200 OK on errors? you're fired.
 	 */
-	public function me():ResponseInterface{
+	public function me():AuthenticatedUser{
 		$response = $this->request('/users.identity');
 		$status   = $response->getStatusCode();
-		$json     = MessageUtil::decodeJSON($response);
+		$json     = MessageUtil::decodeJSON($response, true);
 
-		if($status === 200 && isset($json->ok) && $json->ok === true){
-			return $response;
+		if($status === 200 && !empty($json['ok'])){
+
+			$userdata = [
+				'data'        => (array)$json,
+				'avatar'      => $json['user']['image_512'],
+				'displayName' => $json['user']['name'],
+				'email'       => $json['user']['email'],
+				'id'          => $json['user']['id'],
+			];
+
+			return new AuthenticatedUser($userdata);
 		}
 
-		if(isset($json->error)){
+		if(isset($json['error'])){
 
-			if($json->error === 'invalid_auth'){
+			if($json['error'] === 'invalid_auth'){
 				throw new InvalidAccessTokenException;
 			}
 
-			throw new ProviderException($json->error);
+			throw new ProviderException($json['error']);
 		}
 
-		throw new ProviderException(sprintf('user info error error HTTP/%s', $status));
+		throw new ProviderException(sprintf('user info error HTTP/%s', $status));
 	}
 
 }

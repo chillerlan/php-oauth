@@ -6,12 +6,14 @@
  * @author       Smiley <smiley@chillerlan.net>
  * @copyright    2017 Smiley
  * @license      MIT
+ *
+ * @noinspection PhpUnused
  */
 
 namespace chillerlan\OAuth\Providers;
 
 use chillerlan\HTTP\Utils\{MessageUtil, QueryUtil};
-use chillerlan\OAuth\Core\{InvalidAccessTokenException, OAuth1Provider};
+use chillerlan\OAuth\Core\{AuthenticatedUser, InvalidAccessTokenException, OAuth1Provider};
 use Psr\Http\Message\{ResponseInterface, StreamInterface};
 use function array_merge, sprintf;
 
@@ -66,25 +68,32 @@ class Flickr extends OAuth1Provider{
 	 *
 	 * @inheritDoc
 	 */
-	public function me():ResponseInterface{
+	public function me():AuthenticatedUser{
 		$response = $this->request('flickr.test.login');
-		$status   = $response->getStatusCode();
-		$json     = MessageUtil::decodeJSON($response);
+		$json     = MessageUtil::decodeJSON($response, true);
 
-		if($status === 200 && isset($json->user)){
-			return $response;
+		if(isset($json['stat']) && $json['stat'] === 'ok'){
+
+			$userdata = [
+				'data'   => $json['user'],
+				'handle' => $json['user']['username']['_content'],
+				'id'     => $json['user']['id'],
+				'url'    => sprintf('https://www.flickr.com/people/%s/', $json['user']['path_alias']),
+			];
+
+			return new AuthenticatedUser($userdata);
 		}
 
-		if(isset($json->message)){
+		if(isset($json['message'])){
 
-			if($json->message === 'Invalid auth token'){
-				throw new InvalidAccessTokenException($json->message);
+			if($json['message'] === 'Invalid auth token'){
+				throw new InvalidAccessTokenException($json['message']);
 			}
 
-			throw new ProviderException($json->message);
+			throw new ProviderException($json['message']);
 		}
 
-		throw new ProviderException(sprintf('user info error error HTTP/%s', $status));
+		throw new ProviderException(sprintf('user info error HTTP/%s', $response->getStatusCode()));
 	}
 
 }

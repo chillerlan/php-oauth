@@ -11,14 +11,8 @@
 namespace chillerlan\OAuth\Providers;
 
 use chillerlan\HTTP\Utils\MessageUtil;
-use chillerlan\OAuth\Core\{ClientCredentials, CSRFToken, InvalidAccessTokenException, OAuth2Provider};
-use Psr\Http\Message\ResponseInterface;
-use function in_array;
-use function ltrim;
-use function rtrim;
-use function sprintf;
-use function str_contains;
-use function strtolower;
+use chillerlan\OAuth\Core\{AuthenticatedUser, ClientCredentials, CSRFToken, InvalidAccessTokenException, OAuth2Provider};
+use function in_array, ltrim, rtrim, sprintf, str_contains, strtolower;
 
 /**
  * Battle.net OAuth2
@@ -90,11 +84,7 @@ class BattleNet extends OAuth2Provider implements ClientCredentials, CSRFToken{
 		}
 
 		// back out if it doesn't match
-		throw new ProviderException(sprintf(
-			'given host (%s) does not match provider (%s)',
-			$parsedHost,
-			$api->getHost(),
-		));
+		throw new ProviderException(sprintf('given host (%s) does not match provider (%s)', $parsedHost, $api->getHost()));
 	}
 
 	/**
@@ -127,32 +117,41 @@ class BattleNet extends OAuth2Provider implements ClientCredentials, CSRFToken{
 	/**
 	 * @inheritDoc
 	 */
-	public function me():ResponseInterface{
+	public function me():AuthenticatedUser{
 		$request  = $this->requestFactory->createRequest('GET', $this->battleNetOauth.'/oauth/userinfo');
-		$response = $this->sendRequest($this->getRequestAuthorization($request));
+		$response = $this->http->sendRequest($this->getRequestAuthorization($request));
 		$status   = $response->getStatusCode();
 
+		// response may be html in some cases (errors)
+		$contentType = $response->getHeaderLine('Content-Type');
+
+		if(!str_contains($contentType, 'application/json')){
+			throw new ProviderException(sprintf('invalid content type "%s", expected JSON', $contentType));
+		}
+
+		$json = MessageUtil::decodeJSON($response, true);
+
 		if($status === 200){
-			return $response;
+
+			$userdata = [
+				'data'   => $json,
+				'handle' => $json['battletag'],
+				'id'     => $json['id'],
+			];
+
+			return new AuthenticatedUser($userdata);
 		}
 
-		$json = null;
-
-		// response may be html in some cases
-		if(str_contains($response->getHeaderLine('Content-Type'), 'application/json')){
-			$json = MessageUtil::decodeJSON($response);
-		}
-
-		if(isset($json->error, $json->error_description)){
-
+		if(isset($json['error'], $json['error_description'])){
+			// we need to check for unauthorized here as the request goes directly to the http client
 			if($status === 401){
-				throw new InvalidAccessTokenException($json->error_description);
+				throw new InvalidAccessTokenException($json['error_description']);
 			}
 
-			throw new ProviderException($json->error_description);
+			throw new ProviderException($json['error_description']);
 		}
 
-		throw new ProviderException(sprintf('user info error error HTTP/%s', $status));
+		throw new ProviderException(sprintf('user info error HTTP/%s', $status));
 	}
 
 }

@@ -6,12 +6,14 @@
  * @author       Smiley <smiley@chillerlan.net>
  * @copyright    2018 Smiley
  * @license      MIT
+ *
+ * @noinspection PhpUnused
  */
 
 namespace chillerlan\OAuth\Providers;
 
 use chillerlan\HTTP\Utils\{MessageUtil, QueryUtil};
-use chillerlan\OAuth\Core\{CSRFToken, InvalidAccessTokenException, OAuth2Provider};
+use chillerlan\OAuth\Core\{AuthenticatedUser, CSRFToken, InvalidAccessTokenException, OAuth2Provider};
 use Psr\Http\Message\ResponseInterface;
 use function array_merge, implode, sprintf, trim;
 
@@ -45,7 +47,7 @@ class Deezer extends OAuth2Provider implements CSRFToken{
 	protected string      $apiURL         = 'https://api.deezer.com';
 	protected string|null $userRevokeURL  = 'https://www.deezer.com/account/apps';
 	protected string|null $apiDocs        = 'https://developers.deezer.com/api';
-	protected string|null $applicationURL = 'http://developers.deezer.com/myapps';
+	protected string|null $applicationURL = 'https://developers.deezer.com/myapps';
 
 	/**
 	 * @inheritDoc
@@ -93,25 +95,33 @@ class Deezer extends OAuth2Provider implements CSRFToken{
 	 *
 	 * @inheritDoc
 	 */
-	public function me():ResponseInterface{
+	public function me():AuthenticatedUser{
 		$response = $this->request('/user/me');
-		$status   = $response->getStatusCode();
-		$json     = MessageUtil::decodeJSON($response);
+		$json     = MessageUtil::decodeJSON($response, true);
 
-		if($status === 200 && !isset($json->error)){
-			return $response;
+		if(!isset($json['error'])){
+
+			$userdata = [
+				'data'   => $json,
+				'avatar' => $json['picture'],
+				'handle' => $json['name'],
+				'id'     => $json['id'],
+				'url'    => $json['link'],
+			];
+
+			return new AuthenticatedUser($userdata);
 		}
 
-		if(isset($json->error)){
+		if(isset($json['error']['code'], $json['error']['message'])){
 
-			if($json->error->code === 300){
-				throw new InvalidAccessTokenException($json->error->message);
+			if($json['error']['code'] === 300){
+				throw new InvalidAccessTokenException($json['error']['message']);
 			}
 
-			throw new ProviderException($json->error->message);
+			throw new ProviderException($json['error']['message']);
 		}
 
-		throw new ProviderException(sprintf('user info error error HTTP/%s', $status));
+		throw new ProviderException(sprintf('user info error HTTP/%s', $response->getStatusCode()));
 	}
 
 }

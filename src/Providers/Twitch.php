@@ -6,12 +6,16 @@
  * @author       Smiley <smiley@chillerlan.net>
  * @copyright    2017 Smiley
  * @license      MIT
+ *
+ * @noinspection PhpUnused
  */
 
 namespace chillerlan\OAuth\Providers;
 
 use chillerlan\HTTP\Utils\{MessageUtil, QueryUtil};
-use chillerlan\OAuth\Core\{AccessToken, ClientCredentials, CSRFToken, OAuth2Provider, TokenInvalidate, TokenRefresh};
+use chillerlan\OAuth\Core\{
+	AccessToken, AuthenticatedUser, ClientCredentials, CSRFToken, OAuth2Provider, TokenInvalidate, TokenRefresh
+};
 use Psr\Http\Message\{RequestInterface, ResponseInterface};
 use function implode, sprintf;
 use const PHP_QUERY_RFC1738;
@@ -122,21 +126,32 @@ class Twitch extends OAuth2Provider implements ClientCredentials, CSRFToken, Tok
 	/**
 	 * @inheritDoc
 	 */
-	public function me():ResponseInterface{
+	public function me():AuthenticatedUser{
 		$response = $this->request('/helix/users');
 		$status   = $response->getStatusCode();
+		$json     = MessageUtil::decodeJSON($response, true);
 
 		if($status === 200){
-			return $response;
+			$user = $json['data'][0];
+
+			$userdata = [
+				'data'        => $user,
+				'avatar'      => $user['profile_image_url'],
+				'handle'      => $user['login'],
+				'displayName' => $user['display_name'],
+				'email'       => $user['email'],
+				'id'          => $user['id'],
+				'url'         => sprintf('https://www.twitch.tv/%s', $user['login']),
+			];
+
+			return new AuthenticatedUser($userdata);
 		}
 
-		$json = MessageUtil::decodeJSON($response);
-
-		if(isset($json->error, $json->message)){
-			throw new ProviderException($json->message);
+		if(isset($json['error'], $json['message'])){
+			throw new ProviderException($json['message']);
 		}
 
-		throw new ProviderException(sprintf('user info error error HTTP/%s', $status));
+		throw new ProviderException(sprintf('user info error HTTP/%s', $status));
 	}
 
 	/**

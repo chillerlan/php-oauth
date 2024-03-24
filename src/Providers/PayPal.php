@@ -6,12 +6,14 @@
  * @author       smiley <smiley@chillerlan.net>
  * @copyright    2019 smiley
  * @license      MIT
+ *
+ * @noinspection PhpUnused
  */
 
 namespace chillerlan\OAuth\Providers;
 
 use chillerlan\HTTP\Utils\{MessageUtil, QueryUtil};
-use chillerlan\OAuth\Core\{ClientCredentials, CSRFToken, OAuth2Provider, TokenRefresh};
+use chillerlan\OAuth\Core\{AuthenticatedUser, ClientCredentials, CSRFToken, OAuth2Provider, TokenRefresh};
 use Psr\Http\Message\ResponseInterface;
 use function base64_encode, sprintf;
 use const PHP_QUERY_RFC1738;
@@ -70,21 +72,36 @@ class PayPal extends OAuth2Provider implements ClientCredentials, CSRFToken, Tok
 	/**
 	 * @inheritDoc
 	 */
-	public function me():ResponseInterface{
+	public function me():AuthenticatedUser{
 		$response = $this->request('/v1/identity/oauth2/userinfo', ['schema' => 'paypalv1.1']);
 		$status   = $response->getStatusCode();
+		$json     = MessageUtil::decodeJSON($response, true);
 
 		if($status === 200){
-			return $response;
+
+			$userdata = [
+				'data'        => $json,
+				'displayName' => $json['name'],
+				'id'          => $json['user_id'],
+			];
+
+			if(!empty($json['emails'])){
+				foreach($json['emails'] as $email){
+					if($email['primary']){
+						$userdata['email'] = $email['value'];
+						break;
+					}
+				}
+			}
+
+			return new AuthenticatedUser($userdata);
 		}
 
-		$json = MessageUtil::decodeJSON($response);
-
-		if(isset($json->error, $json->error_description)){
-			throw new ProviderException($json->error_description);
+		if(isset($json['error'], $json['error_description'])){
+			throw new ProviderException($json['error_description']);
 		}
 
-		throw new ProviderException(sprintf('user info error error HTTP/%s', $status));
+		throw new ProviderException(sprintf('user info error HTTP/%s', $status));
 	}
 
 }

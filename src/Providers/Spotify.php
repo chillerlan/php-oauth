@@ -6,13 +6,14 @@
  * @author       Smiley <smiley@chillerlan.net>
  * @copyright    2018 Smiley
  * @license      MIT
+ *
+ * @noinspection PhpUnused
  */
 
 namespace chillerlan\OAuth\Providers;
 
 use chillerlan\HTTP\Utils\MessageUtil;
-use chillerlan\OAuth\Core\{ClientCredentials, CSRFToken, OAuth2Provider, TokenRefresh};
-use Psr\Http\Message\ResponseInterface;
+use chillerlan\OAuth\Core\{AuthenticatedUser, ClientCredentials, CSRFToken, OAuth2Provider, TokenRefresh};
 use function sprintf;
 
 /**
@@ -87,21 +88,31 @@ class Spotify extends OAuth2Provider implements ClientCredentials, CSRFToken, To
 	/**
 	 * @inheritDoc
 	 */
-	public function me():ResponseInterface{
+	public function me():AuthenticatedUser{
 		$response = $this->request('/v1/me');
 		$status   = $response->getStatusCode();
+		$json     = MessageUtil::decodeJSON($response, true);
 
 		if($status === 200){
-			return $response;
+
+			$userdata = [
+				'data'        => $json,
+				'avatar'      => ($json['images'][1]['url'] ?? $json['images'][0]['url'] ?? null),
+				'handle'      => $json['uri'],
+				'displayName' => $json['display_name'],
+				'email'       => $json['email'],
+				'id'          => $json['id'],
+				'url'         => $json['external_urls']['spotify'],
+			];
+
+			return new AuthenticatedUser($userdata);
 		}
 
-		$json = MessageUtil::decodeJSON($response);
-
-		if(isset($json->error, $json->error->message)){
-			throw new ProviderException($json->error->message);
+		if(isset($json['error'], $json['error']['message'])){
+			throw new ProviderException($json['error']['message']);
 		}
 
-		throw new ProviderException(sprintf('user info error error HTTP/%s', $status));
+		throw new ProviderException(sprintf('user info error HTTP/%s', $status));
 	}
 
 }

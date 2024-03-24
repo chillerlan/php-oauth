@@ -6,15 +6,17 @@
  * @author       Smiley <smiley@chillerlan.net>
  * @copyright    2018 Smiley
  * @license      MIT
+ *
+ * @noinspection PhpUnused
  */
 
 namespace chillerlan\OAuth\Providers;
 
 use chillerlan\HTTP\Utils\{MessageUtil, QueryUtil};
-use chillerlan\OAuth\Core\{AccessToken, OAuthProvider, UnauthorizedAccessException};
+use chillerlan\OAuth\Core\{AccessToken, AuthenticatedUser, OAuthProvider, UnauthorizedAccessException};
 use Psr\Http\Message\{RequestInterface, ResponseInterface, StreamInterface, UriInterface};
 use Throwable;
-use function array_merge, in_array, is_array, ksort, md5, sprintf, trigger_error;
+use function array_merge, in_array, is_array, ksort, md5, sprintf;
 use const PHP_QUERY_RFC1738;
 
 /**
@@ -106,8 +108,8 @@ class LastFM extends OAuthProvider{
 		try{
 			$data = MessageUtil::decodeJSON($response, true);
 
-			if(!$data || !is_array($data)){
-				trigger_error('');
+			if(!is_array($data)){
+				throw new ProviderException;
 			}
 		}
 		catch(Throwable){
@@ -117,7 +119,8 @@ class LastFM extends OAuthProvider{
 		if(isset($data['error'])){
 			throw new ProviderException('error retrieving access token: '.$data['message']);
 		}
-		elseif(!isset($data['session']['key'])){
+
+		if(!isset($data['session']['key'])){
 			throw new ProviderException('token missing');
 		}
 
@@ -204,21 +207,29 @@ class LastFM extends OAuthProvider{
 	/**
 	 * @inheritDoc
 	 */
-	public function me():ResponseInterface{
+	public function me():AuthenticatedUser{
 		$response = $this->request('user.getInfo');
 		$status   = $response->getStatusCode();
+		$json     = MessageUtil::decodeJSON($response, true);
 
 		if($status === 200){
-			return $response;
+
+			$userdata = [
+				'data'        => $json,
+				'avatar'      => $json['user']['image'][3]['#text'],
+				'handle'      => $json['user']['name'],
+				'displayName' => $json['user']['realname'],
+				'url'         => $json['user']['url'],
+			];
+
+			return new AuthenticatedUser($userdata);
 		}
 
-		$json = MessageUtil::decodeJSON($response);
-
-		if(isset($json->error, $json->error_description)){
-			throw new ProviderException($json->error_description);
+		if(isset($json['error'], $json['error_description'])){
+			throw new ProviderException($json['error_description']);
 		}
 
-		throw new ProviderException(sprintf('user info error error HTTP/%s', $status));
+		throw new ProviderException(sprintf('user info error HTTP/%s', $status));
 	}
 
 	/**

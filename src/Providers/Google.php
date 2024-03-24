@@ -6,13 +6,14 @@
  * @author       smiley <smiley@chillerlan.net>
  * @copyright    2018 smiley
  * @license      MIT
+ *
+ * @noinspection PhpUnused
  */
 
 namespace chillerlan\OAuth\Providers;
 
 use chillerlan\HTTP\Utils\MessageUtil;
-use chillerlan\OAuth\Core\{CSRFToken, OAuth2Provider};
-use Psr\Http\Message\ResponseInterface;
+use chillerlan\OAuth\Core\{AuthenticatedUser, CSRFToken, OAuth2Provider};
 use function sprintf;
 
 /**
@@ -37,28 +38,36 @@ class Google extends OAuth2Provider implements CSRFToken{
 	protected string      $authURL        = 'https://accounts.google.com/o/oauth2/auth';
 	protected string      $accessTokenURL = 'https://accounts.google.com/o/oauth2/token';
 	protected string      $apiURL         = 'https://www.googleapis.com';
-	protected string|null $userRevokeURL  = 'https://myaccount.google.com/permissions';
+	protected string|null $userRevokeURL  = 'https://myaccount.google.com/connections';
 	protected string|null $apiDocs        = 'https://developers.google.com/oauthplayground/';
 	protected string|null $applicationURL = 'https://console.developers.google.com/apis/credentials';
 
 	/**
 	 * @inheritDoc
 	 */
-	public function me():ResponseInterface{
+	public function me():AuthenticatedUser{
 		$response = $this->request('/userinfo/v2/me');
 		$status   = $response->getStatusCode();
+		$json     = MessageUtil::decodeJSON($response, true);
 
 		if($status === 200){
-			return $response;
+
+			$userdata = [
+				'data'        => $json,
+				'avatar'      => $json['picture'],
+				'displayName' => $json['name'],
+				'email'       => $json['email'],
+				'id'          => $json['id'],
+			];
+
+			return new AuthenticatedUser($userdata);
 		}
 
-		$json = MessageUtil::decodeJSON($response);
-
-		if(isset($json->error, $json->error->message)){
-			throw new ProviderException($json->error->message);
+		if(isset($json['error'], $json['error']['message'])){
+			throw new ProviderException($json['error']['message']);
 		}
 
-		throw new ProviderException(sprintf('user info error error HTTP/%s', $status));
+		throw new ProviderException(sprintf('user info error HTTP/%s', $status));
 	}
 
 }

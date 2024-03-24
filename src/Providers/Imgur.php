@@ -11,8 +11,7 @@
 namespace chillerlan\OAuth\Providers;
 
 use chillerlan\HTTP\Utils\MessageUtil;
-use chillerlan\OAuth\Core\{CSRFToken, OAuth2Provider, TokenRefresh};
-use Psr\Http\Message\ResponseInterface;
+use chillerlan\OAuth\Core\{AuthenticatedUser, CSRFToken, OAuth2Provider, TokenRefresh};
 use function sprintf;
 
 /**
@@ -37,21 +36,28 @@ class Imgur extends OAuth2Provider implements CSRFToken, TokenRefresh{
 	/**
 	 * @inheritDoc
 	 */
-	public function me():ResponseInterface{
+	public function me():AuthenticatedUser{
 		$response = $this->request('/3/account/me');
 		$status   = $response->getStatusCode();
+		$json     = MessageUtil::decodeJSON($response, true);
 
 		if($status === 200){
-			return $response;
+			$userdata = [
+				'data'   => $json,
+				'avatar' => $json['data']['avatar'],
+				'handle' => $json['data']['url'],
+				'id'     => $json['data']['id'],
+				'url'    => sprintf('https://imgur.com/user/%s', $json['data']['url']),
+			];
+
+			return new AuthenticatedUser($userdata);
 		}
 
-		$json = MessageUtil::decodeJSON($response);
-
-		if(isset($json->data, $json->data->error)){
-			throw new ProviderException($json->data->error);
+		if(isset($json['data'], $json['data']['error'])){
+			throw new ProviderException($json['data']['error']);
 		}
 
-		throw new ProviderException(sprintf('user info error error HTTP/%s', $status));
+		throw new ProviderException(sprintf('user info error HTTP/%s', $status));
 	}
 
 }

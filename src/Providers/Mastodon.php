@@ -6,14 +6,15 @@
  * @author       smiley <smiley@chillerlan.net>
  * @copyright    2018 smiley
  * @license      MIT
+ *
+ * @noinspection PhpUnused
  */
 
 namespace chillerlan\OAuth\Providers;
 
 use chillerlan\HTTP\Utils\MessageUtil;
-use chillerlan\OAuth\Core\{AccessToken, CSRFToken, OAuth2Provider, TokenRefresh};
+use chillerlan\OAuth\Core\{AccessToken, AuthenticatedUser, CSRFToken, OAuth2Provider, TokenRefresh};
 use chillerlan\OAuth\OAuthException;
-use Psr\Http\Message\ResponseInterface;
 use function array_merge, sprintf;
 
 /**
@@ -86,21 +87,30 @@ class Mastodon extends OAuth2Provider implements CSRFToken, TokenRefresh{
 	/**
 	 * @inheritDoc
 	 */
-	public function me():ResponseInterface{
+	public function me():AuthenticatedUser{
 		$response = $this->request('/v1/accounts/verify_credentials');
 		$status   = $response->getStatusCode();
+		$json     = MessageUtil::decodeJSON($response, true);
 
 		if($status === 200){
-			return $response;
+
+			$userdata = [
+				'data'        => $json,
+				'avatar'      => $json['avatar'],
+				'handle'      => $json['acct'],
+				'displayName' => $json['display_name'],
+				'id'          => $json['id'],
+				'url'         => $json['url'],
+			];
+
+			return new AuthenticatedUser($userdata);
 		}
 
-		$json = MessageUtil::decodeJSON($response);
-
-		if(isset($json->error)){
-			throw new ProviderException($json->error);
+		if(isset($json['error'])){
+			throw new ProviderException($json['error']);
 		}
 
-		throw new ProviderException(sprintf('user info error error HTTP/%s', $status));
+		throw new ProviderException(sprintf('user info error HTTP/%s', $status));
 	}
 
 }

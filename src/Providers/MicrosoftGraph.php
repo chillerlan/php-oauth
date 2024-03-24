@@ -11,7 +11,7 @@
 namespace chillerlan\OAuth\Providers;
 
 use chillerlan\HTTP\Utils\MessageUtil;
-use Psr\Http\Message\ResponseInterface;
+use chillerlan\OAuth\Core\AuthenticatedUser;
 use function sprintf;
 
 /**
@@ -39,21 +39,29 @@ class MicrosoftGraph extends AzureActiveDirectory{
 	/**
 	 * @inheritDoc
 	 */
-	public function me():ResponseInterface{
+	public function me():AuthenticatedUser{
 		$response = $this->request('/v1.0/me');
 		$status   = $response->getStatusCode();
+		$json     = MessageUtil::decodeJSON($response, true);
 
 		if($status === 200){
-			return $response;
+
+			$userdata = [
+				'data'        => $json,
+				'handle'      => $json['userPrincipalName'],
+				'displayName' => $json['displayName'],
+				'email'       => $json['mail'],
+				'id'          => $json['id'],
+			];
+
+			return new AuthenticatedUser($userdata);
 		}
 
-		$json = MessageUtil::decodeJSON($response);
-
-		if(isset($json->error, $json->error->message)){
-			throw new ProviderException($json->error->message);
+		if(isset($json['error'], $json['error']['message'])){
+			throw new ProviderException($json['error']['message']);
 		}
 
-		throw new ProviderException(sprintf('user info error error HTTP/%s', $status));
+		throw new ProviderException(sprintf('user info error HTTP/%s', $status));
 	}
 
 }

@@ -10,13 +10,13 @@
 
 namespace chillerlan\OAuthTest\Providers\Live;
 
-use chillerlan\HTTP\Utils\MessageUtil;
-use chillerlan\OAuth\Core\AccessToken;
+use chillerlan\OAuth\Core\{AccessToken, AuthenticatedUser};
 use chillerlan\OAuth\Core\UnauthorizedAccessException;
 use chillerlan\OAuth\Storage\MemoryStorage;
 use chillerlan\OAuthTest\Providers\ProviderLiveTestAbstract;
-use Psr\Http\Message\ResponseInterface;
-use function str_contains;
+use InvalidArgumentException;
+use PHPUnit\Framework\ExpectationFailedException;
+use function constant, sprintf;
 
 /**
  * @property \chillerlan\OAuth\Core\OAuthInterface $provider
@@ -27,29 +27,31 @@ abstract class OAuthProviderLiveTestAbstract extends ProviderLiveTestAbstract{
 	 * "me" endpoint tests
 	 */
 
-	abstract protected function assertMeResponse(ResponseInterface $response, object|null $json):void;
+	protected function assertMeResponse(AuthenticatedUser $user):void{
+		$this::assertSame($this->TEST_USER, $user->handle);
+	}
 
 	public function testMe():void{
 
 			try{
-				$response = $this->provider->me();
+				$user = $this->provider->me();
 			}
 			catch(UnauthorizedAccessException){
 				$this::markTestSkipped('unauthorized: token is missing or expired');
 			}
 
-			$json = null;
+			try{
+				$this->assertMeResponse($user);
+			}
+			catch(ExpectationFailedException $e){
+				$var = $this->getEnvPrefix().'_TESTUSER';
 
-			if($response->hasHeader('Content-Type')){
-				$type = $response->getHeaderLine('Content-Type');
-
-				if(str_contains($type, 'application/json') || str_contains($type, 'application/vnd.api+json')){
-					$json = MessageUtil::decodeJSON($response);
+				if($this->dotEnv->get($var) === null){
+					throw new InvalidArgumentException(sprintf('variable "%s" is not set in "%s"', $var, constant('TEST_ENVFILE')));
 				}
 
+				throw $e;
 			}
-
-			$this->assertMeResponse($response, $json);
 	}
 
 	protected function assertMeErrorException(AccessToken $token):void{

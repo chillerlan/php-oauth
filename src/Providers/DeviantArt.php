@@ -6,13 +6,16 @@
  * @author       Smiley <smiley@chillerlan.net>
  * @copyright    2017 Smiley
  * @license      MIT
+ *
+ * @noinspection PhpUnused
  */
 
 namespace chillerlan\OAuth\Providers;
 
 use chillerlan\HTTP\Utils\MessageUtil;
-use chillerlan\OAuth\Core\{AccessToken, ClientCredentials, CSRFToken, OAuth2Provider, TokenInvalidate, TokenRefresh};
-use Psr\Http\Message\ResponseInterface;
+use chillerlan\OAuth\Core\{
+	AccessToken, AuthenticatedUser, ClientCredentials, CSRFToken, OAuth2Provider, TokenInvalidate, TokenRefresh
+};
 use Throwable;
 use function sprintf;
 
@@ -55,21 +58,29 @@ class DeviantArt extends OAuth2Provider implements ClientCredentials, CSRFToken,
 	/**
 	 * @inheritDoc
 	 */
-	public function me():ResponseInterface{
+	public function me():AuthenticatedUser{
 		$response = $this->request('/user/whoami');
 		$status   = $response->getStatusCode();
+		$json     = MessageUtil::decodeJSON($response, true);
 
 		if($status === 200){
-			return $response;
+
+			$userdata = [
+				'data'   => $json,
+				'avatar' => $json['usericon'],
+				'handle' => $json['username'],
+				'id'     => $json['userid'],
+				'url'    => sprintf('https://www.deviantart.com/%s', $json['username']),
+			];
+
+			return new AuthenticatedUser($userdata);
 		}
 
-		$json = MessageUtil::decodeJSON($response);
-
-		if(isset($json->error, $json->error_description)){
-			throw new ProviderException($json->error_description);
+		if(isset($json['error'], $json['error_description'])){
+			throw new ProviderException($json['error_description']);
 		}
 
-		throw new ProviderException(sprintf('user info error error HTTP/%s', $status));
+		throw new ProviderException(sprintf('user info error HTTP/%s', $status));
 	}
 
 	/**
@@ -95,7 +106,7 @@ class DeviantArt extends OAuth2Provider implements ClientCredentials, CSRFToken,
 			return false;
 		}
 
-		if($response->getStatusCode() === 200 && isset($json->success) && $json->success === true){
+		if($response->getStatusCode() === 200 && !empty($json->success)){
 			$this->storage->clearAccessToken($this->serviceName);
 
 			return true;

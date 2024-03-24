@@ -11,7 +11,7 @@
 namespace chillerlan\OAuth\Providers;
 
 use chillerlan\HTTP\Utils\{MessageUtil, QueryUtil};
-use chillerlan\OAuth\Core\{OAuth2Provider};
+use chillerlan\OAuth\Core\{AuthenticatedUser, OAuth2Provider};
 use Psr\Http\Message\{ResponseInterface, StreamInterface};
 use function array_merge, explode, sprintf;
 
@@ -55,21 +55,32 @@ class Foursquare extends OAuth2Provider{
 	/**
 	 * @inheritDoc
 	 */
-	public function me():ResponseInterface{
+	public function me():AuthenticatedUser{
 		$response = $this->request('/v2/users/self');
 		$status   = $response->getStatusCode();
+		$json     = MessageUtil::decodeJSON($response, true);
 
 		if($status === 200){
-			return $response;
+			$user = $json['response']['user'];
+
+			$userdata = [
+				'data'        => $json,
+				'avatar'      => sprintf('%s%s%s', $user['photo']['prefix'], $user['id'], $user['photo']['suffix']),
+				'displayName' => $user['firstName'],
+				'email'       => $user['contact']['email'],
+				'id'          => $user['id'],
+				'handle'      => $user['handle'],
+				'url'         => $user['canonicalUrl'],
+			];
+
+			return new AuthenticatedUser($userdata);
 		}
 
-		$json = MessageUtil::decodeJSON($response);
-
-		if(isset($json->meta, $json->meta->errorDetail)){
-			throw new ProviderException($json->meta->errorDetail);
+		if(isset($json['meta'], $json['meta']['errorDetail'])){
+			throw new ProviderException($json['meta']['errorDetail']);
 		}
 
-		throw new ProviderException(sprintf('user info error error HTTP/%s', $status));
+		throw new ProviderException(sprintf('user info error HTTP/%s', $status));
 	}
 
 }

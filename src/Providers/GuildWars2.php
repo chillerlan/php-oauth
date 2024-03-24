@@ -6,13 +6,15 @@
  * @author       Smiley <smiley@chillerlan.net>
  * @copyright    2017 Smiley
  * @license      MIT
+ *
+ * @noinspection PhpUnused
  */
 
 namespace chillerlan\OAuth\Providers;
 
 use chillerlan\HTTP\Utils\{MessageUtil, QueryUtil};
-use chillerlan\OAuth\Core\{AccessToken, OAuth2Provider};
-use Psr\Http\Message\{ResponseInterface, UriInterface};
+use chillerlan\OAuth\Core\{AccessToken, AuthenticatedUser, OAuth2Provider};
+use Psr\Http\Message\UriInterface;
 use function implode, preg_match, sprintf, str_starts_with, substr;
 
 /**
@@ -100,21 +102,27 @@ class GuildWars2 extends OAuth2Provider{
 	/**
 	 * @inheritDoc
 	 */
-	public function me():ResponseInterface{
+	public function me():AuthenticatedUser{
 		$response = $this->request('/v2/tokeninfo');
 		$status   = $response->getStatusCode();
+		$json     = MessageUtil::decodeJSON($response, true);
 
 		if($status === 200){
-			return $response;
+
+			$userdata = [
+				'data'   => $json,
+				'handle' => $json['name'],
+				'id'     => $json['id'],
+			];
+
+			return new AuthenticatedUser($userdata);
 		}
 
-		$json = MessageUtil::decodeJSON($response);
-
-		if(isset($json->text)){
-			throw new ProviderException($json->text);
+		if(isset($json['text'])){
+			throw new ProviderException($json['text']);
 		}
 
-		throw new ProviderException(sprintf('user info error error HTTP/%s', $status));
+		throw new ProviderException(sprintf('user info error HTTP/%s', $status));
 	}
 
 }

@@ -357,6 +357,7 @@ abstract class OAuthProvider implements OAuthInterface{
 		$strip_subdomains = function(string $host):string{
 			$host = explode('.', $host);
 			// don't come at me with .co.uk
+			// phpcs:ignore
 			while(count($host) > 2){
 				array_shift($host);
 			}
@@ -404,7 +405,7 @@ abstract class OAuthProvider implements OAuthInterface{
 	 * @inheritDoc
 	 * @codeCoverageIgnore
 	 */
-	public function me():ResponseInterface{
+	public function me():AuthenticatedUser{
 		throw new ProviderException('not implemented');
 	}
 

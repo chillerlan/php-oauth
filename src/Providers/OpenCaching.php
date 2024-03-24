@@ -11,8 +11,7 @@
 namespace chillerlan\OAuth\Providers;
 
 use chillerlan\HTTP\Utils\MessageUtil;
-use chillerlan\OAuth\Core\{OAuth1Provider};
-use Psr\Http\Message\ResponseInterface;
+use chillerlan\OAuth\Core\{AuthenticatedUser, OAuth1Provider};
 use function implode, sprintf;
 
 /**
@@ -39,21 +38,28 @@ class OpenCaching extends OAuth1Provider{
 	/**
 	 * @inheritDoc
 	 */
-	public function me():ResponseInterface{
+	public function me():AuthenticatedUser{
 		$response = $this->request('/users/user', ['fields' => implode('|', $this::USER_FIELDS)]);
 		$status   = $response->getStatusCode();
+		$json     = MessageUtil::decodeJSON($response, true);
 
 		if($status === 200){
-			return $response;
+
+			$userdata = [
+				'data'   => $json,
+				'handle' => $json['username'],
+				'id'     => $json['uuid'],
+				'url'    => $json['profile_url'],
+			];
+
+			return new AuthenticatedUser($userdata);
 		}
 
-		$json = MessageUtil::decodeJSON($response);
-
-		if(isset($json->error, $json->error_description)){
-			throw new ProviderException($json->error_description);
+		if(isset($json['error'])){
+			throw new ProviderException($json['error']['developer_message']);
 		}
 
-		throw new ProviderException(sprintf('user info error error HTTP/%s', $status));
+		throw new ProviderException(sprintf('user info error HTTP/%s', $status));
 	}
 
 }

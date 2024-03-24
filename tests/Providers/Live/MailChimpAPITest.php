@@ -12,7 +12,6 @@ namespace chillerlan\OAuthTest\Providers\Live;
 
 use chillerlan\OAuth\Providers\MailChimp;
 use PHPUnit\Framework\Attributes\Group;
-use Psr\Http\Message\ResponseInterface;
 
 /**
  * @property \chillerlan\OAuth\Providers\MailChimp $provider
@@ -26,10 +25,6 @@ class MailChimpAPITest extends OAuth2ProviderLiveTestAbstract{
 
 	protected function getEnvPrefix():string{
 		return 'MAILCHIMP';
-	}
-
-	protected function assertMeResponse(ResponseInterface $response, object|null $json):void{
-		$this::assertSame($this->TEST_USER, $json->account_name);
 	}
 
 	public function testGetTokenMetadata():void{

@@ -10,9 +10,9 @@
 
 namespace chillerlan\OAuthTest\Providers\Live;
 
+use chillerlan\OAuth\Core\AuthenticatedUser;
 use chillerlan\OAuth\Providers\Google;
 use PHPUnit\Framework\Attributes\Group;
-use Psr\Http\Message\ResponseInterface;
 
 /**
  * @property \chillerlan\OAuth\Providers\Google $provider
@@ -29,8 +29,8 @@ class GoogleAPITest extends OAuth2ProviderLiveTestAbstract{
 		return 'GOOGLE';
 	}
 
-	protected function assertMeResponse(ResponseInterface $response, object|null $json):void{
-		$this::assertSame($this->TEST_USER, $json->email);
+	protected function assertMeResponse(AuthenticatedUser $user):void{
+		$this::assertSame($this->TEST_USER, $user->email);
 	}
 
 }

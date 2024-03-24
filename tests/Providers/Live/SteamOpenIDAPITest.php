@@ -12,7 +12,6 @@ namespace chillerlan\OAuthTest\Providers\Live;
 
 use chillerlan\OAuth\Providers\SteamOpenID;
 use PHPUnit\Framework\Attributes\Group;
-use Psr\Http\Message\ResponseInterface;
 
 /**
  * @property \chillerlan\OAuth\Providers\SteamOpenID $provider
@@ -38,16 +37,12 @@ class SteamOpenIDAPITest extends OAuthProviderLiveTestAbstract{
 		$this->id = $token->extraParams['id_int']; // SteamID64
 	}
 
-	protected function assertMeResponse(ResponseInterface $response, object|null $json):void{
-		// noop
-	}
-
 	public function testMe():void{
 		$this::markTestSkipped('user endpoint N/A');
 	}
 
 	public function testMeErrorException():void{
-		$this::markTestSkipped('not implemented');
+		$this::markTestSkipped('user endpoint N/A');
 	}
 
 }

@@ -10,9 +10,9 @@
 
 namespace chillerlan\OAuthTest\Providers\Live;
 
+use chillerlan\OAuth\Core\AuthenticatedUser;
 use chillerlan\OAuth\Providers\PayPal;
 use PHPUnit\Framework\Attributes\Group;
-use Psr\Http\Message\ResponseInterface;
 use function is_array;
 
 /**
@@ -30,19 +30,8 @@ class PayPalAPITest extends OAuth2ProviderLiveTestAbstract{
 		return 'PAYPAL'; // PAYPAL_SANDBOX
 	}
 
-	protected function assertMeResponse(ResponseInterface $response, object|null $json):void{
-
-		if(empty($json->emails) || !is_array($json->emails)){
-			$this->markTestSkipped('no email found');
-		}
-
-		foreach($json->emails as $email){
-			if($email->primary){
-				$this::assertSame($this->TEST_USER, $email->value);
-				return;
-			}
-		}
-
+	protected function assertMeResponse(AuthenticatedUser $user):void{
+		$this::assertSame($this->TEST_USER, $user->email);
 	}
 
 }

@@ -6,14 +6,15 @@
  * @author       Smiley <smiley@chillerlan.net>
  * @copyright    2018 Smiley
  * @license      MIT
+ *
+ * @noinspection PhpUnused
  */
 
 namespace chillerlan\OAuth\Providers;
 
 use chillerlan\HTTP\Utils\MessageUtil;
-use chillerlan\OAuth\Core\{AccessToken, ClientCredentials, CSRFToken, OAuth2Provider, TokenInvalidate};
-use Psr\Http\Message\ResponseInterface;
-use function sprintf;
+use chillerlan\OAuth\Core\{AccessToken, AuthenticatedUser, ClientCredentials, CSRFToken, OAuth2Provider, TokenInvalidate};
+use function sprintf, str_replace;
 
 /**
  * Vimeo OAuth2
@@ -68,21 +69,30 @@ class Vimeo extends OAuth2Provider implements ClientCredentials, CSRFToken, Toke
 	/**
 	 * @inheritDoc
 	 */
-	public function me():ResponseInterface{
+	public function me():AuthenticatedUser{
 		$response = $this->request('/me');
 		$status   = $response->getStatusCode();
+		$json     = MessageUtil::decodeJSON($response, true);
 
 		if($status === 200){
-			return $response;
+
+			$userdata = [
+				'data'        => $json,
+				'avatar'      => $json['pictures']['base_link'],
+				'handle'      => str_replace('https://vimeo.com/', '', $json['link']),
+				'displayName' => $json['name'],
+				'id'          => str_replace('/users/', '', $json['uri']),
+				'url'         => $json['link'],
+			];
+
+			return new AuthenticatedUser($userdata);
 		}
 
-		$json = MessageUtil::decodeJSON($response);
-
-		if(isset($json->error, $json->developer_message)){
-			throw new ProviderException($json->developer_message);
+		if(isset($json['error'], $json['developer_message'])){
+			throw new ProviderException($json['developer_message']);
 		}
 
-		throw new ProviderException(sprintf('user info error error HTTP/%s', $status));
+		throw new ProviderException(sprintf('user info error HTTP/%s', $status));
 	}
 
 	/**

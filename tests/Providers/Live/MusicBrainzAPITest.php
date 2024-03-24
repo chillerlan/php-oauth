@@ -14,7 +14,6 @@ use chillerlan\HTTP\Utils\MessageUtil;
 use chillerlan\OAuth\Providers\MusicBrainz;
 use chillerlan\OAuth\Providers\ProviderException;
 use PHPUnit\Framework\Attributes\Group;
-use Psr\Http\Message\ResponseInterface;
 
 /**
  * @property \chillerlan\OAuth\Providers\MusicBrainz $provider
@@ -30,16 +29,12 @@ class MusicBrainzAPITest extends OAuth2ProviderLiveTestAbstract{
 		return 'MUSICBRAINZ';
 	}
 
-	protected function assertMeResponse(ResponseInterface $response, object|null $json):void{
-		// noop
-	}
-
 	public function testMe():void{
 		$this::markTestSkipped('user endpoint N/A');
 	}
 
 	public function testMeErrorException():void{
-		$this::markTestSkipped('not implemented');
+		$this::markTestSkipped('user endpoint N/A');
 	}
 
 	public function testArtistId():void{

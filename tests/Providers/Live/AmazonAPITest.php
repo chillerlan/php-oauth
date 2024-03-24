@@ -10,10 +10,9 @@
 
 namespace chillerlan\OAuthTest\Providers\Live;
 
-use chillerlan\OAuth\Core\AccessToken;
+use chillerlan\OAuth\Core\{AccessToken, AuthenticatedUser};
 use chillerlan\OAuth\Providers\Amazon;
 use PHPUnit\Framework\Attributes\Group;
-use Psr\Http\Message\ResponseInterface;
 
 /**
  * @property \chillerlan\OAuth\Providers\Amazon $provider
@@ -29,8 +28,8 @@ class AmazonAPITest extends OAuth2ProviderLiveTestAbstract{
 		return 'AMAZON';
 	}
 
-	protected function assertMeResponse(ResponseInterface $response, object|null $json):void{
-		$this::assertMatchesRegularExpression('/[a-z\d.]+/i', $json->user_id);
+	protected function assertMeResponse(AuthenticatedUser $user):void{
+		$this::assertMatchesRegularExpression('/[a-z\d.]+/i', $user->id);
 	}
 
 	public function testMeErrorException():void{

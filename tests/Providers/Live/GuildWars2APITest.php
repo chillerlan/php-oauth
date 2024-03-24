@@ -11,9 +11,9 @@
 namespace chillerlan\OAuthTest\Providers\Live;
 
 use chillerlan\OAuth\Core\AccessToken;
+use chillerlan\OAuth\Core\AuthenticatedUser;
 use chillerlan\OAuth\Providers\GuildWars2;
 use PHPUnit\Framework\Attributes\Group;
-use Psr\Http\Message\ResponseInterface;
 
 /**
  * @property \chillerlan\OAuth\Providers\GuildWars2 $provider
@@ -44,8 +44,8 @@ class GuildWars2APITest extends OAuth2ProviderLiveTestAbstract{
 		$this->tokenname = $this->dotEnv->GW2_TOKEN_NAME;
 	}
 
-	protected function assertMeResponse(ResponseInterface $response, object|null $json):void{
-		$this::assertSame($this->tokenname, $json->name);
+	protected function assertMeResponse(AuthenticatedUser $user):void{
+		$this::assertSame($this->tokenname, $user->handle);
 	}
 
 }

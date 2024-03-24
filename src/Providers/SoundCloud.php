@@ -11,8 +11,7 @@
 namespace chillerlan\OAuth\Providers;
 
 use chillerlan\HTTP\Utils\MessageUtil;
-use chillerlan\OAuth\Core\{ClientCredentials, OAuth2Provider, TokenRefresh};
-use Psr\Http\Message\ResponseInterface;
+use chillerlan\OAuth\Core\{AuthenticatedUser, ClientCredentials, OAuth2Provider, TokenRefresh};
 use function sprintf;
 
 /**
@@ -43,21 +42,31 @@ class SoundCloud extends OAuth2Provider implements ClientCredentials, TokenRefre
 	/**
 	 * @inheritDoc
 	 */
-	public function me():ResponseInterface{
+	public function me():AuthenticatedUser{
 		$response = $this->request('/me');
 		$status   = $response->getStatusCode();
+		$json     = MessageUtil::decodeJSON($response, true);
 
 		if($status === 200){
-			return $response;
+
+			$userdata = [
+				'data'        => $json,
+				'avatar'      => $json['avatar_url'],
+				'handle'      => $json['username'],
+				'displayName' => $json['full_name'],
+				'email'       => $json['email'],
+				'id'          => $json['id'],
+				'url'         => $json['permalink_url'],
+			];
+
+			return new AuthenticatedUser($userdata);
 		}
 
-		$json = MessageUtil::decodeJSON($response);
-
-		if(isset($json->status)){
-			throw new ProviderException($json->status);
+		if(isset($json['status'])){
+			throw new ProviderException($json['status']);
 		}
 
-		throw new ProviderException(sprintf('user info error error HTTP/%s', $status));
+		throw new ProviderException(sprintf('user info error HTTP/%s', $status));
 	}
 
 }

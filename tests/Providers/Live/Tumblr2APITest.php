@@ -12,7 +12,6 @@ namespace chillerlan\OAuthTest\Providers\Live;
 
 use chillerlan\OAuth\Providers\Tumblr2;
 use PHPUnit\Framework\Attributes\Group;
-use Psr\Http\Message\ResponseInterface;
 
 /**
  * @property \chillerlan\OAuth\Providers\Tumblr2 $provider
@@ -26,10 +25,6 @@ class Tumblr2APITest extends OAuth2ProviderLiveTestAbstract{
 
 	protected function getEnvPrefix():string{
 		return 'TUMBLR';
-	}
-
-	protected function assertMeResponse(ResponseInterface $response, object|null $json):void{
-		$this::assertSame($this->TEST_USER, $json->response->user->name);
 	}
 
 }

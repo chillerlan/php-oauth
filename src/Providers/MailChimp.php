@@ -11,7 +11,7 @@
 namespace chillerlan\OAuth\Providers;
 
 use chillerlan\HTTP\Utils\MessageUtil;
-use chillerlan\OAuth\Core\{AccessToken, CSRFToken, OAuth2Provider};
+use chillerlan\OAuth\Core\{AccessToken, AuthenticatedUser, CSRFToken, OAuth2Provider};
 use chillerlan\OAuth\OAuthException;
 use Psr\Http\Message\{ResponseInterface, StreamInterface};
 use function array_merge, sprintf;
@@ -87,21 +87,30 @@ class MailChimp extends OAuth2Provider implements CSRFToken{
 	 * @see https://mailchimp.com/developer/marketing/api/root/list-api-root-resources/
 	 * @inheritDoc
 	 */
-	public function me():ResponseInterface{
+	public function me():AuthenticatedUser{
 		$response = $this->request('/3.0/'); // trailing slash!
 		$status   = $response->getStatusCode();
+		$json     = MessageUtil::decodeJSON($response, true);
 
 		if($status === 200){
-			return $response;
+
+			$userdata = [
+				'data'        => $json,
+				'avatar'      => $json['avatar_url'],
+				'displayName' => $json['username'],
+				'handle'      => $json['account_name'],
+				'email'       => $json['email'],
+				'id'          => $json['account_id'],
+			];
+
+			return new AuthenticatedUser($userdata);
 		}
 
-		$json = MessageUtil::decodeJSON($response);
-
-		if(isset($json->detail)){
-			throw new ProviderException($json->detail);
+		if(isset($json['detail'])){
+			throw new ProviderException($json['detail']);
 		}
 
-		throw new ProviderException(sprintf('user info error error HTTP/%s', $status));
+		throw new ProviderException(sprintf('user info error HTTP/%s', $status));
 	}
 
 }

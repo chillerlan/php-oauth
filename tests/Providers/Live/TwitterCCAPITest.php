@@ -12,7 +12,6 @@ namespace chillerlan\OAuthTest\Providers\Live;
 
 use chillerlan\OAuth\Providers\TwitterCC;
 use PHPUnit\Framework\Attributes\Group;
-use Psr\Http\Message\ResponseInterface;
 
 /**
  * @property \chillerlan\OAuth\Providers\TwitterCC $provider
@@ -26,10 +25,6 @@ class TwitterCCAPITest extends OAuth2ProviderLiveTestAbstract{
 
 	protected function getEnvPrefix():string{
 		return 'TWITTER';
-	}
-
-	protected function assertMeResponse(ResponseInterface $response, object|null $json):void{
-		// noop
 	}
 
 	public function testMe():void{

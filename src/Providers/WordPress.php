@@ -6,13 +6,14 @@
  * @author       Smiley <smiley@chillerlan.net>
  * @copyright    2017 Smiley
  * @license      MIT
+ *
+ * @noinspection PhpUnused
  */
 
 namespace chillerlan\OAuth\Providers;
 
 use chillerlan\HTTP\Utils\MessageUtil;
-use chillerlan\OAuth\Core\{CSRFToken, InvalidAccessTokenException, OAuth2Provider};
-use Psr\Http\Message\ResponseInterface;
+use chillerlan\OAuth\Core\{AuthenticatedUser, CSRFToken, InvalidAccessTokenException, OAuth2Provider};
 use function sprintf;
 
 /**
@@ -39,26 +40,36 @@ class WordPress extends OAuth2Provider implements CSRFToken{
 	/**
 	 * @inheritDoc
 	 */
-	public function me():ResponseInterface{
+	public function me():AuthenticatedUser{
 		$response = $this->request('/v1/me');
 		$status   = $response->getStatusCode();
+		$json     = MessageUtil::decodeJSON($response, true);
 
 		if($status === 200){
-			return $response;
+
+			$userdata = [
+				'data'        => $json,
+				'avatar'      => $json['avatar_URL'],
+				'handle'      => $json['username'],
+				'displayName' => $json['display_name'],
+				'email'       => $json['email'],
+				'id'          => $json['ID'],
+				'url'         => $json['profile_URL'],
+			];
+
+			return new AuthenticatedUser($userdata);
 		}
 
-		$json = MessageUtil::decodeJSON($response);
+		if(isset($json['error'], $json['message'])){
 
-		if(isset($json->error, $json->message)){
-
-			if($status === 400 && $json->error === 'invalid_token'){
-				throw new InvalidAccessTokenException($json->message);
+			if($status === 400 && $json['error'] === 'invalid_token'){
+				throw new InvalidAccessTokenException($json['message']);
 			}
 
-			throw new ProviderException($json->message);
+			throw new ProviderException($json['message']);
 		}
 
-		throw new ProviderException(sprintf('user info error error HTTP/%s', $status));
+		throw new ProviderException(sprintf('user info error HTTP/%s', $status));
 	}
 
 }

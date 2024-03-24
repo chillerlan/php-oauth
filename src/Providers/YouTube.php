@@ -20,4 +20,11 @@ class YouTube extends Google{
 	public const SCOPE_YOUTUBE       = 'https://www.googleapis.com/auth/youtube';
 	public const SCOPE_YOUTUBE_GDATA = 'https://gdata.youtube.com';
 
+	public const DEFAULT_SCOPES = [
+		self::SCOPE_EMAIL,
+		self::SCOPE_PROFILE,
+		self::SCOPE_YOUTUBE,
+		self::SCOPE_YOUTUBE_GDATA,
+	];
+
 }

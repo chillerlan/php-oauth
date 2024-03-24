@@ -21,7 +21,7 @@ const REPLACE_START = '<!-- TABLE-START -->';
 const REPLACE_END   = '<!-- TABLE_END -->';
 
 $table = [
-	'| Provider | API keys | revoke access | OAuth | `ClientCredentials` |',
+	'| Provider | App keys | revoke access | OAuth | `ClientCredentials` |',
 	'|----------|----------|---------------|-------|---------------------|',
 ];
 
@@ -60,10 +60,9 @@ file_put_contents($file, $readme);
 
 exit;
 
-// @todo
 function getProviders(string $providerDir):array{
 	$providerDir = realpath($providerDir);
-	$providers = [];
+	$providers   = [];
 
 	/** @var \SplFileInfo $e */
 	foreach(new IteratorIterator(new DirectoryIterator($providerDir)) as $e){

@@ -14,7 +14,8 @@ namespace chillerlan\OAuth\Core;
 use chillerlan\HTTP\Utils\{MessageUtil, QueryUtil};
 use chillerlan\OAuth\Providers\ProviderException;
 use Psr\Http\Message\{RequestInterface, ResponseInterface, UriInterface};
-use function array_merge, base64_encode, hash_hmac, implode, sprintf, strtoupper, time;
+use function array_merge, hash_hmac, implode, sodium_bin2base64, sprintf, strtoupper, time;
+use const SODIUM_BASE64_VARIANT_ORIGINAL;
 
 /**
  * Implements an abstract OAuth1 (1.0a) provider with all methods required by the OAuth1Interface.
@@ -159,7 +160,9 @@ abstract class OAuth1Provider extends OAuthProvider implements OAuth1Interface{
 		// https://datatracker.ietf.org/doc/html/rfc5849#section-3.4.2
 		$key  = QueryUtil::recursiveRawurlencode([$this->options->secret, ($accessTokenSecret ?? '')]);
 
-		return base64_encode(hash_hmac('sha1', implode('&', $data), implode('&', $key), true));
+		$hash = hash_hmac('sha1', implode('&', $data), implode('&', $key), true);
+
+		return sodium_bin2base64($hash, SODIUM_BASE64_VARIANT_ORIGINAL);
 	}
 
 	/**

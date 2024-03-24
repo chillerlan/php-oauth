@@ -14,7 +14,7 @@ $ENVVAR ??= 'PATREON';
 
 require_once __DIR__.'/../provider-example-common.php';
 
-/** @var \OAuthProviderFactory $factory */
+/** @var \OAuthExampleProviderFactory $factory */
 $provider = $factory->getProvider(Patreon::class, $ENVVAR);
 
 require_once __DIR__.'/_flow-oauth2.php';

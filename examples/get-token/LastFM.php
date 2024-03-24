@@ -15,8 +15,8 @@ $ENVVAR ??= 'LASTFM';
 require_once __DIR__.'/../provider-example-common.php';
 
 /**
- * @var \OAuthProviderFactory $factory
- * @var array|null $PARAMS
+ * @var \OAuthExampleProviderFactory $factory
+ * @var array|null                   $PARAMS
  */
 
 $provider = $factory->getProvider(LastFM::class, $ENVVAR);

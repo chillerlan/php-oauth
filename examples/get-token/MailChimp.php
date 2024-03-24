@@ -15,9 +15,9 @@ $ENVVAR ??= 'MAILCHIMP';
 require_once __DIR__.'/../provider-example-common.php';
 
 /**
- * @var \OAuthProviderFactory $factory
- * @var array|null $PARAMS
- * @var array|null $SCOPES
+ * @var \OAuthExampleProviderFactory $factory
+ * @var array|null                   $PARAMS
+ * @var array|null                   $SCOPES
  */
 
 $provider = $factory->getProvider(MailChimp::class, $ENVVAR);

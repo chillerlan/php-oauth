@@ -15,7 +15,7 @@ use GuzzleHttp\Psr7\HttpFactory;
  * @var string $AUTOLOADER - path to an alternate autoloader
  */
 require_once ($AUTOLOADER ?? __DIR__.'/../vendor/autoload.php');
-require_once __DIR__.'/OAuthProviderFactory.php';
+require_once __DIR__.'/OAuthExampleProviderFactory.php';
 
 /**
  * these vars are supposed to be set before this file is included to ease testing
@@ -42,4 +42,4 @@ $http        = new Client([
 	],
 ]);
 
-$factory = new OAuthProviderFactory($http, $httpFactory, $httpFactory, $httpFactory, $CFGDIR, $ENVFILE, $LOGLEVEL);
+$factory = new OAuthExampleProviderFactory($http, $httpFactory, $httpFactory, $httpFactory, $CFGDIR, $ENVFILE, $LOGLEVEL);

@@ -26,7 +26,7 @@ $table = [
 ];
 
 foreach(getProviders(__DIR__.'/../src/Providers') as $p){
-	/** @var \OAuthProviderFactory $factory */
+	/** @var \OAuthExampleProviderFactory $factory */
 	$provider = $factory->getProvider($p['fqcn'], '', false);
 
 	$oauth = match(true){

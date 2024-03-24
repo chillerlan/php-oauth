@@ -1,6 +1,6 @@
 <?php
 /**
- * Class OAuthProviderFactory
+ * Class OAuthExampleProviderFactory
  *
  * @created      03.03.2024
  * @author       smiley <smiley@chillerlan.net>
@@ -30,7 +30,7 @@ use Psr\Log\LoggerInterface;
 /**
  *
  */
-class OAuthProviderFactory{
+class OAuthExampleProviderFactory{
 
 	protected DotEnv $dotEnv;
 	protected LoggerInterface $logger;

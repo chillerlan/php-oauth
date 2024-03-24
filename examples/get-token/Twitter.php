@@ -15,7 +15,7 @@ $ENVVAR ??= 'TWITTER';
 
 require_once __DIR__.'/../provider-example-common.php';
 
-/** @var \OAuthProviderFactory $factory */
+/** @var \OAuthExampleProviderFactory $factory */
 $provider = $factory->getProvider(Twitter::class, $ENVVAR);
 
 /*

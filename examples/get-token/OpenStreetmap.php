@@ -14,7 +14,7 @@ $ENVVAR ??= 'OPENSTREETMAP';
 
 require_once __DIR__.'/../provider-example-common.php';
 
-/** @var \OAuthProviderFactory $factory */
+/** @var \OAuthExampleProviderFactory $factory */
 $provider = $factory->getProvider(OpenStreetmap::class, $ENVVAR);
 
 require_once __DIR__.'/_flow-oauth1.php';

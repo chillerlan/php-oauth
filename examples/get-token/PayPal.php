@@ -15,7 +15,7 @@ $PARAMS ??= ['flowEntry' => 'static', 'fullPage' => 'true'];
 
 require_once __DIR__.'/../provider-example-common.php';
 
-/** @var \OAuthProviderFactory $factory */
+/** @var \OAuthExampleProviderFactory $factory */
 $provider = $factory->getProvider(PayPal::class, $ENVVAR); // PayPalSandbox
 
 require_once __DIR__.'/_flow-oauth2.php';

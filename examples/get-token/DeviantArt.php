@@ -14,7 +14,7 @@ $ENVVAR ??= 'DEVIANTART';
 
 require_once __DIR__.'/../provider-example-common.php';
 
-/** @var \OAuthProviderFactory $factory */
+/** @var \OAuthExampleProviderFactory $factory */
 $provider = $factory->getProvider(DeviantArt::class, $ENVVAR);
 
 require_once __DIR__.'/_flow-oauth2.php';

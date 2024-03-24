@@ -14,7 +14,7 @@ $ENVVAR ??= 'MASTODON';
 
 require_once __DIR__.'/../provider-example-common.php';
 
-/** @var \OAuthProviderFactory $factory */
+/** @var \OAuthExampleProviderFactory $factory */
 $provider = $factory->getProvider(Mastodon::class, $ENVVAR);
 // set the mastodon instance we're about to request data from
 $provider->setInstance($factory->getEnvVar($ENVVAR.'_INSTANCE'));

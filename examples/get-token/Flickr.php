@@ -15,7 +15,7 @@ $PARAMS ??= ['perms' => Flickr::PERM_DELETE];
 
 require_once __DIR__.'/../provider-example-common.php';
 
-/** @var \OAuthProviderFactory $factory */
+/** @var \OAuthExampleProviderFactory $factory */
 $provider = $factory->getProvider(Flickr::class, $ENVVAR);
 
 /*

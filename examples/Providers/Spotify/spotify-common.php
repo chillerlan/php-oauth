@@ -17,5 +17,5 @@ $ENVVAR = 'SPOTIFY';
 require_once __DIR__.'/../../provider-example-common.php';
 require_once __DIR__.'/SpotifyClient.php';
 
-/** @var \OAuthProviderFactory $factory */
+/** @var \OAuthExampleProviderFactory $factory */
 $spotify = $factory->getProvider(Spotify::class, $ENVVAR);

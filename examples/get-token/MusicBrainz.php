@@ -20,7 +20,7 @@ $PARAMS ??= [
 
 require_once __DIR__.'/../provider-example-common.php';
 
-/** @var \OAuthProviderFactory $factory */
+/** @var \OAuthExampleProviderFactory $factory */
 $provider = $factory->getProvider(MusicBrainz::class, $ENVVAR);
 $name     = $provider->serviceName;
 

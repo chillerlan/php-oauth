@@ -19,10 +19,10 @@
 use chillerlan\HTTP\Utils\MessageUtil;
 
 /**
- * @var \OAuthProviderFactory $factory
+ * @var \OAuthExampleProviderFactory        $factory
  * @var \chillerlan\OAuth\Providers\Spotify $spotify
- * @var \Psr\Log\LoggerInterface $logger
- * @var string $file
+ * @var \Psr\Log\LoggerInterface            $logger
+ * @var string                              $file
  */
 require_once __DIR__.'/spotify-common.php';
 

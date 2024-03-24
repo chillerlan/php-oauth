@@ -14,7 +14,7 @@ $ENVVAR ??= 'OKAPI';
 
 require_once __DIR__.'/../provider-example-common.php';
 
-/** @var \OAuthProviderFactory $factory */
+/** @var \OAuthExampleProviderFactory $factory */
 $PARAMS ??= ['oauth_callback' => $factory->getEnvVar($ENVVAR.'_CALLBACK_URL')];
 
 $provider = $factory->getProvider(OpenCaching::class, $ENVVAR);

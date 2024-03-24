@@ -31,9 +31,9 @@ class PlaylistDiff extends SpotifyClient{
 };
 
 /**
- * @var \OAuthProviderFactory $factory
+ * @var \OAuthExampleProviderFactory        $factory
  * @var \chillerlan\OAuth\Providers\Spotify $spotify
- * @var string $ENVVAR
+ * @var string                              $ENVVAR
  */
 
 $spotify = $factory->getProvider(PlaylistDiff::class, $ENVVAR);

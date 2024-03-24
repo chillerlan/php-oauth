@@ -18,8 +18,8 @@ use chillerlan\HTTP\Utils\MessageUtil;
 require_once __DIR__.'/../Spotify/spotify-common.php';
 
 /**
- * @var \OAuthProviderFactory               $factory
- * @var \chillerlan\OAuth\Providers\GitHub  $github
+ * @var \OAuthExampleProviderFactory       $factory
+ * @var \chillerlan\OAuth\Providers\GitHub $github
  */
 
 require_once __DIR__.'/github-common.php';

@@ -14,7 +14,7 @@ $ENVVAR ??= 'VIMEO';
 
 require_once __DIR__.'/../provider-example-common.php';
 
-/** @var \OAuthProviderFactory $factory */
+/** @var \OAuthExampleProviderFactory $factory */
 $provider = $factory->getProvider(Vimeo::class, $ENVVAR);
 
 /*

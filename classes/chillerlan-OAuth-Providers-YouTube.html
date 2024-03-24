@@ -186,9 +186,9 @@
 </h4>
 <dl class="phpdocumentor-table-of-contents">
             <dt class="phpdocumentor-table-of-contents__entry -constant -public">
-    <a href="classes/chillerlan-OAuth-Providers-Google.html#constant_DEFAULT_SCOPES">DEFAULT_SCOPES</a>
+    <a href="classes/chillerlan-OAuth-Providers-YouTube.html#constant_DEFAULT_SCOPES">DEFAULT_SCOPES</a>
     <span>
-        &nbsp;= [self::SCOPE_EMAIL, self::SCOPE_PROFILE]                            </span>
+        &nbsp;= [self::SCOPE_EMAIL, self::SCOPE_PROFILE, self::SCOPE_YOUTUBE, self::SCOPE_YOUTUBE_GDATA]                            </span>
 </dt>
 
             <dt class="phpdocumentor-table-of-contents__entry -constant -public">
@@ -425,7 +425,7 @@ if the provider implements the CSRFToken interface, and returns an AccessToken o
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
     <a href="classes/chillerlan-OAuth-Core-OAuthProvider.html#method_me">me()</a>
     <span>
-                                &nbsp;: <abbr title="\Psr\Http\Message\ResponseInterface">ResponseInterface</abbr>    </span>
+                                &nbsp;: <a href="classes/chillerlan-OAuth-Core-AuthenticatedUser.html"><abbr title="\chillerlan\OAuth\Core\AuthenticatedUser">AuthenticatedUser</abbr></a>    </span>
 </dt>
 <dd>Returns information about the currently authenticated user (usually a /me or /user endpoint).</dd>
 
@@ -627,14 +627,14 @@ anything except host and path will be ignored, scheme will always be set to &quo
                     <article class="phpdocumentor-element -constant -public ">
     <h4 class="phpdocumentor-element__name" id="constant_DEFAULT_SCOPES">
         DEFAULT_SCOPES
-        <a href="classes/chillerlan-OAuth-Providers-Google.html#constant_DEFAULT_SCOPES" class="headerlink"><i class="fas fa-link"></i></a>
+        <a href="classes/chillerlan-OAuth-Providers-YouTube.html#constant_DEFAULT_SCOPES" class="headerlink"><i class="fas fa-link"></i></a>
 
     </h4>
 
     <aside class="phpdocumentor-element-found-in">
-    <abbr class="phpdocumentor-element-found-in__file" title="src/Providers/Google.php"><a href="files/src-providers-google.html"><abbr title="src/Providers/Google.php">Google.php</abbr></a></abbr>
+    <abbr class="phpdocumentor-element-found-in__file" title="src/Providers/YouTube.php"><a href="files/src-providers-youtube.html"><abbr title="src/Providers/YouTube.php">YouTube.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">32</span>
+    <span class="phpdocumentor-element-found-in__line">23</span>
 
     </aside>
 
@@ -643,7 +643,7 @@ anything except host and path will be ignored, scheme will always be set to &quo
     <span class="phpdocumentor-signature__visibility">public</span>
         <span class="phpdocumentor-signature__type">mixed</span>
     <span class="phpdocumentor-signature__name">DEFAULT_SCOPES</span>
-    = <span class="phpdocumentor-signature__default-value">[self::SCOPE_EMAIL, self::SCOPE_PROFILE]</span>
+    = <span class="phpdocumentor-signature__default-value">[self::SCOPE_EMAIL, self::SCOPE_PROFILE, self::SCOPE_YOUTUBE, self::SCOPE_YOUTUBE_GDATA]</span>
 </code>
 
 
@@ -662,7 +662,7 @@ anything except host and path will be ignored, scheme will always be set to &quo
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Providers/Google.php"><a href="files/src-providers-google.html"><abbr title="src/Providers/Google.php">Google.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">27</span>
+    <span class="phpdocumentor-element-found-in__line">28</span>
 
     </aside>
 
@@ -690,7 +690,7 @@ anything except host and path will be ignored, scheme will always be set to &quo
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Providers/Google.php"><a href="files/src-providers-google.html"><abbr title="src/Providers/Google.php">Google.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">28</span>
+    <span class="phpdocumentor-element-found-in__line">29</span>
 
     </aside>
 
@@ -718,7 +718,7 @@ anything except host and path will be ignored, scheme will always be set to &quo
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Providers/Google.php"><a href="files/src-providers-google.html"><abbr title="src/Providers/Google.php">Google.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">29</span>
+    <span class="phpdocumentor-element-found-in__line">30</span>
 
     </aside>
 
@@ -746,7 +746,7 @@ anything except host and path will be ignored, scheme will always be set to &quo
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Providers/Google.php"><a href="files/src-providers-google.html"><abbr title="src/Providers/Google.php">Google.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">30</span>
+    <span class="phpdocumentor-element-found-in__line">31</span>
 
     </aside>
 
@@ -1997,7 +1997,7 @@ if the provider implements the CSRFToken interface, and returns an AccessToken o
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Core/OAuthProvider.php"><a href="files/src-core-oauthprovider.html"><abbr title="src/Core/OAuthProvider.php">OAuthProvider.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">416</span>
+    <span class="phpdocumentor-element-found-in__line">417</span>
 
     </aside>
 
@@ -2073,7 +2073,7 @@ if the provider implements the CSRFToken interface, and returns an AccessToken o
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Core/OAuthProvider.php"><a href="files/src-core-oauthprovider.html"><abbr title="src/Core/OAuthProvider.php">OAuthProvider.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">407</span>
+    <span class="phpdocumentor-element-found-in__line">408</span>
 
     </aside>
 
@@ -2081,7 +2081,7 @@ if the provider implements the CSRFToken interface, and returns an AccessToken o
 
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
-                    <span class="phpdocumentor-signature__name">me</span><span>(</span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type"><abbr title="\Psr\Http\Message\ResponseInterface">ResponseInterface</abbr></span></code>
+                    <span class="phpdocumentor-signature__name">me</span><span>(</span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type"><a href="classes/chillerlan-OAuth-Core-AuthenticatedUser.html"><abbr title="\chillerlan\OAuth\Core\AuthenticatedUser">AuthenticatedUser</abbr></a></span></code>
 
     <div class="phpdocumentor-label-line">
         </div>
@@ -2112,7 +2112,7 @@ if the provider implements the CSRFToken interface, and returns an AccessToken o
 
             <section>
         <h5 class="phpdocumentor-return-value__heading">Return values</h5>
-        <span class="phpdocumentor-signature__response_type"><abbr title="\Psr\Http\Message\ResponseInterface">ResponseInterface</abbr></span>
+        <span class="phpdocumentor-signature__response_type"><a href="classes/chillerlan-OAuth-Core-AuthenticatedUser.html"><abbr title="\chillerlan\OAuth\Core\AuthenticatedUser">AuthenticatedUser</abbr></a></span>
             </section>
 
 </article>
@@ -2130,7 +2130,7 @@ if the provider implements the CSRFToken interface, and returns an AccessToken o
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Core/OAuth2Provider.php"><a href="files/src-core-oauth2provider.html"><abbr title="src/Core/OAuth2Provider.php">OAuth2Provider.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">292</span>
+    <span class="phpdocumentor-element-found-in__line">293</span>
 
     </aside>
 
@@ -2303,7 +2303,7 @@ and returns a PSR-7 ResponseInterface with the corresponding API response</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Core/OAuthProvider.php"><a href="files/src-core-oauthprovider.html"><abbr title="src/Core/OAuthProvider.php">OAuthProvider.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">378</span>
+    <span class="phpdocumentor-element-found-in__line">379</span>
 
     </aside>
 
@@ -3092,7 +3092,7 @@ so that you don&#039;t have to implement the monstrous original `__construct()`<
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Core/OAuth2Provider.php"><a href="files/src-core-oauth2provider.html"><abbr title="src/Core/OAuth2Provider.php">OAuth2Provider.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">326</span>
+    <span class="phpdocumentor-element-found-in__line">327</span>
 
     </aside>
 
@@ -3797,7 +3797,7 @@ the spec mandates a JSON body which is what almost all providers send - weird ex
                             <li class="phpdocumentor-on-this-page-section__title">Constants</li>
                 <li>
                     <ul class="phpdocumentor-list -clean">
-                                                    <li><a href="classes/chillerlan-OAuth-Providers-Google.html#constant_DEFAULT_SCOPES">DEFAULT_SCOPES</a></li>
+                                                    <li><a href="classes/chillerlan-OAuth-Providers-YouTube.html#constant_DEFAULT_SCOPES">DEFAULT_SCOPES</a></li>
                                                     <li><a href="classes/chillerlan-OAuth-Providers-Google.html#constant_SCOPE_EMAIL">SCOPE_EMAIL</a></li>
                                                     <li><a href="classes/chillerlan-OAuth-Providers-Google.html#constant_SCOPE_PROFILE">SCOPE_PROFILE</a></li>
                                                     <li><a href="classes/chillerlan-OAuth-Providers-Google.html#constant_SCOPE_USERINFO_EMAIL">SCOPE_USERINFO_EMAIL</a></li>

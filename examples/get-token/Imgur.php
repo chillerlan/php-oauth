@@ -8,7 +8,6 @@
  * @license      MIT
  */
 
-use chillerlan\HTTP\Utils\MessageUtil;
 use chillerlan\OAuth\Providers\Imgur;
 
 $ENVVAR ??= 'IMGUR';
@@ -46,7 +45,7 @@ elseif(isset($_GET['code']) && isset($_GET['state'])){
 }
 // step 4: verify the token and use the API
 elseif(isset($_GET['granted']) && $_GET['granted'] === $name){
-	echo '<pre>'.print_r(MessageUtil::decodeJSON($provider->me()), true).'</pre>'.
+	echo '<pre>'.print_r($provider->me(), true).'</pre>'.
 	     '<textarea cols="120" rows="3" onclick="this.select();">'.
 	     $storage->getAccessToken($name)->toJSON().
 	     '</textarea>';

@@ -8,8 +8,6 @@
  * @license      MIT
  */
 
-use chillerlan\HTTP\Utils\MessageUtil;
-
 /**
  * @var \chillerlan\OAuth\Core\OAuth1Interface $provider
  * @var array|null $PARAMS
@@ -32,7 +30,7 @@ elseif(isset($_GET['oauth_token']) && isset($_GET['oauth_verifier'])){
 }
 // step 4: verify the token and use the API
 elseif(isset($_GET['granted']) && $_GET['granted'] === $name){
-	echo '<pre>'.print_r(MessageUtil::decodeJSON($provider->me()), true).'</pre>'.
+	echo '<pre>'.print_r($provider->me(), true).'</pre>'.
 	     '<textarea cols="120" rows="3" onclick="this.select();">'.
 	     $provider->getAccessTokenFromStorage()->toJSON().
 	     '</textarea>';

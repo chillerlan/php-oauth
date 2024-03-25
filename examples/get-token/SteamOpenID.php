@@ -16,7 +16,10 @@ $ENVVAR ??= 'STEAMOPENID';
 
 require_once __DIR__.'/../provider-example-common.php';
 
-/** @var \OAuthExampleProviderFactory $factory */
+/**
+ * @var \OAuthExampleProviderFactory            $factory
+ * @var \chillerlan\OAuth\Providers\SteamOpenID $provider
+ */
 $provider = $factory->getProvider(SteamOpenID::class, $ENVVAR);
 $name     = $provider->serviceName;
 
@@ -26,6 +29,7 @@ if(isset($_GET['login']) && $_GET['login'] === $name){
 }
 // step 3: receive the access token
 elseif(isset($_GET['openid_sig']) && isset($_GET['openid_signed'])){
+	// the SteamOpenID provider takes the whole $_GET array as it uses multiple of the query parameters
 	$token = $provider->getAccessToken($_GET);
 
 	// save the token [...]
@@ -39,13 +43,12 @@ elseif(isset($_GET['openid_error'])){ // openid.error -> https://stackoverflow.c
 }
 // step 4: verify the token and use the API
 elseif(isset($_GET['granted']) && $_GET['granted'] === $name){
-	$token    = $provider->getAccessTokenFromStorage(); // the user's steamid is stored as access token
-	$response = $provider->request('/ISteamUser/GetPlayerSummaries/v2', ['steamids' => $token->accessToken]);
+	$token     = $provider->getAccessTokenFromStorage(); // the user's steamid is stored as access token
+	$response  = $provider->request('/ISteamUser/GetPlayerSummaries/v2', ['steamids' => $token->accessToken]);
+	$data      = print_r(MessageUtil::decodeJSON($response), true);
+	$tokenJSON = $token->toJSON();
 
-	echo '<pre>'.print_r(MessageUtil::decodeJSON($response), true).'</pre>'.
-	     '<textarea cols="120" rows="3" onclick="this.select();">'
-	     .$token->toJSON().
-	     '</textarea>';
+	printf('<pre>%s</pre><textarea cols="120" rows="5" onclick="this.select();">%s</textarea>', $data, $tokenJSON);
 }
 // step 1 (optional): display a login link
 else{

@@ -18,6 +18,6 @@ require_once __DIR__.'/../provider-example-common.php';
 /** @var \OAuthExampleProviderFactory $factory */
 $provider = $factory->getProvider(Foursquare::class, $ENVVAR);
 
-require_once __DIR__.'/_flow-oauth2-no-state.php';
+require_once __DIR__.'/_flow-oauth2.php';
 
 exit;

@@ -40,12 +40,12 @@ elseif(isset($_GET['code']) && isset($_GET['state'])){
 }
 // step 4: verify the token and use the API
 elseif(isset($_GET['granted']) && $_GET['granted'] === $name){
-	$response = $provider->request(sprintf('/artist/%s', '573510d6-bb5d-4d07-b0aa-ea6afe39e28d'), ['inc' => 'url-rels work-rels']);
+	$path      = sprintf('/artist/%s', '573510d6-bb5d-4d07-b0aa-ea6afe39e28d');
+	$response  = $provider->request($path, ['inc' => 'url-rels work-rels']);
+	$data      = print_r(MessageUtil::decodeJSON($response), true);
+	$tokenJSON = $provider->getAccessTokenFromStorage()->toJSON();
 
-	echo '<pre>'.print_r(MessageUtil::decodeJSON($response), true).'</pre>'.
-	     '<textarea cols="120" rows="3" onclick="this.select();">'.
-	     $provider->getAccessTokenFromStorage()->toJSON().
-	     '</textarea>';
+	printf('<pre>%s</pre><textarea cols="120" rows="5" onclick="this.select();">%s</textarea>', $data, $tokenJSON);
 }
 // step 1 (optional): display a login link
 else{

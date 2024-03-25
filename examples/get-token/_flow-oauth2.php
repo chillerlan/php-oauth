@@ -9,6 +9,8 @@
  */
 declare(strict_types=1);
 
+use chillerlan\OAuth\Core\CSRFToken;
+
 /**
  * @var \chillerlan\OAuth\Core\OAuth2Interface $provider
  * @var array|null $PARAMS
@@ -22,8 +24,14 @@ if(isset($_GET['login']) && $_GET['login'] === $name){
 	header('Location: '.$provider->getAuthURL($PARAMS, $SCOPES));
 }
 // step 3: receive the access token
-elseif(isset($_GET['code']) && isset($_GET['state'])){
-	$token = $provider->getAccessToken($_GET['code'], $_GET['state']);
+elseif(isset($_GET['code'])){
+	$state = null;
+
+	if($provider instanceof CSRFToken && isset($_GET['state'])){
+		$state = $_GET['state'];
+	}
+
+	$token = $provider->getAccessToken($_GET['code'], $state);
 
 	// save the token [...]
 
@@ -32,10 +40,10 @@ elseif(isset($_GET['code']) && isset($_GET['state'])){
 }
 // step 4: verify the token and use the API
 elseif(isset($_GET['granted']) && $_GET['granted'] === $name){
-	echo '<pre>'.print_r($provider->me(), true).'</pre>'.
-	     '<textarea cols="120" rows="3" onclick="this.select();">'.
-	     $provider->getAccessTokenFromStorage()->toJSON().
-	     '</textarea>';
+	$me        = print_r($provider->me(), true);
+	$tokenJSON = $provider->getAccessTokenFromStorage()->toJSON();
+
+	printf('<pre>%s</pre><textarea cols="120" rows="5" onclick="this.select();">%s</textarea>', $me, $tokenJSON);
 }
 // step 1 (optional): display a login link
 else{

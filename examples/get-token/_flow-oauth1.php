@@ -31,10 +31,10 @@ elseif(isset($_GET['oauth_token']) && isset($_GET['oauth_verifier'])){
 }
 // step 4: verify the token and use the API
 elseif(isset($_GET['granted']) && $_GET['granted'] === $name){
-	echo '<pre>'.print_r($provider->me(), true).'</pre>'.
-	     '<textarea cols="120" rows="3" onclick="this.select();">'.
-	     $provider->getAccessTokenFromStorage()->toJSON().
-	     '</textarea>';
+	$me        = print_r($provider->me(), true);
+	$tokenJSON = $provider->getAccessTokenFromStorage()->toJSON();
+
+	printf('<pre>%s</pre><textarea cols="120" rows="5" onclick="this.select();">%s</textarea>', $me, $tokenJSON);
 }
 // step 1 (optional): display a login link
 else{

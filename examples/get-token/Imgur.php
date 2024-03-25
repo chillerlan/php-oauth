@@ -36,7 +36,8 @@ elseif(isset($_GET['code']) && isset($_GET['state'])){
 	$username = $token->extraParams['account_username'];
 	$id       = $token->extraParams['account_id'];
 
-	// set the expiry to a sane period
+	// imgur sends the token with an expiry of 10 years,
+	// so we set the expiry to a sane period to allow auto-refreshing
 	$token->expires = (time() + 2592000); // 30 days
 	// save the token [...]
 	$storage->storeAccessToken($token);
@@ -46,10 +47,10 @@ elseif(isset($_GET['code']) && isset($_GET['state'])){
 }
 // step 4: verify the token and use the API
 elseif(isset($_GET['granted']) && $_GET['granted'] === $name){
-	echo '<pre>'.print_r($provider->me(), true).'</pre>'.
-	     '<textarea cols="120" rows="3" onclick="this.select();">'.
-	     $storage->getAccessToken($name)->toJSON().
-	     '</textarea>';
+	$me        = print_r($provider->me(), true);
+	$tokenJSON = $provider->getAccessTokenFromStorage()->toJSON();
+
+	printf('<pre>%s</pre><textarea cols="120" rows="5" onclick="this.select();">%s</textarea>', $me, $tokenJSON);
 }
 // step 1 (optional): display a login link
 else{

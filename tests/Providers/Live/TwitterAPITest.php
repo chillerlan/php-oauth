@@ -18,7 +18,7 @@ use PHPUnit\Framework\Attributes\Group;
  * @property \chillerlan\OAuth\Providers\Twitter $provider
  */
 #[Group('providerLiveTest')]
-class TwitterAPITest extends OAuth1ProviderLiveTestAbstract{
+final class TwitterAPITest extends OAuth1ProviderLiveTestAbstract{
 
 	protected string $screen_name;
 	protected int $user_id;

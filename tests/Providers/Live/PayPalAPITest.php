@@ -21,7 +21,7 @@ use function is_array;
  */
 #[Group('shortTokenExpiry')]
 #[Group('providerLiveTest')]
-class PayPalAPITest extends OAuth2ProviderLiveTestAbstract{
+final class PayPalAPITest extends OAuth2ProviderLiveTestAbstract{
 
 	protected function getProviderFQCN():string{
 		return PayPal::class;

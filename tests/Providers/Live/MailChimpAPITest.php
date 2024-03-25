@@ -18,7 +18,7 @@ use PHPUnit\Framework\Attributes\Group;
  * @property \chillerlan\OAuth\Providers\MailChimp $provider
  */
 #[Group('providerLiveTest')]
-class MailChimpAPITest extends OAuth2ProviderLiveTestAbstract{
+final class MailChimpAPITest extends OAuth2ProviderLiveTestAbstract{
 
 	protected function getProviderFQCN():string{
 		return MailChimp::class;

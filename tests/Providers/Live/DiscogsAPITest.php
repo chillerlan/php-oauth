@@ -18,7 +18,7 @@ use PHPUnit\Framework\Attributes\Group;
  * @property \chillerlan\OAuth\Providers\Discogs $provider
  */
 #[Group('providerLiveTest')]
-class DiscogsAPITest extends OAuth1ProviderLiveTestAbstract{
+final class DiscogsAPITest extends OAuth1ProviderLiveTestAbstract{
 
 	protected function getProviderFQCN():string{
 		return Discogs::class;

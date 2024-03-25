@@ -16,7 +16,7 @@ use chillerlan\OAuth\Providers\TwitterCC;
 /**
  * @property \chillerlan\OAuth\Providers\TwitterCC $provider
  */
-class TwitterCCTest extends OAuth2ProviderUnitTestAbstract{
+final class TwitterCCTest extends OAuth2ProviderUnitTestAbstract{
 
 	protected function getProviderFQCN():string{
 		return TwitterCC::class;

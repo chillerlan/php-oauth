@@ -21,7 +21,7 @@ use const JSON_UNESCAPED_SLASHES;
 /**
  *
  */
-class ProviderTestLoggerFactory{
+final class ProviderTestLoggerFactory{
 
 	public function getLogger(bool $env_is_ci):LoggerInterface{
 		$logger = new Logger('oauthProviderTest', [new NullHandler]);

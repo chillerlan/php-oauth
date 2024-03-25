@@ -21,7 +21,7 @@ use function explode;
  */
 #[Group('shortTokenExpiry')]
 #[Group('providerLiveTest')]
-class BattleNetAPITest extends OAuth2ProviderLiveTestAbstract{
+final class BattleNetAPITest extends OAuth2ProviderLiveTestAbstract{
 
 	protected function getProviderFQCN():string{
 		return BattleNet::class;

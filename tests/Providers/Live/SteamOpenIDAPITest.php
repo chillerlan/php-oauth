@@ -18,7 +18,7 @@ use PHPUnit\Framework\Attributes\Group;
  * @property \chillerlan\OAuth\Providers\SteamOpenID $provider
  */
 #[Group('providerLiveTest')]
-class SteamOpenIDAPITest extends OAuthProviderLiveTestAbstract{
+final class SteamOpenIDAPITest extends OAuthProviderLiveTestAbstract{
 
 	protected int $id;
 

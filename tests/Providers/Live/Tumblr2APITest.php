@@ -18,7 +18,7 @@ use PHPUnit\Framework\Attributes\Group;
  * @property \chillerlan\OAuth\Providers\Tumblr2 $provider
  */
 #[Group('providerLiveTest')]
-class Tumblr2APITest extends OAuth2ProviderLiveTestAbstract{
+final class Tumblr2APITest extends OAuth2ProviderLiveTestAbstract{
 
 	protected function getProviderFQCN():string{
 		return Tumblr2::class;

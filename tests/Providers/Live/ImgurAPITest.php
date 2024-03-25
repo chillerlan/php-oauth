@@ -18,7 +18,7 @@ use PHPUnit\Framework\Attributes\Group;
  * @property \chillerlan\OAuth\Providers\Imgur $provider
  */
 #[Group('providerLiveTest')]
-class ImgurAPITest extends OAuth2ProviderLiveTestAbstract{
+final class ImgurAPITest extends OAuth2ProviderLiveTestAbstract{
 
 	protected function getProviderFQCN():string{
 		return Imgur::class;

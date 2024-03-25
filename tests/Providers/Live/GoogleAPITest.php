@@ -20,7 +20,7 @@ use PHPUnit\Framework\Attributes\Group;
  */
 #[Group('shortTokenExpiry')]
 #[Group('providerLiveTest')]
-class GoogleAPITest extends OAuth2ProviderLiveTestAbstract{
+final class GoogleAPITest extends OAuth2ProviderLiveTestAbstract{
 
 	protected function getProviderFQCN():string{
 		return Google::class;

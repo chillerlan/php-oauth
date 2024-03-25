@@ -18,7 +18,7 @@ use PHPUnit\Framework\Attributes\Group;
  * @property  \chillerlan\OAuth\Providers\GitHub $provider
  */
 #[Group('providerLiveTest')]
-class GitHubAPITest extends OAuth2ProviderLiveTestAbstract{
+final class GitHubAPITest extends OAuth2ProviderLiveTestAbstract{
 
 	protected function getProviderFQCN():string{
 		return GitHub::class;

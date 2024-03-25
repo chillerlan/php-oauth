@@ -18,7 +18,7 @@ use PHPUnit\Framework\Attributes\Group;
  * @property \chillerlan\OAuth\Providers\Bitbucket $provider
  */
 #[Group('providerLiveTest')]
-class BitbucketAPITest extends OAuth2ProviderLiveTestAbstract{
+final class BitbucketAPITest extends OAuth2ProviderLiveTestAbstract{
 
 	protected function getProviderFQCN():string{
 		return Bitbucket::class;

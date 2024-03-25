@@ -18,7 +18,7 @@ use PHPUnit\Framework\Attributes\Group;
  * @property \chillerlan\OAuth\Providers\Mastodon $provider
  */
 #[Group('providerLiveTest')]
-class MastodonAPITest extends OAuth2ProviderLiveTestAbstract{
+final class MastodonAPITest extends OAuth2ProviderLiveTestAbstract{
 
 	protected string $testInstance;
 

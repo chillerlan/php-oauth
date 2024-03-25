@@ -18,7 +18,7 @@ use PHPUnit\Framework\Attributes\Group;
  * @property  \chillerlan\OAuth\Providers\Flickr $provider
  */
 #[Group('providerLiveTest')]
-class FlickrAPITest extends OAuth1ProviderLiveTestAbstract{
+final class FlickrAPITest extends OAuth1ProviderLiveTestAbstract{
 
 	protected string $test_name;
 	protected string $test_id;

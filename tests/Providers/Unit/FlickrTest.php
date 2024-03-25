@@ -16,7 +16,7 @@ use chillerlan\OAuth\Providers\Flickr;
 /**
  * @property \chillerlan\OAuth\Providers\Flickr $provider
  */
-class FlickrTest extends OAuth1ProviderUnitTestAbstract{
+final class FlickrTest extends OAuth1ProviderUnitTestAbstract{
 
 	protected function getProviderFQCN():string{
 		return Flickr::class;

@@ -20,7 +20,7 @@ use PHPUnit\Framework\Attributes\Group;
  * @property \chillerlan\OAuth\Providers\MusicBrainz $provider
  */
 #[Group('providerLiveTest')]
-class MusicBrainzAPITest extends OAuth2ProviderLiveTestAbstract{
+final class MusicBrainzAPITest extends OAuth2ProviderLiveTestAbstract{
 
 	protected function getProviderFQCN():string{
 		return MusicBrainz::class;

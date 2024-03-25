@@ -19,7 +19,7 @@ use PHPUnit\Framework\Attributes\Group;
  */
 #[Group('shortTokenExpiry')]
 #[Group('providerLiveTest')]
-class DeezerAPITest extends OAuth2ProviderLiveTestAbstract{
+final class DeezerAPITest extends OAuth2ProviderLiveTestAbstract{
 
 	protected function getProviderFQCN():string{
 		return Deezer::class;

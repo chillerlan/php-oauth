@@ -18,7 +18,7 @@ use PHPUnit\Framework\Attributes\Group;
  * @property \chillerlan\OAuth\Providers\LastFM $provider
  */
 #[Group('providerLiveTest')]
-class LastFMAPITest extends OAuthProviderLiveTestAbstract{
+final class LastFMAPITest extends OAuthProviderLiveTestAbstract{
 
 	protected function getProviderFQCN():string{
 		return LastFM::class;

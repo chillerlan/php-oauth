@@ -16,7 +16,7 @@ use chillerlan\OAuth\Providers\MailChimp;
 /**
  * @property \chillerlan\OAuth\Providers\MailChimp $provider
  */
-class MailChimpTest extends OAuth2ProviderUnitTestAbstract{
+final class MailChimpTest extends OAuth2ProviderUnitTestAbstract{
 
 	protected function getProviderFQCN():string{
 		return MailChimp::class;

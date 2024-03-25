@@ -16,7 +16,7 @@ use chillerlan\OAuth\Providers\Vimeo;
 /**
  * @property \chillerlan\OAuth\Providers\Vimeo $provider
  */
-class VimeoTest extends OAuth2ProviderUnitTestAbstract{
+final class VimeoTest extends OAuth2ProviderUnitTestAbstract{
 
 	protected function getProviderFQCN():string{
 		return Vimeo::class;

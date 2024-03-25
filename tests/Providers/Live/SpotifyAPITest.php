@@ -18,7 +18,7 @@ use PHPUnit\Framework\Attributes\Group;
  * @property \chillerlan\OAuth\Providers\Spotify $provider
  */
 #[Group('providerLiveTest')]
-class SpotifyAPITest extends OAuth2ProviderLiveTestAbstract{
+final class SpotifyAPITest extends OAuth2ProviderLiveTestAbstract{
 
 	protected function getProviderFQCN():string{
 		return Spotify::class;

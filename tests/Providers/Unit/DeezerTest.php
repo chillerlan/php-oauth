@@ -19,7 +19,7 @@ use function implode;
 /**
  * @property \chillerlan\OAuth\Providers\Deezer $provider
  */
-class DeezerTest extends OAuth2ProviderUnitTestAbstract{
+final class DeezerTest extends OAuth2ProviderUnitTestAbstract{
 
 	protected const TEST_TOKEN = 'access_token=2YotnFZFEjr1zCsicMWpAA&token_type=example&expires=3600&'.
 	                             'refresh_token=tGzv3JOkF0XG5Qx2TlKWIA&example_parameter=example_value';

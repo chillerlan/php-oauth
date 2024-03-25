@@ -18,7 +18,7 @@ use PHPUnit\Framework\Attributes\Group;
  * @property \chillerlan\OAuth\Providers\Foursquare $provider
  */
 #[Group('providerLiveTest')]
-class FoursquareAPITest extends OAuth2ProviderLiveTestAbstract{
+final class FoursquareAPITest extends OAuth2ProviderLiveTestAbstract{
 
 	protected function getProviderFQCN():string{
 		return Foursquare::class;

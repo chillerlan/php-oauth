@@ -17,7 +17,7 @@ use chillerlan\OAuth\Providers\Mastodon;
 /**
  * @property \chillerlan\OAuth\Providers\Mastodon $provider
  */
-class MastodonTest extends OAuth2ProviderUnitTestAbstract{
+final class MastodonTest extends OAuth2ProviderUnitTestAbstract{
 
 	protected function getProviderFQCN():string{
 		return Mastodon::class;

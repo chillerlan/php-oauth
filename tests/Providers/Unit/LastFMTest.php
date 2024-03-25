@@ -16,7 +16,7 @@ use chillerlan\OAuth\Providers\LastFM;
 /**
  * @property \chillerlan\OAuth\Providers\LastFM $provider
  */
-class LastFMTest extends OAuthProviderUnitTestAbstract{
+final class LastFMTest extends OAuthProviderUnitTestAbstract{
 
 	protected function getProviderFQCN():string{
 		return LastFM::class;

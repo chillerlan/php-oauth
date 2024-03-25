@@ -18,7 +18,7 @@ use PHPUnit\Framework\Attributes\Group;
  * @property  \chillerlan\OAuth\Providers\SoundCloud $provider
  */
 #[Group('providerLiveTest')]
-class SoundcloudAPITest extends OAuth2ProviderLiveTestAbstract{
+final class SoundcloudAPITest extends OAuth2ProviderLiveTestAbstract{
 
 	protected function getProviderFQCN():string{
 		return SoundCloud::class;

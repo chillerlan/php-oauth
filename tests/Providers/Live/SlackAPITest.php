@@ -19,7 +19,7 @@ use PHPUnit\Framework\Attributes\Group;
  * @property \chillerlan\OAuth\Providers\Slack $provider
  */
 #[Group('providerLiveTest')]
-class SlackAPITest extends OAuth2ProviderLiveTestAbstract{
+final class SlackAPITest extends OAuth2ProviderLiveTestAbstract{
 
 	protected function getProviderFQCN():string{
 		return Slack::class;

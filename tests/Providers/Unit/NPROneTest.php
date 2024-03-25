@@ -16,7 +16,7 @@ use chillerlan\OAuth\Providers\NPROne;
 /**
  * @property \chillerlan\OAuth\Providers\NPROne $provider
  */
-class NPROneTest extends OAuth2ProviderUnitTestAbstract{
+final class NPROneTest extends OAuth2ProviderUnitTestAbstract{
 
 	protected function getProviderFQCN():string{
 		return NPROne::class;

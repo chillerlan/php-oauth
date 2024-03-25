@@ -19,7 +19,7 @@ use PHPUnit\Framework\Attributes\Group;
  * @property \chillerlan\OAuth\Providers\Stripe $provider
  */
 #[Group('providerLiveTest')]
-class StripeAPITest extends OAuth2ProviderLiveTestAbstract{
+final class StripeAPITest extends OAuth2ProviderLiveTestAbstract{
 
 	protected function getProviderFQCN():string{
 		return Stripe::class;

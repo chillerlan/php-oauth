@@ -18,7 +18,7 @@ use PHPUnit\Framework\Attributes\Group;
  * @property \chillerlan\OAuth\Providers\TwitterCC $provider
  */
 #[Group('providerLiveTest')]
-class TwitterCCAPITest extends OAuth2ProviderLiveTestAbstract{
+final class TwitterCCAPITest extends OAuth2ProviderLiveTestAbstract{
 
 	protected function getProviderFQCN():string{
 		return TwitterCC::class;

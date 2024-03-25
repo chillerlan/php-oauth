@@ -20,7 +20,7 @@ use PHPUnit\Framework\Attributes\Group;
  * @property \chillerlan\OAuth\Providers\GuildWars2 $provider
  */
 #[Group('providerLiveTest')]
-class GuildWars2APITest extends OAuth2ProviderLiveTestAbstract{
+final class GuildWars2APITest extends OAuth2ProviderLiveTestAbstract{
 
 	protected AccessToken $token;
 	protected string      $tokenname;

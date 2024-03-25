@@ -16,7 +16,7 @@ use chillerlan\OAuth\Providers\SteamOpenID;
 /**
  * @property \chillerlan\OAuth\Providers\SteamOpenID $provider
  */
-class SteamOpenIDTest extends OAuthProviderUnitTestAbstract{
+final class SteamOpenIDTest extends OAuthProviderUnitTestAbstract{
 
 	protected function getProviderFQCN():string{
 		return SteamOpenID::class;

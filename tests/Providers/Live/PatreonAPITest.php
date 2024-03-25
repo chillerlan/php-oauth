@@ -19,7 +19,7 @@ use PHPUnit\Framework\Attributes\Group;
  */
 #[Group('shortTokenExpiry')]
 #[Group('providerLiveTest')]
-class PatreonAPITest extends OAuth2ProviderLiveTestAbstract{
+final class PatreonAPITest extends OAuth2ProviderLiveTestAbstract{
 
 	protected function getProviderFQCN():string{
 		return Patreon::class;

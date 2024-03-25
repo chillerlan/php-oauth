@@ -16,7 +16,7 @@ use chillerlan\OAuth\Providers\GuildWars2;
 /**
  * @property \chillerlan\OAuth\Providers\GuildWars2 $provider
  */
-class GuildWars2Test extends OAuth2ProviderUnitTestAbstract{
+final class GuildWars2Test extends OAuth2ProviderUnitTestAbstract{
 
 	protected function getProviderFQCN():string{
 		return GuildWars2::class;

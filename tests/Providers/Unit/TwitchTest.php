@@ -18,7 +18,7 @@ use function implode;
 /**
  * @property \chillerlan\OAuth\Providers\Twitch $provider
  */
-class TwitchTest extends OAuth2ProviderUnitTestAbstract{
+final class TwitchTest extends OAuth2ProviderUnitTestAbstract{
 
 	protected function getProviderFQCN():string{
 		return Twitch::class;

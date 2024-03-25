@@ -18,7 +18,7 @@ use PHPUnit\Framework\Attributes\Group;
  * @property \chillerlan\OAuth\Providers\Mixcloud $provider
  */
 #[Group('providerLiveTest')]
-class MixcloudAPITest extends OAuth2ProviderLiveTestAbstract{
+final class MixcloudAPITest extends OAuth2ProviderLiveTestAbstract{
 
 	protected function getProviderFQCN():string{
 		return Mixcloud::class;

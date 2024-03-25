@@ -19,7 +19,7 @@ use PHPUnit\Framework\Attributes\Group;
  * @property \chillerlan\OAuth\Providers\Amazon $provider
  */
 #[Group('providerLiveTest')]
-class AmazonAPITest extends OAuth2ProviderLiveTestAbstract{
+final class AmazonAPITest extends OAuth2ProviderLiveTestAbstract{
 
 	protected function getProviderFQCN():string{
 		return Amazon::class;

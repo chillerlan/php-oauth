@@ -18,7 +18,7 @@ use PHPUnit\Framework\Attributes\Group;
  * @property \chillerlan\OAuth\Providers\WordPress $provider
  */
 #[Group('providerLiveTest')]
-class WordpressAPITest extends OAuth2ProviderLiveTestAbstract{
+final class WordpressAPITest extends OAuth2ProviderLiveTestAbstract{
 
 	protected function getProviderFQCN():string{
 		return WordPress::class;

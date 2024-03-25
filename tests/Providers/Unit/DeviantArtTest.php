@@ -16,7 +16,7 @@ use chillerlan\OAuth\Providers\DeviantArt;
 /**
  * @property \chillerlan\OAuth\Providers\DeviantArt $provider
  */
-class DeviantArtTest extends OAuth2ProviderUnitTestAbstract{
+final class DeviantArtTest extends OAuth2ProviderUnitTestAbstract{
 
 	protected function getProviderFQCN():string{
 		return DeviantArt::class;

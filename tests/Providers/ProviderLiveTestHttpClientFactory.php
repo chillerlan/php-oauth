@@ -25,7 +25,7 @@ use function sprintf;
 /**
  *
  */
-class ProviderLiveTestHttpClientFactory implements HttpClientFactoryInterface{
+final class ProviderLiveTestHttpClientFactory implements HttpClientFactoryInterface{
 
 	public function getClient(string $cacert, ResponseFactoryInterface $responseFactory):ClientInterface{
 

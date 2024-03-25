@@ -18,7 +18,7 @@ use PHPUnit\Framework\Attributes\Group;
  * @property \chillerlan\OAuth\Providers\BigCartel $provider
  */
 #[Group('providerLiveTest')]
-class BigCartelAPITest extends OAuth2ProviderLiveTestAbstract{
+final class BigCartelAPITest extends OAuth2ProviderLiveTestAbstract{
 
 	protected function getProviderFQCN():string{
 		return BigCartel::class;

@@ -18,7 +18,7 @@ use PHPUnit\Framework\Attributes\Group;
  * @property  \chillerlan\OAuth\Providers\Twitch $provider
  */
 #[Group('providerLiveTest')]
-class TwitchAPITest extends OAuth2ProviderLiveTestAbstract{
+final class TwitchAPITest extends OAuth2ProviderLiveTestAbstract{
 
 	protected function getProviderFQCN():string{
 		return Twitch::class;

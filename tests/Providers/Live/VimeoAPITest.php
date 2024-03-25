@@ -18,7 +18,7 @@ use PHPUnit\Framework\Attributes\Group;
  * @property \chillerlan\OAuth\Providers\Vimeo $provider
  */
 #[Group('providerLiveTest')]
-class VimeoAPITest extends OAuth2ProviderLiveTestAbstract{
+final class VimeoAPITest extends OAuth2ProviderLiveTestAbstract{
 
 	protected function getProviderFQCN():string{
 		return Vimeo::class;

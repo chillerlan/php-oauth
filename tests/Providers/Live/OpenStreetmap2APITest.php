@@ -19,7 +19,7 @@ use PHPUnit\Framework\Attributes\Group;
  * @property \chillerlan\OAuth\Providers\OpenStreetmap2 $provider
  */
 #[Group('providerLiveTest')]
-class OpenStreetmap2APITest extends OAuth2ProviderLiveTestAbstract{
+final class OpenStreetmap2APITest extends OAuth2ProviderLiveTestAbstract{
 
 	protected function getProviderFQCN():string{
 		return OpenStreetmap2::class;

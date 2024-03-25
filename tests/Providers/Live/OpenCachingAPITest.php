@@ -18,7 +18,7 @@ use PHPUnit\Framework\Attributes\Group;
  * @property \chillerlan\OAuth\Providers\OpenCaching $provider
  */
 #[Group('providerLiveTest')]
-class OpenCachingAPITest extends OAuth1ProviderLiveTestAbstract{
+final class OpenCachingAPITest extends OAuth1ProviderLiveTestAbstract{
 
 	protected function getProviderFQCN():string{
 		return OpenCaching::class;

@@ -16,7 +16,7 @@ use chillerlan\OAuth\Providers\BigCartel;
 /**
  * @property \chillerlan\OAuth\Providers\BigCartel $provider
  */
-class BigCartelTest extends OAuth2ProviderUnitTestAbstract{
+final class BigCartelTest extends OAuth2ProviderUnitTestAbstract{
 
 	protected function getProviderFQCN():string{
 		return BigCartel::class;

@@ -6,6 +6,7 @@
  * @license      MIT
  */
 
+use chillerlan\OAuth\OAuthProviderFactory;
 use GuzzleHttp\Client;
 use GuzzleHttp\Psr7\HttpFactory;
 
@@ -42,4 +43,9 @@ $http        = new Client([
 	],
 ]);
 
-$factory = new OAuthExampleProviderFactory($http, $httpFactory, $httpFactory, $httpFactory, $CFGDIR, $ENVFILE, $LOGLEVEL);
+$factory = new OAuthExampleProviderFactory(
+	new OAuthProviderFactory($http, $httpFactory, $httpFactory, $httpFactory),
+	$CFGDIR,
+	$ENVFILE,
+	$LOGLEVEL,
+);

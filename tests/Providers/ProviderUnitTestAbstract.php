@@ -11,10 +11,9 @@ declare(strict_types=1);
 
 namespace chillerlan\OAuthTest\Providers;
 
-use chillerlan\OAuth\Core\OAuth1Interface;
-use chillerlan\OAuth\Core\OAuth2Interface;
 use chillerlan\OAuth\Core\OAuthInterface;
 use chillerlan\OAuth\OAuthOptions;
+use chillerlan\OAuth\OAuthProviderFactory;
 use chillerlan\OAuth\Storage\MemoryStorage;
 use chillerlan\OAuth\Storage\OAuthStorageInterface;
 use chillerlan\PHPUnitHttp\HttpFactoryTrait;
@@ -26,6 +25,7 @@ use function constant;
 use function defined;
 use function ini_set;
 use function realpath;
+use function sprintf;
 
 /**
  *
@@ -33,6 +33,7 @@ use function realpath;
 abstract class ProviderUnitTestAbstract extends TestCase{
 	use HttpFactoryTrait;
 
+	protected OAuthProviderFactory  $providerFactory;
 	protected LoggerInterface       $logger;
 	protected OAuthOptions          $options;
 	protected OAuthStorageInterface $storage;
@@ -55,13 +56,23 @@ abstract class ProviderUnitTestAbstract extends TestCase{
 		try{
 			$this->initFactories(realpath($this::CACERT));
 
-			$this->logger   = (new ProviderTestLoggerFactory)->getLogger($this->ENV_IS_CI); // PSR-3 logger
-			$this->options  = $this->initOptions();
-			$this->storage  = $this->initStorage($this->options);
-			$this->provider = $this->initProvider($this->getProviderFQCN());
+			$this->logger  = (new ProviderTestLoggerFactory)->getLogger($this->ENV_IS_CI); // PSR-3 logger
+			$this->options = $this->initOptions();
+			$this->storage = $this->initStorage($this->options);
+
+			$this->providerFactory = new OAuthProviderFactory(
+				$this->httpClient,
+				$this->requestFactory,
+				$this->streamFactory,
+				$this->uriFactory,
+				$this->logger,
+			);
+
+			$this->provider   = $this->providerFactory->getProvider($this->getProviderFQCN(), $this->options, $this->storage);
+			$this->reflection = new ReflectionClass($this->provider);
 		}
 		catch(Throwable $e){
-			$this->markTestSkipped('unable to init provider test: '.$e->getMessage().$e->getTraceAsString());
+			$this->markTestSkipped(sprintf("unable to init provider test: %s\n\n%s", $e->getMessage(), $e->getTraceAsString()));
 		}
 
 	}
@@ -78,7 +89,7 @@ abstract class ProviderUnitTestAbstract extends TestCase{
 
 
 	/*
-	 * init provider & dependencies
+	 * init dependencies
 	 */
 
 	protected function initOptions():OAuthOptions{
@@ -94,31 +105,10 @@ abstract class ProviderUnitTestAbstract extends TestCase{
 		return new MemoryStorage($options);
 	}
 
-	protected function initProvider(string $FQCN):OAuthInterface|OAuth1Interface|OAuth2Interface{
-
-		$args = [
-			$this->options,
-			$this->httpClient,
-			$this->requestFactory,
-			$this->streamFactory,
-			$this->uriFactory,
-			$this->storage,
-			$this->logger,
-		];
-
-		return $this->invokeReflection($FQCN, $args);
-	}
-
 
 	/*
 	 * Reflection utilities
 	 */
-
-	final protected function invokeReflection(string $FQCN, array $args = []):object{
-		$this->reflection = new ReflectionClass($FQCN);
-
-		return $this->reflection->newInstanceArgs($args);
-	}
 
 	final protected function setReflectionProperty(string $property, mixed $value):void{
 		$this->reflection->getProperty($property)->setValue($this->provider, $value);

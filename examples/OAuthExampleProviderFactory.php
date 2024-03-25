@@ -15,17 +15,18 @@ use chillerlan\OAuth\Core\OAuth1Interface;
 use chillerlan\OAuth\Core\OAuth2Interface;
 use chillerlan\OAuth\Core\OAuthInterface;
 use chillerlan\OAuth\OAuthOptions;
+use chillerlan\OAuth\OAuthProviderFactory;
 use chillerlan\OAuth\Storage\MemoryStorage;
 use chillerlan\Settings\SettingsContainerInterface;
 use Monolog\Formatter\LineFormatter;
 use Monolog\Handler\NullHandler;
 use Monolog\Handler\StreamHandler;
 use Monolog\Logger;
-use Psr\Http\Client\ClientInterface;
 use Psr\Http\Message\RequestFactoryInterface;
 use Psr\Http\Message\StreamFactoryInterface;
 use Psr\Http\Message\UriFactoryInterface;
 use Psr\Log\LoggerInterface;
+use Psr\Log\LogLevel;
 
 /**
  *
@@ -37,18 +38,16 @@ class OAuthExampleProviderFactory{
 	protected OAuthOptions|SettingsContainerInterface $options;
 
 	public function __construct(
-		protected ClientInterface         $http,
-		protected RequestFactoryInterface $requestFactory,
-		protected StreamFactoryInterface  $streamFactory,
-		protected UriFactoryInterface     $uriFactory,
-		protected string                  $cfgDir = __DIR__.'/../.config',
-		string                            $envFile = '.env',
-		string|null                       $logLevel = null,
+		protected OAuthProviderFactory $factory,
+		protected string               $cfgDir = __DIR__.'/../.config',
+		string                         $envFile = '.env',
+		string                         $logLevel = LogLevel::INFO,
 	){
 		ini_set('date.timezone', 'UTC');
 
 		$this->dotEnv = (new DotEnv($this->cfgDir, $envFile, false))->load();
 		$this->logger = $this->initLogger($logLevel);
+		$this->factory->setLogger($this->logger);
 	}
 
 	protected function initLogger(string|null $logLevel):LoggerInterface{
@@ -66,7 +65,11 @@ class OAuthExampleProviderFactory{
 		return $logger;
 	}
 
-	public function getProvider(string $providerFQN, string $envVar, bool $sessionStorage = true):OAuthInterface|OAuth1Interface|OAuth2Interface{
+	public function getProvider(
+		string $providerFQN,
+		string $envVar,
+		bool   $sessionStorage = true,
+	):OAuthInterface|OAuth1Interface|OAuth2Interface{
 		$options = new OAuthOptions;
 
 		$options->key              = ($this->getEnvVar($envVar.'_KEY') ?? '');
@@ -81,15 +84,7 @@ class OAuthExampleProviderFactory{
 			$storage = new OAuthExampleSessionStorage(options: $options, storagepath: $this->cfgDir);
 		}
 
-		return new $providerFQN(
-			$options,
-			$this->http,
-			$this->requestFactory,
-			$this->streamFactory,
-			$this->uriFactory,
-			$storage,
-			$this->logger,
-		);
+		return $this->factory->getProvider($providerFQN, $options, $storage);
 	}
 
 	public function getEnvVar(string $var):mixed{
@@ -101,15 +96,15 @@ class OAuthExampleProviderFactory{
 	}
 
 	public function getRequestFactory():RequestFactoryInterface{
-		return $this->requestFactory;
+		return $this->factory->getRequestFactory();
 	}
 
 	public function getStreamFactory():StreamFactoryInterface{
-		return $this->streamFactory;
+		return $this->factory->getStreamFactory();
 	}
 
 	public function getUriFactory():UriFactoryInterface{
-		return $this->uriFactory;
+		return $this->factory->getUriFactory();
 	}
 
 }

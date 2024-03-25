@@ -30,6 +30,8 @@ use Psr\Http\Message\{
  */
 interface OAuthInterface extends ClientInterface{
 
+	public const USER_AGENT = 'chillerlanPhpOAuth/1.0.0 +https://github.com/chillerlan/php-oauth';
+
 	/**
 	 * additional headers to use during authentication
 	 *

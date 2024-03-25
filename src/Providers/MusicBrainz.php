@@ -6,14 +6,17 @@
  * @author       Smiley <smiley@chillerlan.net>
  * @copyright    2017 Smiley
  * @license      MIT
+ *
+ * @noinspection PhpUnused
  */
 declare(strict_types=1);
 
 namespace chillerlan\OAuth\Providers;
 
-use chillerlan\OAuth\Core\{CSRFToken, OAuth2Provider, TokenRefresh};
+use chillerlan\HTTP\Utils\MessageUtil;
+use chillerlan\OAuth\Core\{AuthenticatedUser, CSRFToken, InvalidAccessTokenException, OAuth2Provider, TokenRefresh};
 use Psr\Http\Message\{ResponseInterface, StreamInterface};
-use function explode, in_array, strtoupper;
+use function explode, in_array, sprintf, strtoupper;
 
 /**
  * MusicBrainz OAuth2
@@ -71,21 +74,45 @@ class MusicBrainz extends OAuth2Provider implements CSRFToken, TokenRefresh{
 	):ResponseInterface{
 		$params = ($params ?? []);
 		$method = strtoupper(($method ?? 'GET'));
-		$token  = $this->storage->getAccessToken($this->serviceName);
-
-		if($token->isExpired()){
-			$this->refreshAccessToken($token);
-		}
 
 		if(!isset($params['fmt'])){
 			$params['fmt'] = 'json';
 		}
 
 		if(in_array($method, ['POST', 'PUT', 'DELETE']) && !isset($params['client'])){
-			$params['client'] = $this->options->user_agent; // @codeCoverageIgnore
+			$params['client'] = $this::USER_AGENT; // @codeCoverageIgnore
 		}
 
 		return parent::request(explode('?', $path)[0], $params, $method, $body, $headers);
+	}
+
+	/**
+	 * @inheritDoc
+	 */
+	public function me():AuthenticatedUser{
+		$request  = $this->requestFactory->createRequest('GET', 'https://musicbrainz.org/oauth2/userinfo');
+		$response = $this->http->sendRequest($this->getRequestAuthorization($request));
+		$status   = $response->getStatusCode();
+
+		if($status === 200){
+			$json = MessageUtil::decodeJSON($response, true);
+
+			$userdata = [
+				'data'   => $json,
+				'handle' => $json['sub'],
+				'email'  => $json['email'],
+				'id'     => $json['metabrainz_user_id'],
+				'url'    => $json['profile'],
+			];
+
+			return new AuthenticatedUser($userdata);
+		}
+
+		if($status === 401){
+			throw new InvalidAccessTokenException($response->getBody()->getContents());
+		}
+
+		throw new ProviderException(sprintf('user info error HTTP/%s', $status));
 	}
 
 }

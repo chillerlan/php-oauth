@@ -30,14 +30,6 @@ final class MusicBrainzAPITest extends OAuth2ProviderLiveTestAbstract{
 		return 'MUSICBRAINZ';
 	}
 
-	public function testMe():void{
-		$this::markTestSkipped('user endpoint N/A');
-	}
-
-	public function testMeErrorException():void{
-		$this::markTestSkipped('user endpoint N/A');
-	}
-
 	public function testArtistId():void{
 		try{
 			$response = $this->provider->request(

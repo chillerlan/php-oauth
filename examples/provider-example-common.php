@@ -7,6 +7,7 @@
  */
 declare(strict_types=1);
 
+use chillerlan\OAuth\Core\OAuthInterface;
 use chillerlan\OAuth\OAuthProviderFactory;
 use GuzzleHttp\Client;
 use GuzzleHttp\Psr7\HttpFactory;
@@ -40,7 +41,7 @@ $httpFactory = new HttpFactory;
 $http        = new Client([
 	'verify'  => $CFGDIR.'/cacert.pem',
 	'headers' => [
-		'User-Agent' => 'chillerlanPhpOAuth/5.0.0 +https://github.com/chillerlan/php-oauth-core',
+		'User-Agent' => OAuthInterface::USER_AGENT,
 	],
 ]);
 

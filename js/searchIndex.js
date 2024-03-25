@@ -701,6 +701,66 @@ Search.appendIndex(
             "summary": "Whether\u0020to\u0020automatically\u0020refresh\u0020access\u0020tokens\u0020\u0028OAuth2\u0029",
             "url": "classes/chillerlan-OAuth-OAuthOptionsTrait.html#property_tokenAutoRefresh"
         },                {
+            "fqsen": "\\chillerlan\\OAuth\\OAuthProviderFactory",
+            "name": "OAuthProviderFactory",
+            "summary": "A\u0020simple\u0020OAuth\u0020provider\u0020factory\u0020\u0028not\u0020sure\u0020if\u0020that\u0020clears\u0020the\u0020mess...\u0029",
+            "url": "classes/chillerlan-OAuth-OAuthProviderFactory.html"
+        },                {
+            "fqsen": "\\chillerlan\\OAuth\\OAuthProviderFactory\u003A\u003A__construct\u0028\u0029",
+            "name": "__construct",
+            "summary": "thank\u0020you\u0020PHP\u002DFIG\u0020for\u0020absolutely\u0020nothing",
+            "url": "classes/chillerlan-OAuth-OAuthProviderFactory.html#method___construct"
+        },                {
+            "fqsen": "\\chillerlan\\OAuth\\OAuthProviderFactory\u003A\u003AgetProvider\u0028\u0029",
+            "name": "getProvider",
+            "summary": "invokes\u0020a\u0020provider\u0020instance\u0020with\u0020the\u0020given\u0020\u0024options\u0020and\u0020\u0024storage\u0020interfaces",
+            "url": "classes/chillerlan-OAuth-OAuthProviderFactory.html#method_getProvider"
+        },                {
+            "fqsen": "\\chillerlan\\OAuth\\OAuthProviderFactory\u003A\u003AsetLogger\u0028\u0029",
+            "name": "setLogger",
+            "summary": "",
+            "url": "classes/chillerlan-OAuth-OAuthProviderFactory.html#method_setLogger"
+        },                {
+            "fqsen": "\\chillerlan\\OAuth\\OAuthProviderFactory\u003A\u003AgetRequestFactory\u0028\u0029",
+            "name": "getRequestFactory",
+            "summary": "",
+            "url": "classes/chillerlan-OAuth-OAuthProviderFactory.html#method_getRequestFactory"
+        },                {
+            "fqsen": "\\chillerlan\\OAuth\\OAuthProviderFactory\u003A\u003AgetStreamFactory\u0028\u0029",
+            "name": "getStreamFactory",
+            "summary": "",
+            "url": "classes/chillerlan-OAuth-OAuthProviderFactory.html#method_getStreamFactory"
+        },                {
+            "fqsen": "\\chillerlan\\OAuth\\OAuthProviderFactory\u003A\u003AgetUriFactory\u0028\u0029",
+            "name": "getUriFactory",
+            "summary": "",
+            "url": "classes/chillerlan-OAuth-OAuthProviderFactory.html#method_getUriFactory"
+        },                {
+            "fqsen": "\\chillerlan\\OAuth\\OAuthProviderFactory\u003A\u003A\u0024http",
+            "name": "http",
+            "summary": "",
+            "url": "classes/chillerlan-OAuth-OAuthProviderFactory.html#property_http"
+        },                {
+            "fqsen": "\\chillerlan\\OAuth\\OAuthProviderFactory\u003A\u003A\u0024requestFactory",
+            "name": "requestFactory",
+            "summary": "",
+            "url": "classes/chillerlan-OAuth-OAuthProviderFactory.html#property_requestFactory"
+        },                {
+            "fqsen": "\\chillerlan\\OAuth\\OAuthProviderFactory\u003A\u003A\u0024streamFactory",
+            "name": "streamFactory",
+            "summary": "",
+            "url": "classes/chillerlan-OAuth-OAuthProviderFactory.html#property_streamFactory"
+        },                {
+            "fqsen": "\\chillerlan\\OAuth\\OAuthProviderFactory\u003A\u003A\u0024uriFactory",
+            "name": "uriFactory",
+            "summary": "",
+            "url": "classes/chillerlan-OAuth-OAuthProviderFactory.html#property_uriFactory"
+        },                {
+            "fqsen": "\\chillerlan\\OAuth\\OAuthProviderFactory\u003A\u003A\u0024logger",
+            "name": "logger",
+            "summary": "",
+            "url": "classes/chillerlan-OAuth-OAuthProviderFactory.html#property_logger"
+        },                {
             "fqsen": "\\chillerlan\\OAuth\\Providers\\Amazon",
             "name": "Amazon",
             "summary": "Login\u0020with\u0020Amazon\u0020for\u0020Websites\u0020\u0028OAuth2\u0029",
@@ -5366,16 +5426,6 @@ Search.appendIndex(
             "summary": "",
             "url": "classes/chillerlan-OAuthTest-Providers-ProviderUnitTestAbstract.html#method_initStorage"
         },                {
-            "fqsen": "\\chillerlan\\OAuthTest\\Providers\\ProviderUnitTestAbstract\u003A\u003AinitProvider\u0028\u0029",
-            "name": "initProvider",
-            "summary": "",
-            "url": "classes/chillerlan-OAuthTest-Providers-ProviderUnitTestAbstract.html#method_initProvider"
-        },                {
-            "fqsen": "\\chillerlan\\OAuthTest\\Providers\\ProviderUnitTestAbstract\u003A\u003AinvokeReflection\u0028\u0029",
-            "name": "invokeReflection",
-            "summary": "",
-            "url": "classes/chillerlan-OAuthTest-Providers-ProviderUnitTestAbstract.html#method_invokeReflection"
-        },                {
             "fqsen": "\\chillerlan\\OAuthTest\\Providers\\ProviderUnitTestAbstract\u003A\u003AsetReflectionProperty\u0028\u0029",
             "name": "setReflectionProperty",
             "summary": "",
@@ -5400,6 +5450,11 @@ Search.appendIndex(
             "name": "CACERT",
             "summary": "",
             "url": "classes/chillerlan-OAuthTest-Providers-ProviderUnitTestAbstract.html#constant_CACERT"
+        },                {
+            "fqsen": "\\chillerlan\\OAuthTest\\Providers\\ProviderUnitTestAbstract\u003A\u003A\u0024providerFactory",
+            "name": "providerFactory",
+            "summary": "",
+            "url": "classes/chillerlan-OAuthTest-Providers-ProviderUnitTestAbstract.html#property_providerFactory"
         },                {
             "fqsen": "\\chillerlan\\OAuthTest\\Providers\\ProviderUnitTestAbstract\u003A\u003A\u0024logger",
             "name": "logger",

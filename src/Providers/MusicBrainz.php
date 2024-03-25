@@ -14,7 +14,9 @@ declare(strict_types=1);
 namespace chillerlan\OAuth\Providers;
 
 use chillerlan\HTTP\Utils\MessageUtil;
-use chillerlan\OAuth\Core\{AuthenticatedUser, CSRFToken, InvalidAccessTokenException, OAuth2Provider, TokenRefresh};
+use chillerlan\OAuth\Core\{
+	AccessToken, AuthenticatedUser, CSRFToken, InvalidAccessTokenException, OAuth2Provider, TokenInvalidate, TokenRefresh
+};
 use Psr\Http\Message\{ResponseInterface, StreamInterface};
 use function explode, in_array, sprintf, strtoupper;
 
@@ -24,7 +26,7 @@ use function explode, in_array, sprintf, strtoupper;
  * @see https://musicbrainz.org/doc/Development
  * @see https://musicbrainz.org/doc/Development/OAuth2
  */
-class MusicBrainz extends OAuth2Provider implements CSRFToken, TokenRefresh{
+class MusicBrainz extends OAuth2Provider implements CSRFToken, TokenInvalidate, TokenRefresh{
 
 	public const SCOPE_PROFILE        = 'profile';
 	public const SCOPE_EMAIL          = 'email';
@@ -44,6 +46,7 @@ class MusicBrainz extends OAuth2Provider implements CSRFToken, TokenRefresh{
 
 	protected string      $authURL        = 'https://musicbrainz.org/oauth2/authorize';
 	protected string      $accessTokenURL = 'https://musicbrainz.org/oauth2/token';
+	protected string      $revokeURL      = 'https://musicbrainz.org/oauth2/revoke ';
 	protected string      $apiURL         = 'https://musicbrainz.org/ws/2';
 	protected string|null $userRevokeURL  = 'https://musicbrainz.org/account/applications';
 	protected string|null $apiDocs        = 'https://musicbrainz.org/doc/Development';
@@ -113,6 +116,37 @@ class MusicBrainz extends OAuth2Provider implements CSRFToken, TokenRefresh{
 		}
 
 		throw new ProviderException(sprintf('user info error HTTP/%s', $status));
+	}
+
+	/**
+	 * @inheritDoc
+	 */
+	public function invalidateAccessToken(AccessToken|null $token = null):bool{
+
+		if($token === null && !$this->storage->hasAccessToken($this->serviceName)){
+			throw new ProviderException('no token given');
+		}
+
+		$token ??= $this->storage->getAccessToken($this->serviceName);
+
+		$response = $this->request(
+			path   : $this->revokeURL,
+			method : 'POST',
+			body   : [
+				'client_id'     => $this->options->key,
+				'client_secret' => $this->options->secret,
+				'token'         => $token->accessToken,
+			],
+			headers: ['Content-Type' => 'application/x-www-form-urlencoded']
+		);
+
+		if($response->getStatusCode() === 200){
+			$this->storage->clearAccessToken($this->serviceName);
+
+			return true;
+		}
+
+		return false;
 	}
 
 }

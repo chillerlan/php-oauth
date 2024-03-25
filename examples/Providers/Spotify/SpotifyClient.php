@@ -73,7 +73,7 @@ class SpotifyClient extends Spotify{
 	 * fetch the currently authenticated user
 	 */
 	protected function getMe():void{
-		$me = $this->me();
+		$me = $this->request('/v1/me');
 
 		if($me->getStatusCode() !== 200){
 			throw new RuntimeException('could not fetch data from /me endpoint');

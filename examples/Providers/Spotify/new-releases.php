@@ -14,9 +14,9 @@
 declare(strict_types=1);
 
 /**
- * @var \OAuthExampleProviderFactory        $factory
- * @var \chillerlan\OAuth\Providers\Spotify $spotify
- * @var string                              $ENVVAR
+ * @var \OAuthExampleProviderFactory $factory
+ * @var \SpotifyNewReleases          $spotify
+ * @var string                       $ENVVAR
  */
 
 require_once __DIR__.'/spotify-common.php';

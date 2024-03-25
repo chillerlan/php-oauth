@@ -6,6 +6,7 @@
  * @copyright    2019 smiley
  * @license      MIT
  */
+declare(strict_types=1);
 
 use chillerlan\OAuth\Providers\LastFM;
 

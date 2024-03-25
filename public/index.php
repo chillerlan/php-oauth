@@ -7,6 +7,7 @@
  * @copyright    2024 smiley
  * @license      MIT
  */
+declare(strict_types=1);
 
 // use this with caution only in case something goes terribly wrong
 #error_reporting(E_ALL&~E_DEPRECATED);

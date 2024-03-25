@@ -8,6 +8,7 @@
  * @copyright    2017 Smiley
  * @license      MIT
  */
+declare(strict_types=1);
 
 use chillerlan\OAuth\Providers\Twitter;
 

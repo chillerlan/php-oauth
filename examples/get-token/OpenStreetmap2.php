@@ -7,6 +7,7 @@
  * @copyright    2024 Smiley
  * @license      MIT
  */
+declare(strict_types=1);
 
 use chillerlan\OAuth\Providers\OpenStreetmap2;
 

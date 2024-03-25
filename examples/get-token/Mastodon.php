@@ -7,6 +7,7 @@
  * @copyright    2018 smiley
  * @license      MIT
  */
+declare(strict_types=1);
 
 use chillerlan\OAuth\Providers\Mastodon;
 

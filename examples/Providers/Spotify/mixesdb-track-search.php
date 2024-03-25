@@ -10,6 +10,7 @@
  * @copyright    2023 smiley
  * @license      MIT
  */
+declare(strict_types=1);
 
 /**
  * @var \OAuthExampleProviderFactory        $factory

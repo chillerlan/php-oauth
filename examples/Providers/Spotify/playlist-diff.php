@@ -7,6 +7,7 @@
  * @copyright    2023 smiley
  * @license      MIT
  */
+declare(strict_types=1);
 
 require_once __DIR__.'/spotify-common.php';
 

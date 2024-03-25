@@ -1,11 +1,11 @@
 <?php
 /**
- *
  * @created      27.07.2019
  * @author       smiley <smiley@chillerlan.net>
  * @copyright    2019 smiley
  * @license      MIT
  */
+declare(strict_types=1);
 
 use chillerlan\OAuth\Core\{ClientCredentials, OAuth1Interface, OAuth2Interface, OAuthInterface};
 

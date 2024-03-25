@@ -7,6 +7,7 @@
  * @copyright    2017 Smiley
  * @license      MIT
  */
+declare(strict_types=1);
 
 use chillerlan\HTTP\Utils\MessageUtil;
 use chillerlan\OAuth\Providers\MusicBrainz;

@@ -7,6 +7,7 @@
  * @copyright    2024 smiley
  * @license      MIT
  */
+declare(strict_types=1);
 
 namespace chillerlan\OAuthTest\Providers;
 
@@ -56,7 +57,7 @@ abstract class ProviderLiveTestAbstract extends ProviderUnitTestAbstract{
 	/**
 	 * returns the prefix in the .env file for the current provider
 	 */
-	abstract protected function getEnvPrefix():string|null;
+	abstract protected function getEnvPrefix():string;
 
 	protected function initEnvConfig():void{
 

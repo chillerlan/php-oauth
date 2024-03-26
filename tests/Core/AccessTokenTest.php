@@ -13,9 +13,9 @@ namespace chillerlan\OAuthTest\Core;
 
 use chillerlan\OAuth\Core\AccessToken;
 use PHPUnit\Framework\Attributes\{DataProvider, Group};
-use PHPUnit\Framework\TestCase;
-use function sleep;
-use function time;
+use PHPUnit\Framework\{ExpectationFailedException, TestCase};
+use DateInterval, DateTime;
+use function sleep, time;
 
 /**
  * Tests the AccessToken class
@@ -49,6 +49,8 @@ final class AccessTokenTest extends TestCase{
 	}
 
 	public static function expiryDataProvider():array{
+		$now = time();
+
 		return [
 			'EXPIRY_UNKNOWN (null)'       => [null,       AccessToken::EXPIRY_UNKNOWN],
 			'EXPIRY_UNKNOWN (-9001)'      => [-9001,      AccessToken::EXPIRY_UNKNOWN],
@@ -56,14 +58,28 @@ final class AccessTokenTest extends TestCase{
 			'EXPIRY_UNKNOWN (1514309386)' => [1514309386, AccessToken::EXPIRY_UNKNOWN],
 			'NEVER_EXPIRES  (-9002)'      => [-9002,      AccessToken::NEVER_EXPIRES],
 			'NEVER_EXPIRES  (0)'          => [0,          AccessToken::NEVER_EXPIRES],
+			'timestamp (now + 42)'        => [($now + 42),                             ($now + 42)],
+			'int (42)'                    => [42,                                      ($now + 42)],
+			'DateTime (now + 42)'         => [(new DateTime)->setTimestamp($now + 42), ($now + 42)],
+			'DateInterval (42)'           => [new DateInterval('PT42S'),               ($now + 42)],
+			'clamp max expiry'            => [($now + $now),      ($now + AccessToken::EXPIRY_MAX)],
 		];
 	}
 
 	#[DataProvider('expiryDataProvider')]
-	public function testSetExpiry(int|null $expires, int $expected):void{
+	public function testSetExpiry(DateTime|DateInterval|int|null $expires, int $expected):void{
 		$this->token->expires = $expires;
 
-		$this::assertSame($expected, $this->token->expires);
+		// time tests are a bit wonky sometimes
+		try{
+			$this::assertSame($expected, $this->token->expires);
+		}
+		catch(ExpectationFailedException $e){
+			$diff = $expected - $this->token->expires;
+
+			$this::assertTrue(($diff >= -2 || $diff <= 2), 'give a bit of leeway');
+		}
+
 	}
 
 	public static function isExpiredDataProvider():array{

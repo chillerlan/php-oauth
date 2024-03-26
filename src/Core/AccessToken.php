@@ -12,6 +12,7 @@ declare(strict_types=1);
 namespace chillerlan\OAuth\Core;
 
 use chillerlan\Settings\SettingsContainerAbstract;
+use DateInterval, DateTime;
 use function time;
 
 /**
@@ -67,7 +68,6 @@ final class AccessToken extends SettingsContainerAbstract{
 
 	/**
 	 * The token expiration date/time
-	 * @todo: change to DateInterval?
 	 */
 	protected int $expires = self::EXPIRY_UNKNOWN;
 
@@ -89,22 +89,30 @@ final class AccessToken extends SettingsContainerAbstract{
 	/**
 	 * Expiry setter
 	 */
-	protected function set_expires(int|null $expires = null):void{
+	protected function set_expires(DateTime|DateInterval|int|null $expires = null):void{
 		$this->setExpiry($expires);
 	}
 
 	/**
-	 * Sets the expiration for this token
+	 * Sets the expiration for this token, clamps the expiry to EXPIRY_MAX
 	 */
-	public function setExpiry(int|null $expires = null):AccessToken{
+	public function setExpiry(DateTime|DateInterval|int|null $expires = null):AccessToken{
 		$now = time();
+		$max = ($now + $this::EXPIRY_MAX);
 
 		$this->expires = match(true){
+			$expires instanceof DateTime                        => $expires->getTimeStamp(),
+			$expires instanceof DateInterval                    => (new DateTime)->add($expires)->getTimeStamp(),
 			$expires === 0 || $expires === $this::NEVER_EXPIRES => $this::NEVER_EXPIRES,
 			$expires > $now                                     => $expires,
 			$expires > 0 && $expires <= $this::EXPIRY_MAX       => ($now + $expires),
 			default                                             => $this::EXPIRY_UNKNOWN,
 		};
+
+		// clamp max expiry
+		if($this->expires > $max){
+			$this->expires = $max;
+		}
 
 		return $this;
 	}

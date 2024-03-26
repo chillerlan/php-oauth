@@ -87,7 +87,7 @@ abstract class OAuthProvider implements OAuthInterface{
 	/**
 	 * OAuthProvider constructor.
 	 */
-	public function __construct(
+	final public function __construct(
 		protected OAuthOptions|SettingsContainerInterface $options,
 		protected ClientInterface                         $http,
 		protected RequestFactoryInterface                 $requestFactory,

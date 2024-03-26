@@ -166,15 +166,20 @@ class Twitch extends OAuth2Provider implements ClientCredentials, CSRFToken, Tok
 
 		$token ??= $this->storage->getAccessToken($this->serviceName);
 
-		$response = $this->request(
-			path   : $this->revokeURL,
-			method : 'POST',
-			body   : [
-				'client_id' => $this->options->key,
-				'token'     => $token->accessToken,
-			],
-			headers: ['Content-Type' => 'application/x-www-form-urlencoded']
-		);
+		$request = $this->requestFactory
+			->createRequest('POST', $this->revokeURL)
+			->withHeader('Content-Type', 'application/x-www-form-urlencoded')
+		;
+
+		$bodyParams = [
+			'client_id' => $this->options->key,
+			'token'     => $token->accessToken,
+		];
+
+		$body = $this->getRequestBody($bodyParams, $request);
+
+		// bypass the request authoritation
+		$response = $this->http->sendRequest($request->withBody($body));
 
 		if($response->getStatusCode() === 200){
 			$this->storage->clearAccessToken($this->serviceName);

@@ -36,7 +36,7 @@ abstract class OAuth2ProviderLiveTestAbstract extends OAuthProviderLiveTestAbstr
 		$this::assertInstanceOf(AccessToken::class, $token);
 		$this::assertIsString($token->accessToken);
 
-		if($token->expires !== AccessToken::EOL_NEVER_EXPIRES){
+		if($token->expires !== AccessToken::NEVER_EXPIRES){
 			$this::assertGreaterThan(time(), $token->expires);
 		}
 

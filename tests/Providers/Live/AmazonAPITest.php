@@ -37,7 +37,7 @@ final class AmazonAPITest extends OAuth2ProviderLiveTestAbstract{
 	public function testUnauthorizedAccessException():void{
 		$token                    = $this->storage->getAccessToken($this->provider->serviceName);
 		// avoid refresh
-		$token->expires           = AccessToken::EOL_NEVER_EXPIRES;
+		$token->expires           = AccessToken::NEVER_EXPIRES;
 		$token->refreshToken      = null;
 		// invalidate token
 		$token->accessToken       = 'Atza|nope'; // amazon tokens are prefixed

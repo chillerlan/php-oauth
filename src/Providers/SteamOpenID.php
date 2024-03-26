@@ -105,7 +105,7 @@ class SteamOpenID extends OAuthProvider{
 		$token = $this->createAccessToken();
 
 		$token->accessToken = 'SteamID';
-		$token->expires     = AccessToken::EOL_NEVER_EXPIRES;
+		$token->expires     = AccessToken::NEVER_EXPIRES;
 
 		return $token;
 	}

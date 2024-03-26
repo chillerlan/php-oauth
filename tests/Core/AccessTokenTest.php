@@ -50,12 +50,12 @@ final class AccessTokenTest extends TestCase{
 
 	public static function expiryDataProvider():array{
 		return [
-			'EOL_UNKNOWN (null)'        => [null,       AccessToken::EOL_UNKNOWN],
-			'EOL_UNKNOWN (-9001)'       => [-9001,      AccessToken::EOL_UNKNOWN],
-			'EOL_UNKNOWN (-1)'          => [-1,         AccessToken::EOL_UNKNOWN],
-			'EOL_UNKNOWN (1514309386)'  => [1514309386, AccessToken::EOL_UNKNOWN],
-			'EOL_NEVER_EXPIRES (-9002)' => [-9002,      AccessToken::EOL_NEVER_EXPIRES],
-			'EOL_NEVER_EXPIRES (0)'     => [0,          AccessToken::EOL_NEVER_EXPIRES],
+			'EXPIRY_UNKNOWN (null)'       => [null,       AccessToken::EXPIRY_UNKNOWN],
+			'EXPIRY_UNKNOWN (-9001)'      => [-9001,      AccessToken::EXPIRY_UNKNOWN],
+			'EXPIRY_UNKNOWN (-1)'         => [-1,         AccessToken::EXPIRY_UNKNOWN],
+			'EXPIRY_UNKNOWN (1514309386)' => [1514309386, AccessToken::EXPIRY_UNKNOWN],
+			'NEVER_EXPIRES  (-9002)'      => [-9002,      AccessToken::NEVER_EXPIRES],
+			'NEVER_EXPIRES  (0)'          => [0,          AccessToken::NEVER_EXPIRES],
 		];
 	}
 
@@ -68,9 +68,9 @@ final class AccessTokenTest extends TestCase{
 
 	public static function isExpiredDataProvider():array{
 		return [
-			'0 (f)'                 => [0,                              false],
-			'EOL_NEVER_EXPIRES (f)' => [AccessToken::EOL_NEVER_EXPIRES, false],
-			'EOL_UNKNOWN (t)'       => [AccessToken::EOL_UNKNOWN,       true],
+			'0 (f)'              => [0,                           false],
+			'NEVER_EXPIRES (f)'  => [AccessToken::NEVER_EXPIRES,  false],
+			'EXPIRY_UNKNOWN (t)' => [AccessToken::EXPIRY_UNKNOWN, true],
 		];
 	}
 

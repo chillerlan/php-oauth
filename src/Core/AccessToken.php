@@ -38,12 +38,12 @@ final class AccessToken extends SettingsContainerAbstract{
 	/**
 	 * Denotes an unknown end of lifetime, such a token should be considered as expired.
 	 */
-	public const EOL_UNKNOWN = -9001;
+	public const EXPIRY_UNKNOWN = -9001;
 
 	/**
 	 * Denotes a token which never expires
 	 */
-	public const EOL_NEVER_EXPIRES = -9002;
+	public const NEVER_EXPIRES = -9002;
 
 	/**
 	 * Defines a maximum expiry period (1 year)
@@ -69,7 +69,7 @@ final class AccessToken extends SettingsContainerAbstract{
 	 * The token expiration date/time
 	 * @todo: change to DateInterval?
 	 */
-	protected int $expires = self::EOL_UNKNOWN;
+	protected int $expires = self::EXPIRY_UNKNOWN;
 
 	/**
 	 * Additional token parameters supplied by the provider
@@ -100,10 +100,10 @@ final class AccessToken extends SettingsContainerAbstract{
 		$now = time();
 
 		$this->expires = match(true){
-			$expires === 0 || $expires === $this::EOL_NEVER_EXPIRES => $this::EOL_NEVER_EXPIRES,
-			$expires > $now                                         => $expires,
-			$expires > 0 && $expires <= $this::EXPIRY_MAX           => ($now + $expires),
-			default                                                 => $this::EOL_UNKNOWN,
+			$expires === 0 || $expires === $this::NEVER_EXPIRES => $this::NEVER_EXPIRES,
+			$expires > $now                                     => $expires,
+			$expires > 0 && $expires <= $this::EXPIRY_MAX       => ($now + $expires),
+			default                                             => $this::EXPIRY_UNKNOWN,
 		};
 
 		return $this;
@@ -114,11 +114,11 @@ final class AccessToken extends SettingsContainerAbstract{
 	 */
 	public function isExpired():bool{
 
-		if($this->expires === $this::EOL_NEVER_EXPIRES){
+		if($this->expires === $this::NEVER_EXPIRES){
 			return false;
 		}
 
-		if($this->expires === $this::EOL_UNKNOWN){
+		if($this->expires === $this::EXPIRY_UNKNOWN){
 			return true;
 		}
 

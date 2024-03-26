@@ -68,7 +68,7 @@ class GuildWars2 extends OAuth2Provider{
 			$token                    = $this->createAccessToken();
 			$token->accessToken       = $access_token;
 			$token->accessTokenSecret = substr($access_token, 36, 36); // the actual token
-			$token->expires           = AccessToken::EOL_NEVER_EXPIRES;
+			$token->expires           = AccessToken::NEVER_EXPIRES;
 			$token->extraParams       = [
 				'token_type' => 'Bearer',
 				'id'         => $tokeninfo->id,

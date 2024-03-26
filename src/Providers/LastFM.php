@@ -128,7 +128,7 @@ class LastFM extends OAuthProvider{
 		$token = $this->createAccessToken();
 
 		$token->accessToken  = $data['session']['key'];
-		$token->expires      = AccessToken::EOL_NEVER_EXPIRES;
+		$token->expires      = AccessToken::NEVER_EXPIRES;
 
 		unset($data['session']['key']);
 

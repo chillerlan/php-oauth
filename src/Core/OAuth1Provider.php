@@ -116,7 +116,7 @@ abstract class OAuth1Provider extends OAuthProvider implements OAuth1Interface{
 		$token                    = $this->createAccessToken();
 		$token->accessToken       = $data['oauth_token'];
 		$token->accessTokenSecret = $data['oauth_token_secret'];
-		$token->expires           = AccessToken::EOL_NEVER_EXPIRES;
+		$token->expires           = AccessToken::NEVER_EXPIRES;
 
 		unset($data['oauth_token'], $data['oauth_token_secret']);
 

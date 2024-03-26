@@ -405,8 +405,8 @@ abstract class OAuthProvider implements OAuthInterface{
 	 * @inheritDoc
 	 * @codeCoverageIgnore
 	 */
-	public function me():AuthenticatedUser{
-		throw new ProviderException('not implemented');
+	public function me():AuthenticatedUser|null{
+		return null;
 	}
 
 	/**

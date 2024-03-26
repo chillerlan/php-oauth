@@ -11,8 +11,9 @@ declare(strict_types=1);
 
 namespace chillerlan\OAuthTest\Providers\Live;
 
-use chillerlan\OAuth\Core\{AccessToken, AuthenticatedUser};
+use chillerlan\OAuth\Core\{AccessToken, AuthenticatedUser, UnauthorizedAccessException};
 use chillerlan\OAuth\Providers\Amazon;
+use chillerlan\OAuth\Storage\MemoryStorage;
 use PHPUnit\Framework\Attributes\Group;
 
 /**
@@ -33,7 +34,7 @@ final class AmazonAPITest extends OAuth2ProviderLiveTestAbstract{
 		$this::assertMatchesRegularExpression('/[a-z\d.]+/i', $user->id);
 	}
 
-	public function testMeErrorException():void{
+	public function testUnauthorizedAccessException():void{
 		$token                    = $this->storage->getAccessToken($this->provider->serviceName);
 		// avoid refresh
 		$token->expires           = AccessToken::EOL_NEVER_EXPIRES;
@@ -41,7 +42,14 @@ final class AmazonAPITest extends OAuth2ProviderLiveTestAbstract{
 		// invalidate token
 		$token->accessToken       = 'Atza|nope'; // amazon tokens are prefixed
 
-		$this->assertMeErrorException($token);
+		// using a temp storage here so that the local tokens won't be overwritten
+		$tempStorage = (new MemoryStorage)->storeAccessToken($token, $this->provider->serviceName);
+
+		$this->provider->setStorage($tempStorage);
+
+		$this->expectException(UnauthorizedAccessException::class);
+
+		$this->provider->me();
 	}
 
 }

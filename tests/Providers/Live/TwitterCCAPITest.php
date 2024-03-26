@@ -28,12 +28,8 @@ final class TwitterCCAPITest extends OAuth2ProviderLiveTestAbstract{
 		return 'TWITTER';
 	}
 
-	public function testMe():void{
-		$this::markTestSkipped('user endpoint N/A');
-	}
-
-	public function testMeErrorException():void{
-		$this::markTestSkipped('not implemented');
+	public function testUnauthorizedAccessException():void{
+		$this::markTestSkipped('N/A');
 	}
 
 }

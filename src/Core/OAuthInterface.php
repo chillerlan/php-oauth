@@ -122,8 +122,8 @@ interface OAuthInterface extends ClientInterface{
 
 	/**
 	 * Returns information about the currently authenticated user (usually a /me or /user endpoint).
-	 * Throws a ProviderException if no such information is available or if the method cannot be implemented.
+	 * Returns `null` if no such information is available or if the method cannot be implemented.
 	 */
-	public function me():AuthenticatedUser;
+	public function me():AuthenticatedUser|null;
 
 }

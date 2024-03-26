@@ -38,12 +38,8 @@ final class SteamOpenIDAPITest extends OAuthProviderLiveTestAbstract{
 		$this->id = $token->extraParams['id_int']; // SteamID64
 	}
 
-	public function testMe():void{
-		$this::markTestSkipped('user endpoint N/A');
-	}
-
-	public function testMeErrorException():void{
-		$this::markTestSkipped('user endpoint N/A');
+	public function testUnauthorizedAccessException():void{
+		$this::markTestSkipped('N/A');
 	}
 
 }

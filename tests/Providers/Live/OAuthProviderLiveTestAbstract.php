@@ -41,6 +41,10 @@ abstract class OAuthProviderLiveTestAbstract extends ProviderLiveTestAbstract{
 				$this::markTestSkipped('unauthorized: token is missing or expired');
 			}
 
+			if($user === null){
+				$this::markTestSkipped('AuthenticatedUser N/A');
+			}
+
 			try{
 				$this->assertMeResponse($user);
 			}
@@ -55,16 +59,13 @@ abstract class OAuthProviderLiveTestAbstract extends ProviderLiveTestAbstract{
 			}
 	}
 
-	protected function assertMeErrorException(AccessToken $token):void{
+	protected function assertUnauthorizedAccessException(AccessToken $token):void{
 		$this->expectException(UnauthorizedAccessException::class);
 
-		// using a temp storage here so that the local tokens won't be overwritten
-		$tempStorage = (new MemoryStorage)->storeAccessToken($token, $this->provider->serviceName);
-
-		$this->provider->setStorage($tempStorage)->me();
+		$this->provider->me();
 	}
 
-	public function testMeErrorException():void{
+	public function testUnauthorizedAccessException():void{
 		$token                    = $this->storage->getAccessToken($this->provider->serviceName);
 		// avoid refresh
 		$token->expires           = AccessToken::EOL_NEVER_EXPIRES;
@@ -73,7 +74,12 @@ abstract class OAuthProviderLiveTestAbstract extends ProviderLiveTestAbstract{
 		$token->accessToken       = 'nope';
 		$token->accessTokenSecret = 'what';
 
-		$this->assertMeErrorException($token);
+		// using a temp storage here so that the local tokens won't be overwritten
+		$tempStorage = (new MemoryStorage)->storeAccessToken($token, $this->provider->serviceName);
+
+		$this->provider->setStorage($tempStorage);
+
+		$this->assertUnauthorizedAccessException($token);
 	}
 
 }

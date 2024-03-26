@@ -7,7 +7,9 @@
  */
 declare(strict_types=1);
 
-use chillerlan\OAuth\Core\{ClientCredentials, OAuth1Interface, OAuth2Interface, OAuthInterface};
+use chillerlan\OAuth\Core\{
+	ClientCredentials, OAuth1Interface, OAuth2Interface, OAuthInterface, TokenInvalidate, TokenRefresh
+};
 
 /**
  * @var \Psr\Http\Client\ClientInterface                $http
@@ -21,8 +23,8 @@ const REPLACE_START = '<!-- TABLE-START -->';
 const REPLACE_END   = '<!-- TABLE_END -->';
 
 $table = [
-	'| Provider | App keys | revoke access | OAuth | `ClientCredentials` |',
-	'|----------|----------|---------------|-------|---------------------|',
+	'| Provider | App keys | revoke access | OAuth | `ClientCredentials` | `TokenInvalidate` | `TokenRefresh` |',
+	'|----------|----------|---------------|-------|---------------------|-------------------|----------------|',
 ];
 
 foreach(getProviders(__DIR__.'/../src/Providers') as $p){
@@ -40,6 +42,8 @@ foreach(getProviders(__DIR__.'/../src/Providers') as $p){
 		' | '.((!$provider->userRevokeURL) ? '' : '[link]('.$provider->userRevokeURL.')').
 		' | '.$oauth.
 		' | '.(($provider instanceof ClientCredentials) ? '✓' : '').
+		' | '.(($provider instanceof TokenInvalidate) ? '✓' : '').
+		' | '.(($provider instanceof TokenRefresh) ? '✓' : '').
 	    ' |' ;
 
 	printf("%s\n", $p['fqcn']);

@@ -411,6 +411,11 @@ Search.appendIndex(
             "summary": "Returns\u0020information\u0020about\u0020the\u0020currently\u0020authenticated\u0020user\u0020\u0028usually\u0020a\u0020\/me\u0020or\u0020\/user\u0020endpoint\u0029.",
             "url": "classes/chillerlan-OAuth-Core-OAuthInterface.html#method_me"
         },                {
+            "fqsen": "\\chillerlan\\OAuth\\Core\\OAuthInterface\u003A\u003AUSER_AGENT",
+            "name": "USER_AGENT",
+            "summary": "",
+            "url": "classes/chillerlan-OAuth-Core-OAuthInterface.html#constant_USER_AGENT"
+        },                {
             "fqsen": "\\chillerlan\\OAuth\\Core\\OAuthInterface\u003A\u003AHEADERS_AUTH",
             "name": "HEADERS_AUTH",
             "summary": "additional\u0020headers\u0020to\u0020use\u0020during\u0020authentication",
@@ -2321,6 +2326,16 @@ Search.appendIndex(
             "summary": "",
             "url": "classes/chillerlan-OAuth-Providers-MusicBrainz.html#method_request"
         },                {
+            "fqsen": "\\chillerlan\\OAuth\\Providers\\MusicBrainz\u003A\u003Ame\u0028\u0029",
+            "name": "me",
+            "summary": "",
+            "url": "classes/chillerlan-OAuth-Providers-MusicBrainz.html#method_me"
+        },                {
+            "fqsen": "\\chillerlan\\OAuth\\Providers\\MusicBrainz\u003A\u003AinvalidateAccessToken\u0028\u0029",
+            "name": "invalidateAccessToken",
+            "summary": "Allows\u0020to\u0020invalidate\u0020an\u0020access\u0020token",
+            "url": "classes/chillerlan-OAuth-Providers-MusicBrainz.html#method_invalidateAccessToken"
+        },                {
             "fqsen": "\\chillerlan\\OAuth\\Providers\\MusicBrainz\u003A\u003ASCOPE_PROFILE",
             "name": "SCOPE_PROFILE",
             "summary": "",
@@ -2370,6 +2385,11 @@ Search.appendIndex(
             "name": "accessTokenURL",
             "summary": "",
             "url": "classes/chillerlan-OAuth-Providers-MusicBrainz.html#property_accessTokenURL"
+        },                {
+            "fqsen": "\\chillerlan\\OAuth\\Providers\\MusicBrainz\u003A\u003A\u0024revokeURL",
+            "name": "revokeURL",
+            "summary": "",
+            "url": "classes/chillerlan-OAuth-Providers-MusicBrainz.html#property_revokeURL"
         },                {
             "fqsen": "\\chillerlan\\OAuth\\Providers\\MusicBrainz\u003A\u003A\u0024apiURL",
             "name": "apiURL",
@@ -4501,10 +4521,10 @@ Search.appendIndex(
             "summary": "",
             "url": "classes/chillerlan-OAuthTest-Providers-Live-AmazonAPITest.html#method_assertMeResponse"
         },                {
-            "fqsen": "\\chillerlan\\OAuthTest\\Providers\\Live\\AmazonAPITest\u003A\u003AtestMeErrorException\u0028\u0029",
-            "name": "testMeErrorException",
+            "fqsen": "\\chillerlan\\OAuthTest\\Providers\\Live\\AmazonAPITest\u003A\u003AtestUnauthorizedAccessException\u0028\u0029",
+            "name": "testUnauthorizedAccessException",
             "summary": "",
-            "url": "classes/chillerlan-OAuthTest-Providers-Live-AmazonAPITest.html#method_testMeErrorException"
+            "url": "classes/chillerlan-OAuthTest-Providers-Live-AmazonAPITest.html#method_testUnauthorizedAccessException"
         },                {
             "fqsen": "\\chillerlan\\OAuthTest\\Providers\\Live\\BattleNetAPITest",
             "name": "BattleNetAPITest",
@@ -4866,16 +4886,6 @@ Search.appendIndex(
             "summary": "",
             "url": "classes/chillerlan-OAuthTest-Providers-Live-MusicBrainzAPITest.html#method_getEnvPrefix"
         },                {
-            "fqsen": "\\chillerlan\\OAuthTest\\Providers\\Live\\MusicBrainzAPITest\u003A\u003AtestMe\u0028\u0029",
-            "name": "testMe",
-            "summary": "",
-            "url": "classes/chillerlan-OAuthTest-Providers-Live-MusicBrainzAPITest.html#method_testMe"
-        },                {
-            "fqsen": "\\chillerlan\\OAuthTest\\Providers\\Live\\MusicBrainzAPITest\u003A\u003AtestMeErrorException\u0028\u0029",
-            "name": "testMeErrorException",
-            "summary": "",
-            "url": "classes/chillerlan-OAuthTest-Providers-Live-MusicBrainzAPITest.html#method_testMeErrorException"
-        },                {
             "fqsen": "\\chillerlan\\OAuthTest\\Providers\\Live\\MusicBrainzAPITest\u003A\u003AtestArtistId\u0028\u0029",
             "name": "testArtistId",
             "summary": "",
@@ -4941,15 +4951,15 @@ Search.appendIndex(
             "summary": "",
             "url": "classes/chillerlan-OAuthTest-Providers-Live-OAuthProviderLiveTestAbstract.html#method_testMe"
         },                {
-            "fqsen": "\\chillerlan\\OAuthTest\\Providers\\Live\\OAuthProviderLiveTestAbstract\u003A\u003AassertMeErrorException\u0028\u0029",
-            "name": "assertMeErrorException",
+            "fqsen": "\\chillerlan\\OAuthTest\\Providers\\Live\\OAuthProviderLiveTestAbstract\u003A\u003AassertUnauthorizedAccessException\u0028\u0029",
+            "name": "assertUnauthorizedAccessException",
             "summary": "",
-            "url": "classes/chillerlan-OAuthTest-Providers-Live-OAuthProviderLiveTestAbstract.html#method_assertMeErrorException"
+            "url": "classes/chillerlan-OAuthTest-Providers-Live-OAuthProviderLiveTestAbstract.html#method_assertUnauthorizedAccessException"
         },                {
-            "fqsen": "\\chillerlan\\OAuthTest\\Providers\\Live\\OAuthProviderLiveTestAbstract\u003A\u003AtestMeErrorException\u0028\u0029",
-            "name": "testMeErrorException",
+            "fqsen": "\\chillerlan\\OAuthTest\\Providers\\Live\\OAuthProviderLiveTestAbstract\u003A\u003AtestUnauthorizedAccessException\u0028\u0029",
+            "name": "testUnauthorizedAccessException",
             "summary": "",
-            "url": "classes/chillerlan-OAuthTest-Providers-Live-OAuthProviderLiveTestAbstract.html#method_testMeErrorException"
+            "url": "classes/chillerlan-OAuthTest-Providers-Live-OAuthProviderLiveTestAbstract.html#method_testUnauthorizedAccessException"
         },                {
             "fqsen": "\\chillerlan\\OAuthTest\\Providers\\Live\\OpenCachingAPITest",
             "name": "OpenCachingAPITest",
@@ -5116,15 +5126,10 @@ Search.appendIndex(
             "summary": "",
             "url": "classes/chillerlan-OAuthTest-Providers-Live-SteamOpenIDAPITest.html#method_setUp"
         },                {
-            "fqsen": "\\chillerlan\\OAuthTest\\Providers\\Live\\SteamOpenIDAPITest\u003A\u003AtestMe\u0028\u0029",
-            "name": "testMe",
+            "fqsen": "\\chillerlan\\OAuthTest\\Providers\\Live\\SteamOpenIDAPITest\u003A\u003AtestUnauthorizedAccessException\u0028\u0029",
+            "name": "testUnauthorizedAccessException",
             "summary": "",
-            "url": "classes/chillerlan-OAuthTest-Providers-Live-SteamOpenIDAPITest.html#method_testMe"
-        },                {
-            "fqsen": "\\chillerlan\\OAuthTest\\Providers\\Live\\SteamOpenIDAPITest\u003A\u003AtestMeErrorException\u0028\u0029",
-            "name": "testMeErrorException",
-            "summary": "",
-            "url": "classes/chillerlan-OAuthTest-Providers-Live-SteamOpenIDAPITest.html#method_testMeErrorException"
+            "url": "classes/chillerlan-OAuthTest-Providers-Live-SteamOpenIDAPITest.html#method_testUnauthorizedAccessException"
         },                {
             "fqsen": "\\chillerlan\\OAuthTest\\Providers\\Live\\SteamOpenIDAPITest\u003A\u003A\u0024id",
             "name": "id",
@@ -5241,15 +5246,10 @@ Search.appendIndex(
             "summary": "",
             "url": "classes/chillerlan-OAuthTest-Providers-Live-TwitterCCAPITest.html#method_getEnvPrefix"
         },                {
-            "fqsen": "\\chillerlan\\OAuthTest\\Providers\\Live\\TwitterCCAPITest\u003A\u003AtestMe\u0028\u0029",
-            "name": "testMe",
+            "fqsen": "\\chillerlan\\OAuthTest\\Providers\\Live\\TwitterCCAPITest\u003A\u003AtestUnauthorizedAccessException\u0028\u0029",
+            "name": "testUnauthorizedAccessException",
             "summary": "",
-            "url": "classes/chillerlan-OAuthTest-Providers-Live-TwitterCCAPITest.html#method_testMe"
-        },                {
-            "fqsen": "\\chillerlan\\OAuthTest\\Providers\\Live\\TwitterCCAPITest\u003A\u003AtestMeErrorException\u0028\u0029",
-            "name": "testMeErrorException",
-            "summary": "",
-            "url": "classes/chillerlan-OAuthTest-Providers-Live-TwitterCCAPITest.html#method_testMeErrorException"
+            "url": "classes/chillerlan-OAuthTest-Providers-Live-TwitterCCAPITest.html#method_testUnauthorizedAccessException"
         },                {
             "fqsen": "\\chillerlan\\OAuthTest\\Providers\\Live\\VimeoAPITest",
             "name": "VimeoAPITest",

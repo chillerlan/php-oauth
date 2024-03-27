@@ -78,7 +78,7 @@ class Tumblr extends OAuth1Provider{
 			$token->expires      = $json->expires_in;
 			$token->extraParams  = ['scope' => $json->scope, 'token_type' => $json->token_type];
 
-			$this->storage->storeAccessToken($token, $this->serviceName);
+			$this->storage->storeAccessToken($token, $this->name);
 
 			return $token;
 		}

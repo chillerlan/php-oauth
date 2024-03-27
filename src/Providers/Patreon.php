@@ -58,7 +58,7 @@ class Patreon extends OAuth2Provider implements CSRFToken, TokenRefresh{
 	 * @inheritDoc
 	 */
 	public function me():AuthenticatedUser{
-		$token = $this->storage->getAccessToken($this->serviceName);
+		$token = $this->storage->getAccessToken($this->name);
 
 		if(in_array($this::SCOPE_V2_IDENTITY, $token->scopes)){
 			$endpoint = '/v2/identity';

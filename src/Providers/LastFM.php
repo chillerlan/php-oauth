@@ -134,7 +134,7 @@ class LastFM extends OAuthProvider{
 
 		$token->extraParams = $data;
 
-		$this->storage->storeAccessToken($token, $this->serviceName);
+		$this->storage->storeAccessToken($token, $this->name);
 
 		return $token;
 	}
@@ -163,7 +163,7 @@ class LastFM extends OAuthProvider{
 			'method'  => $path,
 			'format'  => 'json',
 			'api_key' => $this->options->key,
-			'sk'      => $this->storage->getAccessToken($this->serviceName)->accessToken,
+			'sk'      => $this->storage->getAccessToken($this->name)->accessToken,
 		]);
 
 		$params['api_sig'] = $this->getSignature($params);

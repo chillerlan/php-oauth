@@ -76,7 +76,7 @@ class GuildWars2 extends OAuth2Provider{
 				'scope'      => implode($this::SCOPE_DELIMITER, $tokeninfo->permissions),
 			];
 
-			$this->storage->storeAccessToken($token, $this->serviceName);
+			$this->storage->storeAccessToken($token, $this->name);
 
 			return $token;
 		}

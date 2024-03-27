@@ -40,7 +40,7 @@ class MailChimp extends OAuth2Provider implements CSRFToken{
 	 */
 	public function getTokenMetadata(AccessToken|null $token = null):AccessToken{
 
-		$token ??= $this->storage->getAccessToken($this->serviceName);
+		$token ??= $this->storage->getAccessToken($this->name);
 
 		if(!$token instanceof AccessToken){
 			throw new OAuthException('invalid token'); // @codeCoverageIgnore
@@ -59,7 +59,7 @@ class MailChimp extends OAuth2Provider implements CSRFToken{
 
 		$token->extraParams = array_merge($token->extraParams, MessageUtil::decodeJSON($response, true));
 
-		$this->storage->storeAccessToken($token, $this->serviceName);
+		$this->storage->storeAccessToken($token, $this->name);
 
 		return $token;
 	}
@@ -77,7 +77,7 @@ class MailChimp extends OAuth2Provider implements CSRFToken{
 		array|null                        $headers = null,
 		string|null                       $protocolVersion = null,
 	):ResponseInterface{
-		$token = $this->storage->getAccessToken($this->serviceName);
+		$token = $this->storage->getAccessToken($this->name);
 
 		$this->apiURL = sprintf($this::API_BASE, $token->extraParams['dc']);
 

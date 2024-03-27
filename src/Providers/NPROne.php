@@ -90,11 +90,11 @@ class NPROne extends OAuth2Provider implements CSRFToken, TokenRefresh, TokenInv
 	 */
 	public function invalidateAccessToken(AccessToken|null $token = null):bool{
 
-		if($token === null && !$this->storage->hasAccessToken($this->serviceName)){
+		if($token === null && !$this->storage->hasAccessToken($this->name)){
 			throw new ProviderException('no token given');
 		}
 
-		$token ??= $this->storage->getAccessToken($this->serviceName);
+		$token ??= $this->storage->getAccessToken($this->name);
 
 		$request = $this->requestFactory
 			->createRequest('POST', $this->revokeURL)
@@ -112,7 +112,7 @@ class NPROne extends OAuth2Provider implements CSRFToken, TokenRefresh, TokenInv
 		$response = $this->http->sendRequest($request->withBody($body));
 
 		if($response->getStatusCode() === 200){
-			$this->storage->clearAccessToken($this->serviceName);
+			$this->storage->clearAccessToken($this->name);
 
 			return true;
 		}

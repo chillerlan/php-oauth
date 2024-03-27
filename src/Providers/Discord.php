@@ -98,11 +98,11 @@ class Discord extends OAuth2Provider implements ClientCredentials, CSRFToken, To
 	 */
 	public function invalidateAccessToken(AccessToken $token = null):bool{
 
-		if($token === null && !$this->storage->hasAccessToken($this->serviceName)){
+		if($token === null && !$this->storage->hasAccessToken($this->name)){
 			throw new ProviderException('no token given');
 		}
 
-		$token ??= $this->storage->getAccessToken($this->serviceName);
+		$token ??= $this->storage->getAccessToken($this->name);
 
 		$request = $this->requestFactory
 			->createRequest('POST', $this->revokeURL)
@@ -121,7 +121,7 @@ class Discord extends OAuth2Provider implements ClientCredentials, CSRFToken, To
 		$response = $this->http->sendRequest($request->withBody($body));
 
 		if($response->getStatusCode() === 200){
-			$this->storage->clearAccessToken($this->serviceName);
+			$this->storage->clearAccessToken($this->name);
 
 			return true;
 		}

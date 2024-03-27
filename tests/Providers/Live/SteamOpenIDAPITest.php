@@ -33,7 +33,7 @@ final class SteamOpenIDAPITest extends OAuthProviderLiveTestAbstract{
 	protected function setUp():void{
 		parent::setUp();
 
-		$token = $this->storage->getAccessToken($this->provider->serviceName);
+		$token = $this->storage->getAccessToken($this->provider->name);
 
 		$this->id = $token->extraParams['id_int']; // SteamID64
 	}

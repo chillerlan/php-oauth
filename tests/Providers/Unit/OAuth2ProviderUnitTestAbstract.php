@@ -259,8 +259,8 @@ abstract class OAuth2ProviderUnitTestAbstract extends OAuthProviderUnitTestAbstr
 		$params = $this->provider->setState(['foo' => 'bar']);
 
 		$this::assertArrayHasKey('state', $params);
-		$this::assertTrue($this->storage->hasCSRFState($this->provider->serviceName));
-		$this::assertSame($params['state'], $this->storage->getCSRFState($this->provider->serviceName));
+		$this::assertTrue($this->storage->hasCSRFState($this->provider->name));
+		$this::assertSame($params['state'], $this->storage->getCSRFState($this->provider->name));
 	}
 
 	public function testCheckCSRFState():void{
@@ -269,14 +269,14 @@ abstract class OAuth2ProviderUnitTestAbstract extends OAuthProviderUnitTestAbstr
 			$this->markTestSkipped('CSRFToken N/A');
 		}
 
-		$this->storage->storeCSRFState('test_state', $this->provider->serviceName);
+		$this->storage->storeCSRFState('test_state', $this->provider->name);
 
-		$this::assertTrue($this->storage->hasCSRFState($this->provider->serviceName));
+		$this::assertTrue($this->storage->hasCSRFState($this->provider->name));
 
 		// will delete the state after a successful check
 		$this->provider->checkState('test_state');
 
-		$this::assertFalse($this->storage->hasCSRFState($this->provider->serviceName));
+		$this::assertFalse($this->storage->hasCSRFState($this->provider->name));
 	}
 
 	public function testCheckCSRFStateEmptyException():void{
@@ -312,7 +312,7 @@ abstract class OAuth2ProviderUnitTestAbstract extends OAuthProviderUnitTestAbstr
 		$this->expectException(CSRFStateMismatchException::class);
 		$this->expectExceptionMessage('CSRF state mismatch');
 
-		$this->storage->storeCSRFState('known_state', $this->provider->serviceName);
+		$this->storage->storeCSRFState('known_state', $this->provider->name);
 
 		$this->provider->checkState('unknown_state');
 	}

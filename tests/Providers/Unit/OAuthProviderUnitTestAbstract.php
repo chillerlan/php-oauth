@@ -36,7 +36,7 @@ abstract class OAuthProviderUnitTestAbstract extends ProviderUnitTestAbstract{
 	}
 
 	public function testMagicGet():void{
-		$this::assertSame($this->reflection->getShortName(), $this->provider->serviceName);
+		$this::assertSame($this->reflection->getShortName(), $this->provider->name);
 		/** @noinspection PhpUndefinedFieldInspection */
 		$this::assertNull($this->provider->foo);
 	}
@@ -145,11 +145,11 @@ abstract class OAuthProviderUnitTestAbstract extends ProviderUnitTestAbstract{
 			$this::markTestSkipped('TokenInvalidate N/A');
 		}
 
-		$this->storage->storeAccessToken(new AccessToken(['expires' => 42]), $this->provider->serviceName);
+		$this->storage->storeAccessToken(new AccessToken(['expires' => 42]), $this->provider->name);
 
-		$this::assertTrue($this->storage->hasAccessToken($this->provider->serviceName));
+		$this::assertTrue($this->storage->hasAccessToken($this->provider->name));
 		$this::assertTrue($this->provider->invalidateAccessToken());
-		$this::assertFalse($this->storage->hasAccessToken($this->provider->serviceName));
+		$this::assertFalse($this->storage->hasAccessToken($this->provider->name));
 	}
 
 }

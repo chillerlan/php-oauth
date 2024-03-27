@@ -66,7 +66,7 @@ abstract class OAuthProviderLiveTestAbstract extends ProviderLiveTestAbstract{
 	}
 
 	public function testUnauthorizedAccessException():void{
-		$token                    = $this->storage->getAccessToken($this->provider->serviceName);
+		$token                    = $this->storage->getAccessToken($this->provider->name);
 		// avoid refresh
 		$token->expires           = AccessToken::NEVER_EXPIRES;
 		$token->refreshToken      = null;
@@ -75,7 +75,7 @@ abstract class OAuthProviderLiveTestAbstract extends ProviderLiveTestAbstract{
 		$token->accessTokenSecret = 'what';
 
 		// using a temp storage here so that the local tokens won't be overwritten
-		$tempStorage = (new MemoryStorage)->storeAccessToken($token, $this->provider->serviceName);
+		$tempStorage = (new MemoryStorage)->storeAccessToken($token, $this->provider->name);
 
 		$this->provider->setStorage($tempStorage);
 

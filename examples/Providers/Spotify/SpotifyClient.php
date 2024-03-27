@@ -26,8 +26,8 @@ class SpotifyClient extends Spotify{
 	protected array  $albums = [];
 
 	protected function construct():void{
-		// set the servicename to the original provider's name so that we use the same tokens
-		$this->serviceName = 'Spotify';
+		// set the name to the original provider's name so that we use the same tokens
+		$this->name = 'Spotify';
 		$this->getMe();
 	}
 

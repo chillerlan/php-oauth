@@ -122,7 +122,7 @@ abstract class OAuth1Provider extends OAuthProvider implements OAuth1Interface{
 
 		$token->extraParams       = $data;
 
-		$this->storage->storeAccessToken($token, $this->serviceName);
+		$this->storage->storeAccessToken($token, $this->name);
 
 		return $token;
 	}
@@ -170,7 +170,7 @@ abstract class OAuth1Provider extends OAuthProvider implements OAuth1Interface{
 	 * @throws \chillerlan\OAuth\Providers\ProviderException
 	 */
 	public function getAccessToken(string $requestToken, string $verifier):AccessToken{
-		$token = $this->storage->getAccessToken($this->serviceName);
+		$token = $this->storage->getAccessToken($this->name);
 
 		if($requestToken !== $token->accessToken){
 			throw new ProviderException('request token mismatch');
@@ -203,7 +203,7 @@ abstract class OAuth1Provider extends OAuthProvider implements OAuth1Interface{
 	public function getRequestAuthorization(RequestInterface $request, AccessToken|null $token = null):RequestInterface{
 
 		if($token === null){
-			$token = $this->storage->getAccessToken($this->serviceName);
+			$token = $this->storage->getAccessToken($this->name);
 		}
 
 		$uri   = $request->getUri();

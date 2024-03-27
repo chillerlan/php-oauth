@@ -80,7 +80,7 @@ class Mastodon extends OAuth2Provider implements CSRFToken, TokenRefresh{
 		// store the instance the token belongs to
 		$token->extraParams = array_merge($token->extraParams, ['instance' => $this->instance]);
 
-		$this->storage->storeAccessToken($token, $this->serviceName);
+		$this->storage->storeAccessToken($token, $this->name);
 
 		return $token;
 	}

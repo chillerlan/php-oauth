@@ -116,7 +116,7 @@ class Twitch extends OAuth2Provider implements ClientCredentials, CSRFToken, Tok
 	public function getRequestAuthorization(RequestInterface $request, AccessToken|null $token = null):RequestInterface{
 
 		if($token === null){
-			$token = $this->storage->getAccessToken($this->serviceName);
+			$token = $this->storage->getAccessToken($this->name);
 		}
 
 		return $request
@@ -160,11 +160,11 @@ class Twitch extends OAuth2Provider implements ClientCredentials, CSRFToken, Tok
 	 */
 	public function invalidateAccessToken(AccessToken|null $token = null):bool{
 
-		if($token === null && !$this->storage->hasAccessToken($this->serviceName)){
+		if($token === null && !$this->storage->hasAccessToken($this->name)){
 			throw new ProviderException('no token given');
 		}
 
-		$token ??= $this->storage->getAccessToken($this->serviceName);
+		$token ??= $this->storage->getAccessToken($this->name);
 
 		$request = $this->requestFactory
 			->createRequest('POST', $this->revokeURL)
@@ -182,7 +182,7 @@ class Twitch extends OAuth2Provider implements ClientCredentials, CSRFToken, Tok
 		$response = $this->http->sendRequest($request->withBody($body));
 
 		if($response->getStatusCode() === 200){
-			$this->storage->clearAccessToken($this->serviceName);
+			$this->storage->clearAccessToken($this->name);
 
 			return true;
 		}

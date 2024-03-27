@@ -14,7 +14,7 @@ declare(strict_types=1);
  * @var array|null $PARAMS
  */
 
-$name = $provider->serviceName;
+$name = $provider->name;
 
 // step 2: redirect to the provider's login screen
 if(isset($_GET['login']) && $_GET['login'] === $name){

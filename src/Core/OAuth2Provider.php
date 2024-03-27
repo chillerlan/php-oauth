@@ -165,7 +165,7 @@ abstract class OAuth2Provider extends OAuthProvider implements OAuth2Interface{
 		$response = $this->sendAccessTokenRequest($this->accessTokenURL, $body);
 		$token    = $this->parseTokenResponse($response);
 
-		$this->storage->storeAccessToken($token, $this->serviceName);
+		$this->storage->storeAccessToken($token, $this->name);
 
 		return $token;
 	}
@@ -208,7 +208,7 @@ abstract class OAuth2Provider extends OAuthProvider implements OAuth2Interface{
 	public function getRequestAuthorization(RequestInterface $request, AccessToken|null $token = null):RequestInterface{
 
 		if($token === null){
-			$token = $this->storage->getAccessToken($this->serviceName);
+			$token = $this->storage->getAccessToken($this->name);
 		}
 
 		if($this::AUTH_METHOD === OAuth2Interface::AUTH_METHOD_HEADER){
@@ -245,7 +245,7 @@ abstract class OAuth2Provider extends OAuthProvider implements OAuth2Interface{
 			$token->scopes = ($scopes ?? []);
 		}
 
-		$this->storage->storeAccessToken($token, $this->serviceName);
+		$this->storage->storeAccessToken($token, $this->name);
 
 		return $token;
 	}
@@ -297,7 +297,7 @@ abstract class OAuth2Provider extends OAuthProvider implements OAuth2Interface{
 		}
 
 		if($token === null){
-			$token = $this->storage->getAccessToken($this->serviceName);
+			$token = $this->storage->getAccessToken($this->name);
 		}
 
 		$refreshToken = $token->refreshToken;
@@ -316,7 +316,7 @@ abstract class OAuth2Provider extends OAuthProvider implements OAuth2Interface{
 			$newToken->refreshToken = $refreshToken;
 		}
 
-		$this->storage->storeAccessToken($newToken, $this->serviceName);
+		$this->storage->storeAccessToken($newToken, $this->name);
 
 		return $newToken;
 	}
@@ -345,16 +345,16 @@ abstract class OAuth2Provider extends OAuthProvider implements OAuth2Interface{
 			throw new ProviderException('CSRF protection not supported');
 		}
 
-		if(empty($state) || !$this->storage->hasCSRFState($this->serviceName)){
-			throw new ProviderException(sprintf('invalid CSRF state for provider "%s"', $this->serviceName));
+		if(empty($state) || !$this->storage->hasCSRFState($this->name)){
+			throw new ProviderException(sprintf('invalid CSRF state for provider "%s"', $this->name));
 		}
 
-		$knownState = $this->storage->getCSRFState($this->serviceName);
+		$knownState = $this->storage->getCSRFState($this->name);
 		// delete the used token
-		$this->storage->clearCSRFState($this->serviceName);
+		$this->storage->clearCSRFState($this->name);
 
 		if(!hash_equals($knownState, $state)){
-			throw new CSRFStateMismatchException(sprintf('CSRF state mismatch for provider "%s": %s', $this->serviceName, $state));
+			throw new CSRFStateMismatchException(sprintf('CSRF state mismatch for provider "%s": %s', $this->name, $state));
 		}
 
 	}
@@ -375,7 +375,7 @@ abstract class OAuth2Provider extends OAuthProvider implements OAuth2Interface{
 			$params['state'] = $this->nonce();
 		}
 
-		$this->storage->storeCSRFState($params['state'], $this->serviceName);
+		$this->storage->storeCSRFState($params['state'], $this->name);
 
 		return $params;
 	}

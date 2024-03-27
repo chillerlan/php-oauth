@@ -22,7 +22,7 @@ use Psr\Http\Message\{
 /**
  * Specifies the basic methods for an OAuth provider.
  *
- * @property string      $serviceName
+ * @property string      $name
  * @property string      $apiURL
  * @property string|null $apiDocs
  * @property string|null $applicationURL

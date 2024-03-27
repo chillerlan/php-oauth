@@ -108,7 +108,7 @@ class DeviantArt extends OAuth2Provider implements ClientCredentials, CSRFToken,
 		}
 
 		if($response->getStatusCode() === 200 && !empty($json->success)){
-			$this->storage->clearAccessToken($this->serviceName);
+			$this->storage->clearAccessToken($this->name);
 
 			return true;
 		}

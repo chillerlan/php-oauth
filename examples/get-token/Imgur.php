@@ -23,7 +23,7 @@ require_once __DIR__.'/../provider-example-common.php';
 
 $provider = $factory->getProvider(Imgur::class, $ENVVAR);
 $storage  = $provider->getStorage();
-$name     = $provider->serviceName;
+$name     = $provider->name;
 
 // step 2: redirect to the provider's login screen
 if(isset($_GET['login']) && $_GET['login'] === $name){

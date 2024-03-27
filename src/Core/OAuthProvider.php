@@ -56,13 +56,13 @@ abstract class OAuthProvider implements OAuthInterface{
 
 	/** @var string[] */
 	protected const MAGIC_PROPERTIES = [
-		'apiDocs', 'apiURL', 'applicationURL', 'serviceName', 'userRevokeURL',
+		'apiDocs', 'apiURL', 'applicationURL', 'name', 'userRevokeURL',
 	];
 
 	/**
 	 * the name of the provider/class (magic)
 	 */
-	protected string $serviceName;
+	protected string $name;
 
 	/**
 	 * the API base URL (magic)
@@ -96,7 +96,7 @@ abstract class OAuthProvider implements OAuthInterface{
 		protected OAuthStorageInterface                   $storage = new MemoryStorage,
 		protected LoggerInterface                         $logger = new NullLogger,
 	){
-		$this->serviceName = (new ReflectionClass($this))->getShortName();
+		$this->name = (new ReflectionClass($this))->getShortName();
 
 		$this->construct();
 	}
@@ -184,7 +184,7 @@ abstract class OAuthProvider implements OAuthInterface{
 	 * @codeCoverageIgnore
 	 */
 	public function storeAccessToken(AccessToken $token):static{
-		$this->storage->storeAccessToken($token, $this->serviceName);
+		$this->storage->storeAccessToken($token, $this->name);
 
 		return $this;
 	}
@@ -194,16 +194,16 @@ abstract class OAuthProvider implements OAuthInterface{
 	 * @codeCoverageIgnore
 	 */
 	public function getAccessTokenFromStorage():AccessToken{
-		return $this->storage->getAccessToken($this->serviceName);
+		return $this->storage->getAccessToken($this->name);
 	}
 
 	/**
-	 * Creates an access token with the provider set to $this->serviceName
+	 * Creates an access token with the provider set to $this->name
 	 *
 	 * @codeCoverageIgnore
 	 */
 	protected function createAccessToken():AccessToken{
-		return new AccessToken(['provider' => $this->serviceName]);
+		return new AccessToken(['provider' => $this->name]);
 	}
 
 	/**
@@ -384,7 +384,7 @@ abstract class OAuthProvider implements OAuthInterface{
 			return $this->http->sendRequest($request);
 		}
 
-		$token = $this->storage->getAccessToken($this->serviceName);
+		$token = $this->storage->getAccessToken($this->name);
 
 		// attempt to refresh an expired token
 		if($token->isExpired()){

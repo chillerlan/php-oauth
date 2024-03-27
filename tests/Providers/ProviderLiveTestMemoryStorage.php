@@ -46,10 +46,10 @@ final class ProviderLiveTestMemoryStorage extends MemoryStorage{
 	/**
 	 * @inheritDoc
 	 */
-	public function storeAccessToken(AccessToken $token, string $service = null):static{
-		parent::storeAccessToken($token, $service);
+	public function storeAccessToken(AccessToken $token, string $provider = null):static{
+		parent::storeAccessToken($token, $provider);
 
-		$tokenFile = sprintf('%s/%s.token.json', $this->storagePath, $this->getServiceName($service));
+		$tokenFile = sprintf('%s/%s.token.json', $this->storagePath, $this->getProviderName($provider));
 
 		if(file_put_contents($tokenFile, $token->toJSON()) === false){
 			throw new OAuthStorageException('unable to access file storage');
@@ -61,14 +61,14 @@ final class ProviderLiveTestMemoryStorage extends MemoryStorage{
 	/**
 	 * @inheritDoc
 	 */
-	public function getAccessToken(string $service = null):AccessToken{
-		$serviceName = $this->getServiceName($service);
+	public function getAccessToken(string $provider = null):AccessToken{
+		$providerName = $this->getProviderName($provider);
 
-		if($this->hasAccessToken($service)){
-			return $this->tokens[$serviceName];
+		if($this->hasAccessToken($provider)){
+			return $this->tokens[$providerName];
 		}
 
-		$tokenFile = sprintf('%s/%s.token.json', $this->storagePath, $serviceName);
+		$tokenFile = sprintf('%s/%s.token.json', $this->storagePath, $providerName);
 
 		if(file_exists($tokenFile)){
 			return (new AccessToken)->fromJSON(file_get_contents($tokenFile));

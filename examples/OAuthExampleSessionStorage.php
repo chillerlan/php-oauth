@@ -48,11 +48,11 @@ class OAuthExampleSessionStorage extends SessionStorage{
 	/**
 	 * @inheritDoc
 	 */
-	public function storeAccessToken(AccessToken $token, string $service = null):static{
-		parent::storeAccessToken($token, $service);
+	public function storeAccessToken(AccessToken $token, string $provider):static{
+		parent::storeAccessToken($token, $provider);
 
 		if($this->storagepath !== null){
-			$tokenfile = sprintf('%s/%s.token.json', $this->storagepath, $this->getServiceName($service));
+			$tokenfile = sprintf('%s/%s.token.json', $this->storagepath, $this->getProviderName($provider));
 
 			if(file_put_contents($tokenfile, $token->toJSON()) === false){
 				throw new OAuthStorageException('unable to access file storage');
@@ -65,22 +65,22 @@ class OAuthExampleSessionStorage extends SessionStorage{
 	/**
 	 * @inheritDoc
 	 */
-	public function getAccessToken(string $service = null):AccessToken{
-		$service = $this->getServiceName($service);
+	public function getAccessToken(string $provider):AccessToken{
+		$provider = $this->getProviderName($provider);
 
-		if($this->hasAccessToken($service)){
-			return (new AccessToken)->fromJSON($_SESSION[$this->tokenVar][$service]);
+		if($this->hasAccessToken($provider)){
+			return (new AccessToken)->fromJSON($_SESSION[$this->tokenVar][$provider]);
 		}
 
 		if($this->storagepath !== null){
-			$tokenfile = sprintf('%s/%s.token.json', $this->storagepath, $service);
+			$tokenfile = sprintf('%s/%s.token.json', $this->storagepath, $provider);
 
 			if(file_exists($tokenfile)){
 				return (new AccessToken)->fromJSON(file_get_contents($tokenfile));
 			}
 		}
 
-		throw new OAuthStorageException(sprintf('token for service "%s" not found', $service));
+		throw new OAuthStorageException(sprintf('token for provider "%s" not found', $provider));
 	}
 
 }

@@ -51,15 +51,15 @@ abstract class OAuthStorageAbstract implements OAuthStorageInterface{
 	}
 
 	/**
-	 * Gets the current service provider name
+	 * Gets the current provider name
 	 *
 	 * @throws \chillerlan\OAuth\Storage\OAuthStorageException
 	 */
-	protected function getServiceName(string $service):string{
-		$name = trim($service);
+	protected function getProviderName(string $provider):string{
+		$name = trim($provider);
 
 		if(empty($name)){
-			throw new OAuthStorageException('service name must not be empty');
+			throw new OAuthStorageException('provider name must not be empty');
 		}
 
 		return $name;

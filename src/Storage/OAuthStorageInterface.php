@@ -30,30 +30,30 @@ interface OAuthStorageInterface{
 	public function setLogger(LoggerInterface $logger):static;
 
 	/**
-	 * Stores an AccessToken for the given $service
+	 * Stores an AccessToken for the given $provider
 	 *
 	 * @throws \chillerlan\OAuth\Storage\OAuthStorageException
 	 */
-	public function storeAccessToken(AccessToken $token, string $service):static;
+	public function storeAccessToken(AccessToken $token, string $provider):static;
 
 	/**
-	 * Retrieves an AccessToken for the given $service
+	 * Retrieves an AccessToken for the given $provider
 	 *
 	 * @throws \chillerlan\OAuth\Storage\OAuthStorageException
 	 */
-	public function getAccessToken(string $service):AccessToken;
+	public function getAccessToken(string $provider):AccessToken;
 
 	/**
-	 * Checks if a token for $service exists
+	 * Checks if a token for $provider exists
 	 */
-	public function hasAccessToken(string $service):bool;
+	public function hasAccessToken(string $provider):bool;
 
 	/**
-	 * Deletes the access token for a given $service (and current user)
+	 * Deletes the access token for a given $provider (and current user)
 	 *
 	 * @throws \chillerlan\OAuth\Storage\OAuthStorageException
 	 */
-	public function clearAccessToken(string $service):static;
+	public function clearAccessToken(string $provider):static;
 
 	/**
 	 * Deletes all access tokens (for the current user)
@@ -63,30 +63,30 @@ interface OAuthStorageInterface{
 	public function clearAllAccessTokens():static;
 
 	/**
-	 * Stores a CSRF <state> value for the given $service
+	 * Stores a CSRF <state> value for the given $provider
 	 *
 	 * @throws \chillerlan\OAuth\Storage\OAuthStorageException
 	 */
-	public function storeCSRFState(string $state, string $service):static;
+	public function storeCSRFState(string $state, string $provider):static;
 
 	/**
-	 * Retrieves a CSRF <state> value for the given $service
+	 * Retrieves a CSRF <state> value for the given $provider
 	 *
 	 * @throws \chillerlan\OAuth\Storage\OAuthStorageException
 	 */
-	public function getCSRFState(string $service):string;
+	public function getCSRFState(string $provider):string;
 
 	/**
 	 * Checks if a CSRF state for the given provider exists
 	 */
-	public function hasCSRFState(string $service):bool;
+	public function hasCSRFState(string $provider):bool;
 
 	/**
-	 * Deletes a CSRF state for the given $service (and current user)
+	 * Deletes a CSRF state for the given $provider (and current user)
 	 *
 	 * @throws \chillerlan\OAuth\Storage\OAuthStorageException
 	 */
-	public function clearCSRFState(string $service):static;
+	public function clearCSRFState(string $provider):static;
 
 	/**
 	 * Deletes all stored CSRF states (for the current user)

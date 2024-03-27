@@ -12,7 +12,7 @@ declare(strict_types=1);
 namespace chillerlan\OAuth\Core;
 
 /**
- * Indicates whether the service is capable of invalidating access tokens
+ * Indicates whether the provider is capable of invalidating access tokens
  */
 interface TokenInvalidate{
 

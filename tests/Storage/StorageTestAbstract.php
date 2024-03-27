@@ -19,7 +19,7 @@ abstract class StorageTestAbstract extends TestCase{
 
 	protected OAuthStorageInterface $storage;
 	protected AccessToken           $token;
-	protected string                $tsn = 'testService'; // test service name
+	protected string                $tsn = 'testService'; // test provider name
 
 	protected function setUp():void{
 		$this->token   = new AccessToken(['accessToken' => 'foobar']);

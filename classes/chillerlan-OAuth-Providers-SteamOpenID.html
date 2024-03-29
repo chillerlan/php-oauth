@@ -204,7 +204,7 @@
             <dt class="phpdocumentor-table-of-contents__entry -constant -protected">
     <a href="classes/chillerlan-OAuth-Core-OAuthProvider.html#constant_MAGIC_PROPERTIES">MAGIC_PROPERTIES</a>
     <span>
-        &nbsp;= [&#039;apiDocs&#039;, &#039;apiURL&#039;, &#039;applicationURL&#039;, &#039;serviceName&#039;, &#039;userRevokeURL&#039;]                            </span>
+        &nbsp;= [&#039;apiDocs&#039;, &#039;apiURL&#039;, &#039;applicationURL&#039;, &#039;name&#039;, &#039;userRevokeURL&#039;]                            </span>
 </dt>
 
     </dl>
@@ -264,6 +264,13 @@
 </dt>
 
             <dt class="phpdocumentor-table-of-contents__entry -property -protected">
+    <a href="classes/chillerlan-OAuth-Core-OAuthProvider.html#property_name">$name</a>
+    <span>
+                        &nbsp;: string            </span>
+</dt>
+<dd>the name of the provider/class (magic)</dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -property -protected">
     <a href="classes/chillerlan-OAuth-Core-OAuthProvider.html#property_options">$options</a>
     <span>
                         &nbsp;: <a href="classes/chillerlan-OAuth-OAuthOptions.html"><abbr title="\chillerlan\OAuth\OAuthOptions">OAuthOptions</abbr></a>|<abbr title="\chillerlan\Settings\SettingsContainerInterface">SettingsContainerInterface</abbr>            </span>
@@ -281,13 +288,6 @@
                         &nbsp;: string            </span>
 </dt>
 <dd>an optional URL for application side token revocation</dd>
-
-            <dt class="phpdocumentor-table-of-contents__entry -property -protected">
-    <a href="classes/chillerlan-OAuth-Core-OAuthProvider.html#property_serviceName">$serviceName</a>
-    <span>
-                        &nbsp;: string            </span>
-</dt>
-<dd>the name of the provider/class (magic)</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -property -protected">
     <a href="classes/chillerlan-OAuth-Core-OAuthProvider.html#property_storage">$storage</a>
@@ -465,7 +465,7 @@ so that you don&#039;t have to implement the monstrous original `__construct()`<
     <span>
                                 &nbsp;: <a href="classes/chillerlan-OAuth-Core-AccessToken.html"><abbr title="\chillerlan\OAuth\Core\AccessToken">AccessToken</abbr></a>    </span>
 </dt>
-<dd>Creates an access token with the provider set to $this-&gt;serviceName</dd>
+<dd>Creates an access token with the provider set to $this-&gt;name</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -protected">
     <a href="classes/chillerlan-OAuth-Core-OAuthProvider.html#method_getRequestBody">getRequestBody()</a>
@@ -540,7 +540,7 @@ anything except host and path will be ignored, scheme will always be set to &quo
     <span class="phpdocumentor-signature__visibility">protected</span>
         <span class="phpdocumentor-signature__type">array&lt;string|int, string&gt;</span>
     <span class="phpdocumentor-signature__name">MAGIC_PROPERTIES</span>
-    = <span class="phpdocumentor-signature__default-value">[&#039;apiDocs&#039;, &#039;apiURL&#039;, &#039;applicationURL&#039;, &#039;serviceName&#039;, &#039;userRevokeURL&#039;]</span>
+    = <span class="phpdocumentor-signature__default-value">[&#039;apiDocs&#039;, &#039;apiURL&#039;, &#039;applicationURL&#039;, &#039;name&#039;, &#039;userRevokeURL&#039;]</span>
 </code>
 
 
@@ -801,6 +801,40 @@ anything except host and path will be ignored, scheme will always be set to &quo
             -protected
                                                         "
 >
+    <h4 class="phpdocumentor-element__name" id="property_name">
+        $name
+        <a href="classes/chillerlan-OAuth-Core-OAuthProvider.html#property_name" class="headerlink"><i class="fas fa-link"></i></a>
+
+        <span class="phpdocumentor-element__modifiers">
+                                </span>
+    </h4>
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/Core/OAuthProvider.php"><a href="files/src-core-oauthprovider.html"><abbr title="src/Core/OAuthProvider.php">OAuthProvider.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">65</span>
+
+    </aside>
+
+        <p class="phpdocumentor-summary">the name of the provider/class (magic)</p>
+
+    <code class="phpdocumentor-code phpdocumentor-signature ">
+    <span class="phpdocumentor-signature__visibility">protected</span>
+        <span class="phpdocumentor-signature__type">string</span>
+    <span class="phpdocumentor-signature__name">$name</span>
+    </code>
+
+    
+    
+    
+
+</article>
+                    <article
+        class="
+            phpdocumentor-element
+            -property
+            -protected
+                                                        "
+>
     <h4 class="phpdocumentor-element__name" id="property_options">
         $options
         <a href="classes/chillerlan-OAuth-Core-OAuthProvider.html#property_options" class="headerlink"><i class="fas fa-link"></i></a>
@@ -907,40 +941,6 @@ anything except host and path will be ignored, scheme will always be set to &quo
                                              
                                     </dd>
                                             </dl>
-
-</article>
-                    <article
-        class="
-            phpdocumentor-element
-            -property
-            -protected
-                                                        "
->
-    <h4 class="phpdocumentor-element__name" id="property_serviceName">
-        $serviceName
-        <a href="classes/chillerlan-OAuth-Core-OAuthProvider.html#property_serviceName" class="headerlink"><i class="fas fa-link"></i></a>
-
-        <span class="phpdocumentor-element__modifiers">
-                                </span>
-    </h4>
-    <aside class="phpdocumentor-element-found-in">
-    <abbr class="phpdocumentor-element-found-in__file" title="src/Core/OAuthProvider.php"><a href="files/src-core-oauthprovider.html"><abbr title="src/Core/OAuthProvider.php">OAuthProvider.php</abbr></a></abbr>
-    :
-    <span class="phpdocumentor-element-found-in__line">65</span>
-
-    </aside>
-
-        <p class="phpdocumentor-summary">the name of the provider/class (magic)</p>
-
-    <code class="phpdocumentor-code phpdocumentor-signature ">
-    <span class="phpdocumentor-signature__visibility">protected</span>
-        <span class="phpdocumentor-signature__type">string</span>
-    <span class="phpdocumentor-signature__name">$serviceName</span>
-    </code>
-
-    
-    
-    
 
 </article>
                     <article
@@ -2341,7 +2341,7 @@ so that you don&#039;t have to implement the monstrous original `__construct()`<
 
     </aside>
 
-        <p class="phpdocumentor-summary">Creates an access token with the provider set to $this-&gt;serviceName</p>
+        <p class="phpdocumentor-summary">Creates an access token with the provider set to $this-&gt;name</p>
 
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">protected</span>
@@ -2868,10 +2868,10 @@ anything except host and path will be ignored, scheme will always be set to &quo
                                                     <li><a href="classes/chillerlan-OAuth-Providers-SteamOpenID.html#property_authURL">$authURL<a href="classes/chillerlan-OAuth-Providers-SteamOpenID.html"></li>
                                                     <li><a href="classes/chillerlan-OAuth-Core-OAuthProvider.html#property_http">$http<a href="classes/chillerlan-OAuth-Providers-SteamOpenID.html"></li>
                                                     <li><a href="classes/chillerlan-OAuth-Core-OAuthProvider.html#property_logger">$logger<a href="classes/chillerlan-OAuth-Providers-SteamOpenID.html"></li>
+                                                    <li><a href="classes/chillerlan-OAuth-Core-OAuthProvider.html#property_name">$name<a href="classes/chillerlan-OAuth-Providers-SteamOpenID.html"></li>
                                                     <li><a href="classes/chillerlan-OAuth-Core-OAuthProvider.html#property_options">$options<a href="classes/chillerlan-OAuth-Providers-SteamOpenID.html"></li>
                                                     <li><a href="classes/chillerlan-OAuth-Core-OAuthProvider.html#property_requestFactory">$requestFactory<a href="classes/chillerlan-OAuth-Providers-SteamOpenID.html"></li>
                                                     <li><a href="classes/chillerlan-OAuth-Core-OAuthProvider.html#property_revokeURL">$revokeURL<a href="classes/chillerlan-OAuth-Providers-SteamOpenID.html"></li>
-                                                    <li><a href="classes/chillerlan-OAuth-Core-OAuthProvider.html#property_serviceName">$serviceName<a href="classes/chillerlan-OAuth-Providers-SteamOpenID.html"></li>
                                                     <li><a href="classes/chillerlan-OAuth-Core-OAuthProvider.html#property_storage">$storage<a href="classes/chillerlan-OAuth-Providers-SteamOpenID.html"></li>
                                                     <li><a href="classes/chillerlan-OAuth-Core-OAuthProvider.html#property_streamFactory">$streamFactory<a href="classes/chillerlan-OAuth-Providers-SteamOpenID.html"></li>
                                                     <li><a href="classes/chillerlan-OAuth-Core-OAuthProvider.html#property_uriFactory">$uriFactory<a href="classes/chillerlan-OAuth-Providers-SteamOpenID.html"></li>

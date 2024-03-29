@@ -143,7 +143,7 @@
         <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Core/AccessToken.php"><a href="files/src-core-accesstoken.html"><abbr title="src/Core/AccessToken.php">AccessToken.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">36</span>
+    <span class="phpdocumentor-element-found-in__line">37</span>
 
     </aside>
 
@@ -198,25 +198,25 @@
 </h4>
 <dl class="phpdocumentor-table-of-contents">
             <dt class="phpdocumentor-table-of-contents__entry -constant -public">
-    <a href="classes/chillerlan-OAuth-Core-AccessToken.html#constant_EOL_NEVER_EXPIRES">EOL_NEVER_EXPIRES</a>
+    <a href="classes/chillerlan-OAuth-Core-AccessToken.html#constant_EXPIRY_MAX">EXPIRY_MAX</a>
     <span>
-        &nbsp;= -9002                            </span>
+        &nbsp;= 86400 * 365                            </span>
 </dt>
-<dd>Denotes a token which never expires</dd>
+<dd>Defines a maximum expiry period (1 year)</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -constant -public">
-    <a href="classes/chillerlan-OAuth-Core-AccessToken.html#constant_EOL_UNKNOWN">EOL_UNKNOWN</a>
+    <a href="classes/chillerlan-OAuth-Core-AccessToken.html#constant_EXPIRY_UNKNOWN">EXPIRY_UNKNOWN</a>
     <span>
         &nbsp;= -9001                            </span>
 </dt>
 <dd>Denotes an unknown end of lifetime, such a token should be considered as expired.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -constant -public">
-    <a href="classes/chillerlan-OAuth-Core-AccessToken.html#constant_EXPIRY_MAX">EXPIRY_MAX</a>
+    <a href="classes/chillerlan-OAuth-Core-AccessToken.html#constant_NEVER_EXPIRES">NEVER_EXPIRES</a>
     <span>
-        &nbsp;= 86400 * 365                            </span>
+        &nbsp;= -9002                            </span>
 </dt>
-<dd>Defines a maximum expiry period (1 year)</dd>
+<dd>Denotes a token which never expires</dd>
 
     </dl>
 
@@ -338,7 +338,7 @@
     <span>
                                 &nbsp;: <a href="classes/chillerlan-OAuth-Core-AccessToken.html"><abbr title="\chillerlan\OAuth\Core\AccessToken">AccessToken</abbr></a>    </span>
 </dt>
-<dd>Sets the expiration for this token</dd>
+<dd>Sets the expiration for this token, clamps the expiry to EXPIRY_MAX</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -protected">
     <a href="classes/chillerlan-OAuth-Core-AccessToken.html#method_set_expires">set_expires()</a>
@@ -360,64 +360,6 @@
 
         </h3>
                     <article class="phpdocumentor-element -constant -public ">
-    <h4 class="phpdocumentor-element__name" id="constant_EOL_NEVER_EXPIRES">
-        EOL_NEVER_EXPIRES
-        <a href="classes/chillerlan-OAuth-Core-AccessToken.html#constant_EOL_NEVER_EXPIRES" class="headerlink"><i class="fas fa-link"></i></a>
-
-    </h4>
-
-    <aside class="phpdocumentor-element-found-in">
-    <abbr class="phpdocumentor-element-found-in__file" title="src/Core/AccessToken.php"><a href="files/src-core-accesstoken.html"><abbr title="src/Core/AccessToken.php">AccessToken.php</abbr></a></abbr>
-    :
-    <span class="phpdocumentor-element-found-in__line">46</span>
-
-    </aside>
-
-        <p class="phpdocumentor-summary">Denotes a token which never expires</p>
-
-    <code class="phpdocumentor-signature phpdocumentor-code ">
-    <span class="phpdocumentor-signature__visibility">public</span>
-        <span class="phpdocumentor-signature__type">mixed</span>
-    <span class="phpdocumentor-signature__name">EOL_NEVER_EXPIRES</span>
-    = <span class="phpdocumentor-signature__default-value">-9002</span>
-</code>
-
-
-    
-    
-    
-
-</article>
-                    <article class="phpdocumentor-element -constant -public ">
-    <h4 class="phpdocumentor-element__name" id="constant_EOL_UNKNOWN">
-        EOL_UNKNOWN
-        <a href="classes/chillerlan-OAuth-Core-AccessToken.html#constant_EOL_UNKNOWN" class="headerlink"><i class="fas fa-link"></i></a>
-
-    </h4>
-
-    <aside class="phpdocumentor-element-found-in">
-    <abbr class="phpdocumentor-element-found-in__file" title="src/Core/AccessToken.php"><a href="files/src-core-accesstoken.html"><abbr title="src/Core/AccessToken.php">AccessToken.php</abbr></a></abbr>
-    :
-    <span class="phpdocumentor-element-found-in__line">41</span>
-
-    </aside>
-
-        <p class="phpdocumentor-summary">Denotes an unknown end of lifetime, such a token should be considered as expired.</p>
-
-    <code class="phpdocumentor-signature phpdocumentor-code ">
-    <span class="phpdocumentor-signature__visibility">public</span>
-        <span class="phpdocumentor-signature__type">mixed</span>
-    <span class="phpdocumentor-signature__name">EOL_UNKNOWN</span>
-    = <span class="phpdocumentor-signature__default-value">-9001</span>
-</code>
-
-
-    
-    
-    
-
-</article>
-                    <article class="phpdocumentor-element -constant -public ">
     <h4 class="phpdocumentor-element__name" id="constant_EXPIRY_MAX">
         EXPIRY_MAX
         <a href="classes/chillerlan-OAuth-Core-AccessToken.html#constant_EXPIRY_MAX" class="headerlink"><i class="fas fa-link"></i></a>
@@ -427,7 +369,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Core/AccessToken.php"><a href="files/src-core-accesstoken.html"><abbr title="src/Core/AccessToken.php">AccessToken.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">51</span>
+    <span class="phpdocumentor-element-found-in__line">52</span>
 
     </aside>
 
@@ -438,6 +380,64 @@
         <span class="phpdocumentor-signature__type">mixed</span>
     <span class="phpdocumentor-signature__name">EXPIRY_MAX</span>
     = <span class="phpdocumentor-signature__default-value">86400 * 365</span>
+</code>
+
+
+    
+    
+    
+
+</article>
+                    <article class="phpdocumentor-element -constant -public ">
+    <h4 class="phpdocumentor-element__name" id="constant_EXPIRY_UNKNOWN">
+        EXPIRY_UNKNOWN
+        <a href="classes/chillerlan-OAuth-Core-AccessToken.html#constant_EXPIRY_UNKNOWN" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h4>
+
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/Core/AccessToken.php"><a href="files/src-core-accesstoken.html"><abbr title="src/Core/AccessToken.php">AccessToken.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">42</span>
+
+    </aside>
+
+        <p class="phpdocumentor-summary">Denotes an unknown end of lifetime, such a token should be considered as expired.</p>
+
+    <code class="phpdocumentor-signature phpdocumentor-code ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+        <span class="phpdocumentor-signature__type">mixed</span>
+    <span class="phpdocumentor-signature__name">EXPIRY_UNKNOWN</span>
+    = <span class="phpdocumentor-signature__default-value">-9001</span>
+</code>
+
+
+    
+    
+    
+
+</article>
+                    <article class="phpdocumentor-element -constant -public ">
+    <h4 class="phpdocumentor-element__name" id="constant_NEVER_EXPIRES">
+        NEVER_EXPIRES
+        <a href="classes/chillerlan-OAuth-Core-AccessToken.html#constant_NEVER_EXPIRES" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h4>
+
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/Core/AccessToken.php"><a href="files/src-core-accesstoken.html"><abbr title="src/Core/AccessToken.php">AccessToken.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">47</span>
+
+    </aside>
+
+        <p class="phpdocumentor-summary">Denotes a token which never expires</p>
+
+    <code class="phpdocumentor-signature phpdocumentor-code ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+        <span class="phpdocumentor-signature__type">mixed</span>
+    <span class="phpdocumentor-signature__name">NEVER_EXPIRES</span>
+    = <span class="phpdocumentor-signature__default-value">-9002</span>
 </code>
 
 
@@ -707,7 +707,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Core/AccessToken.php"><a href="files/src-core-accesstoken.html"><abbr title="src/Core/AccessToken.php">AccessToken.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">61</span>
+    <span class="phpdocumentor-element-found-in__line">62</span>
 
     </aside>
 
@@ -741,7 +741,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Core/AccessToken.php"><a href="files/src-core-accesstoken.html"><abbr title="src/Core/AccessToken.php">AccessToken.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">56</span>
+    <span class="phpdocumentor-element-found-in__line">57</span>
 
     </aside>
 
@@ -785,27 +785,11 @@
     <span class="phpdocumentor-signature__visibility">protected</span>
         <span class="phpdocumentor-signature__type">int</span>
     <span class="phpdocumentor-signature__name">$expires</span>
-     = <span class="phpdocumentor-signature__default-value">self::EOL_UNKNOWN</span></code>
+     = <span class="phpdocumentor-signature__default-value">self::EXPIRY_UNKNOWN</span></code>
 
     
     
     
-    <h5 class="phpdocumentor-tag-list__heading" id="tags">
-        Tags
-        <a href="classes/chillerlan-OAuth-Core-AccessToken.html#property_expires#tags" class="headerlink"><i class="fas fa-link"></i></a>
-
-    </h5>
-    <dl class="phpdocumentor-tag-list">
-                                    <dt class="phpdocumentor-tag-list__entry">
-                    <span class="phpdocumentor-tag__name">todo:</span>
-                </dt>
-                <dd class="phpdocumentor-tag-list__definition">
-                                                                                
-                                                 <section class="phpdocumentor-description"><p>change to DateInterval?</p>
-</section>
-
-                                    </dd>
-                                            </dl>
 
 </article>
                     <article
@@ -893,7 +877,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Core/AccessToken.php"><a href="files/src-core-accesstoken.html"><abbr title="src/Core/AccessToken.php">AccessToken.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">66</span>
+    <span class="phpdocumentor-element-found-in__line">67</span>
 
     </aside>
 
@@ -966,7 +950,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Core/AccessToken.php"><a href="files/src-core-accesstoken.html"><abbr title="src/Core/AccessToken.php">AccessToken.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">115</span>
+    <span class="phpdocumentor-element-found-in__line">123</span>
 
     </aside>
 
@@ -1006,11 +990,11 @@
 
     </aside>
 
-        <p class="phpdocumentor-summary">Sets the expiration for this token</p>
+        <p class="phpdocumentor-summary">Sets the expiration for this token, clamps the expiry to EXPIRY_MAX</p>
 
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
-                    <span class="phpdocumentor-signature__name">setExpiry</span><span>(</span><span class="phpdocumentor-signature__argument"><span>[</span><span class="phpdocumentor-signature__argument__return-type">int|null&nbsp;</span><span class="phpdocumentor-signature__argument__name">$expires</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">null</span><span> ]</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type"><a href="classes/chillerlan-OAuth-Core-AccessToken.html"><abbr title="\chillerlan\OAuth\Core\AccessToken">AccessToken</abbr></a></span></code>
+                    <span class="phpdocumentor-signature__name">setExpiry</span><span>(</span><span class="phpdocumentor-signature__argument"><span>[</span><span class="phpdocumentor-signature__argument__return-type"><abbr title="\DateTime">DateTime</abbr>|<abbr title="\DateInterval">DateInterval</abbr>|int|null&nbsp;</span><span class="phpdocumentor-signature__argument__name">$expires</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">null</span><span> ]</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type"><a href="classes/chillerlan-OAuth-Core-AccessToken.html"><abbr title="\chillerlan\OAuth\Core\AccessToken">AccessToken</abbr></a></span></code>
 
     <div class="phpdocumentor-label-line">
         </div>
@@ -1019,7 +1003,7 @@
     <dl class="phpdocumentor-argument-list">
                     <dt class="phpdocumentor-argument-list__entry">
                 <span class="phpdocumentor-signature__argument__name">$expires</span>
-                : <span class="phpdocumentor-signature__argument__return-type">int|null</span>
+                : <span class="phpdocumentor-signature__argument__return-type"><abbr title="\DateTime">DateTime</abbr>|<abbr title="\DateInterval">DateInterval</abbr>|int|null</span>
                  = <span class="phpdocumentor-signature__argument__default-value">null</span>            </dt>
             <dd class="phpdocumentor-argument-list__definition">
                 
@@ -1056,7 +1040,7 @@
 
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">protected</span>
-                    <span class="phpdocumentor-signature__name">set_expires</span><span>(</span><span class="phpdocumentor-signature__argument"><span>[</span><span class="phpdocumentor-signature__argument__return-type">int|null&nbsp;</span><span class="phpdocumentor-signature__argument__name">$expires</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">null</span><span> ]</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">void</span></code>
+                    <span class="phpdocumentor-signature__name">set_expires</span><span>(</span><span class="phpdocumentor-signature__argument"><span>[</span><span class="phpdocumentor-signature__argument__return-type"><abbr title="\DateTime">DateTime</abbr>|<abbr title="\DateInterval">DateInterval</abbr>|int|null&nbsp;</span><span class="phpdocumentor-signature__argument__name">$expires</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">null</span><span> ]</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">void</span></code>
 
     <div class="phpdocumentor-label-line">
         </div>
@@ -1065,7 +1049,7 @@
     <dl class="phpdocumentor-argument-list">
                     <dt class="phpdocumentor-argument-list__entry">
                 <span class="phpdocumentor-signature__argument__name">$expires</span>
-                : <span class="phpdocumentor-signature__argument__return-type">int|null</span>
+                : <span class="phpdocumentor-signature__argument__return-type"><abbr title="\DateTime">DateTime</abbr>|<abbr title="\DateInterval">DateInterval</abbr>|int|null</span>
                  = <span class="phpdocumentor-signature__argument__default-value">null</span>            </dt>
             <dd class="phpdocumentor-argument-list__definition">
                 
@@ -1189,9 +1173,9 @@
                             <li class="phpdocumentor-on-this-page-section__title">Constants</li>
                 <li>
                     <ul class="phpdocumentor-list -clean">
-                                                    <li><a href="classes/chillerlan-OAuth-Core-AccessToken.html#constant_EOL_NEVER_EXPIRES">EOL_NEVER_EXPIRES</a></li>
-                                                    <li><a href="classes/chillerlan-OAuth-Core-AccessToken.html#constant_EOL_UNKNOWN">EOL_UNKNOWN</a></li>
                                                     <li><a href="classes/chillerlan-OAuth-Core-AccessToken.html#constant_EXPIRY_MAX">EXPIRY_MAX</a></li>
+                                                    <li><a href="classes/chillerlan-OAuth-Core-AccessToken.html#constant_EXPIRY_UNKNOWN">EXPIRY_UNKNOWN</a></li>
+                                                    <li><a href="classes/chillerlan-OAuth-Core-AccessToken.html#constant_NEVER_EXPIRES">NEVER_EXPIRES</a></li>
                                             </ul>
                 </li>
             

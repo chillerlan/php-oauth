@@ -1,6 +1,6 @@
 <?php
 /**
- * Class Patreon2Test
+ * Class PatreonTest
  *
  * @created      09.08.2018
  * @author       Smiley <smiley@chillerlan.net>
@@ -16,7 +16,7 @@ use chillerlan\OAuth\Providers\Patreon;
 /**
  * @property \chillerlan\OAuth\Providers\Patreon $provider
  */
-final class Patreon2Test extends OAuth2ProviderUnitTestAbstract{
+final class PatreonTest extends OAuth2ProviderUnitTestAbstract{
 
 	protected function getProviderFQCN():string{
 		return Patreon::class;

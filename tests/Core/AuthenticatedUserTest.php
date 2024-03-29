@@ -12,6 +12,7 @@ declare(strict_types=1);
 namespace chillerlan\OAuthTest\Core;
 
 use chillerlan\OAuth\Core\AuthenticatedUser;
+use PHPUnit\Framework\Attributes\DataProvider;
 use PHPUnit\Framework\TestCase;
 
 /**
@@ -52,6 +53,37 @@ final class AuthenticatedUserTest extends TestCase{
 		$this::assertSame(123, $user->id);
 		$this::assertSame('testuser', $user->handle);
 		$this::assertSame('test@example.com', $user->email);
+	}
+
+	public static function idProvider():array{
+		return [
+			'null'    => [null, null],
+			'string'  => ['abc', 'abc'],
+			'int'     => [123, 123],
+			'numeric' => ['123', 123],
+		];
+	}
+
+	#[DataProvider('idProvider')]
+	public function testSetID(string|int|null $id, string|int|null $expexted):void{
+		$user = new AuthenticatedUser(['id' => $id]);
+
+		$this::assertSame($expexted, $user->id);
+	}
+
+	public static function displayNameProvider():array{
+		return [
+			'null'       => [null, null],
+			'empty'      => ['   ', null],
+			'whitespace' => [' whitespace ', 'whitespace'],
+		];
+	}
+
+	#[DataProvider('displayNameProvider')]
+	public function testSetDisplayName(string|null $displayName, string|null $expexted):void{
+		$user = new AuthenticatedUser(['displayName' => $displayName]);
+
+		$this::assertSame($expexted, $user->displayName);
 	}
 
 }

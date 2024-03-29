@@ -18,6 +18,10 @@ use chillerlan\OAuth\Storage\MemoryStorage;
 use chillerlan\OAuth\Storage\OAuthStorageInterface;
 use chillerlan\PHPUnitHttp\HttpFactoryTrait;
 use PHPUnit\Framework\TestCase;
+use Psr\Http\Client\ClientInterface;
+use Psr\Http\Message\RequestInterface;
+use Psr\Http\Message\ResponseInterface;
+use Psr\Http\Message\StreamInterface;
 use Psr\Log\LoggerInterface;
 use ReflectionClass;
 use Throwable;
@@ -120,6 +124,43 @@ abstract class ProviderUnitTestAbstract extends TestCase{
 
 	final protected function invokeReflectionMethod(string $method, array $args = []):mixed{
 		return $this->reflection->getMethod($method)->invokeArgs($this->provider, $args);
+	}
+
+
+	/*
+	 * misc helpers
+	 */
+
+	/**
+	 * creates a stupid simple ClientInterface that returns the given response instance
+	 */
+	protected function getMockHttpClient(ResponseInterface $response):ClientInterface{
+		return new class ($response) implements ClientInterface{
+
+			public function __construct(
+				private readonly ResponseInterface $mockedResponse
+			){}
+
+			public function sendRequest(RequestInterface $request):ResponseInterface{
+				 return $this->mockedResponse;
+			}
+
+		};
+	}
+
+	/**
+	 * sets a custom response in the mock http client and sets the client in the current provider
+	 */
+	protected function setMockResponse(ResponseInterface|StreamInterface $response):void{
+
+		if($response instanceof StreamInterface){
+			$response = $this->responseFactory
+				->createResponse()
+				->withBody($response)
+			;
+		}
+
+		$this->setReflectionProperty('http', $this->getMockHttpClient($response));
 	}
 
 }

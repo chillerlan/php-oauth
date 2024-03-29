@@ -98,9 +98,10 @@ class Deezer extends OAuth2Provider implements CSRFToken{
 	 */
 	public function me():AuthenticatedUser{
 		$response = $this->request('/user/me');
+		$status   = $response->getStatusCode();
 		$json     = MessageUtil::decodeJSON($response, true);
 
-		if(!isset($json['error'])){
+		if($status === 200 && !isset($json['error'])){
 
 			$userdata = [
 				'data'   => $json,
@@ -122,7 +123,7 @@ class Deezer extends OAuth2Provider implements CSRFToken{
 			throw new ProviderException($json['error']['message']);
 		}
 
-		throw new ProviderException(sprintf('user info error HTTP/%s', $response->getStatusCode()));
+		throw new ProviderException(sprintf('user info error HTTP/%s', $status));
 	}
 
 }

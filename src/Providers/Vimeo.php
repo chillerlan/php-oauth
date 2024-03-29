@@ -109,6 +109,11 @@ class Vimeo extends OAuth2Provider implements ClientCredentials, CSRFToken, Toke
 			$response = $provider->request(path: $this->revokeURL, method: 'DELETE');
 		}
 		else{
+
+			if(!$this->storage->hasAccessToken($this->name)){
+				throw new ProviderException('no token given');
+			}
+
 			$response = $this->request(path: $this->revokeURL, method: 'DELETE');
 		}
 

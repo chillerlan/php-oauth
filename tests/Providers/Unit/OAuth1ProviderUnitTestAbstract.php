@@ -21,13 +21,34 @@ use function str_starts_with;
  */
 abstract class OAuth1ProviderUnitTestAbstract extends OAuthProviderUnitTestAbstract{
 
+	// from https://datatracker.ietf.org/doc/html/rfc5849#section-2.1
+	protected const TEST_REQUEST_TOKEN = 'oauth_token=hdk48Djdsa&oauth_token_secret=xyz4992k83j47x0b'.
+	                                     '&oauth_callback_confirmed=true';
+
+	// from https://datatracker.ietf.org/doc/html/rfc5849#section-2.3
+	protected const TEST_ACCESS_TOKEN = 'oauth_token=j49ddk933skd9dks&oauth_token_secret=ll399dj47dskfjdk';
+
+
+	/*
+	 * common unit tests
+	 */
+
 	public function testOAuth1Instance():void{
 		$this::assertInstanceOf(OAuth1Interface::class, $this->provider);
 	}
 
+
 	/*
 	 * auth URL
 	 */
+
+	public function testGetAuthURL():void{
+		$this->setMockResponse($this->streamFactory->createStream($this::TEST_REQUEST_TOKEN));
+
+		$uri = $this->provider->getAuthURL();
+
+		$this::assertSame('oauth_token=hdk48Djdsa', $uri->getQuery());
+	}
 
 	public function testGetRequestTokenRequestParams():void{
 		$params = $this->invokeReflectionMethod('getRequestTokenRequestParams');
@@ -56,13 +77,11 @@ abstract class OAuth1ProviderUnitTestAbstract extends OAuthProviderUnitTestAbstr
 	 * token response parser
 	 */
 
-	public function testParseTokenResponse():void{
-		// from https://datatracker.ietf.org/doc/html/rfc5849#section-2.3
-		$responseBody = 'oauth_token=j49ddk933skd9dks&oauth_token_secret=ll399dj47dskfjdk';
+	public function testParseAccessTokenResponse():void{
 
 		$response = $this->responseFactory
 			->createResponse()
-			->withBody($this->streamFactory->createStream($responseBody))
+			->withBody($this->streamFactory->createStream($this::TEST_ACCESS_TOKEN))
 		;
 
 		/** @var \chillerlan\OAuth\Core\AccessToken $token */
@@ -73,12 +92,10 @@ abstract class OAuth1ProviderUnitTestAbstract extends OAuthProviderUnitTestAbstr
 	}
 
 	public function testParseTemporaryCredentialsTokenResponse():void{
-		// from https://datatracker.ietf.org/doc/html/rfc5849#section-2.1
-		$responseBody = 'oauth_token=hdk48Djdsa&oauth_token_secret=xyz4992k83j47x0b&oauth_callback_confirmed=true';
 
 		$response = $this->responseFactory
 			->createResponse()
-			->withBody($this->streamFactory->createStream($responseBody))
+			->withBody($this->streamFactory->createStream($this::TEST_REQUEST_TOKEN))
 		;
 
 		/** @var \chillerlan\OAuth\Core\AccessToken $token */
@@ -92,9 +109,7 @@ abstract class OAuth1ProviderUnitTestAbstract extends OAuthProviderUnitTestAbstr
 		$this->expectException(ProviderException::class);
 		$this->expectExceptionMessage('unable to parse token response');
 
-		$response = $this->responseFactory->createResponse();
-
-		$this->invokeReflectionMethod('parseTokenResponse', [$response]);
+		$this->invokeReflectionMethod('parseTokenResponse', [$this->responseFactory->createResponse()]);
 	}
 
 	public function testParseTokenResponseErrorException():void{
@@ -121,7 +136,7 @@ abstract class OAuth1ProviderUnitTestAbstract extends OAuthProviderUnitTestAbstr
 		$this->expectException(ProviderException::class);
 		$this->expectExceptionMessage('oauth callback unconfirmed');
 
-		$body     = $this->streamFactory->createStream('oauth_token=whatever&oauth_token_secret=whatever_secret');
+		$body     = $this->streamFactory->createStream($this::TEST_ACCESS_TOKEN);
 		$response = $this->responseFactory->createResponse()->withBody($body);
 
 		$this->invokeReflectionMethod('parseTokenResponse', [$response, true]);
@@ -131,6 +146,18 @@ abstract class OAuth1ProviderUnitTestAbstract extends OAuthProviderUnitTestAbstr
 	/*
 	 * access token
 	 */
+
+	public function testGetAccessToken():void{
+		$this->setMockResponse($this->streamFactory->createStream($this::TEST_ACCESS_TOKEN));
+
+		$requestToken = new AccessToken(['accessToken' => 'hdk48Djdsa', 'accessTokenSecret' => 'xyz4992k83j47x0b']);
+
+		$this->provider->storeAccessToken($requestToken);
+
+		$token = $this->provider->getAccessToken('hdk48Djdsa', 'verifier');
+
+		$this::assertSame('j49ddk933skd9dks', $token->accessToken);
+	}
 
 	public function testSendAccessTokenRequest():void{
 		// we need the request token for the access token request
@@ -147,6 +174,17 @@ abstract class OAuth1ProviderUnitTestAbstract extends OAuthProviderUnitTestAbstr
 		$this::assertSame('identity', $json->headers->{'Accept-Encoding'});
 		$this::assertSame('0', $json->headers->{'Content-Length'});
 		$this::assertSame('POST', $json->request->method);
+	}
+
+	public function testGetAccessTokenRequestTokenMismatchException():void{
+		$this->expectException(ProviderException::class);
+		$this->expectExceptionMessage('request token mismatch');
+
+		$requestToken = new AccessToken(['accessToken' => 'hdk48Djdsa']);
+
+		$this->provider->storeAccessToken($requestToken);
+
+		$this->provider->getAccessToken('nope', 'verifier');
 	}
 
 
@@ -197,6 +235,5 @@ abstract class OAuth1ProviderUnitTestAbstract extends OAuthProviderUnitTestAbstr
 
 		$this->invokeReflectionMethod('getSignature', ['http://localhost/boo', [], 'GET']);
 	}
-
 
 }

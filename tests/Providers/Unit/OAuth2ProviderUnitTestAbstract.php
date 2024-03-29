@@ -26,13 +26,18 @@ use function json_encode;
  */
 abstract class OAuth2ProviderUnitTestAbstract extends OAuthProviderUnitTestAbstract{
 
-	public function testOAuth2Instance():void{
-		$this::assertInstanceOf(OAuth2Interface::class, $this->provider);
-	}
-
 	// from https://datatracker.ietf.org/doc/html/rfc6749#section-4.1.4
 	protected const TEST_TOKEN = '{"access_token":"2YotnFZFEjr1zCsicMWpAA","token_type":"example","expires_in":3600,'.
 	                             '"refresh_token":"tGzv3JOkF0XG5Qx2TlKWIA","example_parameter":"example_value"}';
+
+
+	/*
+	 * common unit tests
+	 */
+
+	public function testOAuth2Instance():void{
+		$this::assertInstanceOf(OAuth2Interface::class, $this->provider);
+	}
 
 
 	/*
@@ -112,7 +117,10 @@ abstract class OAuth2ProviderUnitTestAbstract extends OAuthProviderUnitTestAbstr
 		$this->expectException(ProviderException::class);
 		$this->expectExceptionMessage('unable to parse token response');
 
-		$response = $this->responseFactory->createResponse()->withBody($this->streamFactory->createStream('""'));
+		$response = $this->responseFactory
+			->createResponse()
+			->withBody($this->streamFactory->createStream('""'))
+		;
 
 		$this->invokeReflectionMethod('parseTokenResponse', [$response]);
 	}
@@ -146,6 +154,17 @@ abstract class OAuth2ProviderUnitTestAbstract extends OAuthProviderUnitTestAbstr
 	 * access token
 	 */
 
+	public function testGetAccessToken():void{
+		$this->setMockResponse($this->streamFactory->createStream($this::TEST_TOKEN));
+
+		$this->storage->storeCSRFState('mock_test_state', $this->provider->name);
+
+		$token = $this->provider->getAccessToken('code', 'mock_test_state');
+
+		$this->assertSame('2YotnFZFEjr1zCsicMWpAA', $token->accessToken);
+		$this::assertSame('example_value', $token->extraParams['example_parameter']);
+	}
+
 	public function testGetAccessTokenRequestBodyParams():void{
 		$params = $this->invokeReflectionMethod('getAccessTokenRequestBodyParams', ['*test_code*']);
 
@@ -176,20 +195,21 @@ abstract class OAuth2ProviderUnitTestAbstract extends OAuthProviderUnitTestAbstr
 	public function testGetRequestAuthorization():void{
 		$request    = $this->requestFactory->createRequest('GET', 'https://foo.bar');
 		$token      = new AccessToken(['accessTokenSecret' => 'test_token_secret', 'accessToken' => 'test_token']);
-		$authMethod = $this->provider::AUTH_METHOD;
+
+		$this->provider->storeAccessToken($token);
 
 		// header (default)
-		if($authMethod === OAuth2Interface::AUTH_METHOD_HEADER){
+		if($this->provider::AUTH_METHOD === OAuth2Interface::AUTH_METHOD_HEADER){
 			$this::assertStringContainsString(
 				$this->provider::AUTH_PREFIX_HEADER.' test_token',
-				$this->provider->getRequestAuthorization($request, $token)->getHeaderLine('Authorization')
+				$this->provider->getRequestAuthorization($request)->getHeaderLine('Authorization')
 			);
 		}
 		// query
-		elseif($authMethod === OAuth2Interface::AUTH_METHOD_QUERY){
+		elseif($this->provider::AUTH_METHOD === OAuth2Interface::AUTH_METHOD_QUERY){
 			$this::assertStringContainsString(
 				$this->provider::AUTH_PREFIX_QUERY.'=test_token',
-				$this->provider->getRequestAuthorization($request, $token)->getUri()->getQuery()
+				$this->provider->getRequestAuthorization($request)->getUri()->getQuery()
 			);
 		}
 
@@ -199,6 +219,19 @@ abstract class OAuth2ProviderUnitTestAbstract extends OAuthProviderUnitTestAbstr
 	/*
 	 * client credentials
 	 */
+
+	public function testGetClientCredentialsToken():void{
+
+		if(!$this->provider instanceof ClientCredentials){
+			$this->markTestSkipped('ClientCredentials N/A');
+		}
+
+		$this->setMockResponse($this->streamFactory->createStream($this::TEST_TOKEN));
+
+		$token = $this->provider->getClientCredentialsToken();
+
+		$this->assertSame('2YotnFZFEjr1zCsicMWpAA', $token->accessToken);
+	}
 
 	public function testGetClientCredentialsTokenRequestBodyParams():void{
 
@@ -345,6 +378,24 @@ abstract class OAuth2ProviderUnitTestAbstract extends OAuthProviderUnitTestAbstr
 	/*
 	 * token refresh
 	 */
+
+	public function testRefreshAccessToken():void{
+
+		if(!$this->provider instanceof TokenRefresh){
+			$this->markTestSkipped('TokenRefresh N/A');
+		}
+
+		// delete the refresh token from the response for some coverage (:
+		$tokenResponse = json_decode($this::TEST_TOKEN);
+		$tokenResponse->refresh_token = '';
+
+		$this->setMockResponse($this->streamFactory->createStream(json_encode($tokenResponse)));
+
+		$oldToken = new AccessToken(['accessToken' => 'nope', 'refreshToken' => 'test_refresh_token']);
+		$newToken = $this->provider->refreshAccessToken($oldToken);
+
+		$this->assertSame('2YotnFZFEjr1zCsicMWpAA', $newToken->accessToken);
+	}
 
 	public function testGetRefreshAccessTokenRequestBodyParams():void{
 

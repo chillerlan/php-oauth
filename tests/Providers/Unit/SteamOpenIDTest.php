@@ -22,4 +22,8 @@ final class SteamOpenIDTest extends OAuthProviderUnitTestAbstract{
 		return SteamOpenID::class;
 	}
 
+	public function testMeUnknownErrorException():void{
+		$this->markTestSkipped('N/A');
+	}
+
 }

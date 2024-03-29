@@ -55,10 +55,10 @@ class OpenStreetmap extends OAuth1Provider{
 		$body = MessageUtil::getContents($response);
 
 		if(!empty($body)){
-			throw new ProviderException(strip_tags($body));
+			$body = strip_tags($body);
 		}
 
-		throw new ProviderException(sprintf('user info error HTTP/%s', $status));
+		throw new ProviderException(sprintf('user info error HTTP/%s: "%s"', $status, $body));
 	}
 
 }

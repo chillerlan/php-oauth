@@ -30,4 +30,8 @@ final class TwitterCCTest extends OAuth2ProviderUnitTestAbstract{
 		$this->markTestSkipped('N/A');
 	}
 
+	public function testMeUnknownErrorException():void{
+		$this->markTestSkipped('N/A');
+	}
+
 }

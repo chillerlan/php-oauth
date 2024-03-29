@@ -26,4 +26,8 @@ final class GuildWars2Test extends OAuth2ProviderUnitTestAbstract{
 		$this::markTestSkipped('N/A');
 	}
 
+	public function testGetAccessToken():void{
+		$this::markTestSkipped('N/A');
+	}
+
 }

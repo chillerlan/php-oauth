@@ -24,4 +24,8 @@ final class OAuth1Test extends OAuth1ProviderUnitTestAbstract{
 		return DummyOAuth1Provider::class;
 	}
 
+	public function testMeUnknownErrorException():void{
+		$this->markTestSkipped('N/A');
+	}
+
 }

@@ -36,12 +36,7 @@ final class DeezerTest extends OAuth2ProviderUnitTestAbstract{
 		$this->expectException(ProviderException::class);
 		$this->expectExceptionMessage('unable to parse token response');
 
-		$response = $this->responseFactory
-			->createResponse()
-			->withBody($this->streamFactory->createStream(''))
-		;
-
-		$this->invokeReflectionMethod('parseTokenResponse', [$response]);
+		$this->invokeReflectionMethod('parseTokenResponse', [$this->responseFactory->createResponse()]);
 	}
 
 	public function testParseTokenResponseErrorException():void{

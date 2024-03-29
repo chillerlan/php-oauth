@@ -145,11 +145,52 @@ abstract class OAuthProviderUnitTestAbstract extends ProviderUnitTestAbstract{
 			$this::markTestSkipped('TokenInvalidate N/A');
 		}
 
-		$this->storage->storeAccessToken(new AccessToken(['expires' => 42]), $this->provider->name);
+		$token = new AccessToken(['expires' => 42]);
+
+		$this->provider->storeAccessToken($token);
 
 		$this::assertTrue($this->storage->hasAccessToken($this->provider->name));
 		$this::assertTrue($this->provider->invalidateAccessToken());
 		$this::assertFalse($this->storage->hasAccessToken($this->provider->name));
+
+		// token via param
+		$this::assertTrue($this->provider->invalidateAccessToken($token));
+		$this::assertFalse($this->storage->hasAccessToken($this->provider->name));
+	}
+
+	public function testTokenInvalidateNoTokenException():void{
+
+		if(!$this->provider instanceof TokenInvalidate){
+			$this::markTestSkipped('TokenInvalidate N/A');
+		}
+
+		$this->expectException(ProviderException::class);
+		$this->expectExceptionMessage('no token given');
+
+		$this->provider->invalidateAccessToken();
+	}
+
+
+	/*
+	 * authenticated user me()
+	 */
+
+	public function testMeUnknownErrorException():void{
+		$this->expectException(ProviderException::class);
+		$this->expectExceptionMessage('user info error HTTP/404');
+
+		$response = $this->responseFactory
+			->createResponse(404)
+			->withHeader('Content-Type', 'application/json')
+			->withBody($this->streamFactory->createStream('{}'))
+		;
+
+		$this->setMockResponse($response);
+
+		$this->provider
+			->storeAccessToken(new AccessToken(['expires' => 42]))
+			->me()
+		;
 	}
 
 }

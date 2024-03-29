@@ -11,6 +11,7 @@ declare(strict_types=1);
 
 namespace chillerlan\OAuthTest\Providers\Unit;
 
+use chillerlan\OAuth\Core\{AccessToken, TokenInvalidate};
 use chillerlan\OAuth\Providers\BigCartel;
 
 /**
@@ -23,7 +24,19 @@ final class BigCartelTest extends OAuth2ProviderUnitTestAbstract{
 	}
 
 	public function testTokenInvalidate():void{
-		$this::markTestIncomplete();
+
+		if(!$this->provider instanceof TokenInvalidate){
+			$this::markTestSkipped('TokenInvalidate N/A');
+		}
+
+		// BigCartel expects the account id set in the token and responds with a 204
+		$this->setMockResponse($this->responseFactory->createResponse(204));
+
+		$this->provider->storeAccessToken(new AccessToken(['expires' => 42, 'extraParams' => ['account_id' => 69]]));
+
+		$this::assertTrue($this->storage->hasAccessToken($this->provider->name));
+		$this::assertTrue($this->provider->invalidateAccessToken());
+		$this::assertFalse($this->storage->hasAccessToken($this->provider->name));
 	}
 
 }

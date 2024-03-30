@@ -15,7 +15,7 @@ use chillerlan\HTTP\Utils\{MessageUtil, QueryUtil};
 use chillerlan\OAuth\Providers\ProviderException;
 use Psr\Http\Message\{RequestInterface, ResponseInterface, UriInterface};
 use Throwable;
-use function array_merge, date, explode, hash_equals, implode, is_array, sodium_bin2base64, sprintf;
+use function array_merge, date, explode, hash_equals, implode, in_array, is_array, sodium_bin2base64, sprintf;
 use const PHP_QUERY_RFC1738, SODIUM_BASE64_VARIANT_ORIGINAL;
 
 /**
@@ -100,6 +100,11 @@ abstract class OAuth2Provider extends OAuthProvider implements OAuth2Interface{
 		// deezer: "error_reason", paypal: "message" (along with "links", "name")
 		foreach(['error', 'error_description', 'error_reason', 'message'] as $field){
 			if(isset($data[$field])){
+
+				if(in_array($response->getStatusCode(), [400, 401, 403], true)){
+					throw new UnauthorizedAccessException($data[$field]);
+				}
+
 				throw new ProviderException(sprintf('error retrieving access token: "%s"', $data[$field]));
 			}
 		}

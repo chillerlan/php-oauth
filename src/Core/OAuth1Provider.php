@@ -14,7 +14,7 @@ namespace chillerlan\OAuth\Core;
 use chillerlan\HTTP\Utils\{MessageUtil, QueryUtil};
 use chillerlan\OAuth\Providers\ProviderException;
 use Psr\Http\Message\{RequestInterface, ResponseInterface, UriInterface};
-use function array_merge, hash_hmac, implode, sodium_bin2base64, sprintf, strtoupper, time;
+use function array_merge, hash_hmac, implode, in_array, sodium_bin2base64, sprintf, strtoupper, time;
 use const SODIUM_BASE64_VARIANT_ORIGINAL;
 
 /**
@@ -102,6 +102,11 @@ abstract class OAuth1Provider extends OAuthProvider implements OAuth1Interface{
 		}
 
 		if(isset($data['error'])){
+
+			if(in_array($response->getStatusCode(), [400, 401, 403], true)){
+				throw new UnauthorizedAccessException($data['error']);
+			}
+
 			throw new ProviderException(sprintf('error retrieving access token: "%s"', $data['error']));
 		}
 

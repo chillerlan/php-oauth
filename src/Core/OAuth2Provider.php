@@ -211,6 +211,15 @@ abstract class OAuth2Provider extends OAuthProvider implements OAuth2Interface{
 			$token = $this->storage->getAccessToken($this->name);
 		}
 
+		if($token->isExpired()){
+
+			if(!$this instanceof TokenRefresh || $this->options->tokenAutoRefresh !== true){
+				throw new InvalidAccessTokenException;
+			}
+
+			$token = $this->refreshAccessToken($token);
+		}
+
 		if($this::AUTH_METHOD === OAuth2Interface::AUTH_METHOD_HEADER){
 			return $request->withHeader('Authorization', $this::AUTH_PREFIX_HEADER.' '.$token->accessToken);
 		}

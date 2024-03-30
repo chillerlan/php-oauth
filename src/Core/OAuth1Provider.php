@@ -206,6 +206,10 @@ abstract class OAuth1Provider extends OAuthProvider implements OAuth1Interface{
 			$token = $this->storage->getAccessToken($this->name);
 		}
 
+		if($token->isExpired()){
+			throw new InvalidAccessTokenException;
+		}
+
 		$uri   = $request->getUri();
 		$query = QueryUtil::parse($uri->getQuery());
 

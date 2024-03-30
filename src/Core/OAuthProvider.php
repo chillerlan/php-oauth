@@ -384,19 +384,8 @@ abstract class OAuthProvider implements OAuthInterface{
 			return $this->http->sendRequest($request);
 		}
 
-		$token = $this->storage->getAccessToken($this->name);
-
 		// attempt to refresh an expired token
-		if($token->isExpired()){
-
-			if(!$this instanceof TokenRefresh || $this->options->tokenAutoRefresh !== true){
-				throw new InvalidAccessTokenException;
-			}
-
-			$token = $this->refreshAccessToken($token);
-		}
-
-		$request = $this->getRequestAuthorization($request, $token);
+		$request = $this->getRequestAuthorization($request);
 
 		return $this->http->sendRequest($request);
 	}

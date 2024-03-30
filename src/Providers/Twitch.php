@@ -119,6 +119,15 @@ class Twitch extends OAuth2Provider implements ClientCredentials, CSRFToken, Tok
 			$token = $this->storage->getAccessToken($this->name);
 		}
 
+		if($token->isExpired()){
+
+			if($this->options->tokenAutoRefresh !== true){
+				throw new InvalidAccessTokenException;
+			}
+
+			$token = $this->refreshAccessToken($token);
+		}
+
 		return $request
 			->withHeader('Authorization', $this::AUTH_PREFIX_HEADER.' '.$token->accessToken)
 			->withHeader('Client-ID', $this->options->key);

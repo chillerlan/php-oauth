@@ -184,7 +184,7 @@ abstract class OAuthProvider implements OAuthInterface{
 	 * @inheritDoc
 	 * @codeCoverageIgnore
 	 */
-	public function storeAccessToken(AccessToken $token):static{
+	final public function storeAccessToken(AccessToken $token):static{
 		$this->storage->storeAccessToken($token, $this->name);
 
 		return $this;
@@ -194,7 +194,7 @@ abstract class OAuthProvider implements OAuthInterface{
 	 * @inheritDoc
 	 * @codeCoverageIgnore
 	 */
-	public function getAccessTokenFromStorage():AccessToken{
+	final public function getAccessTokenFromStorage():AccessToken{
 		return $this->storage->getAccessToken($this->name);
 	}
 
@@ -203,14 +203,14 @@ abstract class OAuthProvider implements OAuthInterface{
 	 *
 	 * @codeCoverageIgnore
 	 */
-	protected function createAccessToken():AccessToken{
+	final protected function createAccessToken():AccessToken{
 		return new AccessToken(['provider' => $this->name]);
 	}
 
 	/**
 	 * Prepare request headers
 	 */
-	protected function getRequestHeaders(array|null $headers = null):array{
+	final protected function getRequestHeaders(array|null $headers = null):array{
 		/** @noinspection PhpParamsInspection sup PHPStorm?? */
 		return array_merge($this::HEADERS_API, ($headers ?? []));
 	}
@@ -218,7 +218,7 @@ abstract class OAuthProvider implements OAuthInterface{
 	/**
 	 * Prepares the request URL
 	 */
-	protected function getRequestURL(string $path, array|null $params = null):string{
+	final protected function getRequestURL(string $path, array|null $params = null):string{
 		return QueryUtil::merge($this->getRequestTarget($path), $this->cleanQueryParams(($params ?? [])));
 	}
 
@@ -267,6 +267,23 @@ abstract class OAuthProvider implements OAuthInterface{
 
 	/**
 	 * @inheritDoc
+	 * @throws \chillerlan\OAuth\Core\InvalidAccessTokenException
+	 */
+	final public function sendRequest(RequestInterface $request):ResponseInterface{
+		// get authorization only if we request the provider API,
+		// shortcut reroute to the http client otherwise.
+		// avoid sending bearer tokens to unknown hosts
+		if(!str_starts_with((string)$request->getUri(), $this->apiURL)){
+			return $this->http->sendRequest($request);
+		}
+
+		$request = $this->getRequestAuthorization($request);
+
+		return $this->http->sendRequest($request);
+	}
+
+	/**
+	 * @inheritDoc
 	 * @throws \chillerlan\OAuth\Core\UnauthorizedAccessException
 	 */
 	public function request(
@@ -310,7 +327,7 @@ abstract class OAuthProvider implements OAuthInterface{
 	 *
 	 * @throws \chillerlan\OAuth\Providers\ProviderException
 	 */
-	protected function getRequestBody(StreamInterface|array|string $body, RequestInterface $request):StreamInterface{
+	final protected function getRequestBody(StreamInterface|array|string $body, RequestInterface $request):StreamInterface{
 
 		if($body instanceof StreamInterface){
 			return $body;
@@ -393,23 +410,6 @@ abstract class OAuthProvider implements OAuthInterface{
 	}
 
 	/**
-	 * @inheritDoc
-	 * @throws \chillerlan\OAuth\Core\InvalidAccessTokenException
-	 */
-	final public function sendRequest(RequestInterface $request):ResponseInterface{
-		// get authorization only if we request the provider API,
-		// shortcut reroute to the http client otherwise.
-		// avoid sending bearer tokens to unknown hosts
-		if(!str_starts_with((string)$request->getUri(), $this->apiURL)){
-			return $this->http->sendRequest($request);
-		}
-
-		$request = $this->getRequestAuthorization($request);
-
-		return $this->http->sendRequest($request);
-	}
-
-	/**
 	 * fetches the provider's "me" endpoint and returns the JSON data as an array
 	 *
 	 * @see \chillerlan\OAuth\Core\OAuthInterface::me()
@@ -417,7 +417,7 @@ abstract class OAuthProvider implements OAuthInterface{
 	 * @see \chillerlan\OAuth\Core\OAuthProvider::handleMeResponseError()
 	 * @throws \chillerlan\OAuth\Providers\ProviderException
 	 */
-	protected function getMeResponseData(string $endpoint, array|null $params = null):array{
+	final protected function getMeResponseData(string $endpoint, array|null $params = null):array{
 		$response = $this->sendMeRequest($endpoint, $params);
 
 		if($response->getStatusCode() === 200){
@@ -459,7 +459,7 @@ abstract class OAuthProvider implements OAuthInterface{
 	 *
 	 * @throws \chillerlan\OAuth\Providers\ProviderException|\chillerlan\OAuth\Core\UnauthorizedAccessException
 	 */
-	private function handleMeResponseError(ResponseInterface $response){
+	final protected function handleMeResponseError(ResponseInterface $response){
 		$status = $response->getStatusCode();
 
 		// in case these slipped through

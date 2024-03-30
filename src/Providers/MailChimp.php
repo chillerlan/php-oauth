@@ -65,8 +65,6 @@ class MailChimp extends OAuth2Provider implements CSRFToken{
 	}
 
 	/**
-	 * prepare the API URL from the token metadata
-	 *
 	 * @inheritdoc
 	 */
 	public function request(
@@ -78,40 +76,38 @@ class MailChimp extends OAuth2Provider implements CSRFToken{
 		string|null                       $protocolVersion = null,
 	):ResponseInterface{
 		$token = $this->storage->getAccessToken($this->name);
-
+		// get  the API URL from the token metadata
 		$this->apiURL = sprintf($this::API_BASE, $token->extraParams['dc']);
 
 		return parent::request($path, $params, $method, $body, $headers, $protocolVersion);
 	}
 
 	/**
-	 * @see https://mailchimp.com/developer/marketing/api/root/list-api-root-resources/
 	 * @inheritDoc
 	 */
+	protected function sendMeRequest(string $endpoint, array|null $params = null):ResponseInterface{
+		return $this->request(path: $endpoint, params: $params);
+	}
+
+	/**
+	 * @see https://mailchimp.com/developer/marketing/api/root/list-api-root-resources/
+	 *
+	 * @inheritDoc
+	 * @codeCoverageIgnore
+	 */
 	public function me():AuthenticatedUser{
-		$response = $this->request('/3.0/'); // trailing slash!
-		$status   = $response->getStatusCode();
-		$json     = MessageUtil::decodeJSON($response, true);
+		$json = $this->getMeResponseData('/3.0/'); // trailing slash!
 
-		if($status === 200){
+		$userdata = [
+			'data'        => $json,
+			'avatar'      => $json['avatar_url'],
+			'displayName' => $json['username'],
+			'handle'      => $json['account_name'],
+			'email'       => $json['email'],
+			'id'          => $json['account_id'],
+		];
 
-			$userdata = [
-				'data'        => $json,
-				'avatar'      => $json['avatar_url'],
-				'displayName' => $json['username'],
-				'handle'      => $json['account_name'],
-				'email'       => $json['email'],
-				'id'          => $json['account_id'],
-			];
-
-			return new AuthenticatedUser($userdata);
-		}
-
-		if(isset($json['detail'])){
-			throw new ProviderException($json['detail']);
-		}
-
-		throw new ProviderException(sprintf('user info error HTTP/%s', $status));
+		return new AuthenticatedUser($userdata);
 	}
 
 }

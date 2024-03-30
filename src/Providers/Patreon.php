@@ -13,9 +13,8 @@ declare(strict_types=1);
 
 namespace chillerlan\OAuth\Providers;
 
-use chillerlan\HTTP\Utils\MessageUtil;
 use chillerlan\OAuth\Core\{AuthenticatedUser, CSRFToken, OAuth2Provider, TokenRefresh};
-use function in_array, sprintf;
+use function in_array;
 
 /**
  * Patreon v2 OAuth2
@@ -72,30 +71,19 @@ class Patreon extends OAuth2Provider implements CSRFToken, TokenRefresh{
 			throw new ProviderException('invalid scopes for the identity endpoint');
 		}
 
-		$response = $this->request($endpoint, $params);
-		$status   = $response->getStatusCode();
-		$json     = MessageUtil::decodeJSON($response, true);
+		$json = $this->getMeResponseData($endpoint, $params);
 
-		if($status === 200){
+		$userdata = [
+			'data'        => $json,
+			'handle'      => $json['data']['attributes']['vanity'],
+			'avatar'      => $json['data']['attributes']['image_url'],
+			'displayName' => $json['data']['attributes']['full_name'],
+			'email'       => $json['data']['attributes']['email'],
+			'id'          => $json['data']['id'],
+			'url'         => $json['data']['attributes']['url'],
+		];
 
-			$userdata = [
-				'data'        => $json,
-				'handle'      => $json['data']['attributes']['vanity'],
-				'avatar'      => $json['data']['attributes']['image_url'],
-				'displayName' => $json['data']['attributes']['full_name'],
-				'email'       => $json['data']['attributes']['email'],
-				'id'          => $json['data']['id'],
-				'url'         => $json['data']['attributes']['url'],
-			];
-
-			return new AuthenticatedUser($userdata);
-		}
-
-		if(isset($json['errors'][0]['code_name'])){
-			throw new ProviderException($json['errors'][0]['code_name']);
-		}
-
-		throw new ProviderException(sprintf('user info error HTTP/%s', $status));
+		return new AuthenticatedUser($userdata);
 	}
 
 }

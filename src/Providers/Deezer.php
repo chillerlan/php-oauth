@@ -16,7 +16,7 @@ namespace chillerlan\OAuth\Providers;
 use chillerlan\HTTP\Utils\{MessageUtil, QueryUtil};
 use chillerlan\OAuth\Core\{AuthenticatedUser, CSRFToken, InvalidAccessTokenException, OAuth2Provider};
 use Psr\Http\Message\ResponseInterface;
-use function array_merge, implode, sprintf, trim;
+use function array_merge, implode, trim;
 
 /**
  * Deezer OAuth2
@@ -95,24 +95,10 @@ class Deezer extends OAuth2Provider implements CSRFToken{
 	 * deezer keeps testing my sanity - HTTP/200 on invalid token... sure
 	 *
 	 * @inheritDoc
+	 * @codeCoverageIgnore
 	 */
 	public function me():AuthenticatedUser{
-		$response = $this->request('/user/me');
-		$status   = $response->getStatusCode();
-		$json     = MessageUtil::decodeJSON($response, true);
-
-		if($status === 200 && !isset($json['error'])){
-
-			$userdata = [
-				'data'   => $json,
-				'avatar' => $json['picture'],
-				'handle' => $json['name'],
-				'id'     => $json['id'],
-				'url'    => $json['link'],
-			];
-
-			return new AuthenticatedUser($userdata);
-		}
+		$json = $this->getMeResponseData('/user/me');
 
 		if(isset($json['error']['code'], $json['error']['message'])){
 
@@ -123,7 +109,15 @@ class Deezer extends OAuth2Provider implements CSRFToken{
 			throw new ProviderException($json['error']['message']);
 		}
 
-		throw new ProviderException(sprintf('user info error HTTP/%s', $status));
+		$userdata = [
+			'data'   => $json,
+			'avatar' => $json['picture'],
+			'handle' => $json['name'],
+			'id'     => $json['id'],
+			'url'    => $json['link'],
+		];
+
+		return new AuthenticatedUser($userdata);
 	}
 
 }

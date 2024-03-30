@@ -11,9 +11,8 @@ declare(strict_types=1);
 
 namespace chillerlan\OAuth\Providers;
 
-use chillerlan\HTTP\Utils\MessageUtil;
 use chillerlan\OAuth\Core\{AuthenticatedUser, OAuth1Provider};
-use function implode, sprintf;
+use function implode;
 
 /**
  * Opencaching OAuth1
@@ -38,29 +37,19 @@ class OpenCaching extends OAuth1Provider{
 
 	/**
 	 * @inheritDoc
+	 * @codeCoverageIgnore
 	 */
 	public function me():AuthenticatedUser{
-		$response = $this->request('/users/user', ['fields' => implode('|', $this::USER_FIELDS)]);
-		$status   = $response->getStatusCode();
-		$json     = MessageUtil::decodeJSON($response, true);
+		$json = $this->getMeResponseData('/users/user', ['fields' => implode('|', $this::USER_FIELDS)]);
 
-		if($status === 200){
+		$userdata = [
+			'data'   => $json,
+			'handle' => $json['username'],
+			'id'     => $json['uuid'],
+			'url'    => $json['profile_url'],
+		];
 
-			$userdata = [
-				'data'   => $json,
-				'handle' => $json['username'],
-				'id'     => $json['uuid'],
-				'url'    => $json['profile_url'],
-			];
-
-			return new AuthenticatedUser($userdata);
-		}
-
-		if(isset($json['error'])){
-			throw new ProviderException($json['error']['developer_message']);
-		}
-
-		throw new ProviderException(sprintf('user info error HTTP/%s', $status));
+		return new AuthenticatedUser($userdata);
 	}
 
 }

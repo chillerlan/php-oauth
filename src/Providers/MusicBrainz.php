@@ -13,12 +13,11 @@ declare(strict_types=1);
 
 namespace chillerlan\OAuth\Providers;
 
-use chillerlan\HTTP\Utils\MessageUtil;
 use chillerlan\OAuth\Core\{
-	AccessToken, AuthenticatedUser, CSRFToken, InvalidAccessTokenException, OAuth2Provider, TokenInvalidate, TokenRefresh
+	AccessToken, AuthenticatedUser, CSRFToken, OAuth2Provider, TokenInvalidate, TokenRefresh
 };
 use Psr\Http\Message\{ResponseInterface, StreamInterface};
-use function explode, in_array, sprintf, strtoupper;
+use function explode, in_array, strtoupper;
 
 /**
  * MusicBrainz OAuth2
@@ -86,36 +85,25 @@ class MusicBrainz extends OAuth2Provider implements CSRFToken, TokenInvalidate, 
 			$params['client'] = $this::USER_AGENT; // @codeCoverageIgnore
 		}
 
-		return parent::request(explode('?', $path)[0], $params, $method, $body, $headers);
+		return parent::request($path, $params, $method, $body, $headers, $protocolVersion);
 	}
 
 	/**
 	 * @inheritDoc
+	 * @codeCoverageIgnore
 	 */
 	public function me():AuthenticatedUser{
-		$request  = $this->requestFactory->createRequest('GET', 'https://musicbrainz.org/oauth2/userinfo');
-		$response = $this->http->sendRequest($this->getRequestAuthorization($request));
-		$status   = $response->getStatusCode();
+		$json = $this->getMeResponseData('https://musicbrainz.org/oauth2/userinfo', ['fmt' => 'json']);
 
-		if($status === 200){
-			$json = MessageUtil::decodeJSON($response, true);
+		$userdata = [
+			'data'   => $json,
+			'handle' => $json['sub'],
+			'email'  => $json['email'],
+			'id'     => $json['metabrainz_user_id'],
+			'url'    => $json['profile'],
+		];
 
-			$userdata = [
-				'data'   => $json,
-				'handle' => $json['sub'],
-				'email'  => $json['email'],
-				'id'     => $json['metabrainz_user_id'],
-				'url'    => $json['profile'],
-			];
-
-			return new AuthenticatedUser($userdata);
-		}
-
-		if($status === 401){
-			throw new InvalidAccessTokenException($response->getBody()->getContents());
-		}
-
-		throw new ProviderException(sprintf('user info error HTTP/%s', $status));
+		return new AuthenticatedUser($userdata);
 	}
 
 	/**

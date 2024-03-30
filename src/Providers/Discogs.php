@@ -11,7 +11,6 @@ declare(strict_types=1);
 
 namespace chillerlan\OAuth\Providers;
 
-use chillerlan\HTTP\Utils\MessageUtil;
 use chillerlan\OAuth\Core\AuthenticatedUser;
 use chillerlan\OAuth\Core\OAuth1Provider;
 use function sprintf;
@@ -38,29 +37,20 @@ class Discogs extends OAuth1Provider{
 
 	/**
 	 * @inheritDoc
+	 * @codeCoverageIgnore
 	 */
 	public function me():AuthenticatedUser{
-		$response = $this->request('/oauth/identity');
-		$status   = $response->getStatusCode();
-		$json     = MessageUtil::decodeJSON($response, true);
+		$json = $this->getMeResponseData('/oauth/identity');
 
-		if($status === 200){
-			// we could do a second request to [resource_url] for the avatar and more info, but that's not really worth it.
-			$userdata = [
-				'data'   => $json,
-				'handle' => $json['username'],
-				'id'     => $json['id'],
-				'url'    => sprintf('https://www.discogs.com/user/%s', $json['username']),
-			];
+		// we could do a second request to [resource_url] for the avatar and more info, but that's not really worth it.
+		$userdata = [
+			'data'   => $json,
+			'handle' => $json['username'],
+			'id'     => $json['id'],
+			'url'    => sprintf('https://www.discogs.com/user/%s', $json['username']),
+		];
 
-			return new AuthenticatedUser($userdata);
-		}
-
-		if(isset($json['message'])){
-			throw new ProviderException($json['message']);
-		}
-
-		throw new ProviderException(sprintf('user info error HTTP/%s', $status));
+		return new AuthenticatedUser($userdata);
 	}
 
 }

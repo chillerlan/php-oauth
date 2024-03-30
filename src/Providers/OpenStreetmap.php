@@ -11,9 +11,7 @@ declare(strict_types=1);
 
 namespace chillerlan\OAuth\Providers;
 
-use chillerlan\HTTP\Utils\MessageUtil;
 use chillerlan\OAuth\Core\{AuthenticatedUser, OAuth1Provider};
-use function sprintf, strip_tags;
 
 /**
  * OpenStreetmap OAuth1 (deprecated)
@@ -34,31 +32,19 @@ class OpenStreetmap extends OAuth1Provider{
 
 	/**
 	 * @inheritDoc
+	 * @codeCoverageIgnore
 	 */
 	public function me():AuthenticatedUser{
-		$response = $this->request('/api/0.6/user/details.json');
-		$status   = $response->getStatusCode();
+		$json = $this->getMeResponseData('/api/0.6/user/details.json');
 
-		if($status === 200){
-			$json = MessageUtil::decodeJSON($response, true);
+		$userdata = [
+			'data'        => $json,
+			'avatar'      => $json['user']['img']['href'],
+			'displayName' => $json['user']['display_name'],
+			'id'          => $json['user']['id'],
+		];
 
-			$userdata = [
-				'data'        => $json,
-				'avatar'      => $json['user']['img']['href'],
-				'displayName' => $json['user']['display_name'],
-				'id'          => $json['user']['id'],
-			];
-
-			return new AuthenticatedUser($userdata);
-		}
-
-		$body = MessageUtil::getContents($response);
-
-		if(!empty($body)){
-			$body = strip_tags($body);
-		}
-
-		throw new ProviderException(sprintf('user info error HTTP/%s: "%s"', $status, $body));
+		return new AuthenticatedUser($userdata);
 	}
 
 }

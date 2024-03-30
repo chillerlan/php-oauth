@@ -11,7 +11,6 @@ declare(strict_types=1);
 
 namespace chillerlan\OAuth\Providers;
 
-use chillerlan\HTTP\Utils\MessageUtil;
 use chillerlan\OAuth\Core\{AuthenticatedUser, OAuth1Provider};
 use function sprintf, str_replace;
 
@@ -39,31 +38,21 @@ class Twitter extends OAuth1Provider{
 
 	/**
 	 * @inheritDoc
+	 * @codeCoverageIgnore
 	 */
 	public function me():AuthenticatedUser{
-		$response = $this->request('/1.1/account/verify_credentials.json');
-		$status   = $response->getStatusCode();
-		$json     = MessageUtil::decodeJSON($response, true);
+		$json = $this->getMeResponseData('/1.1/account/verify_credentials.json');
 
-		if($status === 200){
+		$userdata = [
+			'data'        => $json,
+			'avatar'      => str_replace('_normal', '_400x400', $json['profile_image_url_https']),
+			'handle'      => $json['screen_name'],
+			'displayName' => $json['name'],
+			'id'          => $json['id'],
+			'url'         => sprintf('https://twitter.com/%s', $json['screen_name']),
+		];
 
-			$userdata = [
-				'data'        => $json,
-				'avatar'      => str_replace('_normal', '_400x400', $json['profile_image_url_https']),
-				'handle'      => $json['screen_name'],
-				'displayName' => $json['name'],
-				'id'          => $json['id'],
-				'url'         => sprintf('https://twitter.com/%s', $json['screen_name']),
-			];
-
-			return new AuthenticatedUser($userdata);
-		}
-
-		if(isset($json['errors'], $json['errors'][0]['message'])){
-			throw new ProviderException($json['errors'][0]['message']);
-		}
-
-		throw new ProviderException(sprintf('user info error HTTP/%s', $status));
+		return new AuthenticatedUser($userdata);
 	}
 
 }

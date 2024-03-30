@@ -13,7 +13,6 @@ declare(strict_types=1);
 
 namespace chillerlan\OAuth\Providers;
 
-use chillerlan\HTTP\Utils\MessageUtil;
 use chillerlan\OAuth\Core\{AccessToken, AuthenticatedUser, CSRFToken, OAuth2Provider, TokenInvalidate, TokenRefresh};
 use function in_array, sprintf, strtolower;
 
@@ -62,27 +61,17 @@ class NPROne extends OAuth2Provider implements CSRFToken, TokenRefresh, TokenInv
 
 	/**
 	 * @inheritDoc
+	 * @codeCoverageIgnore
 	 */
 	public function me():AuthenticatedUser{
-		$response = $this->request('https://identity.api.npr.org/v2/user');
-		$status   = $response->getStatusCode();
-		$json     = MessageUtil::decodeJSON($response, true);
+		$json = $this->getMeResponseData('https://identity.api.npr.org/v2/user');
 
-		if($status === 200){
+		$userdata = [
+			'data'  => $json,
+			'email' => $json['attributes']['email'],
+		];
 
-			$userdata = [
-				'data'  => $json,
-				'email' => $json['attributes']['email'],
-			];
-
-			return new AuthenticatedUser($userdata);
-		}
-
-		if(isset($json['errors'])){
-			throw new ProviderException($json['errors'][0]['text']);
-		}
-
-		throw new ProviderException(sprintf('user info error HTTP/%s', $status));
+		return new AuthenticatedUser($userdata);
 	}
 
 	/**

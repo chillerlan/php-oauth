@@ -11,9 +11,7 @@ declare(strict_types=1);
 
 namespace chillerlan\OAuth\Providers;
 
-use chillerlan\HTTP\Utils\MessageUtil;
-use chillerlan\OAuth\Core\{AuthenticatedUser, InvalidAccessTokenException, OAuth2Provider};
-use function sprintf, str_contains;
+use chillerlan\OAuth\Core\{AuthenticatedUser, OAuth2Provider};
 
 /**
  * Mixcloud OAuth2
@@ -35,35 +33,20 @@ class Mixcloud extends OAuth2Provider{
 
 	/**
 	 * @inheritDoc
+	 * @codeCoverageIgnore
 	 */
 	public function me():AuthenticatedUser{
-		$response = $this->request('/me/');
-		$status   = $response->getStatusCode();
 		// mixcloud sends "Content-Type: text/javascript" for JSON content (????)
-		$json     = MessageUtil::decodeJSON($response, true);
+		$json = $this->getMeResponseData('/me/');
 
-		if($status === 200){
+		$userdata = [
+			'data'   => $json,
+			'avatar' => $json['pictures']['extra_large'],
+			'handle' => $json['username'],
+			'url'    => $json['url'],
+		];
 
-			$userdata = [
-				'data'   => $json,
-				'avatar' => $json['pictures']['extra_large'],
-				'handle' => $json['username'],
-				'url'    => $json['url'],
-			];
-
-			return new AuthenticatedUser($userdata);
-		}
-
-		if(isset($json['error'], $json['error']['message'])){
-
-			if($status === 400 && str_contains($json['error']['message'], 'invalid access token')){
-				throw new InvalidAccessTokenException($json['error']['message']);
-			}
-
-			throw new ProviderException($json['error']['message']);
-		}
-
-		throw new ProviderException(sprintf('user info error HTTP/%s', $status));
+		return new AuthenticatedUser($userdata);
 	}
 
 }

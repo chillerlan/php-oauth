@@ -16,7 +16,7 @@ namespace chillerlan\OAuth\Providers;
 use chillerlan\HTTP\Utils\{MessageUtil, QueryUtil};
 use chillerlan\OAuth\Core\{AccessToken, AuthenticatedUser, OAuth2Provider};
 use Psr\Http\Message\UriInterface;
-use function implode, preg_match, sprintf, str_starts_with, substr;
+use function implode, preg_match, str_starts_with, substr;
 
 /**
  * Guild Wars 2
@@ -102,28 +102,18 @@ class GuildWars2 extends OAuth2Provider{
 
 	/**
 	 * @inheritDoc
+	 * @codeCoverageIgnore
 	 */
 	public function me():AuthenticatedUser{
-		$response = $this->request('/v2/tokeninfo');
-		$status   = $response->getStatusCode();
-		$json     = MessageUtil::decodeJSON($response, true);
+		$json = $this->getMeResponseData('/v2/tokeninfo');
 
-		if($status === 200){
+		$userdata = [
+			'data'   => $json,
+			'handle' => $json['name'],
+			'id'     => $json['id'],
+		];
 
-			$userdata = [
-				'data'   => $json,
-				'handle' => $json['name'],
-				'id'     => $json['id'],
-			];
-
-			return new AuthenticatedUser($userdata);
-		}
-
-		if(isset($json['text'])){
-			throw new ProviderException($json['text']);
-		}
-
-		throw new ProviderException(sprintf('user info error HTTP/%s', $status));
+		return new AuthenticatedUser($userdata);
 	}
 
 }

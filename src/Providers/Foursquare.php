@@ -11,10 +11,9 @@ declare(strict_types=1);
 
 namespace chillerlan\OAuth\Providers;
 
-use chillerlan\HTTP\Utils\{MessageUtil, QueryUtil};
 use chillerlan\OAuth\Core\{AuthenticatedUser, OAuth2Provider};
 use Psr\Http\Message\{ResponseInterface, StreamInterface};
-use function array_merge, explode, sprintf;
+use function array_merge, sprintf;
 
 /**
  * Foursquare OAuth2
@@ -27,6 +26,7 @@ class Foursquare extends OAuth2Provider{
 	public const AUTH_PREFIX_QUERY = 'oauth_token';
 
 	protected const API_VERSIONDATE = '20190225';
+	protected const QUERY_PARAMS    = ['m' => 'foursquare', 'v' => self::API_VERSIONDATE];
 
 	protected string      $authURL         = 'https://foursquare.com/oauth2/authenticate';
 	protected string      $accessTokenURL  = 'https://foursquare.com/oauth2/access_token';
@@ -37,6 +37,7 @@ class Foursquare extends OAuth2Provider{
 
 	/**
 	 * @inheritDoc
+	 * @codeCoverageIgnore
 	 */
 	public function request(
 		string                            $path,
@@ -46,42 +47,30 @@ class Foursquare extends OAuth2Provider{
 		array|null                        $headers = null,
 		string|null                       $protocolVersion = null
 	):ResponseInterface{
-		$queryparams      = QueryUtil::parse($this->uriFactory->createUri($this->apiURL.$path)->getPath());
-		$queryparams['v'] = $this::API_VERSIONDATE;
-		$queryparams['m'] = 'foursquare';
+		$params = array_merge(($params ?? []), $this::QUERY_PARAMS);
 
-		return parent::request(explode('?', $path)[0], array_merge(($params ?? []), $queryparams), $method, $body, $headers);
+		return parent::request($path, $params, $method, $body, $headers, $protocolVersion);
 	}
 
 	/**
 	 * @inheritDoc
+	 * @codeCoverageIgnore
 	 */
 	public function me():AuthenticatedUser{
-		$response = $this->request('/v2/users/self');
-		$status   = $response->getStatusCode();
-		$json     = MessageUtil::decodeJSON($response, true);
+		$json = $this->getMeResponseData('/v2/users/self', $this::QUERY_PARAMS);
+		$user = $json['response']['user'];
 
-		if($status === 200){
-			$user = $json['response']['user'];
+		$userdata = [
+			'data'        => $json,
+			'avatar'      => sprintf('%s%s%s', $user['photo']['prefix'], $user['id'], $user['photo']['suffix']),
+			'displayName' => $user['firstName'],
+			'email'       => $user['contact']['email'],
+			'id'          => $user['id'],
+			'handle'      => $user['handle'],
+			'url'         => $user['canonicalUrl'],
+		];
 
-			$userdata = [
-				'data'        => $json,
-				'avatar'      => sprintf('%s%s%s', $user['photo']['prefix'], $user['id'], $user['photo']['suffix']),
-				'displayName' => $user['firstName'],
-				'email'       => $user['contact']['email'],
-				'id'          => $user['id'],
-				'handle'      => $user['handle'],
-				'url'         => $user['canonicalUrl'],
-			];
-
-			return new AuthenticatedUser($userdata);
-		}
-
-		if(isset($json['meta'], $json['meta']['errorDetail'])){
-			throw new ProviderException($json['meta']['errorDetail']);
-		}
-
-		throw new ProviderException(sprintf('user info error HTTP/%s', $status));
+		return new AuthenticatedUser($userdata);
 	}
 
 }

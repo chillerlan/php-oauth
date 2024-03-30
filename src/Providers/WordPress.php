@@ -13,9 +13,7 @@ declare(strict_types=1);
 
 namespace chillerlan\OAuth\Providers;
 
-use chillerlan\HTTP\Utils\MessageUtil;
-use chillerlan\OAuth\Core\{AuthenticatedUser, CSRFToken, InvalidAccessTokenException, OAuth2Provider};
-use function sprintf;
+use chillerlan\OAuth\Core\{AuthenticatedUser, CSRFToken, OAuth2Provider};
 
 /**
  * WordPress OAuth2
@@ -40,37 +38,22 @@ class WordPress extends OAuth2Provider implements CSRFToken{
 
 	/**
 	 * @inheritDoc
+	 * @codeCoverageIgnore
 	 */
 	public function me():AuthenticatedUser{
-		$response = $this->request('/v1/me');
-		$status   = $response->getStatusCode();
-		$json     = MessageUtil::decodeJSON($response, true);
+		$json = $this->getMeResponseData('/v1/me');
 
-		if($status === 200){
+		$userdata = [
+			'data'        => $json,
+			'avatar'      => $json['avatar_URL'],
+			'handle'      => $json['username'],
+			'displayName' => $json['display_name'],
+			'email'       => $json['email'],
+			'id'          => $json['ID'],
+			'url'         => $json['profile_URL'],
+		];
 
-			$userdata = [
-				'data'        => $json,
-				'avatar'      => $json['avatar_URL'],
-				'handle'      => $json['username'],
-				'displayName' => $json['display_name'],
-				'email'       => $json['email'],
-				'id'          => $json['ID'],
-				'url'         => $json['profile_URL'],
-			];
-
-			return new AuthenticatedUser($userdata);
-		}
-
-		if(isset($json['error'], $json['message'])){
-
-			if($status === 400 && $json['error'] === 'invalid_token'){
-				throw new InvalidAccessTokenException($json['message']);
-			}
-
-			throw new ProviderException($json['message']);
-		}
-
-		throw new ProviderException(sprintf('user info error HTTP/%s', $status));
+		return new AuthenticatedUser($userdata);
 	}
 
 }

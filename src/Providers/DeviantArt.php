@@ -58,30 +58,20 @@ class DeviantArt extends OAuth2Provider implements ClientCredentials, CSRFToken,
 
 	/**
 	 * @inheritDoc
+	 * @codeCoverageIgnore
 	 */
 	public function me():AuthenticatedUser{
-		$response = $this->request('/user/whoami');
-		$status   = $response->getStatusCode();
-		$json     = MessageUtil::decodeJSON($response, true);
+		$json = $this->getMeResponseData('/user/whoami');
 
-		if($status === 200){
+		$userdata = [
+			'data'   => $json,
+			'avatar' => $json['usericon'],
+			'handle' => $json['username'],
+			'id'     => $json['userid'],
+			'url'    => sprintf('https://www.deviantart.com/%s', $json['username']),
+		];
 
-			$userdata = [
-				'data'   => $json,
-				'avatar' => $json['usericon'],
-				'handle' => $json['username'],
-				'id'     => $json['userid'],
-				'url'    => sprintf('https://www.deviantart.com/%s', $json['username']),
-			];
-
-			return new AuthenticatedUser($userdata);
-		}
-
-		if(isset($json['error'], $json['error_description'])){
-			throw new ProviderException($json['error_description']);
-		}
-
-		throw new ProviderException(sprintf('user info error HTTP/%s', $status));
+		return new AuthenticatedUser($userdata);
 	}
 
 	/**

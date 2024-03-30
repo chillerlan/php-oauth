@@ -13,9 +13,7 @@ declare(strict_types=1);
 
 namespace chillerlan\OAuth\Providers;
 
-use chillerlan\HTTP\Utils\MessageUtil;
 use chillerlan\OAuth\Core\{AuthenticatedUser, CSRFToken, OAuth2Provider, TokenRefresh};
-use function sprintf;
 
 /**
  * GitHub OAuth2
@@ -75,32 +73,22 @@ class GitHub extends OAuth2Provider implements CSRFToken, TokenRefresh{
 
 	/**
 	 * @inheritDoc
+	 * @codeCoverageIgnore
 	 */
 	public function me():AuthenticatedUser{
-		$response = $this->request('/user');
-		$status   = $response->getStatusCode();
-		$json     = MessageUtil::decodeJSON($response, true);
+		$json = $this->getMeResponseData('/user');
 
-		if($status === 200){
+		$userdata = [
+			'data'        => $json,
+			'avatar'      => $json['avatar_url'],
+			'handle'      => $json['login'],
+			'displayName' => $json['name'],
+			'email'       => $json['email'],
+			'id'          => $json['id'],
+			'url'         => $json['html_url'],
+		];
 
-			$userdata = [
-				'data'        => $json,
-				'avatar'      => $json['avatar_url'],
-				'handle'      => $json['login'],
-				'displayName' => $json['name'],
-				'email'       => $json['email'],
-				'id'          => $json['id'],
-				'url'         => $json['html_url'],
-			];
-
-			return new AuthenticatedUser($userdata);
-		}
-
-		if(isset($json['message'])){
-			throw new ProviderException($json['message']);
-		}
-
-		throw new ProviderException(sprintf('user info error HTTP/%s', $status));
+		return new AuthenticatedUser($userdata);
 	}
 
 }

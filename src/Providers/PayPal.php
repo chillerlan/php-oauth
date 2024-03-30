@@ -13,7 +13,7 @@ declare(strict_types=1);
 
 namespace chillerlan\OAuth\Providers;
 
-use chillerlan\HTTP\Utils\{MessageUtil, QueryUtil};
+use chillerlan\HTTP\Utils\QueryUtil;
 use chillerlan\OAuth\Core\{AuthenticatedUser, ClientCredentials, CSRFToken, OAuth2Provider, TokenRefresh};
 use Psr\Http\Message\ResponseInterface;
 use function sodium_bin2base64, sprintf;
@@ -73,37 +73,27 @@ class PayPal extends OAuth2Provider implements ClientCredentials, CSRFToken, Tok
 
 	/**
 	 * @inheritDoc
+	 * @codeCoverageIgnore
 	 */
 	public function me():AuthenticatedUser{
-		$response = $this->request('/v1/identity/oauth2/userinfo', ['schema' => 'paypalv1.1']);
-		$status   = $response->getStatusCode();
-		$json     = MessageUtil::decodeJSON($response, true);
+		$json = $this->getMeResponseData('/v1/identity/oauth2/userinfo', ['schema' => 'paypalv1.1']);
 
-		if($status === 200){
+		$userdata = [
+			'data'        => $json,
+			'displayName' => $json['name'],
+			'id'          => $json['user_id'],
+		];
 
-			$userdata = [
-				'data'        => $json,
-				'displayName' => $json['name'],
-				'id'          => $json['user_id'],
-			];
-
-			if(!empty($json['emails'])){
-				foreach($json['emails'] as $email){
-					if($email['primary']){
-						$userdata['email'] = $email['value'];
-						break;
-					}
+		if(!empty($json['emails'])){
+			foreach($json['emails'] as $email){
+				if($email['primary']){
+					$userdata['email'] = $email['value'];
+					break;
 				}
 			}
-
-			return new AuthenticatedUser($userdata);
 		}
 
-		if(isset($json['error'], $json['error_description'])){
-			throw new ProviderException($json['error_description']);
-		}
-
-		throw new ProviderException(sprintf('user info error HTTP/%s', $status));
+		return new AuthenticatedUser($userdata);
 	}
 
 }

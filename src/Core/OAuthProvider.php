@@ -11,7 +11,7 @@ declare(strict_types=1);
 
 namespace chillerlan\OAuth\Core;
 
-use chillerlan\HTTP\Utils\QueryUtil;
+use chillerlan\HTTP\Utils\{MessageUtil, QueryUtil};
 use chillerlan\OAuth\OAuthOptions;
 use chillerlan\OAuth\Providers\ProviderException;
 use chillerlan\OAuth\Storage\{MemoryStorage, OAuthStorageInterface};
@@ -24,7 +24,8 @@ use Psr\Http\Message\{
 use Psr\Log\{LoggerInterface, NullLogger};
 use ReflectionClass;
 use function array_merge, array_shift, explode, implode, in_array, is_array, is_string,
-	json_encode, ltrim, random_bytes, rtrim, sodium_bin2hex, sprintf, str_starts_with, strtolower;
+	json_encode, ltrim, random_bytes, rtrim, sodium_bin2hex, sprintf, str_contains,
+	str_starts_with, strip_tags, strtolower;
 use const PHP_QUERY_RFC1738;
 
 /**
@@ -247,6 +248,25 @@ abstract class OAuthProvider implements OAuthInterface{
 
 	/**
 	 * @inheritDoc
+	 * @codeCoverageIgnore
+	 *
+	 * @see \chillerlan\OAuth\Core\OAuthProvider::getMeResponseData()
+	 */
+	public function me():AuthenticatedUser|null{
+		return null;
+	}
+
+	/**
+	 * @implements \chillerlan\OAuth\Core\TokenInvalidate
+	 * @codeCoverageIgnore
+	 * @throws \chillerlan\OAuth\Providers\ProviderException
+	 */
+	public function InvalidateAccessToken(AccessToken|null $token = null):bool{
+		throw new ProviderException('not implemented');
+	}
+
+	/**
+	 * @inheritDoc
 	 * @throws \chillerlan\OAuth\Core\UnauthorizedAccessException
 	 */
 	public function request(
@@ -384,27 +404,96 @@ abstract class OAuthProvider implements OAuthInterface{
 			return $this->http->sendRequest($request);
 		}
 
-		// attempt to refresh an expired token
 		$request = $this->getRequestAuthorization($request);
 
 		return $this->http->sendRequest($request);
 	}
 
 	/**
-	 * @inheritDoc
-	 * @codeCoverageIgnore
+	 * fetches the provider's "me" endpoint and returns the JSON data as an array
+	 *
+	 * @see \chillerlan\OAuth\Core\OAuthInterface::me()
+	 * @see \chillerlan\OAuth\Core\OAuthProvider::sendMeRequest()
+	 * @see \chillerlan\OAuth\Core\OAuthProvider::handleMeResponseError()
+	 * @throws \chillerlan\OAuth\Providers\ProviderException
 	 */
-	public function me():AuthenticatedUser|null{
-		return null;
+	protected function getMeResponseData(string $endpoint, array|null $params = null):array{
+		$response = $this->sendMeRequest($endpoint, $params);
+
+		if($response->getStatusCode() === 200){
+			$contentType = $response->getHeaderLine('Content-Type');
+
+			// mixcloud sends a javascript content type for json...
+			if(!str_contains($contentType, 'json') && !str_contains($contentType, 'javascript')){
+				throw new ProviderException(sprintf('invalid content type "%s", expected JSON', $contentType));
+			}
+
+			return MessageUtil::decodeJSON($response, true);
+		}
+
+		// handle and throw the error
+		$this->handleMeResponseError($response);
 	}
 
 	/**
-	 * @implements \chillerlan\OAuth\Core\TokenInvalidate
-	 * @codeCoverageIgnore
-	 * @throws \chillerlan\OAuth\Providers\ProviderException
+	 * prepares and sends the request to the provider's "me" endpoint and returns a ResponseInterface
 	 */
-	public function InvalidateAccessToken(AccessToken|null $token = null):bool{
-		throw new ProviderException('not implemented');
+	protected function sendMeRequest(string $endpoint, array|null $params = null):ResponseInterface{
+		// we'll bypass the API check here as not all "me" endpoints align with the provider APIs
+		$url     = $this->getRequestURL($endpoint, $params);
+		$request = $this->requestFactory->createRequest('GET', $url);
+
+		foreach($this->getRequestHeaders() as $header => $value){
+			$request = $request->withAddedHeader($header, $value);
+		}
+
+		$request = $this->getRequestAuthorization($request);
+
+		return $this->http->sendRequest($request);
+	}
+
+	/**
+	 * handles errors for the `me()` endpoints - one horrible block of code to catch them all
+	 *
+	 * we could simply throw a ProviderException and be done with it, but we're nice and try to provide a message too
+	 *
+	 * @throws \chillerlan\OAuth\Providers\ProviderException|\chillerlan\OAuth\Core\UnauthorizedAccessException
+	 */
+	private function handleMeResponseError(ResponseInterface $response){
+		$status = $response->getStatusCode();
+
+		// in case these slipped through
+		if(in_array($status, [400, 401, 403], true)){
+			throw new UnauthorizedAccessException;
+		}
+
+		// the error response may be plain text or html in some cases
+		if(!str_contains($response->getHeaderLine('Content-Type'), 'json')){
+			$body = strip_tags(MessageUtil::getContents($response));
+
+			throw new ProviderException(sprintf('user info error HTTP/%s, "%s"', $status, $body));
+		}
+
+		// json error, fine
+		$json = MessageUtil::decodeJSON($response, true);
+
+		// let's try the common fields
+		foreach(['error_description', 'message', 'error', 'meta', 'data', 'detail', 'status', 'text'] as $err){
+
+			if(isset($json[$err]) && is_string($json[$err])){
+				throw new ProviderException($json[$err]);
+			}
+			elseif(is_array($json[$err])){
+				foreach(['message', 'error', 'errorDetail', 'developer_message', 'msg', 'code'] as $errDetail){
+					if(isset($json[$err][$errDetail]) && is_string($json[$err][$errDetail])){
+						throw new ProviderException($json[$err][$errDetail]);
+					}
+				}
+			}
+		}
+
+		// throw the status if we can't find a message
+		throw new ProviderException(sprintf('user info error HTTP/%s', $status));
 	}
 
 }

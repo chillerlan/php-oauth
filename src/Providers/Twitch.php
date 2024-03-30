@@ -13,9 +13,10 @@ declare(strict_types=1);
 
 namespace chillerlan\OAuth\Providers;
 
-use chillerlan\HTTP\Utils\{MessageUtil, QueryUtil};
+use chillerlan\HTTP\Utils\QueryUtil;
 use chillerlan\OAuth\Core\{
-	AccessToken, AuthenticatedUser, ClientCredentials, CSRFToken, OAuth2Provider, TokenInvalidate, TokenRefresh
+	AccessToken, AuthenticatedUser, ClientCredentials, CSRFToken, InvalidAccessTokenException,
+	OAuth2Provider, TokenInvalidate, TokenRefresh
 };
 use Psr\Http\Message\{RequestInterface, ResponseInterface};
 use function implode, sprintf;
@@ -135,33 +136,23 @@ class Twitch extends OAuth2Provider implements ClientCredentials, CSRFToken, Tok
 
 	/**
 	 * @inheritDoc
+	 * @codeCoverageIgnore
 	 */
 	public function me():AuthenticatedUser{
-		$response = $this->request('/helix/users');
-		$status   = $response->getStatusCode();
-		$json     = MessageUtil::decodeJSON($response, true);
+		$json = $this->getMeResponseData('/helix/users');
+		$user = $json['data'][0];
 
-		if($status === 200){
-			$user = $json['data'][0];
+		$userdata = [
+			'data'        => $user,
+			'avatar'      => $user['profile_image_url'],
+			'handle'      => $user['login'],
+			'displayName' => $user['display_name'],
+			'email'       => $user['email'],
+			'id'          => $user['id'],
+			'url'         => sprintf('https://www.twitch.tv/%s', $user['login']),
+		];
 
-			$userdata = [
-				'data'        => $user,
-				'avatar'      => $user['profile_image_url'],
-				'handle'      => $user['login'],
-				'displayName' => $user['display_name'],
-				'email'       => $user['email'],
-				'id'          => $user['id'],
-				'url'         => sprintf('https://www.twitch.tv/%s', $user['login']),
-			];
-
-			return new AuthenticatedUser($userdata);
-		}
-
-		if(isset($json['error'], $json['message'])){
-			throw new ProviderException($json['message']);
-		}
-
-		throw new ProviderException(sprintf('user info error HTTP/%s', $status));
+		return new AuthenticatedUser($userdata);
 	}
 
 	/**

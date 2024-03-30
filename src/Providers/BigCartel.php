@@ -11,7 +11,6 @@ declare(strict_types=1);
 
 namespace chillerlan\OAuth\Providers;
 
-use chillerlan\HTTP\Utils\MessageUtil;
 use chillerlan\OAuth\Core\{AccessToken, AuthenticatedUser, CSRFToken, OAuth2Provider, TokenInvalidate};
 use function sodium_bin2base64, sprintf;
 use const SODIUM_BASE64_VARIANT_ORIGINAL;
@@ -38,29 +37,19 @@ class BigCartel extends OAuth2Provider implements CSRFToken, TokenInvalidate{
 
 	/**
 	 * @inheritDoc
+	 * @codeCoverageIgnore
 	 */
 	public function me():AuthenticatedUser{
-		$response = $this->request('/accounts');
-		$status   = $response->getStatusCode();
-		$json     = MessageUtil::decodeJSON($response, true);
+		$json = $this->getMeResponseData('/accounts');
 
-		if($status === 200){
+		$userdata = [
+			'data'   => $json,
+			'email'  => $json['data'][0]['attributes']['contact_email'],
+			'handle' => $json['data'][0]['attributes']['subdomain'],
+			'id'     => $json['data'][0]['id'],
+		];
 
-			$userdata = [
-				'data'   => $json,
-				'email'  => $json['data'][0]['attributes']['contact_email'],
-				'handle' => $json['data'][0]['attributes']['subdomain'],
-				'id'     => $json['data'][0]['id'],
-			];
-
-			return new AuthenticatedUser($userdata);
-		}
-
-		if(isset($json['error'])){
-			throw new ProviderException($json['error']);
-		}
-
-		throw new ProviderException(sprintf('user info error HTTP/%s', $status));
+		return new AuthenticatedUser($userdata);
 	}
 
 	/**
@@ -94,7 +83,7 @@ class BigCartel extends OAuth2Provider implements CSRFToken, TokenInvalidate{
 	}
 
 	/**
-	 * Try to get the user ID from either the token or the me() endpoint
+	 * Try to get the user ID from either the token or the `me()` endpoint
 	 *
 	 * @throws \chillerlan\OAuth\Providers\ProviderException
 	 */

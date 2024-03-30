@@ -11,7 +11,6 @@ declare(strict_types=1);
 
 namespace chillerlan\OAuth\Providers;
 
-use chillerlan\HTTP\Utils\MessageUtil;
 use chillerlan\OAuth\Core\{AuthenticatedUser, ClientCredentials, CSRFToken, OAuth2Provider, TokenRefresh};
 use function sprintf;
 
@@ -41,28 +40,18 @@ class Tumblr2 extends OAuth2Provider implements CSRFToken, TokenRefresh, ClientC
 
 	/**
 	 * @inheritDoc
+	 * @codeCoverageIgnore
 	 */
 	public function me():AuthenticatedUser{
-		$response = $this->request('/v2/user/info');
-		$status   = $response->getStatusCode();
-		$json     = MessageUtil::decodeJSON($response, true);
+		$json = $this->getMeResponseData('/v2/user/info');
 
-		if($status === 200){
+		$userdata = [
+			'data'   => $json,
+			'handle' => $json['response']['user']['name'],
+			'url'    => sprintf('https://www.tumblr.com/%s', $json['response']['user']['name']),
+		];
 
-			$userdata = [
-				'data'   => $json,
-				'handle' => $json['response']['user']['name'],
-				'url'    => sprintf('https://www.tumblr.com/%s', $json['response']['user']['name']),
-			];
-
-			return new AuthenticatedUser($userdata);
-		}
-
-		if(isset($json['meta'], $json['meta']['msg'])){
-			throw new ProviderException($json['meta']['msg']);
-		}
-
-		throw new ProviderException(sprintf('user info error HTTP/%s', $status));
+		return new AuthenticatedUser($userdata);
 	}
 
 }

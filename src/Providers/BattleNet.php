@@ -11,9 +11,8 @@ declare(strict_types=1);
 
 namespace chillerlan\OAuth\Providers;
 
-use chillerlan\HTTP\Utils\MessageUtil;
-use chillerlan\OAuth\Core\{AuthenticatedUser, ClientCredentials, CSRFToken, InvalidAccessTokenException, OAuth2Provider};
-use function in_array, ltrim, rtrim, sprintf, str_contains, strtolower;
+use chillerlan\OAuth\Core\{AuthenticatedUser, ClientCredentials, CSRFToken, OAuth2Provider};
+use function in_array, ltrim, rtrim, sprintf, strtolower;
 
 /**
  * Battle.net OAuth2
@@ -117,42 +116,18 @@ class BattleNet extends OAuth2Provider implements ClientCredentials, CSRFToken{
 
 	/**
 	 * @inheritDoc
+	 * @codeCoverageIgnore
 	 */
 	public function me():AuthenticatedUser{
-		$request  = $this->requestFactory->createRequest('GET', $this->battleNetOauth.'/oauth/userinfo');
-		$response = $this->http->sendRequest($this->getRequestAuthorization($request));
-		$status   = $response->getStatusCode();
+		$json = $this->getMeResponseData($this->battleNetOauth.'/oauth/userinfo');
 
-		// response may be html in some cases (errors)
-		$contentType = $response->getHeaderLine('Content-Type');
+		$userdata = [
+			'data'   => $json,
+			'handle' => $json['battletag'],
+			'id'     => $json['id'],
+		];
 
-		if(!str_contains($contentType, 'application/json')){
-			throw new ProviderException(sprintf('invalid content type "%s", expected JSON', $contentType));
-		}
-
-		$json = MessageUtil::decodeJSON($response, true);
-
-		if($status === 200){
-
-			$userdata = [
-				'data'   => $json,
-				'handle' => $json['battletag'],
-				'id'     => $json['id'],
-			];
-
-			return new AuthenticatedUser($userdata);
-		}
-
-		if(isset($json['error'], $json['error_description'])){
-			// we need to check for unauthorized here as the request goes directly to the http client
-			if($status === 401){
-				throw new InvalidAccessTokenException($json['error_description']);
-			}
-
-			throw new ProviderException($json['error_description']);
-		}
-
-		throw new ProviderException(sprintf('user info error HTTP/%s', $status));
+		return new AuthenticatedUser($userdata);
 	}
 
 }

@@ -13,7 +13,6 @@ declare(strict_types=1);
 
 namespace chillerlan\OAuth\Providers;
 
-use chillerlan\HTTP\Utils\MessageUtil;
 use chillerlan\OAuth\Core\{
 	AccessToken, AuthenticatedUser, ClientCredentials, CSRFToken, OAuth2Provider, TokenInvalidate, TokenRefresh
 };
@@ -65,32 +64,22 @@ class Discord extends OAuth2Provider implements ClientCredentials, CSRFToken, To
 
 	/**
 	 * @inheritDoc
+	 * @codeCoverageIgnore
 	 */
 	public function me():AuthenticatedUser{
-		$response = $this->request('/users/@me');
-		$status   = $response->getStatusCode();
-		$json     = MessageUtil::decodeJSON($response, true);
+		$json = $this->getMeResponseData('/users/@me');
 
-		if($status === 200){
+		$userdata = [
+			'data'        => $json,
+			'avatar'      => sprintf('https://cdn.discordapp.com/avatars/%s/%s.png', $json['id'], $json['avatar']),
+			'displayName' => $json['global_name'],
+			'email'       => $json['email'],
+			'handle'      => $json['username'],
+			'id'          => $json['id'],
+			'url'         => sprintf('https://discordapp.com/users/%s', $json['id']), // @me
+		];
 
-			$userdata = [
-				'data'        => $json,
-				'avatar'      => sprintf('https://cdn.discordapp.com/avatars/%s/%s.png', $json['id'], $json['avatar']),
-				'displayName' => $json['global_name'],
-				'email'       => $json['email'],
-				'handle'      => $json['username'],
-				'id'          => $json['id'],
-				'url'         => sprintf('https://discordapp.com/users/%s', $json['id']), // @me
-			];
-
-			return new AuthenticatedUser($userdata);
-		}
-
-		if(isset($json['message'])){
-			throw new ProviderException($json['message']);
-		}
-
-		throw new ProviderException(sprintf('user info error HTTP/%s', $status));
+		return new AuthenticatedUser($userdata);
 	}
 
 	/**

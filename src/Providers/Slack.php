@@ -13,7 +13,6 @@ declare(strict_types=1);
 
 namespace chillerlan\OAuth\Providers;
 
-use chillerlan\HTTP\Utils\MessageUtil;
 use chillerlan\OAuth\Core\{AuthenticatedUser, CSRFToken, InvalidAccessTokenException, OAuth2Provider};
 use function sprintf;
 
@@ -97,19 +96,18 @@ class Slack extends OAuth2Provider implements CSRFToken{
 	protected string|null $applicationURL = 'https://api.slack.com/apps';
 
 	/**
-	 * @inheritDoc
-	 *
 	 * HTTP/200 OK on errors? you're fired.
+	 *
+	 * @inheritDoc
+	 * @codeCoverageIgnore
 	 */
 	public function me():AuthenticatedUser{
-		$response = $this->request('/users.identity');
-		$status   = $response->getStatusCode();
-		$json     = MessageUtil::decodeJSON($response, true);
+		$json = $this->getMeResponseData('/users.identity');
 
-		if($status === 200 && !empty($json['ok'])){
+		if(!empty($json['ok'])){
 
 			$userdata = [
-				'data'        => (array)$json,
+				'data'        => $json,
 				'avatar'      => $json['user']['image_512'],
 				'displayName' => $json['user']['name'],
 				'email'       => $json['user']['email'],
@@ -128,7 +126,7 @@ class Slack extends OAuth2Provider implements CSRFToken{
 			throw new ProviderException($json['error']);
 		}
 
-		throw new ProviderException(sprintf('user info error HTTP/%s', $status));
+		throw new ProviderException(sprintf('user info error'));
 	}
 
 }

@@ -13,9 +13,7 @@ declare(strict_types=1);
 
 namespace chillerlan\OAuth\Providers;
 
-use chillerlan\HTTP\Utils\MessageUtil;
-use chillerlan\OAuth\Core\{AuthenticatedUser, CSRFToken, InvalidAccessTokenException, OAuth2Provider, TokenRefresh};
-use function sprintf;
+use chillerlan\OAuth\Core\{AuthenticatedUser, CSRFToken, OAuth2Provider, TokenRefresh};
 
 /**
  * Login with Amazon for Websites (OAuth2)
@@ -41,34 +39,19 @@ class Amazon extends OAuth2Provider implements CSRFToken, TokenRefresh{
 
 	/**
 	 * @inheritDoc
+	 * @codeCoverageIgnore
 	 */
 	public function me():AuthenticatedUser{
-		$response = $this->request('/user/profile');
-		$status   = $response->getStatusCode();
-		$json     = MessageUtil::decodeJSON($response, true);
+		$json = $this->getMeResponseData('/user/profile');
 
-		if($status === 200){
+		$userdata = [
+			'data'        => $json,
+			'displayName' => $json['name'],
+			'email'       => $json['email'],
+			'id'          => $json['user_id'],
+		];
 
-			$userdata = [
-				'data'        => $json,
-				'displayName' => $json['name'],
-				'email'       => $json['email'],
-				'id'          => $json['user_id'],
-			];
-
-			return new AuthenticatedUser($userdata);
-		}
-
-		if(isset($json['error'], $json['error_description'])){
-
-			if($json['error'] === 'invalid_token'){
-				throw new InvalidAccessTokenException($json['error_description']);
-			}
-
-			throw new ProviderException($json['error_description']);
-		}
-
-		throw new ProviderException(sprintf('user info error HTTP/%s', $status));
+		return new AuthenticatedUser($userdata);
 	}
 
 }

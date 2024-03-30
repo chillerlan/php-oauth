@@ -194,7 +194,11 @@ abstract class OAuth2ProviderUnitTestAbstract extends OAuthProviderUnitTestAbstr
 
 	public function testGetRequestAuthorization():void{
 		$request    = $this->requestFactory->createRequest('GET', 'https://foo.bar');
-		$token      = new AccessToken(['accessTokenSecret' => 'test_token_secret', 'accessToken' => 'test_token']);
+		$token      = new AccessToken([
+			'accessTokenSecret' => 'test_token_secret',
+			'accessToken' => 'test_token',
+			'expires' => 3600,
+		]);
 
 		$this->provider->storeAccessToken($token);
 

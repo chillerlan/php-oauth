@@ -150,7 +150,11 @@ abstract class OAuth1ProviderUnitTestAbstract extends OAuthProviderUnitTestAbstr
 	public function testGetAccessToken():void{
 		$this->setMockResponse($this->streamFactory->createStream($this::TEST_ACCESS_TOKEN));
 
-		$requestToken = new AccessToken(['accessToken' => 'hdk48Djdsa', 'accessTokenSecret' => 'xyz4992k83j47x0b']);
+		$requestToken = new AccessToken([
+			'accessToken'       => 'hdk48Djdsa',
+			'accessTokenSecret' => 'xyz4992k83j47x0b',
+			'expires'           => AccessToken::NEVER_EXPIRES,
+		]);
 
 		$this->provider->storeAccessToken($requestToken);
 
@@ -161,7 +165,13 @@ abstract class OAuth1ProviderUnitTestAbstract extends OAuthProviderUnitTestAbstr
 
 	public function testSendAccessTokenRequest():void{
 		// we need the request token for the access token request
-		$requestToken = new AccessToken(['accessToken' => 'hdk48Djdsa', 'accessTokenSecret' => 'xyz4992k83j47x0b']);
+		$requestToken = new AccessToken([
+			'accessToken'       => 'hdk48Djdsa',
+			'accessTokenSecret' => 'xyz4992k83j47x0b',
+			'expires'           => AccessToken::NEVER_EXPIRES,
+		]);
+
+
 		$this->provider->storeAccessToken($requestToken);
 
 		$response = $this->invokeReflectionMethod('sendAccessTokenRequest', ['*verifier*']);
@@ -194,7 +204,11 @@ abstract class OAuth1ProviderUnitTestAbstract extends OAuthProviderUnitTestAbstr
 
 	public function testGetRequestAuthorization():void{
 		$request = $this->requestFactory->createRequest('GET', 'https://foo.bar');
-		$token   = new AccessToken(['accessTokenSecret' => 'test_token_secret', 'accessToken' => 'test_token']);
+		$token   = new AccessToken([
+			'accessTokenSecret' => 'test_token_secret',
+			'accessToken'       => 'test_token',
+			'expires'           => AccessToken::NEVER_EXPIRES,
+		]);
 
 		$authHeader = $this->provider
 			->getRequestAuthorization($request, $token)

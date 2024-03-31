@@ -516,6 +516,21 @@ Search.appendIndex(
             "summary": "returns\u0020a\u002032\u0020byte\u0020random\u0020string\u0020\u0028in\u0020hexadecimal\u0020representation\u0029\u0020for\u0020use\u0020as\u0020a\u0020nonce",
             "url": "classes/chillerlan-OAuth-Core-OAuthProvider.html#method_nonce"
         },                {
+            "fqsen": "\\chillerlan\\OAuth\\Core\\OAuthProvider\u003A\u003Ame\u0028\u0029",
+            "name": "me",
+            "summary": "Returns\u0020information\u0020about\u0020the\u0020currently\u0020authenticated\u0020user\u0020\u0028usually\u0020a\u0020\/me\u0020or\u0020\/user\u0020endpoint\u0029.",
+            "url": "classes/chillerlan-OAuth-Core-OAuthProvider.html#method_me"
+        },                {
+            "fqsen": "\\chillerlan\\OAuth\\Core\\OAuthProvider\u003A\u003AInvalidateAccessToken\u0028\u0029",
+            "name": "InvalidateAccessToken",
+            "summary": "",
+            "url": "classes/chillerlan-OAuth-Core-OAuthProvider.html#method_InvalidateAccessToken"
+        },                {
+            "fqsen": "\\chillerlan\\OAuth\\Core\\OAuthProvider\u003A\u003AsendRequest\u0028\u0029",
+            "name": "sendRequest",
+            "summary": "",
+            "url": "classes/chillerlan-OAuth-Core-OAuthProvider.html#method_sendRequest"
+        },                {
             "fqsen": "\\chillerlan\\OAuth\\Core\\OAuthProvider\u003A\u003Arequest\u0028\u0029",
             "name": "request",
             "summary": "Prepares\u0020an\u0020API\u0020request\u0020to\u0020\u0024path\u0020with\u0020the\u0020given\u0020parameters,\u0020gets\u0020authorization,\u0020fires\u0020the\u0020request\nand\u0020returns\u0020a\u0020PSR\u002D7\u0020ResponseInterface\u0020with\u0020the\u0020corresponding\u0020API\u0020response",
@@ -531,20 +546,20 @@ Search.appendIndex(
             "summary": "Determine\u0020the\u0020request\u0020target\u0020from\u0020the\u0020given\u0020URI\u0020\u0028path\u0020segment\u0020or\u0020URL\u0029\u0020with\u0020respect\u0020to\u0020\u0024apiURL,\nanything\u0020except\u0020host\u0020and\u0020path\u0020will\u0020be\u0020ignored,\u0020scheme\u0020will\u0020always\u0020be\u0020set\u0020to\u0020\u0022https\u0022.",
             "url": "classes/chillerlan-OAuth-Core-OAuthProvider.html#method_getRequestTarget"
         },                {
-            "fqsen": "\\chillerlan\\OAuth\\Core\\OAuthProvider\u003A\u003AsendRequest\u0028\u0029",
-            "name": "sendRequest",
-            "summary": "",
-            "url": "classes/chillerlan-OAuth-Core-OAuthProvider.html#method_sendRequest"
+            "fqsen": "\\chillerlan\\OAuth\\Core\\OAuthProvider\u003A\u003AgetMeResponseData\u0028\u0029",
+            "name": "getMeResponseData",
+            "summary": "fetches\u0020the\u0020provider\u0027s\u0020\u0022me\u0022\u0020endpoint\u0020and\u0020returns\u0020the\u0020JSON\u0020data\u0020as\u0020an\u0020array",
+            "url": "classes/chillerlan-OAuth-Core-OAuthProvider.html#method_getMeResponseData"
         },                {
-            "fqsen": "\\chillerlan\\OAuth\\Core\\OAuthProvider\u003A\u003Ame\u0028\u0029",
-            "name": "me",
-            "summary": "Returns\u0020information\u0020about\u0020the\u0020currently\u0020authenticated\u0020user\u0020\u0028usually\u0020a\u0020\/me\u0020or\u0020\/user\u0020endpoint\u0029.",
-            "url": "classes/chillerlan-OAuth-Core-OAuthProvider.html#method_me"
+            "fqsen": "\\chillerlan\\OAuth\\Core\\OAuthProvider\u003A\u003AsendMeRequest\u0028\u0029",
+            "name": "sendMeRequest",
+            "summary": "prepares\u0020and\u0020sends\u0020the\u0020request\u0020to\u0020the\u0020provider\u0027s\u0020\u0022me\u0022\u0020endpoint\u0020and\u0020returns\u0020a\u0020ResponseInterface",
+            "url": "classes/chillerlan-OAuth-Core-OAuthProvider.html#method_sendMeRequest"
         },                {
-            "fqsen": "\\chillerlan\\OAuth\\Core\\OAuthProvider\u003A\u003AInvalidateAccessToken\u0028\u0029",
-            "name": "InvalidateAccessToken",
-            "summary": "",
-            "url": "classes/chillerlan-OAuth-Core-OAuthProvider.html#method_InvalidateAccessToken"
+            "fqsen": "\\chillerlan\\OAuth\\Core\\OAuthProvider\u003A\u003AhandleMeResponseError\u0028\u0029",
+            "name": "handleMeResponseError",
+            "summary": "handles\u0020errors\u0020for\u0020the\u0020\u0060me\u0028\u0029\u0060\u0020endpoints\u0020\u002D\u0020one\u0020horrible\u0020block\u0020of\u0020code\u0020to\u0020catch\u0020them\u0020all",
+            "url": "classes/chillerlan-OAuth-Core-OAuthProvider.html#method_handleMeResponseError"
         },                {
             "fqsen": "\\chillerlan\\OAuth\\Core\\OAuthProvider\u003A\u003AMAGIC_PROPERTIES",
             "name": "MAGIC_PROPERTIES",
@@ -668,7 +683,7 @@ Search.appendIndex(
         },                {
             "fqsen": "\\chillerlan\\OAuth\\OAuthOptionsTrait\u003A\u003A\u0024key",
             "name": "key",
-            "summary": "The\u0020application\u0020key\u0020\u0028or\u0020id\u0029\u0020given\u0020by\u0020your\u0020provider",
+            "summary": "The\u0020application\u0020key\u0020\u0028or\u0020client\u002Did\u0029\u0020given\u0020by\u0020your\u0020provider",
             "url": "classes/chillerlan-OAuth-OAuthOptionsTrait.html#property_key"
         },                {
             "fqsen": "\\chillerlan\\OAuth\\OAuthOptionsTrait\u003A\u003A\u0024secret",
@@ -678,8 +693,13 @@ Search.appendIndex(
         },                {
             "fqsen": "\\chillerlan\\OAuth\\OAuthOptionsTrait\u003A\u003A\u0024callbackURL",
             "name": "callbackURL",
-            "summary": "The\u0020callback\u0020URL\u0020associated\u0020with\u0020your\u0020application",
+            "summary": "The\u0020\u0028main\u0029\u0020callback\u0020URL\u0020associated\u0020with\u0020your\u0020application",
             "url": "classes/chillerlan-OAuth-OAuthOptionsTrait.html#property_callbackURL"
+        },                {
+            "fqsen": "\\chillerlan\\OAuth\\OAuthOptionsTrait\u003A\u003A\u0024tokenAutoRefresh",
+            "name": "tokenAutoRefresh",
+            "summary": "Whether\u0020to\u0020automatically\u0020refresh\u0020access\u0020tokens\u0020\u0028OAuth2\u0029",
+            "url": "classes/chillerlan-OAuth-OAuthOptionsTrait.html#property_tokenAutoRefresh"
         },                {
             "fqsen": "\\chillerlan\\OAuth\\OAuthOptionsTrait\u003A\u003A\u0024sessionStart",
             "name": "sessionStart",
@@ -700,11 +720,6 @@ Search.appendIndex(
             "name": "sessionStateVar",
             "summary": "The\u0020session\u0020array\u0020key\u0020for\u0020\u003Cstate\u003E\u0020storage\u0020\u0028OAuth2\u0029",
             "url": "classes/chillerlan-OAuth-OAuthOptionsTrait.html#property_sessionStateVar"
-        },                {
-            "fqsen": "\\chillerlan\\OAuth\\OAuthOptionsTrait\u003A\u003A\u0024tokenAutoRefresh",
-            "name": "tokenAutoRefresh",
-            "summary": "Whether\u0020to\u0020automatically\u0020refresh\u0020access\u0020tokens\u0020\u0028OAuth2\u0029",
-            "url": "classes/chillerlan-OAuth-OAuthOptionsTrait.html#property_tokenAutoRefresh"
         },                {
             "fqsen": "\\chillerlan\\OAuth\\OAuthProviderFactory",
             "name": "OAuthProviderFactory",
@@ -968,7 +983,7 @@ Search.appendIndex(
         },                {
             "fqsen": "\\chillerlan\\OAuth\\Providers\\BigCartel\u003A\u003AgetAccountID\u0028\u0029",
             "name": "getAccountID",
-            "summary": "Try\u0020to\u0020get\u0020the\u0020user\u0020ID\u0020from\u0020either\u0020the\u0020token\u0020or\u0020the\u0020me\u0028\u0029\u0020endpoint",
+            "summary": "Try\u0020to\u0020get\u0020the\u0020user\u0020ID\u0020from\u0020either\u0020the\u0020token\u0020or\u0020the\u0020\u0060me\u0028\u0029\u0060\u0020endpoint",
             "url": "classes/chillerlan-OAuth-Providers-BigCartel.html#method_getAccountID"
         },                {
             "fqsen": "\\chillerlan\\OAuth\\Providers\\BigCartel\u003A\u003AHEADERS_API",
@@ -1551,6 +1566,11 @@ Search.appendIndex(
             "summary": "",
             "url": "classes/chillerlan-OAuth-Providers-Foursquare.html#constant_API_VERSIONDATE"
         },                {
+            "fqsen": "\\chillerlan\\OAuth\\Providers\\Foursquare\u003A\u003AQUERY_PARAMS",
+            "name": "QUERY_PARAMS",
+            "summary": "",
+            "url": "classes/chillerlan-OAuth-Providers-Foursquare.html#constant_QUERY_PARAMS"
+        },                {
             "fqsen": "\\chillerlan\\OAuth\\Providers\\Foursquare\u003A\u003A\u0024authURL",
             "name": "authURL",
             "summary": "",
@@ -2108,8 +2128,13 @@ Search.appendIndex(
         },                {
             "fqsen": "\\chillerlan\\OAuth\\Providers\\MailChimp\u003A\u003Arequest\u0028\u0029",
             "name": "request",
-            "summary": "prepare\u0020the\u0020API\u0020URL\u0020from\u0020the\u0020token\u0020metadata",
+            "summary": "",
             "url": "classes/chillerlan-OAuth-Providers-MailChimp.html#method_request"
+        },                {
+            "fqsen": "\\chillerlan\\OAuth\\Providers\\MailChimp\u003A\u003AsendMeRequest\u0028\u0029",
+            "name": "sendMeRequest",
+            "summary": "",
+            "url": "classes/chillerlan-OAuth-Providers-MailChimp.html#method_sendMeRequest"
         },                {
             "fqsen": "\\chillerlan\\OAuth\\Providers\\MailChimp\u003A\u003Ame\u0028\u0029",
             "name": "me",
@@ -2868,7 +2893,7 @@ Search.appendIndex(
         },                {
             "fqsen": "\\chillerlan\\OAuth\\Providers\\Slack\u003A\u003Ame\u0028\u0029",
             "name": "me",
-            "summary": "",
+            "summary": "HTTP\/200\u0020OK\u0020on\u0020errors\u003F\u0020you\u0027re\u0020fired.",
             "url": "classes/chillerlan-OAuth-Providers-Slack.html#method_me"
         },                {
             "fqsen": "\\chillerlan\\OAuth\\Providers\\Slack\u003A\u003ASCOPE_BOT",

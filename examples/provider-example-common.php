@@ -31,7 +31,7 @@ require_once __DIR__.'/OAuthExampleProviderFactory.php';
  * @var array|null $SCOPES   - a set of scopes for the current provider (OAuth2 only)
  */
 $CFGDIR   ??= __DIR__.'/../.config';
-$ENVFILE  ??= '.env';
+$ENVFILE  ??= '.env_example';
 $ENVVAR   ??= '';
 $LOGLEVEL ??= 'info';
 $PARAMS   ??= null;

@@ -17,7 +17,7 @@ namespace chillerlan\OAuth;
 trait OAuthOptionsTrait{
 
 	/**
-	 * The application key (or id) given by your provider
+	 * The application key (or client-id) given by your provider
 	 */
 	protected string $key = '';
 
@@ -27,15 +27,23 @@ trait OAuthOptionsTrait{
 	protected string $secret = '';
 
 	/**
-	 * The callback URL associated with your application
+	 * The (main) callback URL associated with your application
 	 */
 	protected string $callbackURL = '';
+
+	/**
+	 * Whether to automatically refresh access tokens (OAuth2)
+	 *
+	 * @see \chillerlan\OAuth\Core\TokenRefresh::refreshAccessToken()
+	 */
+	protected bool $tokenAutoRefresh = true;
 
 	/**
 	 * Whether to start the session when session storage is used
 	 *
 	 * Note: this will only start a session if there is no active session present
 	 *
+	 * @see \session_status()
 	 * @see \chillerlan\OAuth\Storage\SessionStorage
 	 */
 	protected bool $sessionStart = true;
@@ -45,6 +53,7 @@ trait OAuthOptionsTrait{
 	 *
 	 * Note: this is set to `false` by default to not interfere with other session managers
 	 *
+	 * @see \session_status()
 	 * @see \chillerlan\OAuth\Storage\SessionStorage
 	 */
 	protected bool $sessionStop = false;
@@ -62,10 +71,5 @@ trait OAuthOptionsTrait{
 	 * @see \chillerlan\OAuth\Storage\SessionStorage
 	 */
 	protected string $sessionStateVar = 'chillerlan-oauth-state';
-
-	/**
-	 * Whether to automatically refresh access tokens (OAuth2)
-	 */
-	protected bool $tokenAutoRefresh = true;
 
 }

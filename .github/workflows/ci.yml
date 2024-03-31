@@ -141,26 +141,43 @@ jobs:
           clean: true
 
 
-#  build-manual:
-#    name: "Build and publish user manual"
-#    if: github.ref_name == 'main'
-#    runs-on: ubuntu-latest
-#
-#    steps:
-#      - name: "Checkout sources"
-#        uses: actions/checkout@v4
-#
-#      - name: "Install Sphinx"
-#        run: pip install sphinx myst-parser sphinx-rtd-theme
-#
-#      - name: "Build manual"
-#        run: |
-#          cd docs
-#          make html
-#
-#      - name: "Publish user manual to branch readthedocs"
-#        uses: JamesIves/github-pages-deploy-action@v4
-#        with:
-#          branch: readthedocs
-#          folder: .build/sphinx/html
-#          clean: true
+  build-manual:
+    name: "Build and publish user manual"
+    if: github.ref_name == 'main'
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: "Checkout sources"
+        uses: actions/checkout@v4
+
+      - name: "Install PHP"
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: "8.3"
+          extensions: ${{ env.PHP_EXTENSIONS }}
+          ini-values: ${{ env.PHP_INI_VALUES }}
+          coverage: none
+
+      - name: "Install Sphinx"
+        run: pip install sphinx myst-parser sphinx-rtd-theme
+
+      - name: "Install dependencies with composer"
+        uses: ramsey/composer-install@v3
+
+      - name: "Build OAuthOptions doc"
+        run: php docs/oauth-options-doc.php
+
+      - name: "Build provider capabilities table"
+        run: php examples/create-description.php
+
+      - name: "Build manual"
+        run: |
+          cd docs
+          make html
+
+      - name: "Publish user manual to branch readthedocs"
+        uses: JamesIves/github-pages-deploy-action@v4
+        with:
+          branch: readthedocs
+          folder: .build/sphinx/html
+          clean: true

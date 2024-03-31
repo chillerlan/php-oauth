@@ -10,6 +10,7 @@ A transparent, framework-agnostic, easily extensible PHP [PSR-18](https://www.ph
 [![CodeCov][coverage-badge]][coverage]
 [![Codacy][codacy-badge]][codacy]
 [![Packagist downloads][downloads-badge]][downloads]
+[![Documentation][readthedocs-badge]][readthedocs]
 
 [php-badge]: https://img.shields.io/packagist/php-v/chillerlan/php-oauth?logo=php&color=8892BF&logoColor=fff
 [php]: https://www.php.net/supported-versions.php
@@ -25,6 +26,8 @@ A transparent, framework-agnostic, easily extensible PHP [PSR-18](https://www.ph
 [downloads]: https://packagist.org/packages/chillerlan/php-oauth/stats
 [gh-action-badge]: https://img.shields.io/github/actions/workflow/status/chillerlan/php-oauth/ci.yml?branch=main&logo=github&logoColor=fff
 [gh-action]: https://github.com/chillerlan/php-oauth/actions/workflows/ci.yml?query=branch%3Amain
+[readthedocs-badge]: https://img.shields.io/readthedocs/php-oauth/main?logo=readthedocs&logoColor=fff
+[readthedocs]: https://php-oauth.readthedocs.io/en/main/
 
 
 # Overview

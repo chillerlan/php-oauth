@@ -24,7 +24,7 @@ const REPLACE_START = '<!-- TABLE-START -->';
 const REPLACE_END   = '<!-- TABLE_END -->';
 
 $table = [
-	'<!-- this table is auto-created via /examples/create-descripton.php -->',
+	'<!-- this table is auto-created via /examples/create-description.php -->',
 	'',
 	'| Provider | App keys | revoke access | OAuth | CSRF | CC | TR | TI |',
 	'|----------|----------|---------------|-------|------|----|----|----|',

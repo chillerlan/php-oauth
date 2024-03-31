@@ -33,7 +33,7 @@ fully [PSR-7](https://www.php-fig.org/psr/psr-7/)/[PSR-17](https://www.php-fig.o
 ## Supported Providers
 
 <!-- TABLE-START -->
-<!-- this table is auto-created via /examples/create-descripton.php -->
+<!-- this table is auto-created via /examples/create-description.php -->
 
 | Provider | App keys | revoke access | OAuth | CSRF | CC | TR | TI |
 |----------|----------|---------------|-------|------|----|----|----|

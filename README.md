@@ -94,7 +94,7 @@ Note: replace `dev-main` with a [version constraint](https://getcomposer.org/doc
 # Implemented Providers
 
 <!-- TABLE-START -->
-<!-- this table is auto-created via /examples/create-descripton.php -->
+<!-- this table is auto-created via /examples/create-description.php -->
 
 | Provider | App keys | revoke access | OAuth | CSRF | CC | TR | TI |
 |----------|----------|---------------|-------|------|----|----|----|

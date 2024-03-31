@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Installation &mdash; PHP-QRCode main
+ Manual</title>
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=fa44fd50" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=19f00094" />
+
+  
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="../_static/documentation_options.js?v=a8da1a53"></script>
+        <script src="../_static/doctools.js?v=888ff710"></script>
+        <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Configuration settings" href="Configuration-settings.html" />
+    <link rel="prev" title="Overview" href="Overview.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            PHP-OAuth
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Basics</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="Overview.html">Overview</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="Overview.html#features">Features</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Overview.html#requirements">Requirements</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Overview.html#supported-providers">Supported Providers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Overview.html#shameless-advertising">Shameless advertising</a></li>
+</ul>
+</li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Installation</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#installation-with-composer">Installation with Composer</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#composer-json">composer.json</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#terminal">Terminal</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#manual-installation">Manual installation</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#can-i-use-this-library-without-using-composer">Can i use this library without using composer?</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="Configuration-settings.html">Configuration settings</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="Configuration-settings.html#key">key</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Configuration-settings.html#secret">secret</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Configuration-settings.html#callbackurl">callbackURL</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Configuration-settings.html#tokenautorefresh">tokenAutoRefresh</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Configuration-settings.html#sessionstart">sessionStart</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Configuration-settings.html#sessionstop">sessionStop</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Configuration-settings.html#sessiontokenvar">sessionTokenVar</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Configuration-settings.html#sessionstatevar">sessionStateVar</a></li>
+</ul>
+</li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Usage</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../Usage/Quickstart.html">Quickstart</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../Usage/Quickstart.html#the-oauthoptions-container">The <code class="docutils literal notranslate"><span class="pre">OAuthOptions</span></code> container</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Usage/Quickstart.html#the-oauthstorageinterface">The <code class="docutils literal notranslate"><span class="pre">OAuthStorageInterface</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../Usage/Quickstart.html#using-existing-tokens">Using existing tokens</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../Usage/Quickstart.html#provider-invocation">Provider invocation</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../Usage/Authorization.html">Authorization flow</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../Usage/Authorization.html#redirect-the-user-to-the-provider">Redirect the user to the provider</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../Usage/Authorization.html#present-a-log-in-link">Present a log-in link</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../Usage/Authorization.html#redirect">Redirect</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../Usage/Authorization.html#receive-the-incoming-callback">Receive the incoming callback</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../Usage/Authorization.html#oauth2">OAuth2</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../Usage/Authorization.html#oauth1">OAuth1</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../Usage/Authorization.html#use-the-provider-s-api">Use the provider’s API</a></li>
+</ul>
+</li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Appendix</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../Appendix/Contribute.html">How to contribute</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../Appendix/Contribute.html#questions-and-issues">Questions and issues</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Appendix/Contribute.html#bug-reports">Bug reports</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Appendix/Contribute.html#pull-requests-and-bug-fixes">Pull requests and bug fixes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Appendix/Contribute.html#documentation">Documentation</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../Appendix/License.html">License</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">PHP-OAuth</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Installation</li>
+      <li class="wy-breadcrumbs-aside">
+              <a href="https://github.com/chillerlan/php-oauth/blob/main/docs/Basics/Installation.md" class="fa fa-github"> Edit on GitHub</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="installation">
+<h1>Installation<a class="headerlink" href="#installation" title="Link to this heading"></a></h1>
+<section id="installation-with-composer">
+<h2>Installation with Composer<a class="headerlink" href="#installation-with-composer" title="Link to this heading"></a></h2>
+<p><strong><a class="reference external" href="https://getcomposer.org">Composer</a> is required to install this package. Please do not open an issue to complain about “monopolizing the implementation” or similar - we’ve been there before.</strong></p>
+<section id="composer-json">
+<h3>composer.json<a class="headerlink" href="#composer-json" title="Link to this heading"></a></h3>
+<p>Installation via <a class="reference external" href="https://getcomposer.org/doc/04-schema.md"><code class="docutils literal notranslate"><span class="pre">composer.json</span></code></a>:</p>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+<span class="w">	</span><span class="nt">&quot;require&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">		</span><span class="nt">&quot;php&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;^8.1&quot;</span><span class="p">,</span>
+<span class="w">		</span><span class="nt">&quot;chillerlan/php-oauth&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;dev-main&quot;</span>
+<span class="w">	</span><span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>Note: replace <code class="docutils literal notranslate"><span class="pre">dev-main</span></code> with a <a class="reference external" href="https://getcomposer.org/doc/articles/versions.md#writing-version-constraints">version constraint</a>, e.g. <code class="docutils literal notranslate"><span class="pre">^1.0</span></code> - see <a class="reference external" href="https://github.com/chillerlan/php-oauth/releases">releases</a> for valid versions.</p>
+<p>In case you want to keep using <code class="docutils literal notranslate"><span class="pre">dev-main</span></code>, specify the hash of a commit to avoid running into unforseen issues, like so: <code class="docutils literal notranslate"><span class="pre">dev-main#cb69751c3bc090a7fdd2f2601bbe10f28d225f10</span></code></p>
+</section>
+<section id="terminal">
+<h3>Terminal<a class="headerlink" href="#terminal" title="Link to this heading"></a></h3>
+<p>To install <code class="docutils literal notranslate"><span class="pre">php-oauth</span></code> on the terminal, type:</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>composer<span class="w"> </span>require<span class="w"> </span>chillerlan/php-oauth
+</pre></div>
+</div>
+<p>If you want to install the package from a specific tag or commit, do as follows:</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>composer<span class="w"> </span>require<span class="w"> </span>chillerlan/php-oauth:1.0.0
+composer<span class="w"> </span>require<span class="w"> </span>chillerlan/php-oauth:dev-main#9860baf50f8962630cd1f9a32d82d8263c246c3b
+</pre></div>
+</div>
+</section>
+</section>
+<section id="manual-installation">
+<h2>Manual installation<a class="headerlink" href="#manual-installation" title="Link to this heading"></a></h2>
+<p>Download the desired version of the package from <a class="reference external" href="https://github.com/chillerlan/php-oauth/archive/refs/heads/main.zip">main</a> or
+<a class="reference external" href="https://github.com/chillerlan/php-oauth/releases">release</a> and extract the contents to your project folder.
+After that, run <code class="docutils literal notranslate"><span class="pre">composer</span> <span class="pre">install</span></code> in the package root directory to install the required dependencies and generate <code class="docutils literal notranslate"><span class="pre">./vendor/autoload.php</span></code>.</p>
+<p>Profit!</p>
+<section id="can-i-use-this-library-without-using-composer">
+<h3>Can i use this library without using composer?<a class="headerlink" href="#can-i-use-this-library-without-using-composer" title="Link to this heading"></a></h3>
+<p>You can, but it’s absolutely not recommended, nor supported.</p>
+<p>With that said, I’ll leave you with this info:</p>
+<ul class="simple">
+<li><p>download the .zip for a version of your choice and also all required dependencies listed in the <code class="docutils literal notranslate"><span class="pre">composer.json</span></code> for that version (you can find links to the respective repos <a class="reference external" href="https://packagist.org/packages/chillerlan/php-oauth">on packagist</a>)</p></li>
+<li><p>extract the files into your library folder</p></li>
+<li><p>include the files manually or with whatever autoloader you are using</p></li>
+</ul>
+<p>Good luck!</p>
+</section>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="Overview.html" class="btn btn-neutral float-left" title="Overview" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="Configuration-settings.html" class="btn btn-neutral float-right" title="Configuration settings" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2024, smiley.</p>
+  </div>
+
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

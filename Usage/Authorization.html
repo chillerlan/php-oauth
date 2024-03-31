@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Authorization flow &mdash; PHP-QRCode main
+ Manual</title>
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=fa44fd50" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=19f00094" />
+
+  
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="../_static/documentation_options.js?v=a8da1a53"></script>
+        <script src="../_static/doctools.js?v=888ff710"></script>
+        <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="How to contribute" href="../Appendix/Contribute.html" />
+    <link rel="prev" title="Quickstart" href="Quickstart.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            PHP-OAuth
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Basics</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../Basics/Overview.html">Overview</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../Basics/Overview.html#features">Features</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Basics/Overview.html#requirements">Requirements</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Basics/Overview.html#supported-providers">Supported Providers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Basics/Overview.html#shameless-advertising">Shameless advertising</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../Basics/Installation.html">Installation</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../Basics/Installation.html#installation-with-composer">Installation with Composer</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../Basics/Installation.html#composer-json">composer.json</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../Basics/Installation.html#terminal">Terminal</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../Basics/Installation.html#manual-installation">Manual installation</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../Basics/Installation.html#can-i-use-this-library-without-using-composer">Can i use this library without using composer?</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../Basics/Configuration-settings.html">Configuration settings</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../Basics/Configuration-settings.html#key">key</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Basics/Configuration-settings.html#secret">secret</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Basics/Configuration-settings.html#callbackurl">callbackURL</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Basics/Configuration-settings.html#tokenautorefresh">tokenAutoRefresh</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Basics/Configuration-settings.html#sessionstart">sessionStart</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Basics/Configuration-settings.html#sessionstop">sessionStop</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Basics/Configuration-settings.html#sessiontokenvar">sessionTokenVar</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Basics/Configuration-settings.html#sessionstatevar">sessionStateVar</a></li>
+</ul>
+</li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Usage</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="Quickstart.html">Quickstart</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="Quickstart.html#the-oauthoptions-container">The <code class="docutils literal notranslate"><span class="pre">OAuthOptions</span></code> container</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Quickstart.html#the-oauthstorageinterface">The <code class="docutils literal notranslate"><span class="pre">OAuthStorageInterface</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="Quickstart.html#using-existing-tokens">Using existing tokens</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="Quickstart.html#provider-invocation">Provider invocation</a></li>
+</ul>
+</li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Authorization flow</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#redirect-the-user-to-the-provider">Redirect the user to the provider</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#present-a-log-in-link">Present a log-in link</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#redirect">Redirect</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#receive-the-incoming-callback">Receive the incoming callback</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#oauth2">OAuth2</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#oauth1">OAuth1</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#use-the-provider-s-api">Use the provider’s API</a></li>
+</ul>
+</li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Appendix</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../Appendix/Contribute.html">How to contribute</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../Appendix/Contribute.html#questions-and-issues">Questions and issues</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Appendix/Contribute.html#bug-reports">Bug reports</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Appendix/Contribute.html#pull-requests-and-bug-fixes">Pull requests and bug fixes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Appendix/Contribute.html#documentation">Documentation</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../Appendix/License.html">License</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">PHP-OAuth</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Authorization flow</li>
+      <li class="wy-breadcrumbs-aside">
+              <a href="https://github.com/chillerlan/php-oauth/blob/main/docs/Usage/Authorization.md" class="fa fa-github"> Edit on GitHub</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="authorization-flow">
+<h1>Authorization flow<a class="headerlink" href="#authorization-flow" title="Link to this heading"></a></h1>
+<section id="redirect-the-user-to-the-provider">
+<h2>Redirect the user to the provider<a class="headerlink" href="#redirect-the-user-to-the-provider" title="Link to this heading"></a></h2>
+<p>The first step is to redirect the user to the provider’s log-in page. Ideally you’d do this with a separate route in your web application,
+as provider instances may call the service internally (OAuth1 request tokens). This step is identical with all providers.</p>
+<section id="present-a-log-in-link">
+<h3>Present a log-in link<a class="headerlink" href="#present-a-log-in-link" title="Link to this heading"></a></h3>
+<p>First you present a log-in link to the user - instead of directly embedding/linking the one-time authorization URL, you redirect them to a separate route:</p>
+<div class="highlight-php notranslate"><div class="highlight"><pre><span></span><span class="c1">// display a link to the log-in redirect</span>
+<span class="k">echo</span> <span class="s1">&#39;&lt;a href=&quot;?route=oauth-login&quot;&gt;connect with GitHub!&lt;/a&gt;&#39;</span><span class="p">;</span>
+</pre></div>
+</div>
+</section>
+<section id="redirect">
+<h3>Redirect<a class="headerlink" href="#redirect" title="Link to this heading"></a></h3>
+<p>The method <code class="docutils literal notranslate"><span class="pre">OAuthInterface::getAuthURL()</span></code> takes two (optional) parameters:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">$params</span></code>: the params array contains additional query parameters that will be added to the URL query (provider dependent)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">$scopes</span></code>: the scopes array contains all scopes that will be used for this authorization (unused in OAuth1)</p></li>
+</ul>
+<p>When the user clicks the log-in link, just execute a <code class="docutils literal notranslate"><span class="pre">header()</span></code> to the provider’s authorization URL.</p>
+<div class="highlight-php notranslate"><div class="highlight"><pre><span></span><span class="k">if</span><span class="p">(</span><span class="nv">$route</span> <span class="o">===</span> <span class="s1">&#39;oauth-login&#39;</span><span class="p">){</span>
+	<span class="nb">header</span><span class="p">(</span><span class="s1">&#39;Location: &#39;</span><span class="o">.</span><span class="nv">$provider</span><span class="o">-&gt;</span><span class="na">getAuthURL</span><span class="p">(</span><span class="nv">$params</span><span class="p">,</span> <span class="nv">$scopes</span><span class="p">));</span>
+
+	<span class="c1">// -&gt; https://github.com/login/oauth/authorize?client_id=&lt;client_id&gt;</span>
+	<span class="c1">//       &amp;redirect_uri=https%3A%2F%2Fexample.com%2Fcallback%2F&amp;response_type=code</span>
+	<span class="c1">//       &amp;scope=&lt;scopes&gt;&amp;state=&lt;state&gt;&amp;type=web_server</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</section>
+</section>
+<section id="receive-the-incoming-callback">
+<h2>Receive the incoming callback<a class="headerlink" href="#receive-the-incoming-callback" title="Link to this heading"></a></h2>
+<p>After a user has successfully logged in with the provider and confirmed the authorization request, they are redirected to the given callback URL,
+along with the query parameters <code class="docutils literal notranslate"><span class="pre">oauth_token</span></code> and <code class="docutils literal notranslate"><span class="pre">oauth_verifier</span></code> (OAuth1) or <code class="docutils literal notranslate"><span class="pre">code</span></code> and <code class="docutils literal notranslate"><span class="pre">state</span></code> (OAuth2).</p>
+<p>The method <code class="docutils literal notranslate"><span class="pre">OAuth1Interface::getAccessToken()</span></code> has 2 mandatory parameters <code class="docutils literal notranslate"><span class="pre">$requestToken</span></code> and <code class="docutils literal notranslate"><span class="pre">$verifier</span></code>,
+while the similar <code class="docutils literal notranslate"><span class="pre">OAuth2Interface::getAccessToken()</span></code> takes two parameters <code class="docutils literal notranslate"><span class="pre">$code</span></code> and the (optional) <code class="docutils literal notranslate"><span class="pre">$state</span></code>.</p>
+<section id="oauth2">
+<h3>OAuth2<a class="headerlink" href="#oauth2" title="Link to this heading"></a></h3>
+<p>In our GitHub OAuth2 example we’re now receiving the callback to <code class="docutils literal notranslate"><span class="pre">https://example.com/callback/?code=&lt;code&gt;&amp;state=&lt;state&gt;</span></code>.
+The <code class="docutils literal notranslate"><span class="pre">getAccessToken()</span></code> method initiates a backend request to the provider’s server to exchange the temporary credentials for an access token:</p>
+<div class="highlight-php notranslate"><div class="highlight"><pre><span></span><span class="k">if</span><span class="p">(</span><span class="nv">$route</span> <span class="o">===</span> <span class="s1">&#39;oauth2-callback&#39;</span><span class="p">){</span>
+
+	<span class="k">if</span><span class="p">(</span><span class="nb">isset</span><span class="p">(</span><span class="nv">$_GET</span><span class="p">[</span><span class="s1">&#39;code&#39;</span><span class="p">])){</span>
+		<span class="nv">$state</span> <span class="o">=</span> <span class="k">null</span><span class="p">;</span>
+
+		<span class="c1">// not all providers support &quot;state&quot;</span>
+		<span class="k">if</span><span class="p">(</span><span class="nv">$provider</span> <span class="nx">instanceof</span> <span class="nx">CSRFToken</span> <span class="o">&amp;&amp;</span> <span class="nb">isset</span><span class="p">(</span><span class="nv">$_GET</span><span class="p">[</span><span class="s1">&#39;state&#39;</span><span class="p">])){</span>
+			<span class="nv">$state</span> <span class="o">=</span> <span class="nv">$_GET</span><span class="p">[</span><span class="s1">&#39;state&#39;</span><span class="p">];</span>
+		<span class="p">}</span>
+
+		<span class="nv">$token</span> <span class="o">=</span> <span class="nv">$provider</span><span class="o">-&gt;</span><span class="na">getAccessToken</span><span class="p">(</span><span class="nv">$_GET</span><span class="p">[</span><span class="s1">&#39;code&#39;</span><span class="p">],</span> <span class="nv">$state</span><span class="p">);</span>
+
+		<span class="c1">// some providers may send additional data with the callback query parameters,</span>
+		<span class="c1">// that you may want to save here along with the token</span>
+
+		<span class="c1">// when everything is done here, you should redirect the user to wherever</span>
+		<span class="c1">// they were headed, but also to clear the URL query parameters</span>
+		<span class="nb">header</span><span class="p">(</span><span class="s1">&#39;Location: ...&#39;</span><span class="p">);</span>
+	<span class="p">}</span>
+
+	<span class="c1">// handle error...</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</section>
+<section id="oauth1">
+<h3>OAuth1<a class="headerlink" href="#oauth1" title="Link to this heading"></a></h3>
+<p>For OAuth1 providers it looks very similar, only the URL query parameters are different:</p>
+<div class="highlight-php notranslate"><div class="highlight"><pre><span></span><span class="k">if</span><span class="p">(</span><span class="nv">$route</span> <span class="o">===</span> <span class="s1">&#39;oauth1-callback&#39;</span><span class="p">){</span>
+
+	<span class="k">if</span><span class="p">(</span><span class="nb">isset</span><span class="p">(</span><span class="nv">$_GET</span><span class="p">[</span><span class="s1">&#39;oauth_token&#39;</span><span class="p">])</span> <span class="o">&amp;&amp;</span> <span class="nb">isset</span><span class="p">(</span><span class="nv">$_GET</span><span class="p">[</span><span class="s1">&#39;oauth_verifier&#39;</span><span class="p">])){</span>
+
+		<span class="nv">$token</span> <span class="o">=</span> <span class="nv">$provider</span><span class="o">-&gt;</span><span class="na">getAccessToken</span><span class="p">(</span>
+			<span class="nv">$_GET</span><span class="p">[</span><span class="s1">&#39;oauth_token&#39;</span><span class="p">],</span>
+			<span class="nv">$_GET</span><span class="p">[</span><span class="s1">&#39;oauth_verifier&#39;</span><span class="p">],</span>
+		<span class="p">);</span>
+
+		<span class="c1">// ...</span>
+	<span class="p">}</span>
+
+<span class="p">}</span>
+</pre></div>
+</div>
+</section>
+</section>
+<section id="use-the-provider-s-api">
+<h2>Use the provider’s API<a class="headerlink" href="#use-the-provider-s-api" title="Link to this heading"></a></h2>
+<p>After exchanging and saving the access token, you’re now ready to access the provider’s API on behalf of the authenticated user.
+Most providers offer a token verification, user or just “me” endpoint, that you can access conveniently via the <code class="docutils literal notranslate"><span class="pre">OAuthInterface::me()</span></code> method:</p>
+<div class="highlight-php notranslate"><div class="highlight"><pre><span></span><span class="nv">$user</span> <span class="o">=</span> <span class="nv">$provider</span><span class="o">-&gt;</span><span class="na">me</span><span class="p">();</span> <span class="c1">// -&gt; AuthenticatedUser instance</span>
+</pre></div>
+</div>
+<p>Every provider instance also acts as PSR-18 client: calls to the provider’s API will have the <code class="docutils literal notranslate"><span class="pre">Authorization</span></code> headers added automatically,
+calls to other hosts will be rerouted directly to the http client.</p>
+<div class="highlight-php notranslate"><div class="highlight"><pre><span></span><span class="nv">$request</span>  <span class="o">=</span> <span class="nv">$requestFactory</span><span class="o">-&gt;</span><span class="na">createRequest</span><span class="p">(</span><span class="s1">&#39;GET&#39;</span><span class="p">,</span> <span class="s1">&#39;https://api.github.com/user&#39;</span><span class="p">);</span>
+<span class="c1">// authenticated request</span>
+<span class="nv">$response</span> <span class="o">=</span> <span class="nv">$provider</span><span class="o">-&gt;</span><span class="na">sendRequest</span><span class="p">(</span><span class="nv">$request</span><span class="p">);</span> <span class="c1">// -&gt; ResponseInterface instance</span>
+</pre></div>
+</div>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="Quickstart.html" class="btn btn-neutral float-left" title="Quickstart" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="../Appendix/Contribute.html" class="btn btn-neutral float-right" title="How to contribute" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2024, smiley.</p>
+  </div>
+
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

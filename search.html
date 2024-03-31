@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="./">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Search &mdash; PHP-QRCode main
+ Manual</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=fa44fd50" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=19f00094" />
+
+  
+    
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="_static/jquery.js?v=5d32c60e"></script>
+        <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="_static/documentation_options.js?v=a8da1a53"></script>
+        <script src="_static/doctools.js?v=888ff710"></script>
+        <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/js/theme.js"></script>
+    <script src="_static/searchtools.js"></script>
+    <script src="_static/language_data.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="#" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            PHP-OAuth
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="#" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Basics</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="Basics/Overview.html">Overview</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="Basics/Overview.html#features">Features</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Basics/Overview.html#requirements">Requirements</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Basics/Overview.html#supported-providers">Supported Providers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Basics/Overview.html#shameless-advertising">Shameless advertising</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="Basics/Installation.html">Installation</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="Basics/Installation.html#installation-with-composer">Installation with Composer</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="Basics/Installation.html#composer-json">composer.json</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Basics/Installation.html#terminal">Terminal</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="Basics/Installation.html#manual-installation">Manual installation</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="Basics/Installation.html#can-i-use-this-library-without-using-composer">Can i use this library without using composer?</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="Basics/Configuration-settings.html">Configuration settings</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="Basics/Configuration-settings.html#key">key</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Basics/Configuration-settings.html#secret">secret</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Basics/Configuration-settings.html#callbackurl">callbackURL</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Basics/Configuration-settings.html#tokenautorefresh">tokenAutoRefresh</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Basics/Configuration-settings.html#sessionstart">sessionStart</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Basics/Configuration-settings.html#sessionstop">sessionStop</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Basics/Configuration-settings.html#sessiontokenvar">sessionTokenVar</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Basics/Configuration-settings.html#sessionstatevar">sessionStateVar</a></li>
+</ul>
+</li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Usage</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="Usage/Quickstart.html">Quickstart</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="Usage/Quickstart.html#the-oauthoptions-container">The <code class="docutils literal notranslate"><span class="pre">OAuthOptions</span></code> container</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Usage/Quickstart.html#the-oauthstorageinterface">The <code class="docutils literal notranslate"><span class="pre">OAuthStorageInterface</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="Usage/Quickstart.html#using-existing-tokens">Using existing tokens</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="Usage/Quickstart.html#provider-invocation">Provider invocation</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="Usage/Authorization.html">Authorization flow</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="Usage/Authorization.html#redirect-the-user-to-the-provider">Redirect the user to the provider</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="Usage/Authorization.html#present-a-log-in-link">Present a log-in link</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Usage/Authorization.html#redirect">Redirect</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="Usage/Authorization.html#receive-the-incoming-callback">Receive the incoming callback</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="Usage/Authorization.html#oauth2">OAuth2</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Usage/Authorization.html#oauth1">OAuth1</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="Usage/Authorization.html#use-the-provider-s-api">Use the provider’s API</a></li>
+</ul>
+</li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Appendix</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="Appendix/Contribute.html">How to contribute</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="Appendix/Contribute.html#questions-and-issues">Questions and issues</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Appendix/Contribute.html#bug-reports">Bug reports</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Appendix/Contribute.html#pull-requests-and-bug-fixes">Pull requests and bug fixes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Appendix/Contribute.html#documentation">Documentation</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="Appendix/License.html">License</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">PHP-OAuth</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Search</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <noscript>
+  <div id="fallback" class="admonition warning">
+    <p class="last">
+      Please activate JavaScript to enable the search functionality.
+    </p>
+  </div>
+  </noscript>
+
+  
+  <div id="search-results">
+  
+  </div>
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2024, smiley.</p>
+  </div>
+
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+  <script>
+    jQuery(function() { Search.loadIndex("searchindex.js"); });
+  </script>
+  
+  <script id="searchindexloader"></script>
+   
+
+
+</body>
+</html>

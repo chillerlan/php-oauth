@@ -1,6 +1,6 @@
 # Overview
 
-[`chillerlan/php-oauth`](https://github.com/chillerlan/php-oauth), a transparent, framework-agnostic, easily extensible PHP
+[`chillerlan/php-oauth`](https://github.com/chillerlan/php-oauth) is a transparent, framework-agnostic, easily extensible PHP
 [PSR-18](https://www.php-fig.org/psr/psr-18/) OAuth 1/2 client with a user-friendly API,
 fully [PSR-7](https://www.php-fig.org/psr/psr-7/)/[PSR-17](https://www.php-fig.org/psr/psr-17/) compatible.
 
@@ -92,7 +92,7 @@ fully [PSR-7](https://www.php-fig.org/psr/psr-7/)/[PSR-17](https://www.php-fig.o
 
 ## Shameless advertising
 
-Hi, please check out some of my other projects that are way cooler than qrcodes!
+Hi, please check out some of my other projects!
 
 - [php-qrcode](https://github.com/chillerlan/php-qrcode) - a QR code generator and reader with a user-friendly API
 - [php-authenticator](https://github.com/chillerlan/php-authenticator) - yet another Google Authenticator implementation

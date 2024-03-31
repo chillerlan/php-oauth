@@ -17,7 +17,7 @@ use chillerlan\OAuth\Core\{
 	AccessToken, AuthenticatedUser, CSRFToken, OAuth2Provider, TokenInvalidate, TokenRefresh
 };
 use Psr\Http\Message\{ResponseInterface, StreamInterface};
-use function explode, in_array, strtoupper;
+use function in_array, strtoupper;
 
 /**
  * MusicBrainz OAuth2

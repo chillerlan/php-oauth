@@ -20,11 +20,11 @@ declare(strict_types=1);
 require_once __DIR__.'/spotify-common.php';
 require_once __DIR__.'/MixesDBTrackSearch.php';
 
-$file           = __DIR__.'/clubnights.json';
+$file           = __DIR__.'/cache/clubnights.json';
 $since          = strtotime('1990-05-05'); // first clubnight: 1990-05-05
 $until          = strtotime('2000-01-01'); // last clubnight: 2014-06-07 (studio), 2014-06-14 (live)
 $find           = ['Dag', 'Fenslau', 'Pascal' /* F.E.O.S. */, 'Talla', 'Taucher', 'Tom Wax', 'Ulli Brenner', 'Väth'];
-$limit          = 5;
+$limit          = 1;
 $playlistPerSet = false;
 
 if(!file_exists($file)){

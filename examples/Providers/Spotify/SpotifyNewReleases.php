@@ -28,7 +28,7 @@ class SpotifyNewReleases extends SpotifyClient{
 		bool   $skipVariousArtist,
 		bool   $skipAppearsOn,
 		bool   $fromCache,
-		string $cacheDir = __DIR__,
+		string $cacheDir,
 	):void{
 		$loaded = $fromCache && $this->loadFromFile(['artists', 'albums'], $cacheDir);
 

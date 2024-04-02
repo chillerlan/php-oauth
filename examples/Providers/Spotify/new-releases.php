@@ -28,9 +28,10 @@ $minTracks         = 1;                          // minimum number of tracks per
 $skipAppearsOn     = true;
 $skipVariousArtist = true;
 $fromCache         = false;
+$cacheDir          =  __DIR__.'/cache';
 
 $spotify = $factory->getProvider(SpotifyNewReleases::class, $ENVVAR);
-$spotify->getNewReleases($since, $until, $minTracks, $skipVariousArtist, $skipAppearsOn, $fromCache);
+$spotify->getNewReleases($since, $until, $minTracks, $skipVariousArtist, $skipAppearsOn, $fromCache, $cacheDir);
 
 /*
 // crawl for yearly album releases in the given range
@@ -38,7 +39,7 @@ foreach(range(1970, 1979) as $year){
 	$since = \mktime(0, 0, 0, 1, 1, $year);
 	$until = \mktime(23, 59, 59, 12, 31, $year);
 
-	$client->getNewReleases($since, $until, 5, false, true, true);
+	$client->getNewReleases($since, $until, 5, false, true, true, $cacheDir);
 }
 */
 

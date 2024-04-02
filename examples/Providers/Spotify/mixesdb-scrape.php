@@ -30,7 +30,7 @@ require_once __DIR__.'/spotify-common.php';
 $logger         = $factory->getLogger();
 $requestFactory = $factory->getRequestFactory();
 
-$file    ??= __DIR__.'/mixesdb-data.json';
+$file    ??= __DIR__.'/cache/clubnights.json';
 $baseURL   = 'https://www.mixesdb.com';
 $catPath   = '/db/index.php?title=Category:Clubnight';
 $tracklist = [];

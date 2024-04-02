@@ -743,7 +743,7 @@ Search.appendIndex(
         },                {
             "fqsen": "\\chillerlan\\OAuth\\OAuthOptionsTrait\u003A\u003A\u0024fileStoragePath",
             "name": "fileStoragePath",
-            "summary": "The\u0020file\u0020storage\u0020root\u0020path",
+            "summary": "The\u0020file\u0020storage\u0020root\u0020path\u0020\u0028requires\u0020permissions\u00200777\u0029",
             "url": "classes/chillerlan-OAuth-OAuthOptionsTrait.html#property_fileStoragePath"
         },                {
             "fqsen": "\\chillerlan\\OAuth\\OAuthProviderFactory",
@@ -4133,7 +4133,7 @@ Search.appendIndex(
         },                {
             "fqsen": "\\chillerlan\\OAuth\\Storage\\FileStorage",
             "name": "FileStorage",
-            "summary": "Implements\u0020an\u0020abstract\u0020OAuth\u0020storage\u0020adapter",
+            "summary": "Implements\u0020a\u0020memory\u0020storage\u0020adapter.",
             "url": "classes/chillerlan-OAuth-Storage-FileStorage.html"
         },                {
             "fqsen": "\\chillerlan\\OAuth\\Storage\\FileStorage\u003A\u003A__construct\u0028\u0029",

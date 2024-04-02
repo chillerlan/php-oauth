@@ -9,15 +9,16 @@
  */
 declare(strict_types=1);
 
-require_once __DIR__.'/OAuthExampleSessionStorage.php';
-
 use chillerlan\DotEnv\DotEnv;
 use chillerlan\OAuth\Core\OAuth1Interface;
 use chillerlan\OAuth\Core\OAuth2Interface;
 use chillerlan\OAuth\Core\OAuthInterface;
 use chillerlan\OAuth\OAuthOptions;
 use chillerlan\OAuth\OAuthProviderFactory;
+use chillerlan\OAuth\Storage\FileStorage;
 use chillerlan\OAuth\Storage\MemoryStorage;
+use chillerlan\OAuth\Storage\OAuthStorageInterface;
+use chillerlan\OAuth\Storage\SessionStorage;
 use chillerlan\Settings\SettingsContainerInterface;
 use Monolog\Formatter\LineFormatter;
 use Monolog\Handler\NullHandler;
@@ -82,10 +83,18 @@ class OAuthExampleProviderFactory{
 		$storage = new MemoryStorage;
 
 		if($sessionStorage === true){
-			$storage = new OAuthExampleSessionStorage(options: $options, storagepath: $this->cfgDir);
+			$storage = new SessionStorage(options: $options);
 		}
 
 		return $this->factory->getProvider($providerFQN, $options, $storage);
+	}
+
+	public function getFileStorage():OAuthStorageInterface{
+		$options = new OAuthOptions;
+
+		$options->fileStoragePath = $this->cfgDir.'/.filestorage';
+
+		return new FileStorage('oauth-example', $options, $this->logger);
 	}
 
 	public function getEnvVar(string $var):mixed{

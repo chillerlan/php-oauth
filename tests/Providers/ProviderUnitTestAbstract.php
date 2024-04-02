@@ -17,6 +17,7 @@ use chillerlan\OAuth\OAuthProviderFactory;
 use chillerlan\OAuth\Storage\MemoryStorage;
 use chillerlan\OAuth\Storage\OAuthStorageInterface;
 use chillerlan\PHPUnitHttp\HttpFactoryTrait;
+use InvalidArgumentException;
 use PHPUnit\Framework\TestCase;
 use Psr\Http\Client\ClientInterface;
 use Psr\Http\Message\RequestInterface;
@@ -28,6 +29,7 @@ use Throwable;
 use function constant;
 use function defined;
 use function ini_set;
+use function ltrim;
 use function realpath;
 use function sprintf;
 
@@ -46,7 +48,8 @@ abstract class ProviderUnitTestAbstract extends TestCase{
 
 	protected string $HTTP_CLIENT_FACTORY = ProviderUnitTestHttpClientFactory::class;
 
-	protected bool $ENV_IS_CI;
+	protected string $CFG_DIR;
+	protected bool   $ENV_IS_CI;
 
 	protected const PROJECT_ROOT = __DIR__.'/../../';
 	protected const CACERT       = __DIR__.'/../cacert.pem';
@@ -58,6 +61,7 @@ abstract class ProviderUnitTestAbstract extends TestCase{
 		$this->ENV_IS_CI = defined('TEST_IS_CI') && constant('TEST_IS_CI') === true;
 
 		try{
+			$this->initConfig();
 			$this->initFactories(realpath($this::CACERT));
 
 			$this->logger  = (new ProviderTestLoggerFactory)->getLogger($this->ENV_IS_CI); // PSR-3 logger
@@ -96,13 +100,32 @@ abstract class ProviderUnitTestAbstract extends TestCase{
 	 * init dependencies
 	 */
 
+	protected function initConfig():void{
+
+		foreach(['TEST_CFGDIR', 'TEST_ENVFILE'] as $constant){
+			if(!defined($constant)){
+				throw new InvalidArgumentException(sprintf('constant "%s" not set -> see phpunit.xml', $constant));
+			}
+		}
+
+		$cfgdir        = constant('TEST_CFGDIR');
+		$this->CFG_DIR = realpath($this::PROJECT_ROOT.ltrim($cfgdir, '/\\'));
+
+		if($this->CFG_DIR === false){
+			throw new InvalidArgumentException(sprintf('invalid config dir "%s" (relative from project root)', $cfgdir));
+		}
+
+	}
+
 	protected function initOptions():OAuthOptions{
-		return new OAuthOptions([
-			'key'              => 'testclient',
-			'secret'           => 'testsecret',
-			'callbackURL'      => 'https://localhost/callback',
-			'tokenAutoRefresh' => true,
-		]);
+		$options = new OAuthOptions;
+
+		$options->key              = 'testclient';
+		$options->secret           = 'testsecret';
+		$options->callbackURL      = 'https://localhost/callback';
+		$options->tokenAutoRefresh = true;
+
+		return $options;
 	}
 
 	protected function initStorage(OAuthOptions $options):OAuthStorageInterface{

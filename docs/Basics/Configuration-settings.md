@@ -15,6 +15,27 @@ The application secret given by your provider
 The (main) callback URL associated with your application
 
 
+## useStorageEncryption
+
+Whether to use encryption for the file storage
+
+
+**See also:**
+
+- `\chillerlan\OAuth\Storage\FileStorage`
+
+
+## storageEncryptionKey
+
+The encryption key to use
+
+
+**See also:**
+
+- [php.net: `\sodium_crypto_secretbox_keygen()`](https://www.php.net/manual/function.sodium-crypto-secretbox-keygen)
+- `\chillerlan\OAuth\Storage\FileStorage`
+
+
 ## tokenAutoRefresh
 
 Whether to automatically refresh access tokens (OAuth2)
@@ -69,4 +90,15 @@ The session array key for <state> storage (OAuth2)
 **See also:**
 
 - `\chillerlan\OAuth\Storage\SessionStorage`
+
+
+## fileStoragePath
+
+The file storage root path (requires permissions 0777)
+
+
+**See also:**
+
+- [php.net: `\is_writable()`](https://www.php.net/manual/function.is-writable)
+- `\chillerlan\OAuth\Storage\FileStorage`
 

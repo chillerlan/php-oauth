@@ -92,8 +92,9 @@ trait OAuthOptionsTrait{
 	protected string $sessionStateVar = 'chillerlan-oauth-state';
 
 	/**
-	 * The file storage root path
+	 * The file storage root path (requires permissions 0777)
 	 *
+	 * @see \is_writable()
 	 * @see \chillerlan\OAuth\Storage\FileStorage
 	 */
 	protected string $fileStoragePath = '';

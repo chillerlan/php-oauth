@@ -20,8 +20,8 @@ echo '<a href="?route=oauth-login">connect with GitHub!</a>';
 
 The method `OAuthInterface::getAuthURL()` takes two (optional) parameters:
 
-- `$params`: the params array contains additional query parameters that will be added to the URL query (provider dependent)
-- `$scopes`: the scopes array contains all scopes that will be used for this authorization (unused in OAuth1)
+- `$params`: this array contains additional query parameters that will be added to the URL query (provider dependent)
+- `$scopes`: this array contains all scopes that will be used for this authorization (unused in OAuth1)
 
 When the user clicks the log-in link, just execute a `header()` to the provider's authorization URL.
 

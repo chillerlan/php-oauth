@@ -70,11 +70,14 @@
 <li class="toctree-l2"><a class="reference internal" href="#key">key</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#secret">secret</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#callbackurl">callbackURL</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#usestorageencryption">useStorageEncryption</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#storageencryptionkey">storageEncryptionKey</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#tokenautorefresh">tokenAutoRefresh</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#sessionstart">sessionStart</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#sessionstop">sessionStop</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#sessiontokenvar">sessionTokenVar</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#sessionstatevar">sessionStateVar</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#filestoragepath">fileStoragePath</a></li>
 </ul>
 </li>
 </ul>
@@ -155,6 +158,23 @@
 <h2>callbackURL<a class="headerlink" href="#callbackurl" title="Link to this heading"></a></h2>
 <p>The (main) callback URL associated with your application</p>
 </section>
+<section id="usestorageencryption">
+<h2>useStorageEncryption<a class="headerlink" href="#usestorageencryption" title="Link to this heading"></a></h2>
+<p>Whether to use encryption for the file storage</p>
+<p><strong>See also:</strong></p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">\chillerlan\OAuth\Storage\FileStorage</span></code></p></li>
+</ul>
+</section>
+<section id="storageencryptionkey">
+<h2>storageEncryptionKey<a class="headerlink" href="#storageencryptionkey" title="Link to this heading"></a></h2>
+<p>The encryption key to use</p>
+<p><strong>See also:</strong></p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://www.php.net/manual/function.sodium-crypto-secretbox-keygen">php.net: <code class="docutils literal notranslate"><span class="pre">\sodium_crypto_secretbox_keygen()</span></code></a></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">\chillerlan\OAuth\Storage\FileStorage</span></code></p></li>
+</ul>
+</section>
 <section id="tokenautorefresh">
 <h2>tokenAutoRefresh<a class="headerlink" href="#tokenautorefresh" title="Link to this heading"></a></h2>
 <p>Whether to automatically refresh access tokens (OAuth2)</p>
@@ -197,6 +217,14 @@
 <p><strong>See also:</strong></p>
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">\chillerlan\OAuth\Storage\SessionStorage</span></code></p></li>
+</ul>
+</section>
+<section id="filestoragepath">
+<h2>fileStoragePath<a class="headerlink" href="#filestoragepath" title="Link to this heading"></a></h2>
+<p>The file storage root path</p>
+<p><strong>See also:</strong></p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">\chillerlan\OAuth\Storage\FileStorage</span></code></p></li>
 </ul>
 </section>
 </section>

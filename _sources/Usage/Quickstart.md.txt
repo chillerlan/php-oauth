@@ -3,7 +3,7 @@
 ## The `OAuthOptions` container
 
 `OAuthOptions` is a simple container that implements the `SettingsContainerInterface` of [chillerlan/php-settings-container](https://github.com/chillerlan/php-settings-container#readme),
-which allows separating configuratrion logic from the application, and that can be extended easily.
+which allows separating configuration logic from the application, and that can be extended easily.
 Read more on that [over here in the php-qrcode documentation](https://php-qrcode.readthedocs.io/en/main/Usage/Advanced-usage.html#configuration-via-qroptions).
 
 
@@ -24,7 +24,7 @@ A list with all available `OAuthOptions` can be found under [configuration setti
 
 The `OAuthStorageInterface` stores access tokens and CSRF states (OAuth2) on a per-user-basis during script runtime. Generally, there are 3 types of storage:
 
-- **non-persistent**: stores an existing token during script runtime and then discard it (i.e. `MemoryStorage`)
+- **non-persistent**: stores an existing token during script runtime and then discards it (i.e. `MemoryStorage`)
 - **semi-persistent**: stores a token for as long a user's session is alive, e.g. during the authorization flow (i.e. `SessionStorage`)
 - **persistent**: stores a token permanently and can be used for both of the aforementioned scenarios (i.e. a database, or `FileStorage`)
 

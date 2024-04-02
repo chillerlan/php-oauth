@@ -70,11 +70,14 @@
 <li class="toctree-l2"><a class="reference internal" href="../Basics/Configuration-settings.html#key">key</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../Basics/Configuration-settings.html#secret">secret</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../Basics/Configuration-settings.html#callbackurl">callbackURL</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Basics/Configuration-settings.html#usestorageencryption">useStorageEncryption</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Basics/Configuration-settings.html#storageencryptionkey">storageEncryptionKey</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../Basics/Configuration-settings.html#tokenautorefresh">tokenAutoRefresh</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../Basics/Configuration-settings.html#sessionstart">sessionStart</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../Basics/Configuration-settings.html#sessionstop">sessionStop</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../Basics/Configuration-settings.html#sessiontokenvar">sessionTokenVar</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../Basics/Configuration-settings.html#sessionstatevar">sessionStateVar</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Basics/Configuration-settings.html#filestoragepath">fileStoragePath</a></li>
 </ul>
 </li>
 </ul>
@@ -158,8 +161,8 @@ as provider instances may call the service internally (OAuth1 request tokens). T
 <h3>Redirect<a class="headerlink" href="#redirect" title="Link to this heading"></a></h3>
 <p>The method <code class="docutils literal notranslate"><span class="pre">OAuthInterface::getAuthURL()</span></code> takes two (optional) parameters:</p>
 <ul class="simple">
-<li><p><code class="docutils literal notranslate"><span class="pre">$params</span></code>: the params array contains additional query parameters that will be added to the URL query (provider dependent)</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">$scopes</span></code>: the scopes array contains all scopes that will be used for this authorization (unused in OAuth1)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">$params</span></code>: this array contains additional query parameters that will be added to the URL query (provider dependent)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">$scopes</span></code>: this array contains all scopes that will be used for this authorization (unused in OAuth1)</p></li>
 </ul>
 <p>When the user clicks the log-in link, just execute a <code class="docutils literal notranslate"><span class="pre">header()</span></code> to the provider’s authorization URL.</p>
 <div class="highlight-php notranslate"><div class="highlight"><pre><span></span><span class="k">if</span><span class="p">(</span><span class="nv">$route</span> <span class="o">===</span> <span class="s1">&#39;oauth-login&#39;</span><span class="p">){</span>

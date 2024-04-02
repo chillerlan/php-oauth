@@ -70,11 +70,14 @@
 <li class="toctree-l2"><a class="reference internal" href="../Basics/Configuration-settings.html#key">key</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../Basics/Configuration-settings.html#secret">secret</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../Basics/Configuration-settings.html#callbackurl">callbackURL</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Basics/Configuration-settings.html#usestorageencryption">useStorageEncryption</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Basics/Configuration-settings.html#storageencryptionkey">storageEncryptionKey</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../Basics/Configuration-settings.html#tokenautorefresh">tokenAutoRefresh</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../Basics/Configuration-settings.html#sessionstart">sessionStart</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../Basics/Configuration-settings.html#sessionstop">sessionStop</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../Basics/Configuration-settings.html#sessiontokenvar">sessionTokenVar</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../Basics/Configuration-settings.html#sessionstatevar">sessionStateVar</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Basics/Configuration-settings.html#filestoragepath">fileStoragePath</a></li>
 </ul>
 </li>
 </ul>
@@ -145,7 +148,7 @@
 <section id="the-oauthoptions-container">
 <h2>The <code class="docutils literal notranslate"><span class="pre">OAuthOptions</span></code> container<a class="headerlink" href="#the-oauthoptions-container" title="Link to this heading"></a></h2>
 <p><code class="docutils literal notranslate"><span class="pre">OAuthOptions</span></code> is a simple container that implements the <code class="docutils literal notranslate"><span class="pre">SettingsContainerInterface</span></code> of <a class="reference external" href="https://github.com/chillerlan/php-settings-container#readme">chillerlan/php-settings-container</a>,
-which allows separating configuratrion logic from the application, and that can be extended easily.
+which allows separating configuration logic from the application, and that can be extended easily.
 Read more on that <a class="reference external" href="https://php-qrcode.readthedocs.io/en/main/Usage/Advanced-usage.html#configuration-via-qroptions">over here in the php-qrcode documentation</a>.</p>
 <div class="highlight-php notranslate"><div class="highlight"><pre><span></span><span class="nv">$options</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">OAuthOptions</span><span class="p">;</span>
 
@@ -162,7 +165,7 @@ Read more on that <a class="reference external" href="https://php-qrcode.readthe
 <h2>The <code class="docutils literal notranslate"><span class="pre">OAuthStorageInterface</span></code><a class="headerlink" href="#the-oauthstorageinterface" title="Link to this heading"></a></h2>
 <p>The <code class="docutils literal notranslate"><span class="pre">OAuthStorageInterface</span></code> stores access tokens and CSRF states (OAuth2) on a per-user-basis during script runtime. Generally, there are 3 types of storage:</p>
 <ul class="simple">
-<li><p><strong>non-persistent</strong>: stores an existing token during script runtime and then discard it (i.e. <code class="docutils literal notranslate"><span class="pre">MemoryStorage</span></code>)</p></li>
+<li><p><strong>non-persistent</strong>: stores an existing token during script runtime and then discards it (i.e. <code class="docutils literal notranslate"><span class="pre">MemoryStorage</span></code>)</p></li>
 <li><p><strong>semi-persistent</strong>: stores a token for as long a user’s session is alive, e.g. during the authorization flow (i.e. <code class="docutils literal notranslate"><span class="pre">SessionStorage</span></code>)</p></li>
 <li><p><strong>persistent</strong>: stores a token permanently and can be used for both of the aforementioned scenarios (i.e. a database, or <code class="docutils literal notranslate"><span class="pre">FileStorage</span></code>)</p></li>
 </ul>

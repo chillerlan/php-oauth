@@ -37,47 +37,47 @@ fully [PSR-7](https://www.php-fig.org/psr/psr-7/)/[PSR-17](https://www.php-fig.o
 
 | Provider | App keys | revoke access | OAuth | CSRF | CC | TR | TI |
 |----------|----------|---------------|-------|------|----|----|----|
-| [Stripe](https://stripe.com/docs/api) | [link](https://dashboard.stripe.com/apikeys) |  | 2 | ✓ |  | ✓ | ✓ |
-| [YouTube](https://developers.google.com/oauthplayground/) | [link](https://console.developers.google.com/apis/credentials) |  | 2 | ✓ |  |  |  |
-| [BattleNet](https://develop.battle.net/documentation) | [link](https://develop.battle.net/access/clients) |  | 2 | ✓ | ✓ |  |  |
-| [SoundCloud](https://developers.soundcloud.com/) | [link](https://soundcloud.com/you/apps) |  | 2 |  | ✓ | ✓ |  |
-| [TwitterCC](https://developer.twitter.com/en/docs/basics/authentication/overview/application-only) | [link](https://developer.twitter.com/apps) |  | 2 |  | ✓ |  |  |
+| [NPROne](https://dev.npr.org/api/) | [link](https://dev.npr.org/console) | [link]() | 2 | ✓ |  | ✓ | ✓ |
 | [BigCartel](https://developers.bigcartel.com/api/v1) | [link](https://bigcartel.wufoo.com/forms/big-cartel-api-application/) |  | 2 | ✓ |  |  | ✓ |
+| [YouTube](https://developers.google.com/oauthplayground/) | [link](https://console.developers.google.com/apis/credentials) |  | 2 | ✓ |  |  |  |
+| [TwitterCC](https://developer.twitter.com/en/docs/basics/authentication/overview/application-only) | [link](https://developer.twitter.com/apps) |  | 2 |  | ✓ |  |  |
 | [OpenStreetmap](https://wiki.openstreetmap.org/wiki/API) | [link](https://www.openstreetmap.org/user/{USERNAME}/oauth_clients) | [link]() | 1 |  |  |  |  |
-| [Twitch](https://dev.twitch.tv/docs/api/reference/) | [link](https://dev.twitch.tv/console/apps/create) |  | 2 | ✓ | ✓ | ✓ | ✓ |
-| [DeviantArt](https://www.deviantart.com/developers/) | [link](https://www.deviantart.com/developers/apps) |  | 2 | ✓ | ✓ | ✓ | ✓ |
-| [SteamOpenID](https://developer.valvesoftware.com/wiki/Steam_Web_API) | [link](https://steamcommunity.com/dev/apikey) | [link]() | - |  |  |  |  |
-| [Mastodon](https://docs.joinmastodon.org/api/) | [link](https://mastodon.social/settings/applications) |  | 2 | ✓ |  | ✓ |  |
-| [Vimeo](https://developer.vimeo.com) | [link](https://developer.vimeo.com/apps) |  | 2 | ✓ | ✓ |  | ✓ |
-| [Tumblr](https://www.tumblr.com/docs/en/api/v2) | [link](https://www.tumblr.com/oauth/apps) |  | 1 |  |  |  |  |
-| [GuildWars2](https://wiki.guildwars2.com/wiki/API:Main) | [link](https://account.arena.net/applications) |  | 2 |  |  |  |  |
-| [PayPalSandbox](https://developer.paypal.com/docs/connect-with-paypal/reference/) | [link](https://developer.paypal.com/developer/applications/) | [link]() | 2 | ✓ | ✓ | ✓ |  |
-| [Patreon](https://docs.patreon.com/) | [link](https://www.patreon.com/portal/registration/register-clients) | [link]() | 2 | ✓ |  | ✓ |  |
-| [MicrosoftGraph](https://learn.microsoft.com/graph/overview) | [link](https://aad.portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/RegisteredApps) |  | 2 | ✓ |  |  |  |
-| [Mixcloud](https://www.mixcloud.com/developers/) | [link](https://www.mixcloud.com/developers/create/) |  | 2 |  |  |  |  |
-| [Flickr](https://www.flickr.com/services/api/) | [link](https://www.flickr.com/services/apps/create/) |  | 1 |  |  |  |  |
-| [GitHub](https://docs.github.com/rest) | [link](https://github.com/settings/developers) |  | 2 | ✓ |  | ✓ |  |
-| [OpenCaching](https://www.opencaching.de/okapi/) | [link](https://www.opencaching.de/okapi/signup.html) |  | 1 |  |  |  |  |
-| [Bitbucket](https://developer.atlassian.com/bitbucket/api/2/reference/) | [link](https://developer.atlassian.com/apps/) | [link]() | 2 | ✓ | ✓ | ✓ |  |
-| [Foursquare](https://location.foursquare.com/developer/reference/foursquare-apis-overview) | [link](https://foursquare.com/developers/apps) |  | 2 |  |  |  |  |
-| [Deezer](https://developers.deezer.com/api) | [link](https://developers.deezer.com/myapps) |  | 2 | ✓ |  |  |  |
-| [PayPal](https://developer.paypal.com/docs/connect-with-paypal/reference/) | [link](https://developer.paypal.com/developer/applications/) | [link]() | 2 | ✓ | ✓ | ✓ |  |
-| [Imgur](https://apidocs.imgur.com) | [link](https://api.imgur.com/oauth2/addclient) |  | 2 | ✓ |  | ✓ |  |
-| [Google](https://developers.google.com/oauthplayground/) | [link](https://console.developers.google.com/apis/credentials) |  | 2 | ✓ |  |  |  |
-| [Twitter](https://developer.twitter.com/docs) | [link](https://developer.twitter.com/apps) |  | 1 |  |  |  |  |
-| [OpenStreetmap2](https://wiki.openstreetmap.org/wiki/API) | [link](https://www.openstreetmap.org/oauth2/applications) | [link]() | 2 | ✓ |  |  |  |
 | [Amazon]() | [link](https://developer.amazon.com/loginwithamazon/console/site/lwa/overview.html) | [link]() | 2 | ✓ |  | ✓ |  |
+| [DeviantArt](https://www.deviantart.com/developers/) | [link](https://www.deviantart.com/developers/apps) |  | 2 | ✓ | ✓ | ✓ | ✓ |
 | [MusicBrainz](https://musicbrainz.org/doc/Development) | [link](https://musicbrainz.org/account/applications) |  | 2 | ✓ |  | ✓ | ✓ |
-| [MailChimp](https://mailchimp.com/developer/) | [link](https://admin.mailchimp.com/account/oauth2/) | [link]() | 2 | ✓ |  |  |  |
+| [Imgur](https://apidocs.imgur.com) | [link](https://api.imgur.com/oauth2/addclient) |  | 2 | ✓ |  | ✓ |  |
+| [GuildWars2](https://wiki.guildwars2.com/wiki/API:Main) | [link](https://account.arena.net/applications) |  | 2 |  |  |  |  |
 | [LastFM](https://www.last.fm/api/) | [link](https://www.last.fm/api/account/create) |  | - |  |  |  |  |
-| [Tumblr2](https://www.tumblr.com/docs/en/api/v2) | [link](https://www.tumblr.com/oauth/apps) |  | 2 | ✓ | ✓ | ✓ |  |
-| [Spotify](https://developer.spotify.com/documentation/web-api/) | [link](https://developer.spotify.com/dashboard) |  | 2 | ✓ | ✓ | ✓ |  |
-| [Discogs](https://www.discogs.com/developers/) | [link](https://www.discogs.com/settings/developers) |  | 1 |  |  |  |  |
-| [GitLab]() | [link](https://gitlab.com/profile/applications) | [link]() | 2 | ✓ | ✓ | ✓ |  |
-| [Discord](https://discord.com/developers/) | [link](https://discordapp.com/developers/applications/) | [link]() | 2 | ✓ | ✓ | ✓ | ✓ |
 | [WordPress](https://developer.wordpress.com/docs/api/) | [link](https://developer.wordpress.com/apps/) |  | 2 | ✓ |  |  |  |
 | [Slack](https://api.slack.com) | [link](https://api.slack.com/apps) |  | 2 | ✓ |  |  |  |
-| [NPROne](https://dev.npr.org/api/) | [link](https://dev.npr.org/console) | [link]() | 2 | ✓ |  | ✓ | ✓ |
+| [BattleNet](https://develop.battle.net/documentation) | [link](https://develop.battle.net/access/clients) |  | 2 | ✓ | ✓ |  |  |
+| [MailChimp](https://mailchimp.com/developer/) | [link](https://admin.mailchimp.com/account/oauth2/) | [link]() | 2 | ✓ |  |  |  |
+| [Tumblr2](https://www.tumblr.com/docs/en/api/v2) | [link](https://www.tumblr.com/oauth/apps) |  | 2 | ✓ | ✓ | ✓ |  |
+| [MicrosoftGraph](https://learn.microsoft.com/graph/overview) | [link](https://aad.portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/RegisteredApps) |  | 2 | ✓ |  |  |  |
+| [Google](https://developers.google.com/oauthplayground/) | [link](https://console.developers.google.com/apis/credentials) |  | 2 | ✓ |  |  |  |
+| [Flickr](https://www.flickr.com/services/api/) | [link](https://www.flickr.com/services/apps/create/) |  | 1 |  |  |  |  |
+| [Discord](https://discord.com/developers/) | [link](https://discordapp.com/developers/applications/) | [link]() | 2 | ✓ | ✓ | ✓ | ✓ |
+| [OpenCaching](https://www.opencaching.de/okapi/) | [link](https://www.opencaching.de/okapi/signup.html) |  | 1 |  |  |  |  |
+| [SteamOpenID](https://developer.valvesoftware.com/wiki/Steam_Web_API) | [link](https://steamcommunity.com/dev/apikey) | [link]() | - |  |  |  |  |
+| [Mixcloud](https://www.mixcloud.com/developers/) | [link](https://www.mixcloud.com/developers/create/) |  | 2 |  |  |  |  |
+| [Twitch](https://dev.twitch.tv/docs/api/reference/) | [link](https://dev.twitch.tv/console/apps/create) |  | 2 | ✓ | ✓ | ✓ | ✓ |
+| [GitLab]() | [link](https://gitlab.com/profile/applications) | [link]() | 2 | ✓ | ✓ | ✓ |  |
+| [Twitter](https://developer.twitter.com/docs) | [link](https://developer.twitter.com/apps) |  | 1 |  |  |  |  |
+| [PayPal](https://developer.paypal.com/docs/connect-with-paypal/reference/) | [link](https://developer.paypal.com/developer/applications/) | [link]() | 2 | ✓ | ✓ | ✓ |  |
+| [Spotify](https://developer.spotify.com/documentation/web-api/) | [link](https://developer.spotify.com/dashboard) |  | 2 | ✓ | ✓ | ✓ |  |
+| [SoundCloud](https://developers.soundcloud.com/) | [link](https://soundcloud.com/you/apps) |  | 2 |  | ✓ | ✓ |  |
+| [Discogs](https://www.discogs.com/developers/) | [link](https://www.discogs.com/settings/developers) |  | 1 |  |  |  |  |
+| [Foursquare](https://location.foursquare.com/developer/reference/foursquare-apis-overview) | [link](https://foursquare.com/developers/apps) |  | 2 |  |  |  |  |
+| [Mastodon](https://docs.joinmastodon.org/api/) | [link](https://mastodon.social/settings/applications) |  | 2 | ✓ |  | ✓ |  |
+| [OpenStreetmap2](https://wiki.openstreetmap.org/wiki/API) | [link](https://www.openstreetmap.org/oauth2/applications) | [link]() | 2 | ✓ |  |  |  |
+| [GitHub](https://docs.github.com/rest) | [link](https://github.com/settings/developers) |  | 2 | ✓ |  | ✓ |  |
+| [PayPalSandbox](https://developer.paypal.com/docs/connect-with-paypal/reference/) | [link](https://developer.paypal.com/developer/applications/) | [link]() | 2 | ✓ | ✓ | ✓ |  |
+| [Vimeo](https://developer.vimeo.com) | [link](https://developer.vimeo.com/apps) |  | 2 | ✓ | ✓ |  | ✓ |
+| [Patreon](https://docs.patreon.com/) | [link](https://www.patreon.com/portal/registration/register-clients) | [link]() | 2 | ✓ |  | ✓ |  |
+| [Tumblr](https://www.tumblr.com/docs/en/api/v2) | [link](https://www.tumblr.com/oauth/apps) |  | 1 |  |  |  |  |
+| [Bitbucket](https://developer.atlassian.com/bitbucket/api/2/reference/) | [link](https://developer.atlassian.com/apps/) | [link]() | 2 | ✓ | ✓ | ✓ |  |
+| [Deezer](https://developers.deezer.com/api) | [link](https://developers.deezer.com/myapps) |  | 2 | ✓ |  |  |  |
+| [Stripe](https://stripe.com/docs/api) | [link](https://dashboard.stripe.com/apikeys) |  | 2 | ✓ |  | ✓ | ✓ |
 
 **Legend:**
 - **Provider**: the name of the provider class and link to their API documentation

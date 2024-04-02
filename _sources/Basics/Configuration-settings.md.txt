@@ -94,10 +94,11 @@ The session array key for <state> storage (OAuth2)
 
 ## fileStoragePath
 
-The file storage root path
+The file storage root path (requires permissions 0777)
 
 
 **See also:**
 
+- [php.net: `\is_writable()`](https://www.php.net/manual/function.is-writable)
 - `\chillerlan\OAuth\Storage\FileStorage`
 

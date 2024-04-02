@@ -33,6 +33,7 @@ elseif(isset($_GET['openid_sig']) && isset($_GET['openid_signed'])){
 	$token = $provider->getAccessToken($_GET);
 
 	// save the token [...]
+	$factory->getFileStorage()->storeAccessToken($token, $name);
 
 	// access granted, redirect
 	header('Location: ?granted='.$name);
@@ -43,6 +44,9 @@ elseif(isset($_GET['openid_error'])){ // openid.error -> https://stackoverflow.c
 }
 // step 4: verify the token and use the API
 elseif(isset($_GET['granted']) && $_GET['granted'] === $name){
+	// use the file storage from now on
+	$provider->setStorage($factory->getFileStorage());
+
 	$token     = $provider->getAccessTokenFromStorage(); // the user's steamid is stored as access token
 	$response  = $provider->request('/ISteamUser/GetPlayerSummaries/v2', ['steamids' => $token->accessToken]);
 	$data      = print_r(MessageUtil::decodeJSON($response), true);

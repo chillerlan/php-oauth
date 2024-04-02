@@ -32,12 +32,16 @@ elseif(isset($_GET['token'])){
 	$token = $provider->getAccessToken($_GET['token']);
 
 	// save the token [...]
+	$factory->getFileStorage()->storeAccessToken($token, $name);
 
 	// access granted, redirect
 	header('Location: ?granted='.$name);
 }
 // step 4: verify the token and use the API
 elseif(isset($_GET['granted']) && $_GET['granted'] === $name){
+	// use the file storage from now on
+	$provider->setStorage($factory->getFileStorage());
+
 	$me        = print_r($provider->me(), true);
 	$tokenJSON = $provider->getAccessTokenFromStorage()->toJSON();
 

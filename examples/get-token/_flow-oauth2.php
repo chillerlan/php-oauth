@@ -13,6 +13,7 @@ use chillerlan\OAuth\Core\CSRFToken;
 
 /**
  * @var \chillerlan\OAuth\Core\OAuth2Interface $provider
+ * @var \OAuthExampleProviderFactory $factory
  * @var array|null $PARAMS
  * @var array|null $SCOPES
  */
@@ -34,12 +35,16 @@ elseif(isset($_GET['code'])){
 	$token = $provider->getAccessToken($_GET['code'], $state);
 
 	// save the token [...]
+	$factory->getFileStorage()->storeAccessToken($token, $name);
 
 	// access granted, redirect
 	header('Location: ?granted='.$name);
 }
 // step 4: verify the token and use the API
 elseif(isset($_GET['granted']) && $_GET['granted'] === $name){
+	// use the file storage from now on
+	$provider->setStorage($factory->getFileStorage());
+
 	$me        = print_r($provider->me(), true);
 	$tokenJSON = $provider->getAccessTokenFromStorage()->toJSON();
 

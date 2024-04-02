@@ -38,6 +38,7 @@ class OAuthExampleProviderFactory{
 	protected DotEnv $dotEnv;
 	protected LoggerInterface $logger;
 	protected OAuthOptions|SettingsContainerInterface $options;
+	protected OAuthStorageInterface $fileStorage;
 
 	public function __construct(
 		protected OAuthProviderFactory $factory,
@@ -47,8 +48,10 @@ class OAuthExampleProviderFactory{
 	){
 		ini_set('date.timezone', 'UTC');
 
-		$this->dotEnv = (new DotEnv($this->cfgDir, $envFile, false))->load();
-		$this->logger = $this->initLogger($logLevel);
+		$this->dotEnv      = (new DotEnv($this->cfgDir, $envFile, false))->load();
+		$this->logger      = $this->initLogger($logLevel);
+		$this->fileStorage = $this->initFileStorage();
+
 		$this->factory->setLogger($this->logger);
 	}
 
@@ -65,6 +68,14 @@ class OAuthExampleProviderFactory{
 		}
 
 		return $logger;
+	}
+
+	protected function initFileStorage():OAuthStorageInterface{
+		$options = new OAuthOptions;
+
+		$options->fileStoragePath = $this->cfgDir.'/.filestorage';
+
+		return new FileStorage('oauth-example', $options, $this->logger);
 	}
 
 	public function getProvider(
@@ -90,11 +101,7 @@ class OAuthExampleProviderFactory{
 	}
 
 	public function getFileStorage():OAuthStorageInterface{
-		$options = new OAuthOptions;
-
-		$options->fileStoragePath = $this->cfgDir.'/.filestorage';
-
-		return new FileStorage('oauth-example', $options, $this->logger);
+		return $this->fileStorage;
 	}
 
 	public function getEnvVar(string $var):mixed{

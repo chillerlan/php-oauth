@@ -11,6 +11,7 @@ declare(strict_types=1);
 
 /**
  * @var \chillerlan\OAuth\Core\OAuth1Interface $provider
+ * @var \OAuthExampleProviderFactory           $factory
  * @var array|null $PARAMS
  */
 
@@ -25,12 +26,16 @@ elseif(isset($_GET['oauth_token']) && isset($_GET['oauth_verifier'])){
 	$token = $provider->getAccessToken($_GET['oauth_token'], $_GET['oauth_verifier']);
 
 	// save the token [...]
+	$factory->getFileStorage()->storeAccessToken($token, $name);
 
 	// access granted, redirect
 	header('Location: ?granted='.$name);
 }
 // step 4: verify the token and use the API
 elseif(isset($_GET['granted']) && $_GET['granted'] === $name){
+	// use the file storage from now on
+	$provider->setStorage($factory->getFileStorage());
+
 	$me        = print_r($provider->me(), true);
 	$tokenJSON = $provider->getAccessTokenFromStorage()->toJSON();
 

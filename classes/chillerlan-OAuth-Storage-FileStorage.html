@@ -117,7 +117,7 @@
 
     <article class="phpdocumentor-element -class">
         <h2 class="phpdocumentor-content__title">
-    MemoryStorage
+    FileStorage
 
         <span class="phpdocumentor-element__extends">
         extends <a href="classes/chillerlan-OAuth-Storage-OAuthStorageAbstract.html"><abbr title="\chillerlan\OAuth\Storage\OAuthStorageAbstract">OAuthStorageAbstract</abbr></a>
@@ -139,16 +139,14 @@
 </div>
 
         <aside class="phpdocumentor-element-found-in">
-    <abbr class="phpdocumentor-element-found-in__file" title="src/Storage/MemoryStorage.php"><a href="files/src-storage-memorystorage.html"><abbr title="src/Storage/MemoryStorage.php">MemoryStorage.php</abbr></a></abbr>
+    <abbr class="phpdocumentor-element-found-in__file" title="src/Storage/FileStorage.php"><a href="files/src-storage-filestorage.html"><abbr title="src/Storage/FileStorage.php">FileStorage.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">22</span>
+    <span class="phpdocumentor-element-found-in__line">26</span>
 
     </aside>
 
-            <p class="phpdocumentor-summary">Implements a memory storage adapter.</p>
+            <p class="phpdocumentor-summary">Implements an abstract OAuth storage adapter</p>
 
-    <section class="phpdocumentor-description"><p>Note: the memory storage is not persistent, as tokens are only stored during script runtime.</p>
-</section>
 
 
 
@@ -156,7 +154,7 @@
 
 <h3 id="toc">
     Table of Contents
-    <a href="classes/chillerlan-OAuth-Storage-MemoryStorage.html#toc" class="headerlink"><i class="fas fa-link"></i></a>
+    <a href="classes/chillerlan-OAuth-Storage-FileStorage.html#toc" class="headerlink"><i class="fas fa-link"></i></a>
 
 </h3>
 
@@ -168,14 +166,14 @@
 
 <h4 id="toc-constants">
     Constants
-    <a href="classes/chillerlan-OAuth-Storage-MemoryStorage.html#toc-constants" class="headerlink"><i class="fas fa-link"></i></a>
+    <a href="classes/chillerlan-OAuth-Storage-FileStorage.html#toc-constants" class="headerlink"><i class="fas fa-link"></i></a>
 
 </h4>
 <dl class="phpdocumentor-table-of-contents">
             <dt class="phpdocumentor-table-of-contents__entry -constant -protected">
-    <a href="classes/chillerlan-OAuth-Storage-OAuthStorageAbstract.html#constant_ENCRYPT_FORMAT">ENCRYPT_FORMAT</a>
+    <a href="classes/chillerlan-OAuth-Storage-FileStorage.html#constant_ENCRYPT_FORMAT">ENCRYPT_FORMAT</a>
     <span>
-        &nbsp;= self::ENCRYPT_FORMAT_HEX                            </span>
+        &nbsp;= self::ENCRYPT_FORMAT_BINARY                            </span>
 </dt>
 
             <dt class="phpdocumentor-table-of-contents__entry -constant -protected">
@@ -196,76 +194,80 @@
         &nbsp;= 0b10                            </span>
 </dt>
 
+            <dt class="phpdocumentor-table-of-contents__entry -constant -protected">
+    <a href="classes/chillerlan-OAuth-Storage-FileStorage.html#constant_KEY_STATE">KEY_STATE</a>
+    <span>
+        &nbsp;= &#039;STATE&#039;                            </span>
+</dt>
+
+            <dt class="phpdocumentor-table-of-contents__entry -constant -protected">
+    <a href="classes/chillerlan-OAuth-Storage-FileStorage.html#constant_KEY_TOKEN">KEY_TOKEN</a>
+    <span>
+        &nbsp;= &#039;TOKEN&#039;                            </span>
+</dt>
+
     </dl>
 
 
 <h4 id="toc-properties">
     Properties
-    <a href="classes/chillerlan-OAuth-Storage-MemoryStorage.html#toc-properties" class="headerlink"><i class="fas fa-link"></i></a>
+    <a href="classes/chillerlan-OAuth-Storage-FileStorage.html#toc-properties" class="headerlink"><i class="fas fa-link"></i></a>
 
 </h4>
 <dl class="phpdocumentor-table-of-contents">
             <dt class="phpdocumentor-table-of-contents__entry -property -protected">
-    <a href="classes/chillerlan-OAuth-Storage-OAuthStorageAbstract.html#property_logger">$logger</a>
+    <a href="classes/chillerlan-OAuth-Storage-FileStorage.html#property_logger">$logger</a>
     <span>
                         &nbsp;: <abbr title="\Psr\Log\LoggerInterface">LoggerInterface</abbr>            </span>
 </dt>
 
             <dt class="phpdocumentor-table-of-contents__entry -property -protected">
-    <a href="classes/chillerlan-OAuth-Storage-OAuthStorageAbstract.html#property_options">$options</a>
+    <a href="classes/chillerlan-OAuth-Storage-FileStorage.html#property_oauthUser">$oauthUser</a>
+    <span>
+                        &nbsp;: string|int            </span>
+</dt>
+
+            <dt class="phpdocumentor-table-of-contents__entry -property -protected">
+    <a href="classes/chillerlan-OAuth-Storage-FileStorage.html#property_options">$options</a>
     <span>
                         &nbsp;: <a href="classes/chillerlan-OAuth-OAuthOptions.html"><abbr title="\chillerlan\OAuth\OAuthOptions">OAuthOptions</abbr></a>|<abbr title="\chillerlan\Settings\SettingsContainerInterface">SettingsContainerInterface</abbr>            </span>
 </dt>
-
-            <dt class="phpdocumentor-table-of-contents__entry -property -protected">
-    <a href="classes/chillerlan-OAuth-Storage-MemoryStorage.html#property_states">$states</a>
-    <span>
-                        &nbsp;: array&lt;string|int, mixed&gt;            </span>
-</dt>
-<dd>the CSRF state storage array</dd>
-
-            <dt class="phpdocumentor-table-of-contents__entry -property -protected">
-    <a href="classes/chillerlan-OAuth-Storage-MemoryStorage.html#property_tokens">$tokens</a>
-    <span>
-                        &nbsp;: array&lt;string|int, mixed&gt;            </span>
-</dt>
-<dd>the token storage array</dd>
 
     </dl>
 
 <h4 id="toc-methods">
     Methods
-    <a href="classes/chillerlan-OAuth-Storage-MemoryStorage.html#toc-methods" class="headerlink"><i class="fas fa-link"></i></a>
+    <a href="classes/chillerlan-OAuth-Storage-FileStorage.html#toc-methods" class="headerlink"><i class="fas fa-link"></i></a>
 
 </h4>
 <dl class="phpdocumentor-table-of-contents">
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a href="classes/chillerlan-OAuth-Storage-OAuthStorageAbstract.html#method___construct">__construct()</a>
+    <a href="classes/chillerlan-OAuth-Storage-FileStorage.html#method___construct">__construct()</a>
     <span>
                                 &nbsp;: mixed    </span>
 </dt>
 <dd>OAuthStorageAbstract constructor.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a href="classes/chillerlan-OAuth-Storage-MemoryStorage.html#method_clearAccessToken">clearAccessToken()</a>
+    <a href="classes/chillerlan-OAuth-Storage-FileStorage.html#method_clearAccessToken">clearAccessToken()</a>
     <span>
                                 &nbsp;: static    </span>
 </dt>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a href="classes/chillerlan-OAuth-Storage-MemoryStorage.html#method_clearAllAccessTokens">clearAllAccessTokens()</a>
+    <a href="classes/chillerlan-OAuth-Storage-FileStorage.html#method_clearAllAccessTokens">clearAllAccessTokens()</a>
     <span>
                                 &nbsp;: static    </span>
 </dt>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a href="classes/chillerlan-OAuth-Storage-MemoryStorage.html#method_clearAllCSRFStates">clearAllCSRFStates()</a>
+    <a href="classes/chillerlan-OAuth-Storage-FileStorage.html#method_clearAllCSRFStates">clearAllCSRFStates()</a>
     <span>
                                 &nbsp;: static    </span>
 </dt>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a href="classes/chillerlan-OAuth-Storage-MemoryStorage.html#method_clearCSRFState">clearCSRFState()</a>
+    <a href="classes/chillerlan-OAuth-Storage-FileStorage.html#method_clearCSRFState">clearCSRFState()</a>
     <span>
                                 &nbsp;: static    </span>
 </dt>
@@ -278,25 +280,25 @@
 <dd>Retrieves token JOSN from the underlying storage engine and returns an AccessToken</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a href="classes/chillerlan-OAuth-Storage-MemoryStorage.html#method_getAccessToken">getAccessToken()</a>
+    <a href="classes/chillerlan-OAuth-Storage-FileStorage.html#method_getAccessToken">getAccessToken()</a>
     <span>
                                 &nbsp;: <a href="classes/chillerlan-OAuth-Core-AccessToken.html"><abbr title="\chillerlan\OAuth\Core\AccessToken">AccessToken</abbr></a>    </span>
 </dt>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a href="classes/chillerlan-OAuth-Storage-MemoryStorage.html#method_getCSRFState">getCSRFState()</a>
+    <a href="classes/chillerlan-OAuth-Storage-FileStorage.html#method_getCSRFState">getCSRFState()</a>
     <span>
                                 &nbsp;: string    </span>
 </dt>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a href="classes/chillerlan-OAuth-Storage-MemoryStorage.html#method_hasAccessToken">hasAccessToken()</a>
+    <a href="classes/chillerlan-OAuth-Storage-FileStorage.html#method_hasAccessToken">hasAccessToken()</a>
     <span>
                                 &nbsp;: bool    </span>
 </dt>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a href="classes/chillerlan-OAuth-Storage-MemoryStorage.html#method_hasCSRFState">hasCSRFState()</a>
+    <a href="classes/chillerlan-OAuth-Storage-FileStorage.html#method_hasCSRFState">hasCSRFState()</a>
     <span>
                                 &nbsp;: bool    </span>
 </dt>
@@ -309,13 +311,13 @@
 <dd>Sets a logger. (LoggerAwareInterface is stupid)</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a href="classes/chillerlan-OAuth-Storage-MemoryStorage.html#method_storeAccessToken">storeAccessToken()</a>
+    <a href="classes/chillerlan-OAuth-Storage-FileStorage.html#method_storeAccessToken">storeAccessToken()</a>
     <span>
                                 &nbsp;: static    </span>
 </dt>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a href="classes/chillerlan-OAuth-Storage-MemoryStorage.html#method_storeCSRFState">storeCSRFState()</a>
+    <a href="classes/chillerlan-OAuth-Storage-FileStorage.html#method_storeCSRFState">storeCSRFState()</a>
     <span>
                                 &nbsp;: static    </span>
 </dt>
@@ -329,7 +331,7 @@
 and returns a value that is suited for the underlying storage engine</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -protected">
-    <a href="classes/chillerlan-OAuth-Storage-OAuthStorageAbstract.html#method_construct">construct()</a>
+    <a href="classes/chillerlan-OAuth-Storage-FileStorage.html#method_construct">construct()</a>
     <span>
                                 &nbsp;: void    </span>
 </dt>
@@ -344,6 +346,20 @@ so that you don&#039;t have to implement the monstrous original `__construct()`<
 <dd>decrypts the given $encrypted data with $key</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -protected">
+    <a href="classes/chillerlan-OAuth-Storage-FileStorage.html#method_deleteAll">deleteAll()</a>
+    <span>
+                                &nbsp;: void    </span>
+</dt>
+<dd>deletes all matching files</dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -method -protected">
+    <a href="classes/chillerlan-OAuth-Storage-FileStorage.html#method_deleteFile">deleteFile()</a>
+    <span>
+                                &nbsp;: void    </span>
+</dt>
+<dd>deletes an existing file</dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -method -protected">
     <a href="classes/chillerlan-OAuth-Storage-OAuthStorageAbstract.html#method_encrypt">encrypt()</a>
     <span>
                                 &nbsp;: string    </span>
@@ -351,11 +367,32 @@ so that you don&#039;t have to implement the monstrous original `__construct()`<
 <dd>encrypts the given $data with $key</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -protected">
+    <a href="classes/chillerlan-OAuth-Storage-FileStorage.html#method_getFilepath">getFilepath()</a>
+    <span>
+                                &nbsp;: string    </span>
+</dt>
+<dd>gets the file path for $key (token/state), $provider and the given oauth user ID</dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -method -protected">
     <a href="classes/chillerlan-OAuth-Storage-OAuthStorageAbstract.html#method_getProviderName">getProviderName()</a>
     <span>
                                 &nbsp;: string    </span>
 </dt>
 <dd>Gets the current provider name</dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -method -protected">
+    <a href="classes/chillerlan-OAuth-Storage-FileStorage.html#method_loadFile">loadFile()</a>
+    <span>
+                                &nbsp;: string|null    </span>
+</dt>
+<dd>fetched the content from a file</dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -method -protected">
+    <a href="classes/chillerlan-OAuth-Storage-FileStorage.html#method_saveFile">saveFile()</a>
+    <span>
+                                &nbsp;: void    </span>
+</dt>
+<dd>saves the given data to a file</dd>
 
     </dl>
 
@@ -366,29 +403,29 @@ so that you don&#039;t have to implement the monstrous original `__construct()`<
     <section class="phpdocumentor-constants">
         <h3 class="phpdocumentor-elements__header" id="constants">
             Constants
-            <a href="classes/chillerlan-OAuth-Storage-MemoryStorage.html#constants" class="headerlink"><i class="fas fa-link"></i></a>
+            <a href="classes/chillerlan-OAuth-Storage-FileStorage.html#constants" class="headerlink"><i class="fas fa-link"></i></a>
 
         </h3>
                     <article class="phpdocumentor-element -constant -protected ">
     <h4 class="phpdocumentor-element__name" id="constant_ENCRYPT_FORMAT">
         ENCRYPT_FORMAT
-        <a href="classes/chillerlan-OAuth-Storage-OAuthStorageAbstract.html#constant_ENCRYPT_FORMAT" class="headerlink"><i class="fas fa-link"></i></a>
+        <a href="classes/chillerlan-OAuth-Storage-FileStorage.html#constant_ENCRYPT_FORMAT" class="headerlink"><i class="fas fa-link"></i></a>
 
     </h4>
 
     <aside class="phpdocumentor-element-found-in">
-    <abbr class="phpdocumentor-element-found-in__file" title="src/Storage/OAuthStorageAbstract.php"><a href="files/src-storage-oauthstorageabstract.html"><abbr title="src/Storage/OAuthStorageAbstract.php">OAuthStorageAbstract.php</abbr></a></abbr>
+    <abbr class="phpdocumentor-element-found-in__file" title="src/Storage/FileStorage.php"><a href="files/src-storage-filestorage.html"><abbr title="src/Storage/FileStorage.php">FileStorage.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">31</span>
+    <span class="phpdocumentor-element-found-in__line">28</span>
 
     </aside>
 
     
     <code class="phpdocumentor-signature phpdocumentor-code ">
     <span class="phpdocumentor-signature__visibility">protected</span>
-        <span class="phpdocumentor-signature__type">mixed</span>
+    <span class="phpdocumentor-signature__final">final</span>    <span class="phpdocumentor-signature__type">mixed</span>
     <span class="phpdocumentor-signature__name">ENCRYPT_FORMAT</span>
-    = <span class="phpdocumentor-signature__default-value">self::ENCRYPT_FORMAT_HEX</span>
+    = <span class="phpdocumentor-signature__default-value">self::ENCRYPT_FORMAT_BINARY</span>
 </code>
 
 
@@ -481,13 +518,69 @@ so that you don&#039;t have to implement the monstrous original `__construct()`<
     
 
 </article>
+                    <article class="phpdocumentor-element -constant -protected ">
+    <h4 class="phpdocumentor-element__name" id="constant_KEY_STATE">
+        KEY_STATE
+        <a href="classes/chillerlan-OAuth-Storage-FileStorage.html#constant_KEY_STATE" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h4>
+
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/Storage/FileStorage.php"><a href="files/src-storage-filestorage.html"><abbr title="src/Storage/FileStorage.php">FileStorage.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">31</span>
+
+    </aside>
+
+    
+    <code class="phpdocumentor-signature phpdocumentor-code ">
+    <span class="phpdocumentor-signature__visibility">protected</span>
+    <span class="phpdocumentor-signature__final">final</span>    <span class="phpdocumentor-signature__type">mixed</span>
+    <span class="phpdocumentor-signature__name">KEY_STATE</span>
+    = <span class="phpdocumentor-signature__default-value">&#039;STATE&#039;</span>
+</code>
+
+
+    
+    
+    
+
+</article>
+                    <article class="phpdocumentor-element -constant -protected ">
+    <h4 class="phpdocumentor-element__name" id="constant_KEY_TOKEN">
+        KEY_TOKEN
+        <a href="classes/chillerlan-OAuth-Storage-FileStorage.html#constant_KEY_TOKEN" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h4>
+
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/Storage/FileStorage.php"><a href="files/src-storage-filestorage.html"><abbr title="src/Storage/FileStorage.php">FileStorage.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">30</span>
+
+    </aside>
+
+    
+    <code class="phpdocumentor-signature phpdocumentor-code ">
+    <span class="phpdocumentor-signature__visibility">protected</span>
+    <span class="phpdocumentor-signature__final">final</span>    <span class="phpdocumentor-signature__type">mixed</span>
+    <span class="phpdocumentor-signature__name">KEY_TOKEN</span>
+    = <span class="phpdocumentor-signature__default-value">&#039;TOKEN&#039;</span>
+</code>
+
+
+    
+    
+    
+
+</article>
             </section>
 
         
     <section class="phpdocumentor-properties">
         <h3 class="phpdocumentor-elements__header" id="properties">
             Properties
-            <a href="classes/chillerlan-OAuth-Storage-MemoryStorage.html#properties" class="headerlink"><i class="fas fa-link"></i></a>
+            <a href="classes/chillerlan-OAuth-Storage-FileStorage.html#properties" class="headerlink"><i class="fas fa-link"></i></a>
 
         </h3>
                     <article
@@ -499,15 +592,15 @@ so that you don&#039;t have to implement the monstrous original `__construct()`<
 >
     <h4 class="phpdocumentor-element__name" id="property_logger">
         $logger
-        <a href="classes/chillerlan-OAuth-Storage-OAuthStorageAbstract.html#property_logger" class="headerlink"><i class="fas fa-link"></i></a>
+        <a href="classes/chillerlan-OAuth-Storage-FileStorage.html#property_logger" class="headerlink"><i class="fas fa-link"></i></a>
 
         <span class="phpdocumentor-element__modifiers">
                                 </span>
     </h4>
     <aside class="phpdocumentor-element-found-in">
-    <abbr class="phpdocumentor-element-found-in__file" title="src/Storage/OAuthStorageAbstract.php"><a href="files/src-storage-oauthstorageabstract.html"><abbr title="src/Storage/OAuthStorageAbstract.php">OAuthStorageAbstract.php</abbr></a></abbr>
+    <abbr class="phpdocumentor-element-found-in__file" title="src/Storage/FileStorage.php"><a href="files/src-storage-filestorage.html"><abbr title="src/Storage/FileStorage.php">FileStorage.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">38</span>
+    <span class="phpdocumentor-element-found-in__line">41</span>
 
     </aside>
 
@@ -530,17 +623,50 @@ so that you don&#039;t have to implement the monstrous original `__construct()`<
             -protected
                                                         "
 >
-    <h4 class="phpdocumentor-element__name" id="property_options">
-        $options
-        <a href="classes/chillerlan-OAuth-Storage-OAuthStorageAbstract.html#property_options" class="headerlink"><i class="fas fa-link"></i></a>
+    <h4 class="phpdocumentor-element__name" id="property_oauthUser">
+        $oauthUser
+        <a href="classes/chillerlan-OAuth-Storage-FileStorage.html#property_oauthUser" class="headerlink"><i class="fas fa-link"></i></a>
 
         <span class="phpdocumentor-element__modifiers">
                                 </span>
     </h4>
     <aside class="phpdocumentor-element-found-in">
-    <abbr class="phpdocumentor-element-found-in__file" title="src/Storage/OAuthStorageAbstract.php"><a href="files/src-storage-oauthstorageabstract.html"><abbr title="src/Storage/OAuthStorageAbstract.php">OAuthStorageAbstract.php</abbr></a></abbr>
+    <abbr class="phpdocumentor-element-found-in__file" title="src/Storage/FileStorage.php"><a href="files/src-storage-filestorage.html"><abbr title="src/Storage/FileStorage.php">FileStorage.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">37</span>
+    <span class="phpdocumentor-element-found-in__line">39</span>
+
+    </aside>
+
+    
+    <code class="phpdocumentor-code phpdocumentor-signature ">
+    <span class="phpdocumentor-signature__visibility">protected</span>
+        <span class="phpdocumentor-signature__type">string|int</span>
+    <span class="phpdocumentor-signature__name">$oauthUser</span>
+    </code>
+
+    
+    
+    
+
+</article>
+                    <article
+        class="
+            phpdocumentor-element
+            -property
+            -protected
+                                                        "
+>
+    <h4 class="phpdocumentor-element__name" id="property_options">
+        $options
+        <a href="classes/chillerlan-OAuth-Storage-FileStorage.html#property_options" class="headerlink"><i class="fas fa-link"></i></a>
+
+        <span class="phpdocumentor-element__modifiers">
+                                </span>
+    </h4>
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/Storage/FileStorage.php"><a href="files/src-storage-filestorage.html"><abbr title="src/Storage/FileStorage.php">FileStorage.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">40</span>
 
     </aside>
 
@@ -556,80 +682,12 @@ so that you don&#039;t have to implement the monstrous original `__construct()`<
     
 
 </article>
-                    <article
-        class="
-            phpdocumentor-element
-            -property
-            -protected
-                                                        "
->
-    <h4 class="phpdocumentor-element__name" id="property_states">
-        $states
-        <a href="classes/chillerlan-OAuth-Storage-MemoryStorage.html#property_states" class="headerlink"><i class="fas fa-link"></i></a>
-
-        <span class="phpdocumentor-element__modifiers">
-                                </span>
-    </h4>
-    <aside class="phpdocumentor-element-found-in">
-    <abbr class="phpdocumentor-element-found-in__file" title="src/Storage/MemoryStorage.php"><a href="files/src-storage-memorystorage.html"><abbr title="src/Storage/MemoryStorage.php">MemoryStorage.php</abbr></a></abbr>
-    :
-    <span class="phpdocumentor-element-found-in__line">32</span>
-
-    </aside>
-
-        <p class="phpdocumentor-summary">the CSRF state storage array</p>
-
-    <code class="phpdocumentor-code phpdocumentor-signature ">
-    <span class="phpdocumentor-signature__visibility">protected</span>
-        <span class="phpdocumentor-signature__type">array&lt;string|int, mixed&gt;</span>
-    <span class="phpdocumentor-signature__name">$states</span>
-     = <span class="phpdocumentor-signature__default-value">[]</span></code>
-
-    
-    
-    
-
-</article>
-                    <article
-        class="
-            phpdocumentor-element
-            -property
-            -protected
-                                                        "
->
-    <h4 class="phpdocumentor-element__name" id="property_tokens">
-        $tokens
-        <a href="classes/chillerlan-OAuth-Storage-MemoryStorage.html#property_tokens" class="headerlink"><i class="fas fa-link"></i></a>
-
-        <span class="phpdocumentor-element__modifiers">
-                                </span>
-    </h4>
-    <aside class="phpdocumentor-element-found-in">
-    <abbr class="phpdocumentor-element-found-in__file" title="src/Storage/MemoryStorage.php"><a href="files/src-storage-memorystorage.html"><abbr title="src/Storage/MemoryStorage.php">MemoryStorage.php</abbr></a></abbr>
-    :
-    <span class="phpdocumentor-element-found-in__line">27</span>
-
-    </aside>
-
-        <p class="phpdocumentor-summary">the token storage array</p>
-
-    <code class="phpdocumentor-code phpdocumentor-signature ">
-    <span class="phpdocumentor-signature__visibility">protected</span>
-        <span class="phpdocumentor-signature__type">array&lt;string|int, mixed&gt;</span>
-    <span class="phpdocumentor-signature__name">$tokens</span>
-     = <span class="phpdocumentor-signature__default-value">[]</span></code>
-
-    
-    
-    
-
-</article>
             </section>
 
             <section class="phpdocumentor-methods">
         <h3 class="phpdocumentor-elements__header" id="methods">
             Methods
-            <a href="classes/chillerlan-OAuth-Storage-MemoryStorage.html#methods" class="headerlink"><i class="fas fa-link"></i></a>
+            <a href="classes/chillerlan-OAuth-Storage-FileStorage.html#methods" class="headerlink"><i class="fas fa-link"></i></a>
 
         </h3>
                     <article
@@ -640,13 +698,13 @@ so that you don&#039;t have to implement the monstrous original `__construct()`<
 >
     <h4 class="phpdocumentor-element__name" id="method___construct">
         __construct()
-        <a href="classes/chillerlan-OAuth-Storage-OAuthStorageAbstract.html#method___construct" class="headerlink"><i class="fas fa-link"></i></a>
+        <a href="classes/chillerlan-OAuth-Storage-FileStorage.html#method___construct" class="headerlink"><i class="fas fa-link"></i></a>
 
     </h4>
     <aside class="phpdocumentor-element-found-in">
-    <abbr class="phpdocumentor-element-found-in__file" title="src/Storage/OAuthStorageAbstract.php"><a href="files/src-storage-oauthstorageabstract.html"><abbr title="src/Storage/OAuthStorageAbstract.php">OAuthStorageAbstract.php</abbr></a></abbr>
+    <abbr class="phpdocumentor-element-found-in__file" title="src/Storage/FileStorage.php"><a href="files/src-storage-filestorage.html"><abbr title="src/Storage/FileStorage.php">FileStorage.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">36</span>
+    <span class="phpdocumentor-element-found-in__line">38</span>
 
     </aside>
 
@@ -654,13 +712,22 @@ so that you don&#039;t have to implement the monstrous original `__construct()`<
 
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
-                    <span class="phpdocumentor-signature__name">__construct</span><span>(</span><span class="phpdocumentor-signature__argument"><span>[</span><span class="phpdocumentor-signature__argument__return-type"><a href="classes/chillerlan-OAuth-OAuthOptions.html"><abbr title="\chillerlan\OAuth\OAuthOptions">OAuthOptions</abbr></a>|<abbr title="\chillerlan\Settings\SettingsContainerInterface">SettingsContainerInterface</abbr>&nbsp;</span><span class="phpdocumentor-signature__argument__name">$options</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">new OAuthOptions()</span><span> ]</span></span><span class="phpdocumentor-signature__argument"><span>[</span><span>, </span><span class="phpdocumentor-signature__argument__return-type"><abbr title="\Psr\Log\LoggerInterface">LoggerInterface</abbr>&nbsp;</span><span class="phpdocumentor-signature__argument__name">$logger</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">new NullLogger()</span><span> ]</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">mixed</span></code>
+                    <span class="phpdocumentor-signature__name">__construct</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">string|int&nbsp;</span><span class="phpdocumentor-signature__argument__name">$oauthUser</span></span><span class="phpdocumentor-signature__argument"><span>[</span><span>, </span><span class="phpdocumentor-signature__argument__return-type"><a href="classes/chillerlan-OAuth-OAuthOptions.html"><abbr title="\chillerlan\OAuth\OAuthOptions">OAuthOptions</abbr></a>|<abbr title="\chillerlan\Settings\SettingsContainerInterface">SettingsContainerInterface</abbr>&nbsp;</span><span class="phpdocumentor-signature__argument__name">$options</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">new OAuthOptions()</span><span> ]</span></span><span class="phpdocumentor-signature__argument"><span>[</span><span>, </span><span class="phpdocumentor-signature__argument__return-type"><abbr title="\Psr\Log\LoggerInterface">LoggerInterface</abbr>&nbsp;</span><span class="phpdocumentor-signature__argument__name">$logger</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">new NullLogger()</span><span> ]</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">mixed</span></code>
 
     <div class="phpdocumentor-label-line">
         </div>
     
         <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
     <dl class="phpdocumentor-argument-list">
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-signature__argument__name">$oauthUser</span>
+                : <span class="phpdocumentor-signature__argument__return-type">string|int</span>
+                            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                    <section class="phpdocumentor-description"><p>a <em>unique</em> ID to identify the user within your application, e.g. database row id or UUID</p>
+</section>
+
+            </dd>
                     <dt class="phpdocumentor-argument-list__entry">
                 <span class="phpdocumentor-signature__argument__name">$options</span>
                 : <span class="phpdocumentor-signature__argument__return-type"><a href="classes/chillerlan-OAuth-OAuthOptions.html"><abbr title="\chillerlan\OAuth\OAuthOptions">OAuthOptions</abbr></a>|<abbr title="\chillerlan\Settings\SettingsContainerInterface">SettingsContainerInterface</abbr></span>
@@ -689,13 +756,13 @@ so that you don&#039;t have to implement the monstrous original `__construct()`<
 >
     <h4 class="phpdocumentor-element__name" id="method_clearAccessToken">
         clearAccessToken()
-        <a href="classes/chillerlan-OAuth-Storage-MemoryStorage.html#method_clearAccessToken" class="headerlink"><i class="fas fa-link"></i></a>
+        <a href="classes/chillerlan-OAuth-Storage-FileStorage.html#method_clearAccessToken" class="headerlink"><i class="fas fa-link"></i></a>
 
     </h4>
     <aside class="phpdocumentor-element-found-in">
-    <abbr class="phpdocumentor-element-found-in__file" title="src/Storage/MemoryStorage.php"><a href="files/src-storage-memorystorage.html"><abbr title="src/Storage/MemoryStorage.php">MemoryStorage.php</abbr></a></abbr>
+    <abbr class="phpdocumentor-element-found-in__file" title="src/Storage/FileStorage.php"><a href="files/src-storage-filestorage.html"><abbr title="src/Storage/FileStorage.php">FileStorage.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">67</span>
+    <span class="phpdocumentor-element-found-in__line">93</span>
 
     </aside>
 
@@ -721,7 +788,7 @@ so that you don&#039;t have to implement the monstrous original `__construct()`<
     
     <h5 class="phpdocumentor-tag-list__heading" id="tags">
         Tags
-        <a href="classes/chillerlan-OAuth-Storage-MemoryStorage.html#method_clearAccessToken#tags" class="headerlink"><i class="fas fa-link"></i></a>
+        <a href="classes/chillerlan-OAuth-Storage-FileStorage.html#method_clearAccessToken#tags" class="headerlink"><i class="fas fa-link"></i></a>
 
     </h5>
     <dl class="phpdocumentor-tag-list">
@@ -748,13 +815,13 @@ so that you don&#039;t have to implement the monstrous original `__construct()`<
 >
     <h4 class="phpdocumentor-element__name" id="method_clearAllAccessTokens">
         clearAllAccessTokens()
-        <a href="classes/chillerlan-OAuth-Storage-MemoryStorage.html#method_clearAllAccessTokens" class="headerlink"><i class="fas fa-link"></i></a>
+        <a href="classes/chillerlan-OAuth-Storage-FileStorage.html#method_clearAllAccessTokens" class="headerlink"><i class="fas fa-link"></i></a>
 
     </h4>
     <aside class="phpdocumentor-element-found-in">
-    <abbr class="phpdocumentor-element-found-in__file" title="src/Storage/MemoryStorage.php"><a href="files/src-storage-memorystorage.html"><abbr title="src/Storage/MemoryStorage.php">MemoryStorage.php</abbr></a></abbr>
+    <abbr class="phpdocumentor-element-found-in__file" title="src/Storage/FileStorage.php"><a href="files/src-storage-filestorage.html"><abbr title="src/Storage/FileStorage.php">FileStorage.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">80</span>
+    <span class="phpdocumentor-element-found-in__line">102</span>
 
     </aside>
 
@@ -770,7 +837,7 @@ so that you don&#039;t have to implement the monstrous original `__construct()`<
     
     <h5 class="phpdocumentor-tag-list__heading" id="tags">
         Tags
-        <a href="classes/chillerlan-OAuth-Storage-MemoryStorage.html#method_clearAllAccessTokens#tags" class="headerlink"><i class="fas fa-link"></i></a>
+        <a href="classes/chillerlan-OAuth-Storage-FileStorage.html#method_clearAllAccessTokens#tags" class="headerlink"><i class="fas fa-link"></i></a>
 
     </h5>
     <dl class="phpdocumentor-tag-list">
@@ -797,13 +864,13 @@ so that you don&#039;t have to implement the monstrous original `__construct()`<
 >
     <h4 class="phpdocumentor-element__name" id="method_clearAllCSRFStates">
         clearAllCSRFStates()
-        <a href="classes/chillerlan-OAuth-Storage-MemoryStorage.html#method_clearAllCSRFStates" class="headerlink"><i class="fas fa-link"></i></a>
+        <a href="classes/chillerlan-OAuth-Storage-FileStorage.html#method_clearAllCSRFStates" class="headerlink"><i class="fas fa-link"></i></a>
 
     </h4>
     <aside class="phpdocumentor-element-found-in">
-    <abbr class="phpdocumentor-element-found-in__file" title="src/Storage/MemoryStorage.php"><a href="files/src-storage-memorystorage.html"><abbr title="src/Storage/MemoryStorage.php">MemoryStorage.php</abbr></a></abbr>
+    <abbr class="phpdocumentor-element-found-in__file" title="src/Storage/FileStorage.php"><a href="files/src-storage-filestorage.html"><abbr title="src/Storage/FileStorage.php">FileStorage.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">137</span>
+    <span class="phpdocumentor-element-found-in__line">158</span>
 
     </aside>
 
@@ -819,7 +886,7 @@ so that you don&#039;t have to implement the monstrous original `__construct()`<
     
     <h5 class="phpdocumentor-tag-list__heading" id="tags">
         Tags
-        <a href="classes/chillerlan-OAuth-Storage-MemoryStorage.html#method_clearAllCSRFStates#tags" class="headerlink"><i class="fas fa-link"></i></a>
+        <a href="classes/chillerlan-OAuth-Storage-FileStorage.html#method_clearAllCSRFStates#tags" class="headerlink"><i class="fas fa-link"></i></a>
 
     </h5>
     <dl class="phpdocumentor-tag-list">
@@ -846,13 +913,13 @@ so that you don&#039;t have to implement the monstrous original `__construct()`<
 >
     <h4 class="phpdocumentor-element__name" id="method_clearCSRFState">
         clearCSRFState()
-        <a href="classes/chillerlan-OAuth-Storage-MemoryStorage.html#method_clearCSRFState" class="headerlink"><i class="fas fa-link"></i></a>
+        <a href="classes/chillerlan-OAuth-Storage-FileStorage.html#method_clearCSRFState" class="headerlink"><i class="fas fa-link"></i></a>
 
     </h4>
     <aside class="phpdocumentor-element-found-in">
-    <abbr class="phpdocumentor-element-found-in__file" title="src/Storage/MemoryStorage.php"><a href="files/src-storage-memorystorage.html"><abbr title="src/Storage/MemoryStorage.php">MemoryStorage.php</abbr></a></abbr>
+    <abbr class="phpdocumentor-element-found-in__file" title="src/Storage/FileStorage.php"><a href="files/src-storage-filestorage.html"><abbr title="src/Storage/FileStorage.php">FileStorage.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">124</span>
+    <span class="phpdocumentor-element-found-in__line">149</span>
 
     </aside>
 
@@ -878,7 +945,7 @@ so that you don&#039;t have to implement the monstrous original `__construct()`<
     
     <h5 class="phpdocumentor-tag-list__heading" id="tags">
         Tags
-        <a href="classes/chillerlan-OAuth-Storage-MemoryStorage.html#method_clearCSRFState#tags" class="headerlink"><i class="fas fa-link"></i></a>
+        <a href="classes/chillerlan-OAuth-Storage-FileStorage.html#method_clearCSRFState#tags" class="headerlink"><i class="fas fa-link"></i></a>
 
     </h5>
     <dl class="phpdocumentor-tag-list">
@@ -965,13 +1032,13 @@ so that you don&#039;t have to implement the monstrous original `__construct()`<
 >
     <h4 class="phpdocumentor-element__name" id="method_getAccessToken">
         getAccessToken()
-        <a href="classes/chillerlan-OAuth-Storage-MemoryStorage.html#method_getAccessToken" class="headerlink"><i class="fas fa-link"></i></a>
+        <a href="classes/chillerlan-OAuth-Storage-FileStorage.html#method_getAccessToken" class="headerlink"><i class="fas fa-link"></i></a>
 
     </h4>
     <aside class="phpdocumentor-element-found-in">
-    <abbr class="phpdocumentor-element-found-in__file" title="src/Storage/MemoryStorage.php"><a href="files/src-storage-memorystorage.html"><abbr title="src/Storage/MemoryStorage.php">MemoryStorage.php</abbr></a></abbr>
+    <abbr class="phpdocumentor-element-found-in__file" title="src/Storage/FileStorage.php"><a href="files/src-storage-filestorage.html"><abbr title="src/Storage/FileStorage.php">FileStorage.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">46</span>
+    <span class="phpdocumentor-element-found-in__line">73</span>
 
     </aside>
 
@@ -997,7 +1064,7 @@ so that you don&#039;t have to implement the monstrous original `__construct()`<
     
     <h5 class="phpdocumentor-tag-list__heading" id="tags">
         Tags
-        <a href="classes/chillerlan-OAuth-Storage-MemoryStorage.html#method_getAccessToken#tags" class="headerlink"><i class="fas fa-link"></i></a>
+        <a href="classes/chillerlan-OAuth-Storage-FileStorage.html#method_getAccessToken#tags" class="headerlink"><i class="fas fa-link"></i></a>
 
     </h5>
     <dl class="phpdocumentor-tag-list">
@@ -1024,13 +1091,13 @@ so that you don&#039;t have to implement the monstrous original `__construct()`<
 >
     <h4 class="phpdocumentor-element__name" id="method_getCSRFState">
         getCSRFState()
-        <a href="classes/chillerlan-OAuth-Storage-MemoryStorage.html#method_getCSRFState" class="headerlink"><i class="fas fa-link"></i></a>
+        <a href="classes/chillerlan-OAuth-Storage-FileStorage.html#method_getCSRFState" class="headerlink"><i class="fas fa-link"></i></a>
 
     </h4>
     <aside class="phpdocumentor-element-found-in">
-    <abbr class="phpdocumentor-element-found-in__file" title="src/Storage/MemoryStorage.php"><a href="files/src-storage-memorystorage.html"><abbr title="src/Storage/MemoryStorage.php">MemoryStorage.php</abbr></a></abbr>
+    <abbr class="phpdocumentor-element-found-in__file" title="src/Storage/FileStorage.php"><a href="files/src-storage-filestorage.html"><abbr title="src/Storage/FileStorage.php">FileStorage.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">103</span>
+    <span class="phpdocumentor-element-found-in__line">125</span>
 
     </aside>
 
@@ -1056,7 +1123,7 @@ so that you don&#039;t have to implement the monstrous original `__construct()`<
     
     <h5 class="phpdocumentor-tag-list__heading" id="tags">
         Tags
-        <a href="classes/chillerlan-OAuth-Storage-MemoryStorage.html#method_getCSRFState#tags" class="headerlink"><i class="fas fa-link"></i></a>
+        <a href="classes/chillerlan-OAuth-Storage-FileStorage.html#method_getCSRFState#tags" class="headerlink"><i class="fas fa-link"></i></a>
 
     </h5>
     <dl class="phpdocumentor-tag-list">
@@ -1083,13 +1150,13 @@ so that you don&#039;t have to implement the monstrous original `__construct()`<
 >
     <h4 class="phpdocumentor-element__name" id="method_hasAccessToken">
         hasAccessToken()
-        <a href="classes/chillerlan-OAuth-Storage-MemoryStorage.html#method_hasAccessToken" class="headerlink"><i class="fas fa-link"></i></a>
+        <a href="classes/chillerlan-OAuth-Storage-FileStorage.html#method_hasAccessToken" class="headerlink"><i class="fas fa-link"></i></a>
 
     </h4>
     <aside class="phpdocumentor-element-found-in">
-    <abbr class="phpdocumentor-element-found-in__file" title="src/Storage/MemoryStorage.php"><a href="files/src-storage-memorystorage.html"><abbr title="src/Storage/MemoryStorage.php">MemoryStorage.php</abbr></a></abbr>
+    <abbr class="phpdocumentor-element-found-in__file" title="src/Storage/FileStorage.php"><a href="files/src-storage-filestorage.html"><abbr title="src/Storage/FileStorage.php">FileStorage.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">58</span>
+    <span class="phpdocumentor-element-found-in__line">86</span>
 
     </aside>
 
@@ -1115,7 +1182,7 @@ so that you don&#039;t have to implement the monstrous original `__construct()`<
     
     <h5 class="phpdocumentor-tag-list__heading" id="tags">
         Tags
-        <a href="classes/chillerlan-OAuth-Storage-MemoryStorage.html#method_hasAccessToken#tags" class="headerlink"><i class="fas fa-link"></i></a>
+        <a href="classes/chillerlan-OAuth-Storage-FileStorage.html#method_hasAccessToken#tags" class="headerlink"><i class="fas fa-link"></i></a>
 
     </h5>
     <dl class="phpdocumentor-tag-list">
@@ -1142,13 +1209,13 @@ so that you don&#039;t have to implement the monstrous original `__construct()`<
 >
     <h4 class="phpdocumentor-element__name" id="method_hasCSRFState">
         hasCSRFState()
-        <a href="classes/chillerlan-OAuth-Storage-MemoryStorage.html#method_hasCSRFState" class="headerlink"><i class="fas fa-link"></i></a>
+        <a href="classes/chillerlan-OAuth-Storage-FileStorage.html#method_hasCSRFState" class="headerlink"><i class="fas fa-link"></i></a>
 
     </h4>
     <aside class="phpdocumentor-element-found-in">
-    <abbr class="phpdocumentor-element-found-in__file" title="src/Storage/MemoryStorage.php"><a href="files/src-storage-memorystorage.html"><abbr title="src/Storage/MemoryStorage.php">MemoryStorage.php</abbr></a></abbr>
+    <abbr class="phpdocumentor-element-found-in__file" title="src/Storage/FileStorage.php"><a href="files/src-storage-filestorage.html"><abbr title="src/Storage/FileStorage.php">FileStorage.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">115</span>
+    <span class="phpdocumentor-element-found-in__line">142</span>
 
     </aside>
 
@@ -1174,7 +1241,7 @@ so that you don&#039;t have to implement the monstrous original `__construct()`<
     
     <h5 class="phpdocumentor-tag-list__heading" id="tags">
         Tags
-        <a href="classes/chillerlan-OAuth-Storage-MemoryStorage.html#method_hasCSRFState#tags" class="headerlink"><i class="fas fa-link"></i></a>
+        <a href="classes/chillerlan-OAuth-Storage-FileStorage.html#method_hasCSRFState#tags" class="headerlink"><i class="fas fa-link"></i></a>
 
     </h5>
     <dl class="phpdocumentor-tag-list">
@@ -1268,13 +1335,13 @@ so that you don&#039;t have to implement the monstrous original `__construct()`<
 >
     <h4 class="phpdocumentor-element__name" id="method_storeAccessToken">
         storeAccessToken()
-        <a href="classes/chillerlan-OAuth-Storage-MemoryStorage.html#method_storeAccessToken" class="headerlink"><i class="fas fa-link"></i></a>
+        <a href="classes/chillerlan-OAuth-Storage-FileStorage.html#method_storeAccessToken" class="headerlink"><i class="fas fa-link"></i></a>
 
     </h4>
     <aside class="phpdocumentor-element-found-in">
-    <abbr class="phpdocumentor-element-found-in__file" title="src/Storage/MemoryStorage.php"><a href="files/src-storage-memorystorage.html"><abbr title="src/Storage/MemoryStorage.php">MemoryStorage.php</abbr></a></abbr>
+    <abbr class="phpdocumentor-element-found-in__file" title="src/Storage/FileStorage.php"><a href="files/src-storage-filestorage.html"><abbr title="src/Storage/FileStorage.php">FileStorage.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">37</span>
+    <span class="phpdocumentor-element-found-in__line">64</span>
 
     </aside>
 
@@ -1307,7 +1374,7 @@ so that you don&#039;t have to implement the monstrous original `__construct()`<
     
     <h5 class="phpdocumentor-tag-list__heading" id="tags">
         Tags
-        <a href="classes/chillerlan-OAuth-Storage-MemoryStorage.html#method_storeAccessToken#tags" class="headerlink"><i class="fas fa-link"></i></a>
+        <a href="classes/chillerlan-OAuth-Storage-FileStorage.html#method_storeAccessToken#tags" class="headerlink"><i class="fas fa-link"></i></a>
 
     </h5>
     <dl class="phpdocumentor-tag-list">
@@ -1334,13 +1401,13 @@ so that you don&#039;t have to implement the monstrous original `__construct()`<
 >
     <h4 class="phpdocumentor-element__name" id="method_storeCSRFState">
         storeCSRFState()
-        <a href="classes/chillerlan-OAuth-Storage-MemoryStorage.html#method_storeCSRFState" class="headerlink"><i class="fas fa-link"></i></a>
+        <a href="classes/chillerlan-OAuth-Storage-FileStorage.html#method_storeCSRFState" class="headerlink"><i class="fas fa-link"></i></a>
 
     </h4>
     <aside class="phpdocumentor-element-found-in">
-    <abbr class="phpdocumentor-element-found-in__file" title="src/Storage/MemoryStorage.php"><a href="files/src-storage-memorystorage.html"><abbr title="src/Storage/MemoryStorage.php">MemoryStorage.php</abbr></a></abbr>
+    <abbr class="phpdocumentor-element-found-in__file" title="src/Storage/FileStorage.php"><a href="files/src-storage-filestorage.html"><abbr title="src/Storage/FileStorage.php">FileStorage.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">94</span>
+    <span class="phpdocumentor-element-found-in__line">111</span>
 
     </aside>
 
@@ -1373,7 +1440,7 @@ so that you don&#039;t have to implement the monstrous original `__construct()`<
     
     <h5 class="phpdocumentor-tag-list__heading" id="tags">
         Tags
-        <a href="classes/chillerlan-OAuth-Storage-MemoryStorage.html#method_storeCSRFState#tags" class="headerlink"><i class="fas fa-link"></i></a>
+        <a href="classes/chillerlan-OAuth-Storage-FileStorage.html#method_storeCSRFState#tags" class="headerlink"><i class="fas fa-link"></i></a>
 
     </h5>
     <dl class="phpdocumentor-tag-list">
@@ -1457,13 +1524,13 @@ and returns a value that is suited for the underlying storage engine</p>
 >
     <h4 class="phpdocumentor-element__name" id="method_construct">
         construct()
-        <a href="classes/chillerlan-OAuth-Storage-OAuthStorageAbstract.html#method_construct" class="headerlink"><i class="fas fa-link"></i></a>
+        <a href="classes/chillerlan-OAuth-Storage-FileStorage.html#method_construct" class="headerlink"><i class="fas fa-link"></i></a>
 
     </h4>
     <aside class="phpdocumentor-element-found-in">
-    <abbr class="phpdocumentor-element-found-in__file" title="src/Storage/OAuthStorageAbstract.php"><a href="files/src-storage-oauthstorageabstract.html"><abbr title="src/Storage/OAuthStorageAbstract.php">OAuthStorageAbstract.php</abbr></a></abbr>
+    <abbr class="phpdocumentor-element-found-in__file" title="src/Storage/FileStorage.php"><a href="files/src-storage-filestorage.html"><abbr title="src/Storage/FileStorage.php">FileStorage.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">52</span>
+    <span class="phpdocumentor-element-found-in__line">49</span>
 
     </aside>
 
@@ -1479,6 +1546,20 @@ so that you don&#039;t have to implement the monstrous original `__construct()`<
     
     
     
+    <h5 class="phpdocumentor-tag-list__heading" id="tags">
+        Tags
+        <a href="classes/chillerlan-OAuth-Storage-FileStorage.html#method_construct#tags" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h5>
+    <dl class="phpdocumentor-tag-list">
+                                    <dt class="phpdocumentor-tag-list__entry">
+                    <span class="phpdocumentor-tag__name">inheritDoc</span>
+                </dt>
+                <dd class="phpdocumentor-tag-list__definition">
+                                                                                
+                                             
+                                    </dd>
+                                            </dl>
 
     
 </article>
@@ -1572,6 +1653,97 @@ so that you don&#039;t have to implement the monstrous original `__construct()`<
             -protected
                                                         "
 >
+    <h4 class="phpdocumentor-element__name" id="method_deleteAll">
+        deleteAll()
+        <a href="classes/chillerlan-OAuth-Storage-FileStorage.html#method_deleteAll" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h4>
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/Storage/FileStorage.php"><a href="files/src-storage-filestorage.html"><abbr title="src/Storage/FileStorage.php">FileStorage.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">209</span>
+
+    </aside>
+
+        <p class="phpdocumentor-summary">deletes all matching files</p>
+
+    <code class="phpdocumentor-code phpdocumentor-signature ">
+    <span class="phpdocumentor-signature__visibility">protected</span>
+                    <span class="phpdocumentor-signature__name">deleteAll</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$key</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">void</span></code>
+
+    <div class="phpdocumentor-label-line">
+        </div>
+    
+        <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
+    <dl class="phpdocumentor-argument-list">
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-signature__argument__name">$key</span>
+                : <span class="phpdocumentor-signature__argument__return-type">string</span>
+                            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                
+            </dd>
+            </dl>
+
+    
+
+    
+</article>
+                    <article
+        class="phpdocumentor-element
+            -method
+            -protected
+                                                        "
+>
+    <h4 class="phpdocumentor-element__name" id="method_deleteFile">
+        deleteFile()
+        <a href="classes/chillerlan-OAuth-Storage-FileStorage.html#method_deleteFile" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h4>
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/Storage/FileStorage.php"><a href="files/src-storage-filestorage.html"><abbr title="src/Storage/FileStorage.php">FileStorage.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">197</span>
+
+    </aside>
+
+        <p class="phpdocumentor-summary">deletes an existing file</p>
+
+    <code class="phpdocumentor-code phpdocumentor-signature ">
+    <span class="phpdocumentor-signature__visibility">protected</span>
+                    <span class="phpdocumentor-signature__name">deleteFile</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$key</span></span><span class="phpdocumentor-signature__argument"><span>, </span><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$provider</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">void</span></code>
+
+    <div class="phpdocumentor-label-line">
+        </div>
+    
+        <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
+    <dl class="phpdocumentor-argument-list">
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-signature__argument__name">$key</span>
+                : <span class="phpdocumentor-signature__argument__return-type">string</span>
+                            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                
+            </dd>
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-signature__argument__name">$provider</span>
+                : <span class="phpdocumentor-signature__argument__return-type">string</span>
+                            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                
+            </dd>
+            </dl>
+
+    
+
+    
+</article>
+                    <article
+        class="phpdocumentor-element
+            -method
+            -protected
+                                                        "
+>
     <h4 class="phpdocumentor-element__name" id="method_encrypt">
         encrypt()
         <a href="classes/chillerlan-OAuth-Storage-OAuthStorageAbstract.html#method_encrypt" class="headerlink"><i class="fas fa-link"></i></a>
@@ -1656,6 +1828,59 @@ so that you don&#039;t have to implement the monstrous original `__construct()`<
             -protected
                                                         "
 >
+    <h4 class="phpdocumentor-element__name" id="method_getFilepath">
+        getFilepath()
+        <a href="classes/chillerlan-OAuth-Storage-FileStorage.html#method_getFilepath" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h4>
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/Storage/FileStorage.php"><a href="files/src-storage-filestorage.html"><abbr title="src/Storage/FileStorage.php">FileStorage.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">225</span>
+
+    </aside>
+
+        <p class="phpdocumentor-summary">gets the file path for $key (token/state), $provider and the given oauth user ID</p>
+
+    <code class="phpdocumentor-code phpdocumentor-signature ">
+    <span class="phpdocumentor-signature__visibility">protected</span>
+                    <span class="phpdocumentor-signature__name">getFilepath</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$key</span></span><span class="phpdocumentor-signature__argument"><span>, </span><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$provider</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">string</span></code>
+
+    <div class="phpdocumentor-label-line">
+        </div>
+    
+        <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
+    <dl class="phpdocumentor-argument-list">
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-signature__argument__name">$key</span>
+                : <span class="phpdocumentor-signature__argument__return-type">string</span>
+                            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                
+            </dd>
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-signature__argument__name">$provider</span>
+                : <span class="phpdocumentor-signature__argument__return-type">string</span>
+                            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                
+            </dd>
+            </dl>
+
+    
+
+            <section>
+        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
+        <span class="phpdocumentor-signature__response_type">string</span>
+            </section>
+
+</article>
+                    <article
+        class="phpdocumentor-element
+            -method
+            -protected
+                                                        "
+>
     <h4 class="phpdocumentor-element__name" id="method_getProviderName">
         getProviderName()
         <a href="classes/chillerlan-OAuth-Storage-OAuthStorageAbstract.html#method_getProviderName" class="headerlink"><i class="fas fa-link"></i></a>
@@ -1711,13 +1936,122 @@ so that you don&#039;t have to implement the monstrous original `__construct()`<
             </section>
 
 </article>
+                    <article
+        class="phpdocumentor-element
+            -method
+            -protected
+                                                        "
+>
+    <h4 class="phpdocumentor-element__name" id="method_loadFile">
+        loadFile()
+        <a href="classes/chillerlan-OAuth-Storage-FileStorage.html#method_loadFile" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h4>
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/Storage/FileStorage.php"><a href="files/src-storage-filestorage.html"><abbr title="src/Storage/FileStorage.php">FileStorage.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">167</span>
+
+    </aside>
+
+        <p class="phpdocumentor-summary">fetched the content from a file</p>
+
+    <code class="phpdocumentor-code phpdocumentor-signature ">
+    <span class="phpdocumentor-signature__visibility">protected</span>
+                    <span class="phpdocumentor-signature__name">loadFile</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$key</span></span><span class="phpdocumentor-signature__argument"><span>, </span><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$provider</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">string|null</span></code>
+
+    <div class="phpdocumentor-label-line">
+        </div>
+    
+        <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
+    <dl class="phpdocumentor-argument-list">
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-signature__argument__name">$key</span>
+                : <span class="phpdocumentor-signature__argument__return-type">string</span>
+                            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                
+            </dd>
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-signature__argument__name">$provider</span>
+                : <span class="phpdocumentor-signature__argument__return-type">string</span>
+                            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                
+            </dd>
+            </dl>
+
+    
+
+            <section>
+        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
+        <span class="phpdocumentor-signature__response_type">string|null</span>
+            </section>
+
+</article>
+                    <article
+        class="phpdocumentor-element
+            -method
+            -protected
+                                                        "
+>
+    <h4 class="phpdocumentor-element__name" id="method_saveFile">
+        saveFile()
+        <a href="classes/chillerlan-OAuth-Storage-FileStorage.html#method_saveFile" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h4>
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/Storage/FileStorage.php"><a href="files/src-storage-filestorage.html"><abbr title="src/Storage/FileStorage.php">FileStorage.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">180</span>
+
+    </aside>
+
+        <p class="phpdocumentor-summary">saves the given data to a file</p>
+
+    <code class="phpdocumentor-code phpdocumentor-signature ">
+    <span class="phpdocumentor-signature__visibility">protected</span>
+                    <span class="phpdocumentor-signature__name">saveFile</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$data</span></span><span class="phpdocumentor-signature__argument"><span>, </span><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$key</span></span><span class="phpdocumentor-signature__argument"><span>, </span><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$provider</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">void</span></code>
+
+    <div class="phpdocumentor-label-line">
+        </div>
+    
+        <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
+    <dl class="phpdocumentor-argument-list">
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-signature__argument__name">$data</span>
+                : <span class="phpdocumentor-signature__argument__return-type">string</span>
+                            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                
+            </dd>
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-signature__argument__name">$key</span>
+                : <span class="phpdocumentor-signature__argument__return-type">string</span>
+                            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                
+            </dd>
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-signature__argument__name">$provider</span>
+                : <span class="phpdocumentor-signature__argument__return-type">string</span>
+                            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                
+            </dd>
+            </dl>
+
+    
+
+    
+</article>
             </section>
 
         <div class="phpdocumentor-modal" id="source-view">
     <div class="phpdocumentor-modal-bg" data-exit-button></div>
     <div class="phpdocumentor-modal-container">
         <div class="phpdocumentor-modal-content">
-            <pre style="max-height: 500px; overflow-y: scroll" data-src="files/src/Storage/MemoryStorage.php.txt" class="language-php line-numbers linkable-line-numbers"></pre>
+            <pre style="max-height: 500px; overflow-y: scroll" data-src="files/src/Storage/FileStorage.php.txt" class="language-php line-numbers linkable-line-numbers"></pre>
         </div>
         <button data-exit-button class="phpdocumentor-modal__close">&times;</button>
     </div>
@@ -1816,52 +2150,58 @@ so that you don&#039;t have to implement the monstrous original `__construct()`<
             <li class="phpdocumentor-on-this-page-section__title">Table Of Contents</li>
             <li>
                 <ul class="phpdocumentor-list -clean">
-                                        <li><a href="classes/chillerlan-OAuth-Storage-MemoryStorage.html#toc-constants">Constants</a></li>
-                                                            <li><a href="classes/chillerlan-OAuth-Storage-MemoryStorage.html#toc-properties">Properties</a></li>
-                                                            <li><a href="classes/chillerlan-OAuth-Storage-MemoryStorage.html#toc-methods">Methods</a></li>
+                                        <li><a href="classes/chillerlan-OAuth-Storage-FileStorage.html#toc-constants">Constants</a></li>
+                                                            <li><a href="classes/chillerlan-OAuth-Storage-FileStorage.html#toc-properties">Properties</a></li>
+                                                            <li><a href="classes/chillerlan-OAuth-Storage-FileStorage.html#toc-methods">Methods</a></li>
                                     </ul>
             </li>
                             <li class="phpdocumentor-on-this-page-section__title">Constants</li>
                 <li>
                     <ul class="phpdocumentor-list -clean">
-                                                    <li><a href="classes/chillerlan-OAuth-Storage-OAuthStorageAbstract.html#constant_ENCRYPT_FORMAT">ENCRYPT_FORMAT</a></li>
+                                                    <li><a href="classes/chillerlan-OAuth-Storage-FileStorage.html#constant_ENCRYPT_FORMAT">ENCRYPT_FORMAT</a></li>
                                                     <li><a href="classes/chillerlan-OAuth-Storage-OAuthStorageAbstract.html#constant_ENCRYPT_FORMAT_BASE64">ENCRYPT_FORMAT_BASE64</a></li>
                                                     <li><a href="classes/chillerlan-OAuth-Storage-OAuthStorageAbstract.html#constant_ENCRYPT_FORMAT_BINARY">ENCRYPT_FORMAT_BINARY</a></li>
                                                     <li><a href="classes/chillerlan-OAuth-Storage-OAuthStorageAbstract.html#constant_ENCRYPT_FORMAT_HEX">ENCRYPT_FORMAT_HEX</a></li>
+                                                    <li><a href="classes/chillerlan-OAuth-Storage-FileStorage.html#constant_KEY_STATE">KEY_STATE</a></li>
+                                                    <li><a href="classes/chillerlan-OAuth-Storage-FileStorage.html#constant_KEY_TOKEN">KEY_TOKEN</a></li>
                                             </ul>
                 </li>
             
                             <li class="phpdocumentor-on-this-page-section__title">Properties</li>
                 <li>
                     <ul class="phpdocumentor-list -clean">
-                                                    <li><a href="classes/chillerlan-OAuth-Storage-OAuthStorageAbstract.html#property_logger">$logger<a href="classes/chillerlan-OAuth-Storage-MemoryStorage.html"></li>
-                                                    <li><a href="classes/chillerlan-OAuth-Storage-OAuthStorageAbstract.html#property_options">$options<a href="classes/chillerlan-OAuth-Storage-MemoryStorage.html"></li>
-                                                    <li><a href="classes/chillerlan-OAuth-Storage-MemoryStorage.html#property_states">$states<a href="classes/chillerlan-OAuth-Storage-MemoryStorage.html"></li>
-                                                    <li><a href="classes/chillerlan-OAuth-Storage-MemoryStorage.html#property_tokens">$tokens<a href="classes/chillerlan-OAuth-Storage-MemoryStorage.html"></li>
+                                                    <li><a href="classes/chillerlan-OAuth-Storage-FileStorage.html#property_logger">$logger<a href="classes/chillerlan-OAuth-Storage-FileStorage.html"></li>
+                                                    <li><a href="classes/chillerlan-OAuth-Storage-FileStorage.html#property_oauthUser">$oauthUser<a href="classes/chillerlan-OAuth-Storage-FileStorage.html"></li>
+                                                    <li><a href="classes/chillerlan-OAuth-Storage-FileStorage.html#property_options">$options<a href="classes/chillerlan-OAuth-Storage-FileStorage.html"></li>
                                             </ul>
                 </li>
             
                         <li class="phpdocumentor-on-this-page-section__title">Methods</li>
             <li>
                 <ul class="phpdocumentor-list -clean">
-                                            <li><a href="classes/chillerlan-OAuth-Storage-OAuthStorageAbstract.html#method___construct">__construct()</a></li>
-                                            <li><a href="classes/chillerlan-OAuth-Storage-MemoryStorage.html#method_clearAccessToken">clearAccessToken()</a></li>
-                                            <li><a href="classes/chillerlan-OAuth-Storage-MemoryStorage.html#method_clearAllAccessTokens">clearAllAccessTokens()</a></li>
-                                            <li><a href="classes/chillerlan-OAuth-Storage-MemoryStorage.html#method_clearAllCSRFStates">clearAllCSRFStates()</a></li>
-                                            <li><a href="classes/chillerlan-OAuth-Storage-MemoryStorage.html#method_clearCSRFState">clearCSRFState()</a></li>
+                                            <li><a href="classes/chillerlan-OAuth-Storage-FileStorage.html#method___construct">__construct()</a></li>
+                                            <li><a href="classes/chillerlan-OAuth-Storage-FileStorage.html#method_clearAccessToken">clearAccessToken()</a></li>
+                                            <li><a href="classes/chillerlan-OAuth-Storage-FileStorage.html#method_clearAllAccessTokens">clearAllAccessTokens()</a></li>
+                                            <li><a href="classes/chillerlan-OAuth-Storage-FileStorage.html#method_clearAllCSRFStates">clearAllCSRFStates()</a></li>
+                                            <li><a href="classes/chillerlan-OAuth-Storage-FileStorage.html#method_clearCSRFState">clearCSRFState()</a></li>
                                             <li><a href="classes/chillerlan-OAuth-Storage-OAuthStorageAbstract.html#method_fromStorage">fromStorage()</a></li>
-                                            <li><a href="classes/chillerlan-OAuth-Storage-MemoryStorage.html#method_getAccessToken">getAccessToken()</a></li>
-                                            <li><a href="classes/chillerlan-OAuth-Storage-MemoryStorage.html#method_getCSRFState">getCSRFState()</a></li>
-                                            <li><a href="classes/chillerlan-OAuth-Storage-MemoryStorage.html#method_hasAccessToken">hasAccessToken()</a></li>
-                                            <li><a href="classes/chillerlan-OAuth-Storage-MemoryStorage.html#method_hasCSRFState">hasCSRFState()</a></li>
+                                            <li><a href="classes/chillerlan-OAuth-Storage-FileStorage.html#method_getAccessToken">getAccessToken()</a></li>
+                                            <li><a href="classes/chillerlan-OAuth-Storage-FileStorage.html#method_getCSRFState">getCSRFState()</a></li>
+                                            <li><a href="classes/chillerlan-OAuth-Storage-FileStorage.html#method_hasAccessToken">hasAccessToken()</a></li>
+                                            <li><a href="classes/chillerlan-OAuth-Storage-FileStorage.html#method_hasCSRFState">hasCSRFState()</a></li>
                                             <li><a href="classes/chillerlan-OAuth-Storage-OAuthStorageAbstract.html#method_setLogger">setLogger()</a></li>
-                                            <li><a href="classes/chillerlan-OAuth-Storage-MemoryStorage.html#method_storeAccessToken">storeAccessToken()</a></li>
-                                            <li><a href="classes/chillerlan-OAuth-Storage-MemoryStorage.html#method_storeCSRFState">storeCSRFState()</a></li>
+                                            <li><a href="classes/chillerlan-OAuth-Storage-FileStorage.html#method_storeAccessToken">storeAccessToken()</a></li>
+                                            <li><a href="classes/chillerlan-OAuth-Storage-FileStorage.html#method_storeCSRFState">storeCSRFState()</a></li>
                                             <li><a href="classes/chillerlan-OAuth-Storage-OAuthStorageAbstract.html#method_toStorage">toStorage()</a></li>
-                                            <li><a href="classes/chillerlan-OAuth-Storage-OAuthStorageAbstract.html#method_construct">construct()</a></li>
+                                            <li><a href="classes/chillerlan-OAuth-Storage-FileStorage.html#method_construct">construct()</a></li>
                                             <li><a href="classes/chillerlan-OAuth-Storage-OAuthStorageAbstract.html#method_decrypt">decrypt()</a></li>
+                                            <li><a href="classes/chillerlan-OAuth-Storage-FileStorage.html#method_deleteAll">deleteAll()</a></li>
+                                            <li><a href="classes/chillerlan-OAuth-Storage-FileStorage.html#method_deleteFile">deleteFile()</a></li>
                                             <li><a href="classes/chillerlan-OAuth-Storage-OAuthStorageAbstract.html#method_encrypt">encrypt()</a></li>
+                                            <li><a href="classes/chillerlan-OAuth-Storage-FileStorage.html#method_getFilepath">getFilepath()</a></li>
                                             <li><a href="classes/chillerlan-OAuth-Storage-OAuthStorageAbstract.html#method_getProviderName">getProviderName()</a></li>
+                                            <li><a href="classes/chillerlan-OAuth-Storage-FileStorage.html#method_loadFile">loadFile()</a></li>
+                                            <li><a href="classes/chillerlan-OAuth-Storage-FileStorage.html#method_saveFile">saveFile()</a></li>
                                     </ul>
             </li>
                     </ul>
@@ -1881,7 +2221,7 @@ so that you don&#039;t have to implement the monstrous original `__construct()`<
     </section>
 </section>
         </div>
-        <a href="classes/chillerlan-OAuth-Storage-MemoryStorage.html#top" class="phpdocumentor-back-to-top"><i class="fas fa-chevron-circle-up"></i></a>
+        <a href="classes/chillerlan-OAuth-Storage-FileStorage.html#top" class="phpdocumentor-back-to-top"><i class="fas fa-chevron-circle-up"></i></a>
 
     </main>
 

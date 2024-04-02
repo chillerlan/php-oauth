@@ -681,6 +681,16 @@ Search.appendIndex(
             "summary": "The\u0020settings\u0020for\u0020the\u0020OAuth\u0020provider",
             "url": "classes/chillerlan-OAuth-OAuthOptionsTrait.html"
         },                {
+            "fqsen": "\\chillerlan\\OAuth\\OAuthOptionsTrait\u003A\u003Aset_storageEncryptionKey\u0028\u0029",
+            "name": "set_storageEncryptionKey",
+            "summary": "sets\u0020an\u0020encryption\u0020key",
+            "url": "classes/chillerlan-OAuth-OAuthOptionsTrait.html#method_set_storageEncryptionKey"
+        },                {
+            "fqsen": "\\chillerlan\\OAuth\\OAuthOptionsTrait\u003A\u003Aset_fileStoragePath\u0028\u0029",
+            "name": "set_fileStoragePath",
+            "summary": "sets\u0020and\u0020verifies\u0020the\u0020file\u0020storage\u0020path",
+            "url": "classes/chillerlan-OAuth-OAuthOptionsTrait.html#method_set_fileStoragePath"
+        },                {
             "fqsen": "\\chillerlan\\OAuth\\OAuthOptionsTrait\u003A\u003A\u0024key",
             "name": "key",
             "summary": "The\u0020application\u0020key\u0020\u0028or\u0020client\u002Did\u0029\u0020given\u0020by\u0020your\u0020provider",
@@ -695,6 +705,16 @@ Search.appendIndex(
             "name": "callbackURL",
             "summary": "The\u0020\u0028main\u0029\u0020callback\u0020URL\u0020associated\u0020with\u0020your\u0020application",
             "url": "classes/chillerlan-OAuth-OAuthOptionsTrait.html#property_callbackURL"
+        },                {
+            "fqsen": "\\chillerlan\\OAuth\\OAuthOptionsTrait\u003A\u003A\u0024useStorageEncryption",
+            "name": "useStorageEncryption",
+            "summary": "Whether\u0020to\u0020use\u0020encryption\u0020for\u0020the\u0020file\u0020storage",
+            "url": "classes/chillerlan-OAuth-OAuthOptionsTrait.html#property_useStorageEncryption"
+        },                {
+            "fqsen": "\\chillerlan\\OAuth\\OAuthOptionsTrait\u003A\u003A\u0024storageEncryptionKey",
+            "name": "storageEncryptionKey",
+            "summary": "The\u0020encryption\u0020key\u0020to\u0020use",
+            "url": "classes/chillerlan-OAuth-OAuthOptionsTrait.html#property_storageEncryptionKey"
         },                {
             "fqsen": "\\chillerlan\\OAuth\\OAuthOptionsTrait\u003A\u003A\u0024tokenAutoRefresh",
             "name": "tokenAutoRefresh",
@@ -720,6 +740,11 @@ Search.appendIndex(
             "name": "sessionStateVar",
             "summary": "The\u0020session\u0020array\u0020key\u0020for\u0020\u003Cstate\u003E\u0020storage\u0020\u0028OAuth2\u0029",
             "url": "classes/chillerlan-OAuth-OAuthOptionsTrait.html#property_sessionStateVar"
+        },                {
+            "fqsen": "\\chillerlan\\OAuth\\OAuthOptionsTrait\u003A\u003A\u0024fileStoragePath",
+            "name": "fileStoragePath",
+            "summary": "The\u0020file\u0020storage\u0020root\u0020path",
+            "url": "classes/chillerlan-OAuth-OAuthOptionsTrait.html#property_fileStoragePath"
         },                {
             "fqsen": "\\chillerlan\\OAuth\\OAuthProviderFactory",
             "name": "OAuthProviderFactory",
@@ -4106,6 +4131,126 @@ Search.appendIndex(
             "summary": "",
             "url": "classes/chillerlan-OAuth-Providers-YouTube.html#constant_DEFAULT_SCOPES"
         },                {
+            "fqsen": "\\chillerlan\\OAuth\\Storage\\FileStorage",
+            "name": "FileStorage",
+            "summary": "Implements\u0020an\u0020abstract\u0020OAuth\u0020storage\u0020adapter",
+            "url": "classes/chillerlan-OAuth-Storage-FileStorage.html"
+        },                {
+            "fqsen": "\\chillerlan\\OAuth\\Storage\\FileStorage\u003A\u003A__construct\u0028\u0029",
+            "name": "__construct",
+            "summary": "OAuthStorageAbstract\u0020constructor.",
+            "url": "classes/chillerlan-OAuth-Storage-FileStorage.html#method___construct"
+        },                {
+            "fqsen": "\\chillerlan\\OAuth\\Storage\\FileStorage\u003A\u003Aconstruct\u0028\u0029",
+            "name": "construct",
+            "summary": "A\u0020replacement\u0020constructor\u0020that\u0020you\u0020can\u0020call\u0020in\u0020extended\u0020classes,\nso\u0020that\u0020you\u0020don\u0027t\u0020have\u0020to\u0020implement\u0020the\u0020monstrous\u0020original\u0020\u0060__construct\u0028\u0029\u0060",
+            "url": "classes/chillerlan-OAuth-Storage-FileStorage.html#method_construct"
+        },                {
+            "fqsen": "\\chillerlan\\OAuth\\Storage\\FileStorage\u003A\u003AstoreAccessToken\u0028\u0029",
+            "name": "storeAccessToken",
+            "summary": "",
+            "url": "classes/chillerlan-OAuth-Storage-FileStorage.html#method_storeAccessToken"
+        },                {
+            "fqsen": "\\chillerlan\\OAuth\\Storage\\FileStorage\u003A\u003AgetAccessToken\u0028\u0029",
+            "name": "getAccessToken",
+            "summary": "",
+            "url": "classes/chillerlan-OAuth-Storage-FileStorage.html#method_getAccessToken"
+        },                {
+            "fqsen": "\\chillerlan\\OAuth\\Storage\\FileStorage\u003A\u003AhasAccessToken\u0028\u0029",
+            "name": "hasAccessToken",
+            "summary": "",
+            "url": "classes/chillerlan-OAuth-Storage-FileStorage.html#method_hasAccessToken"
+        },                {
+            "fqsen": "\\chillerlan\\OAuth\\Storage\\FileStorage\u003A\u003AclearAccessToken\u0028\u0029",
+            "name": "clearAccessToken",
+            "summary": "",
+            "url": "classes/chillerlan-OAuth-Storage-FileStorage.html#method_clearAccessToken"
+        },                {
+            "fqsen": "\\chillerlan\\OAuth\\Storage\\FileStorage\u003A\u003AclearAllAccessTokens\u0028\u0029",
+            "name": "clearAllAccessTokens",
+            "summary": "",
+            "url": "classes/chillerlan-OAuth-Storage-FileStorage.html#method_clearAllAccessTokens"
+        },                {
+            "fqsen": "\\chillerlan\\OAuth\\Storage\\FileStorage\u003A\u003AstoreCSRFState\u0028\u0029",
+            "name": "storeCSRFState",
+            "summary": "",
+            "url": "classes/chillerlan-OAuth-Storage-FileStorage.html#method_storeCSRFState"
+        },                {
+            "fqsen": "\\chillerlan\\OAuth\\Storage\\FileStorage\u003A\u003AgetCSRFState\u0028\u0029",
+            "name": "getCSRFState",
+            "summary": "",
+            "url": "classes/chillerlan-OAuth-Storage-FileStorage.html#method_getCSRFState"
+        },                {
+            "fqsen": "\\chillerlan\\OAuth\\Storage\\FileStorage\u003A\u003AhasCSRFState\u0028\u0029",
+            "name": "hasCSRFState",
+            "summary": "",
+            "url": "classes/chillerlan-OAuth-Storage-FileStorage.html#method_hasCSRFState"
+        },                {
+            "fqsen": "\\chillerlan\\OAuth\\Storage\\FileStorage\u003A\u003AclearCSRFState\u0028\u0029",
+            "name": "clearCSRFState",
+            "summary": "",
+            "url": "classes/chillerlan-OAuth-Storage-FileStorage.html#method_clearCSRFState"
+        },                {
+            "fqsen": "\\chillerlan\\OAuth\\Storage\\FileStorage\u003A\u003AclearAllCSRFStates\u0028\u0029",
+            "name": "clearAllCSRFStates",
+            "summary": "",
+            "url": "classes/chillerlan-OAuth-Storage-FileStorage.html#method_clearAllCSRFStates"
+        },                {
+            "fqsen": "\\chillerlan\\OAuth\\Storage\\FileStorage\u003A\u003AloadFile\u0028\u0029",
+            "name": "loadFile",
+            "summary": "fetched\u0020the\u0020content\u0020from\u0020a\u0020file",
+            "url": "classes/chillerlan-OAuth-Storage-FileStorage.html#method_loadFile"
+        },                {
+            "fqsen": "\\chillerlan\\OAuth\\Storage\\FileStorage\u003A\u003AsaveFile\u0028\u0029",
+            "name": "saveFile",
+            "summary": "saves\u0020the\u0020given\u0020data\u0020to\u0020a\u0020file",
+            "url": "classes/chillerlan-OAuth-Storage-FileStorage.html#method_saveFile"
+        },                {
+            "fqsen": "\\chillerlan\\OAuth\\Storage\\FileStorage\u003A\u003AdeleteFile\u0028\u0029",
+            "name": "deleteFile",
+            "summary": "deletes\u0020an\u0020existing\u0020file",
+            "url": "classes/chillerlan-OAuth-Storage-FileStorage.html#method_deleteFile"
+        },                {
+            "fqsen": "\\chillerlan\\OAuth\\Storage\\FileStorage\u003A\u003AdeleteAll\u0028\u0029",
+            "name": "deleteAll",
+            "summary": "deletes\u0020all\u0020matching\u0020files",
+            "url": "classes/chillerlan-OAuth-Storage-FileStorage.html#method_deleteAll"
+        },                {
+            "fqsen": "\\chillerlan\\OAuth\\Storage\\FileStorage\u003A\u003AgetFilepath\u0028\u0029",
+            "name": "getFilepath",
+            "summary": "gets\u0020the\u0020file\u0020path\u0020for\u0020\u0024key\u0020\u0028token\/state\u0029,\u0020\u0024provider\u0020and\u0020the\u0020given\u0020oauth\u0020user\u0020ID",
+            "url": "classes/chillerlan-OAuth-Storage-FileStorage.html#method_getFilepath"
+        },                {
+            "fqsen": "\\chillerlan\\OAuth\\Storage\\FileStorage\u003A\u003AENCRYPT_FORMAT",
+            "name": "ENCRYPT_FORMAT",
+            "summary": "",
+            "url": "classes/chillerlan-OAuth-Storage-FileStorage.html#constant_ENCRYPT_FORMAT"
+        },                {
+            "fqsen": "\\chillerlan\\OAuth\\Storage\\FileStorage\u003A\u003AKEY_TOKEN",
+            "name": "KEY_TOKEN",
+            "summary": "",
+            "url": "classes/chillerlan-OAuth-Storage-FileStorage.html#constant_KEY_TOKEN"
+        },                {
+            "fqsen": "\\chillerlan\\OAuth\\Storage\\FileStorage\u003A\u003AKEY_STATE",
+            "name": "KEY_STATE",
+            "summary": "",
+            "url": "classes/chillerlan-OAuth-Storage-FileStorage.html#constant_KEY_STATE"
+        },                {
+            "fqsen": "\\chillerlan\\OAuth\\Storage\\FileStorage\u003A\u003A\u0024oauthUser",
+            "name": "oauthUser",
+            "summary": "",
+            "url": "classes/chillerlan-OAuth-Storage-FileStorage.html#property_oauthUser"
+        },                {
+            "fqsen": "\\chillerlan\\OAuth\\Storage\\FileStorage\u003A\u003A\u0024options",
+            "name": "options",
+            "summary": "",
+            "url": "classes/chillerlan-OAuth-Storage-FileStorage.html#property_options"
+        },                {
+            "fqsen": "\\chillerlan\\OAuth\\Storage\\FileStorage\u003A\u003A\u0024logger",
+            "name": "logger",
+            "summary": "",
+            "url": "classes/chillerlan-OAuth-Storage-FileStorage.html#property_logger"
+        },                {
             "fqsen": "\\chillerlan\\OAuth\\Storage\\MemoryStorage",
             "name": "MemoryStorage",
             "summary": "Implements\u0020a\u0020memory\u0020storage\u0020adapter.",
@@ -4205,6 +4350,36 @@ Search.appendIndex(
             "name": "fromStorage",
             "summary": "Retrieves\u0020token\u0020JOSN\u0020from\u0020the\u0020underlying\u0020storage\u0020engine\u0020and\u0020returns\u0020an\u0020AccessToken",
             "url": "classes/chillerlan-OAuth-Storage-OAuthStorageAbstract.html#method_fromStorage"
+        },                {
+            "fqsen": "\\chillerlan\\OAuth\\Storage\\OAuthStorageAbstract\u003A\u003Aencrypt\u0028\u0029",
+            "name": "encrypt",
+            "summary": "encrypts\u0020the\u0020given\u0020\u0024data\u0020with\u0020\u0024key",
+            "url": "classes/chillerlan-OAuth-Storage-OAuthStorageAbstract.html#method_encrypt"
+        },                {
+            "fqsen": "\\chillerlan\\OAuth\\Storage\\OAuthStorageAbstract\u003A\u003Adecrypt\u0028\u0029",
+            "name": "decrypt",
+            "summary": "decrypts\u0020the\u0020given\u0020\u0024encrypted\u0020data\u0020with\u0020\u0024key",
+            "url": "classes/chillerlan-OAuth-Storage-OAuthStorageAbstract.html#method_decrypt"
+        },                {
+            "fqsen": "\\chillerlan\\OAuth\\Storage\\OAuthStorageAbstract\u003A\u003AENCRYPT_FORMAT_BINARY",
+            "name": "ENCRYPT_FORMAT_BINARY",
+            "summary": "",
+            "url": "classes/chillerlan-OAuth-Storage-OAuthStorageAbstract.html#constant_ENCRYPT_FORMAT_BINARY"
+        },                {
+            "fqsen": "\\chillerlan\\OAuth\\Storage\\OAuthStorageAbstract\u003A\u003AENCRYPT_FORMAT_BASE64",
+            "name": "ENCRYPT_FORMAT_BASE64",
+            "summary": "",
+            "url": "classes/chillerlan-OAuth-Storage-OAuthStorageAbstract.html#constant_ENCRYPT_FORMAT_BASE64"
+        },                {
+            "fqsen": "\\chillerlan\\OAuth\\Storage\\OAuthStorageAbstract\u003A\u003AENCRYPT_FORMAT_HEX",
+            "name": "ENCRYPT_FORMAT_HEX",
+            "summary": "",
+            "url": "classes/chillerlan-OAuth-Storage-OAuthStorageAbstract.html#constant_ENCRYPT_FORMAT_HEX"
+        },                {
+            "fqsen": "\\chillerlan\\OAuth\\Storage\\OAuthStorageAbstract\u003A\u003AENCRYPT_FORMAT",
+            "name": "ENCRYPT_FORMAT",
+            "summary": "",
+            "url": "classes/chillerlan-OAuth-Storage-OAuthStorageAbstract.html#constant_ENCRYPT_FORMAT"
         },                {
             "fqsen": "\\chillerlan\\OAuth\\Storage\\OAuthStorageAbstract\u003A\u003A\u0024options",
             "name": "options",
@@ -5361,10 +5536,10 @@ Search.appendIndex(
             "summary": "returns\u0020the\u0020prefix\u0020in\u0020the\u0020.env\u0020file\u0020for\u0020the\u0020current\u0020provider",
             "url": "classes/chillerlan-OAuthTest-Providers-ProviderLiveTestAbstract.html#method_getEnvPrefix"
         },                {
-            "fqsen": "\\chillerlan\\OAuthTest\\Providers\\ProviderLiveTestAbstract\u003A\u003AinitEnvConfig\u0028\u0029",
-            "name": "initEnvConfig",
+            "fqsen": "\\chillerlan\\OAuthTest\\Providers\\ProviderLiveTestAbstract\u003A\u003AinitConfig\u0028\u0029",
+            "name": "initConfig",
             "summary": "",
-            "url": "classes/chillerlan-OAuthTest-Providers-ProviderLiveTestAbstract.html#method_initEnvConfig"
+            "url": "classes/chillerlan-OAuthTest-Providers-ProviderLiveTestAbstract.html#method_initConfig"
         },                {
             "fqsen": "\\chillerlan\\OAuthTest\\Providers\\ProviderLiveTestAbstract\u003A\u003AinitOptions\u0028\u0029",
             "name": "initOptions",
@@ -5391,11 +5566,6 @@ Search.appendIndex(
             "summary": "",
             "url": "classes/chillerlan-OAuthTest-Providers-ProviderLiveTestAbstract.html#property_ENV_PREFIX"
         },                {
-            "fqsen": "\\chillerlan\\OAuthTest\\Providers\\ProviderLiveTestAbstract\u003A\u003A\u0024CFG_DIR",
-            "name": "CFG_DIR",
-            "summary": "",
-            "url": "classes/chillerlan-OAuthTest-Providers-ProviderLiveTestAbstract.html#property_CFG_DIR"
-        },                {
             "fqsen": "\\chillerlan\\OAuthTest\\Providers\\ProviderLiveTestAbstract\u003A\u003A\u0024TEST_USER",
             "name": "TEST_USER",
             "summary": "a\u0020test\u0020username\u0020for\u0020live\u0020API\u0020tests,\u0020defined\u0020in\u0020.env\u0020as\u0020\u007BENV\u002DPREFIX\u007D_TESTUSER",
@@ -5410,31 +5580,6 @@ Search.appendIndex(
             "name": "getClient",
             "summary": "",
             "url": "classes/chillerlan-OAuthTest-Providers-ProviderLiveTestHttpClientFactory.html#method_getClient"
-        },                {
-            "fqsen": "\\chillerlan\\OAuthTest\\Providers\\ProviderLiveTestMemoryStorage",
-            "name": "ProviderLiveTestMemoryStorage",
-            "summary": "Extends\u0020the\u0020standard\u0020memory\u0020storage\u0020so\u0020that\u0020it\u0020also\u0020saves\u0020tokens\u0020as\u0020JSON\u0020in\u0020the\u0020given\u0020path",
-            "url": "classes/chillerlan-OAuthTest-Providers-ProviderLiveTestMemoryStorage.html"
-        },                {
-            "fqsen": "\\chillerlan\\OAuthTest\\Providers\\ProviderLiveTestMemoryStorage\u003A\u003A__construct\u0028\u0029",
-            "name": "__construct",
-            "summary": "",
-            "url": "classes/chillerlan-OAuthTest-Providers-ProviderLiveTestMemoryStorage.html#method___construct"
-        },                {
-            "fqsen": "\\chillerlan\\OAuthTest\\Providers\\ProviderLiveTestMemoryStorage\u003A\u003AstoreAccessToken\u0028\u0029",
-            "name": "storeAccessToken",
-            "summary": "",
-            "url": "classes/chillerlan-OAuthTest-Providers-ProviderLiveTestMemoryStorage.html#method_storeAccessToken"
-        },                {
-            "fqsen": "\\chillerlan\\OAuthTest\\Providers\\ProviderLiveTestMemoryStorage\u003A\u003AgetAccessToken\u0028\u0029",
-            "name": "getAccessToken",
-            "summary": "",
-            "url": "classes/chillerlan-OAuthTest-Providers-ProviderLiveTestMemoryStorage.html#method_getAccessToken"
-        },                {
-            "fqsen": "\\chillerlan\\OAuthTest\\Providers\\ProviderLiveTestMemoryStorage\u003A\u003A\u0024storagePath",
-            "name": "storagePath",
-            "summary": "",
-            "url": "classes/chillerlan-OAuthTest-Providers-ProviderLiveTestMemoryStorage.html#property_storagePath"
         },                {
             "fqsen": "\\chillerlan\\OAuthTest\\Providers\\ProviderTestLoggerFactory",
             "name": "ProviderTestLoggerFactory",
@@ -5460,6 +5605,11 @@ Search.appendIndex(
             "name": "getProviderFQCN",
             "summary": "returns\u0020the\u0020fully\u0020qualified\u0020class\u0020name\u0020\u0028FQCN\u0029\u0020of\u0020the\u0020test\u0020subject",
             "url": "classes/chillerlan-OAuthTest-Providers-ProviderUnitTestAbstract.html#method_getProviderFQCN"
+        },                {
+            "fqsen": "\\chillerlan\\OAuthTest\\Providers\\ProviderUnitTestAbstract\u003A\u003AinitConfig\u0028\u0029",
+            "name": "initConfig",
+            "summary": "",
+            "url": "classes/chillerlan-OAuthTest-Providers-ProviderUnitTestAbstract.html#method_initConfig"
         },                {
             "fqsen": "\\chillerlan\\OAuthTest\\Providers\\ProviderUnitTestAbstract\u003A\u003AinitOptions\u0028\u0029",
             "name": "initOptions",
@@ -5540,6 +5690,11 @@ Search.appendIndex(
             "name": "HTTP_CLIENT_FACTORY",
             "summary": "",
             "url": "classes/chillerlan-OAuthTest-Providers-ProviderUnitTestAbstract.html#property_HTTP_CLIENT_FACTORY"
+        },                {
+            "fqsen": "\\chillerlan\\OAuthTest\\Providers\\ProviderUnitTestAbstract\u003A\u003A\u0024CFG_DIR",
+            "name": "CFG_DIR",
+            "summary": "",
+            "url": "classes/chillerlan-OAuthTest-Providers-ProviderUnitTestAbstract.html#property_CFG_DIR"
         },                {
             "fqsen": "\\chillerlan\\OAuthTest\\Providers\\ProviderUnitTestAbstract\u003A\u003A\u0024ENV_IS_CI",
             "name": "ENV_IS_CI",
@@ -6451,6 +6606,51 @@ Search.appendIndex(
             "summary": "",
             "url": "classes/chillerlan-OAuthTest-Providers-Unit-YouTubeTest.html#method_getProviderFQCN"
         },                {
+            "fqsen": "\\chillerlan\\OAuthTest\\Storage\\EncryptedFileStorageTest",
+            "name": "EncryptedFileStorageTest",
+            "summary": "",
+            "url": "classes/chillerlan-OAuthTest-Storage-EncryptedFileStorageTest.html"
+        },                {
+            "fqsen": "\\chillerlan\\OAuthTest\\Storage\\EncryptedFileStorageTest\u003A\u003AinitOptions\u0028\u0029",
+            "name": "initOptions",
+            "summary": "",
+            "url": "classes/chillerlan-OAuthTest-Storage-EncryptedFileStorageTest.html#method_initOptions"
+        },                {
+            "fqsen": "\\chillerlan\\OAuthTest\\Storage\\FileStorageTest",
+            "name": "FileStorageTest",
+            "summary": "",
+            "url": "classes/chillerlan-OAuthTest-Storage-FileStorageTest.html"
+        },                {
+            "fqsen": "\\chillerlan\\OAuthTest\\Storage\\FileStorageTest\u003A\u003AinitStorage\u0028\u0029",
+            "name": "initStorage",
+            "summary": "",
+            "url": "classes/chillerlan-OAuthTest-Storage-FileStorageTest.html#method_initStorage"
+        },                {
+            "fqsen": "\\chillerlan\\OAuthTest\\Storage\\FileStorageTest\u003A\u003AinitOptions\u0028\u0029",
+            "name": "initOptions",
+            "summary": "",
+            "url": "classes/chillerlan-OAuthTest-Storage-FileStorageTest.html#method_initOptions"
+        },                {
+            "fqsen": "\\chillerlan\\OAuthTest\\Storage\\FileStorageTest\u003A\u003AtestInvalidUserException\u0028\u0029",
+            "name": "testInvalidUserException",
+            "summary": "",
+            "url": "classes/chillerlan-OAuthTest-Storage-FileStorageTest.html#method_testInvalidUserException"
+        },                {
+            "fqsen": "\\chillerlan\\OAuthTest\\Storage\\FileStorageTest\u003A\u003AtestEmptyStoragePathException\u0028\u0029",
+            "name": "testEmptyStoragePathException",
+            "summary": "",
+            "url": "classes/chillerlan-OAuthTest-Storage-FileStorageTest.html#method_testEmptyStoragePathException"
+        },                {
+            "fqsen": "\\chillerlan\\OAuthTest\\Storage\\FileStorageTest\u003A\u003AtestGetFilePath\u0028\u0029",
+            "name": "testGetFilePath",
+            "summary": "",
+            "url": "classes/chillerlan-OAuthTest-Storage-FileStorageTest.html#method_testGetFilePath"
+        },                {
+            "fqsen": "\\chillerlan\\OAuthTest\\Storage\\FileStorageTest\u003A\u003ASTORAGE_PATH",
+            "name": "STORAGE_PATH",
+            "summary": "",
+            "url": "classes/chillerlan-OAuthTest-Storage-FileStorageTest.html#constant_STORAGE_PATH"
+        },                {
             "fqsen": "\\chillerlan\\OAuthTest\\Storage\\MemoryStorageTest",
             "name": "MemoryStorageTest",
             "summary": "",
@@ -6470,6 +6670,11 @@ Search.appendIndex(
             "name": "initStorage",
             "summary": "",
             "url": "classes/chillerlan-OAuthTest-Storage-SessionStorageTest.html#method_initStorage"
+        },                {
+            "fqsen": "\\chillerlan\\OAuthTest\\Storage\\SessionStorageTest\u003A\u003AinitOptions\u0028\u0029",
+            "name": "initOptions",
+            "summary": "",
+            "url": "classes/chillerlan-OAuthTest-Storage-SessionStorageTest.html#method_initOptions"
         },                {
             "fqsen": "\\chillerlan\\OAuthTest\\Storage\\SessionStorageTest\u003A\u003AtestStoreStateWithNonExistentArray\u0028\u0029",
             "name": "testStoreStateWithNonExistentArray",
@@ -6491,15 +6696,40 @@ Search.appendIndex(
             "summary": "",
             "url": "classes/chillerlan-OAuthTest-Storage-StorageTestAbstract.html#method_initStorage"
         },                {
-            "fqsen": "\\chillerlan\\OAuthTest\\Storage\\StorageTestAbstract\u003A\u003AtestTokenStorage\u0028\u0029",
-            "name": "testTokenStorage",
+            "fqsen": "\\chillerlan\\OAuthTest\\Storage\\StorageTestAbstract\u003A\u003AinitOptions\u0028\u0029",
+            "name": "initOptions",
             "summary": "",
-            "url": "classes/chillerlan-OAuthTest-Storage-StorageTestAbstract.html#method_testTokenStorage"
+            "url": "classes/chillerlan-OAuthTest-Storage-StorageTestAbstract.html#method_initOptions"
+        },                {
+            "fqsen": "\\chillerlan\\OAuthTest\\Storage\\StorageTestAbstract\u003A\u003AtestTAccessToken\u0028\u0029",
+            "name": "testTAccessToken",
+            "summary": "",
+            "url": "classes/chillerlan-OAuthTest-Storage-StorageTestAbstract.html#method_testTAccessToken"
         },                {
             "fqsen": "\\chillerlan\\OAuthTest\\Storage\\StorageTestAbstract\u003A\u003AtestClearAllAccessTokens\u0028\u0029",
             "name": "testClearAllAccessTokens",
             "summary": "",
             "url": "classes/chillerlan-OAuthTest-Storage-StorageTestAbstract.html#method_testClearAllAccessTokens"
+        },                {
+            "fqsen": "\\chillerlan\\OAuthTest\\Storage\\StorageTestAbstract\u003A\u003AtestCSRFState\u0028\u0029",
+            "name": "testCSRFState",
+            "summary": "",
+            "url": "classes/chillerlan-OAuthTest-Storage-StorageTestAbstract.html#method_testCSRFState"
+        },                {
+            "fqsen": "\\chillerlan\\OAuthTest\\Storage\\StorageTestAbstract\u003A\u003AtestClearAllCSRFStates\u0028\u0029",
+            "name": "testClearAllCSRFStates",
+            "summary": "",
+            "url": "classes/chillerlan-OAuthTest-Storage-StorageTestAbstract.html#method_testClearAllCSRFStates"
+        },                {
+            "fqsen": "\\chillerlan\\OAuthTest\\Storage\\StorageTestAbstract\u003A\u003AtestGetProviderNameEmptyNameException\u0028\u0029",
+            "name": "testGetProviderNameEmptyNameException",
+            "summary": "",
+            "url": "classes/chillerlan-OAuthTest-Storage-StorageTestAbstract.html#method_testGetProviderNameEmptyNameException"
+        },                {
+            "fqsen": "\\chillerlan\\OAuthTest\\Storage\\StorageTestAbstract\u003A\u003AtestNoEncryptionKeyException\u0028\u0029",
+            "name": "testNoEncryptionKeyException",
+            "summary": "",
+            "url": "classes/chillerlan-OAuthTest-Storage-StorageTestAbstract.html#method_testNoEncryptionKeyException"
         },                {
             "fqsen": "\\chillerlan\\OAuthTest\\Storage\\StorageTestAbstract\u003A\u003AtestRetrieveCSRFStateNotFoundException\u0028\u0029",
             "name": "testRetrieveCSRFStateNotFoundException",
@@ -6521,6 +6751,11 @@ Search.appendIndex(
             "summary": "",
             "url": "classes/chillerlan-OAuthTest-Storage-StorageTestAbstract.html#method_testStoreWithExistingToken"
         },                {
+            "fqsen": "\\chillerlan\\OAuthTest\\Storage\\StorageTestAbstract\u003A\u003AENCRYPTION_KEY",
+            "name": "ENCRYPTION_KEY",
+            "summary": "",
+            "url": "classes/chillerlan-OAuthTest-Storage-StorageTestAbstract.html#constant_ENCRYPTION_KEY"
+        },                {
             "fqsen": "\\chillerlan\\OAuthTest\\Storage\\StorageTestAbstract\u003A\u003A\u0024storage",
             "name": "storage",
             "summary": "",
@@ -6531,10 +6766,10 @@ Search.appendIndex(
             "summary": "",
             "url": "classes/chillerlan-OAuthTest-Storage-StorageTestAbstract.html#property_token"
         },                {
-            "fqsen": "\\chillerlan\\OAuthTest\\Storage\\StorageTestAbstract\u003A\u003A\u0024tsn",
-            "name": "tsn",
+            "fqsen": "\\chillerlan\\OAuthTest\\Storage\\StorageTestAbstract\u003A\u003A\u0024providerName",
+            "name": "providerName",
             "summary": "",
-            "url": "classes/chillerlan-OAuthTest-Storage-StorageTestAbstract.html#property_tsn"
+            "url": "classes/chillerlan-OAuthTest-Storage-StorageTestAbstract.html#property_providerName"
         },                {
             "fqsen": "\\",
             "name": "\\",

@@ -122,7 +122,7 @@
         <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/OAuthOptionsTrait.php"><a href="files/src-oauthoptionstrait.html"><abbr title="src/OAuthOptionsTrait.php">OAuthOptionsTrait.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">17</span>
+    <span class="phpdocumentor-element-found-in__line">21</span>
 
     </aside>
 
@@ -159,6 +159,13 @@
                         &nbsp;: string            </span>
 </dt>
 <dd>The (main) callback URL associated with your application</dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -property -protected">
+    <a href="classes/chillerlan-OAuth-OAuthOptionsTrait.html#property_fileStoragePath">$fileStoragePath</a>
+    <span>
+                        &nbsp;: string            </span>
+</dt>
+<dd>The file storage root path</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -property -protected">
     <a href="classes/chillerlan-OAuth-OAuthOptionsTrait.html#property_key">$key</a>
@@ -203,14 +210,49 @@
 <dd>The session array key for token storage</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -property -protected">
+    <a href="classes/chillerlan-OAuth-OAuthOptionsTrait.html#property_storageEncryptionKey">$storageEncryptionKey</a>
+    <span>
+                        &nbsp;: string            </span>
+</dt>
+<dd>The encryption key to use</dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -property -protected">
     <a href="classes/chillerlan-OAuth-OAuthOptionsTrait.html#property_tokenAutoRefresh">$tokenAutoRefresh</a>
     <span>
                         &nbsp;: bool            </span>
 </dt>
 <dd>Whether to automatically refresh access tokens (OAuth2)</dd>
 
+            <dt class="phpdocumentor-table-of-contents__entry -property -protected">
+    <a href="classes/chillerlan-OAuth-OAuthOptionsTrait.html#property_useStorageEncryption">$useStorageEncryption</a>
+    <span>
+                        &nbsp;: bool            </span>
+</dt>
+<dd>Whether to use encryption for the file storage</dd>
+
     </dl>
 
+<h4 id="toc-methods">
+    Methods
+    <a href="classes/chillerlan-OAuth-OAuthOptionsTrait.html#toc-methods" class="headerlink"><i class="fas fa-link"></i></a>
+
+</h4>
+<dl class="phpdocumentor-table-of-contents">
+            <dt class="phpdocumentor-table-of-contents__entry -method -protected">
+    <a href="classes/chillerlan-OAuth-OAuthOptionsTrait.html#method_set_fileStoragePath">set_fileStoragePath()</a>
+    <span>
+                                &nbsp;: void    </span>
+</dt>
+<dd>sets and verifies the file storage path</dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -method -protected">
+    <a href="classes/chillerlan-OAuth-OAuthOptionsTrait.html#method_set_storageEncryptionKey">set_storageEncryptionKey()</a>
+    <span>
+                                &nbsp;: void    </span>
+</dt>
+<dd>sets an encryption key</dd>
+
+    </dl>
 
 
 
@@ -241,7 +283,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/OAuthOptionsTrait.php"><a href="files/src-oauthoptionstrait.html"><abbr title="src/OAuthOptionsTrait.php">OAuthOptionsTrait.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">32</span>
+    <span class="phpdocumentor-element-found-in__line">36</span>
 
     </aside>
 
@@ -265,6 +307,55 @@
             -protected
                                                         "
 >
+    <h4 class="phpdocumentor-element__name" id="property_fileStoragePath">
+        $fileStoragePath
+        <a href="classes/chillerlan-OAuth-OAuthOptionsTrait.html#property_fileStoragePath" class="headerlink"><i class="fas fa-link"></i></a>
+
+        <span class="phpdocumentor-element__modifiers">
+                                </span>
+    </h4>
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/OAuthOptionsTrait.php"><a href="files/src-oauthoptionstrait.html"><abbr title="src/OAuthOptionsTrait.php">OAuthOptionsTrait.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">99</span>
+
+    </aside>
+
+        <p class="phpdocumentor-summary">The file storage root path</p>
+
+    <code class="phpdocumentor-code phpdocumentor-signature ">
+    <span class="phpdocumentor-signature__visibility">protected</span>
+        <span class="phpdocumentor-signature__type">string</span>
+    <span class="phpdocumentor-signature__name">$fileStoragePath</span>
+     = <span class="phpdocumentor-signature__default-value">&#039;&#039;</span></code>
+
+    
+    
+    
+    <h5 class="phpdocumentor-tag-list__heading" id="tags">
+        Tags
+        <a href="classes/chillerlan-OAuth-OAuthOptionsTrait.html#property_fileStoragePath#tags" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h5>
+    <dl class="phpdocumentor-tag-list">
+                                    <dt class="phpdocumentor-tag-list__entry">
+                    <span class="phpdocumentor-tag__name">see</span>
+                </dt>
+                <dd class="phpdocumentor-tag-list__definition">
+                                                                                    <span class="phpdocumentor-tag-link"><a href="classes/chillerlan-OAuth-Storage-FileStorage.html"><abbr title="\chillerlan\OAuth\Storage\FileStorage">FileStorage</abbr></a></span>
+                                        
+                                             
+                                    </dd>
+                                            </dl>
+
+</article>
+                    <article
+        class="
+            phpdocumentor-element
+            -property
+            -protected
+                                                        "
+>
     <h4 class="phpdocumentor-element__name" id="property_key">
         $key
         <a href="classes/chillerlan-OAuth-OAuthOptionsTrait.html#property_key" class="headerlink"><i class="fas fa-link"></i></a>
@@ -275,7 +366,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/OAuthOptionsTrait.php"><a href="files/src-oauthoptionstrait.html"><abbr title="src/OAuthOptionsTrait.php">OAuthOptionsTrait.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">22</span>
+    <span class="phpdocumentor-element-found-in__line">26</span>
 
     </aside>
 
@@ -309,7 +400,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/OAuthOptionsTrait.php"><a href="files/src-oauthoptionstrait.html"><abbr title="src/OAuthOptionsTrait.php">OAuthOptionsTrait.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">27</span>
+    <span class="phpdocumentor-element-found-in__line">31</span>
 
     </aside>
 
@@ -343,7 +434,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/OAuthOptionsTrait.php"><a href="files/src-oauthoptionstrait.html"><abbr title="src/OAuthOptionsTrait.php">OAuthOptionsTrait.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">49</span>
+    <span class="phpdocumentor-element-found-in__line">68</span>
 
     </aside>
 
@@ -402,7 +493,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/OAuthOptionsTrait.php"><a href="files/src-oauthoptionstrait.html"><abbr title="src/OAuthOptionsTrait.php">OAuthOptionsTrait.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">73</span>
+    <span class="phpdocumentor-element-found-in__line">92</span>
 
     </aside>
 
@@ -451,7 +542,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/OAuthOptionsTrait.php"><a href="files/src-oauthoptionstrait.html"><abbr title="src/OAuthOptionsTrait.php">OAuthOptionsTrait.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">59</span>
+    <span class="phpdocumentor-element-found-in__line">78</span>
 
     </aside>
 
@@ -510,7 +601,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/OAuthOptionsTrait.php"><a href="files/src-oauthoptionstrait.html"><abbr title="src/OAuthOptionsTrait.php">OAuthOptionsTrait.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">66</span>
+    <span class="phpdocumentor-element-found-in__line">85</span>
 
     </aside>
 
@@ -549,6 +640,63 @@
             -protected
                                                         "
 >
+    <h4 class="phpdocumentor-element__name" id="property_storageEncryptionKey">
+        $storageEncryptionKey
+        <a href="classes/chillerlan-OAuth-OAuthOptionsTrait.html#property_storageEncryptionKey" class="headerlink"><i class="fas fa-link"></i></a>
+
+        <span class="phpdocumentor-element__modifiers">
+                                </span>
+    </h4>
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/OAuthOptionsTrait.php"><a href="files/src-oauthoptionstrait.html"><abbr title="src/OAuthOptionsTrait.php">OAuthOptionsTrait.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">51</span>
+
+    </aside>
+
+        <p class="phpdocumentor-summary">The encryption key to use</p>
+
+    <code class="phpdocumentor-code phpdocumentor-signature ">
+    <span class="phpdocumentor-signature__visibility">protected</span>
+        <span class="phpdocumentor-signature__type">string</span>
+    <span class="phpdocumentor-signature__name">$storageEncryptionKey</span>
+     = <span class="phpdocumentor-signature__default-value">&#039;&#039;</span></code>
+
+    
+    
+    
+    <h5 class="phpdocumentor-tag-list__heading" id="tags">
+        Tags
+        <a href="classes/chillerlan-OAuth-OAuthOptionsTrait.html#property_storageEncryptionKey#tags" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h5>
+    <dl class="phpdocumentor-tag-list">
+                                    <dt class="phpdocumentor-tag-list__entry">
+                    <span class="phpdocumentor-tag__name">see</span>
+                </dt>
+                <dd class="phpdocumentor-tag-list__definition">
+                                                                                    <span class="phpdocumentor-tag-link"><abbr title="\sodium_crypto_secretbox_keygen()">sodium_crypto_secretbox_keygen()</abbr></span>
+                                        
+                                             
+                                    </dd>
+                            <dt class="phpdocumentor-tag-list__entry">
+                    <span class="phpdocumentor-tag__name">see</span>
+                </dt>
+                <dd class="phpdocumentor-tag-list__definition">
+                                                                                    <span class="phpdocumentor-tag-link"><a href="classes/chillerlan-OAuth-Storage-FileStorage.html"><abbr title="\chillerlan\OAuth\Storage\FileStorage">FileStorage</abbr></a></span>
+                                        
+                                             
+                                    </dd>
+                                            </dl>
+
+</article>
+                    <article
+        class="
+            phpdocumentor-element
+            -property
+            -protected
+                                                        "
+>
     <h4 class="phpdocumentor-element__name" id="property_tokenAutoRefresh">
         $tokenAutoRefresh
         <a href="classes/chillerlan-OAuth-OAuthOptionsTrait.html#property_tokenAutoRefresh" class="headerlink"><i class="fas fa-link"></i></a>
@@ -559,7 +707,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/OAuthOptionsTrait.php"><a href="files/src-oauthoptionstrait.html"><abbr title="src/OAuthOptionsTrait.php">OAuthOptionsTrait.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">39</span>
+    <span class="phpdocumentor-element-found-in__line">58</span>
 
     </aside>
 
@@ -591,9 +739,149 @@
                                             </dl>
 
 </article>
+                    <article
+        class="
+            phpdocumentor-element
+            -property
+            -protected
+                                                        "
+>
+    <h4 class="phpdocumentor-element__name" id="property_useStorageEncryption">
+        $useStorageEncryption
+        <a href="classes/chillerlan-OAuth-OAuthOptionsTrait.html#property_useStorageEncryption" class="headerlink"><i class="fas fa-link"></i></a>
+
+        <span class="phpdocumentor-element__modifiers">
+                                </span>
+    </h4>
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/OAuthOptionsTrait.php"><a href="files/src-oauthoptionstrait.html"><abbr title="src/OAuthOptionsTrait.php">OAuthOptionsTrait.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">43</span>
+
+    </aside>
+
+        <p class="phpdocumentor-summary">Whether to use encryption for the file storage</p>
+
+    <code class="phpdocumentor-code phpdocumentor-signature ">
+    <span class="phpdocumentor-signature__visibility">protected</span>
+        <span class="phpdocumentor-signature__type">bool</span>
+    <span class="phpdocumentor-signature__name">$useStorageEncryption</span>
+     = <span class="phpdocumentor-signature__default-value">false</span></code>
+
+    
+    
+    
+    <h5 class="phpdocumentor-tag-list__heading" id="tags">
+        Tags
+        <a href="classes/chillerlan-OAuth-OAuthOptionsTrait.html#property_useStorageEncryption#tags" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h5>
+    <dl class="phpdocumentor-tag-list">
+                                    <dt class="phpdocumentor-tag-list__entry">
+                    <span class="phpdocumentor-tag__name">see</span>
+                </dt>
+                <dd class="phpdocumentor-tag-list__definition">
+                                                                                    <span class="phpdocumentor-tag-link"><a href="classes/chillerlan-OAuth-Storage-FileStorage.html"><abbr title="\chillerlan\OAuth\Storage\FileStorage">FileStorage</abbr></a></span>
+                                        
+                                             
+                                    </dd>
+                                            </dl>
+
+</article>
             </section>
 
-        
+            <section class="phpdocumentor-methods">
+        <h3 class="phpdocumentor-elements__header" id="methods">
+            Methods
+            <a href="classes/chillerlan-OAuth-OAuthOptionsTrait.html#methods" class="headerlink"><i class="fas fa-link"></i></a>
+
+        </h3>
+                    <article
+        class="phpdocumentor-element
+            -method
+            -protected
+                                                        "
+>
+    <h4 class="phpdocumentor-element__name" id="method_set_fileStoragePath">
+        set_fileStoragePath()
+        <a href="classes/chillerlan-OAuth-OAuthOptionsTrait.html#method_set_fileStoragePath" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h4>
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/OAuthOptionsTrait.php"><a href="files/src-oauthoptionstrait.html"><abbr title="src/OAuthOptionsTrait.php">OAuthOptionsTrait.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">116</span>
+
+    </aside>
+
+        <p class="phpdocumentor-summary">sets and verifies the file storage path</p>
+
+    <code class="phpdocumentor-code phpdocumentor-signature ">
+    <span class="phpdocumentor-signature__visibility">protected</span>
+                    <span class="phpdocumentor-signature__name">set_fileStoragePath</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$fileStoragePath</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">void</span></code>
+
+    <div class="phpdocumentor-label-line">
+        </div>
+    
+        <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
+    <dl class="phpdocumentor-argument-list">
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-signature__argument__name">$fileStoragePath</span>
+                : <span class="phpdocumentor-signature__argument__return-type">string</span>
+                            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                
+            </dd>
+            </dl>
+
+    
+
+    
+</article>
+                    <article
+        class="phpdocumentor-element
+            -method
+            -protected
+                                                        "
+>
+    <h4 class="phpdocumentor-element__name" id="method_set_storageEncryptionKey">
+        set_storageEncryptionKey()
+        <a href="classes/chillerlan-OAuth-OAuthOptionsTrait.html#method_set_storageEncryptionKey" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h4>
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/OAuthOptionsTrait.php"><a href="files/src-oauthoptionstrait.html"><abbr title="src/OAuthOptionsTrait.php">OAuthOptionsTrait.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">104</span>
+
+    </aside>
+
+        <p class="phpdocumentor-summary">sets an encryption key</p>
+
+    <code class="phpdocumentor-code phpdocumentor-signature ">
+    <span class="phpdocumentor-signature__visibility">protected</span>
+                    <span class="phpdocumentor-signature__name">set_storageEncryptionKey</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$storageEncryptionKey</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">void</span></code>
+
+    <div class="phpdocumentor-label-line">
+        </div>
+    
+        <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
+    <dl class="phpdocumentor-argument-list">
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-signature__argument__name">$storageEncryptionKey</span>
+                : <span class="phpdocumentor-signature__argument__return-type">string</span>
+                            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                
+            </dd>
+            </dl>
+
+    
+
+    
+</article>
+            </section>
+
         <div class="phpdocumentor-modal" id="source-view">
     <div class="phpdocumentor-modal-bg" data-exit-button></div>
     <div class="phpdocumentor-modal-container">
@@ -698,22 +986,33 @@
             <li>
                 <ul class="phpdocumentor-list -clean">
                                                             <li><a href="classes/chillerlan-OAuth-OAuthOptionsTrait.html#toc-properties">Properties</a></li>
-                                                        </ul>
+                                                            <li><a href="classes/chillerlan-OAuth-OAuthOptionsTrait.html#toc-methods">Methods</a></li>
+                                    </ul>
             </li>
                                     <li class="phpdocumentor-on-this-page-section__title">Properties</li>
             <li>
                 <ul class="phpdocumentor-list -clean">
                                             <li><a href="classes/chillerlan-OAuth-OAuthOptionsTrait.html#property_callbackURL">$callbackURL</a></li>
+                                            <li><a href="classes/chillerlan-OAuth-OAuthOptionsTrait.html#property_fileStoragePath">$fileStoragePath</a></li>
                                             <li><a href="classes/chillerlan-OAuth-OAuthOptionsTrait.html#property_key">$key</a></li>
                                             <li><a href="classes/chillerlan-OAuth-OAuthOptionsTrait.html#property_secret">$secret</a></li>
                                             <li><a href="classes/chillerlan-OAuth-OAuthOptionsTrait.html#property_sessionStart">$sessionStart</a></li>
                                             <li><a href="classes/chillerlan-OAuth-OAuthOptionsTrait.html#property_sessionStateVar">$sessionStateVar</a></li>
                                             <li><a href="classes/chillerlan-OAuth-OAuthOptionsTrait.html#property_sessionStop">$sessionStop</a></li>
                                             <li><a href="classes/chillerlan-OAuth-OAuthOptionsTrait.html#property_sessionTokenVar">$sessionTokenVar</a></li>
+                                            <li><a href="classes/chillerlan-OAuth-OAuthOptionsTrait.html#property_storageEncryptionKey">$storageEncryptionKey</a></li>
                                             <li><a href="classes/chillerlan-OAuth-OAuthOptionsTrait.html#property_tokenAutoRefresh">$tokenAutoRefresh</a></li>
+                                            <li><a href="classes/chillerlan-OAuth-OAuthOptionsTrait.html#property_useStorageEncryption">$useStorageEncryption</a></li>
                                     </ul>
             </li>
-                                </ul>
+                                    <li class="phpdocumentor-on-this-page-section__title">Methods</li>
+            <li>
+                <ul class="phpdocumentor-list -clean">
+                                            <li><a href="classes/chillerlan-OAuth-OAuthOptionsTrait.html#method_set_fileStoragePath">set_fileStoragePath()</a></li>
+                                            <li><a href="classes/chillerlan-OAuth-OAuthOptionsTrait.html#method_set_storageEncryptionKey">set_storageEncryptionKey()</a></li>
+                                    </ul>
+            </li>
+                    </ul>
     </section>
 
                 </section>

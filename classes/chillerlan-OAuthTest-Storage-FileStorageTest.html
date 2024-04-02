@@ -117,10 +117,10 @@
 
     <article class="phpdocumentor-element -class">
         <h2 class="phpdocumentor-content__title">
-    StorageTestAbstract
+    FileStorageTest
 
         <span class="phpdocumentor-element__extends">
-        extends <abbr title="\PHPUnit\Framework\TestCase">TestCase</abbr>
+        extends <a href="classes/chillerlan-OAuthTest-Storage-StorageTestAbstract.html"><abbr title="\chillerlan\OAuthTest\Storage\StorageTestAbstract">StorageTestAbstract</abbr></a>
     </span>
     
             <div class="phpdocumentor-element__package">
@@ -136,14 +136,12 @@
 <div class="phpdocumentor-label-line">
 
 
-    <div class="phpdocumentor-label phpdocumentor-label--success"><span>Abstract</span><span>Yes</span></div>
-
 </div>
 
         <aside class="phpdocumentor-element-found-in">
-    <abbr class="phpdocumentor-element-found-in__file" title="tests/Storage/StorageTestAbstract.php"><a href="files/tests-storage-storagetestabstract.html"><abbr title="tests/Storage/StorageTestAbstract.php">StorageTestAbstract.php</abbr></a></abbr>
+    <abbr class="phpdocumentor-element-found-in__file" title="tests/Storage/FileStorageTest.php"><a href="files/tests-storage-filestoragetest.html"><abbr title="tests/Storage/FileStorageTest.php">FileStorageTest.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">21</span>
+    <span class="phpdocumentor-element-found-in__line">20</span>
 
     </aside>
 
@@ -155,7 +153,7 @@
 
 <h3 id="toc">
     Table of Contents
-    <a href="classes/chillerlan-OAuthTest-Storage-StorageTestAbstract.html#toc" class="headerlink"><i class="fas fa-link"></i></a>
+    <a href="classes/chillerlan-OAuthTest-Storage-FileStorageTest.html#toc" class="headerlink"><i class="fas fa-link"></i></a>
 
 </h3>
 
@@ -167,7 +165,7 @@
 
 <h4 id="toc-constants">
     Constants
-    <a href="classes/chillerlan-OAuthTest-Storage-StorageTestAbstract.html#toc-constants" class="headerlink"><i class="fas fa-link"></i></a>
+    <a href="classes/chillerlan-OAuthTest-Storage-FileStorageTest.html#toc-constants" class="headerlink"><i class="fas fa-link"></i></a>
 
 </h4>
 <dl class="phpdocumentor-table-of-contents">
@@ -177,12 +175,18 @@
         &nbsp;= &quot;\x00\x01\x02\x03\x04\x05\x06\x07&quot; . &quot;\x08\t\n\v\f\r\x0e\x0f&quot; . &quot;\x10\x11\x12\x13\x14\x15\x16\x17&quot; . &quot;\x18\x19\x1a\x1b\x1c\x1d\x1e\x1f&quot;                            </span>
 </dt>
 
+            <dt class="phpdocumentor-table-of-contents__entry -constant -protected">
+    <a href="classes/chillerlan-OAuthTest-Storage-FileStorageTest.html#constant_STORAGE_PATH">STORAGE_PATH</a>
+    <span>
+        &nbsp;= __DIR__ . \DIRECTORY_SEPARATOR . &#039;.filestorage&#039;                            </span>
+</dt>
+
     </dl>
 
 
 <h4 id="toc-properties">
     Properties
-    <a href="classes/chillerlan-OAuthTest-Storage-StorageTestAbstract.html#toc-properties" class="headerlink"><i class="fas fa-link"></i></a>
+    <a href="classes/chillerlan-OAuthTest-Storage-FileStorageTest.html#toc-properties" class="headerlink"><i class="fas fa-link"></i></a>
 
 </h4>
 <dl class="phpdocumentor-table-of-contents">
@@ -208,7 +212,7 @@
 
 <h4 id="toc-methods">
     Methods
-    <a href="classes/chillerlan-OAuthTest-Storage-StorageTestAbstract.html#toc-methods" class="headerlink"><i class="fas fa-link"></i></a>
+    <a href="classes/chillerlan-OAuthTest-Storage-FileStorageTest.html#toc-methods" class="headerlink"><i class="fas fa-link"></i></a>
 
 </h4>
 <dl class="phpdocumentor-table-of-contents">
@@ -231,7 +235,25 @@
 </dt>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
+    <a href="classes/chillerlan-OAuthTest-Storage-FileStorageTest.html#method_testEmptyStoragePathException">testEmptyStoragePathException()</a>
+    <span>
+                                &nbsp;: void    </span>
+</dt>
+
+            <dt class="phpdocumentor-table-of-contents__entry -method -public">
+    <a href="classes/chillerlan-OAuthTest-Storage-FileStorageTest.html#method_testGetFilePath">testGetFilePath()</a>
+    <span>
+                                &nbsp;: void    </span>
+</dt>
+
+            <dt class="phpdocumentor-table-of-contents__entry -method -public">
     <a href="classes/chillerlan-OAuthTest-Storage-StorageTestAbstract.html#method_testGetProviderNameEmptyNameException">testGetProviderNameEmptyNameException()</a>
+    <span>
+                                &nbsp;: void    </span>
+</dt>
+
+            <dt class="phpdocumentor-table-of-contents__entry -method -public">
+    <a href="classes/chillerlan-OAuthTest-Storage-FileStorageTest.html#method_testInvalidUserException">testInvalidUserException()</a>
     <span>
                                 &nbsp;: void    </span>
 </dt>
@@ -273,13 +295,13 @@
 </dt>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -protected">
-    <a href="classes/chillerlan-OAuthTest-Storage-StorageTestAbstract.html#method_initOptions">initOptions()</a>
+    <a href="classes/chillerlan-OAuthTest-Storage-FileStorageTest.html#method_initOptions">initOptions()</a>
     <span>
                                 &nbsp;: <a href="classes/chillerlan-OAuth-OAuthOptions.html"><abbr title="\chillerlan\OAuth\OAuthOptions">OAuthOptions</abbr></a>    </span>
 </dt>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -protected">
-    <a href="classes/chillerlan-OAuthTest-Storage-StorageTestAbstract.html#method_initStorage">initStorage()</a>
+    <a href="classes/chillerlan-OAuthTest-Storage-FileStorageTest.html#method_initStorage">initStorage()</a>
     <span>
                                 &nbsp;: <a href="classes/chillerlan-OAuth-Storage-OAuthStorageInterface.html"><abbr title="\chillerlan\OAuth\Storage\OAuthStorageInterface">OAuthStorageInterface</abbr></a>    </span>
 </dt>
@@ -299,7 +321,7 @@
     <section class="phpdocumentor-constants">
         <h3 class="phpdocumentor-elements__header" id="constants">
             Constants
-            <a href="classes/chillerlan-OAuthTest-Storage-StorageTestAbstract.html#constants" class="headerlink"><i class="fas fa-link"></i></a>
+            <a href="classes/chillerlan-OAuthTest-Storage-FileStorageTest.html#constants" class="headerlink"><i class="fas fa-link"></i></a>
 
         </h3>
                     <article class="phpdocumentor-element -constant -protected ">
@@ -330,13 +352,41 @@
     
 
 </article>
+                    <article class="phpdocumentor-element -constant -protected ">
+    <h4 class="phpdocumentor-element__name" id="constant_STORAGE_PATH">
+        STORAGE_PATH
+        <a href="classes/chillerlan-OAuthTest-Storage-FileStorageTest.html#constant_STORAGE_PATH" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h4>
+
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="tests/Storage/FileStorageTest.php"><a href="files/tests-storage-filestoragetest.html"><abbr title="tests/Storage/FileStorageTest.php">FileStorageTest.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">22</span>
+
+    </aside>
+
+    
+    <code class="phpdocumentor-signature phpdocumentor-code ">
+    <span class="phpdocumentor-signature__visibility">protected</span>
+        <span class="phpdocumentor-signature__type">mixed</span>
+    <span class="phpdocumentor-signature__name">STORAGE_PATH</span>
+    = <span class="phpdocumentor-signature__default-value">__DIR__ . \DIRECTORY_SEPARATOR . &#039;.filestorage&#039;</span>
+</code>
+
+
+    
+    
+    
+
+</article>
             </section>
 
         
     <section class="phpdocumentor-properties">
         <h3 class="phpdocumentor-elements__header" id="properties">
             Properties
-            <a href="classes/chillerlan-OAuthTest-Storage-StorageTestAbstract.html#properties" class="headerlink"><i class="fas fa-link"></i></a>
+            <a href="classes/chillerlan-OAuthTest-Storage-FileStorageTest.html#properties" class="headerlink"><i class="fas fa-link"></i></a>
 
         </h3>
                     <article
@@ -443,7 +493,7 @@
             <section class="phpdocumentor-methods">
         <h3 class="phpdocumentor-elements__header" id="methods">
             Methods
-            <a href="classes/chillerlan-OAuthTest-Storage-StorageTestAbstract.html#methods" class="headerlink"><i class="fas fa-link"></i></a>
+            <a href="classes/chillerlan-OAuthTest-Storage-FileStorageTest.html#methods" class="headerlink"><i class="fas fa-link"></i></a>
 
         </h3>
                     <article
@@ -545,6 +595,68 @@
             -public
                                                         "
 >
+    <h4 class="phpdocumentor-element__name" id="method_testEmptyStoragePathException">
+        testEmptyStoragePathException()
+        <a href="classes/chillerlan-OAuthTest-Storage-FileStorageTest.html#method_testEmptyStoragePathException" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h4>
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="tests/Storage/FileStorageTest.php"><a href="files/tests-storage-filestoragetest.html"><abbr title="tests/Storage/FileStorageTest.php">FileStorageTest.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">44</span>
+
+    </aside>
+
+    
+    <code class="phpdocumentor-code phpdocumentor-signature ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+                    <span class="phpdocumentor-signature__name">testEmptyStoragePathException</span><span>(</span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">void</span></code>
+
+    <div class="phpdocumentor-label-line">
+        </div>
+    
+    
+    
+
+    
+</article>
+                    <article
+        class="phpdocumentor-element
+            -method
+            -public
+                                                        "
+>
+    <h4 class="phpdocumentor-element__name" id="method_testGetFilePath">
+        testGetFilePath()
+        <a href="classes/chillerlan-OAuthTest-Storage-FileStorageTest.html#method_testGetFilePath" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h4>
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="tests/Storage/FileStorageTest.php"><a href="files/tests-storage-filestoragetest.html"><abbr title="tests/Storage/FileStorageTest.php">FileStorageTest.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">51</span>
+
+    </aside>
+
+    
+    <code class="phpdocumentor-code phpdocumentor-signature ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+                    <span class="phpdocumentor-signature__name">testGetFilePath</span><span>(</span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">void</span></code>
+
+    <div class="phpdocumentor-label-line">
+        </div>
+    
+    
+    
+
+    
+</article>
+                    <article
+        class="phpdocumentor-element
+            -method
+            -public
+                                                        "
+>
     <h4 class="phpdocumentor-element__name" id="method_testGetProviderNameEmptyNameException">
         testGetProviderNameEmptyNameException()
         <a href="classes/chillerlan-OAuthTest-Storage-StorageTestAbstract.html#method_testGetProviderNameEmptyNameException" class="headerlink"><i class="fas fa-link"></i></a>
@@ -561,6 +673,37 @@
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
                     <span class="phpdocumentor-signature__name">testGetProviderNameEmptyNameException</span><span>(</span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">void</span></code>
+
+    <div class="phpdocumentor-label-line">
+        </div>
+    
+    
+    
+
+    
+</article>
+                    <article
+        class="phpdocumentor-element
+            -method
+            -public
+                                                        "
+>
+    <h4 class="phpdocumentor-element__name" id="method_testInvalidUserException">
+        testInvalidUserException()
+        <a href="classes/chillerlan-OAuthTest-Storage-FileStorageTest.html#method_testInvalidUserException" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h4>
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="tests/Storage/FileStorageTest.php"><a href="files/tests-storage-filestoragetest.html"><abbr title="tests/Storage/FileStorageTest.php">FileStorageTest.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">37</span>
+
+    </aside>
+
+    
+    <code class="phpdocumentor-code phpdocumentor-signature ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+                    <span class="phpdocumentor-signature__name">testInvalidUserException</span><span>(</span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">void</span></code>
 
     <div class="phpdocumentor-label-line">
         </div>
@@ -764,13 +907,13 @@
 >
     <h4 class="phpdocumentor-element__name" id="method_initOptions">
         initOptions()
-        <a href="classes/chillerlan-OAuthTest-Storage-StorageTestAbstract.html#method_initOptions" class="headerlink"><i class="fas fa-link"></i></a>
+        <a href="classes/chillerlan-OAuthTest-Storage-FileStorageTest.html#method_initOptions" class="headerlink"><i class="fas fa-link"></i></a>
 
     </h4>
     <aside class="phpdocumentor-element-found-in">
-    <abbr class="phpdocumentor-element-found-in__file" title="tests/Storage/StorageTestAbstract.php"><a href="files/tests-storage-storagetestabstract.html"><abbr title="tests/Storage/StorageTestAbstract.php">StorageTestAbstract.php</abbr></a></abbr>
+    <abbr class="phpdocumentor-element-found-in__file" title="tests/Storage/FileStorageTest.php"><a href="files/tests-storage-filestoragetest.html"><abbr title="tests/Storage/FileStorageTest.php">FileStorageTest.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">39</span>
+    <span class="phpdocumentor-element-found-in__line">28</span>
 
     </aside>
 
@@ -795,24 +938,24 @@
         class="phpdocumentor-element
             -method
             -protected
-                        -abstract                                "
+                                                        "
 >
     <h4 class="phpdocumentor-element__name" id="method_initStorage">
         initStorage()
-        <a href="classes/chillerlan-OAuthTest-Storage-StorageTestAbstract.html#method_initStorage" class="headerlink"><i class="fas fa-link"></i></a>
+        <a href="classes/chillerlan-OAuthTest-Storage-FileStorageTest.html#method_initStorage" class="headerlink"><i class="fas fa-link"></i></a>
 
     </h4>
     <aside class="phpdocumentor-element-found-in">
-    <abbr class="phpdocumentor-element-found-in__file" title="tests/Storage/StorageTestAbstract.php"><a href="files/tests-storage-storagetestabstract.html"><abbr title="tests/Storage/StorageTestAbstract.php">StorageTestAbstract.php</abbr></a></abbr>
+    <abbr class="phpdocumentor-element-found-in__file" title="tests/Storage/FileStorageTest.php"><a href="files/tests-storage-filestoragetest.html"><abbr title="tests/Storage/FileStorageTest.php">FileStorageTest.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">37</span>
+    <span class="phpdocumentor-element-found-in__line">24</span>
 
     </aside>
 
     
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">protected</span>
-    <span class="phpdocumentor-signature__abstract">abstract</span>                <span class="phpdocumentor-signature__name">initStorage</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type"><a href="classes/chillerlan-OAuth-OAuthOptions.html"><abbr title="\chillerlan\OAuth\OAuthOptions">OAuthOptions</abbr></a>&nbsp;</span><span class="phpdocumentor-signature__argument__name">$options</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type"><a href="classes/chillerlan-OAuth-Storage-OAuthStorageInterface.html"><abbr title="\chillerlan\OAuth\Storage\OAuthStorageInterface">OAuthStorageInterface</abbr></a></span></code>
+                    <span class="phpdocumentor-signature__name">initStorage</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type"><a href="classes/chillerlan-OAuth-OAuthOptions.html"><abbr title="\chillerlan\OAuth\OAuthOptions">OAuthOptions</abbr></a>&nbsp;</span><span class="phpdocumentor-signature__argument__name">$options</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type"><a href="classes/chillerlan-OAuth-Storage-OAuthStorageInterface.html"><abbr title="\chillerlan\OAuth\Storage\OAuthStorageInterface">OAuthStorageInterface</abbr></a></span></code>
 
     <div class="phpdocumentor-label-line">
         </div>
@@ -873,7 +1016,7 @@
     <div class="phpdocumentor-modal-bg" data-exit-button></div>
     <div class="phpdocumentor-modal-container">
         <div class="phpdocumentor-modal-content">
-            <pre style="max-height: 500px; overflow-y: scroll" data-src="files/tests/Storage/StorageTestAbstract.php.txt" class="language-php line-numbers linkable-line-numbers"></pre>
+            <pre style="max-height: 500px; overflow-y: scroll" data-src="files/tests/Storage/FileStorageTest.php.txt" class="language-php line-numbers linkable-line-numbers"></pre>
         </div>
         <button data-exit-button class="phpdocumentor-modal__close">&times;</button>
     </div>
@@ -972,24 +1115,25 @@
             <li class="phpdocumentor-on-this-page-section__title">Table Of Contents</li>
             <li>
                 <ul class="phpdocumentor-list -clean">
-                                        <li><a href="classes/chillerlan-OAuthTest-Storage-StorageTestAbstract.html#toc-constants">Constants</a></li>
-                                                            <li><a href="classes/chillerlan-OAuthTest-Storage-StorageTestAbstract.html#toc-properties">Properties</a></li>
-                                                            <li><a href="classes/chillerlan-OAuthTest-Storage-StorageTestAbstract.html#toc-methods">Methods</a></li>
+                                        <li><a href="classes/chillerlan-OAuthTest-Storage-FileStorageTest.html#toc-constants">Constants</a></li>
+                                                            <li><a href="classes/chillerlan-OAuthTest-Storage-FileStorageTest.html#toc-properties">Properties</a></li>
+                                                            <li><a href="classes/chillerlan-OAuthTest-Storage-FileStorageTest.html#toc-methods">Methods</a></li>
                                     </ul>
             </li>
                             <li class="phpdocumentor-on-this-page-section__title">Constants</li>
                 <li>
                     <ul class="phpdocumentor-list -clean">
                                                     <li><a href="classes/chillerlan-OAuthTest-Storage-StorageTestAbstract.html#constant_ENCRYPTION_KEY">ENCRYPTION_KEY</a></li>
+                                                    <li><a href="classes/chillerlan-OAuthTest-Storage-FileStorageTest.html#constant_STORAGE_PATH">STORAGE_PATH</a></li>
                                             </ul>
                 </li>
             
                             <li class="phpdocumentor-on-this-page-section__title">Properties</li>
                 <li>
                     <ul class="phpdocumentor-list -clean">
-                                                    <li><a href="classes/chillerlan-OAuthTest-Storage-StorageTestAbstract.html#property_providerName">$providerName<a href="classes/chillerlan-OAuthTest-Storage-StorageTestAbstract.html"></li>
-                                                    <li><a href="classes/chillerlan-OAuthTest-Storage-StorageTestAbstract.html#property_storage">$storage<a href="classes/chillerlan-OAuthTest-Storage-StorageTestAbstract.html"></li>
-                                                    <li><a href="classes/chillerlan-OAuthTest-Storage-StorageTestAbstract.html#property_token">$token<a href="classes/chillerlan-OAuthTest-Storage-StorageTestAbstract.html"></li>
+                                                    <li><a href="classes/chillerlan-OAuthTest-Storage-StorageTestAbstract.html#property_providerName">$providerName<a href="classes/chillerlan-OAuthTest-Storage-FileStorageTest.html"></li>
+                                                    <li><a href="classes/chillerlan-OAuthTest-Storage-StorageTestAbstract.html#property_storage">$storage<a href="classes/chillerlan-OAuthTest-Storage-FileStorageTest.html"></li>
+                                                    <li><a href="classes/chillerlan-OAuthTest-Storage-StorageTestAbstract.html#property_token">$token<a href="classes/chillerlan-OAuthTest-Storage-FileStorageTest.html"></li>
                                             </ul>
                 </li>
             
@@ -999,15 +1143,18 @@
                                             <li><a href="classes/chillerlan-OAuthTest-Storage-StorageTestAbstract.html#method_testClearAllAccessTokens">testClearAllAccessTokens()</a></li>
                                             <li><a href="classes/chillerlan-OAuthTest-Storage-StorageTestAbstract.html#method_testClearAllCSRFStates">testClearAllCSRFStates()</a></li>
                                             <li><a href="classes/chillerlan-OAuthTest-Storage-StorageTestAbstract.html#method_testCSRFState">testCSRFState()</a></li>
+                                            <li><a href="classes/chillerlan-OAuthTest-Storage-FileStorageTest.html#method_testEmptyStoragePathException">testEmptyStoragePathException()</a></li>
+                                            <li><a href="classes/chillerlan-OAuthTest-Storage-FileStorageTest.html#method_testGetFilePath">testGetFilePath()</a></li>
                                             <li><a href="classes/chillerlan-OAuthTest-Storage-StorageTestAbstract.html#method_testGetProviderNameEmptyNameException">testGetProviderNameEmptyNameException()</a></li>
+                                            <li><a href="classes/chillerlan-OAuthTest-Storage-FileStorageTest.html#method_testInvalidUserException">testInvalidUserException()</a></li>
                                             <li><a href="classes/chillerlan-OAuthTest-Storage-StorageTestAbstract.html#method_testNoEncryptionKeyException">testNoEncryptionKeyException()</a></li>
                                             <li><a href="classes/chillerlan-OAuthTest-Storage-StorageTestAbstract.html#method_testRetrieveAccessTokenNotFoundException">testRetrieveAccessTokenNotFoundException()</a></li>
                                             <li><a href="classes/chillerlan-OAuthTest-Storage-StorageTestAbstract.html#method_testRetrieveCSRFStateNotFoundException">testRetrieveCSRFStateNotFoundException()</a></li>
                                             <li><a href="classes/chillerlan-OAuthTest-Storage-StorageTestAbstract.html#method_testStoreWithExistingToken">testStoreWithExistingToken()</a></li>
                                             <li><a href="classes/chillerlan-OAuthTest-Storage-StorageTestAbstract.html#method_testTAccessToken">testTAccessToken()</a></li>
                                             <li><a href="classes/chillerlan-OAuthTest-Storage-StorageTestAbstract.html#method_testToStorage">testToStorage()</a></li>
-                                            <li><a href="classes/chillerlan-OAuthTest-Storage-StorageTestAbstract.html#method_initOptions">initOptions()</a></li>
-                                            <li><a href="classes/chillerlan-OAuthTest-Storage-StorageTestAbstract.html#method_initStorage">initStorage()</a></li>
+                                            <li><a href="classes/chillerlan-OAuthTest-Storage-FileStorageTest.html#method_initOptions">initOptions()</a></li>
+                                            <li><a href="classes/chillerlan-OAuthTest-Storage-FileStorageTest.html#method_initStorage">initStorage()</a></li>
                                             <li><a href="classes/chillerlan-OAuthTest-Storage-StorageTestAbstract.html#method_setUp">setUp()</a></li>
                                     </ul>
             </li>
@@ -1028,7 +1175,7 @@
     </section>
 </section>
         </div>
-        <a href="classes/chillerlan-OAuthTest-Storage-StorageTestAbstract.html#top" class="phpdocumentor-back-to-top"><i class="fas fa-chevron-circle-up"></i></a>
+        <a href="classes/chillerlan-OAuthTest-Storage-FileStorageTest.html#top" class="phpdocumentor-back-to-top"><i class="fas fa-chevron-circle-up"></i></a>
 
     </main>
 

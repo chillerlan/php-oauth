@@ -24,7 +24,7 @@ use const DIRECTORY_SEPARATOR;
  * Implements a memory storage adapter.
  *
  * Please note that the storage root directory needs permissions 0777 or `is_writable()` will fail.
- * Subfolders created by this class will have permissions set to 0644.
+ * Subfolders created by this class will have permissions set to 0755.
  *
  * @see \is_writable()
  * @see \chillerlan\OAuth\OAuthOptions::$fileStoragePath
@@ -187,7 +187,7 @@ class FileStorage extends OAuthStorageAbstract{
 		$path = $this->getFilepath($key, $provider);
 		$dir  = dirname($path);
 
-		if(!is_dir($dir) && !mkdir($dir, 0o644, true)){
+		if(!is_dir($dir) && !mkdir($dir, 0o755, true)){
 			throw new OAuthStorageException(sprintf('could not create directory "%s"', $dir)); // @codeCoverageIgnore
 		}
 

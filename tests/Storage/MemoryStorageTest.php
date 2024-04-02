@@ -11,12 +11,13 @@ declare(strict_types=1);
 
 namespace chillerlan\OAuthTest\Storage;
 
+use chillerlan\OAuth\OAuthOptions;
 use chillerlan\OAuth\Storage\{MemoryStorage, OAuthStorageInterface};
 
 final class MemoryStorageTest extends StorageTestAbstract{
 
-	protected function initStorage():OAuthStorageInterface{
-		return new MemoryStorage;
+	protected function initStorage(OAuthOptions $options):OAuthStorageInterface{
+		return new MemoryStorage($options);
 	}
 
 }

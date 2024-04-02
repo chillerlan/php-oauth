@@ -16,17 +16,27 @@ use chillerlan\OAuth\Storage\{OAuthStorageInterface, SessionStorage};
 
 final class SessionStorageTest extends StorageTestAbstract{
 
-	protected function initStorage():OAuthStorageInterface{
-		return new SessionStorage(new OAuthOptions(['sessionStart' => true]));
+	protected function initStorage(OAuthOptions $options):OAuthStorageInterface{
+		return new SessionStorage($options);
+	}
+
+	protected function initOptions():OAuthOptions{
+		$options = new OAuthOptions;
+
+		$options->sessionStart    = true;
+		$options->sessionStateVar = 'session_test';
+
+		return $options;
 	}
 
 	public function testStoreStateWithNonExistentArray():void{
-		$options = new OAuthOptions;
+		$options = $this->initOptions();
+
 		unset($_SESSION[$options->sessionStateVar]);
 
-		$this::assertFalse($this->storage->hasCSRFState($this->tsn));
-		$this->storage->storeCSRFState('foobar', $this->tsn);
-		$this::assertTrue($this->storage->hasCSRFState($this->tsn));
+		$this::assertFalse($this->storage->hasCSRFState($this->providerName));
+		$this->storage->storeCSRFState('foobar', $this->providerName);
+		$this::assertTrue($this->storage->hasCSRFState($this->providerName));
 	}
 
 }

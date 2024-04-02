@@ -11,6 +11,10 @@ declare(strict_types=1);
 
 namespace chillerlan\OAuth;
 
+use chillerlan\OAuth\Storage\OAuthStorageException;
+use function is_dir, is_writable, realpath, sprintf, strlen, trim;
+use const SODIUM_CRYPTO_SECRETBOX_KEYBYTES;
+
 /**
  * The settings for the OAuth provider
  */
@@ -30,6 +34,21 @@ trait OAuthOptionsTrait{
 	 * The (main) callback URL associated with your application
 	 */
 	protected string $callbackURL = '';
+
+	/**
+	 * Whether to use encryption for the file storage
+	 *
+	 * @see \chillerlan\OAuth\Storage\FileStorage
+	 */
+	protected bool $useStorageEncryption = false;
+
+	/**
+	 * The encryption key to use
+	 *
+	 * @see \sodium_crypto_secretbox_keygen()
+	 * @see \chillerlan\OAuth\Storage\FileStorage
+	 */
+	protected string $storageEncryptionKey = '';
 
 	/**
 	 * Whether to automatically refresh access tokens (OAuth2)
@@ -71,5 +90,37 @@ trait OAuthOptionsTrait{
 	 * @see \chillerlan\OAuth\Storage\SessionStorage
 	 */
 	protected string $sessionStateVar = 'chillerlan-oauth-state';
+
+	/**
+	 * The file storage root path
+	 *
+	 * @see \chillerlan\OAuth\Storage\FileStorage
+	 */
+	protected string $fileStoragePath = '';
+
+	/**
+	 * sets an encryption key
+	 */
+	protected function set_storageEncryptionKey(string $storageEncryptionKey):void{
+
+		if(strlen($storageEncryptionKey) !== SODIUM_CRYPTO_SECRETBOX_KEYBYTES){
+			throw new OAuthStorageException('invalid encryption key');
+		}
+
+		$this->storageEncryptionKey = $storageEncryptionKey;
+	}
+
+	/**
+	 * sets and verifies the file storage path
+	 */
+	protected function set_fileStoragePath(string $fileStoragePath):void{
+		$path = realpath(trim($fileStoragePath));
+
+		if($path === false || !is_dir($path) || !is_writable($path)){
+			throw new OAuthStorageException(sprintf('invalid storage path "%s"', $fileStoragePath));
+		}
+
+		$this->fileStoragePath = $path;
+	}
 
 }

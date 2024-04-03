@@ -13,7 +13,7 @@ namespace chillerlan\OAuthTest\Storage;
 
 use chillerlan\OAuth\OAuthOptions;
 use chillerlan\OAuth\Core\AccessToken;
-use chillerlan\OAuth\Storage\{OAuthStorageException, OAuthStorageInterface};
+use chillerlan\OAuth\Storage\{OAuthStorageException, OAuthStorageInterface, TokenNotFoundException};
 use PHPUnit\Framework\TestCase;
 use ReflectionMethod;
 use function array_merge;
@@ -115,8 +115,7 @@ abstract class StorageTestAbstract extends TestCase{
 	}
 
 	public function testRetrieveAccessTokenNotFoundException():void{
-		$this->expectException(OAuthStorageException::class);
-		$this->expectExceptionMessage('token not found');
+		$this->expectException(TokenNotFoundException::class);
 
 		$this->storage->getAccessToken('LOLNOPE');
 	}

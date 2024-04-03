@@ -56,11 +56,6 @@ class BigCartel extends OAuth2Provider implements CSRFToken, TokenInvalidate{
 	 * @inheritDoc
 	 */
 	public function invalidateAccessToken(AccessToken|null $token = null):bool{
-
-		if($token === null && !$this->storage->hasAccessToken($this->name)){
-			throw new ProviderException('no token given');
-		}
-
 		$tokenToInvalidate = ($token ?? $this->storage->getAccessToken($this->name));
 
 		$auth = sodium_bin2base64(sprintf('%s:%s', $this->options->key, $this->options->secret), SODIUM_BASE64_VARIANT_ORIGINAL);

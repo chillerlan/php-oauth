@@ -39,7 +39,9 @@ interface OAuthStorageInterface{
 	/**
 	 * Retrieves an AccessToken for the given $provider
 	 *
-	 * @throws \chillerlan\OAuth\Storage\OAuthStorageException
+	 * This method *must* throw a TokenNotFoundException if a token is not found
+	 *
+	 * @throws \chillerlan\OAuth\Storage\TokenNotFoundException
 	 */
 	public function getAccessToken(string $provider):AccessToken;
 

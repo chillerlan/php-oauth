@@ -211,10 +211,7 @@ abstract class OAuth2Provider extends OAuthProvider implements OAuth2Interface{
 	 * @inheritDoc
 	 */
 	public function getRequestAuthorization(RequestInterface $request, AccessToken|null $token = null):RequestInterface{
-
-		if($token === null){
-			$token = $this->storage->getAccessToken($this->name);
-		}
+		$token ??= $this->storage->getAccessToken($this->name);
 
 		if($token->isExpired()){
 
@@ -310,11 +307,8 @@ abstract class OAuth2Provider extends OAuthProvider implements OAuth2Interface{
 			throw new ProviderException('token refresh not supported');
 		}
 
-		if($token === null){
-			$token = $this->storage->getAccessToken($this->name);
-		}
-
-		$refreshToken = $token->refreshToken;
+		$token        ??= $this->storage->getAccessToken($this->name);
+		$refreshToken   = $token->refreshToken;
 
 		if(empty($refreshToken)){
 			$msg = 'no refresh token available, token expired [%s]';

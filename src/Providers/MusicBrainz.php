@@ -110,11 +110,6 @@ class MusicBrainz extends OAuth2Provider implements CSRFToken, TokenInvalidate, 
 	 * @inheritDoc
 	 */
 	public function invalidateAccessToken(AccessToken|null $token = null):bool{
-
-		if($token === null && !$this->storage->hasAccessToken($this->name)){
-			throw new ProviderException('no token given');
-		}
-
 		$tokenToInvalidate = ($token ?? $this->storage->getAccessToken($this->name));
 
 		$request = $this->requestFactory

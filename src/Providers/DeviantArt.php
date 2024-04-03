@@ -90,10 +90,6 @@ class DeviantArt extends OAuth2Provider implements ClientCredentials, CSRFToken,
 			;
 		}
 
-		if(!$this->storage->hasAccessToken($this->name)){
-			throw new ProviderException('no token given');
-		}
-
 		$request  = $this->requestFactory->createRequest('POST', $this->revokeURL);
 		$response = $this->http->sendRequest($this->getRequestAuthorization($request));
 

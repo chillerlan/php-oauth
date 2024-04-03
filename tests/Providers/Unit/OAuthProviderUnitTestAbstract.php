@@ -15,6 +15,7 @@ use chillerlan\OAuth\Core\AccessToken;
 use chillerlan\OAuth\Core\OAuthInterface;
 use chillerlan\OAuth\Core\TokenInvalidate;
 use chillerlan\OAuth\Providers\ProviderException;
+use chillerlan\OAuth\Storage\TokenNotFoundException;
 use chillerlan\OAuthTest\Providers\ProviderUnitTestAbstract;
 use PHPUnit\Framework\Attributes\DataProvider;
 
@@ -173,8 +174,7 @@ abstract class OAuthProviderUnitTestAbstract extends ProviderUnitTestAbstract{
 			$this::markTestSkipped('TokenInvalidate N/A');
 		}
 
-		$this->expectException(ProviderException::class);
-		$this->expectExceptionMessage('no token given');
+		$this->expectException(TokenNotFoundException::class);
 
 		$this->provider->invalidateAccessToken();
 	}

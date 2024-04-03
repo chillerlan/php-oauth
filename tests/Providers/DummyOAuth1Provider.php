@@ -34,9 +34,11 @@ final class DummyOAuth1Provider extends OAuth1Provider implements TokenInvalidat
 	 */
 	public function invalidateAccessToken(AccessToken $token = null):bool{
 
-		if($token === null && !$this->storage->hasAccessToken($this->name)){
-			throw new ProviderException('no token given');
+		if($token === null){
+			$tokenToInvalidate = $this->storage->getAccessToken($this->name);
 		}
+
+		// ... prepare request with body etc
 
 		$response = $this->request($this->revokeURL);
 

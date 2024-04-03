@@ -80,7 +80,7 @@ class FileStorage extends OAuthStorageAbstract{
 		$tokenData = $this->loadFile($this::KEY_TOKEN, $provider);
 
 		if($tokenData === null){
-			throw new OAuthStorageException('token not found');
+			throw new TokenNotFoundException;
 		}
 
 		return $this->fromStorage($tokenData);

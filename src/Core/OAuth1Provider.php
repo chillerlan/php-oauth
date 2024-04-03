@@ -206,10 +206,7 @@ abstract class OAuth1Provider extends OAuthProvider implements OAuth1Interface{
 	 * @inheritDoc
 	 */
 	public function getRequestAuthorization(RequestInterface $request, AccessToken|null $token = null):RequestInterface{
-
-		if($token === null){
-			$token = $this->storage->getAccessToken($this->name);
-		}
+		$token ??= $this->storage->getAccessToken($this->name);
 
 		if($token->isExpired()){
 			throw new InvalidAccessTokenException;

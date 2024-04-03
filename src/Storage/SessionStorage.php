@@ -85,7 +85,7 @@ class SessionStorage extends OAuthStorageAbstract{
 			return $this->fromStorage($_SESSION[$this->tokenVar][$this->getProviderName($provider)]);
 		}
 
-		throw new OAuthStorageException('token not found');
+		throw new TokenNotFoundException;
 	}
 
 	/**

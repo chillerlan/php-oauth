@@ -49,7 +49,7 @@ class MemoryStorage extends OAuthStorageAbstract{
 			return $this->tokens[$this->getProviderName($provider)];
 		}
 
-		throw new OAuthStorageException('token not found');
+		throw new TokenNotFoundException;
 	}
 
 	/**

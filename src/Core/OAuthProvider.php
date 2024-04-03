@@ -22,7 +22,7 @@ use Psr\Http\Message\{
 	StreamFactoryInterface, StreamInterface, UriFactoryInterface
 };
 use Psr\Log\{LoggerInterface, NullLogger};
-use ReflectionClass;
+use ReflectionClass, UnhandledMatchError;
 use function array_merge, array_shift, explode, implode, in_array, is_array, is_string,
 	json_encode, ltrim, random_bytes, rtrim, sodium_bin2hex, sprintf, str_contains,
 	str_starts_with, strip_tags, strtolower;
@@ -301,11 +301,7 @@ abstract class OAuthProvider implements OAuthInterface{
 		}
 
 		if($body !== null){
-			$body    = $this->getRequestBody($body, $request);
-			$request = $request
-				->withBody($body)
-				->withHeader('Content-length', (string)$body->getSize())
-			;
+			$request = $this->setRequestBody($body, $request);
 		}
 
 		if($protocolVersion !== null){
@@ -314,7 +310,7 @@ abstract class OAuthProvider implements OAuthInterface{
 
 		$response = $this->sendRequest($request);
 
-		// we're throwing here immideately on unauthorized/forbidden
+		// we're gonna throw here immideately on unauthorized/forbidden
 		if(in_array($response->getStatusCode(), [401, 403], true)){
 			throw new UnauthorizedAccessException;
 		}
@@ -323,36 +319,38 @@ abstract class OAuthProvider implements OAuthInterface{
 	}
 
 	/**
-	 * Prepares the request body
+	 * Prepares the request body and sets it in the given RequestInterface, along with a Content-Length header
 	 *
 	 * @throws \chillerlan\OAuth\Providers\ProviderException
 	 */
-	final protected function getRequestBody(StreamInterface|array|string $body, RequestInterface $request):StreamInterface{
+	final protected function setRequestBody(StreamInterface|array|string $body, RequestInterface $request):RequestInterface{
 
-		if($body instanceof StreamInterface){
-			return $body;
-		}
-
-		if(is_string($body)){
-			// we don't check if the given string matches the content type - this is the implementor's responsibility
-			return $this->streamFactory->createStream($body);
-		}
-
+		// convert the array to a string according to the Content-Type header
 		if(is_array($body)){
 			$body        = $this->cleanBodyParams($body);
 			$contentType = strtolower($request->getHeaderLine('content-type'));
 
-			if($contentType === 'application/x-www-form-urlencoded'){
-				return $this->streamFactory->createStream(QueryUtil::build($body, PHP_QUERY_RFC1738));
+			try{
+				$body = match($contentType){
+					'application/x-www-form-urlencoded'            => QueryUtil::build($body, PHP_QUERY_RFC1738),
+					'application/json', 'application/vnd.api+json' => json_encode($body),
+				};
 			}
-
-			if(in_array($contentType, ['application/json', 'application/vnd.api+json'])){
-				return $this->streamFactory->createStream(json_encode($body));
+			catch(UnhandledMatchError){
+				throw new ProviderException('invalid content-type for the given array body');
 			}
 
 		}
 
-		throw new ProviderException('invalid body/content-type');
+		// we don't check if the given string matches the content type - this is the implementor's responsibility
+		if(!$body instanceof StreamInterface){
+			$body = $this->streamFactory->createStream($body);
+		}
+
+		return $request
+			->withHeader('Content-length', (string)$body->getSize())
+			->withBody($body)
+		;
 	}
 
 	/**

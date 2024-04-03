@@ -48,21 +48,23 @@ abstract class OAuthProviderUnitTestAbstract extends ProviderUnitTestAbstract{
 
 	public function testGetRequestBodyWithStreaminterface():void{
 		$body    = $this->streamFactory->createStream('test');
-		$request = $this->requestFactory->createRequest('GET', ''); // unused in this case
+		$request = $this->requestFactory->createRequest('GET', '');
+		$request = $this->invokeReflectionMethod('setRequestBody', [$body, $request]);
 
 		// simply returns the stream untouched
-		$this::assertSame($body, $this->invokeReflectionMethod('getRequestBody', [$body, $request]));
+		$this::assertSame($body, $request->getBody());
 	}
 
 	public function testGetRequestBodyWithString():void{
 		$body    = 'test';
-		$request = $this->requestFactory->createRequest('GET', ''); // unused in this case
+		$request = $this->requestFactory->createRequest('GET', '');
+		$request = $this->invokeReflectionMethod('setRequestBody', [$body, $request]);
 
 		// creates a stream interface with the sting as content
 		/** @var \Psr\Http\Message\StreamInterface $stream */
-		$stream = $this->invokeReflectionMethod('getRequestBody', [$body, $request]);
+		$stream = $this->invokeReflectionMethod('setRequestBody', [$body, $request]);
 
-		$this::assertSame($body, $stream->getContents());
+		$this::assertSame($body, $request->getBody()->getContents());
 	}
 
 	public static function arrayBodyProvider():array{
@@ -86,19 +88,19 @@ abstract class OAuthProviderUnitTestAbstract extends ProviderUnitTestAbstract{
 		;
 
 		/** @var \Psr\Http\Message\StreamInterface $stream */
-		$stream = $this->invokeReflectionMethod('getRequestBody', [$body, $request]);
+		$request = $this->invokeReflectionMethod('setRequestBody', [$body, $request]);
 
-		$this::assertSame($expected, $stream->getContents());
+		$this::assertSame($expected, $request->getBody()->getContents());
 	}
 
 
-	public function testGetRequestBodyInvalidContentTypeException():void{
+	public function testGetRequestBodyInvalidContentTypeForArrayException():void{
 		$this->expectException(ProviderException::class);
-		$this->expectExceptionMessage('invalid body/content-type');
+		$this->expectExceptionMessage('invalid content-type for the given array body');
 
 		$request = $this->requestFactory->createRequest('GET', '');
 
-		$this->invokeReflectionMethod('getRequestBody', [['what'], $request]);
+		$this->invokeReflectionMethod('setRequestBody', [['what'], $request]);
 	}
 
 

@@ -95,10 +95,10 @@ class NPROne extends OAuth2Provider implements CSRFToken, TokenRefresh, TokenInv
 			'token_type_hint' => 'access_token',
 		];
 
-		$body = $this->getRequestBody($bodyParams, $request);
+		$request = $this->setRequestBody($bodyParams, $request);
 
 		// bypass the request authoritation
-		$response = $this->http->sendRequest($request->withBody($body));
+		$response = $this->http->sendRequest($request);
 
 		if($response->getStatusCode() === 200){
 			$this->storage->clearAccessToken($this->name);

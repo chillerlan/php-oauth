@@ -41,7 +41,10 @@ final class DummyOAuth1Provider extends OAuth1Provider implements TokenInvalidat
 		$response = $this->request($this->revokeURL);
 
 		if($response->getStatusCode() === 200){
-			$this->storage->clearAccessToken($this->name);
+
+			if($token === null){
+				$this->storage->clearAccessToken($this->name);
+			}
 
 			return true;
 		}

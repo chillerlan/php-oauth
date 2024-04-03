@@ -65,25 +65,26 @@ class Stripe extends OAuth2Provider implements CSRFToken, TokenRefresh, TokenInv
 			throw new ProviderException('no token given');
 		}
 
-		$token ??= $this->storage->getAccessToken($this->name);
+		$tokenToInvalidate = ($token ?? $this->storage->getAccessToken($this->name));
+
+		$bodyParams = [
+			'client_id'      => $this->options->key,
+			'stripe_user_id' => ($tokenToInvalidate->extraParams['stripe_user_id'] ?? ''),
+		];
 
 		$request = $this->requestFactory
 			->createRequest('POST', $this->revokeURL)
 			->withHeader('Content-Type', 'application/x-www-form-urlencoded')
 		;
 
-		$bodyParams = [
-			'client_id'      => $this->options->key,
-			'stripe_user_id' => ($token->extraParams['stripe_user_id'] ?? ''),
-		];
-
-		$request = $this->setRequestBody($bodyParams, $request);
-
-		// bypass the request authoritation
+		$request  = $this->setRequestBody($bodyParams, $request);
 		$response = $this->http->sendRequest($request);
 
 		if($response->getStatusCode() === 200){
-			$this->storage->clearAccessToken($this->name);
+
+			if($token === null){
+				$this->storage->clearAccessToken($this->name);
+			}
 
 			return true;
 		}

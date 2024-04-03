@@ -115,7 +115,7 @@ class MusicBrainz extends OAuth2Provider implements CSRFToken, TokenInvalidate, 
 			throw new ProviderException('no token given');
 		}
 
-		$token ??= $this->storage->getAccessToken($this->name);
+		$tokenToInvalidate = ($token ?? $this->storage->getAccessToken($this->name));
 
 		$request = $this->requestFactory
 			->createRequest('POST', $this->revokeURL)
@@ -125,16 +125,17 @@ class MusicBrainz extends OAuth2Provider implements CSRFToken, TokenInvalidate, 
 		$bodyParams = [
 			'client_id'     => $this->options->key,
 			'client_secret' => $this->options->secret,
-			'token'         => $token->accessToken,
+			'token'         => $tokenToInvalidate->accessToken,
 		];
 
-		$request = $this->setRequestBody($bodyParams, $request);
-
-		// bypass the request authoritation
+		$request  = $this->setRequestBody($bodyParams, $request);
 		$response = $this->http->sendRequest($request);
 
 		if($response->getStatusCode() === 200){
-			$this->storage->clearAccessToken($this->name);
+
+			if($token === null){
+				$this->storage->clearAccessToken($this->name);
+			}
 
 			return true;
 		}

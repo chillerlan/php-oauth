@@ -41,8 +41,15 @@ final class VimeoTest extends OAuth2ProviderUnitTestAbstract{
 		$this::assertFalse($this->storage->hasAccessToken($this->provider->name));
 
 		// token via param
+
+		// the current token shouldn't be deleted
+		$token2 = clone $token;
+		$token2->accessToken = 'still here';
+
+		$this->provider->storeAccessToken($token2);
+
 		$this::assertTrue($this->provider->invalidateAccessToken($token));
-		$this::assertFalse($this->storage->hasAccessToken($this->provider->name));
+		$this::assertSame('still here', $this->provider->getStorage()->getAccessToken($this->provider->name)->accessToken);
 	}
 
 }

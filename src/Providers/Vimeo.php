@@ -14,6 +14,7 @@ declare(strict_types=1);
 namespace chillerlan\OAuth\Providers;
 
 use chillerlan\OAuth\Core\{AccessToken, AuthenticatedUser, ClientCredentials, CSRFToken, OAuth2Provider, TokenInvalidate};
+use chillerlan\OAuth\Storage\MemoryStorage;
 use function str_replace;
 
 /**
@@ -93,20 +94,22 @@ class Vimeo extends OAuth2Provider implements ClientCredentials, CSRFToken, Toke
 		if($token !== null){
 			// to revoke a token different from the one of the currently authenticated user,
 			// we're going to clone the provider and feed the other token for the invalidate request
-			$provider = clone $this;
-			$provider->storeAccessToken($token);
-			$response = $provider->request(path: $this->revokeURL, method: 'DELETE');
+			return (clone $this)
+				->setStorage(new MemoryStorage)
+				->storeAccessToken($token)
+				->invalidateAccessToken()
+			;
 		}
-		else{
 
-			if(!$this->storage->hasAccessToken($this->name)){
-				throw new ProviderException('no token given');
-			}
-
-			$response = $this->request(path: $this->revokeURL, method: 'DELETE');
+		if(!$this->storage->hasAccessToken($this->name)){
+			throw new ProviderException('no token given');
 		}
+
+		$request  = $this->requestFactory->createRequest('DELETE', $this->revokeURL);
+		$response = $this->http->sendRequest($this->getRequestAuthorization($request));
 
 		if($response->getStatusCode() === 204){
+			// delete the token from storage
 			$this->storage->clearAccessToken($this->name);
 
 			return true;

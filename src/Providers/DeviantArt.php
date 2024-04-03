@@ -17,6 +17,7 @@ use chillerlan\HTTP\Utils\MessageUtil;
 use chillerlan\OAuth\Core\{
 	AccessToken, AuthenticatedUser, ClientCredentials, CSRFToken, OAuth2Provider, TokenInvalidate, TokenRefresh
 };
+use chillerlan\OAuth\Storage\MemoryStorage;
 use Throwable;
 use function sprintf;
 
@@ -82,18 +83,19 @@ class DeviantArt extends OAuth2Provider implements ClientCredentials, CSRFToken,
 		if($token !== null){
 			// to revoke a token different from the one of the currently authenticated user,
 			// we're going to clone the provider and feed the other token for the invalidate request
-			$provider = clone $this;
-			$provider->storeAccessToken($token);
-			$response = $provider->request(path: $this->revokeURL, method: 'POST');
+			return (clone $this)
+				->setStorage(new MemoryStorage)
+				->storeAccessToken($token)
+				->invalidateAccessToken()
+			;
 		}
-		else{
 
-			if(!$this->storage->hasAccessToken($this->name)){
-				throw new ProviderException('no token given');
-			}
-
-			$response = $this->request(path: $this->revokeURL, method: 'POST');
+		if(!$this->storage->hasAccessToken($this->name)){
+			throw new ProviderException('no token given');
 		}
+
+		$request  = $this->requestFactory->createRequest('POST', $this->revokeURL);
+		$response = $this->http->sendRequest($this->getRequestAuthorization($request));
 
 		try{
 			$json = MessageUtil::decodeJSON($response);
@@ -103,6 +105,7 @@ class DeviantArt extends OAuth2Provider implements ClientCredentials, CSRFToken,
 		}
 
 		if($response->getStatusCode() === 200 && !empty($json->success)){
+			// delete the token from storage
 			$this->storage->clearAccessToken($this->name);
 
 			return true;

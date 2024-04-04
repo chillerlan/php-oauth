@@ -19,7 +19,7 @@ $name = $provider->name;
 
 // step 2: redirect to the provider's login screen
 if(isset($_GET['login']) && $_GET['login'] === $name){
-	header('Location: '.$provider->getAuthURL($PARAMS));
+	header('Location: '.$provider->getAuthorizationURL($PARAMS));
 }
 // step 3: receive the access token
 elseif(isset($_GET['oauth_token']) && isset($_GET['oauth_verifier'])){

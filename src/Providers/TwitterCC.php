@@ -38,7 +38,7 @@ class TwitterCC extends OAuth2Provider implements ClientCredentials{
 	 * @inheritdoc
 	 * @throws \chillerlan\OAuth\Providers\ProviderException
 	 */
-	public function getAuthURL(array|null $params = null, array|null $scopes = null):UriInterface{
+	public function getAuthorizationURL(array|null $params = null, array|null $scopes = null):UriInterface{
 		throw new ProviderException($this::AUTH_ERRMSG);
 	}
 

@@ -46,13 +46,13 @@ abstract class OAuth2Provider extends OAuthProvider implements OAuth2Interface{
 	 *
 	 * @param string[]|null $scopes
 	 */
-	public function getAuthURL(array|null $params = null, array|null $scopes = null):UriInterface{
+	public function getAuthorizationURL(array|null $params = null, array|null $scopes = null):UriInterface{
 		$params ??= [];
 
 		// this should NEVER be set in the given params
 		unset($params['client_secret']);
 
-		$queryParams = $this->getAuthURLRequestParams($params, ($scopes ?? $this::DEFAULT_SCOPES));
+		$queryParams = $this->getAuthorizationURLRequestParams($params, ($scopes ?? $this::DEFAULT_SCOPES));
 
 		if($this instanceof CSRFToken){
 			$queryParams = $this->setState($queryParams);
@@ -64,7 +64,7 @@ abstract class OAuth2Provider extends OAuthProvider implements OAuth2Interface{
 	/**
 	 * prepares the query parameters for the auth URL
 	 */
-	protected function getAuthURLRequestParams(array $params, array $scopes):array{
+	protected function getAuthorizationURLRequestParams(array $params, array $scopes):array{
 
 		$params = array_merge($params, [
 			'client_id'     => $this->options->key,

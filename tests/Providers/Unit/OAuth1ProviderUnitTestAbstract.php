@@ -45,7 +45,7 @@ abstract class OAuth1ProviderUnitTestAbstract extends OAuthProviderUnitTestAbstr
 	public function testGetAuthURL():void{
 		$this->setMockResponse($this->streamFactory->createStream($this::TEST_REQUEST_TOKEN));
 
-		$uri = $this->provider->getAuthURL();
+		$uri = $this->provider->getAuthorizationURL();
 
 		$this::assertSame('oauth_token=hdk48Djdsa', $uri->getQuery());
 	}

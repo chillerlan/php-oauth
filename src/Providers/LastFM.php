@@ -53,7 +53,7 @@ class LastFM extends OAuthProvider implements UserInfo{
 	/**
 	 * @inheritdoc
 	 */
-	public function getAuthURL(array|null $params = null, array|null $scopes = null):UriInterface{
+	public function getAuthorizationURL(array|null $params = null, array|null $scopes = null):UriInterface{
 
 		$params = array_merge(($params ?? []), [
 			'api_key' => $this->options->key,

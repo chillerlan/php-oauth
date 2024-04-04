@@ -55,7 +55,7 @@ class Deezer extends OAuth2Provider implements CSRFToken, UserInfo{
 	 *
 	 * sure, you *can* use different parameter names than the standard ones... https://xkcd.com/927/
 	 */
-	protected function getAuthURLRequestParams(array $params, array $scopes):array{
+	protected function getAuthorizationURLRequestParams(array $params, array $scopes):array{
 		return array_merge($params, [
 			'app_id'       => $this->options->key,
 			'redirect_uri' => $this->options->callbackURL,

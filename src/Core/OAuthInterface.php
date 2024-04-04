@@ -57,7 +57,7 @@ interface OAuthInterface extends ClientInterface{
 	 * @see https://datatracker.ietf.org/doc/html/rfc5849#section-2.2
 	 * @see https://datatracker.ietf.org/doc/html/rfc6749#section-4.1.1
 	 */
-	public function getAuthURL(array|null $params = null, array|null $scopes = null):UriInterface;
+	public function getAuthorizationURL(array|null $params = null, array|null $scopes = null):UriInterface;
 
 	/**
 	 * Authorizes the $request with the credentials from the given $token

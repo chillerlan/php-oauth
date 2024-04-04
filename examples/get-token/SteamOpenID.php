@@ -25,7 +25,7 @@ $name     = $provider->name;
 
 // step 2: redirect to the provider's login screen
 if(isset($_GET['login']) && $_GET['login'] === $name){
-	header('Location: '.$provider->getAuthURL());
+	header('Location: '.$provider->getAuthorizationURL());
 }
 // step 3: receive the access token
 elseif(isset($_GET['openid_sig']) && isset($_GET['openid_signed'])){

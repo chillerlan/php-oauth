@@ -27,7 +27,7 @@ $name     = $provider->name;
 
 // step 2: redirect to the provider's login screen
 if(isset($_GET['login']) && $_GET['login'] === $name){
-	header('Location: '.$provider->getAuthURL($PARAMS, $SCOPES));
+	header('Location: '.$provider->getAuthorizationURL($PARAMS, $SCOPES));
 }
 // step 3: receive the access token
 elseif(isset($_GET['code']) && isset($_GET['state'])){

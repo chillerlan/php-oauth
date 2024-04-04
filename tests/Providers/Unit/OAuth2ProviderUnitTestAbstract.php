@@ -42,7 +42,7 @@ abstract class OAuth2ProviderUnitTestAbstract extends OAuthProviderUnitTestAbstr
 	 */
 
 	public function testGetAuthURL():void{
-		$uri    = $this->provider->getAuthURL();
+		$uri    = $this->provider->getAuthorizationURL();
 		$params = QueryUtil::parse($uri->getQuery());
 
 		$this::assertSame($this->getReflectionProperty('authURL'), (string)$uri->withQuery(''));
@@ -61,7 +61,7 @@ abstract class OAuth2ProviderUnitTestAbstract extends OAuthProviderUnitTestAbstr
 		$extraparams = ['response_type' => 'whatever', 'foo' => 'bar'];
 		$scopes      = ['scope1', 'scope2', 'scope3'];
 
-		$params = $this->invokeReflectionMethod('getAuthURLRequestParams', [$extraparams, $scopes]);
+		$params = $this->invokeReflectionMethod('getAuthorizationURLRequestParams', [$extraparams, $scopes]);
 
 		$this::assertSame($this->options->key, $params['client_id']);
 		$this::assertSame($this->options->callbackURL, $params['redirect_uri']);

@@ -36,7 +36,7 @@ class SteamOpenID extends OAuthProvider{
 	 *
 	 * @inheritDoc
 	 */
-	public function getAuthURL(array|null $params = null, array|null $scopes = null):UriInterface{
+	public function getAuthorizationURL(array|null $params = null, array|null $scopes = null):UriInterface{
 
 		$params = [
 			'openid.ns'         => 'http://specs.openid.net/auth/2.0',

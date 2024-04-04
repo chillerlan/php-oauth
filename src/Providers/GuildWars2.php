@@ -88,7 +88,7 @@ class GuildWars2 extends OAuth2Provider implements UserInfo{
 	 * @inheritdoc
 	 * @throws \chillerlan\OAuth\Providers\ProviderException
 	 */
-	public function getAuthURL(array|null $params = null, array|null $scopes = null):UriInterface{
+	public function getAuthorizationURL(array|null $params = null, array|null $scopes = null):UriInterface{
 		throw new ProviderException('GuildWars2 does not support authentication anymore.');
 	}
 

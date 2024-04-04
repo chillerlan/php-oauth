@@ -68,7 +68,7 @@ final class DeezerTest extends OAuth2ProviderUnitTestAbstract{
 		$params = ['response_type' => 'whatever', 'foo' => 'bar']; // response_type shall be overwritten
 		$scopes = ['scope1', 'scope2', 'scope3'];
 
-		$uri    = $this->provider->getAuthURL($params, $scopes);
+		$uri    = $this->provider->getAuthorizationURL($params, $scopes);
 		$params = QueryUtil::parse($uri->getQuery());
 
 		$this::assertSame($this->getReflectionProperty('authURL'), (string)$uri->withQuery(''));
@@ -85,7 +85,7 @@ final class DeezerTest extends OAuth2ProviderUnitTestAbstract{
 		$params = ['foo' => 'bar']; // response_type shall be overwritten
 		$scopes = ['scope1', 'scope2', 'scope3'];
 
-		$queryparams = $this->invokeReflectionMethod('getAuthURLRequestParams', [$params, $scopes]);
+		$queryparams = $this->invokeReflectionMethod('getAuthorizationURLRequestParams', [$params, $scopes]);
 
 		$this::assertArrayHasKey('app_id', $queryparams);
 		$this::assertArrayHasKey('redirect_uri', $queryparams);

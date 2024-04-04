@@ -15,6 +15,7 @@ namespace chillerlan\OAuth\Providers;
 
 use chillerlan\OAuth\Core\{AccessToken, AuthenticatedUser, CSRFToken, OAuth2Provider, TokenRefresh, UserInfo};
 use chillerlan\OAuth\OAuthException;
+use Psr\Http\Message\UriInterface;
 use function array_merge;
 
 /**
@@ -41,27 +42,33 @@ class Mastodon extends OAuth2Provider implements CSRFToken, TokenRefresh, UserIn
 	protected string|null $userRevokeURL    = 'https://mastodon.social/oauth/authorized_applications';
 	protected string|null $apiDocs          = 'https://docs.joinmastodon.org/api/';
 	protected string|null $applicationURL   = 'https://mastodon.social/settings/applications';
-	protected string      $instance         = 'mastodon.social';
+	protected string      $instance         = 'https://mastodon.social';
 
 	/**
 	 * set the internal URLs for the given Mastodon instance
 	 *
 	 * @throws \chillerlan\OAuth\OAuthException
 	 */
-	public function setInstance(string $instance):static{
-		$instance = $this->uriFactory->createUri($instance)->withPath('')->withQuery('')->withFragment('');
+	public function setInstance(UriInterface|string $instance):static{
+
+		if(!$instance instanceof UriInterface){
+			$instance = $this->uriFactory->createUri($instance);
+		}
 
 		if($instance->getHost() === ''){
 			throw new OAuthException('invalid instance URL');
 		}
 
-		// @todo: check if host exists/responds
-		$this->instance       = (string)$instance;
-		$this->apiURL         = (string)$instance->withPath('/api');
-		$this->authorizationURL        = (string)$instance->withPath('/oauth/authorize');
-		$this->accessTokenURL = (string)$instance->withPath('/oauth/token');
-		$this->userRevokeURL  = (string)$instance->withPath('/oauth/authorized_applications');
-		$this->applicationURL = (string)$instance->withPath('/settings/applications');
+		// enforce https and remove unnecessary parts
+		$instance = $instance->withScheme('https')->withQuery('')->withFragment('');
+
+		// @todo: check if host exists/responds?
+		$this->instance         = (string)$instance->withPath('');
+		$this->apiURL           = (string)$instance->withPath('/api');
+		$this->authorizationURL = (string)$instance->withPath('/oauth/authorize');
+		$this->accessTokenURL   = (string)$instance->withPath('/oauth/token');
+		$this->userRevokeURL    = (string)$instance->withPath('/oauth/authorized_applications');
+		$this->applicationURL   = (string)$instance->withPath('/settings/applications');
 
 		return $this;
 	}

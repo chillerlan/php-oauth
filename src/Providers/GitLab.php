@@ -11,14 +11,14 @@ declare(strict_types=1);
 
 namespace chillerlan\OAuth\Providers;
 
-use chillerlan\OAuth\Core\{AuthenticatedUser, ClientCredentials, CSRFToken, OAuth2Provider, TokenRefresh};
+use chillerlan\OAuth\Core\{AuthenticatedUser, ClientCredentials, CSRFToken, OAuth2Provider, TokenRefresh, UserInfo};
 
 /**
  * GitLab OAuth2
  *
  * @see https://docs.gitlab.com/ee/api/oauth2.html
  */
-class GitLab extends OAuth2Provider implements ClientCredentials, CSRFToken, TokenRefresh{
+class GitLab extends OAuth2Provider implements ClientCredentials, CSRFToken, TokenRefresh, UserInfo{
 
 	protected string      $authURL        = 'https://gitlab.com/oauth/authorize';
 	protected string      $accessTokenURL = 'https://gitlab.com/oauth/token';

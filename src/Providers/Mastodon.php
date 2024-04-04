@@ -13,7 +13,7 @@ declare(strict_types=1);
 
 namespace chillerlan\OAuth\Providers;
 
-use chillerlan\OAuth\Core\{AccessToken, AuthenticatedUser, CSRFToken, OAuth2Provider, TokenRefresh};
+use chillerlan\OAuth\Core\{AccessToken, AuthenticatedUser, CSRFToken, OAuth2Provider, TokenRefresh, UserInfo};
 use chillerlan\OAuth\OAuthException;
 use function array_merge;
 
@@ -23,7 +23,7 @@ use function array_merge;
  * @see https://docs.joinmastodon.org/client/intro/
  * @see https://docs.joinmastodon.org/methods/apps/oauth/
  */
-class Mastodon extends OAuth2Provider implements CSRFToken, TokenRefresh{
+class Mastodon extends OAuth2Provider implements CSRFToken, TokenRefresh, UserInfo{
 
 	public const SCOPE_READ   = 'read';
 	public const SCOPE_WRITE  = 'write';

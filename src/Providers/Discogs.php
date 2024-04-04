@@ -11,8 +11,7 @@ declare(strict_types=1);
 
 namespace chillerlan\OAuth\Providers;
 
-use chillerlan\OAuth\Core\AuthenticatedUser;
-use chillerlan\OAuth\Core\OAuth1Provider;
+use chillerlan\OAuth\Core\{AuthenticatedUser, OAuth1Provider, UserInfo};
 use function sprintf;
 
 /**
@@ -21,7 +20,7 @@ use function sprintf;
  * @see https://www.discogs.com/developers/
  * @see https://www.discogs.com/developers/#page:authentication,header:authentication-oauth-flow
  */
-class Discogs extends OAuth1Provider{
+class Discogs extends OAuth1Provider implements UserInfo{
 
 	public const HEADERS_API = [
 		'Accept' => 'application/vnd.discogs.v2.discogs+json',

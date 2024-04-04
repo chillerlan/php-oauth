@@ -11,7 +11,7 @@ declare(strict_types=1);
 
 namespace chillerlan\OAuth\Providers;
 
-use chillerlan\OAuth\Core\{AuthenticatedUser, OAuth2Provider};
+use chillerlan\OAuth\Core\{AuthenticatedUser, OAuth2Provider, UserInfo};
 
 /**
  * Mixcloud OAuth2
@@ -20,7 +20,7 @@ use chillerlan\OAuth\Core\{AuthenticatedUser, OAuth2Provider};
  *
  * @see https://www.mixcloud.com/developers/
  */
-class Mixcloud extends OAuth2Provider{
+class Mixcloud extends OAuth2Provider implements UserInfo{
 
 	public const AUTH_METHOD = self::AUTH_METHOD_QUERY;
 

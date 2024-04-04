@@ -11,7 +11,7 @@ declare(strict_types=1);
 
 namespace chillerlan\OAuth\Providers;
 
-use chillerlan\OAuth\Core\{AuthenticatedUser, OAuth2Provider};
+use chillerlan\OAuth\Core\{AuthenticatedUser, OAuth2Provider, UserInfo};
 use Psr\Http\Message\{ResponseInterface, StreamInterface};
 use function array_merge, sprintf;
 
@@ -20,7 +20,7 @@ use function array_merge, sprintf;
  *
  * @see https://location.foursquare.com/developer/reference/personalization-apis-authentication
  */
-class Foursquare extends OAuth2Provider{
+class Foursquare extends OAuth2Provider implements UserInfo{
 
 	public const AUTH_METHOD       = self::AUTH_METHOD_QUERY;
 	public const AUTH_PREFIX_QUERY = 'oauth_token';

@@ -11,7 +11,7 @@ declare(strict_types=1);
 
 namespace chillerlan\OAuth\Providers;
 
-use chillerlan\OAuth\Core\{AuthenticatedUser, OAuth1Provider};
+use chillerlan\OAuth\Core\{AuthenticatedUser, OAuth1Provider, UserInfo};
 use function implode;
 
 /**
@@ -19,7 +19,7 @@ use function implode;
  *
  * @see https://www.opencaching.de/okapi/
  */
-class OpenCaching extends OAuth1Provider{
+class OpenCaching extends OAuth1Provider implements UserInfo{
 
 	protected const USER_FIELDS = [
 		'uuid', 'username', 'profile_url', 'internal_id', 'date_registered',

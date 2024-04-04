@@ -13,14 +13,14 @@ declare(strict_types=1);
 
 namespace chillerlan\OAuth\Providers;
 
-use chillerlan\OAuth\Core\{AuthenticatedUser, CSRFToken, OAuth2Provider};
+use chillerlan\OAuth\Core\{AuthenticatedUser, CSRFToken, OAuth2Provider, UserInfo};
 
 /**
  * WordPress OAuth2
  *
  * @see https://developer.wordpress.com/docs/oauth2/
  */
-class WordPress extends OAuth2Provider implements CSRFToken{
+class WordPress extends OAuth2Provider implements CSRFToken, UserInfo{
 
 	public const SCOPE_AUTH   = 'auth';
 	public const SCOPE_GLOBAL = 'global';

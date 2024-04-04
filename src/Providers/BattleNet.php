@@ -11,7 +11,7 @@ declare(strict_types=1);
 
 namespace chillerlan\OAuth\Providers;
 
-use chillerlan\OAuth\Core\{AuthenticatedUser, ClientCredentials, CSRFToken, OAuth2Provider};
+use chillerlan\OAuth\Core\{AuthenticatedUser, ClientCredentials, CSRFToken, OAuth2Provider, UserInfo};
 use function in_array, ltrim, rtrim, sprintf, strtolower;
 
 /**
@@ -19,7 +19,7 @@ use function in_array, ltrim, rtrim, sprintf, strtolower;
  *
  * @see https://develop.battle.net/documentation/guides/using-oauth
  */
-class BattleNet extends OAuth2Provider implements ClientCredentials, CSRFToken{
+class BattleNet extends OAuth2Provider implements ClientCredentials, CSRFToken, UserInfo{
 
 	public const SCOPE_OPENID      = 'openid';
 	public const SCOPE_PROFILE_D3  = 'd3.profile';

@@ -247,16 +247,6 @@ abstract class OAuthProvider implements OAuthInterface{
 	}
 
 	/**
-	 * @inheritDoc
-	 * @codeCoverageIgnore
-	 *
-	 * @see \chillerlan\OAuth\Core\OAuthProvider::getMeResponseData()
-	 */
-	public function me():AuthenticatedUser|null{
-		return null;
-	}
-
-	/**
 	 * @implements \chillerlan\OAuth\Core\TokenInvalidate
 	 * @codeCoverageIgnore
 	 * @throws \chillerlan\OAuth\Providers\ProviderException
@@ -410,7 +400,7 @@ abstract class OAuthProvider implements OAuthInterface{
 	/**
 	 * fetches the provider's "me" endpoint and returns the JSON data as an array
 	 *
-	 * @see \chillerlan\OAuth\Core\OAuthInterface::me()
+	 * @see \chillerlan\OAuth\Core\UserInfo::me()
 	 * @see \chillerlan\OAuth\Core\OAuthProvider::sendMeRequest()
 	 * @see \chillerlan\OAuth\Core\OAuthProvider::handleMeResponseError()
 	 * @throws \chillerlan\OAuth\Providers\ProviderException

@@ -14,7 +14,7 @@ declare(strict_types=1);
 namespace chillerlan\OAuth\Providers;
 
 use chillerlan\HTTP\Utils\MessageUtil;
-use chillerlan\OAuth\Core\{AccessToken, AuthenticatedUser, OAuth1Provider};
+use chillerlan\OAuth\Core\{AccessToken, AuthenticatedUser, OAuth1Provider, UserInfo};
 use function sprintf;
 
 /**
@@ -22,7 +22,7 @@ use function sprintf;
  *
  * @see https://www.tumblr.com/docs/en/api/v2#oauth1-authorization
  */
-class Tumblr extends OAuth1Provider{
+class Tumblr extends OAuth1Provider implements UserInfo{
 
 	protected string      $requestTokenURL = 'https://www.tumblr.com/oauth/request_token';
 	protected string      $authURL         = 'https://www.tumblr.com/oauth/authorize';

@@ -13,7 +13,7 @@ declare(strict_types=1);
 
 namespace chillerlan\OAuth\Providers;
 
-use chillerlan\OAuth\Core\{AuthenticatedUser, CSRFToken, InvalidAccessTokenException, OAuth2Provider};
+use chillerlan\OAuth\Core\{AuthenticatedUser, CSRFToken, InvalidAccessTokenException, OAuth2Provider, UserInfo};
 use function sprintf;
 
 /**
@@ -23,7 +23,7 @@ use function sprintf;
  * @see https://api.slack.com/authentication/sign-in-with-slack
  * @see https://api.slack.com/authentication/token-types
  */
-class Slack extends OAuth2Provider implements CSRFToken{
+class Slack extends OAuth2Provider implements CSRFToken, UserInfo{
 
 	// bot token
 	public const SCOPE_BOT                 = 'bot';

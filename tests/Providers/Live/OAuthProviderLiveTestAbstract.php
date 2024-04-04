@@ -11,7 +11,7 @@ declare(strict_types=1);
 
 namespace chillerlan\OAuthTest\Providers\Live;
 
-use chillerlan\OAuth\Core\{AccessToken, AuthenticatedUser};
+use chillerlan\OAuth\Core\{AccessToken, AuthenticatedUser, UserInfo};
 use chillerlan\OAuth\Core\UnauthorizedAccessException;
 use chillerlan\OAuth\Storage\MemoryStorage;
 use chillerlan\OAuthTest\Providers\ProviderLiveTestAbstract;
@@ -34,29 +34,29 @@ abstract class OAuthProviderLiveTestAbstract extends ProviderLiveTestAbstract{
 
 	public function testMe():void{
 
-			try{
-				$user = $this->provider->me();
-			}
-			catch(UnauthorizedAccessException){
-				$this::markTestSkipped('unauthorized: token is missing or expired');
+		if(!$this->provider instanceof UserInfo){
+			$this::markTestSkipped('AuthenticatedUser N/A');
+		}
+
+		try{
+			$user = $this->provider->me();
+		}
+		catch(UnauthorizedAccessException){
+			$this::markTestSkipped('unauthorized: token is missing or expired');
+		}
+
+		try{
+			$this->assertMeResponse($user);
+		}
+		catch(ExpectationFailedException $e){
+			$var = $this->getEnvPrefix().'_TESTUSER';
+
+			if($this->dotEnv->get($var) === null){
+				throw new InvalidArgumentException(sprintf('variable "%s" is not set in "%s"', $var, constant('TEST_ENVFILE')));
 			}
 
-			if($user === null){
-				$this::markTestSkipped('AuthenticatedUser N/A');
-			}
-
-			try{
-				$this->assertMeResponse($user);
-			}
-			catch(ExpectationFailedException $e){
-				$var = $this->getEnvPrefix().'_TESTUSER';
-
-				if($this->dotEnv->get($var) === null){
-					throw new InvalidArgumentException(sprintf('variable "%s" is not set in "%s"', $var, constant('TEST_ENVFILE')));
-				}
-
-				throw $e;
-			}
+			throw $e;
+		}
 	}
 
 	protected function assertUnauthorizedAccessException(AccessToken $token):void{

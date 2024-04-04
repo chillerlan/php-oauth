@@ -14,7 +14,7 @@ declare(strict_types=1);
 namespace chillerlan\OAuth\Providers;
 
 use chillerlan\HTTP\Utils\QueryUtil;
-use chillerlan\OAuth\Core\{AuthenticatedUser, ClientCredentials, CSRFToken, OAuth2Provider, TokenRefresh};
+use chillerlan\OAuth\Core\{AuthenticatedUser, ClientCredentials, CSRFToken, OAuth2Provider, TokenRefresh, UserInfo};
 use Psr\Http\Message\ResponseInterface;
 use function sodium_bin2base64, sprintf;
 use const PHP_QUERY_RFC1738, SODIUM_BASE64_VARIANT_ORIGINAL;
@@ -24,7 +24,7 @@ use const PHP_QUERY_RFC1738, SODIUM_BASE64_VARIANT_ORIGINAL;
  *
  * @see https://developer.paypal.com/api/rest/
  */
-class PayPal extends OAuth2Provider implements ClientCredentials, CSRFToken, TokenRefresh{
+class PayPal extends OAuth2Provider implements ClientCredentials, CSRFToken, TokenRefresh, UserInfo{
 
 	public const SCOPE_BASIC_AUTH     = 'openid';
 	public const SCOPE_FULL_NAME      = 'profile';

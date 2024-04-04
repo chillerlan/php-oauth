@@ -14,7 +14,7 @@ declare(strict_types=1);
 namespace chillerlan\OAuth\Providers;
 
 use chillerlan\OAuth\Core\{
-	AccessToken, AuthenticatedUser, CSRFToken, OAuth2Provider, TokenInvalidate, TokenRefresh
+	AccessToken, AuthenticatedUser, CSRFToken, OAuth2Provider, TokenInvalidate, TokenRefresh, UserInfo
 };
 use Psr\Http\Message\{ResponseInterface, StreamInterface};
 use function in_array, strtoupper;
@@ -25,7 +25,7 @@ use function in_array, strtoupper;
  * @see https://musicbrainz.org/doc/Development
  * @see https://musicbrainz.org/doc/Development/OAuth2
  */
-class MusicBrainz extends OAuth2Provider implements CSRFToken, TokenInvalidate, TokenRefresh{
+class MusicBrainz extends OAuth2Provider implements CSRFToken, TokenInvalidate, TokenRefresh, UserInfo{
 
 	public const SCOPE_PROFILE        = 'profile';
 	public const SCOPE_EMAIL          = 'email';

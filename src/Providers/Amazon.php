@@ -13,7 +13,7 @@ declare(strict_types=1);
 
 namespace chillerlan\OAuth\Providers;
 
-use chillerlan\OAuth\Core\{AuthenticatedUser, CSRFToken, OAuth2Provider, TokenRefresh};
+use chillerlan\OAuth\Core\{AuthenticatedUser, CSRFToken, OAuth2Provider, TokenRefresh, UserInfo};
 
 /**
  * Login with Amazon for Websites (OAuth2)
@@ -21,7 +21,7 @@ use chillerlan\OAuth\Core\{AuthenticatedUser, CSRFToken, OAuth2Provider, TokenRe
  * @see https://developer.amazon.com/docs/login-with-amazon/web-docs.html
  * @see https://developer.amazon.com/docs/login-with-amazon/conceptual-overview.html
  */
-class Amazon extends OAuth2Provider implements CSRFToken, TokenRefresh{
+class Amazon extends OAuth2Provider implements CSRFToken, TokenRefresh, UserInfo{
 
 	public const SCOPE_PROFILE         = 'profile';
 	public const SCOPE_PROFILE_USER_ID = 'profile:user_id';

@@ -14,7 +14,7 @@ declare(strict_types=1);
 namespace chillerlan\OAuth\Providers;
 
 use chillerlan\HTTP\Utils\{MessageUtil, QueryUtil};
-use chillerlan\OAuth\Core\{AccessToken, AuthenticatedUser, OAuthProvider, UnauthorizedAccessException};
+use chillerlan\OAuth\Core\{AccessToken, AuthenticatedUser, OAuthProvider, UnauthorizedAccessException, UserInfo};
 use Psr\Http\Message\{RequestInterface, ResponseInterface, StreamInterface, UriInterface};
 use Throwable;
 use function array_merge, in_array, is_array, ksort, md5, sprintf;
@@ -25,7 +25,7 @@ use const PHP_QUERY_RFC1738;
  *
  * @see https://www.last.fm/api/authentication
  */
-class LastFM extends OAuthProvider{
+class LastFM extends OAuthProvider implements UserInfo{
 
 	public const PERIOD_OVERALL = 'overall';
 	public const PERIOD_7DAY    = '7day';

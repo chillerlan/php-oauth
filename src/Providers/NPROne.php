@@ -13,7 +13,7 @@ declare(strict_types=1);
 
 namespace chillerlan\OAuth\Providers;
 
-use chillerlan\OAuth\Core\{AccessToken, AuthenticatedUser, CSRFToken, OAuth2Provider, TokenInvalidate, TokenRefresh};
+use chillerlan\OAuth\Core\{AccessToken, AuthenticatedUser, CSRFToken, OAuth2Provider, TokenInvalidate, TokenRefresh, UserInfo};
 use function in_array, sprintf, strtolower;
 
 /**
@@ -22,7 +22,7 @@ use function in_array, sprintf, strtolower;
  * @see https://dev.npr.org
  * @see https://github.com/npr/npr-one-backend-proxy-php
  */
-class NPROne extends OAuth2Provider implements CSRFToken, TokenRefresh, TokenInvalidate{
+class NPROne extends OAuth2Provider implements CSRFToken, TokenRefresh, TokenInvalidate, UserInfo{
 
 	public const SCOPE_IDENTITY_READONLY  = 'identity.readonly';
 	public const SCOPE_IDENTITY_WRITE     = 'identity.write';

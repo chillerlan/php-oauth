@@ -15,7 +15,7 @@ namespace chillerlan\OAuth\Providers;
 
 use chillerlan\HTTP\Utils\MessageUtil;
 use chillerlan\OAuth\Core\{
-	AccessToken, AuthenticatedUser, ClientCredentials, CSRFToken, OAuth2Provider, TokenInvalidate, TokenRefresh
+	AccessToken, AuthenticatedUser, ClientCredentials, CSRFToken, OAuth2Provider, TokenInvalidate, TokenRefresh, UserInfo
 };
 use chillerlan\OAuth\Storage\MemoryStorage;
 use Throwable;
@@ -26,7 +26,7 @@ use function sprintf;
  *
  * @see https://www.deviantart.com/developers/
  */
-class DeviantArt extends OAuth2Provider implements ClientCredentials, CSRFToken, TokenInvalidate, TokenRefresh{
+class DeviantArt extends OAuth2Provider implements ClientCredentials, CSRFToken, TokenInvalidate, TokenRefresh, UserInfo{
 
 	public const SCOPE_BASIC        = 'basic';
 	public const SCOPE_BROWSE       = 'browse';

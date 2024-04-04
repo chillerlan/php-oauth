@@ -14,7 +14,7 @@ declare(strict_types=1);
 namespace chillerlan\OAuth\Providers;
 
 use chillerlan\HTTP\Utils\{MessageUtil, QueryUtil};
-use chillerlan\OAuth\Core\{AccessToken, AuthenticatedUser, OAuth2Provider};
+use chillerlan\OAuth\Core\{AccessToken, AuthenticatedUser, OAuth2Provider, UserInfo};
 use Psr\Http\Message\UriInterface;
 use function implode, preg_match, str_starts_with, substr;
 
@@ -26,7 +26,7 @@ use function implode, preg_match, str_starts_with, substr;
  * @see https://api.guildwars2.com/v2
  * @see https://wiki.guildwars2.com/wiki/API:Main
  */
-class GuildWars2 extends OAuth2Provider{
+class GuildWars2 extends OAuth2Provider implements UserInfo{
 
 	public const SCOPE_ACCOUNT     = 'account';
 	public const SCOPE_INVENTORIES = 'inventories';

@@ -14,7 +14,7 @@ declare(strict_types=1);
 namespace chillerlan\OAuth\Providers;
 
 use chillerlan\HTTP\Utils\QueryUtil;
-use chillerlan\OAuth\Core\{AuthenticatedUser, InvalidAccessTokenException, OAuth1Provider};
+use chillerlan\OAuth\Core\{AuthenticatedUser, InvalidAccessTokenException, OAuth1Provider, UserInfo};
 use Psr\Http\Message\{ResponseInterface, StreamInterface};
 use function array_merge, sprintf;
 
@@ -24,7 +24,7 @@ use function array_merge, sprintf;
  * @see https://www.flickr.com/services/api/auth.oauth.html
  * @see https://www.flickr.com/services/api/
  */
-class Flickr extends OAuth1Provider{
+class Flickr extends OAuth1Provider implements UserInfo{
 
 	public const PERM_READ   = 'read';
 	public const PERM_WRITE  = 'write';

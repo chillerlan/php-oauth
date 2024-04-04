@@ -13,7 +13,7 @@ declare(strict_types=1);
 
 namespace chillerlan\OAuth\Providers;
 
-use chillerlan\OAuth\Core\{AuthenticatedUser, CSRFToken, OAuth2Provider, TokenRefresh};
+use chillerlan\OAuth\Core\{AuthenticatedUser, CSRFToken, OAuth2Provider, TokenRefresh, UserInfo};
 
 /**
  * GitHub OAuth2
@@ -22,7 +22,7 @@ use chillerlan\OAuth\Core\{AuthenticatedUser, CSRFToken, OAuth2Provider, TokenRe
  * @see https://docs.github.com/rest
  * @see https://docs.github.com/en/apps/creating-github-apps/authenticating-with-a-github-app/refreshing-user-access-tokens
  */
-class GitHub extends OAuth2Provider implements CSRFToken, TokenRefresh{
+class GitHub extends OAuth2Provider implements CSRFToken, TokenRefresh, UserInfo{
 
 	public const SCOPE_USER             = 'user';
 	public const SCOPE_USER_EMAIL       = 'user:email';

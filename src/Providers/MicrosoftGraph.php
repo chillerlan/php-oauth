@@ -11,14 +11,14 @@ declare(strict_types=1);
 
 namespace chillerlan\OAuth\Providers;
 
-use chillerlan\OAuth\Core\AuthenticatedUser;
+use chillerlan\OAuth\Core\{AuthenticatedUser, UserInfo};
 
 /**
  * Microsoft Graph OAuth2
  *
  * @see https://learn.microsoft.com/en-us/graph/permissions-reference
  */
-class MicrosoftGraph extends AzureActiveDirectory{
+class MicrosoftGraph extends AzureActiveDirectory implements UserInfo{
 
 	public const SCOPE_USER_READ          = 'User.Read';
 	public const SCOPE_USER_READBASIC_ALL = 'User.ReadBasic.All';

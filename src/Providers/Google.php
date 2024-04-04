@@ -13,7 +13,7 @@ declare(strict_types=1);
 
 namespace chillerlan\OAuth\Providers;
 
-use chillerlan\OAuth\Core\{AuthenticatedUser, CSRFToken, OAuth2Provider};
+use chillerlan\OAuth\Core\{AuthenticatedUser, CSRFToken, OAuth2Provider, UserInfo};
 
 /**
  * Google OAuth2
@@ -22,7 +22,7 @@ use chillerlan\OAuth\Core\{AuthenticatedUser, CSRFToken, OAuth2Provider};
  * @see https://developers.google.com/identity/protocols/oauth2/service-account
  * @see https://developers.google.com/oauthplayground/
  */
-class Google extends OAuth2Provider implements CSRFToken{
+class Google extends OAuth2Provider implements CSRFToken, UserInfo{
 
 	public const SCOPE_EMAIL            = 'email';
 	public const SCOPE_PROFILE          = 'profile';

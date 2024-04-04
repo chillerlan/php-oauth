@@ -120,10 +120,4 @@ interface OAuthInterface extends ClientInterface{
 	 */
 	public function setUriFactory(UriFactoryInterface $uriFactory):static;
 
-	/**
-	 * Returns information about the currently authenticated user (usually a /me or /user endpoint).
-	 * Returns `null` if no such information is available or if the method cannot be implemented.
-	 */
-	public function me():AuthenticatedUser|null;
-
 }

@@ -11,7 +11,7 @@ declare(strict_types=1);
 
 namespace chillerlan\OAuth\Providers;
 
-use chillerlan\OAuth\Core\{AuthenticatedUser, OAuth1Provider};
+use chillerlan\OAuth\Core\{AuthenticatedUser, OAuth1Provider, UserInfo};
 
 /**
  * OpenStreetmap OAuth1 (deprecated)
@@ -21,7 +21,7 @@ use chillerlan\OAuth\Core\{AuthenticatedUser, OAuth1Provider};
  *
  * @deprecated https://github.com/openstreetmap/operations/issues/867
  */
-class OpenStreetmap extends OAuth1Provider{
+class OpenStreetmap extends OAuth1Provider implements UserInfo{
 
 	protected string      $requestTokenURL = 'https://www.openstreetmap.org/oauth/request_token';
 	protected string      $authURL         = 'https://www.openstreetmap.org/oauth/authorize';

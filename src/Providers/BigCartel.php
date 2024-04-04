@@ -11,7 +11,7 @@ declare(strict_types=1);
 
 namespace chillerlan\OAuth\Providers;
 
-use chillerlan\OAuth\Core\{AccessToken, AuthenticatedUser, CSRFToken, OAuth2Provider, TokenInvalidate};
+use chillerlan\OAuth\Core\{AccessToken, AuthenticatedUser, CSRFToken, OAuth2Provider, TokenInvalidate, UserInfo};
 use function sodium_bin2base64, sprintf;
 use const SODIUM_BASE64_VARIANT_ORIGINAL;
 
@@ -21,7 +21,7 @@ use const SODIUM_BASE64_VARIANT_ORIGINAL;
  * @see https://developers.bigcartel.com/api/v1
  * @see https://bigcartel.wufoo.com/confirm/big-cartel-api-application/
  */
-class BigCartel extends OAuth2Provider implements CSRFToken, TokenInvalidate{
+class BigCartel extends OAuth2Provider implements CSRFToken, TokenInvalidate, UserInfo{
 
 	public const HEADERS_API = [
 		'Accept' => 'application/vnd.api+json',

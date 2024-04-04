@@ -11,7 +11,7 @@ declare(strict_types=1);
 
 namespace chillerlan\OAuth\Providers;
 
-use chillerlan\OAuth\Core\{AuthenticatedUser, CSRFToken, OAuth2Provider, TokenRefresh};
+use chillerlan\OAuth\Core\{AuthenticatedUser, CSRFToken, OAuth2Provider, TokenRefresh, UserInfo};
 use function sprintf;
 
 /**
@@ -24,7 +24,7 @@ use function sprintf;
  *
  * @see https://apidocs.imgur.com/
  */
-class Imgur extends OAuth2Provider implements CSRFToken, TokenRefresh{
+class Imgur extends OAuth2Provider implements CSRFToken, TokenRefresh, UserInfo{
 
 	protected string      $authURL        = 'https://api.imgur.com/oauth2/authorize';
 	protected string      $accessTokenURL = 'https://api.imgur.com/oauth2/token';

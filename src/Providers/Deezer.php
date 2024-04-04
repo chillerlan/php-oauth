@@ -14,7 +14,7 @@ declare(strict_types=1);
 namespace chillerlan\OAuth\Providers;
 
 use chillerlan\HTTP\Utils\{MessageUtil, QueryUtil};
-use chillerlan\OAuth\Core\{AuthenticatedUser, CSRFToken, InvalidAccessTokenException, OAuth2Provider};
+use chillerlan\OAuth\Core\{AuthenticatedUser, CSRFToken, InvalidAccessTokenException, OAuth2Provider, UserInfo};
 use Psr\Http\Message\ResponseInterface;
 use function array_merge, implode, trim;
 
@@ -23,7 +23,7 @@ use function array_merge, implode, trim;
  *
  * @see https://developers.deezer.com/api/oauth
  */
-class Deezer extends OAuth2Provider implements CSRFToken{
+class Deezer extends OAuth2Provider implements CSRFToken, UserInfo{
 
 	public const SCOPE_BASIC             = 'basic_access';
 	public const SCOPE_EMAIL             = 'email';

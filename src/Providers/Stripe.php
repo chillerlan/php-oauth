@@ -13,7 +13,7 @@ declare(strict_types=1);
 
 namespace chillerlan\OAuth\Providers;
 
-use chillerlan\OAuth\Core\{AccessToken, AuthenticatedUser, CSRFToken, OAuth2Provider, TokenInvalidate, TokenRefresh};
+use chillerlan\OAuth\Core\{AccessToken, AuthenticatedUser, CSRFToken, OAuth2Provider, TokenInvalidate, TokenRefresh, UserInfo};
 
 /**
  * Stripe OAuth2
@@ -24,7 +24,7 @@ use chillerlan\OAuth\Core\{AccessToken, AuthenticatedUser, CSRFToken, OAuth2Prov
  * @see https://stripe.com/docs/connect/standard-accounts
  * @see https://gist.github.com/amfeng/3507366
  */
-class Stripe extends OAuth2Provider implements CSRFToken, TokenRefresh, TokenInvalidate{
+class Stripe extends OAuth2Provider implements CSRFToken, TokenRefresh, TokenInvalidate, UserInfo{
 
 	public const SCOPE_READ_WRITE = 'read_write';
 	public const SCOPE_READ_ONLY  = 'read_only';

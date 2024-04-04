@@ -13,7 +13,7 @@ declare(strict_types=1);
 
 namespace chillerlan\OAuth\Providers;
 
-use chillerlan\OAuth\Core\{AuthenticatedUser, CSRFToken, OAuth2Provider, TokenRefresh};
+use chillerlan\OAuth\Core\{AuthenticatedUser, CSRFToken, OAuth2Provider, TokenRefresh, UserInfo};
 use function in_array;
 
 /**
@@ -23,7 +23,7 @@ use function in_array;
  * @see https://docs.patreon.com/#oauth
  * @see https://docs.patreon.com/#apiv2-oauth
  */
-class Patreon extends OAuth2Provider implements CSRFToken, TokenRefresh{
+class Patreon extends OAuth2Provider implements CSRFToken, TokenRefresh, UserInfo{
 
 	public const SCOPE_V1_USERS                     = 'users';
 	public const SCOPE_V1_PLEDGES_TO_ME             = 'pledges-to-me';

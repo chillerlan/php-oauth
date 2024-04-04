@@ -16,7 +16,7 @@ namespace chillerlan\OAuth\Providers;
 use chillerlan\HTTP\Utils\QueryUtil;
 use chillerlan\OAuth\Core\{
 	AccessToken, AuthenticatedUser, ClientCredentials, CSRFToken, InvalidAccessTokenException,
-	OAuth2Provider, TokenInvalidate, TokenRefresh
+	OAuth2Provider, TokenInvalidate, TokenRefresh, UserInfo
 };
 use Psr\Http\Message\{RequestInterface, ResponseInterface};
 use function implode, sprintf;
@@ -29,7 +29,7 @@ use const PHP_QUERY_RFC1738;
  * @see https://dev.twitch.tv/docs/authentication/
  * @see https://dev.twitch.tv/docs/authentication#oauth-client-credentials-flow-app-access-tokens
  */
-class Twitch extends OAuth2Provider implements ClientCredentials, CSRFToken, TokenInvalidate, TokenRefresh{
+class Twitch extends OAuth2Provider implements ClientCredentials, CSRFToken, TokenInvalidate, TokenRefresh, UserInfo{
 
 	public const SCOPE_ANALYTICS_READ_EXTENSIONS  = 'analytics:read:extensions';
 	public const SCOPE_ANALYTICS_READ_GAMES       = 'analytics:read:games';

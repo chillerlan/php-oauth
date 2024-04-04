@@ -11,7 +11,7 @@ declare(strict_types=1);
 
 namespace chillerlan\OAuth\Providers;
 
-use chillerlan\OAuth\Core\{AuthenticatedUser, OAuth1Provider};
+use chillerlan\OAuth\Core\{AuthenticatedUser, OAuth1Provider, UserInfo};
 use function sprintf, str_replace;
 
 /**
@@ -21,7 +21,7 @@ use function sprintf, str_replace;
  *
  * @see https://developer.twitter.com/en/docs/basics/authentication/overview/oauth
  */
-class Twitter extends OAuth1Provider{
+class Twitter extends OAuth1Provider implements UserInfo{
 
 	// choose your fighter
 	/** @see https://developer.twitter.com/en/docs/basics/authentication/api-reference/authorize */

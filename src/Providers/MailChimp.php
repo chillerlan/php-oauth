@@ -12,7 +12,7 @@ declare(strict_types=1);
 namespace chillerlan\OAuth\Providers;
 
 use chillerlan\HTTP\Utils\MessageUtil;
-use chillerlan\OAuth\Core\{AccessToken, AuthenticatedUser, CSRFToken, OAuth2Provider};
+use chillerlan\OAuth\Core\{AccessToken, AuthenticatedUser, CSRFToken, OAuth2Provider, UserInfo};
 use chillerlan\OAuth\OAuthException;
 use Psr\Http\Message\{ResponseInterface, StreamInterface};
 use function array_merge, sprintf;
@@ -23,7 +23,7 @@ use function array_merge, sprintf;
  * @see https://mailchimp.com/developer/
  * @see https://mailchimp.com/developer/marketing/guides/access-user-data-oauth-2/
  */
-class MailChimp extends OAuth2Provider implements CSRFToken{
+class MailChimp extends OAuth2Provider implements CSRFToken, UserInfo{
 
 	protected const API_BASE          = 'https://%s.api.mailchimp.com';
 	protected const METADATA_ENDPOINT = 'https://login.mailchimp.com/oauth2/metadata';

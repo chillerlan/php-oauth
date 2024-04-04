@@ -11,14 +11,14 @@ declare(strict_types=1);
 
 namespace chillerlan\OAuth\Providers;
 
-use chillerlan\OAuth\Core\{AuthenticatedUser, ClientCredentials, CSRFToken, OAuth2Provider, TokenRefresh};
+use chillerlan\OAuth\Core\{AuthenticatedUser, ClientCredentials, CSRFToken, OAuth2Provider, TokenRefresh, UserInfo};
 
 /**
  * Bitbucket OAuth2 (Atlassian)
  *
  * @see https://developer.atlassian.com/cloud/bitbucket/oauth-2/
  */
-class Bitbucket extends OAuth2Provider implements ClientCredentials, CSRFToken, TokenRefresh{
+class Bitbucket extends OAuth2Provider implements ClientCredentials, CSRFToken, TokenRefresh, UserInfo{
 
 	protected string      $authURL        = 'https://bitbucket.org/site/oauth2/authorize';
 	protected string      $accessTokenURL = 'https://bitbucket.org/site/oauth2/access_token';

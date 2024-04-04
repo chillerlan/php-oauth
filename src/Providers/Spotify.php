@@ -13,7 +13,7 @@ declare(strict_types=1);
 
 namespace chillerlan\OAuth\Providers;
 
-use chillerlan\OAuth\Core\{AuthenticatedUser, ClientCredentials, CSRFToken, OAuth2Provider, TokenRefresh};
+use chillerlan\OAuth\Core\{AuthenticatedUser, ClientCredentials, CSRFToken, OAuth2Provider, TokenRefresh, UserInfo};
 
 /**
  * Spotify OAuth2
@@ -22,7 +22,7 @@ use chillerlan\OAuth\Core\{AuthenticatedUser, ClientCredentials, CSRFToken, OAut
  * @see https://developer.spotify.com/documentation/web-api/tutorials/code-flow
  * @see https://developer.spotify.com/documentation/web-api/tutorials/client-credentials-flow
  */
-class Spotify extends OAuth2Provider implements ClientCredentials, CSRFToken, TokenRefresh{
+class Spotify extends OAuth2Provider implements ClientCredentials, CSRFToken, TokenRefresh, UserInfo{
 
 	/**
 	 * @see https://developer.spotify.com/documentation/web-api/concepts/scopes

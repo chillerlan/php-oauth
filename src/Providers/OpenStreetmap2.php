@@ -13,7 +13,7 @@ declare(strict_types=1);
 
 namespace chillerlan\OAuth\Providers;
 
-use chillerlan\OAuth\Core\{AuthenticatedUser, CSRFToken, OAuth2Provider};
+use chillerlan\OAuth\Core\{AuthenticatedUser, CSRFToken, OAuth2Provider, UserInfo};
 
 /**
  * OpenStreetmap OAuth2
@@ -22,7 +22,7 @@ use chillerlan\OAuth\Core\{AuthenticatedUser, CSRFToken, OAuth2Provider};
  * @see https://wiki.openstreetmap.org/wiki/OAuth
  * @see https://www.openstreetmap.org/.well-known/oauth-authorization-server
  */
-class OpenStreetmap2 extends OAuth2Provider implements CSRFToken{
+class OpenStreetmap2 extends OAuth2Provider implements CSRFToken, UserInfo{
 
 	public const SCOPE_READ_PREFS       = 'read_prefs';
 	public const SCOPE_WRITE_PREFS      = 'write_prefs';

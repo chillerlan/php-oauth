@@ -11,7 +11,7 @@ declare(strict_types=1);
 
 namespace chillerlan\OAuth\Providers;
 
-use chillerlan\OAuth\Core\{AuthenticatedUser, ClientCredentials, OAuth2Provider, TokenRefresh};
+use chillerlan\OAuth\Core\{AuthenticatedUser, ClientCredentials, OAuth2Provider, TokenRefresh, UserInfo};
 
 /**
  * SoundCloud OAuth2
@@ -20,7 +20,7 @@ use chillerlan\OAuth\Core\{AuthenticatedUser, ClientCredentials, OAuth2Provider,
  * @see https://developers.soundcloud.com/docs/api/guide#authentication
  * @see https://developers.soundcloud.com/blog/security-updates-api
  */
-class SoundCloud extends OAuth2Provider implements ClientCredentials, TokenRefresh{
+class SoundCloud extends OAuth2Provider implements ClientCredentials, TokenRefresh, UserInfo{
 
 	public const SCOPE_NONEXPIRING      = 'non-expiring';
 #	public const SCOPE_EMAIL            = 'email'; // ???

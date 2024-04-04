@@ -14,7 +14,7 @@ declare(strict_types=1);
 namespace chillerlan\OAuth\Providers;
 
 use chillerlan\OAuth\Core\{
-	AccessToken, AuthenticatedUser, ClientCredentials, CSRFToken, OAuth2Provider, TokenInvalidate, TokenRefresh
+	AccessToken, AuthenticatedUser, ClientCredentials, CSRFToken, OAuth2Provider, TokenInvalidate, TokenRefresh, UserInfo
 };
 use function sprintf;
 
@@ -23,7 +23,7 @@ use function sprintf;
  *
  * @see https://discord.com/developers/docs/topics/oauth2
  */
-class Discord extends OAuth2Provider implements ClientCredentials, CSRFToken, TokenRefresh, TokenInvalidate{
+class Discord extends OAuth2Provider implements ClientCredentials, CSRFToken, TokenInvalidate, TokenRefresh, UserInfo{
 
 	public const SCOPE_APPLICATIONS_COMMANDS                    = 'applications.commands';
 	public const SCOPE_APPLICATIONS_COMMANDS_UPDATE             = 'applications.commands.update';

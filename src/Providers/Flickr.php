@@ -30,13 +30,13 @@ class Flickr extends OAuth1Provider implements UserInfo{
 	public const PERM_WRITE  = 'write';
 	public const PERM_DELETE = 'delete';
 
-	protected string      $requestTokenURL = 'https://www.flickr.com/services/oauth/request_token';
-	protected string      $authURL         = 'https://www.flickr.com/services/oauth/authorize';
-	protected string      $accessTokenURL  = 'https://www.flickr.com/services/oauth/access_token';
-	protected string      $apiURL          = 'https://api.flickr.com/services/rest';
-	protected string|null $userRevokeURL   = 'https://www.flickr.com/services/auth/list.gne';
-	protected string|null $apiDocs         = 'https://www.flickr.com/services/api/';
-	protected string|null $applicationURL  = 'https://www.flickr.com/services/apps/create/';
+	protected string      $requestTokenURL  = 'https://www.flickr.com/services/oauth/request_token';
+	protected string      $authorizationURL = 'https://www.flickr.com/services/oauth/authorize';
+	protected string      $accessTokenURL   = 'https://www.flickr.com/services/oauth/access_token';
+	protected string      $apiURL           = 'https://api.flickr.com/services/rest';
+	protected string|null $userRevokeURL    = 'https://www.flickr.com/services/auth/list.gne';
+	protected string|null $apiDocs          = 'https://www.flickr.com/services/api/';
+	protected string|null $applicationURL   = 'https://www.flickr.com/services/apps/create/';
 
 	/**
 	 * @inheritDoc

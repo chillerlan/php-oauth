@@ -31,12 +31,12 @@ class SoundCloud extends OAuth2Provider implements ClientCredentials, TokenRefre
 
 	public const AUTH_PREFIX_HEADER = 'OAuth';
 
-	protected string      $authURL        = 'https://api.soundcloud.com/connect';
-	protected string      $accessTokenURL = 'https://api.soundcloud.com/oauth2/token';
-	protected string      $apiURL         = 'https://api.soundcloud.com';
-	protected string|null $userRevokeURL  = 'https://soundcloud.com/settings/connections';
-	protected string|null $apiDocs        = 'https://developers.soundcloud.com/';
-	protected string|null $applicationURL = 'https://soundcloud.com/you/apps';
+	protected string      $authorizationURL = 'https://api.soundcloud.com/connect';
+	protected string      $accessTokenURL   = 'https://api.soundcloud.com/oauth2/token';
+	protected string      $apiURL           = 'https://api.soundcloud.com';
+	protected string|null $userRevokeURL    = 'https://soundcloud.com/settings/connections';
+	protected string|null $apiDocs          = 'https://developers.soundcloud.com/';
+	protected string|null $applicationURL   = 'https://soundcloud.com/you/apps';
 
 	/**
 	 * @inheritDoc

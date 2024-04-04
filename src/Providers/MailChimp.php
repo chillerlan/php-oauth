@@ -28,12 +28,12 @@ class MailChimp extends OAuth2Provider implements CSRFToken, UserInfo{
 	protected const API_BASE          = 'https://%s.api.mailchimp.com';
 	protected const METADATA_ENDPOINT = 'https://login.mailchimp.com/oauth2/metadata';
 
-	protected string      $authURL        = 'https://login.mailchimp.com/oauth2/authorize';
-	protected string      $accessTokenURL = 'https://login.mailchimp.com/oauth2/token';
-	protected string|null $apiDocs        = 'https://mailchimp.com/developer/';
-	protected string|null $applicationURL = 'https://admin.mailchimp.com/account/oauth2/';
+	protected string      $authorizationURL = 'https://login.mailchimp.com/oauth2/authorize';
+	protected string      $accessTokenURL   = 'https://login.mailchimp.com/oauth2/token';
+	protected string|null $apiDocs          = 'https://mailchimp.com/developer/';
+	protected string|null $applicationURL   = 'https://admin.mailchimp.com/account/oauth2/';
 	// set to empty so that we don't run into "uninitialized" errors in mock tests, as the datacenter is in the token
-	protected string      $apiURL         = '';
+	protected string      $apiURL           = '';
 
 	/**
 	 * @throws \chillerlan\OAuth\OAuthException

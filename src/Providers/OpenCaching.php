@@ -27,13 +27,13 @@ class OpenCaching extends OAuth1Provider implements UserInfo{
 		'rcmds_left', 'rcmd_founds_needed', 'home_location',
 	];
 
-	protected string      $requestTokenURL = 'https://www.opencaching.de/okapi/services/oauth/request_token';
-	protected string      $authURL         = 'https://www.opencaching.de/okapi/services/oauth/authorize';
-	protected string      $accessTokenURL  = 'https://www.opencaching.de/okapi/services/oauth/access_token';
-	protected string      $apiURL          = 'https://www.opencaching.de/okapi/services';
-	protected string|null $userRevokeURL   = 'https://www.opencaching.de/okapi/apps/';
-	protected string|null $apiDocs         = 'https://www.opencaching.de/okapi/';
-	protected string|null $applicationURL  = 'https://www.opencaching.de/okapi/signup.html';
+	protected string      $requestTokenURL  = 'https://www.opencaching.de/okapi/services/oauth/request_token';
+	protected string      $authorizationURL = 'https://www.opencaching.de/okapi/services/oauth/authorize';
+	protected string      $accessTokenURL   = 'https://www.opencaching.de/okapi/services/oauth/access_token';
+	protected string      $apiURL           = 'https://www.opencaching.de/okapi/services';
+	protected string|null $userRevokeURL    = 'https://www.opencaching.de/okapi/apps/';
+	protected string|null $apiDocs          = 'https://www.opencaching.de/okapi/';
+	protected string|null $applicationURL   = 'https://www.opencaching.de/okapi/signup.html';
 
 	/**
 	 * @inheritDoc

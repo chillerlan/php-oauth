@@ -34,12 +34,12 @@ class Google extends OAuth2Provider implements CSRFToken, UserInfo{
 		self::SCOPE_PROFILE,
 	];
 
-	protected string      $authURL        = 'https://accounts.google.com/o/oauth2/auth';
-	protected string      $accessTokenURL = 'https://accounts.google.com/o/oauth2/token';
-	protected string      $apiURL         = 'https://www.googleapis.com';
-	protected string|null $userRevokeURL  = 'https://myaccount.google.com/connections';
-	protected string|null $apiDocs        = 'https://developers.google.com/oauthplayground/';
-	protected string|null $applicationURL = 'https://console.developers.google.com/apis/credentials';
+	protected string      $authorizationURL = 'https://accounts.google.com/o/oauth2/auth';
+	protected string      $accessTokenURL   = 'https://accounts.google.com/o/oauth2/token';
+	protected string      $apiURL           = 'https://www.googleapis.com';
+	protected string|null $userRevokeURL    = 'https://myaccount.google.com/connections';
+	protected string|null $apiDocs          = 'https://developers.google.com/oauthplayground/';
+	protected string|null $applicationURL   = 'https://console.developers.google.com/apis/credentials';
 
 	/**
 	 * @inheritDoc

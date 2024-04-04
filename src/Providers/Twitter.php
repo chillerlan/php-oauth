@@ -25,9 +25,9 @@ class Twitter extends OAuth1Provider implements UserInfo{
 
 	// choose your fighter
 	/** @see https://developer.twitter.com/en/docs/basics/authentication/api-reference/authorize */
-	protected string $authURL              = 'https://api.twitter.com/oauth/authorize';
+	protected string $authorizationURL     = 'https://api.twitter.com/oauth/authorize';
 	/** @see https://developer.twitter.com/en/docs/basics/authentication/api-reference/authenticate */
-#	protected string $authURL              = 'https://api.twitter.com/oauth/authenticate';
+#	protected string $authorizationURL     = 'https://api.twitter.com/oauth/authenticate';
 
 	protected string      $requestTokenURL = 'https://api.twitter.com/oauth/request_token';
 	protected string      $accessTokenURL  = 'https://api.twitter.com/oauth/access_token';

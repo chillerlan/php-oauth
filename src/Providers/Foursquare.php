@@ -28,12 +28,12 @@ class Foursquare extends OAuth2Provider implements UserInfo{
 	protected const API_VERSIONDATE = '20190225';
 	protected const QUERY_PARAMS    = ['m' => 'foursquare', 'v' => self::API_VERSIONDATE];
 
-	protected string      $authURL         = 'https://foursquare.com/oauth2/authenticate';
-	protected string      $accessTokenURL  = 'https://foursquare.com/oauth2/access_token';
-	protected string      $apiURL          = 'https://api.foursquare.com';
-	protected string|null $userRevokeURL   = 'https://foursquare.com/settings/connections';
-	protected string|null $apiDocs         = 'https://location.foursquare.com/developer/reference/foursquare-apis-overview';
-	protected string|null $applicationURL  = 'https://foursquare.com/developers/apps';
+	protected string      $authorizationURL = 'https://foursquare.com/oauth2/authenticate';
+	protected string      $accessTokenURL   = 'https://foursquare.com/oauth2/access_token';
+	protected string      $apiURL           = 'https://api.foursquare.com';
+	protected string|null $userRevokeURL    = 'https://foursquare.com/settings/connections';
+	protected string|null $apiDocs          = 'https://location.foursquare.com/developer/reference/foursquare-apis-overview';
+	protected string|null $applicationURL   = 'https://foursquare.com/developers/apps';
 
 	/**
 	 * @inheritDoc

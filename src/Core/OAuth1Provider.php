@@ -38,7 +38,7 @@ abstract class OAuth1Provider extends OAuthProvider implements OAuth1Interface{
 		$token    = $this->parseTokenResponse($response, true);
 		$params   = array_merge(($params ?? []), ['oauth_token' => $token->accessToken]);
 
-		return $this->uriFactory->createUri(QueryUtil::merge($this->authURL, $params));
+		return $this->uriFactory->createUri(QueryUtil::merge($this->authorizationURL, $params));
 	}
 
 	/**

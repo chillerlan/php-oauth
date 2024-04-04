@@ -64,12 +64,12 @@ class GitHub extends OAuth2Provider implements CSRFToken, TokenRefresh, UserInfo
 		'Accept' => 'application/vnd.github.beta+json',
 	];
 
-	protected string      $authURL        = 'https://github.com/login/oauth/authorize';
-	protected string      $accessTokenURL = 'https://github.com/login/oauth/access_token';
-	protected string      $apiURL         = 'https://api.github.com';
-	protected string|null $userRevokeURL  = 'https://github.com/settings/applications';
-	protected string|null $apiDocs        = 'https://docs.github.com/rest';
-	protected string|null $applicationURL = 'https://github.com/settings/developers';
+	protected string      $authorizationURL = 'https://github.com/login/oauth/authorize';
+	protected string      $accessTokenURL   = 'https://github.com/login/oauth/access_token';
+	protected string      $apiURL           = 'https://api.github.com';
+	protected string|null $userRevokeURL    = 'https://github.com/settings/applications';
+	protected string|null $apiDocs          = 'https://docs.github.com/rest';
+	protected string|null $applicationURL   = 'https://github.com/settings/developers';
 
 	/**
 	 * @inheritDoc

@@ -41,12 +41,12 @@ class OpenStreetmap2 extends OAuth2Provider implements CSRFToken, UserInfo{
 		self::SCOPE_READ_PREFS,
 	];
 
-	protected string      $authURL        = 'https://www.openstreetmap.org/oauth2/authorize';
-	protected string      $accessTokenURL = 'https://www.openstreetmap.org/oauth2/token';
-#	protected string      $revokeURL      = 'https://www.openstreetmap.org/oauth2/revoke'; // not implemented yet?
-	protected string      $apiURL         = 'https://api.openstreetmap.org';
-	protected string|null $apiDocs        = 'https://wiki.openstreetmap.org/wiki/API';
-	protected string|null $applicationURL = 'https://www.openstreetmap.org/oauth2/applications';
+	protected string      $authorizationURL = 'https://www.openstreetmap.org/oauth2/authorize';
+	protected string      $accessTokenURL   = 'https://www.openstreetmap.org/oauth2/token';
+#	protected string      $revokeURL        = 'https://www.openstreetmap.org/oauth2/revoke'; // not implemented yet?
+	protected string      $apiURL           = 'https://api.openstreetmap.org';
+	protected string|null $apiDocs          = 'https://wiki.openstreetmap.org/wiki/API';
+	protected string|null $applicationURL   = 'https://www.openstreetmap.org/oauth2/applications';
 
 	/**
 	 * @inheritDoc

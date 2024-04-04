@@ -24,12 +24,12 @@ class Mixcloud extends OAuth2Provider implements UserInfo{
 
 	public const AUTH_METHOD = self::AUTH_METHOD_QUERY;
 
-	protected string      $authURL        = 'https://www.mixcloud.com/oauth/authorize';
-	protected string      $accessTokenURL = 'https://www.mixcloud.com/oauth/access_token';
-	protected string      $apiURL         = 'https://api.mixcloud.com';
-	protected string|null $userRevokeURL  = 'https://www.mixcloud.com/settings/applications/';
-	protected string|null $apiDocs        = 'https://www.mixcloud.com/developers/';
-	protected string|null $applicationURL = 'https://www.mixcloud.com/developers/create/';
+	protected string      $authorizationURL = 'https://www.mixcloud.com/oauth/authorize';
+	protected string      $accessTokenURL   = 'https://www.mixcloud.com/oauth/access_token';
+	protected string      $apiURL           = 'https://api.mixcloud.com';
+	protected string|null $userRevokeURL    = 'https://www.mixcloud.com/settings/applications/';
+	protected string|null $apiDocs          = 'https://www.mixcloud.com/developers/';
+	protected string|null $applicationURL   = 'https://www.mixcloud.com/developers/create/';
 
 	/**
 	 * @inheritDoc

@@ -25,11 +25,11 @@ use function explode, intval, preg_replace;
  */
 class SteamOpenID extends OAuthProvider{
 
-	protected string      $authURL        = 'https://steamcommunity.com/openid/login';
-	protected string      $accessTokenURL = 'https://steamcommunity.com/openid/login';
-	protected string      $apiURL         = 'https://api.steampowered.com';
-	protected string|null $applicationURL = 'https://steamcommunity.com/dev/apikey';
-	protected string|null $apiDocs        = 'https://developer.valvesoftware.com/wiki/Steam_Web_API';
+	protected string      $authorizationURL = 'https://steamcommunity.com/openid/login';
+	protected string      $accessTokenURL   = 'https://steamcommunity.com/openid/login';
+	protected string      $apiURL           = 'https://api.steampowered.com';
+	protected string|null $applicationURL   = 'https://steamcommunity.com/dev/apikey';
+	protected string|null $apiDocs          = 'https://developer.valvesoftware.com/wiki/Steam_Web_API';
 
 	/**
 	 * we ignore user supplied params here
@@ -47,7 +47,7 @@ class SteamOpenID extends OAuthProvider{
 			'openid.claimed_id' => 'http://specs.openid.net/auth/2.0/identifier_select',
 		];
 
-		return $this->uriFactory->createUri(QueryUtil::merge($this->authURL, $params));
+		return $this->uriFactory->createUri(QueryUtil::merge($this->authorizationURL, $params));
 	}
 
 	/**

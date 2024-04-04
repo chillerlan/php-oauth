@@ -71,7 +71,7 @@ final class DeezerTest extends OAuth2ProviderUnitTestAbstract{
 		$uri    = $this->provider->getAuthorizationURL($params, $scopes);
 		$params = QueryUtil::parse($uri->getQuery());
 
-		$this::assertSame($this->getReflectionProperty('authURL'), (string)$uri->withQuery(''));
+		$this::assertSame($this->getReflectionProperty('authorizationURL'), (string)$uri->withQuery(''));
 
 		$this::assertSame($this->options->key, $params['app_id']);
 		$this::assertSame($this->options->callbackURL, $params['redirect_uri']);

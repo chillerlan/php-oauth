@@ -60,7 +60,7 @@ class Vimeo extends OAuth2Provider implements ClientCredentials, CSRFToken, Toke
 		'Accept' => 'application/vnd.vimeo.*+json;version='.self::API_VERSION,
 	];
 
-	protected string      $authURL                   = 'https://api.vimeo.com/oauth/authorize';
+	protected string      $authorizationURL          = 'https://api.vimeo.com/oauth/authorize';
 	protected string      $accessTokenURL            = 'https://api.vimeo.com/oauth/access_token';
 	protected string      $revokeURL                 = 'https://api.vimeo.com/tokens';
 	protected string      $apiURL                    = 'https://api.vimeo.com';

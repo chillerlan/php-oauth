@@ -35,12 +35,12 @@ class NPROne extends OAuth2Provider implements CSRFToken, TokenRefresh, TokenInv
 		self::SCOPE_LISTENING_READONLY,
 	];
 
-	protected string      $apiURL         = 'https://listening.api.npr.org';
-	protected string      $authURL        = 'https://authorization.api.npr.org/v2/authorize';
-	protected string      $accessTokenURL = 'https://authorization.api.npr.org/v2/token';
-	protected string      $revokeURL      = 'https://authorization.api.npr.org/v2/token/revoke';
-	protected string|null $apiDocs        = 'https://dev.npr.org/api/';
-	protected string|null $applicationURL = 'https://dev.npr.org/console';
+	protected string      $apiURL           = 'https://listening.api.npr.org';
+	protected string      $authorizationURL = 'https://authorization.api.npr.org/v2/authorize';
+	protected string      $accessTokenURL   = 'https://authorization.api.npr.org/v2/token';
+	protected string      $revokeURL        = 'https://authorization.api.npr.org/v2/token/revoke';
+	protected string|null $apiDocs          = 'https://dev.npr.org/api/';
+	protected string|null $applicationURL   = 'https://dev.npr.org/console';
 
 	/**
 	 * Sets the API to work with ("listening" is set as default)

@@ -43,12 +43,12 @@ class LastFM extends OAuthProvider implements UserInfo{
 		self::PERIOD_12MONTH,
 	];
 
-	protected string      $authURL        = 'https://www.last.fm/api/auth';
-	protected string      $accessTokenURL = 'https://ws.audioscrobbler.com/2.0';
-	protected string      $apiURL         = 'https://ws.audioscrobbler.com/2.0';
-	protected string|null $userRevokeURL  = 'https://www.last.fm/settings/applications';
-	protected string|null $apiDocs        = 'https://www.last.fm/api/';
-	protected string|null $applicationURL = 'https://www.last.fm/api/account/create';
+	protected string      $authorizationURL = 'https://www.last.fm/api/auth';
+	protected string      $accessTokenURL   = 'https://ws.audioscrobbler.com/2.0';
+	protected string      $apiURL           = 'https://ws.audioscrobbler.com/2.0';
+	protected string|null $userRevokeURL    = 'https://www.last.fm/settings/applications';
+	protected string|null $apiDocs          = 'https://www.last.fm/api/';
+	protected string|null $applicationURL   = 'https://www.last.fm/api/account/create';
 
 	/**
 	 * @inheritdoc
@@ -59,7 +59,7 @@ class LastFM extends OAuthProvider implements UserInfo{
 			'api_key' => $this->options->key,
 		]);
 
-		return $this->uriFactory->createUri(QueryUtil::merge($this->authURL, $params));
+		return $this->uriFactory->createUri(QueryUtil::merge($this->authorizationURL, $params));
 	}
 
 	/**

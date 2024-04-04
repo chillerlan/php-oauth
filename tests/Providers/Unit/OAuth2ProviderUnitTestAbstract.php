@@ -45,7 +45,7 @@ abstract class OAuth2ProviderUnitTestAbstract extends OAuthProviderUnitTestAbstr
 		$uri    = $this->provider->getAuthorizationURL();
 		$params = QueryUtil::parse($uri->getQuery());
 
-		$this::assertSame($this->getReflectionProperty('authURL'), (string)$uri->withQuery(''));
+		$this::assertSame($this->getReflectionProperty('authorizationURL'), (string)$uri->withQuery(''));
 
 		$this::assertArrayHasKey('client_id', $params);
 		$this::assertArrayHasKey('redirect_uri', $params);

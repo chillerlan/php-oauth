@@ -43,13 +43,13 @@ class MusicBrainz extends OAuth2Provider implements CSRFToken, TokenInvalidate, 
 		self::SCOPE_COLLECTION,
 	];
 
-	protected string      $authURL        = 'https://musicbrainz.org/oauth2/authorize';
-	protected string      $accessTokenURL = 'https://musicbrainz.org/oauth2/token';
-	protected string      $revokeURL      = 'https://musicbrainz.org/oauth2/revoke ';
-	protected string      $apiURL         = 'https://musicbrainz.org/ws/2';
-	protected string|null $userRevokeURL  = 'https://musicbrainz.org/account/applications';
-	protected string|null $apiDocs        = 'https://musicbrainz.org/doc/Development';
-	protected string|null $applicationURL = 'https://musicbrainz.org/account/applications';
+	protected string      $authorizationURL = 'https://musicbrainz.org/oauth2/authorize';
+	protected string      $accessTokenURL   = 'https://musicbrainz.org/oauth2/token';
+	protected string      $revokeURL        = 'https://musicbrainz.org/oauth2/revoke ';
+	protected string      $apiURL           = 'https://musicbrainz.org/ws/2';
+	protected string|null $userRevokeURL    = 'https://musicbrainz.org/account/applications';
+	protected string|null $apiDocs          = 'https://musicbrainz.org/doc/Development';
+	protected string|null $applicationURL   = 'https://musicbrainz.org/account/applications';
 
 	/**
 	 * @inheritdoc

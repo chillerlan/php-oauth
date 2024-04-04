@@ -66,13 +66,13 @@ class Twitch extends OAuth2Provider implements ClientCredentials, CSRFToken, Tok
 		'Accept' => 'application/vnd.twitchtv.v5+json',
 	];
 
-	protected string      $authURL        = 'https://id.twitch.tv/oauth2/authorize';
-	protected string      $accessTokenURL = 'https://id.twitch.tv/oauth2/token';
-	protected string      $revokeURL      = 'https://id.twitch.tv/oauth2/revoke';
-	protected string      $apiURL         = 'https://api.twitch.tv';
-	protected string|null $userRevokeURL  = 'https://www.twitch.tv/settings/connections';
-	protected string|null $apiDocs        = 'https://dev.twitch.tv/docs/api/reference/';
-	protected string|null $applicationURL = 'https://dev.twitch.tv/console/apps/create';
+	protected string      $authorizationURL = 'https://id.twitch.tv/oauth2/authorize';
+	protected string      $accessTokenURL   = 'https://id.twitch.tv/oauth2/token';
+	protected string      $revokeURL        = 'https://id.twitch.tv/oauth2/revoke';
+	protected string      $apiURL           = 'https://api.twitch.tv';
+	protected string|null $userRevokeURL    = 'https://www.twitch.tv/settings/connections';
+	protected string|null $apiDocs          = 'https://dev.twitch.tv/docs/api/reference/';
+	protected string|null $applicationURL   = 'https://dev.twitch.tv/console/apps/create';
 
 	/**
 	 * @inheritDoc

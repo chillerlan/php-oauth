@@ -32,10 +32,10 @@ class Amazon extends OAuth2Provider implements CSRFToken, TokenRefresh, UserInfo
 		self::SCOPE_PROFILE_USER_ID,
 	];
 
-	protected string      $authURL        = 'https://www.amazon.com/ap/oa';
-	protected string      $accessTokenURL = 'https://www.amazon.com/ap/oatoken';
-	protected string      $apiURL         = 'https://api.amazon.com';
-	protected string|null $applicationURL = 'https://developer.amazon.com/loginwithamazon/console/site/lwa/overview.html';
+	protected string      $authorizationURL = 'https://www.amazon.com/ap/oa';
+	protected string      $accessTokenURL   = 'https://www.amazon.com/ap/oatoken';
+	protected string      $apiURL           = 'https://api.amazon.com';
+	protected string|null $applicationURL   = 'https://developer.amazon.com/loginwithamazon/console/site/lwa/overview.html';
 
 	/**
 	 * @inheritDoc

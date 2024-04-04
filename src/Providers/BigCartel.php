@@ -27,13 +27,13 @@ class BigCartel extends OAuth2Provider implements CSRFToken, TokenInvalidate, Us
 		'Accept' => 'application/vnd.api+json',
 	];
 
-	protected string      $authURL        = 'https://my.bigcartel.com/oauth/authorize';
-	protected string      $accessTokenURL = 'https://api.bigcartel.com/oauth/token';
-	protected string      $revokeURL      = 'https://api.bigcartel.com/oauth/deauthorize';
-	protected string      $apiURL         = 'https://api.bigcartel.com/v1';
-	protected string|null $userRevokeURL  = 'https://my.bigcartel.com/account';
-	protected string|null $apiDocs        = 'https://developers.bigcartel.com/api/v1';
-	protected string|null $applicationURL = 'https://bigcartel.wufoo.com/forms/big-cartel-api-application/';
+	protected string      $authorizationURL = 'https://my.bigcartel.com/oauth/authorize';
+	protected string      $accessTokenURL   = 'https://api.bigcartel.com/oauth/token';
+	protected string      $revokeURL        = 'https://api.bigcartel.com/oauth/deauthorize';
+	protected string      $apiURL           = 'https://api.bigcartel.com/v1';
+	protected string|null $userRevokeURL    = 'https://my.bigcartel.com/account';
+	protected string|null $apiDocs          = 'https://developers.bigcartel.com/api/v1';
+	protected string|null $applicationURL   = 'https://bigcartel.wufoo.com/forms/big-cartel-api-application/';
 
 	/**
 	 * @inheritDoc

@@ -35,13 +35,13 @@ class Mastodon extends OAuth2Provider implements CSRFToken, TokenRefresh, UserIn
 		self::SCOPE_FOLLOW,
 	];
 
-	protected string      $authURL        = 'https://mastodon.social/oauth/authorize';
-	protected string      $accessTokenURL = 'https://mastodon.social/oauth/token';
-	protected string      $apiURL         = 'https://mastodon.social/api';
-	protected string|null $userRevokeURL  = 'https://mastodon.social/oauth/authorized_applications';
-	protected string|null $apiDocs        = 'https://docs.joinmastodon.org/api/';
-	protected string|null $applicationURL = 'https://mastodon.social/settings/applications';
-	protected string      $instance       = 'mastodon.social';
+	protected string      $authorizationURL = 'https://mastodon.social/oauth/authorize';
+	protected string      $accessTokenURL   = 'https://mastodon.social/oauth/token';
+	protected string      $apiURL           = 'https://mastodon.social/api';
+	protected string|null $userRevokeURL    = 'https://mastodon.social/oauth/authorized_applications';
+	protected string|null $apiDocs          = 'https://docs.joinmastodon.org/api/';
+	protected string|null $applicationURL   = 'https://mastodon.social/settings/applications';
+	protected string      $instance         = 'mastodon.social';
 
 	/**
 	 * set the internal URLs for the given Mastodon instance
@@ -58,7 +58,7 @@ class Mastodon extends OAuth2Provider implements CSRFToken, TokenRefresh, UserIn
 		// @todo: check if host exists/responds
 		$this->instance       = (string)$instance;
 		$this->apiURL         = (string)$instance->withPath('/api');
-		$this->authURL        = (string)$instance->withPath('/oauth/authorize');
+		$this->authorizationURL        = (string)$instance->withPath('/oauth/authorize');
 		$this->accessTokenURL = (string)$instance->withPath('/oauth/token');
 		$this->userRevokeURL  = (string)$instance->withPath('/oauth/authorized_applications');
 		$this->applicationURL = (string)$instance->withPath('/settings/applications');

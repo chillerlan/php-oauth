@@ -24,13 +24,13 @@ use function sprintf;
  */
 class Tumblr extends OAuth1Provider implements UserInfo{
 
-	protected string      $requestTokenURL = 'https://www.tumblr.com/oauth/request_token';
-	protected string      $authURL         = 'https://www.tumblr.com/oauth/authorize';
-	protected string      $accessTokenURL  = 'https://www.tumblr.com/oauth/access_token';
-	protected string      $apiURL          = 'https://api.tumblr.com';
-	protected string|null $userRevokeURL   = 'https://www.tumblr.com/settings/apps';
-	protected string|null $apiDocs         = 'https://www.tumblr.com/docs/en/api/v2';
-	protected string|null $applicationURL  = 'https://www.tumblr.com/oauth/apps';
+	protected string      $requestTokenURL  = 'https://www.tumblr.com/oauth/request_token';
+	protected string      $authorizationURL = 'https://www.tumblr.com/oauth/authorize';
+	protected string      $accessTokenURL   = 'https://www.tumblr.com/oauth/access_token';
+	protected string      $apiURL           = 'https://api.tumblr.com';
+	protected string|null $userRevokeURL    = 'https://www.tumblr.com/settings/apps';
+	protected string|null $apiDocs          = 'https://www.tumblr.com/docs/en/api/v2';
+	protected string|null $applicationURL   = 'https://www.tumblr.com/oauth/apps';
 
 	/**
 	 * @inheritDoc

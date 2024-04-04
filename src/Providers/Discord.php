@@ -55,12 +55,12 @@ class Discord extends OAuth2Provider implements ClientCredentials, CSRFToken, To
 		self::SCOPE_MESSAGES_READ,
 	];
 
-	protected string      $authURL        = 'https://discordapp.com/api/oauth2/authorize';
-	protected string      $accessTokenURL = 'https://discordapp.com/api/oauth2/token';
-	protected string      $revokeURL      = 'https://discordapp.com/api/oauth2/token/revoke';
-	protected string      $apiURL         = 'https://discordapp.com/api';
-	protected string|null $apiDocs        = 'https://discord.com/developers/';
-	protected string|null $applicationURL = 'https://discordapp.com/developers/applications/';
+	protected string      $authorizationURL = 'https://discordapp.com/api/oauth2/authorize';
+	protected string      $accessTokenURL   = 'https://discordapp.com/api/oauth2/token';
+	protected string      $revokeURL        = 'https://discordapp.com/api/oauth2/token/revoke';
+	protected string      $apiURL           = 'https://discordapp.com/api';
+	protected string|null $apiDocs          = 'https://discord.com/developers/';
+	protected string|null $applicationURL   = 'https://discordapp.com/developers/applications/';
 
 	/**
 	 * @inheritDoc

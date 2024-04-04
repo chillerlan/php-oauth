@@ -43,7 +43,7 @@ class BattleNet extends OAuth2Provider implements ClientCredentials, CSRFToken, 
 	protected string $region              = 'eu';
 	// these URLs will be set dynamically, depending on the chose datacenter
 	protected string $apiURL              = 'https://eu.api.blizzard.com';
-	protected string $authURL             = 'https://oauth.battle.net/authorize';
+	protected string $authorizationURL    = 'https://oauth.battle.net/authorize';
 	protected string $accessTokenURL      = 'https://oauth.battle.net/token';
 
 	protected const KNOWN_DOMAINS = [
@@ -108,8 +108,8 @@ class BattleNet extends OAuth2Provider implements ClientCredentials, CSRFToken, 
 			$this->battleNetOauth = 'https://oauth.battlenet.com.cn';
 		}
 
-		$this->authURL        = $this->battleNetOauth.'/authorize';
-		$this->accessTokenURL = $this->battleNetOauth.'/token';
+		$this->authorizationURL = $this->battleNetOauth.'/authorize';
+		$this->accessTokenURL   = $this->battleNetOauth.'/token';
 
 		return $this;
 	}

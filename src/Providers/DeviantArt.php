@@ -49,13 +49,13 @@ class DeviantArt extends OAuth2Provider implements ClientCredentials, CSRFToken,
 		'dA-minor-version' => '20210526',
 	];
 
-	protected string      $authURL        = 'https://www.deviantart.com/oauth2/authorize';
-	protected string      $accessTokenURL = 'https://www.deviantart.com/oauth2/token';
-	protected string      $revokeURL      = 'https://www.deviantart.com/oauth2/revoke';
-	protected string      $apiURL         = 'https://www.deviantart.com/api/v1/oauth2';
-	protected string|null $userRevokeURL  = 'https://www.deviantart.com/settings/applications';
-	protected string|null $apiDocs        = 'https://www.deviantart.com/developers/';
-	protected string|null $applicationURL = 'https://www.deviantart.com/developers/apps';
+	protected string      $authorizationURL = 'https://www.deviantart.com/oauth2/authorize';
+	protected string      $accessTokenURL   = 'https://www.deviantart.com/oauth2/token';
+	protected string      $revokeURL        = 'https://www.deviantart.com/oauth2/revoke';
+	protected string      $apiURL           = 'https://www.deviantart.com/api/v1/oauth2';
+	protected string|null $userRevokeURL    = 'https://www.deviantart.com/settings/applications';
+	protected string|null $apiDocs          = 'https://www.deviantart.com/developers/';
+	protected string|null $applicationURL   = 'https://www.deviantart.com/developers/apps';
 
 	/**
 	 * @inheritDoc

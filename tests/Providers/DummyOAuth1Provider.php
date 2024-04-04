@@ -22,12 +22,12 @@ final class DummyOAuth1Provider extends OAuth1Provider implements TokenInvalidat
 	public const HEADERS_AUTH = ['foo' => 'bar'];
 	public const HEADERS_API  = ['foo' => 'bar'];
 
-	protected string      $authURL         = 'https://example.com/oauth/authorize';
-	protected string      $accessTokenURL  = 'https://example.com/oauth/access_token';
-	protected string      $requestTokenURL = 'https://example.com/oauth/request_token';
-	protected string      $revokeURL       = 'https://example.com/oauth/revoke';
-	protected string      $apiURL          = 'https://api.sub.example.com';
-	protected string|null $userRevokeURL   = 'https://account.example.com/apps/';
+	protected string      $authorizationURL = 'https://example.com/oauth/authorize';
+	protected string      $accessTokenURL   = 'https://example.com/oauth/access_token';
+	protected string      $requestTokenURL  = 'https://example.com/oauth/request_token';
+	protected string      $revokeURL        = 'https://example.com/oauth/revoke';
+	protected string      $apiURL           = 'https://api.sub.example.com';
+	protected string|null $userRevokeURL    = 'https://account.example.com/apps/';
 
 	/**
 	 * @inheritDoc

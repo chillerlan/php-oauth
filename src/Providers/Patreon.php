@@ -47,11 +47,11 @@ class Patreon extends OAuth2Provider implements CSRFToken, TokenRefresh, UserInf
 		self::SCOPE_V2_CAMPAIGNS_MEMBERS,
 	];
 
-	protected string      $authURL        = 'https://www.patreon.com/oauth2/authorize';
-	protected string      $accessTokenURL = 'https://www.patreon.com/api/oauth2/token';
-	protected string      $apiURL         = 'https://www.patreon.com/api/oauth2';
-	protected string|null $apiDocs        = 'https://docs.patreon.com/';
-	protected string|null $applicationURL = 'https://www.patreon.com/portal/registration/register-clients';
+	protected string      $authorizationURL = 'https://www.patreon.com/oauth2/authorize';
+	protected string      $accessTokenURL   = 'https://www.patreon.com/api/oauth2/token';
+	protected string      $apiURL           = 'https://www.patreon.com/api/oauth2';
+	protected string|null $apiDocs          = 'https://docs.patreon.com/';
+	protected string|null $applicationURL   = 'https://www.patreon.com/portal/registration/register-clients';
 
 	/**
 	 * @inheritDoc

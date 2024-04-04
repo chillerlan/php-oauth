@@ -26,12 +26,12 @@ use function sprintf;
  */
 class Imgur extends OAuth2Provider implements CSRFToken, TokenRefresh, UserInfo{
 
-	protected string      $authURL        = 'https://api.imgur.com/oauth2/authorize';
-	protected string      $accessTokenURL = 'https://api.imgur.com/oauth2/token';
-	protected string      $apiURL         = 'https://api.imgur.com';
-	protected string|null $userRevokeURL  = 'https://imgur.com/account/settings/apps';
-	protected string|null $apiDocs        = 'https://apidocs.imgur.com';
-	protected string|null $applicationURL = 'https://api.imgur.com/oauth2/addclient';
+	protected string      $authorizationURL = 'https://api.imgur.com/oauth2/authorize';
+	protected string      $accessTokenURL   = 'https://api.imgur.com/oauth2/token';
+	protected string      $apiURL           = 'https://api.imgur.com';
+	protected string|null $userRevokeURL    = 'https://imgur.com/account/settings/apps';
+	protected string|null $apiDocs          = 'https://apidocs.imgur.com';
+	protected string|null $applicationURL   = 'https://api.imgur.com/oauth2/addclient';
 
 	/**
 	 * @inheritDoc

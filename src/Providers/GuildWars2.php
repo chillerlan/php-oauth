@@ -39,11 +39,11 @@ class GuildWars2 extends OAuth2Provider implements UserInfo{
 	public const SCOPE_PROGRESSION = 'progression';
 	public const SCOPE_GUILDS      = 'guilds';
 
-	protected string      $authURL        = 'https://api.guildwars2.com/v2/tokeninfo';
-	protected string      $apiURL         = 'https://api.guildwars2.com';
-	protected string|null $userRevokeURL  = 'https://account.arena.net/applications';
-	protected string|null $apiDocs        = 'https://wiki.guildwars2.com/wiki/API:Main';
-	protected string|null $applicationURL = 'https://account.arena.net/applications';
+	protected string      $authorizationURL = 'https://api.guildwars2.com/v2/tokeninfo';
+	protected string      $apiURL           = 'https://api.guildwars2.com';
+	protected string|null $userRevokeURL    = 'https://account.arena.net/applications';
+	protected string|null $apiDocs          = 'https://wiki.guildwars2.com/wiki/API:Main';
+	protected string|null $applicationURL   = 'https://account.arena.net/applications';
 
 	/**
 	 * @param string $access_token
@@ -59,7 +59,7 @@ class GuildWars2 extends OAuth2Provider implements UserInfo{
 
 		// to verify the token we need to send a request without authentication
 		$request = $this->requestFactory
-			->createRequest('GET', QueryUtil::merge($this->authURL, ['access_token' => $access_token]))
+			->createRequest('GET', QueryUtil::merge($this->authorizationURL, ['access_token' => $access_token]))
 		;
 
 		$tokeninfo = MessageUtil::decodeJSON($this->http->sendRequest($request));

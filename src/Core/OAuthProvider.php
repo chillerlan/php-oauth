@@ -35,9 +35,9 @@ use const PHP_QUERY_RFC1738;
 abstract class OAuthProvider implements OAuthInterface{
 
 	/**
-	 * the authentication URL
+	 * the authorization URL
 	 */
-	protected string $authURL;
+	protected string $authorizationURL;
 
 	/**
 	 * an optional URL for application side token revocation

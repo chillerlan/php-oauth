@@ -31,12 +31,12 @@ class Tumblr2 extends OAuth2Provider implements CSRFToken, TokenRefresh, ClientC
 		self::SCOPE_OFFLINE_ACCESS,
 	];
 
-	protected string      $authURL        = 'https://www.tumblr.com/oauth2/authorize';
-	protected string      $accessTokenURL = 'https://api.tumblr.com/v2/oauth2/token';
-	protected string      $apiURL         = 'https://api.tumblr.com';
-	protected string|null $userRevokeURL  = 'https://www.tumblr.com/settings/apps';
-	protected string|null $apiDocs        = 'https://www.tumblr.com/docs/en/api/v2';
-	protected string|null $applicationURL = 'https://www.tumblr.com/oauth/apps';
+	protected string      $authorizationURL = 'https://www.tumblr.com/oauth2/authorize';
+	protected string      $accessTokenURL   = 'https://api.tumblr.com/v2/oauth2/token';
+	protected string      $apiURL           = 'https://api.tumblr.com';
+	protected string|null $userRevokeURL    = 'https://www.tumblr.com/settings/apps';
+	protected string|null $apiDocs          = 'https://www.tumblr.com/docs/en/api/v2';
+	protected string|null $applicationURL   = 'https://www.tumblr.com/oauth/apps';
 
 	/**
 	 * @inheritDoc

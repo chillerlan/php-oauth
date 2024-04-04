@@ -58,7 +58,7 @@ abstract class OAuth2Provider extends OAuthProvider implements OAuth2Interface{
 			$queryParams = $this->setState($queryParams);
 		}
 
-		return $this->uriFactory->createUri(QueryUtil::merge($this->authURL, $queryParams));
+		return $this->uriFactory->createUri(QueryUtil::merge($this->authorizationURL, $queryParams));
 	}
 
 	/**

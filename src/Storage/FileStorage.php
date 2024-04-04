@@ -132,7 +132,7 @@ class FileStorage extends OAuthStorageAbstract{
 		$state = $this->loadFile($this::KEY_STATE, $provider);
 
 		if($state === null){
-			throw new OAuthStorageException('state not found');
+			throw new StateNotFoundException;
 		}
 
 		if($this->options->useStorageEncryption === true){

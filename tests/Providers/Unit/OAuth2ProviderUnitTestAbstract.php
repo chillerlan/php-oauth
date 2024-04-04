@@ -12,14 +12,11 @@ declare(strict_types=1);
 namespace chillerlan\OAuthTest\Providers\Unit;
 
 use chillerlan\OAuth\Core\{AccessToken, ClientCredentials, CSRFStateMismatchException, CSRFToken, OAuth2Interface, TokenRefresh};
-use chillerlan\HTTP\Utils\MessageUtil;
-use chillerlan\HTTP\Utils\QueryUtil;
+use chillerlan\HTTP\Utils\{MessageUtil, QueryUtil};
 use chillerlan\OAuth\OAuthException;
 use chillerlan\OAuth\Providers\ProviderException;
-use function base64_encode;
-use function implode;
-use function json_decode;
-use function json_encode;
+use chillerlan\OAuth\Storage\StateNotFoundException;
+use function base64_encode, implode, json_decode, json_encode;
 
 /**
  * @property \chillerlan\OAuth\Core\OAuth2Interface $provider
@@ -328,14 +325,13 @@ abstract class OAuth2ProviderUnitTestAbstract extends OAuthProviderUnitTestAbstr
 		$this->provider->checkState();
 	}
 
-	public function testCheckCSRFStateInvalidStateException():void{
+	public function testCheckCSRFStateNotFoundException():void{
 
 		if(!$this->provider instanceof CSRFToken){
 			$this->markTestSkipped('CSRFToken N/A');
 		}
 
-		$this->expectException(ProviderException::class);
-		$this->expectExceptionMessage('invalid CSRF state');
+		$this->expectException(StateNotFoundException::class);
 
 		$this->provider->checkState('invalid_test_state');
 	}

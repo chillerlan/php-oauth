@@ -13,7 +13,7 @@ namespace chillerlan\OAuthTest\Storage;
 
 use chillerlan\OAuth\OAuthOptions;
 use chillerlan\OAuth\Core\AccessToken;
-use chillerlan\OAuth\Storage\{OAuthStorageException, OAuthStorageInterface, TokenNotFoundException};
+use chillerlan\OAuth\Storage\{OAuthStorageException, OAuthStorageInterface, StateNotFoundException, TokenNotFoundException};
 use PHPUnit\Framework\TestCase;
 use ReflectionMethod;
 use function array_merge;
@@ -108,8 +108,7 @@ abstract class StorageTestAbstract extends TestCase{
 	}
 
 	public function testRetrieveCSRFStateNotFoundException():void{
-		$this->expectException(OAuthStorageException::class);
-		$this->expectExceptionMessage('state not found');
+		$this->expectException(StateNotFoundException::class);
 
 		$this->storage->getCSRFState('LOLNOPE');
 	}

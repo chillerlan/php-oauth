@@ -74,7 +74,9 @@ interface OAuthStorageInterface{
 	/**
 	 * Retrieves a CSRF <state> value for the given $provider
 	 *
-	 * @throws \chillerlan\OAuth\Storage\OAuthStorageException
+	 * This method *must* throw a StateNotFoundException if a state is not found
+	 *
+	 * @throws \chillerlan\OAuth\Storage\StateNotFoundException
 	 */
 	public function getCSRFState(string $provider):string;
 

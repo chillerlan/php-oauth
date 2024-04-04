@@ -140,7 +140,7 @@ class SessionStorage extends OAuthStorageAbstract{
 			return $_SESSION[$this->stateVar][$this->getProviderName($provider)];
 		}
 
-		throw new OAuthStorageException('state not found');
+		throw new StateNotFoundException;
 	}
 
 	/**

@@ -11,7 +11,7 @@ declare(strict_types=1);
 
 namespace chillerlan\OAuth\Core;
 
-use chillerlan\HTTP\Utils\{MessageUtil, QueryUtil};
+use chillerlan\HTTP\Utils\{MessageUtil, QueryUtil, UriUtil};
 use chillerlan\OAuth\Providers\ProviderException;
 use Psr\Http\Message\{RequestInterface, ResponseInterface, UriInterface};
 use Throwable;
@@ -227,9 +227,9 @@ abstract class OAuth2Provider extends OAuthProvider implements OAuth2Interface{
 		}
 
 		if($this::AUTH_METHOD === OAuth2Interface::AUTH_METHOD_QUERY){
-			$uri = QueryUtil::merge((string)$request->getUri(), [$this::AUTH_PREFIX_QUERY => $token->accessToken]);
+			$uri = UriUtil::withQueryValue($request->getUri(), $this::AUTH_PREFIX_QUERY, $token->accessToken);
 
-			return $request->withUri($this->uriFactory->createUri($uri));
+			return $request->withUri($uri);
 		}
 
 		// it's near impossible to run into this in any other scenario than development...

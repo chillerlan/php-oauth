@@ -17,9 +17,9 @@ namespace chillerlan\OAuth\Core;
 interface OAuth2Interface extends OAuthInterface{
 
 	/** @var int */
-	public const AUTH_METHOD_HEADER = 1;
+	final public const AUTH_METHOD_HEADER = 1;
 	/** @var int */
-	public const AUTH_METHOD_QUERY  = 2;
+	final public const AUTH_METHOD_QUERY  = 2;
 
 	/**
 	 * Specifies the authentication method:

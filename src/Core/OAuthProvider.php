@@ -398,6 +398,23 @@ abstract class OAuthProvider implements OAuthInterface{
 	}
 
 	/**
+	 * prepares and sends the request to the provider's "me" endpoint and returns a ResponseInterface
+	 */
+	protected function sendMeRequest(string $endpoint, array|null $params = null):ResponseInterface{
+		// we'll bypass the API check here as not all "me" endpoints align with the provider APIs
+		$url     = $this->getRequestURL($endpoint, $params);
+		$request = $this->requestFactory->createRequest('GET', $url);
+
+		foreach($this->getRequestHeaders() as $header => $value){
+			$request = $request->withAddedHeader($header, $value);
+		}
+
+		$request = $this->getRequestAuthorization($request);
+
+		return $this->http->sendRequest($request);
+	}
+
+	/**
 	 * fetches the provider's "me" endpoint and returns the JSON data as an array
 	 *
 	 * @see \chillerlan\OAuth\Core\UserInfo::me()
@@ -424,30 +441,13 @@ abstract class OAuthProvider implements OAuthInterface{
 	}
 
 	/**
-	 * prepares and sends the request to the provider's "me" endpoint and returns a ResponseInterface
-	 */
-	protected function sendMeRequest(string $endpoint, array|null $params = null):ResponseInterface{
-		// we'll bypass the API check here as not all "me" endpoints align with the provider APIs
-		$url     = $this->getRequestURL($endpoint, $params);
-		$request = $this->requestFactory->createRequest('GET', $url);
-
-		foreach($this->getRequestHeaders() as $header => $value){
-			$request = $request->withAddedHeader($header, $value);
-		}
-
-		$request = $this->getRequestAuthorization($request);
-
-		return $this->http->sendRequest($request);
-	}
-
-	/**
 	 * handles errors for the `me()` endpoints - one horrible block of code to catch them all
 	 *
 	 * we could simply throw a ProviderException and be done with it, but we're nice and try to provide a message too
 	 *
 	 * @throws \chillerlan\OAuth\Providers\ProviderException|\chillerlan\OAuth\Core\UnauthorizedAccessException
 	 */
-	final protected function handleMeResponseError(ResponseInterface $response){
+	final protected function handleMeResponseError(ResponseInterface $response):void{
 		$status = $response->getStatusCode();
 
 		// in case these slipped through

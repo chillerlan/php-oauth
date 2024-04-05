@@ -347,7 +347,7 @@ abstract class OAuth2Provider extends OAuthProvider implements OAuth2Interface{
 	 * @throws \chillerlan\OAuth\Providers\ProviderException|\chillerlan\OAuth\Core\CSRFStateMismatchException
 	 * @internal
 	 */
-	public function checkState(string|null $state = null):void{
+	final public function checkState(string|null $state = null):void{
 
 		if(!$this instanceof CSRFToken){
 			throw new ProviderException('CSRF protection not supported');
@@ -372,7 +372,7 @@ abstract class OAuth2Provider extends OAuthProvider implements OAuth2Interface{
 	 * @throws \chillerlan\OAuth\Providers\ProviderException
 	 * @internal
 	 */
-	public function setState(array $params):array{
+	final public function setState(array $params):array{
 
 		if(!$this instanceof CSRFToken){
 			throw new ProviderException('CSRF protection not supported');

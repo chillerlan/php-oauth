@@ -11,16 +11,14 @@ declare(strict_types=1);
 
 namespace chillerlan\OAuth\Providers;
 
-use chillerlan\OAuth\Core\{AuthenticatedUser, CSRFToken, OAuth2Provider, TokenRefresh, UserInfo};
-use function sprintf;
+use chillerlan\OAuth\Core\{AccessToken, AuthenticatedUser, CSRFToken, OAuth2Provider, TokenRefresh, UserInfo};
+use function sprintf, time;
 
 /**
  * Imgur OAuth2
  *
  * Note: imgur sends an "expires_in" of 315360000 (10 years!) for access tokens,
  *       but states in the docs that tokens expire after one month.
- *       Either manually saving the expiry with the token to trigger auto refresh
- *       or manually refreshing via the refreshAccessToken() method is required.
  *
  * @see https://apidocs.imgur.com/
  */
@@ -32,6 +30,24 @@ class Imgur extends OAuth2Provider implements CSRFToken, TokenRefresh, UserInfo{
 	protected string|null $userRevokeURL    = 'https://imgur.com/account/settings/apps';
 	protected string|null $apiDocs          = 'https://apidocs.imgur.com';
 	protected string|null $applicationURL   = 'https://api.imgur.com/oauth2/addclient';
+
+	/**
+	 * @inheritDoc
+	 */
+	public function getAccessToken(string $code, string|null $state = null):AccessToken{
+		$this->checkState($state);
+
+		$body     = $this->getAccessTokenRequestBodyParams($code);
+		$response = $this->sendAccessTokenRequest($this->accessTokenURL, $body);
+		$token    = $this->parseTokenResponse($response);
+
+		// set the expiry to a sane period to allow auto-refreshing
+		$token->expires = (time() + 2592000); // 30 days
+
+		$this->storage->storeAccessToken($token, $this->name);
+
+		return $token;
+	}
 
 	/**
 	 * @inheritDoc

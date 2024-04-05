@@ -36,6 +36,23 @@ class MailChimp extends OAuth2Provider implements CSRFToken, UserInfo{
 	protected string      $apiURL           = '';
 
 	/**
+	 * @inheritDoc
+	 */
+	public function getAccessToken(string $code, string|null $state = null):AccessToken{
+		$this->checkState($state);
+
+		$body     = $this->getAccessTokenRequestBodyParams($code);
+		$response = $this->sendAccessTokenRequest($this->accessTokenURL, $body);
+		$token    = $this->parseTokenResponse($response);
+
+		// MailChimp needs another call to the auth metadata endpoint
+		// to receive the datacenter prefix/API URL, which will then
+		// be stored in AccessToken::$extraParams
+
+		return $this->getTokenMetadata($token);
+	}
+
+	/**
 	 * @throws \chillerlan\OAuth\OAuthException
 	 */
 	public function getTokenMetadata(AccessToken|null $token = null):AccessToken{
@@ -76,7 +93,7 @@ class MailChimp extends OAuth2Provider implements CSRFToken, UserInfo{
 		string|null                       $protocolVersion = null,
 	):ResponseInterface{
 		$token = $this->storage->getAccessToken($this->name);
-		// get  the API URL from the token metadata
+		// get the API URL from the token metadata
 		$this->apiURL = sprintf($this::API_BASE, $token->extraParams['dc']);
 
 		return parent::request($path, $params, $method, $body, $headers, $protocolVersion);

@@ -31,7 +31,7 @@ if(!file_exists($file)){
 	include __DIR__.'/mixesdb-scrape.php';
 }
 
-$spotify = $factory->getProvider(MixesDBTrackSearch::class, $ENVVAR);
+$spotify = $factory->getProvider(MixesDBTrackSearch::class, $ENVVAR, OAuthExampleProviderFactory::STORAGE_FILE);
 $spotify->getTracks($file, $since, $until, $find, $limit, $playlistPerSet);
 
 exit;

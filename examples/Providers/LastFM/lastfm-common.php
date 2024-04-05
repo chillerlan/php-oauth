@@ -15,4 +15,4 @@ $ENVVAR = 'LASTFM';
 require_once __DIR__.'/../../provider-example-common.php';
 
 /** @var \OAuthExampleProviderFactory $factory */
-$lfm = $factory->getProvider(LastFM::class, $ENVVAR);
+$lfm = $factory->getProvider(LastFM::class, $ENVVAR, OAuthExampleProviderFactory::STORAGE_FILE);

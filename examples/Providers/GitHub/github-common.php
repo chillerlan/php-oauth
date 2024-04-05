@@ -14,4 +14,4 @@ $ENVVAR = 'GITHUB';
 require_once __DIR__.'/../../provider-example-common.php';
 
 /** @var \OAuthExampleProviderFactory $factory */
-$github = $factory->getProvider(GitHub::class, $ENVVAR);
+$github = $factory->getProvider(GitHub::class, $ENVVAR, OAuthExampleProviderFactory::STORAGE_FILE);

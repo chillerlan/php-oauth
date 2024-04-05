@@ -30,7 +30,7 @@ $skipVariousArtist = true;
 $fromCache         = false;
 $cacheDir          =  __DIR__.'/cache';
 
-$spotify = $factory->getProvider(SpotifyNewReleases::class, $ENVVAR);
+$spotify = $factory->getProvider(SpotifyNewReleases::class, $ENVVAR, OAuthExampleProviderFactory::STORAGE_FILE);
 $spotify->getNewReleases($since, $until, $minTracks, $skipVariousArtist, $skipAppearsOn, $fromCache, $cacheDir);
 
 /*

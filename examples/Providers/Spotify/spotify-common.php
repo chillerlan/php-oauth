@@ -19,4 +19,4 @@ require_once __DIR__.'/../../provider-example-common.php';
 require_once __DIR__.'/SpotifyClient.php';
 
 /** @var \OAuthExampleProviderFactory $factory */
-$spotify = $factory->getProvider(Spotify::class, $ENVVAR);
+$spotify = $factory->getProvider(Spotify::class, $ENVVAR, \OAuthExampleProviderFactory::STORAGE_FILE);

@@ -35,6 +35,10 @@ use Psr\Log\LogLevel;
  */
 class OAuthExampleProviderFactory{
 
+	public const STORAGE_MEMORY  = 0b001;
+	public const STORAGE_SESSION = 0b010;
+	public const STORAGE_FILE    = 0b100;
+
 	protected DotEnv $dotEnv;
 	protected LoggerInterface $logger;
 	protected OAuthOptions|SettingsContainerInterface $options;
@@ -81,7 +85,7 @@ class OAuthExampleProviderFactory{
 	public function getProvider(
 		string $providerFQN,
 		string $envVar,
-		bool   $sessionStorage = true,
+		int    $storageType = self::STORAGE_SESSION,
 	):OAuthInterface|OAuth1Interface|OAuth2Interface{
 		$options = new OAuthOptions;
 
@@ -91,11 +95,11 @@ class OAuthExampleProviderFactory{
 		$options->tokenAutoRefresh = true;
 		$options->sessionStart     = true;
 
-		$storage = new MemoryStorage;
-
-		if($sessionStorage === true){
-			$storage = new SessionStorage(options: $options);
-		}
+		$storage = match($storageType){
+			$this::STORAGE_MEMORY  => new MemoryStorage,
+			$this::STORAGE_SESSION => new SessionStorage($options),
+			$this::STORAGE_FILE    => $this->fileStorage,
+		};
 
 		return $this->factory->getProvider($providerFQN, $options, $storage);
 	}

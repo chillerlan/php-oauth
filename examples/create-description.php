@@ -32,7 +32,7 @@ $table = [
 
 foreach(getProviders(__DIR__.'/../src/Providers') as $p){
 	/** @var \OAuthExampleProviderFactory $factory */
-	$provider = $factory->getProvider($p['fqcn'], '', false);
+	$provider = $factory->getProvider($p['fqcn'], '', OAuthExampleProviderFactory::STORAGE_MEMORY);
 
 	$oauth = match(true){
 		$provider instanceof OAuth2Interface => '2',

@@ -34,7 +34,7 @@ final class TwitchTest extends OAuth2ProviderUnitTestAbstract{
 		$this::assertSame($this->options->secret, $params['client_secret']);
 
 		$this::assertSame('client_credentials', $params['grant_type']);
-		$this::assertSame(implode($this->provider::SCOPE_DELIMITER, $scopes), $params['scope']);
+		$this::assertSame(implode($this->provider::SCOPES_DELIMITER, $scopes), $params['scope']);
 	}
 
 	public function testClientCredentialsTokenRequest():void{

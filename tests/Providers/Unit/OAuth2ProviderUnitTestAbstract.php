@@ -67,7 +67,7 @@ abstract class OAuth2ProviderUnitTestAbstract extends OAuthProviderUnitTestAbstr
 		$this::assertSame($this->options->callbackURL, $params['redirect_uri']);
 		$this::assertSame('code', $params['response_type']);
 		$this::assertSame('web_server', $params['type']);
-		$this::assertSame(implode($this->provider::SCOPE_DELIMITER, $scopes), $params['scope']);
+		$this::assertSame(implode($this->provider::SCOPES_DELIMITER, $scopes), $params['scope']);
 		$this::assertSame('bar', $params['foo']);
 	}
 
@@ -96,7 +96,7 @@ abstract class OAuth2ProviderUnitTestAbstract extends OAuthProviderUnitTestAbstr
 		$scopes = ['scope1', 'scope2', 'scope3'];
 
 		$tokendata          = json_decode($this::TEST_TOKEN, true);
-		$tokendata['scope'] = implode($this->provider::SCOPE_DELIMITER, $scopes);
+		$tokendata['scope'] = implode($this->provider::SCOPES_DELIMITER, $scopes);
 		$tokenJSON          = json_encode($tokendata);
 
 		$response = $this->responseFactory
@@ -245,7 +245,7 @@ abstract class OAuth2ProviderUnitTestAbstract extends OAuthProviderUnitTestAbstr
 		$params = $this->invokeReflectionMethod('getClientCredentialsTokenRequestBodyParams', [$scopes]);
 
 		$this::assertSame('client_credentials', $params['grant_type']);
-		$this::assertSame(implode($this->provider::SCOPE_DELIMITER, $scopes), $params['scope']);
+		$this::assertSame(implode($this->provider::SCOPES_DELIMITER, $scopes), $params['scope']);
 	}
 
 	public function testClientCredentialsTokenRequest():void{

@@ -74,7 +74,7 @@ abstract class OAuth2Provider extends OAuthProvider implements OAuth2Interface{
 		]);
 
 		if(!empty($scopes)){
-			$params['scope'] = implode($this::SCOPE_DELIMITER, $scopes);
+			$params['scope'] = implode($this::SCOPES_DELIMITER, $scopes);
 		}
 
 		return $params;
@@ -116,7 +116,7 @@ abstract class OAuth2Provider extends OAuthProvider implements OAuth2Interface{
 		$scopes = ($data['scope'] ?? $data['scopes'] ?? []);
 
 		if(!is_array($scopes)){
-			$scopes = explode($this::SCOPE_DELIMITER, $scopes);
+			$scopes = explode($this::SCOPES_DELIMITER, $scopes);
 		}
 
 		$token               = $this->createAccessToken();
@@ -270,7 +270,7 @@ abstract class OAuth2Provider extends OAuthProvider implements OAuth2Interface{
 		$body = ['grant_type' => 'client_credentials'];
 
 		if(!empty($scopes)){
-			$body['scope'] = implode($this::SCOPE_DELIMITER, $scopes);
+			$body['scope'] = implode($this::SCOPES_DELIMITER, $scopes);
 		}
 
 		return $body;

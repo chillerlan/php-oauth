@@ -86,7 +86,7 @@ class Twitch extends OAuth2Provider implements ClientCredentials, CSRFToken, Tok
 		];
 
 		if($scopes !== null){
-			$params['scope'] = implode($this::SCOPE_DELIMITER, $scopes);
+			$params['scope'] = implode($this::SCOPES_DELIMITER, $scopes);
 		}
 
 		return $params;

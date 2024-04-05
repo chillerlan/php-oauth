@@ -75,7 +75,7 @@ final class DeezerTest extends OAuth2ProviderUnitTestAbstract{
 
 		$this::assertSame($this->options->key, $params['app_id']);
 		$this::assertSame($this->options->callbackURL, $params['redirect_uri']);
-		$this::assertSame(implode($this->provider::SCOPE_DELIMITER, $scopes), $params['perms']);
+		$this::assertSame(implode($this->provider::SCOPES_DELIMITER, $scopes), $params['perms']);
 		$this::assertSame('bar', $params['foo']);
 		$this::assertArrayHasKey('state', $params);
 
@@ -89,7 +89,7 @@ final class DeezerTest extends OAuth2ProviderUnitTestAbstract{
 
 		$this::assertArrayHasKey('app_id', $queryparams);
 		$this::assertArrayHasKey('redirect_uri', $queryparams);
-		$this::assertSame(implode($this->provider::SCOPE_DELIMITER, $scopes), $queryparams['perms']);
+		$this::assertSame(implode($this->provider::SCOPES_DELIMITER, $scopes), $queryparams['perms']);
 		$this::assertSame('bar', $queryparams['foo']);
 	}
 

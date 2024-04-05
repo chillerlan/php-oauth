@@ -57,7 +57,7 @@ interface OAuth2Interface extends OAuthInterface{
 	 *
 	 * @var string
 	 */
-	public const SCOPE_DELIMITER = ' ';
+	public const SCOPES_DELIMITER = ' ';
 
 	/**
 	 * Obtains an OAuth2 access token with the given $code, verifies the $state

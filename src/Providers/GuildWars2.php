@@ -73,7 +73,7 @@ class GuildWars2 extends OAuth2Provider implements UserInfo{
 				'token_type' => 'Bearer',
 				'id'         => $tokeninfo->id,
 				'name'       => $tokeninfo->name,
-				'scope'      => implode($this::SCOPE_DELIMITER, $tokeninfo->permissions),
+				'scope'      => implode($this::SCOPES_DELIMITER, $tokeninfo->permissions),
 			];
 
 			$this->storage->storeAccessToken($token, $this->name);

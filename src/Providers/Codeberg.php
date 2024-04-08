@@ -1,6 +1,6 @@
 <?php
 /**
- * Class Gitea
+ * Class Codeberg
  *
  * @created      08.04.2024
  * @author       smiley <smiley@chillerlan.net>
@@ -17,16 +17,43 @@ use chillerlan\OAuth\Core\{AuthenticatedUser, CSRFToken, OAuth2Provider, PKCE, T
 use function sprintf;
 
 /**
+ * @see https://forgejo.org/docs/latest/user/oauth2-provider/
+ * @see https://forgejo.org/docs/latest/user/token-scope/
  * @see https://codeberg.org/api/swagger
  */
 class Codeberg extends OAuth2Provider implements CSRFToken, PKCE, TokenRefresh, UserInfo{
 
-	// I don't know which scopes are supported, but they might be similar to Gitea
-
-	public const SCOPE_USER = 'user';
+	public const SCOPE_ACTIVITYPUB        = 'activitypub';
+	public const SCOPE_ACTIVITYPUB_READ   = 'read:activitypub';
+	public const SCOPE_ACTIVITYPUB_WRITE  = 'write:activitypub';
+	public const SCOPE_ADMIN              = 'admin';
+	public const SCOPE_ADMIN_READ         = 'read:admin';
+	public const SCOPE_ADMIN_WRITE        = 'write:admin';
+	public const SCOPE_ISSUE              = 'issue';
+	public const SCOPE_ISSUE_READ         = 'read:issue';
+	public const SCOPE_ISSUE_WRITE        = 'write:issue';
+	public const SCOPE_MISC               = 'misc';
+	public const SCOPE_MISC_READ          = 'read:misc';
+	public const SCOPE_MISC_WRITE         = 'write:misc';
+	public const SCOPE_NOTIFICATION       = 'notification';
+	public const SCOPE_NOTIFICATION_READ  = 'read:notification';
+	public const SCOPE_NOTIFICATION_WRITE = 'write:notification';
+	public const SCOPE_ORGANIZATION       = 'organization';
+	public const SCOPE_ORGANIZATION_READ  = 'read:organization';
+	public const SCOPE_ORGANIZATION_WRITE = 'write:organization';
+	public const SCOPE_PACKAGE            = 'package';
+	public const SCOPE_PACKAGE_READ       = 'read:package';
+	public const SCOPE_PACKAGE_WRITE      = 'write:package';
+	public const SCOPE_REPOSITORY         = 'repository';
+	public const SCOPE_REPOSITORY_READ    = 'read:repository';
+	public const SCOPE_REPOSITORY_WRITE   = 'write:repository';
+	public const SCOPE_USER               = 'user';
+	public const SCOPE_USER_READ          = 'read:user';
+	public const SCOPE_USER_WRITE         = 'write:user';
 
 	public const DEFAULT_SCOPES = [
-		self::SCOPE_USER,
+		self::SCOPE_REPOSITORY_READ,
+		self::SCOPE_USER_READ,
 	];
 
 	protected string      $authorizationURL = 'https://codeberg.org/login/oauth/authorize';

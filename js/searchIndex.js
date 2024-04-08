@@ -1676,6 +1676,171 @@ Search.appendIndex(
             "summary": "",
             "url": "classes/chillerlan-OAuth-Providers-Foursquare.html#property_applicationURL"
         },                {
+            "fqsen": "\\chillerlan\\OAuth\\Providers\\Gitea",
+            "name": "Gitea",
+            "summary": "Implements\u0020an\u0020abstract\u0020OAuth2\u0020provider\u0020with\u0020all\u0020methods\u0020required\u0020by\u0020the\u0020OAuth2Interface.",
+            "url": "classes/chillerlan-OAuth-Providers-Gitea.html"
+        },                {
+            "fqsen": "\\chillerlan\\OAuth\\Providers\\Gitea\u003A\u003Ame\u0028\u0029",
+            "name": "me",
+            "summary": "Returns\u0020information\u0020about\u0020the\u0020currently\u0020authenticated\u0020user\u0020\u0028usually\u0020a\u0020\/me\u0020or\u0020\/user\u0020endpoint\u0029.",
+            "url": "classes/chillerlan-OAuth-Providers-Gitea.html#method_me"
+        },                {
+            "fqsen": "\\chillerlan\\OAuth\\Providers\\Gitea\u003A\u003ASCOPE_ACTIVITYPUB",
+            "name": "SCOPE_ACTIVITYPUB",
+            "summary": "",
+            "url": "classes/chillerlan-OAuth-Providers-Gitea.html#constant_SCOPE_ACTIVITYPUB"
+        },                {
+            "fqsen": "\\chillerlan\\OAuth\\Providers\\Gitea\u003A\u003ASCOPE_ACTIVITYPUB_READ",
+            "name": "SCOPE_ACTIVITYPUB_READ",
+            "summary": "",
+            "url": "classes/chillerlan-OAuth-Providers-Gitea.html#constant_SCOPE_ACTIVITYPUB_READ"
+        },                {
+            "fqsen": "\\chillerlan\\OAuth\\Providers\\Gitea\u003A\u003ASCOPE_ACTIVITYPUB_WRITE",
+            "name": "SCOPE_ACTIVITYPUB_WRITE",
+            "summary": "",
+            "url": "classes/chillerlan-OAuth-Providers-Gitea.html#constant_SCOPE_ACTIVITYPUB_WRITE"
+        },                {
+            "fqsen": "\\chillerlan\\OAuth\\Providers\\Gitea\u003A\u003ASCOPE_ADMIN",
+            "name": "SCOPE_ADMIN",
+            "summary": "",
+            "url": "classes/chillerlan-OAuth-Providers-Gitea.html#constant_SCOPE_ADMIN"
+        },                {
+            "fqsen": "\\chillerlan\\OAuth\\Providers\\Gitea\u003A\u003ASCOPE_ADMIN_READ",
+            "name": "SCOPE_ADMIN_READ",
+            "summary": "",
+            "url": "classes/chillerlan-OAuth-Providers-Gitea.html#constant_SCOPE_ADMIN_READ"
+        },                {
+            "fqsen": "\\chillerlan\\OAuth\\Providers\\Gitea\u003A\u003ASCOPE_ADMIN_WRITE",
+            "name": "SCOPE_ADMIN_WRITE",
+            "summary": "",
+            "url": "classes/chillerlan-OAuth-Providers-Gitea.html#constant_SCOPE_ADMIN_WRITE"
+        },                {
+            "fqsen": "\\chillerlan\\OAuth\\Providers\\Gitea\u003A\u003ASCOPE_ISSUE",
+            "name": "SCOPE_ISSUE",
+            "summary": "",
+            "url": "classes/chillerlan-OAuth-Providers-Gitea.html#constant_SCOPE_ISSUE"
+        },                {
+            "fqsen": "\\chillerlan\\OAuth\\Providers\\Gitea\u003A\u003ASCOPE_ISSUE_READ",
+            "name": "SCOPE_ISSUE_READ",
+            "summary": "",
+            "url": "classes/chillerlan-OAuth-Providers-Gitea.html#constant_SCOPE_ISSUE_READ"
+        },                {
+            "fqsen": "\\chillerlan\\OAuth\\Providers\\Gitea\u003A\u003ASCOPE_ISSUE_WRITE",
+            "name": "SCOPE_ISSUE_WRITE",
+            "summary": "",
+            "url": "classes/chillerlan-OAuth-Providers-Gitea.html#constant_SCOPE_ISSUE_WRITE"
+        },                {
+            "fqsen": "\\chillerlan\\OAuth\\Providers\\Gitea\u003A\u003ASCOPE_NOTIFICATION",
+            "name": "SCOPE_NOTIFICATION",
+            "summary": "",
+            "url": "classes/chillerlan-OAuth-Providers-Gitea.html#constant_SCOPE_NOTIFICATION"
+        },                {
+            "fqsen": "\\chillerlan\\OAuth\\Providers\\Gitea\u003A\u003ASCOPE_NOTIFICATION_READ",
+            "name": "SCOPE_NOTIFICATION_READ",
+            "summary": "",
+            "url": "classes/chillerlan-OAuth-Providers-Gitea.html#constant_SCOPE_NOTIFICATION_READ"
+        },                {
+            "fqsen": "\\chillerlan\\OAuth\\Providers\\Gitea\u003A\u003ASCOPE_NOTIFICATION_WRITE",
+            "name": "SCOPE_NOTIFICATION_WRITE",
+            "summary": "",
+            "url": "classes/chillerlan-OAuth-Providers-Gitea.html#constant_SCOPE_NOTIFICATION_WRITE"
+        },                {
+            "fqsen": "\\chillerlan\\OAuth\\Providers\\Gitea\u003A\u003ASCOPE_ORGANIZATION",
+            "name": "SCOPE_ORGANIZATION",
+            "summary": "",
+            "url": "classes/chillerlan-OAuth-Providers-Gitea.html#constant_SCOPE_ORGANIZATION"
+        },                {
+            "fqsen": "\\chillerlan\\OAuth\\Providers\\Gitea\u003A\u003ASCOPE_ORGANIZATION_READ",
+            "name": "SCOPE_ORGANIZATION_READ",
+            "summary": "",
+            "url": "classes/chillerlan-OAuth-Providers-Gitea.html#constant_SCOPE_ORGANIZATION_READ"
+        },                {
+            "fqsen": "\\chillerlan\\OAuth\\Providers\\Gitea\u003A\u003ASCOPE_ORGANIZATION_WRITE",
+            "name": "SCOPE_ORGANIZATION_WRITE",
+            "summary": "",
+            "url": "classes/chillerlan-OAuth-Providers-Gitea.html#constant_SCOPE_ORGANIZATION_WRITE"
+        },                {
+            "fqsen": "\\chillerlan\\OAuth\\Providers\\Gitea\u003A\u003ASCOPE_PACKAGE",
+            "name": "SCOPE_PACKAGE",
+            "summary": "",
+            "url": "classes/chillerlan-OAuth-Providers-Gitea.html#constant_SCOPE_PACKAGE"
+        },                {
+            "fqsen": "\\chillerlan\\OAuth\\Providers\\Gitea\u003A\u003ASCOPE_PACKAGE_READ",
+            "name": "SCOPE_PACKAGE_READ",
+            "summary": "",
+            "url": "classes/chillerlan-OAuth-Providers-Gitea.html#constant_SCOPE_PACKAGE_READ"
+        },                {
+            "fqsen": "\\chillerlan\\OAuth\\Providers\\Gitea\u003A\u003ASCOPE_PACKAGE_WRITE",
+            "name": "SCOPE_PACKAGE_WRITE",
+            "summary": "",
+            "url": "classes/chillerlan-OAuth-Providers-Gitea.html#constant_SCOPE_PACKAGE_WRITE"
+        },                {
+            "fqsen": "\\chillerlan\\OAuth\\Providers\\Gitea\u003A\u003ASCOPE_REPOSITORY",
+            "name": "SCOPE_REPOSITORY",
+            "summary": "",
+            "url": "classes/chillerlan-OAuth-Providers-Gitea.html#constant_SCOPE_REPOSITORY"
+        },                {
+            "fqsen": "\\chillerlan\\OAuth\\Providers\\Gitea\u003A\u003ASCOPE_REPOSITORY_READ",
+            "name": "SCOPE_REPOSITORY_READ",
+            "summary": "",
+            "url": "classes/chillerlan-OAuth-Providers-Gitea.html#constant_SCOPE_REPOSITORY_READ"
+        },                {
+            "fqsen": "\\chillerlan\\OAuth\\Providers\\Gitea\u003A\u003ASCOPE_REPOSITORY_WRITE",
+            "name": "SCOPE_REPOSITORY_WRITE",
+            "summary": "",
+            "url": "classes/chillerlan-OAuth-Providers-Gitea.html#constant_SCOPE_REPOSITORY_WRITE"
+        },                {
+            "fqsen": "\\chillerlan\\OAuth\\Providers\\Gitea\u003A\u003ASCOPE_USER",
+            "name": "SCOPE_USER",
+            "summary": "",
+            "url": "classes/chillerlan-OAuth-Providers-Gitea.html#constant_SCOPE_USER"
+        },                {
+            "fqsen": "\\chillerlan\\OAuth\\Providers\\Gitea\u003A\u003ASCOPE_USER_READ",
+            "name": "SCOPE_USER_READ",
+            "summary": "",
+            "url": "classes/chillerlan-OAuth-Providers-Gitea.html#constant_SCOPE_USER_READ"
+        },                {
+            "fqsen": "\\chillerlan\\OAuth\\Providers\\Gitea\u003A\u003ASCOPE_USER_WRITE",
+            "name": "SCOPE_USER_WRITE",
+            "summary": "",
+            "url": "classes/chillerlan-OAuth-Providers-Gitea.html#constant_SCOPE_USER_WRITE"
+        },                {
+            "fqsen": "\\chillerlan\\OAuth\\Providers\\Gitea\u003A\u003ADEFAULT_SCOPES",
+            "name": "DEFAULT_SCOPES",
+            "summary": "",
+            "url": "classes/chillerlan-OAuth-Providers-Gitea.html#constant_DEFAULT_SCOPES"
+        },                {
+            "fqsen": "\\chillerlan\\OAuth\\Providers\\Gitea\u003A\u003A\u0024authorizationURL",
+            "name": "authorizationURL",
+            "summary": "",
+            "url": "classes/chillerlan-OAuth-Providers-Gitea.html#property_authorizationURL"
+        },                {
+            "fqsen": "\\chillerlan\\OAuth\\Providers\\Gitea\u003A\u003A\u0024accessTokenURL",
+            "name": "accessTokenURL",
+            "summary": "",
+            "url": "classes/chillerlan-OAuth-Providers-Gitea.html#property_accessTokenURL"
+        },                {
+            "fqsen": "\\chillerlan\\OAuth\\Providers\\Gitea\u003A\u003A\u0024apiURL",
+            "name": "apiURL",
+            "summary": "",
+            "url": "classes/chillerlan-OAuth-Providers-Gitea.html#property_apiURL"
+        },                {
+            "fqsen": "\\chillerlan\\OAuth\\Providers\\Gitea\u003A\u003A\u0024apiDocs",
+            "name": "apiDocs",
+            "summary": "",
+            "url": "classes/chillerlan-OAuth-Providers-Gitea.html#property_apiDocs"
+        },                {
+            "fqsen": "\\chillerlan\\OAuth\\Providers\\Gitea\u003A\u003A\u0024applicationURL",
+            "name": "applicationURL",
+            "summary": "",
+            "url": "classes/chillerlan-OAuth-Providers-Gitea.html#property_applicationURL"
+        },                {
+            "fqsen": "\\chillerlan\\OAuth\\Providers\\Gitea\u003A\u003A\u0024userRevokeURL",
+            "name": "userRevokeURL",
+            "summary": "",
+            "url": "classes/chillerlan-OAuth-Providers-Gitea.html#property_userRevokeURL"
+        },                {
             "fqsen": "\\chillerlan\\OAuth\\Providers\\GitHub",
             "name": "GitHub",
             "summary": "GitHub\u0020OAuth2",
@@ -5076,6 +5241,21 @@ Search.appendIndex(
             "summary": "",
             "url": "classes/chillerlan-OAuthTest-Providers-Live-FoursquareAPITest.html#method_getEnvPrefix"
         },                {
+            "fqsen": "\\chillerlan\\OAuthTest\\Providers\\Live\\GiteaAPITest",
+            "name": "GiteaAPITest",
+            "summary": "",
+            "url": "classes/chillerlan-OAuthTest-Providers-Live-GiteaAPITest.html"
+        },                {
+            "fqsen": "\\chillerlan\\OAuthTest\\Providers\\Live\\GiteaAPITest\u003A\u003AgetProviderFQCN\u0028\u0029",
+            "name": "getProviderFQCN",
+            "summary": "",
+            "url": "classes/chillerlan-OAuthTest-Providers-Live-GiteaAPITest.html#method_getProviderFQCN"
+        },                {
+            "fqsen": "\\chillerlan\\OAuthTest\\Providers\\Live\\GiteaAPITest\u003A\u003AgetEnvPrefix\u0028\u0029",
+            "name": "getEnvPrefix",
+            "summary": "",
+            "url": "classes/chillerlan-OAuthTest-Providers-Live-GiteaAPITest.html#method_getEnvPrefix"
+        },                {
             "fqsen": "\\chillerlan\\OAuthTest\\Providers\\Live\\GitHubAPITest",
             "name": "GitHubAPITest",
             "summary": "",
@@ -6055,6 +6235,16 @@ Search.appendIndex(
             "name": "getProviderFQCN",
             "summary": "",
             "url": "classes/chillerlan-OAuthTest-Providers-Unit-FoursquareTest.html#method_getProviderFQCN"
+        },                {
+            "fqsen": "\\chillerlan\\OAuthTest\\Providers\\Unit\\GiteaTest",
+            "name": "GiteaTest",
+            "summary": "",
+            "url": "classes/chillerlan-OAuthTest-Providers-Unit-GiteaTest.html"
+        },                {
+            "fqsen": "\\chillerlan\\OAuthTest\\Providers\\Unit\\GiteaTest\u003A\u003AgetProviderFQCN\u0028\u0029",
+            "name": "getProviderFQCN",
+            "summary": "",
+            "url": "classes/chillerlan-OAuthTest-Providers-Unit-GiteaTest.html#method_getProviderFQCN"
         },                {
             "fqsen": "\\chillerlan\\OAuthTest\\Providers\\Unit\\GitHubTest",
             "name": "GitHubTest",

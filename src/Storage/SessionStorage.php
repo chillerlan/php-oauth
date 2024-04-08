@@ -40,11 +40,13 @@ class SessionStorage extends OAuthStorageAbstract{
 			session_start();
 		}
 
-		$_SESSION[$this->storageVar] = [
-			$this::KEY_TOKEN    => [],
-			$this::KEY_STATE    => [],
-			$this::KEY_VERIFIER => [],
-		];
+		if(!isset($_SESSION[$this->storageVar])){
+			$_SESSION[$this->storageVar] = [
+				$this::KEY_TOKEN    => [],
+				$this::KEY_STATE    => [],
+				$this::KEY_VERIFIER => [],
+			];
+		}
 
 	}
 

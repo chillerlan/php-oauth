@@ -9,6 +9,7 @@
  *
  * @noinspection PhpUnused
  */
+declare(strict_types=1);
 
 namespace chillerlan\OAuth\Providers;
 

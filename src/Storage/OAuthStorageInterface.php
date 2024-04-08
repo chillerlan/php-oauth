@@ -99,6 +99,32 @@ interface OAuthStorageInterface{
 	 */
 	public function clearAllCSRFStates():static;
 
+
+	/**
+	 * Stores a PKCE verifier
+	 */
+	public function storeCodeVerifier(string $verifier, string $provider):static;
+
+	/**
+	 * Retrieves a PKCE verifier
+	 */
+	public function getCodeVerifier(string $provider):string;
+
+	/**
+	 * Checks whether a PKCE verifier exists
+	 */
+	public function hasCodeVerifier(string $provider):bool;
+
+	/**
+	 * Deletes a PKCE verifier
+	 */
+	public function clearCodeVerifier(string $provider):static;
+
+	/**
+	 * Deletes all PKCE verifiers for this user
+	 */
+	public function clearAllCodeVerifiers():static;
+
 	/**
 	 * Prepares an AccessToken for storage (serialize, encrypt etc.)
 	 * and returns a value that is suited for the underlying storage engine

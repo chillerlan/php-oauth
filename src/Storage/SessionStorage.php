@@ -12,7 +12,7 @@ declare(strict_types=1);
 namespace chillerlan\OAuth\Storage;
 
 use chillerlan\OAuth\Core\AccessToken;
-use function array_key_exists, array_keys, session_start, session_status, session_write_close;
+use function session_start, session_status, session_write_close;
 use const PHP_SESSION_ACTIVE, PHP_SESSION_DISABLED;
 
 /**
@@ -23,21 +23,15 @@ use const PHP_SESSION_ACTIVE, PHP_SESSION_DISABLED;
 class SessionStorage extends OAuthStorageAbstract{
 
 	/**
-	 * the key name for the token storage array in $_SESSION
+	 * the key name for the storage array in $_SESSION
 	 */
-	protected string $tokenVar;
-
-	/**
-	 * the key name for the CSRF token storage array in $_SESSION
-	 */
-	protected string $stateVar;
+	protected string $storageVar;
 
 	/**
 	 * SessionStorage (pseudo-) constructor.
 	 */
 	public function construct():void{
-		$this->tokenVar = $this->options->sessionTokenVar;
-		$this->stateVar = $this->options->sessionStateVar;
+		$this->storageVar = $this->options->sessionStorageVar;
 
 		// Determine if the session has started.
 		$status = session_status();
@@ -46,13 +40,11 @@ class SessionStorage extends OAuthStorageAbstract{
 			session_start();
 		}
 
-		if(!isset($_SESSION[$this->tokenVar])){
-			$_SESSION[$this->tokenVar] = [];
-		}
-
-		if(!isset($_SESSION[$this->stateVar])){
-			$_SESSION[$this->stateVar] = [];
-		}
+		$_SESSION[$this->storageVar] = [
+			$this::KEY_TOKEN    => [],
+			$this::KEY_STATE    => [],
+			$this::KEY_VERIFIER => [],
+		];
 
 	}
 
@@ -71,7 +63,7 @@ class SessionStorage extends OAuthStorageAbstract{
 	 * @inheritDoc
 	 */
 	public function storeAccessToken(AccessToken $token, string $provider):static{
-		$_SESSION[$this->tokenVar][$this->getProviderName($provider)] = $this->toStorage($token);
+		$_SESSION[$this->storageVar][$this::KEY_TOKEN][$this->getProviderName($provider)] = $this->toStorage($token);
 
 		return $this;
 	}
@@ -82,7 +74,7 @@ class SessionStorage extends OAuthStorageAbstract{
 	public function getAccessToken(string $provider):AccessToken{
 
 		if($this->hasAccessToken($provider)){
-			return $this->fromStorage($_SESSION[$this->tokenVar][$this->getProviderName($provider)]);
+			return $this->fromStorage($_SESSION[$this->storageVar][$this::KEY_TOKEN][$this->getProviderName($provider)]);
 		}
 
 		throw new TokenNotFoundException;
@@ -92,18 +84,14 @@ class SessionStorage extends OAuthStorageAbstract{
 	 * @inheritDoc
 	 */
 	public function hasAccessToken(string $provider):bool{
-		return isset($_SESSION[$this->tokenVar], $_SESSION[$this->tokenVar][$this->getProviderName($provider)]);
+		return !empty($_SESSION[$this->storageVar][$this::KEY_TOKEN][$this->getProviderName($provider)]);
 	}
 
 	/**
 	 * @inheritDoc
 	 */
 	public function clearAccessToken(string $provider):static{
-		$providerName = $this->getProviderName($provider);
-
-		if(array_key_exists($providerName, $_SESSION[$this->tokenVar])){
-			unset($_SESSION[$this->tokenVar][$providerName]);
-		}
+		unset($_SESSION[$this->storageVar][$this::KEY_TOKEN][$this->getProviderName($provider)]);
 
 		return $this;
 	}
@@ -112,12 +100,7 @@ class SessionStorage extends OAuthStorageAbstract{
 	 * @inheritDoc
 	 */
 	public function clearAllAccessTokens():static{
-
-		foreach(array_keys($_SESSION[$this->tokenVar]) as $provider){
-			unset($_SESSION[$this->tokenVar][$provider]);
-		}
-
-		unset($_SESSION[$this->tokenVar]);
+		$_SESSION[$this->storageVar][$this::KEY_TOKEN] = [];
 
 		return $this;
 	}
@@ -126,7 +109,7 @@ class SessionStorage extends OAuthStorageAbstract{
 	 * @inheritDoc
 	 */
 	public function storeCSRFState(string $state, string $provider):static{
-		$_SESSION[$this->stateVar][$this->getProviderName($provider)] = $state;
+		$_SESSION[$this->storageVar][$this::KEY_STATE][$this->getProviderName($provider)] = $state;
 
 		return $this;
 	}
@@ -137,7 +120,7 @@ class SessionStorage extends OAuthStorageAbstract{
 	public function getCSRFState(string $provider):string{
 
 		if($this->hasCSRFState($provider)){
-			return $_SESSION[$this->stateVar][$this->getProviderName($provider)];
+			return $_SESSION[$this->storageVar][$this::KEY_STATE][$this->getProviderName($provider)];
 		}
 
 		throw new StateNotFoundException;
@@ -147,18 +130,14 @@ class SessionStorage extends OAuthStorageAbstract{
 	 * @inheritDoc
 	 */
 	public function hasCSRFState(string $provider):bool{
-		return isset($_SESSION[$this->stateVar], $_SESSION[$this->stateVar][$this->getProviderName($provider)]);
+		return !empty($_SESSION[$this->storageVar][$this::KEY_STATE][$this->getProviderName($provider)]);
 	}
 
 	/**
 	 * @inheritDoc
 	 */
 	public function clearCSRFState(string $provider):static{
-		$providerName = $this->getProviderName($provider);
-
-		if(array_key_exists($providerName, $_SESSION[$this->stateVar])){
-			unset($_SESSION[$this->stateVar][$providerName]);
-		}
+		unset($_SESSION[$this->storageVar][$this::KEY_STATE][$this->getProviderName($provider)]);
 
 		return $this;
 	}
@@ -167,7 +146,53 @@ class SessionStorage extends OAuthStorageAbstract{
 	 * @inheritDoc
 	 */
 	public function clearAllCSRFStates():static{
-		unset($_SESSION[$this->stateVar]);
+		$_SESSION[$this->storageVar][$this::KEY_STATE] = [];
+
+		return $this;
+	}
+
+	/**
+	 * @inheritDoc
+	 */
+	public function storeCodeVerifier(string $verifier, string $provider):static{
+		$_SESSION[$this->storageVar][$this::KEY_VERIFIER][$this->getProviderName($provider)] = $verifier;
+
+		return $this;
+	}
+
+	/**
+	 * @inheritDoc
+	 */
+	public function getCodeVerifier(string $provider):string{
+
+		if($this->hasCodeVerifier($provider)){
+			return $_SESSION[$this->storageVar][$this::KEY_VERIFIER][$this->getProviderName($provider)];
+		}
+
+		throw new VerifierNotFoundException;
+	}
+
+	/**
+	 * @inheritDoc
+	 */
+	public function hasCodeVerifier(string $provider):bool{
+		return !empty($_SESSION[$this->storageVar][$this::KEY_VERIFIER][$this->getProviderName($provider)]);
+	}
+
+	/**
+	 * @inheritDoc
+	 */
+	public function clearCodeVerifier(string $provider):static{
+		unset($_SESSION[$this->storageVar][$this::KEY_VERIFIER][$this->getProviderName($provider)]);
+
+		return $this;
+	}
+
+	/**
+	 * @inheritDoc
+	 */
+	public function clearAllCodeVerifiers():static{
+		$_SESSION[$this->storageVar][$this::KEY_VERIFIER] = [];
 
 		return $this;
 	}

@@ -11,13 +11,12 @@ declare(strict_types=1);
 
 namespace chillerlan\OAuthTest\Providers;
 
-use chillerlan\OAuth\Core\{AccessToken, ClientCredentials, CSRFToken, OAuth2Provider, TokenInvalidate, TokenRefresh};
-use chillerlan\OAuth\Providers\ProviderException;
+use chillerlan\OAuth\Core\{AccessToken, ClientCredentials, CSRFToken, OAuth2Provider, PKCE, TokenInvalidate, TokenRefresh};
 
 /**
  * An OAuth2 provider implementation that supports token refresh, csrf tokens and client credentials
  */
-final class DummyOAuth2Provider extends OAuth2Provider implements ClientCredentials, CSRFToken, TokenRefresh, TokenInvalidate{
+final class DummyOAuth2Provider extends OAuth2Provider implements ClientCredentials, CSRFToken, PKCE, TokenRefresh, TokenInvalidate{
 
 	public const AUTH_METHOD  = self::AUTH_METHOD_QUERY;
 	public const HEADERS_AUTH = ['foo' => 'bar'];

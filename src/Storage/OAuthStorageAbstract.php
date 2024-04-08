@@ -24,6 +24,10 @@ use const SODIUM_BASE64_VARIANT_ORIGINAL, SODIUM_CRYPTO_SECRETBOX_NONCEBYTES;
  */
 abstract class OAuthStorageAbstract implements OAuthStorageInterface{
 
+	final protected const KEY_TOKEN    = 'TOKEN';
+	final protected const KEY_STATE    = 'STATE';
+	final protected const KEY_VERIFIER = 'VERIFIER';
+
 	final protected const ENCRYPT_FORMAT_BINARY = 0b00;
 	final protected const ENCRYPT_FORMAT_BASE64 = 0b01;
 	final protected const ENCRYPT_FORMAT_HEX    = 0b10;

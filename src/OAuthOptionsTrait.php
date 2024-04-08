@@ -12,7 +12,7 @@ declare(strict_types=1);
 namespace chillerlan\OAuth;
 
 use chillerlan\OAuth\Storage\OAuthStorageException;
-use function is_dir, is_writable, realpath, sprintf, strlen, trim;
+use function is_dir, is_writable, max, min, realpath, sprintf, strlen, trim;
 use const SODIUM_CRYPTO_SECRETBOX_KEYBYTES;
 
 /**
@@ -78,18 +78,11 @@ trait OAuthOptionsTrait{
 	protected bool $sessionStop = false;
 
 	/**
-	 * The session array key for token storage
+	 * The session key for the storage array
 	 *
 	 * @see \chillerlan\OAuth\Storage\SessionStorage
 	 */
-	protected string $sessionTokenVar = 'chillerlan-oauth-token';
-
-	/**
-	 * The session array key for <state> storage (OAuth2)
-	 *
-	 * @see \chillerlan\OAuth\Storage\SessionStorage
-	 */
-	protected string $sessionStateVar = 'chillerlan-oauth-state';
+	protected string $sessionStorageVar = 'chillerlan-oauth-storage';
 
 	/**
 	 * The file storage root path (requires permissions 0777)
@@ -98,6 +91,13 @@ trait OAuthOptionsTrait{
 	 * @see \chillerlan\OAuth\Storage\FileStorage
 	 */
 	protected string $fileStoragePath = '';
+
+	/**
+	 * The length of the PKCE challenge verifier (43-128 characters)
+	 *
+	 * @see https://datatracker.ietf.org/doc/html/rfc7636#section-4.1
+	 */
+	protected int $pkceVerifierLength = 128;
 
 	/**
 	 * sets an encryption key
@@ -122,6 +122,13 @@ trait OAuthOptionsTrait{
 		}
 
 		$this->fileStoragePath = $path;
+	}
+
+	/**
+	 * clamps the PKCE verifier length between 43 and 128
+	 */
+	protected function set_pkceVerifierLength(int $pkceVerifierLength):void{
+		$this->pkceVerifierLength = max(43, min(128, $pkceVerifierLength));
 	}
 
 }

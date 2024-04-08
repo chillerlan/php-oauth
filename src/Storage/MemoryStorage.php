@@ -12,7 +12,6 @@ declare(strict_types=1);
 namespace chillerlan\OAuth\Storage;
 
 use chillerlan\OAuth\Core\AccessToken;
-use function array_key_exists, array_keys;
 
 /**
  * Implements a memory storage adapter.
@@ -22,20 +21,19 @@ use function array_key_exists, array_keys;
 class MemoryStorage extends OAuthStorageAbstract{
 
 	/**
-	 * the token storage array
+	 * the storage array
 	 */
-	protected array $tokens = [];
-
-	/**
-	 * the CSRF state storage array
-	 */
-	protected array $states = [];
+	protected array $storage = [
+		self::KEY_TOKEN    => [],
+		self::KEY_STATE    => [],
+		self::KEY_VERIFIER => [],
+	];
 
 	/**
 	 * @inheritDoc
 	 */
 	public function storeAccessToken(AccessToken $token, string $provider):static{
-		$this->tokens[$this->getProviderName($provider)] = $token;
+		$this->storage[$this::KEY_TOKEN][$this->getProviderName($provider)] = $token;
 
 		return $this;
 	}
@@ -46,7 +44,7 @@ class MemoryStorage extends OAuthStorageAbstract{
 	public function getAccessToken(string $provider):AccessToken{
 
 		if($this->hasAccessToken($provider)){
-			return $this->tokens[$this->getProviderName($provider)];
+			return $this->storage[$this::KEY_TOKEN][$this->getProviderName($provider)];
 		}
 
 		throw new TokenNotFoundException;
@@ -56,20 +54,14 @@ class MemoryStorage extends OAuthStorageAbstract{
 	 * @inheritDoc
 	 */
 	public function hasAccessToken(string $provider):bool{
-		$providerName = $this->getProviderName($provider);
-
-		return isset($this->tokens[$providerName]) && $this->tokens[$providerName] instanceof AccessToken;
+		return !empty($this->storage[$this::KEY_TOKEN][$this->getProviderName($provider)]);
 	}
 
 	/**
 	 * @inheritDoc
 	 */
 	public function clearAccessToken(string $provider):static{
-		$providerName = $this->getProviderName($provider);
-
-		if(array_key_exists($providerName, $this->tokens)){
-			unset($this->tokens[$providerName]);
-		}
+		unset($this->storage[$this::KEY_TOKEN][$this->getProviderName($provider)]);
 
 		return $this;
 	}
@@ -78,12 +70,7 @@ class MemoryStorage extends OAuthStorageAbstract{
 	 * @inheritDoc
 	 */
 	public function clearAllAccessTokens():static{
-
-		foreach(array_keys($this->tokens) as $provider){
-			unset($this->tokens[$provider]);
-		}
-
-		$this->tokens = [];
+		$this->storage[$this::KEY_TOKEN] = [];
 
 		return $this;
 	}
@@ -92,7 +79,7 @@ class MemoryStorage extends OAuthStorageAbstract{
 	 * @inheritDoc
 	 */
 	public function storeCSRFState(string $state, string $provider):static{
-		$this->states[$this->getProviderName($provider)] = $state;
+		$this->storage[$this::KEY_STATE][$this->getProviderName($provider)] = $state;
 
 		return $this;
 	}
@@ -103,7 +90,7 @@ class MemoryStorage extends OAuthStorageAbstract{
 	public function getCSRFState(string $provider):string{
 
 		if($this->hasCSRFState($provider)){
-			return $this->states[$this->getProviderName($provider)];
+			return $this->storage[$this::KEY_STATE][$this->getProviderName($provider)];
 		}
 
 		throw new StateNotFoundException;
@@ -113,20 +100,14 @@ class MemoryStorage extends OAuthStorageAbstract{
 	 * @inheritDoc
 	 */
 	public function hasCSRFState(string $provider):bool{
-		$providerName = $this->getProviderName($provider);
-
-		return isset($this->states[$providerName]) && null !== $this->states[$providerName];
+		return !empty($this->storage[$this::KEY_STATE][$this->getProviderName($provider)]);
 	}
 
 	/**
 	 * @inheritDoc
 	 */
 	public function clearCSRFState(string $provider):static{
-		$providerName = $this->getProviderName($provider);
-
-		if(array_key_exists($providerName, $this->states)){
-			unset($this->states[$providerName]);
-		}
+		unset($this->storage[$this::KEY_STATE][$this->getProviderName($provider)]);
 
 		return $this;
 	}
@@ -135,7 +116,53 @@ class MemoryStorage extends OAuthStorageAbstract{
 	 * @inheritDoc
 	 */
 	public function clearAllCSRFStates():static{
-		$this->states = [];
+		$this->storage[$this::KEY_STATE] = [];
+
+		return $this;
+	}
+
+	/**
+	 * @inheritDoc
+	 */
+	public function storeCodeVerifier(string $verifier, string $provider):static{
+		$this->storage[$this::KEY_VERIFIER][$this->getProviderName($provider)] = $verifier;
+
+		return $this;
+	}
+
+	/**
+	 * @inheritDoc
+	 */
+	public function getCodeVerifier(string $provider):string{
+
+		if($this->hasCodeVerifier($provider)){
+			return $this->storage[$this::KEY_VERIFIER][$this->getProviderName($provider)];
+		}
+
+		throw new VerifierNotFoundException;
+	}
+
+	/**
+	 * @inheritDoc
+	 */
+	public function hasCodeVerifier(string $provider):bool{
+		return !empty($this->storage[$this::KEY_VERIFIER][$this->getProviderName($provider)]);
+	}
+
+	/**
+	 * @inheritDoc
+	 */
+	public function clearCodeVerifier(string $provider):static{
+		unset($this->storage[$this::KEY_VERIFIER][$this->getProviderName($provider)]);
+
+		return $this;
+	}
+
+	/**
+	 * @inheritDoc
+	 */
+	public function clearAllCodeVerifiers():static{
+		$this->storage[$this::KEY_VERIFIER] = [];
 
 		return $this;
 	}

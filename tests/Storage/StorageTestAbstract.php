@@ -13,7 +13,9 @@ namespace chillerlan\OAuthTest\Storage;
 
 use chillerlan\OAuth\OAuthOptions;
 use chillerlan\OAuth\Core\AccessToken;
-use chillerlan\OAuth\Storage\{OAuthStorageException, OAuthStorageInterface, StateNotFoundException, TokenNotFoundException};
+use chillerlan\OAuth\Storage\{
+	OAuthStorageException, OAuthStorageInterface, StateNotFoundException, TokenNotFoundException, VerifierNotFoundException
+};
 use PHPUnit\Framework\TestCase;
 use ReflectionMethod;
 use function array_merge;
@@ -40,6 +42,10 @@ abstract class StorageTestAbstract extends TestCase{
 		return new OAuthOptions;
 	}
 
+	/*
+	 * access token
+	 */
+
 	public function testTAccessToken():void{
 		$this->storage->storeAccessToken($this->token, $this->providerName);
 		$this::assertTrue($this->storage->hasAccessToken($this->providerName));
@@ -64,7 +70,18 @@ abstract class StorageTestAbstract extends TestCase{
 
 	}
 
-	public function testCSRFState(){
+	public function testGetAccessTokenNotFoundException():void{
+		$this->expectException(TokenNotFoundException::class);
+
+		$this->storage->getAccessToken('LOLNOPE');
+	}
+
+
+	/*
+	 * CSRF states
+	 */
+
+	public function testCSRFState():void{
 		$this->storage->storeCSRFState('foobar', $this->providerName);
 		$this::assertTrue($this->storage->hasCSRFState($this->providerName));
 		$this::assertSame('foobar', $this->storage->getCSRFState($this->providerName));
@@ -88,6 +105,52 @@ abstract class StorageTestAbstract extends TestCase{
 
 	}
 
+	public function testGetCSRFStateNotFoundException():void{
+		$this->expectException(StateNotFoundException::class);
+
+		$this->storage->getCSRFState('LOLNOPE');
+	}
+
+
+	/*
+	 * PKCE verifiers
+	 */
+
+	public function testPKCEVerifier():void{
+		$this->storage->storeCodeVerifier('foobar', $this->providerName);
+		$this::assertTrue($this->storage->hasCodeVerifier($this->providerName));
+		$this::assertSame('foobar', $this->storage->getCodeVerifier($this->providerName));
+
+		$this->storage->clearCodeVerifier($this->providerName);
+		$this::assertFalse($this->storage->hasCodeVerifier($this->providerName));
+	}
+
+	public function testClearAllPKCEVerifiers():void{
+
+		foreach(['a', 'b', 'c', $this->providerName] as $provider){
+			$this->storage->storeCodeVerifier('foobar', $provider);
+			$this::assertTrue($this->storage->hasCodeVerifier($provider));
+		}
+
+		$this->storage->clearAllCodeVerifiers();
+
+		foreach(['a', 'b', 'c', $this->providerName] as $provider){
+			$this::assertFalse($this->storage->hasCodeVerifier($provider));
+		}
+
+	}
+
+	public function testGetPKCEVerifierNotFoundException():void{
+		$this->expectException(VerifierNotFoundException::class);
+
+		$this->storage->getCodeVerifier('LOLNOPE');
+	}
+
+
+	/*
+	 * internals
+	 */
+
 	public function testGetProviderNameEmptyNameException():void{
 		$this->expectException(OAuthStorageException::class);
 		$this->expectExceptionMessage('provider name must not be empty');
@@ -105,18 +168,6 @@ abstract class StorageTestAbstract extends TestCase{
 		$options->useStorageEncryption = true;
 
 		$this->initStorage($options);
-	}
-
-	public function testRetrieveCSRFStateNotFoundException():void{
-		$this->expectException(StateNotFoundException::class);
-
-		$this->storage->getCSRFState('LOLNOPE');
-	}
-
-	public function testRetrieveAccessTokenNotFoundException():void{
-		$this->expectException(TokenNotFoundException::class);
-
-		$this->storage->getAccessToken('LOLNOPE');
 	}
 
 	public function testToStorage():void{

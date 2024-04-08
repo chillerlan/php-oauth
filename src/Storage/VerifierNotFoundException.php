@@ -1,8 +1,8 @@
 <?php
 /**
- * Class StateNotFoundException
+ * Class VerifierNotFoundException
  *
- * @created      04.04.2024
+ * @created      07.04.2024
  * @author       smiley <smiley@chillerlan.net>
  * @copyright    2024 smiley
  * @license      MIT
@@ -13,6 +13,6 @@ namespace chillerlan\OAuth\Storage;
 /**
  *
  */
-final class StateNotFoundException extends OAuthStorageException{
+final class VerifierNotFoundException extends OAuthStorageException{
 
 }

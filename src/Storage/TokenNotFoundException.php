@@ -13,6 +13,6 @@ namespace chillerlan\OAuth\Storage;
 /**
  *
  */
-class TokenNotFoundException extends OAuthStorageException{
+final class TokenNotFoundException extends OAuthStorageException{
 
 }

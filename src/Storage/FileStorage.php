@@ -33,9 +33,6 @@ class FileStorage extends OAuthStorageAbstract{
 
 	final protected const ENCRYPT_FORMAT = self::ENCRYPT_FORMAT_BINARY;
 
-	final protected const KEY_TOKEN = 'TOKEN';
-	final protected const KEY_STATE = 'STATE';
-
 	/**
 	 * OAuthStorageAbstract constructor.
 	 *
@@ -163,6 +160,62 @@ class FileStorage extends OAuthStorageAbstract{
 	 */
 	public function clearAllCSRFStates():static{
 		$this->deleteAll($this::KEY_STATE);
+
+		return $this;
+	}
+
+	/**
+	 * @inheritDoc
+	 */
+	public function storeCodeVerifier(string $verifier, string $provider):static{
+
+		if($this->options->useStorageEncryption === true){
+			$verifier = $this->encrypt($verifier, $this->options->storageEncryptionKey);
+		}
+
+		$this->saveFile($verifier, $this::KEY_VERIFIER, $provider);
+
+		return $this;
+	}
+
+	/**
+	 * @inheritDoc
+	 */
+	public function getCodeVerifier(string $provider):string{
+		$verifier = $this->loadFile($this::KEY_VERIFIER, $provider);
+
+		if($verifier === null){
+			throw new VerifierNotFoundException;
+		}
+
+		if($this->options->useStorageEncryption === true){
+			return $this->decrypt($verifier, $this->options->storageEncryptionKey);
+		}
+
+		return $verifier;
+	}
+
+	/**
+	 * @inheritDoc
+	 */
+	public function hasCodeVerifier(string $provider):bool{
+		return file_exists($this->getFilepath($this::KEY_VERIFIER, $provider));
+	}
+
+	/**
+	 * @inheritDoc
+	 */
+	public function clearCodeVerifier(string $provider):static{
+		$this->deleteFile($this::KEY_VERIFIER, $provider);
+
+		return $this;
+	}
+
+	/**
+	 * @inheritDoc
+	 */
+	public function clearAllCodeVerifiers():static{
+		$this->deleteAll($this::KEY_VERIFIER);
 
 		return $this;
 	}

@@ -23,8 +23,8 @@ final class SessionStorageTest extends StorageTestAbstract{
 	protected function initOptions():OAuthOptions{
 		$options = new OAuthOptions;
 
-		$options->sessionStart    = true;
-		$options->sessionStateVar = 'session_test';
+		$options->sessionStart      = true;
+		$options->sessionStorageVar = 'session_test';
 
 		return $options;
 	}
@@ -32,7 +32,7 @@ final class SessionStorageTest extends StorageTestAbstract{
 	public function testStoreStateWithNonExistentArray():void{
 		$options = $this->initOptions();
 
-		unset($_SESSION[$options->sessionStateVar]);
+		unset($_SESSION[$options->sessionStorageVar]);
 
 		$this::assertFalse($this->storage->hasCSRFState($this->providerName));
 		$this->storage->storeCSRFState('foobar', $this->providerName);

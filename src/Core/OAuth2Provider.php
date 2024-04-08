@@ -15,8 +15,8 @@ use chillerlan\HTTP\Utils\{MessageUtil, QueryUtil, UriUtil};
 use chillerlan\OAuth\Providers\ProviderException;
 use Psr\Http\Message\{RequestInterface, ResponseInterface, UriInterface};
 use Throwable;
-use function array_merge, date, explode, hash_equals, implode, in_array, is_array, sodium_bin2base64, sprintf;
-use const PHP_QUERY_RFC1738, SODIUM_BASE64_VARIANT_ORIGINAL;
+use function array_merge, date, explode, hash, hash_equals, implode, in_array, is_array, random_int, sodium_bin2base64, sprintf;
+use const PHP_QUERY_RFC1738, PHP_VERSION_ID, SODIUM_BASE64_VARIANT_ORIGINAL, SODIUM_BASE64_VARIANT_URLSAFE_NO_PADDING;
 
 /**
  * Implements an abstract OAuth2 provider with all methods required by the OAuth2Interface.
@@ -47,16 +47,7 @@ abstract class OAuth2Provider extends OAuthProvider implements OAuth2Interface{
 	 * @param string[]|null $scopes
 	 */
 	public function getAuthorizationURL(array|null $params = null, array|null $scopes = null):UriInterface{
-		$params ??= [];
-
-		// this should NEVER be set in the given params
-		unset($params['client_secret']);
-
-		$queryParams = $this->getAuthorizationURLRequestParams($params, ($scopes ?? $this::DEFAULT_SCOPES));
-
-		if($this instanceof CSRFToken){
-			$queryParams = $this->setState($queryParams);
-		}
+		$queryParams = $this->getAuthorizationURLRequestParams(($params ?? []), ($scopes ?? $this::DEFAULT_SCOPES));
 
 		return $this->uriFactory->createUri(QueryUtil::merge($this->authorizationURL, $queryParams));
 	}
@@ -65,6 +56,9 @@ abstract class OAuth2Provider extends OAuthProvider implements OAuth2Interface{
 	 * prepares the query parameters for the auth URL
 	 */
 	protected function getAuthorizationURLRequestParams(array $params, array $scopes):array{
+
+		// this should NEVER be set in the given params
+		unset($params['client_secret']);
 
 		$params = array_merge($params, [
 			'client_id'     => $this->options->key,
@@ -75,6 +69,14 @@ abstract class OAuth2Provider extends OAuthProvider implements OAuth2Interface{
 
 		if(!empty($scopes)){
 			$params['scope'] = implode($this::SCOPES_DELIMITER, $scopes);
+		}
+
+		if($this instanceof CSRFToken){
+			$params = $this->setState($params);
+		}
+
+		if($this instanceof PKCE){
+			$params = $this->setCodeChallenge($params, PKCE::CHALLENGE_METHOD_S256);
 		}
 
 		return $params;
@@ -179,13 +181,20 @@ abstract class OAuth2Provider extends OAuthProvider implements OAuth2Interface{
 	 * prepares the request body parameters for the access token request
 	 */
 	protected function getAccessTokenRequestBodyParams(string $code):array{
-		return [
+
+		$params = [
 			'client_id'     => $this->options->key,
 			'client_secret' => $this->options->secret,
 			'code'          => $code,
 			'grant_type'    => 'authorization_code',
 			'redirect_uri'  => $this->options->callbackURL,
 		];
+
+		if($this instanceof PKCE){
+			$params = $this->setCodeVerifier($params);
+		}
+
+		return $params;
 	}
 
 	/**
@@ -386,6 +395,92 @@ abstract class OAuth2Provider extends OAuthProvider implements OAuth2Interface{
 		$this->storage->storeCSRFState($params['state'], $this->name);
 
 		return $params;
+	}
+
+	/**
+	 * @implements \chillerlan\OAuth\Core\PKCE::setCodeChallenge()
+	 * @internal
+	 */
+	final public function setCodeChallenge(array $params, string $challengeMethod):array{
+
+		if(!$this instanceof PKCE){
+			throw new ProviderException('PKCE challenge not supported');
+		}
+
+		if(!isset($params['response_type']) || $params['response_type'] !== 'code'){
+			throw new ProviderException('invalid authorization request params');
+		}
+
+		$verifier = $this->generateVerifier($this->options->pkceVerifierLength);
+
+		$params['code_challenge']        = $this->generateChallenge($verifier, $challengeMethod);
+		$params['code_challenge_method'] = $challengeMethod;
+
+		$this->storage->storeCodeVerifier($verifier, $this->name);
+
+		return $params;
+	}
+
+	/**
+	 * @implements \chillerlan\OAuth\Core\PKCE::setCodeVerifier()
+	 * @internal
+	 */
+	final public function setCodeVerifier(array $params):array{
+
+		if(!$this instanceof PKCE){
+			throw new ProviderException('PKCE challenge not supported');
+		}
+
+		if(!isset($params['grant_type'], $params['code']) || $params['grant_type'] !== 'authorization_code'){
+			throw new ProviderException('invalid authorization request body');
+		}
+
+		$params['code_verifier'] = $this->storage->getCodeVerifier($this->name);
+
+		// delete verifier after use
+		$this->storage->clearCodeVerifier($this->name);
+
+		return $params;
+	}
+
+	/**
+	 * @implements \chillerlan\OAuth\Core\PKCE::generateVerifier()
+	 * @internal
+	 */
+	final public function generateVerifier(int $length):string{
+
+		// use the Randomizer if available
+		if(PHP_VERSION_ID >= 80300){
+			$randomizer = new \Random\Randomizer(new \Random\Engine\Secure);
+
+			return $randomizer->getBytesFromString(PKCE::VERIFIER_CHARSET, $length);
+		}
+
+		$str = '';
+
+		for($i = 0; $i < $length; $i++){
+			$str .= PKCE::VERIFIER_CHARSET[random_int(0, 65)];
+		}
+
+		return $str;
+	}
+
+	/**
+	 * @implements \chillerlan\OAuth\Core\PKCE::generateChallenge()
+	 * @internal
+	 */
+	final public function generateChallenge(string $verifier, string $challengeMethod):string{
+
+		if($challengeMethod === PKCE::CHALLENGE_METHOD_PLAIN){
+			return $verifier;
+		}
+
+		$verifier = match($challengeMethod){
+			PKCE::CHALLENGE_METHOD_S256 => hash('sha256', $verifier, true),
+			// no other hash methods yet
+		};
+
+		return sodium_bin2base64($verifier, SODIUM_BASE64_VARIANT_URLSAFE_NO_PADDING);
 	}
 
 }

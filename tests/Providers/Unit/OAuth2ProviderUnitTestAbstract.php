@@ -11,11 +11,14 @@ declare(strict_types=1);
 
 namespace chillerlan\OAuthTest\Providers\Unit;
 
-use chillerlan\OAuth\Core\{AccessToken, ClientCredentials, CSRFStateMismatchException, CSRFToken, OAuth2Interface, TokenRefresh};
+use chillerlan\OAuth\Core\{
+	AccessToken, ClientCredentials, CSRFStateMismatchException, CSRFToken, OAuth2Interface, PKCE, TokenRefresh
+};
 use chillerlan\HTTP\Utils\{MessageUtil, QueryUtil};
 use chillerlan\OAuth\OAuthException;
 use chillerlan\OAuth\Providers\ProviderException;
 use chillerlan\OAuth\Storage\StateNotFoundException;
+use PHPUnit\Framework\Attributes\DataProvider;
 use function base64_encode, implode, json_decode, json_encode;
 
 /**
@@ -156,13 +159,31 @@ abstract class OAuth2ProviderUnitTestAbstract extends OAuthProviderUnitTestAbstr
 
 		$this->storage->storeCSRFState('mock_test_state', $this->provider->name);
 
+		if($this->provider instanceof PKCE){
+			// store a PKCE verifier that is used in this test
+			$verifier = $this->provider->generateVerifier($this->options->pkceVerifierLength);
+
+			$this->storage->storeCodeVerifier($verifier, $this->provider->name);
+
+			$this::assertTrue($this->storage->hasCodeVerifier($this->provider->name));
+		}
+
 		$token = $this->provider->getAccessToken('code', 'mock_test_state');
 
 		$this->assertSame('2YotnFZFEjr1zCsicMWpAA', $token->accessToken);
 		$this::assertSame('example_value', $token->extraParams['example_parameter']);
+
+		if($this->provider instanceof PKCE){
+			// the verifier should have been deleted in the process
+			$this::assertFalse($this->storage->hasCodeVerifier($this->provider->name));
+		}
 	}
 
 	public function testGetAccessTokenRequestBodyParams():void{
+		$verifier = $this->provider->generateVerifier($this->options->pkceVerifierLength);
+
+		$this->storage->storeCodeVerifier($verifier, $this->provider->name);
+
 		$params = $this->invokeReflectionMethod('getAccessTokenRequestBodyParams', ['*test_code*']);
 
 		$this::assertSame('*test_code*', $params['code']);
@@ -170,6 +191,11 @@ abstract class OAuth2ProviderUnitTestAbstract extends OAuthProviderUnitTestAbstr
 		$this::assertSame($this->options->secret, $params['client_secret']);
 		$this::assertSame($this->options->callbackURL, $params['redirect_uri']);
 		$this::assertSame('authorization_code', $params['grant_type']);
+
+		if($this->provider instanceof PKCE){
+			$this::assertSame($verifier, $params['code_verifier']);
+		}
+
 	}
 
 	public function testSendAccessTokenRequest():void{
@@ -437,6 +463,83 @@ abstract class OAuth2ProviderUnitTestAbstract extends OAuthProviderUnitTestAbstr
 		$this->expectExceptionMessage('token refresh not supported');
 
 		$this->provider->refreshAccessToken();
+	}
+
+
+	/*
+	 * PKCE
+	 */
+
+	/**
+	 * test values from RFC-7636, Appendix B
+	 *
+	 * @see https://datatracker.ietf.org/doc/html/rfc7636#appendix-B
+	 */
+	public static function challengeProvider():array{
+		$verifier = 'dBjftJeZ4CVP-mB92K27uhbUJU1p1r_wW1gFWFOEjXk';
+
+		return [
+			'plain' => [PKCE::CHALLENGE_METHOD_PLAIN, $verifier, $verifier],
+			'S256'  => [PKCE::CHALLENGE_METHOD_S256, $verifier, 'E9Melhoa2OwvFrEMTJguCHaoeK1t8URWbuGJSstw-cM'],
+		];
+	}
+
+	#[DataProvider('challengeProvider')]
+	public function testGenerateChallenge(string $challengeMethod, string $verifier, string $expected):void{
+
+		if(!$this->provider instanceof PKCE){
+			$this->markTestSkipped('PKCE N/A');
+		}
+
+		$this::assertSame($expected, $this->provider->generateChallenge($verifier, $challengeMethod));
+	}
+
+	public function testSetCodeChallengeInvalidParams():void{
+
+		if(!$this->provider instanceof PKCE){
+			$this->markTestSkipped('PKCE N/A');
+		}
+
+		$this->expectException(ProviderException::class);
+		$this->expectExceptionMessage('invalid authorization request params');
+
+		$this->provider->setCodeChallenge(['param' => 'value'], PKCE::CHALLENGE_METHOD_S256);
+	}
+
+	public function testSetCodeVerifierInvalidParams():void{
+
+		if(!$this->provider instanceof PKCE){
+			$this->markTestSkipped('PKCE N/A');
+		}
+
+		$this->expectException(ProviderException::class);
+		$this->expectExceptionMessage('invalid authorization request body');
+
+		$this->provider->setCodeVerifier(['param' => 'value']);
+	}
+
+	public function testSetCodeChallengeNotSupportedException():void{
+
+		if($this->provider instanceof PKCE){
+			$this->markTestSkipped('PKCE supported');
+		}
+
+		$this->expectException(ProviderException::class);
+		$this->expectExceptionMessage('PKCE challenge not supported');
+
+		$this->provider->setCodeChallenge([], PKCE::CHALLENGE_METHOD_S256);
+	}
+
+	public function testSetCodeVerifierNotSupportedException():void{
+
+		if($this->provider instanceof PKCE){
+			$this->markTestSkipped('PKCE supported');
+		}
+
+		$this->expectException(ProviderException::class);
+		$this->expectExceptionMessage('PKCE challenge not supported');
+
+		$this->provider->setCodeVerifier([]);
 	}
 
 }

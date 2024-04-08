@@ -109,6 +109,7 @@ Note: replace `dev-main` with a [version constraint](https://getcomposer.org/doc
 | [Discord](https://discord.com/developers/) | [link](https://discordapp.com/developers/applications/) |  | 2 | ✓ | ✓ | ✓ | ✓ | ✓ |
 | [Flickr](https://www.flickr.com/services/api/) | [link](https://www.flickr.com/services/apps/create/) | [link](https://www.flickr.com/services/auth/list.gne) | 1 |  |  |  |  | ✓ |
 | [Foursquare](https://location.foursquare.com/developer/reference/foursquare-apis-overview) | [link](https://foursquare.com/developers/apps) | [link](https://foursquare.com/settings/connections) | 2 |  |  |  |  | ✓ |
+| [Gitea](https://docs.gitea.com/api/1.20/) | [link](https://gitea.com/user/settings/applications) | [link](https://gitea.com/user/settings/applications) | 2 | ✓ |  | ✓ |  | ✓ |
 | [GitHub](https://docs.github.com/rest) | [link](https://github.com/settings/developers) | [link](https://github.com/settings/applications) | 2 | ✓ |  | ✓ |  | ✓ |
 | [GitLab](https://docs.gitlab.com/ee/api/rest/) | [link](https://gitlab.com/profile/applications) |  | 2 | ✓ | ✓ | ✓ |  | ✓ |
 | [Google](https://developers.google.com/oauthplayground/) | [link](https://console.developers.google.com/apis/credentials) | [link](https://myaccount.google.com/connections) | 2 | ✓ |  |  |  | ✓ |

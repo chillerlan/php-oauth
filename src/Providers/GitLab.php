@@ -24,6 +24,7 @@ class GitLab extends OAuth2Provider implements ClientCredentials, CSRFToken, Tok
 	protected string      $accessTokenURL   = 'https://gitlab.com/oauth/token';
 	protected string      $apiURL           = 'https://gitlab.com/api';
 	protected string|null $applicationURL   = 'https://gitlab.com/profile/applications';
+	protected string|null $apiDocs          = 'https://docs.gitlab.com/ee/api/rest/';
 
 	/**
 	 * @inheritDoc

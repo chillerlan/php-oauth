@@ -99,7 +99,7 @@ Note: replace `dev-main` with a [version constraint](https://getcomposer.org/doc
 
 | Provider | App keys | revoke | OAuth | CSRF | CC | TR | TI | User |
 |----------|----------|--------|-------|------|----|----|----|------|
-| [Amazon]() | [link](https://developer.amazon.com/loginwithamazon/console/site/lwa/overview.html) |  | 2 | ✓ |  | ✓ |  | ✓ |
+| [Amazon](https://developer.amazon.com/docs/login-with-amazon/web-docs.html) | [link](https://developer.amazon.com/loginwithamazon/console/site/lwa/overview.html) |  | 2 | ✓ |  | ✓ |  | ✓ |
 | [BattleNet](https://develop.battle.net/documentation) | [link](https://develop.battle.net/access/clients) | [link](https://account.blizzard.com/connections) | 2 | ✓ | ✓ |  |  | ✓ |
 | [BigCartel](https://developers.bigcartel.com/api/v1) | [link](https://bigcartel.wufoo.com/forms/big-cartel-api-application/) | [link](https://my.bigcartel.com/account) | 2 | ✓ |  |  | ✓ | ✓ |
 | [Bitbucket](https://developer.atlassian.com/bitbucket/api/2/reference/) | [link](https://developer.atlassian.com/apps/) |  | 2 | ✓ | ✓ | ✓ |  | ✓ |
@@ -110,7 +110,7 @@ Note: replace `dev-main` with a [version constraint](https://getcomposer.org/doc
 | [Flickr](https://www.flickr.com/services/api/) | [link](https://www.flickr.com/services/apps/create/) | [link](https://www.flickr.com/services/auth/list.gne) | 1 |  |  |  |  | ✓ |
 | [Foursquare](https://location.foursquare.com/developer/reference/foursquare-apis-overview) | [link](https://foursquare.com/developers/apps) | [link](https://foursquare.com/settings/connections) | 2 |  |  |  |  | ✓ |
 | [GitHub](https://docs.github.com/rest) | [link](https://github.com/settings/developers) | [link](https://github.com/settings/applications) | 2 | ✓ |  | ✓ |  | ✓ |
-| [GitLab]() | [link](https://gitlab.com/profile/applications) |  | 2 | ✓ | ✓ | ✓ |  | ✓ |
+| [GitLab](https://docs.gitlab.com/ee/api/rest/) | [link](https://gitlab.com/profile/applications) |  | 2 | ✓ | ✓ | ✓ |  | ✓ |
 | [Google](https://developers.google.com/oauthplayground/) | [link](https://console.developers.google.com/apis/credentials) | [link](https://myaccount.google.com/connections) | 2 | ✓ |  |  |  | ✓ |
 | [GuildWars2](https://wiki.guildwars2.com/wiki/API:Main) | [link](https://account.arena.net/applications) | [link](https://account.arena.net/applications) | 2 |  |  |  |  | ✓ |
 | [Imgur](https://apidocs.imgur.com) | [link](https://api.imgur.com/oauth2/addclient) | [link](https://imgur.com/account/settings/apps) | 2 | ✓ |  | ✓ |  | ✓ |

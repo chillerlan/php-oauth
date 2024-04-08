@@ -446,7 +446,7 @@ abstract class OAuth2Provider extends OAuthProvider implements OAuth2Interface{
 	/**
 	 * @implements \chillerlan\OAuth\Core\PKCE::generateVerifier()
 	 * @internal
-	 * @phan-suppress PhanUndeclaredClassMethod
+	 * @phan-suppress PhanUndeclaredClassMethod, PhanUndeclaredMethod
 	 */
 	final public function generateVerifier(int $length):string{
 

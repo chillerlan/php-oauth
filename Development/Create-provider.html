@@ -1,0 +1,720 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Create your own Provider &mdash; PHP-QRCode main
+ Manual</title>
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=fa44fd50" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=19f00094" />
+
+  
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="../_static/documentation_options.js?v=a8da1a53"></script>
+        <script src="../_static/doctools.js?v=888ff710"></script>
+        <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Running tests" href="Test-suite.html" />
+    <link rel="prev" title="Authorization flow" href="../Usage/Authorization.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            PHP-OAuth
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Basics</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../Basics/Overview.html">Overview</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../Basics/Overview.html#features">Features</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Basics/Overview.html#requirements">Requirements</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Basics/Overview.html#supported-providers">Supported Providers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Basics/Overview.html#shameless-advertising">Shameless advertising</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../Basics/Installation.html">Installation</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../Basics/Installation.html#installation-with-composer">Installation with Composer</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../Basics/Installation.html#composer-json">composer.json</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../Basics/Installation.html#terminal">Terminal</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../Basics/Installation.html#manual-installation">Manual installation</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../Basics/Installation.html#can-i-use-this-library-without-using-composer">Can i use this library without using composer?</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../Basics/Configuration-settings.html">Configuration settings</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../Basics/Configuration-settings.html#key">key</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Basics/Configuration-settings.html#secret">secret</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Basics/Configuration-settings.html#callbackurl">callbackURL</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Basics/Configuration-settings.html#usestorageencryption">useStorageEncryption</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Basics/Configuration-settings.html#storageencryptionkey">storageEncryptionKey</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Basics/Configuration-settings.html#tokenautorefresh">tokenAutoRefresh</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Basics/Configuration-settings.html#sessionstart">sessionStart</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Basics/Configuration-settings.html#sessionstop">sessionStop</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Basics/Configuration-settings.html#sessionstoragevar">sessionStorageVar</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Basics/Configuration-settings.html#filestoragepath">fileStoragePath</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Basics/Configuration-settings.html#pkceverifierlength">pkceVerifierLength</a></li>
+</ul>
+</li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Usage</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../Usage/Quickstart.html">Quickstart</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../Usage/Quickstart.html#the-oauthoptions-container">The <code class="docutils literal notranslate"><span class="pre">OAuthOptions</span></code> container</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Usage/Quickstart.html#the-oauthstorageinterface">The <code class="docutils literal notranslate"><span class="pre">OAuthStorageInterface</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../Usage/Quickstart.html#using-existing-tokens">Using existing tokens</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../Usage/Quickstart.html#provider-invocation">Provider invocation</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../Usage/Authorization.html">Authorization flow</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../Usage/Authorization.html#redirect-the-user-to-the-provider">Redirect the user to the provider</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../Usage/Authorization.html#present-a-log-in-link">Present a log-in link</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../Usage/Authorization.html#redirect">Redirect</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../Usage/Authorization.html#receive-the-incoming-callback">Receive the incoming callback</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../Usage/Authorization.html#oauth2">OAuth2</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../Usage/Authorization.html#oauth1">OAuth1</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../Usage/Authorization.html#use-the-provider-s-api">Use the provider’s API</a></li>
+</ul>
+</li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Development</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Create your own Provider</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#minimal-implementation">Minimal implementation</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#dynamic-urls">Dynamic URLs</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#informational-values">Informational values</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#additional-headers">Additional headers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#request-authorization-method-oauth2">Request authorization method (OAuth2)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#scopes-oauth2">Scopes (OAuth2)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#overriding-methods">Overriding methods</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#oauth1">OAuth1</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#oauth2">OAuth2</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#additional-functionality">Additional functionality</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#userinfo"><code class="docutils literal notranslate"><span class="pre">UserInfo</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#clientcredentials-oauth2"><code class="docutils literal notranslate"><span class="pre">ClientCredentials</span></code> (OAuth2)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#csrftoken-oauth2"><code class="docutils literal notranslate"><span class="pre">CSRFToken</span></code> (OAuth2)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#tokenrefresh-oauth2"><code class="docutils literal notranslate"><span class="pre">TokenRefresh</span></code> (OAuth2)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#pkce-oauth2"><code class="docutils literal notranslate"><span class="pre">PKCE</span></code> (OAuth2)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#tokeninvalidate"><code class="docutils literal notranslate"><span class="pre">TokenInvalidate</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="Test-suite.html">Running tests</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Using-examples.html">Using the examples</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Appendix</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../Appendix/Contribute.html">How to contribute</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../Appendix/Contribute.html#questions-and-issues">Questions and issues</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Appendix/Contribute.html#bug-reports">Bug reports</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Appendix/Contribute.html#pull-requests-and-bug-fixes">Pull requests and bug fixes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Appendix/Contribute.html#documentation">Documentation</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../Appendix/License.html">License</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">PHP-OAuth</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Create your own Provider</li>
+      <li class="wy-breadcrumbs-aside">
+              <a href="https://github.com/chillerlan/php-oauth/blob/main/docs/Development/Create-provider.md" class="fa fa-github"> Edit on GitHub</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="create-your-own-provider">
+<h1>Create your own Provider<a class="headerlink" href="#create-your-own-provider" title="Link to this heading"></a></h1>
+<p>Thanks to clever abstraction, creating a new provider class is almost trivial; often it’s only a few lines of code.
+You start by extending one of the abstract classes, depending on which OAuth version the service supports.
+It’s even possible to implement a provider class for services that use proprietary OAuth-like protocols,
+e.g. <a class="reference external" href="https://www.last.fm/api/authentication">last.fm</a>, however, that requires implementing most of the methods by yourself.</p>
+<section id="minimal-implementation">
+<h2>Minimal implementation<a class="headerlink" href="#minimal-implementation" title="Link to this heading"></a></h2>
+<p>Absolutely necessary are the several endpoints for <em>authorization</em> and <em>access token</em> (as well as <em>request token</em> in case of OAuth1), the <em>API base URL</em> -
+all of which you can find in the documentation of the service you’re about to implement. With that, the bare minimum for a provider class looks as follows:</p>
+<p><strong>OAuth1</strong></p>
+<div class="highlight-php notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">MyOAuth1Provider</span> <span class="k">extends</span> <span class="nx">OAuth1Provider</span><span class="p">{</span>
+
+	<span class="k">protected</span> <span class="nx">string</span> <span class="nv">$requestTokenURL</span>  <span class="o">=</span> <span class="s1">&#39;https://example.com/oauth/request_token&#39;</span><span class="p">;</span>
+	<span class="k">protected</span> <span class="nx">string</span> <span class="nv">$authorizationURL</span> <span class="o">=</span> <span class="s1">&#39;https://example.com/oauth/authorize&#39;</span><span class="p">;</span>
+	<span class="k">protected</span> <span class="nx">string</span> <span class="nv">$accessTokenURL</span>   <span class="o">=</span> <span class="s1">&#39;https://example.com/oauth/access_token&#39;</span><span class="p">;</span>
+	<span class="k">protected</span> <span class="nx">string</span> <span class="nv">$apiURL</span>           <span class="o">=</span> <span class="s1">&#39;https://example.com/api&#39;</span><span class="p">;</span>
+
+<span class="p">}</span>
+</pre></div>
+</div>
+<p><strong>OAuth2</strong></p>
+<div class="highlight-php notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">MyOAuth2Provider</span> <span class="k">extends</span> <span class="nx">OAuth2Provider</span><span class="p">{</span>
+
+	<span class="k">protected</span> <span class="nx">string</span> <span class="nv">$authorizationURL</span> <span class="o">=</span> <span class="s1">&#39;https://example.com/oauth2/authorize&#39;</span><span class="p">;</span>
+	<span class="k">protected</span> <span class="nx">string</span> <span class="nv">$accessTokenURL</span>   <span class="o">=</span> <span class="s1">&#39;https://example.com/oauth2/token&#39;</span><span class="p">;</span>
+	<span class="k">protected</span> <span class="nx">string</span> <span class="nv">$apiURL</span>           <span class="o">=</span> <span class="s1">&#39;https://example.com/api&#39;</span><span class="p">;</span>
+
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>That’s it! You have now a fully working OAuth provider class for <em>$Service</em>. Profit!</p>
+<p>Ok, that might not be all in some cases, and also you might want to add some informational URLs or scopes for convenience etc.,
+so let’s continue expanding the class.</p>
+<section id="dynamic-urls">
+<h3>Dynamic URLs<a class="headerlink" href="#dynamic-urls" title="Link to this heading"></a></h3>
+<p>Before you ask <em>“why aren’t these constants?”</em> or <em>“why don’t you implement abstract getter methods”</em>: some providers require dynamic URLs.
+Take <code class="docutils literal notranslate"><span class="pre">Mastodon</span></code> for example: the URLs and API endpoints change with the host of the Mastodon instance - this would quickly become a mess with getter methods.
+The <code class="docutils literal notranslate"><span class="pre">Mastodon</span></code> provider class implements a method <code class="docutils literal notranslate"><span class="pre">setInstance()</span></code> that takes the hostname of the instance and changes the internal URLs.</p>
+<div class="highlight-php notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Mastodon</span> <span class="k">extends</span> <span class="nx">OAuth2Provider</span><span class="p">{</span>
+
+	<span class="c1">// the URLs are set to the main instance &quot;mastodon.social&quot; by default</span>
+	<span class="k">protected</span> <span class="nx">string</span> <span class="nv">$authorizationURL</span> <span class="o">=</span> <span class="s1">&#39;https://mastodon.social/oauth/authorize&#39;</span><span class="p">;</span>
+	<span class="k">protected</span> <span class="nx">string</span> <span class="nv">$accessTokenURL</span>   <span class="o">=</span> <span class="s1">&#39;https://mastodon.social/oauth/token&#39;</span><span class="p">;</span>
+	<span class="k">protected</span> <span class="nx">string</span> <span class="nv">$apiURL</span>           <span class="o">=</span> <span class="s1">&#39;https://mastodon.social/api&#39;</span><span class="p">;</span>
+
+	<span class="k">public</span> <span class="k">function</span> <span class="nf">setInstance</span><span class="p">(</span><span class="nx">UriInterface</span><span class="o">|</span><span class="nx">string</span> <span class="nv">$instance</span><span class="p">)</span><span class="o">:</span><span class="k">static</span><span class="p">{</span>
+
+		<span class="k">if</span><span class="p">(</span><span class="o">!</span><span class="nv">$instance</span> <span class="nx">instanceof</span> <span class="nx">UriInterface</span><span class="p">){</span>
+			<span class="nv">$instance</span> <span class="o">=</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">uriFactory</span><span class="o">-&gt;</span><span class="na">createUri</span><span class="p">(</span><span class="nv">$instance</span><span class="p">);</span>
+		<span class="p">}</span>
+
+		<span class="c1">// throw if the host is empty</span>
+		<span class="k">if</span><span class="p">(</span><span class="nv">$instance</span><span class="o">-&gt;</span><span class="na">getHost</span><span class="p">()</span> <span class="o">===</span> <span class="s1">&#39;&#39;</span><span class="p">){</span>
+			<span class="k">throw</span> <span class="k">new</span> <span class="nx">OAuthException</span><span class="p">(</span><span class="s1">&#39;invalid instance URL&#39;</span><span class="p">);</span>
+		<span class="p">}</span>
+
+		<span class="c1">// enforce https and remove unnecessary parts</span>
+		<span class="nv">$instance</span> <span class="o">=</span> <span class="nv">$instance</span><span class="o">-&gt;</span><span class="na">withScheme</span><span class="p">(</span><span class="s1">&#39;https&#39;</span><span class="p">)</span><span class="o">-&gt;</span><span class="na">withQuery</span><span class="p">(</span><span class="s1">&#39;&#39;</span><span class="p">)</span><span class="o">-&gt;</span><span class="na">withFragment</span><span class="p">(</span><span class="s1">&#39;&#39;</span><span class="p">);</span>
+
+		<span class="c1">// set the provider URLs</span>
+		<span class="nv">$this</span><span class="o">-&gt;</span><span class="na">authorizationURL</span> <span class="o">=</span> <span class="p">(</span><span class="nx">string</span><span class="p">)</span><span class="nv">$instance</span><span class="o">-&gt;</span><span class="na">withPath</span><span class="p">(</span><span class="s1">&#39;/oauth/authorize&#39;</span><span class="p">);</span>
+		<span class="nv">$this</span><span class="o">-&gt;</span><span class="na">accessTokenURL</span>   <span class="o">=</span> <span class="p">(</span><span class="nx">string</span><span class="p">)</span><span class="nv">$instance</span><span class="o">-&gt;</span><span class="na">withPath</span><span class="p">(</span><span class="s1">&#39;/oauth/token&#39;</span><span class="p">);</span>
+		<span class="nv">$this</span><span class="o">-&gt;</span><span class="na">apiURL</span>           <span class="o">=</span> <span class="p">(</span><span class="nx">string</span><span class="p">)</span><span class="nv">$instance</span><span class="o">-&gt;</span><span class="na">withPath</span><span class="p">(</span><span class="s1">&#39;/api&#39;</span><span class="p">);</span>
+
+		<span class="k">return</span> <span class="nv">$this</span><span class="p">;</span>
+	<span class="p">}</span>
+
+<span class="p">}</span>
+</pre></div>
+</div>
+</section>
+</section>
+<section id="informational-values">
+<h2>Informational values<a class="headerlink" href="#informational-values" title="Link to this heading"></a></h2>
+<p>In order to automatically create the fancy table under <a class="reference internal" href="../Basics/Overview.html#supported-providers"><span class="std std-ref">supported providers</span></a>,
+a provider class can implement the following informational properties (that can be accessed via magic <code class="docutils literal notranslate"><span class="pre">__get()</span></code>):</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">$apiDocs</span></code> - a link to the API documentation for this service</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">$applicationURL</span></code> - links to the OAuth application page, where a developer can obtain (or apply for) credentials</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">$userRevokeURL</span></code> - a link to the settings page where a user can manually revoke OAuth access</p></li>
+</ul>
+<p>Further, the <code class="docutils literal notranslate"><span class="pre">OAuthInterface</span></code> provides a <code class="docutils literal notranslate"><span class="pre">USER_AGENT</span></code> constant that can be implemented for ease of access.</p>
+<p>This is what our provider class looks now:</p>
+<div class="highlight-php notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">MyOAuth2Provider</span> <span class="k">extends</span> <span class="nx">OAuth2Provider</span><span class="p">{</span>
+
+	<span class="cm">/*</span>
+<span class="cm">	 * ...</span>
+<span class="cm">	 */</span>
+	<span class="k">public</span> <span class="k">const</span> <span class="no">USER_AGENT</span> <span class="o">=</span> <span class="s1">&#39;myCoolOAuthClient/1.0.0 +https://github.com/my/oauth&#39;</span><span class="p">;</span>
+
+	<span class="k">protected</span> <span class="nx">string</span><span class="o">|</span><span class="k">null</span> <span class="nv">$apiDocs</span>        <span class="o">=</span> <span class="s1">&#39;https://example.com/docs/api/reference&#39;</span><span class="p">;</span>
+	<span class="k">protected</span> <span class="nx">string</span><span class="o">|</span><span class="k">null</span> <span class="nv">$applicationURL</span> <span class="o">=</span> <span class="s1">&#39;https://example.com/developer/console/apps&#39;</span><span class="p">;</span>
+	<span class="k">protected</span> <span class="nx">string</span><span class="o">|</span><span class="k">null</span> <span class="nv">$userRevokeURL</span>  <span class="o">=</span> <span class="s1">&#39;https://example.com/user/settings/connections&#39;</span><span class="p">;</span>
+
+<span class="p">}</span>
+</pre></div>
+</div>
+</section>
+<section id="additional-headers">
+<h2>Additional headers<a class="headerlink" href="#additional-headers" title="Link to this heading"></a></h2>
+<p>Some APIs may require extra headers sent, such as <code class="docutils literal notranslate"><span class="pre">Accept</span></code> or API versioning, in which case you can implement the (array) constants
+<code class="docutils literal notranslate"><span class="pre">HEADERS_AUTH</span></code> and <code class="docutils literal notranslate"><span class="pre">HEADERS_API</span></code> that are sent during authorization or API requests, respectively.</p>
+<div class="highlight-php notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">MyOAuth2Provider</span> <span class="k">extends</span> <span class="nx">OAuth2Provider</span><span class="p">{</span>
+
+	<span class="cm">/*</span>
+<span class="cm">	 * ...</span>
+<span class="cm">	 */</span>
+
+	<span class="c1">// must not contain: Accept-Encoding, Authorization, Content-Length, Content-Type</span>
+	<span class="k">public</span> <span class="k">const</span> <span class="no">HEADERS_AUTH</span> <span class="o">=</span> <span class="p">[</span>
+		<span class="s1">&#39;Accept&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;application/vnd.api+json&#39;</span><span class="p">,</span>
+	<span class="p">];</span>
+
+	<span class="c1">// must not contain: Authorization</span>
+	<span class="k">public</span> <span class="k">const</span> <span class="no">HEADERS_API</span> <span class="o">=</span> <span class="p">[</span>
+		<span class="s1">&#39;Accept&#39;</span>        <span class="o">=&gt;</span> <span class="s1">&#39;application/vnd.api+json&#39;</span><span class="p">,</span>
+		<span class="s1">&#39;X-API-Version&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;3&#39;</span><span class="p">,</span>
+	<span class="p">];</span>
+
+<span class="p">}</span>
+</pre></div>
+</div>
+</section>
+<section id="request-authorization-method-oauth2">
+<h2>Request authorization method (OAuth2)<a class="headerlink" href="#request-authorization-method-oauth2" title="Link to this heading"></a></h2>
+<p>Unlike OAuth1 with the header <code class="docutils literal notranslate"><span class="pre">Authorization:</span> <span class="pre">OAuth</span> <span class="pre">&lt;signed</span> <span class="pre">params&gt;</span></code>, OAuth2 allows for several different authorization methods for requests,
+most commonly <code class="docutils literal notranslate"><span class="pre">Authorization:</span> <span class="pre">Bearer</span> <span class="pre">&lt;token&gt;</span></code>, sometimes an URL query parameter <code class="docutils literal notranslate"><span class="pre">?access_token=&lt;token&gt;</span></code> or something entirely different.</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">OAuth2Interface</span></code> offers several constants that allow you to alter the behaviour of the request authorization:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">AUTH_METHOD</span></code>: specifies whether the token is passed via header (<code class="docutils literal notranslate"><span class="pre">AUTH_METHOD_HEADER</span></code>, default) or in the URL query (<code class="docutils literal notranslate"><span class="pre">AUTH_METHOD_QUERY</span></code>)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">AUTH_PREFIX_HEADER</span></code>: the prefix for the value of the <code class="docutils literal notranslate"><span class="pre">Authorization</span></code> header, e.g. <code class="docutils literal notranslate"><span class="pre">Bearer</span></code> (default), <code class="docutils literal notranslate"><span class="pre">OAuth</span></code> or whatever the service accepts</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">AUTH_PREFIX_QUERY</span></code>: the name of the query parameter, e.g. <code class="docutils literal notranslate"><span class="pre">access_token</span></code></p></li>
+</ul>
+<p>The following example would send the token via the URL query parameters, which would result in an URL similar to
+<code class="docutils literal notranslate"><span class="pre">https://example.com/api/endpoint?param=value&amp;here_is_the_access_token=&lt;token&gt;</span></code></p>
+<div class="highlight-php notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">MyOAuth2Provider</span> <span class="k">extends</span> <span class="nx">OAuth2Provider</span><span class="p">{</span>
+
+	<span class="cm">/*</span>
+<span class="cm">	 * ...</span>
+<span class="cm">	 */</span>
+
+	<span class="k">public</span> <span class="k">const</span> <span class="no">AUTH_METHOD</span>       <span class="o">=</span> <span class="nx">self</span><span class="o">::</span><span class="na">AUTH_METHOD_QUERY</span><span class="p">;</span>
+	<span class="k">public</span> <span class="k">const</span> <span class="no">AUTH_PREFIX_QUERY</span> <span class="o">=</span> <span class="s1">&#39;here_is_the_access_token&#39;</span><span class="p">;</span>
+
+<span class="p">}</span>
+</pre></div>
+</div>
+</section>
+<section id="scopes-oauth2">
+<h2>Scopes (OAuth2)<a class="headerlink" href="#scopes-oauth2" title="Link to this heading"></a></h2>
+<p>The scopes as described in <a class="reference external" href="https://datatracker.ietf.org/doc/html/rfc6749#section-3.3">RFC-6749, section 3.3</a> can be added to an authorization request,
+here as an array via the optional <code class="docutils literal notranslate"><span class="pre">$scopes</span></code> parameter of <code class="docutils literal notranslate"><span class="pre">OAuthInterface::getAuthorizationURL()</span></code>.
+The <code class="docutils literal notranslate"><span class="pre">OAuth2Interface</span></code> offers a constant <code class="docutils literal notranslate"><span class="pre">DEFAULT_SCOPES</span></code> that can be defined for cases when no scopes are given otherwise.
+Further, a <code class="docutils literal notranslate"><span class="pre">SCOPES_DELIMITER</span></code> can be defined in case it deviates from the <code class="docutils literal notranslate"><span class="pre">space</span></code> specified in the RFC.</p>
+<p>You can and should add any scopes that the service supports as public constants in the form <code class="docutils literal notranslate"><span class="pre">SCOPE_&lt;scope</span> <span class="pre">name&gt;</span></code> so that they can be accessed easily:</p>
+<div class="highlight-php notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">MyOAuth2Provider</span> <span class="k">extends</span> <span class="nx">OAuth2Provider</span><span class="p">{</span>
+
+	<span class="cm">/*</span>
+<span class="cm">	 * ...</span>
+<span class="cm">	 */</span>
+
+	<span class="k">public</span> <span class="k">const</span> <span class="no">SCOPE_THIS_IS_A_SCOPE</span> <span class="o">=</span> <span class="s1">&#39;this-is-a-scope&#39;</span><span class="p">;</span>
+	<span class="k">public</span> <span class="k">const</span> <span class="no">SCOPE_ANOTHER_SCOPE</span>   <span class="o">=</span> <span class="s1">&#39;another-scope&#39;</span><span class="p">;</span>
+	<span class="k">public</span> <span class="k">const</span> <span class="no">SCOPE_MORE_SCOPES</span>     <span class="o">=</span> <span class="s1">&#39;wowee&#39;</span><span class="p">;</span>
+
+	<span class="k">public</span> <span class="k">const</span> <span class="no">DEFAULT_SCOPES</span> <span class="o">=</span> <span class="p">[</span>
+		<span class="nx">self</span><span class="o">::</span><span class="na">SCOPE_THIS_IS_A_SCOPE</span><span class="p">,</span>
+		<span class="nx">self</span><span class="o">::</span><span class="na">SCOPE_MORE_SCOPES</span><span class="p">,</span>
+	<span class="p">];</span>
+
+	<span class="k">public</span> <span class="k">const</span> <span class="no">SCOPES_DELIMITER</span> <span class="o">=</span> <span class="s1">&#39;,&#39;</span><span class="p">;</span>
+
+<span class="p">}</span>
+</pre></div>
+</div>
+</section>
+<section id="overriding-methods">
+<h2>Overriding methods<a class="headerlink" href="#overriding-methods" title="Link to this heading"></a></h2>
+<p>The abstract providers are implemented close to the RFCs, however, some services deviate from the proposals (e.g. different parameter names or content encodings),
+so you may need to adjust your class. The respective methods are chopped up into small bits that make it easy to re-implement them.</p>
+<section id="oauth1">
+<h3>OAuth1<a class="headerlink" href="#oauth1" title="Link to this heading"></a></h3>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">OAuth1Provider::getRequestTokenRequestParams()</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">OAuth1Provider::sendRequestTokenRequest()</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">OAuth1Provider::sendAccessTokenRequest()</span></code></p></li>
+</ul>
+</section>
+<section id="oauth2">
+<h3>OAuth2<a class="headerlink" href="#oauth2" title="Link to this heading"></a></h3>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">OAuth2Provider::getAuthorizationURLRequestParams()</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">OAuth2Provider::getAccessTokenRequestBodyParams()</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">OAuth2Provider::sendAccessTokenRequest()</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">OAuth2Provider::getTokenResponseData()</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">OAuth2Provider::getClientCredentialsTokenRequestBodyParams()</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">OAuth2Provider::sendClientCredentialsTokenRequest()</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">OAuth2Provider::getRefreshAccessTokenRequestBodyParams()</span></code></p></li>
+</ul>
+</section>
+</section>
+<section id="additional-functionality">
+<h2>Additional functionality<a class="headerlink" href="#additional-functionality" title="Link to this heading"></a></h2>
+<p>Services may support additional features, such as token refresh or invalidation, among other things. You can add these features
+by implementing one or more of the feature interfaces. Some of the methods for these interfaces are already implemented in the
+abstract providers, so that you only rarely need to re-implement them.</p>
+<section id="userinfo">
+<h3><code class="docutils literal notranslate"><span class="pre">UserInfo</span></code><a class="headerlink" href="#userinfo" title="Link to this heading"></a></h3>
+<p>The <code class="docutils literal notranslate"><span class="pre">UserInfo</span></code> interface implements a method <code class="docutils literal notranslate"><span class="pre">me()</span></code> that returns basic information about the currently authenticated user from a <code class="docutils literal notranslate"><span class="pre">/me</span></code>,
+<code class="docutils literal notranslate"><span class="pre">/tokeninfo</span></code> or similar endpoint in a <code class="docutils literal notranslate"><span class="pre">AuthenticatedUser</span></code> instance. To ease implementation, the endpoint request including error handling
+has been unified and condensed into a single ugly method that returns an array with the information available.
+You only need to assign the available values and hand them over to <code class="docutils literal notranslate"><span class="pre">AuthenticatedUser</span></code>, which takes an array with the following elements:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">data</span></code>: the full response data array</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">handle</span></code>: a unique user handle</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">displayName</span></code>: the user’s display- or full name</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">id</span></code>: a unique identifier, e.g. numeric or UUID - not to be confused with the handle</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">email</span></code>: the user’s e-mail address</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">avatar</span></code>: a link to the avatar image</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">url</span></code>: a link to the public user profile</p></li>
+</ul>
+<p>All elements except for <code class="docutils literal notranslate"><span class="pre">data</span></code> are nullable.</p>
+<div class="highlight-php notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">MyOAuth2Provider</span> <span class="k">extends</span> <span class="nx">OAuth2Provider</span> <span class="k">implements</span> <span class="nx">UserInfo</span><span class="p">{</span>
+
+	<span class="cm">/*</span>
+<span class="cm">	 * ...</span>
+<span class="cm">	 */</span>
+
+	<span class="k">public</span> <span class="k">function</span> <span class="nf">me</span><span class="p">()</span><span class="o">:</span><span class="nx">AuthenticatedUser</span><span class="p">{</span>
+
+		<span class="c1">// the endpoint can either be an absolute URL or a path relative to $apiURL</span>
+		<span class="c1">// additional request parameters can be supplied as an array</span>
+		<span class="nv">$params</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;param&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;value&#39;</span><span class="p">];</span>
+		<span class="nv">$data</span>   <span class="o">=</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">getMeResponseData</span><span class="p">(</span><span class="s1">&#39;/v1/accounts/verify_credentials&#39;</span><span class="p">,</span> <span class="nv">$params</span><span class="p">);</span>
+
+		<span class="c1">// assign the fields</span>
+		<span class="nv">$userdata</span> <span class="o">=</span> <span class="p">[</span>
+			<span class="s1">&#39;data&#39;</span>        <span class="o">=&gt;</span> <span class="nv">$data</span><span class="p">,</span>
+			<span class="s1">&#39;avatar&#39;</span>      <span class="o">=&gt;</span> <span class="nv">$data</span><span class="p">[</span><span class="s1">&#39;avatar_url&#39;</span><span class="p">],</span>
+			<span class="s1">&#39;displayName&#39;</span> <span class="o">=&gt;</span> <span class="nv">$data</span><span class="p">[</span><span class="s1">&#39;display_name&#39;</span><span class="p">],</span>
+			<span class="s1">&#39;email&#39;</span>       <span class="o">=&gt;</span> <span class="nv">$data</span><span class="p">[</span><span class="s1">&#39;email&#39;</span><span class="p">],</span>
+			<span class="s1">&#39;handle&#39;</span>      <span class="o">=&gt;</span> <span class="nv">$data</span><span class="p">[</span><span class="s1">&#39;username&#39;</span><span class="p">],</span>
+			<span class="s1">&#39;id&#39;</span>          <span class="o">=&gt;</span> <span class="nv">$data</span><span class="p">[</span><span class="s1">&#39;id&#39;</span><span class="p">],</span>
+			<span class="s1">&#39;url&#39;</span>         <span class="o">=&gt;</span> <span class="nv">$data</span><span class="p">[</span><span class="s1">&#39;profile_url&#39;</span><span class="p">],</span>
+		<span class="p">];</span>
+
+		<span class="c1">// the values for AuthenticatedUser can only be assigned via constructor</span>
+		<span class="k">return</span> <span class="k">new</span> <span class="nx">AuthenticatedUser</span><span class="p">(</span><span class="nv">$userdata</span><span class="p">);</span>
+	<span class="p">}</span>
+
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>Sometimes, the unified request method might not work, for example in case your extended provider class overrides the
+<code class="docutils literal notranslate"><span class="pre">OAuthProvider::request()</span></code> method to add functionality that cannot be handled otherwise.
+In that case you can override the method <code class="docutils literal notranslate"><span class="pre">OAuthProvider::sendMeRequest()</span></code>:</p>
+<div class="highlight-php notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">MyOAuth2Provider</span> <span class="k">extends</span> <span class="nx">OAuth2Provider</span> <span class="k">implements</span> <span class="nx">UserInfo</span><span class="p">{</span>
+
+	<span class="cm">/*</span>
+<span class="cm">	 * ...</span>
+<span class="cm">	 */</span>
+
+	<span class="k">protected</span> <span class="k">function</span> <span class="nf">sendMeRequest</span><span class="p">(</span>
+		<span class="nx">string</span>     <span class="nv">$endpoint</span><span class="p">,</span>
+		<span class="k">array</span><span class="o">|</span><span class="k">null</span> <span class="nv">$params</span> <span class="o">=</span> <span class="k">null</span>
+	<span class="p">)</span><span class="o">:</span><span class="nx">ResponseInterface</span><span class="p">{</span>
+		<span class="k">return</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">request</span><span class="p">(</span><span class="nx">path</span><span class="o">:</span> <span class="nv">$endpoint</span><span class="p">,</span> <span class="nx">params</span><span class="o">:</span> <span class="nv">$params</span><span class="p">);</span>
+	<span class="p">}</span>
+
+<span class="p">}</span>
+</pre></div>
+</div>
+</section>
+<section id="clientcredentials-oauth2">
+<h3><code class="docutils literal notranslate"><span class="pre">ClientCredentials</span></code> (OAuth2)<a class="headerlink" href="#clientcredentials-oauth2" title="Link to this heading"></a></h3>
+<p>The <code class="docutils literal notranslate"><span class="pre">ClientCredentials</span></code> interface indicates that the provider supports the OAuth2 <em>Client Credentials Grant</em> as described in <a class="reference external" href="https://datatracker.ietf.org/doc/html/rfc6749#section-4.4">RFC-6749, section 4.4</a>.
+This allows the creation of access tokens without user context via the method <code class="docutils literal notranslate"><span class="pre">ClientCredentials::getClientCredentialsToken()</span></code> that is already implemented in <code class="docutils literal notranslate"><span class="pre">OAuth2Provider</span></code>.
+Similar to the user authorization request, an optional set of scopes can be supplied via the <code class="docutils literal notranslate"><span class="pre">$scopes</span></code> parameter.</p>
+<div class="highlight-php notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">MyOAuth2Provider</span> <span class="k">extends</span> <span class="nx">OAuth2Provider</span> <span class="k">implements</span> <span class="nx">ClientCredentials</span><span class="p">{</span>
+
+	<span class="cm">/*</span>
+<span class="cm">	 * ...</span>
+<span class="cm">	 */</span>
+
+<span class="p">}</span>
+</pre></div>
+</div>
+</section>
+<section id="csrftoken-oauth2">
+<h3><code class="docutils literal notranslate"><span class="pre">CSRFToken</span></code> (OAuth2)<a class="headerlink" href="#csrftoken-oauth2" title="Link to this heading"></a></h3>
+<p>The <code class="docutils literal notranslate"><span class="pre">CSRFToken</span></code> interface indicates that the provider supports CSRF protection during the authorization request via the <code class="docutils literal notranslate"><span class="pre">state</span></code> query parameter,
+as defined in <a class="reference external" href="https://datatracker.ietf.org/doc/html/rfc6749#section-10.12">RFC-6749, section 10.12</a>.</p>
+<p>The (<code class="docutils literal notranslate"><span class="pre">final</span></code>) methods <code class="docutils literal notranslate"><span class="pre">CSRFToken::setState()</span></code> and <code class="docutils literal notranslate"><span class="pre">CSRFToken::checkState()</span></code> are implemented in <code class="docutils literal notranslate"><span class="pre">OAuth2Provider</span></code> and called in <code class="docutils literal notranslate"><span class="pre">getAuthorizationURL()</span></code> and <code class="docutils literal notranslate"><span class="pre">getAccessToken()</span></code>, respectively (user interaction in between).
+If you need to re-implement one of the latter methods, don’t forget to add the set/check!</p>
+<div class="highlight-php notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">MyOAuth2Provider</span> <span class="k">extends</span> <span class="nx">OAuth2Provider</span> <span class="k">implements</span> <span class="nx">CSRFToken</span><span class="p">{</span>
+
+	<span class="cm">/*</span>
+<span class="cm">	 * ...</span>
+<span class="cm">	 */</span>
+
+	<span class="k">public</span> <span class="k">function</span> <span class="nf">getAccessToken</span><span class="p">(</span><span class="nx">string</span> <span class="nv">$code</span><span class="p">,</span> <span class="nx">string</span><span class="o">|</span><span class="k">null</span> <span class="nv">$state</span> <span class="o">=</span> <span class="k">null</span><span class="p">)</span><span class="o">:</span><span class="nx">AccessToken</span><span class="p">{</span>
+		<span class="c1">// we&#39;re an instance of CSRFToken, no instance check needed</span>
+		<span class="nv">$this</span><span class="o">-&gt;</span><span class="na">checkState</span><span class="p">(</span><span class="nv">$state</span><span class="p">);</span>
+
+		<span class="nv">$body</span>     <span class="o">=</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">getAccessTokenRequestBodyParams</span><span class="p">(</span><span class="nv">$code</span><span class="p">);</span>
+		<span class="nv">$response</span> <span class="o">=</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">sendAccessTokenRequest</span><span class="p">(</span><span class="nv">$this</span><span class="o">-&gt;</span><span class="na">accessTokenURL</span><span class="p">,</span> <span class="nv">$body</span><span class="p">);</span>
+		<span class="nv">$token</span>    <span class="o">=</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">parseTokenResponse</span><span class="p">(</span><span class="nv">$response</span><span class="p">);</span>
+
+		<span class="c1">// do stuff...</span>
+		<span class="nv">$token</span><span class="o">-&gt;</span><span class="na">expires</span> <span class="o">=</span> <span class="p">(</span><span class="nb">time</span><span class="p">()</span> <span class="o">+</span> <span class="mi">2592000</span><span class="p">);</span> <span class="c1">// set expiry to 30 days</span>
+
+		<span class="nv">$this</span><span class="o">-&gt;</span><span class="na">storage</span><span class="o">-&gt;</span><span class="na">storeAccessToken</span><span class="p">(</span><span class="nv">$token</span><span class="p">,</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">name</span><span class="p">);</span>
+
+		<span class="k">return</span> <span class="nv">$token</span><span class="p">;</span>
+	<span class="p">}</span>
+
+<span class="p">}</span>
+</pre></div>
+</div>
+</section>
+<section id="tokenrefresh-oauth2">
+<h3><code class="docutils literal notranslate"><span class="pre">TokenRefresh</span></code> (OAuth2)<a class="headerlink" href="#tokenrefresh-oauth2" title="Link to this heading"></a></h3>
+<p>This interface indicates that the provider class is capable of the OAuth2 token refresh, as described in <a class="reference external" href="https://datatracker.ietf.org/doc/html/rfc6749#section-6">RFC-6749, section 6</a>.
+It shouldn’t be necessary to re-implement the method <code class="docutils literal notranslate"><span class="pre">OAuth2Provider::refreshAccessToken()</span></code> unless the service you’re about to implement interprets the RFC in very strange ways…</p>
+<p>The method is usually called in <code class="docutils literal notranslate"><span class="pre">OAuthInterface::getRequestAuthorization()</span></code>, which you might need to re-implement only in rare cases:</p>
+<div class="highlight-php notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">MyOAuth2Provider</span> <span class="k">extends</span> <span class="nx">OAuth2Provider</span> <span class="k">implements</span> <span class="nx">TokenInvalidate</span><span class="p">{</span>
+
+	<span class="cm">/*</span>
+<span class="cm">	 * ...</span>
+<span class="cm">	 */</span>
+
+	<span class="k">public</span> <span class="k">function</span> <span class="nf">getRequestAuthorization</span><span class="p">(</span>
+		<span class="nx">RequestInterface</span> <span class="nv">$request</span><span class="p">,</span>
+		<span class="nx">AccessToken</span><span class="o">|</span><span class="k">null</span> <span class="nv">$token</span> <span class="o">=</span> <span class="k">null</span><span class="p">,</span>
+	<span class="p">)</span><span class="o">:</span><span class="nx">RequestInterface</span><span class="p">{</span>
+
+		<span class="c1">// fetch the token from storage if none was given</span>
+		<span class="nv">$token</span> <span class="o">??=</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">storage</span><span class="o">-&gt;</span><span class="na">getAccessToken</span><span class="p">(</span><span class="nv">$this</span><span class="o">-&gt;</span><span class="na">name</span><span class="p">);</span>
+
+		<span class="c1">// check whether the token is expired</span>
+		<span class="k">if</span><span class="p">(</span><span class="nv">$token</span><span class="o">-&gt;</span><span class="na">isExpired</span><span class="p">()){</span>
+
+			<span class="c1">// throw if the token cannot be refreshed</span>
+			<span class="k">if</span><span class="p">(</span><span class="nv">$this</span><span class="o">-&gt;</span><span class="na">options</span><span class="o">-&gt;</span><span class="na">tokenAutoRefresh</span> <span class="o">!==</span> <span class="k">true</span><span class="p">){</span>
+				<span class="k">throw</span> <span class="k">new</span> <span class="nx">InvalidAccessTokenException</span><span class="p">;</span>
+			<span class="p">}</span>
+
+			<span class="c1">// call the token refresh</span>
+			<span class="nv">$token</span> <span class="o">=</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">refreshAccessToken</span><span class="p">(</span><span class="nv">$token</span><span class="p">);</span>
+		<span class="p">}</span>
+
+		<span class="nv">$header</span> <span class="o">=</span> <span class="nb">sprintf</span><span class="p">(</span><span class="s1">&#39;%s %s&#39;</span><span class="p">,</span> <span class="nv">$this</span><span class="o">::</span><span class="na">AUTH_PREFIX_HEADER</span><span class="p">,</span> <span class="nv">$token</span><span class="o">-&gt;</span><span class="na">accessToken</span><span class="p">);</span>
+
+		<span class="k">return</span> <span class="nv">$request</span><span class="o">-&gt;</span><span class="na">withHeader</span><span class="p">(</span><span class="s1">&#39;Authorization&#39;</span><span class="p">,</span> <span class="nv">$header</span><span class="p">);</span>
+	<span class="p">}</span>
+
+<span class="p">}</span>
+</pre></div>
+</div>
+</section>
+<section id="pkce-oauth2">
+<h3><code class="docutils literal notranslate"><span class="pre">PKCE</span></code> (OAuth2)<a class="headerlink" href="#pkce-oauth2" title="Link to this heading"></a></h3>
+<p>The <code class="docutils literal notranslate"><span class="pre">PKCE</span></code> interface can be implemented when the service supports <em>“Proof Key for Code Exchange”</em> as described in <a class="reference external" href="https://datatracker.ietf.org/doc/html/rfc7636">RFC-7636</a>.
+It implements the methods <code class="docutils literal notranslate"><span class="pre">PKCE::setCodeChallenge()</span></code> and <code class="docutils literal notranslate"><span class="pre">PKCE::setCodeVerifier()</span></code> that are called during the <em>authorization</em> and <em>access token</em> requests, respectively.</p>
+<p>If you need to override either of the aforementioned request methods, don’t forget to add the PKCE parameters:</p>
+<div class="highlight-php notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">MyOAuth2Provider</span> <span class="k">extends</span> <span class="nx">OAuth2Provider</span> <span class="k">implements</span> <span class="nx">PKCE</span><span class="p">{</span>
+
+	<span class="cm">/*</span>
+<span class="cm">	 * ...</span>
+<span class="cm">	 */</span>
+
+	<span class="c1">// the query parameters for the authorization URL</span>
+	<span class="k">protected</span> <span class="k">function</span> <span class="nf">getAuthorizationURLRequestParams</span><span class="p">(</span><span class="k">array</span> <span class="nv">$params</span><span class="p">,</span> <span class="k">array</span> <span class="nv">$scopes</span><span class="p">)</span><span class="o">:</span><span class="k">array</span><span class="p">{</span>
+
+		<span class="nv">$params</span> <span class="o">=</span> <span class="nb">array_merge</span><span class="p">(</span><span class="nv">$params</span><span class="p">,</span> <span class="p">[</span>
+			<span class="s1">&#39;client_id&#39;</span>     <span class="o">=&gt;</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">options</span><span class="o">-&gt;</span><span class="na">key</span><span class="p">,</span>
+			<span class="s1">&#39;redirect_uri&#39;</span>  <span class="o">=&gt;</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">options</span><span class="o">-&gt;</span><span class="na">callbackURL</span><span class="p">,</span>
+			<span class="s1">&#39;response_type&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;code&#39;</span><span class="p">,</span>
+			<span class="s1">&#39;type&#39;</span>          <span class="o">=&gt;</span> <span class="s1">&#39;web_server&#39;</span><span class="p">,</span>
+			<span class="c1">// ...</span>
+		<span class="p">]);</span>
+
+		<span class="k">if</span><span class="p">(</span><span class="o">!</span><span class="k">empty</span><span class="p">(</span><span class="nv">$scopes</span><span class="p">)){</span>
+			<span class="nv">$params</span><span class="p">[</span><span class="s1">&#39;scope&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="nb">implode</span><span class="p">(</span><span class="nv">$this</span><span class="o">::</span><span class="na">SCOPES_DELIMITER</span><span class="p">,</span> <span class="nv">$scopes</span><span class="p">);</span>
+		<span class="p">}</span>
+
+		<span class="c1">// set the CSRF token</span>
+		<span class="nv">$params</span> <span class="o">=</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">setState</span><span class="p">(</span><span class="nv">$params</span><span class="p">);</span>
+
+		<span class="c1">// set the PKCE &quot;code_challenge&quot; and &quot;code_challenge_method&quot; parameters</span>
+		<span class="nv">$params</span> <span class="o">=</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">setCodeChallenge</span><span class="p">(</span><span class="nv">$params</span><span class="p">,</span> <span class="nx">PKCE</span><span class="o">::</span><span class="na">CHALLENGE_METHOD_S256</span><span class="p">);</span>
+
+		<span class="k">return</span> <span class="nv">$params</span><span class="p">;</span>
+	<span class="p">}</span>
+
+	<span class="c1">// the body for the access token exchange</span>
+	<span class="k">protected</span> <span class="k">function</span> <span class="nf">getAccessTokenRequestBodyParams</span><span class="p">(</span><span class="nx">string</span> <span class="nv">$code</span><span class="p">)</span><span class="o">:</span><span class="k">array</span><span class="p">{</span>
+
+		<span class="nv">$params</span> <span class="o">=</span> <span class="p">[</span>
+			<span class="s1">&#39;client_id&#39;</span>     <span class="o">=&gt;</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">options</span><span class="o">-&gt;</span><span class="na">key</span><span class="p">,</span>
+			<span class="s1">&#39;client_secret&#39;</span> <span class="o">=&gt;</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">options</span><span class="o">-&gt;</span><span class="na">secret</span><span class="p">,</span>
+			<span class="s1">&#39;code&#39;</span>          <span class="o">=&gt;</span> <span class="nv">$code</span><span class="p">,</span>
+			<span class="s1">&#39;grant_type&#39;</span>    <span class="o">=&gt;</span> <span class="s1">&#39;authorization_code&#39;</span><span class="p">,</span>
+			<span class="s1">&#39;redirect_uri&#39;</span>  <span class="o">=&gt;</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">options</span><span class="o">-&gt;</span><span class="na">callbackURL</span><span class="p">,</span>
+			<span class="c1">// ...</span>
+		<span class="p">];</span>
+
+		<span class="c1">// sets the &quot;code_verifier&quot; parameter</span>
+		<span class="nv">$params</span> <span class="o">=</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">setCodeVerifier</span><span class="p">(</span><span class="nv">$params</span><span class="p">);</span>
+
+		<span class="k">return</span> <span class="nv">$params</span><span class="p">;</span>
+	<span class="p">}</span>
+
+<span class="p">}</span>
+</pre></div>
+</div>
+</section>
+<section id="tokeninvalidate">
+<h3><code class="docutils literal notranslate"><span class="pre">TokenInvalidate</span></code><a class="headerlink" href="#tokeninvalidate" title="Link to this heading"></a></h3>
+<p>This is interface is <em>not</em> implemented in the abstract providers, as it may differ drastically between services or is not supported at all.
+The method <code class="docutils literal notranslate"><span class="pre">TokenInvalidate::invalidateAccessToken()</span></code> takes an <code class="docutils literal notranslate"><span class="pre">AccessToken</span></code> as optional parameter, in which case this token should be invalidated,
+otherwise the token for the current user should be fetched from the storage and be used in the invalidation request.</p>
+<p>The more common implementation looks as follows: the access token along with client-id is sent with a <code class="docutils literal notranslate"><span class="pre">POST</span></code> request as url-encoded
+form-data in the body, and the server responds with either a HTTP 200 and (often) an empty body or a HTTP 204.
+On a successful response, the token should be deleted from the storage.</p>
+<div class="highlight-php notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">MyOAuth2Provider</span> <span class="k">extends</span> <span class="nx">OAuth2Provider</span> <span class="k">implements</span> <span class="nx">TokenInvalidate</span><span class="p">{</span>
+
+	<span class="cm">/*</span>
+<span class="cm">	 * ...</span>
+<span class="cm">	 */</span>
+
+	<span class="k">public</span> <span class="k">function</span> <span class="nf">invalidateAccessToken</span><span class="p">(</span><span class="nx">AccessToken</span><span class="o">|</span><span class="k">null</span> <span class="nv">$token</span> <span class="o">=</span> <span class="k">null</span><span class="p">)</span><span class="o">:</span><span class="nx">bool</span><span class="p">{</span>
+		<span class="nv">$tokenToInvalidate</span> <span class="o">=</span> <span class="p">(</span><span class="nv">$token</span> <span class="o">??</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">storage</span><span class="o">-&gt;</span><span class="na">getAccessToken</span><span class="p">(</span><span class="nv">$this</span><span class="o">-&gt;</span><span class="na">name</span><span class="p">));</span>
+
+		<span class="c1">// the body may vary between services</span>
+		<span class="nv">$bodyParams</span> <span class="o">=</span> <span class="p">[</span>
+			<span class="s1">&#39;client_id&#39;</span> <span class="o">=&gt;</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">options</span><span class="o">-&gt;</span><span class="na">key</span><span class="p">,</span>
+			<span class="s1">&#39;token&#39;</span>     <span class="o">=&gt;</span> <span class="nv">$tokenToInvalidate</span><span class="o">-&gt;</span><span class="na">accessToken</span><span class="p">,</span>
+		<span class="p">];</span>
+
+		<span class="c1">// prepare the request</span>
+		<span class="nv">$request</span> <span class="o">=</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">requestFactory</span>
+			<span class="o">-&gt;</span><span class="na">createRequest</span><span class="p">(</span><span class="s1">&#39;POST&#39;</span><span class="p">,</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">revokeURL</span><span class="p">)</span>
+			<span class="o">-&gt;</span><span class="na">withHeader</span><span class="p">(</span><span class="s1">&#39;Content-Type&#39;</span><span class="p">,</span> <span class="s1">&#39;application/x-www-form-urlencoded&#39;</span><span class="p">)</span>
+		<span class="p">;</span>
+
+		<span class="c1">// encode the body according to the content-type given in the request header</span>
+		<span class="nv">$request</span> <span class="o">=</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">setRequestBody</span><span class="p">(</span><span class="nv">$bodyParams</span><span class="p">,</span> <span class="nv">$request</span><span class="p">);</span>
+
+		<span class="c1">// bypass the host check and request authorization</span>
+		<span class="nv">$response</span> <span class="o">=</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">http</span><span class="o">-&gt;</span><span class="na">sendRequest</span><span class="p">(</span><span class="nv">$request</span><span class="p">);</span>
+
+		<span class="k">if</span><span class="p">(</span><span class="nv">$response</span><span class="o">-&gt;</span><span class="na">getStatusCode</span><span class="p">()</span> <span class="o">===</span> <span class="mi">200</span><span class="p">){</span>
+			<span class="c1">// delete the token on success (only if it wasn&#39;t given via param)</span>
+			<span class="k">if</span><span class="p">(</span><span class="nv">$token</span> <span class="o">===</span> <span class="k">null</span><span class="p">){</span>
+				<span class="nv">$this</span><span class="o">-&gt;</span><span class="na">storage</span><span class="o">-&gt;</span><span class="na">clearAccessToken</span><span class="p">(</span><span class="nv">$this</span><span class="o">-&gt;</span><span class="na">name</span><span class="p">);</span>
+			<span class="p">}</span>
+
+			<span class="k">return</span> <span class="k">true</span><span class="p">;</span>
+		<span class="p">}</span>
+
+		<span class="k">return</span> <span class="k">false</span><span class="p">;</span>
+	<span class="p">}</span>
+
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>Other services may just expect a <code class="docutils literal notranslate"><span class="pre">POST</span></code> or <code class="docutils literal notranslate"><span class="pre">DELETE</span></code> request to the invalidation endpoint with the <code class="docutils literal notranslate"><span class="pre">Authorization:</span> <span class="pre">Bearer</span> <span class="pre">&lt;token&gt;</span></code> header set.
+The problem here is that a token given via parameter can’t just be revoked that easily without overwriting the currently stored token (if any).
+This can be solved by simply cloning the current provider instance, feed the given token to the clone and call <code class="docutils literal notranslate"><span class="pre">invalidateAccessToken()</span></code> on it:</p>
+<div class="highlight-php notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">MyOAuth2Provider</span> <span class="k">extends</span> <span class="nx">OAuth2Provider</span> <span class="k">implements</span> <span class="nx">TokenInvalidate</span><span class="p">{</span>
+
+	<span class="cm">/*</span>
+<span class="cm">	 * ...</span>
+<span class="cm">	 */</span>
+
+	<span class="k">public</span> <span class="k">function</span> <span class="nf">invalidateAccessToken</span><span class="p">(</span><span class="nx">AccessToken</span><span class="o">|</span><span class="k">null</span> <span class="nv">$token</span> <span class="o">=</span> <span class="k">null</span><span class="p">)</span><span class="o">:</span><span class="nx">bool</span><span class="p">{</span>
+
+		<span class="c1">// a token was given</span>
+		<span class="k">if</span><span class="p">(</span><span class="nv">$token</span> <span class="o">!==</span> <span class="k">null</span><span class="p">){</span>
+			<span class="c1">// clone the current provider instance</span>
+			<span class="k">return</span> <span class="p">(</span><span class="k">clone</span> <span class="nv">$this</span><span class="p">)</span>
+				<span class="c1">// replace the storage instance</span>
+				<span class="o">-&gt;</span><span class="na">setStorage</span><span class="p">(</span><span class="k">new</span> <span class="nx">MemoryStorage</span><span class="p">)</span>
+				<span class="c1">// store the given token in the clone</span>
+				<span class="o">-&gt;</span><span class="na">storeAccessToken</span><span class="p">(</span><span class="nv">$token</span><span class="p">)</span>
+				<span class="c1">// call this method on the clone without token parameter</span>
+				<span class="o">-&gt;</span><span class="na">invalidateAccessToken</span><span class="p">()</span>
+			<span class="p">;</span>
+		<span class="p">}</span>
+
+		<span class="c1">// prepare the request</span>
+		<span class="nv">$request</span> <span class="o">=</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">requestFactory</span><span class="o">-&gt;</span><span class="na">createRequest</span><span class="p">(</span><span class="s1">&#39;DELETE&#39;</span><span class="p">,</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">revokeURL</span><span class="p">);</span>
+		<span class="nv">$request</span> <span class="o">=</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">getRequestAuthorization</span><span class="p">(</span><span class="nv">$request</span><span class="p">);</span>
+
+		<span class="c1">// bypass the host check and request authorization</span>
+		<span class="nv">$response</span> <span class="o">=</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">http</span><span class="o">-&gt;</span><span class="na">sendRequest</span><span class="p">(</span><span class="nv">$request</span><span class="p">);</span>
+
+		<span class="k">if</span><span class="p">(</span><span class="nv">$response</span><span class="o">-&gt;</span><span class="na">getStatusCode</span><span class="p">()</span> <span class="o">===</span> <span class="mi">204</span><span class="p">){</span>
+			<span class="c1">// delete the token on success</span>
+			<span class="nv">$this</span><span class="o">-&gt;</span><span class="na">storage</span><span class="o">-&gt;</span><span class="na">clearAccessToken</span><span class="p">(</span><span class="nv">$this</span><span class="o">-&gt;</span><span class="na">name</span><span class="p">);</span>
+
+			<span class="k">return</span> <span class="k">true</span><span class="p">;</span>
+		<span class="p">}</span>
+
+		<span class="k">return</span> <span class="k">false</span><span class="p">;</span>
+	<span class="p">}</span>
+
+<span class="p">}</span>
+</pre></div>
+</div>
+</section>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="../Usage/Authorization.html" class="btn btn-neutral float-left" title="Authorization flow" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="Test-suite.html" class="btn btn-neutral float-right" title="Running tests" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2024, smiley.</p>
+  </div>
+
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

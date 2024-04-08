@@ -18,7 +18,7 @@ echo '<a href="?route=oauth-login">connect with GitHub!</a>';
 
 ### Redirect
 
-The method `OAuthInterface::getAuthURL()` takes two (optional) parameters:
+The method `OAuthInterface::getAuthorizationURL()` takes two (optional) parameters:
 
 - `$params`: this array contains additional query parameters that will be added to the URL query (provider dependent)
 - `$scopes`: this array contains all scopes that will be used for this authorization (unused in OAuth1)
@@ -27,7 +27,7 @@ When the user clicks the log-in link, just execute a `header()` to the provider'
 
 ```php
 if($route === 'oauth-login'){
-	header('Location: '.$provider->getAuthURL($params, $scopes));
+	header('Location: '.$provider->getAuthorizationURL($params, $scopes));
 
 	// -> https://github.com/login/oauth/authorize?client_id=<client_id>
 	//       &redirect_uri=https%3A%2F%2Fexample.com%2Fcallback%2F&response_type=code

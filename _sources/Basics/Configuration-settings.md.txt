@@ -72,19 +72,9 @@ Note: this is set to `false` by default to not interfere with other session mana
 - `\chillerlan\OAuth\Storage\SessionStorage`
 
 
-## sessionTokenVar
+## sessionStorageVar
 
-The session array key for token storage
-
-
-**See also:**
-
-- `\chillerlan\OAuth\Storage\SessionStorage`
-
-
-## sessionStateVar
-
-The session array key for <state> storage (OAuth2)
+The session key for the storage array
 
 
 **See also:**
@@ -101,4 +91,14 @@ The file storage root path (requires permissions 0777)
 
 - [php.net: `\is_writable()`](https://www.php.net/manual/function.is-writable)
 - `\chillerlan\OAuth\Storage\FileStorage`
+
+
+## pkceVerifierLength
+
+The length of the PKCE challenge verifier (43-128 characters)
+
+
+**See also:**
+
+- [datatracker.ietf.org/doc/html/rfc7636#section-4.1](https://datatracker.ietf.org/doc/html/rfc7636#section-4.1)
 

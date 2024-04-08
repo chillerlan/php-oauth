@@ -74,9 +74,9 @@
 <li class="toctree-l2"><a class="reference internal" href="Basics/Configuration-settings.html#tokenautorefresh">tokenAutoRefresh</a></li>
 <li class="toctree-l2"><a class="reference internal" href="Basics/Configuration-settings.html#sessionstart">sessionStart</a></li>
 <li class="toctree-l2"><a class="reference internal" href="Basics/Configuration-settings.html#sessionstop">sessionStop</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Basics/Configuration-settings.html#sessiontokenvar">sessionTokenVar</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Basics/Configuration-settings.html#sessionstatevar">sessionStateVar</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Basics/Configuration-settings.html#sessionstoragevar">sessionStorageVar</a></li>
 <li class="toctree-l2"><a class="reference internal" href="Basics/Configuration-settings.html#filestoragepath">fileStoragePath</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Basics/Configuration-settings.html#pkceverifierlength">pkceVerifierLength</a></li>
 </ul>
 </li>
 </ul>
@@ -105,6 +105,36 @@
 <li class="toctree-l2"><a class="reference internal" href="Usage/Authorization.html#use-the-provider-s-api">Use the provider’s API</a></li>
 </ul>
 </li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Development</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="Development/Create-provider.html">Create your own Provider</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="Development/Create-provider.html#minimal-implementation">Minimal implementation</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="Development/Create-provider.html#dynamic-urls">Dynamic URLs</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="Development/Create-provider.html#informational-values">Informational values</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Development/Create-provider.html#additional-headers">Additional headers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Development/Create-provider.html#request-authorization-method-oauth2">Request authorization method (OAuth2)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Development/Create-provider.html#scopes-oauth2">Scopes (OAuth2)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Development/Create-provider.html#overriding-methods">Overriding methods</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="Development/Create-provider.html#oauth1">OAuth1</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Development/Create-provider.html#oauth2">OAuth2</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="Development/Create-provider.html#additional-functionality">Additional functionality</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="Development/Create-provider.html#userinfo"><code class="docutils literal notranslate"><span class="pre">UserInfo</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="Development/Create-provider.html#clientcredentials-oauth2"><code class="docutils literal notranslate"><span class="pre">ClientCredentials</span></code> (OAuth2)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Development/Create-provider.html#csrftoken-oauth2"><code class="docutils literal notranslate"><span class="pre">CSRFToken</span></code> (OAuth2)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Development/Create-provider.html#tokenrefresh-oauth2"><code class="docutils literal notranslate"><span class="pre">TokenRefresh</span></code> (OAuth2)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Development/Create-provider.html#pkce-oauth2"><code class="docutils literal notranslate"><span class="pre">PKCE</span></code> (OAuth2)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Development/Create-provider.html#tokeninvalidate"><code class="docutils literal notranslate"><span class="pre">TokenInvalidate</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="Development/Test-suite.html">Running tests</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Development/Using-examples.html">Using the examples</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Appendix</span></p>
 <ul>
@@ -144,7 +174,7 @@
              
   <section id="php-oauth-manual">
 <h1>PHP-OAuth Manual<a class="headerlink" href="#php-oauth-manual" title="Link to this heading"></a></h1>
-<p>User manual for <a class="reference external" href="https://github.com/chillerlan/php-oauth/">chillerlan/php-oauth</a>  [main]. Updated on Apr 02, 2024.</p>
+<p>User manual for <a class="reference external" href="https://github.com/chillerlan/php-oauth/">chillerlan/php-oauth</a>  [main]. Updated on Apr 08, 2024.</p>
 <p>The phpDocumentor API documentation can be found at <a class="reference external" href="https://chillerlan.github.io/php-oauth/">chillerlan.github.io/php-oauth</a>.</p>
 <p>This work is licensed under the Creative Commons Attribution 4.0 International (CC BY 4.0) License.</p>
 <div class="toctree-wrapper compound">
@@ -178,9 +208,9 @@
 <li class="toctree-l2"><a class="reference internal" href="Basics/Configuration-settings.html#tokenautorefresh">tokenAutoRefresh</a></li>
 <li class="toctree-l2"><a class="reference internal" href="Basics/Configuration-settings.html#sessionstart">sessionStart</a></li>
 <li class="toctree-l2"><a class="reference internal" href="Basics/Configuration-settings.html#sessionstop">sessionStop</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Basics/Configuration-settings.html#sessiontokenvar">sessionTokenVar</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Basics/Configuration-settings.html#sessionstatevar">sessionStateVar</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Basics/Configuration-settings.html#sessionstoragevar">sessionStorageVar</a></li>
 <li class="toctree-l2"><a class="reference internal" href="Basics/Configuration-settings.html#filestoragepath">fileStoragePath</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Basics/Configuration-settings.html#pkceverifierlength">pkceVerifierLength</a></li>
 </ul>
 </li>
 </ul>
@@ -211,6 +241,38 @@
 <li class="toctree-l2"><a class="reference internal" href="Usage/Authorization.html#use-the-provider-s-api">Use the provider’s API</a></li>
 </ul>
 </li>
+</ul>
+</div>
+<div class="toctree-wrapper compound">
+<p class="caption" role="heading"><span class="caption-text">Development</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="Development/Create-provider.html">Create your own Provider</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="Development/Create-provider.html#minimal-implementation">Minimal implementation</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="Development/Create-provider.html#dynamic-urls">Dynamic URLs</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="Development/Create-provider.html#informational-values">Informational values</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Development/Create-provider.html#additional-headers">Additional headers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Development/Create-provider.html#request-authorization-method-oauth2">Request authorization method (OAuth2)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Development/Create-provider.html#scopes-oauth2">Scopes (OAuth2)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Development/Create-provider.html#overriding-methods">Overriding methods</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="Development/Create-provider.html#oauth1">OAuth1</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Development/Create-provider.html#oauth2">OAuth2</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="Development/Create-provider.html#additional-functionality">Additional functionality</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="Development/Create-provider.html#userinfo"><code class="docutils literal notranslate"><span class="pre">UserInfo</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="Development/Create-provider.html#clientcredentials-oauth2"><code class="docutils literal notranslate"><span class="pre">ClientCredentials</span></code> (OAuth2)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Development/Create-provider.html#csrftoken-oauth2"><code class="docutils literal notranslate"><span class="pre">CSRFToken</span></code> (OAuth2)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Development/Create-provider.html#tokenrefresh-oauth2"><code class="docutils literal notranslate"><span class="pre">TokenRefresh</span></code> (OAuth2)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Development/Create-provider.html#pkce-oauth2"><code class="docutils literal notranslate"><span class="pre">PKCE</span></code> (OAuth2)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Development/Create-provider.html#tokeninvalidate"><code class="docutils literal notranslate"><span class="pre">TokenInvalidate</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="Development/Test-suite.html">Running tests</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Development/Using-examples.html">Using the examples</a></li>
 </ul>
 </div>
 <div class="toctree-wrapper compound">

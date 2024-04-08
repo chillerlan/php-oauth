@@ -22,7 +22,7 @@
     <script src="../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="How to contribute" href="../Appendix/Contribute.html" />
+    <link rel="next" title="Create your own Provider" href="../Development/Create-provider.html" />
     <link rel="prev" title="Quickstart" href="Quickstart.html" /> 
 </head>
 
@@ -75,9 +75,9 @@
 <li class="toctree-l2"><a class="reference internal" href="../Basics/Configuration-settings.html#tokenautorefresh">tokenAutoRefresh</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../Basics/Configuration-settings.html#sessionstart">sessionStart</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../Basics/Configuration-settings.html#sessionstop">sessionStop</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../Basics/Configuration-settings.html#sessiontokenvar">sessionTokenVar</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../Basics/Configuration-settings.html#sessionstatevar">sessionStateVar</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Basics/Configuration-settings.html#sessionstoragevar">sessionStorageVar</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../Basics/Configuration-settings.html#filestoragepath">fileStoragePath</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Basics/Configuration-settings.html#pkceverifierlength">pkceVerifierLength</a></li>
 </ul>
 </li>
 </ul>
@@ -106,6 +106,36 @@
 <li class="toctree-l2"><a class="reference internal" href="#use-the-provider-s-api">Use the provider’s API</a></li>
 </ul>
 </li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Development</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../Development/Create-provider.html">Create your own Provider</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../Development/Create-provider.html#minimal-implementation">Minimal implementation</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../Development/Create-provider.html#dynamic-urls">Dynamic URLs</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../Development/Create-provider.html#informational-values">Informational values</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Development/Create-provider.html#additional-headers">Additional headers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Development/Create-provider.html#request-authorization-method-oauth2">Request authorization method (OAuth2)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Development/Create-provider.html#scopes-oauth2">Scopes (OAuth2)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Development/Create-provider.html#overriding-methods">Overriding methods</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../Development/Create-provider.html#oauth1">OAuth1</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../Development/Create-provider.html#oauth2">OAuth2</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../Development/Create-provider.html#additional-functionality">Additional functionality</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../Development/Create-provider.html#userinfo"><code class="docutils literal notranslate"><span class="pre">UserInfo</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../Development/Create-provider.html#clientcredentials-oauth2"><code class="docutils literal notranslate"><span class="pre">ClientCredentials</span></code> (OAuth2)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../Development/Create-provider.html#csrftoken-oauth2"><code class="docutils literal notranslate"><span class="pre">CSRFToken</span></code> (OAuth2)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../Development/Create-provider.html#tokenrefresh-oauth2"><code class="docutils literal notranslate"><span class="pre">TokenRefresh</span></code> (OAuth2)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../Development/Create-provider.html#pkce-oauth2"><code class="docutils literal notranslate"><span class="pre">PKCE</span></code> (OAuth2)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../Development/Create-provider.html#tokeninvalidate"><code class="docutils literal notranslate"><span class="pre">TokenInvalidate</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../Development/Test-suite.html">Running tests</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Development/Using-examples.html">Using the examples</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Appendix</span></p>
 <ul>
@@ -159,14 +189,14 @@ as provider instances may call the service internally (OAuth1 request tokens). T
 </section>
 <section id="redirect">
 <h3>Redirect<a class="headerlink" href="#redirect" title="Link to this heading"></a></h3>
-<p>The method <code class="docutils literal notranslate"><span class="pre">OAuthInterface::getAuthURL()</span></code> takes two (optional) parameters:</p>
+<p>The method <code class="docutils literal notranslate"><span class="pre">OAuthInterface::getAuthorizationURL()</span></code> takes two (optional) parameters:</p>
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">$params</span></code>: this array contains additional query parameters that will be added to the URL query (provider dependent)</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">$scopes</span></code>: this array contains all scopes that will be used for this authorization (unused in OAuth1)</p></li>
 </ul>
 <p>When the user clicks the log-in link, just execute a <code class="docutils literal notranslate"><span class="pre">header()</span></code> to the provider’s authorization URL.</p>
 <div class="highlight-php notranslate"><div class="highlight"><pre><span></span><span class="k">if</span><span class="p">(</span><span class="nv">$route</span> <span class="o">===</span> <span class="s1">&#39;oauth-login&#39;</span><span class="p">){</span>
-	<span class="nb">header</span><span class="p">(</span><span class="s1">&#39;Location: &#39;</span><span class="o">.</span><span class="nv">$provider</span><span class="o">-&gt;</span><span class="na">getAuthURL</span><span class="p">(</span><span class="nv">$params</span><span class="p">,</span> <span class="nv">$scopes</span><span class="p">));</span>
+	<span class="nb">header</span><span class="p">(</span><span class="s1">&#39;Location: &#39;</span><span class="o">.</span><span class="nv">$provider</span><span class="o">-&gt;</span><span class="na">getAuthorizationURL</span><span class="p">(</span><span class="nv">$params</span><span class="p">,</span> <span class="nv">$scopes</span><span class="p">));</span>
 
 	<span class="c1">// -&gt; https://github.com/login/oauth/authorize?client_id=&lt;client_id&gt;</span>
 	<span class="c1">//       &amp;redirect_uri=https%3A%2F%2Fexample.com%2Fcallback%2F&amp;response_type=code</span>
@@ -253,7 +283,7 @@ calls to other hosts will be rerouted directly to the http client.</p>
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
         <a href="Quickstart.html" class="btn btn-neutral float-left" title="Quickstart" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
-        <a href="../Appendix/Contribute.html" class="btn btn-neutral float-right" title="How to contribute" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="../Development/Create-provider.html" class="btn btn-neutral float-right" title="Create your own Provider" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
   <hr/>

@@ -8,7 +8,8 @@
 declare(strict_types=1);
 
 use chillerlan\OAuth\Core\{
-	ClientCredentials, CSRFToken, OAuth1Interface, OAuth2Interface, OAuthInterface, TokenInvalidate, TokenRefresh, UserInfo
+	ClientCredentials, CSRFToken, OAuth1Interface, OAuth2Interface,
+	OAuthInterface, PKCE, TokenInvalidate, TokenRefresh, UserInfo
 };
 
 /**
@@ -26,8 +27,8 @@ const REPLACE_END   = '<!-- TABLE_END -->';
 $table = [
 	'<!-- this table is auto-created via /examples/create-description.php -->',
 	'',
-	'| Provider | App keys | revoke | OAuth | CSRF | CC | TR | TI | User |',
-	'|----------|----------|--------|-------|------|----|----|----|------|',
+	'| Provider | keys | revoke | ver | User | CSRF | PKCE | CC | TR | TI |',
+	'|----------|------|--------|-----|------|------|------|----|----|----|',
 ];
 
 foreach(getProviders(__DIR__.'/../src/Providers') as $p){
@@ -44,11 +45,12 @@ foreach(getProviders(__DIR__.'/../src/Providers') as $p){
 		' | [link]('.$provider->applicationURL.')'.
 		' | '.($provider->userRevokeURL !== null ? '[link]('.$provider->userRevokeURL.')' : '').
 		' | '.$oauth.
+		' | '.(($provider instanceof UserInfo) ? '✓' : '').
 		' | '.(($provider instanceof CSRFToken) ? '✓' : '').
+		' | '.(($provider instanceof PKCE) ? '✓' : '').
 		' | '.(($provider instanceof ClientCredentials) ? '✓' : '').
 		' | '.(($provider instanceof TokenRefresh) ? '✓' : '').
 		' | '.(($provider instanceof TokenInvalidate) ? '✓' : '').
-		' | '.(($provider instanceof UserInfo) ? '✓' : '').
 	    ' |' ;
 
 	printf("%s\n", $p['fqcn']);
@@ -57,14 +59,15 @@ foreach(getProviders(__DIR__.'/../src/Providers') as $p){
 $table[] = '';
 $table[] = '**Legend:**';
 $table[] = '- **Provider**: the name of the provider class and link to their API documentation';
-$table[] = '- **App keys**: links to the provider\'s OAuth application creation page';
+$table[] = '- **keys**: links to the provider\'s OAuth application creation page';
 $table[] = '- **revoke**: links to the OAuth application access revocation page in the provider\'s user profile';
-$table[] = '- **OAuth**: the OAuth version(s) supported by the provider';
-$table[] = '- **CSRF**: indicates whether the provider uses [CSRF protection via the `state` parameter](https://datatracker.ietf.org/doc/html/rfc6749#section-10.12) (implements the `CSRFToken` interface)';
-$table[] = '- **CC**: indicates whether the provider supports the [Client Credentials Grant](https://datatracker.ietf.org/doc/html/rfc6749#section-4.4) (implements the `ClientCredentials` interface)';
-$table[] = '- **TR**: indicates whether the provider is capable of [refreshing an access token](https://datatracker.ietf.org/doc/html/rfc6749#section-10.4) (implements the `TokenRefresh` interface)';
-$table[] = '- **TI**: indicates whether the provider is capable of revoking/invalidating an access token (implements the `TokenInvalidate` interface)';
-$table[] = '- **User**: indicates whether the provider offers information about the currently authenticated user via the `me()` method (implements the `UserInfo` interface)';
+$table[] = '- **ver**: the OAuth version(s) supported by the provider';
+$table[] = '- **User**: indicates that the provider offers information about the currently authenticated user via the `me()` method (implements the `UserInfo` interface)';
+$table[] = '- **CSRF**: indicates that the provider uses [CSRF protection via the `state` parameter](https://datatracker.ietf.org/doc/html/rfc6749#section-10.12) (implements the `CSRFToken` interface)';
+$table[] = '- **PKCE**: indicates that the provider supports [Proof Key for Code Exchange](https://datatracker.ietf.org/doc/html/rfc7636) (implements the `PKCE` interface)';
+$table[] = '- **CC**: indicates that the provider supports the [Client Credentials Grant](https://datatracker.ietf.org/doc/html/rfc6749#section-4.4) (implements the `ClientCredentials` interface)';
+$table[] = '- **TR**: indicates that the provider is capable of [refreshing an access token](https://datatracker.ietf.org/doc/html/rfc6749#section-10.4) (implements the `TokenRefresh` interface)';
+$table[] = '- **TI**: indicates that the provider is capable of revoking/invalidating an access token (implements the `TokenInvalidate` interface)';
 
 
 foreach(FILES as $file){

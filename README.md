@@ -159,3 +159,7 @@ Note: replace `dev-main` with a [version constraint](https://getcomposer.org/doc
 OAuth tokens are secrets and should be treated as such. Store them in a safe place,
 [consider encryption](http://php.net/manual/book.sodium.php). <br/>
 I don't take responsibility for stolen auth tokens. Use at your own risk.
+
+## Privacy policy
+
+Implementers are responsible for a proper privacy policy in accordance with the service providers.

@@ -180,11 +180,25 @@ for whom it can store tokens for any of the implemented providers.</p>
 <dd>Deletes all access tokens (for the current user)</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
+    <a href="classes/chillerlan-OAuth-Storage-OAuthStorageInterface.html#method_clearAllCodeVerifiers">clearAllCodeVerifiers()</a>
+    <span>
+                                &nbsp;: static    </span>
+</dt>
+<dd>Deletes all PKCE verifiers for this user</dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -method -public">
     <a href="classes/chillerlan-OAuth-Storage-OAuthStorageInterface.html#method_clearAllCSRFStates">clearAllCSRFStates()</a>
     <span>
                                 &nbsp;: static    </span>
 </dt>
 <dd>Deletes all stored CSRF states (for the current user)</dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -method -public">
+    <a href="classes/chillerlan-OAuth-Storage-OAuthStorageInterface.html#method_clearCodeVerifier">clearCodeVerifier()</a>
+    <span>
+                                &nbsp;: static    </span>
+</dt>
+<dd>Deletes a PKCE verifier</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
     <a href="classes/chillerlan-OAuth-Storage-OAuthStorageInterface.html#method_clearCSRFState">clearCSRFState()</a>
@@ -208,6 +222,13 @@ for whom it can store tokens for any of the implemented providers.</p>
 <dd>Retrieves an AccessToken for the given $provider</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
+    <a href="classes/chillerlan-OAuth-Storage-OAuthStorageInterface.html#method_getCodeVerifier">getCodeVerifier()</a>
+    <span>
+                                &nbsp;: string    </span>
+</dt>
+<dd>Retrieves a PKCE verifier</dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -method -public">
     <a href="classes/chillerlan-OAuth-Storage-OAuthStorageInterface.html#method_getCSRFState">getCSRFState()</a>
     <span>
                                 &nbsp;: string    </span>
@@ -220,6 +241,13 @@ for whom it can store tokens for any of the implemented providers.</p>
                                 &nbsp;: bool    </span>
 </dt>
 <dd>Checks if a token for $provider exists</dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -method -public">
+    <a href="classes/chillerlan-OAuth-Storage-OAuthStorageInterface.html#method_hasCodeVerifier">hasCodeVerifier()</a>
+    <span>
+                                &nbsp;: bool    </span>
+</dt>
+<dd>Checks whether a PKCE verifier exists</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
     <a href="classes/chillerlan-OAuth-Storage-OAuthStorageInterface.html#method_hasCSRFState">hasCSRFState()</a>
@@ -241,6 +269,13 @@ for whom it can store tokens for any of the implemented providers.</p>
                                 &nbsp;: static    </span>
 </dt>
 <dd>Stores an AccessToken for the given $provider</dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -method -public">
+    <a href="classes/chillerlan-OAuth-Storage-OAuthStorageInterface.html#method_storeCodeVerifier">storeCodeVerifier()</a>
+    <span>
+                                &nbsp;: static    </span>
+</dt>
+<dd>Stores a PKCE verifier</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
     <a href="classes/chillerlan-OAuth-Storage-OAuthStorageInterface.html#method_storeCSRFState">storeCSRFState()</a>
@@ -284,7 +319,7 @@ and returns a value that is suited for the underlying storage engine</dd>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Storage/OAuthStorageInterface.php"><a href="files/src-storage-oauthstorageinterface.html"><abbr title="src/Storage/OAuthStorageInterface.php">OAuthStorageInterface.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">56</span>
+    <span class="phpdocumentor-element-found-in__line">58</span>
 
     </aside>
 
@@ -345,7 +380,7 @@ and returns a value that is suited for the underlying storage engine</dd>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Storage/OAuthStorageInterface.php"><a href="files/src-storage-oauthstorageinterface.html"><abbr title="src/Storage/OAuthStorageInterface.php">OAuthStorageInterface.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">63</span>
+    <span class="phpdocumentor-element-found-in__line">65</span>
 
     </aside>
 
@@ -388,6 +423,42 @@ and returns a value that is suited for the underlying storage engine</dd>
             -public
                                                         "
 >
+    <h4 class="phpdocumentor-element__name" id="method_clearAllCodeVerifiers">
+        clearAllCodeVerifiers()
+        <a href="classes/chillerlan-OAuth-Storage-OAuthStorageInterface.html#method_clearAllCodeVerifiers" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h4>
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/Storage/OAuthStorageInterface.php"><a href="files/src-storage-oauthstorageinterface.html"><abbr title="src/Storage/OAuthStorageInterface.php">OAuthStorageInterface.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">126</span>
+
+    </aside>
+
+        <p class="phpdocumentor-summary">Deletes all PKCE verifiers for this user</p>
+
+    <code class="phpdocumentor-code phpdocumentor-signature ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+                    <span class="phpdocumentor-signature__name">clearAllCodeVerifiers</span><span>(</span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">static</span></code>
+
+    <div class="phpdocumentor-label-line">
+        </div>
+    
+    
+    
+
+            <section>
+        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
+        <span class="phpdocumentor-signature__response_type">static</span>
+            </section>
+
+</article>
+                    <article
+        class="phpdocumentor-element
+            -method
+            -public
+                                                        "
+>
     <h4 class="phpdocumentor-element__name" id="method_clearAllCSRFStates">
         clearAllCSRFStates()
         <a href="classes/chillerlan-OAuth-Storage-OAuthStorageInterface.html#method_clearAllCSRFStates" class="headerlink"><i class="fas fa-link"></i></a>
@@ -396,7 +467,7 @@ and returns a value that is suited for the underlying storage engine</dd>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Storage/OAuthStorageInterface.php"><a href="files/src-storage-oauthstorageinterface.html"><abbr title="src/Storage/OAuthStorageInterface.php">OAuthStorageInterface.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">96</span>
+    <span class="phpdocumentor-element-found-in__line">100</span>
 
     </aside>
 
@@ -439,6 +510,52 @@ and returns a value that is suited for the underlying storage engine</dd>
             -public
                                                         "
 >
+    <h4 class="phpdocumentor-element__name" id="method_clearCodeVerifier">
+        clearCodeVerifier()
+        <a href="classes/chillerlan-OAuth-Storage-OAuthStorageInterface.html#method_clearCodeVerifier" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h4>
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/Storage/OAuthStorageInterface.php"><a href="files/src-storage-oauthstorageinterface.html"><abbr title="src/Storage/OAuthStorageInterface.php">OAuthStorageInterface.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">121</span>
+
+    </aside>
+
+        <p class="phpdocumentor-summary">Deletes a PKCE verifier</p>
+
+    <code class="phpdocumentor-code phpdocumentor-signature ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+                    <span class="phpdocumentor-signature__name">clearCodeVerifier</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$provider</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">static</span></code>
+
+    <div class="phpdocumentor-label-line">
+        </div>
+    
+        <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
+    <dl class="phpdocumentor-argument-list">
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-signature__argument__name">$provider</span>
+                : <span class="phpdocumentor-signature__argument__return-type">string</span>
+                            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                
+            </dd>
+            </dl>
+
+    
+
+            <section>
+        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
+        <span class="phpdocumentor-signature__response_type">static</span>
+            </section>
+
+</article>
+                    <article
+        class="phpdocumentor-element
+            -method
+            -public
+                                                        "
+>
     <h4 class="phpdocumentor-element__name" id="method_clearCSRFState">
         clearCSRFState()
         <a href="classes/chillerlan-OAuth-Storage-OAuthStorageInterface.html#method_clearCSRFState" class="headerlink"><i class="fas fa-link"></i></a>
@@ -447,7 +564,7 @@ and returns a value that is suited for the underlying storage engine</dd>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Storage/OAuthStorageInterface.php"><a href="files/src-storage-oauthstorageinterface.html"><abbr title="src/Storage/OAuthStorageInterface.php">OAuthStorageInterface.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">89</span>
+    <span class="phpdocumentor-element-found-in__line">93</span>
 
     </aside>
 
@@ -508,7 +625,7 @@ and returns a value that is suited for the underlying storage engine</dd>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Storage/OAuthStorageInterface.php"><a href="files/src-storage-oauthstorageinterface.html"><abbr title="src/Storage/OAuthStorageInterface.php">OAuthStorageInterface.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">111</span>
+    <span class="phpdocumentor-element-found-in__line">141</span>
 
     </aside>
 
@@ -569,7 +686,7 @@ and returns a value that is suited for the underlying storage engine</dd>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Storage/OAuthStorageInterface.php"><a href="files/src-storage-oauthstorageinterface.html"><abbr title="src/Storage/OAuthStorageInterface.php">OAuthStorageInterface.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">44</span>
+    <span class="phpdocumentor-element-found-in__line">46</span>
 
     </aside>
 
@@ -581,7 +698,9 @@ and returns a value that is suited for the underlying storage engine</dd>
 
     <div class="phpdocumentor-label-line">
         </div>
-    
+        <section class="phpdocumentor-description"><p>This method <em>must</em> throw a TokenNotFoundException if a token is not found</p>
+</section>
+
         <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
     <dl class="phpdocumentor-argument-list">
                     <dt class="phpdocumentor-argument-list__entry">
@@ -604,7 +723,7 @@ and returns a value that is suited for the underlying storage engine</dd>
                     <span class="phpdocumentor-tag__name">throws</span>
                 </dt>
                 <dd class="phpdocumentor-tag-list__definition">
-                                                                <span class="phpdocumentor-tag-link"><a href="classes/chillerlan-OAuth-Storage-OAuthStorageException.html"><abbr title="\chillerlan\OAuth\Storage\OAuthStorageException">OAuthStorageException</abbr></a></span>
+                                                                <span class="phpdocumentor-tag-link"><a href="classes/chillerlan-OAuth-Storage-TokenNotFoundException.html"><abbr title="\chillerlan\OAuth\Storage\TokenNotFoundException">TokenNotFoundException</abbr></a></span>
                                                             
                                              
                                     </dd>
@@ -622,6 +741,52 @@ and returns a value that is suited for the underlying storage engine</dd>
             -public
                                                         "
 >
+    <h4 class="phpdocumentor-element__name" id="method_getCodeVerifier">
+        getCodeVerifier()
+        <a href="classes/chillerlan-OAuth-Storage-OAuthStorageInterface.html#method_getCodeVerifier" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h4>
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/Storage/OAuthStorageInterface.php"><a href="files/src-storage-oauthstorageinterface.html"><abbr title="src/Storage/OAuthStorageInterface.php">OAuthStorageInterface.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">111</span>
+
+    </aside>
+
+        <p class="phpdocumentor-summary">Retrieves a PKCE verifier</p>
+
+    <code class="phpdocumentor-code phpdocumentor-signature ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+                    <span class="phpdocumentor-signature__name">getCodeVerifier</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$provider</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">string</span></code>
+
+    <div class="phpdocumentor-label-line">
+        </div>
+    
+        <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
+    <dl class="phpdocumentor-argument-list">
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-signature__argument__name">$provider</span>
+                : <span class="phpdocumentor-signature__argument__return-type">string</span>
+                            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                
+            </dd>
+            </dl>
+
+    
+
+            <section>
+        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
+        <span class="phpdocumentor-signature__response_type">string</span>
+            </section>
+
+</article>
+                    <article
+        class="phpdocumentor-element
+            -method
+            -public
+                                                        "
+>
     <h4 class="phpdocumentor-element__name" id="method_getCSRFState">
         getCSRFState()
         <a href="classes/chillerlan-OAuth-Storage-OAuthStorageInterface.html#method_getCSRFState" class="headerlink"><i class="fas fa-link"></i></a>
@@ -630,7 +795,7 @@ and returns a value that is suited for the underlying storage engine</dd>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Storage/OAuthStorageInterface.php"><a href="files/src-storage-oauthstorageinterface.html"><abbr title="src/Storage/OAuthStorageInterface.php">OAuthStorageInterface.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">77</span>
+    <span class="phpdocumentor-element-found-in__line">81</span>
 
     </aside>
 
@@ -642,7 +807,9 @@ and returns a value that is suited for the underlying storage engine</dd>
 
     <div class="phpdocumentor-label-line">
         </div>
-    
+        <section class="phpdocumentor-description"><p>This method <em>must</em> throw a StateNotFoundException if a state is not found</p>
+</section>
+
         <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
     <dl class="phpdocumentor-argument-list">
                     <dt class="phpdocumentor-argument-list__entry">
@@ -665,7 +832,7 @@ and returns a value that is suited for the underlying storage engine</dd>
                     <span class="phpdocumentor-tag__name">throws</span>
                 </dt>
                 <dd class="phpdocumentor-tag-list__definition">
-                                                                <span class="phpdocumentor-tag-link"><a href="classes/chillerlan-OAuth-Storage-OAuthStorageException.html"><abbr title="\chillerlan\OAuth\Storage\OAuthStorageException">OAuthStorageException</abbr></a></span>
+                                                                <span class="phpdocumentor-tag-link"><a href="classes/chillerlan-OAuth-Storage-StateNotFoundException.html"><abbr title="\chillerlan\OAuth\Storage\StateNotFoundException">StateNotFoundException</abbr></a></span>
                                                             
                                              
                                     </dd>
@@ -691,7 +858,7 @@ and returns a value that is suited for the underlying storage engine</dd>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Storage/OAuthStorageInterface.php"><a href="files/src-storage-oauthstorageinterface.html"><abbr title="src/Storage/OAuthStorageInterface.php">OAuthStorageInterface.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">49</span>
+    <span class="phpdocumentor-element-found-in__line">51</span>
 
     </aside>
 
@@ -729,6 +896,52 @@ and returns a value that is suited for the underlying storage engine</dd>
             -public
                                                         "
 >
+    <h4 class="phpdocumentor-element__name" id="method_hasCodeVerifier">
+        hasCodeVerifier()
+        <a href="classes/chillerlan-OAuth-Storage-OAuthStorageInterface.html#method_hasCodeVerifier" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h4>
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/Storage/OAuthStorageInterface.php"><a href="files/src-storage-oauthstorageinterface.html"><abbr title="src/Storage/OAuthStorageInterface.php">OAuthStorageInterface.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">116</span>
+
+    </aside>
+
+        <p class="phpdocumentor-summary">Checks whether a PKCE verifier exists</p>
+
+    <code class="phpdocumentor-code phpdocumentor-signature ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+                    <span class="phpdocumentor-signature__name">hasCodeVerifier</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$provider</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">bool</span></code>
+
+    <div class="phpdocumentor-label-line">
+        </div>
+    
+        <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
+    <dl class="phpdocumentor-argument-list">
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-signature__argument__name">$provider</span>
+                : <span class="phpdocumentor-signature__argument__return-type">string</span>
+                            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                
+            </dd>
+            </dl>
+
+    
+
+            <section>
+        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
+        <span class="phpdocumentor-signature__response_type">bool</span>
+            </section>
+
+</article>
+                    <article
+        class="phpdocumentor-element
+            -method
+            -public
+                                                        "
+>
     <h4 class="phpdocumentor-element__name" id="method_hasCSRFState">
         hasCSRFState()
         <a href="classes/chillerlan-OAuth-Storage-OAuthStorageInterface.html#method_hasCSRFState" class="headerlink"><i class="fas fa-link"></i></a>
@@ -737,7 +950,7 @@ and returns a value that is suited for the underlying storage engine</dd>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Storage/OAuthStorageInterface.php"><a href="files/src-storage-oauthstorageinterface.html"><abbr title="src/Storage/OAuthStorageInterface.php">OAuthStorageInterface.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">82</span>
+    <span class="phpdocumentor-element-found-in__line">86</span>
 
     </aside>
 
@@ -889,6 +1102,59 @@ and returns a value that is suited for the underlying storage engine</dd>
             -public
                                                         "
 >
+    <h4 class="phpdocumentor-element__name" id="method_storeCodeVerifier">
+        storeCodeVerifier()
+        <a href="classes/chillerlan-OAuth-Storage-OAuthStorageInterface.html#method_storeCodeVerifier" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h4>
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/Storage/OAuthStorageInterface.php"><a href="files/src-storage-oauthstorageinterface.html"><abbr title="src/Storage/OAuthStorageInterface.php">OAuthStorageInterface.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">106</span>
+
+    </aside>
+
+        <p class="phpdocumentor-summary">Stores a PKCE verifier</p>
+
+    <code class="phpdocumentor-code phpdocumentor-signature ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+                    <span class="phpdocumentor-signature__name">storeCodeVerifier</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$verifier</span></span><span class="phpdocumentor-signature__argument"><span>, </span><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$provider</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">static</span></code>
+
+    <div class="phpdocumentor-label-line">
+        </div>
+    
+        <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
+    <dl class="phpdocumentor-argument-list">
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-signature__argument__name">$verifier</span>
+                : <span class="phpdocumentor-signature__argument__return-type">string</span>
+                            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                
+            </dd>
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-signature__argument__name">$provider</span>
+                : <span class="phpdocumentor-signature__argument__return-type">string</span>
+                            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                
+            </dd>
+            </dl>
+
+    
+
+            <section>
+        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
+        <span class="phpdocumentor-signature__response_type">static</span>
+            </section>
+
+</article>
+                    <article
+        class="phpdocumentor-element
+            -method
+            -public
+                                                        "
+>
     <h4 class="phpdocumentor-element__name" id="method_storeCSRFState">
         storeCSRFState()
         <a href="classes/chillerlan-OAuth-Storage-OAuthStorageInterface.html#method_storeCSRFState" class="headerlink"><i class="fas fa-link"></i></a>
@@ -897,7 +1163,7 @@ and returns a value that is suited for the underlying storage engine</dd>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Storage/OAuthStorageInterface.php"><a href="files/src-storage-oauthstorageinterface.html"><abbr title="src/Storage/OAuthStorageInterface.php">OAuthStorageInterface.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">70</span>
+    <span class="phpdocumentor-element-found-in__line">72</span>
 
     </aside>
 
@@ -965,7 +1231,7 @@ and returns a value that is suited for the underlying storage engine</dd>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Storage/OAuthStorageInterface.php"><a href="files/src-storage-oauthstorageinterface.html"><abbr title="src/Storage/OAuthStorageInterface.php">OAuthStorageInterface.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">104</span>
+    <span class="phpdocumentor-element-found-in__line">134</span>
 
     </aside>
 
@@ -1123,15 +1389,20 @@ and returns a value that is suited for the underlying storage engine</p>
                     <ul class="phpdocumentor-list -clean">
                                                     <li><a href="classes/chillerlan-OAuth-Storage-OAuthStorageInterface.html#method_clearAccessToken">clearAccessToken()</a></li>
                                                     <li><a href="classes/chillerlan-OAuth-Storage-OAuthStorageInterface.html#method_clearAllAccessTokens">clearAllAccessTokens()</a></li>
+                                                    <li><a href="classes/chillerlan-OAuth-Storage-OAuthStorageInterface.html#method_clearAllCodeVerifiers">clearAllCodeVerifiers()</a></li>
                                                     <li><a href="classes/chillerlan-OAuth-Storage-OAuthStorageInterface.html#method_clearAllCSRFStates">clearAllCSRFStates()</a></li>
+                                                    <li><a href="classes/chillerlan-OAuth-Storage-OAuthStorageInterface.html#method_clearCodeVerifier">clearCodeVerifier()</a></li>
                                                     <li><a href="classes/chillerlan-OAuth-Storage-OAuthStorageInterface.html#method_clearCSRFState">clearCSRFState()</a></li>
                                                     <li><a href="classes/chillerlan-OAuth-Storage-OAuthStorageInterface.html#method_fromStorage">fromStorage()</a></li>
                                                     <li><a href="classes/chillerlan-OAuth-Storage-OAuthStorageInterface.html#method_getAccessToken">getAccessToken()</a></li>
+                                                    <li><a href="classes/chillerlan-OAuth-Storage-OAuthStorageInterface.html#method_getCodeVerifier">getCodeVerifier()</a></li>
                                                     <li><a href="classes/chillerlan-OAuth-Storage-OAuthStorageInterface.html#method_getCSRFState">getCSRFState()</a></li>
                                                     <li><a href="classes/chillerlan-OAuth-Storage-OAuthStorageInterface.html#method_hasAccessToken">hasAccessToken()</a></li>
+                                                    <li><a href="classes/chillerlan-OAuth-Storage-OAuthStorageInterface.html#method_hasCodeVerifier">hasCodeVerifier()</a></li>
                                                     <li><a href="classes/chillerlan-OAuth-Storage-OAuthStorageInterface.html#method_hasCSRFState">hasCSRFState()</a></li>
                                                     <li><a href="classes/chillerlan-OAuth-Storage-OAuthStorageInterface.html#method_setLogger">setLogger()</a></li>
                                                     <li><a href="classes/chillerlan-OAuth-Storage-OAuthStorageInterface.html#method_storeAccessToken">storeAccessToken()</a></li>
+                                                    <li><a href="classes/chillerlan-OAuth-Storage-OAuthStorageInterface.html#method_storeCodeVerifier">storeCodeVerifier()</a></li>
                                                     <li><a href="classes/chillerlan-OAuth-Storage-OAuthStorageInterface.html#method_storeCSRFState">storeCSRFState()</a></li>
                                                     <li><a href="classes/chillerlan-OAuth-Storage-OAuthStorageInterface.html#method_toStorage">toStorage()</a></li>
                                             </ul>

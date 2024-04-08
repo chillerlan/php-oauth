@@ -196,6 +196,24 @@
         &nbsp;= 0b10                            </span>
 </dt>
 
+            <dt class="phpdocumentor-table-of-contents__entry -constant -protected">
+    <a href="classes/chillerlan-OAuth-Storage-OAuthStorageAbstract.html#constant_KEY_STATE">KEY_STATE</a>
+    <span>
+        &nbsp;= &#039;STATE&#039;                            </span>
+</dt>
+
+            <dt class="phpdocumentor-table-of-contents__entry -constant -protected">
+    <a href="classes/chillerlan-OAuth-Storage-OAuthStorageAbstract.html#constant_KEY_TOKEN">KEY_TOKEN</a>
+    <span>
+        &nbsp;= &#039;TOKEN&#039;                            </span>
+</dt>
+
+            <dt class="phpdocumentor-table-of-contents__entry -constant -protected">
+    <a href="classes/chillerlan-OAuth-Storage-OAuthStorageAbstract.html#constant_KEY_VERIFIER">KEY_VERIFIER</a>
+    <span>
+        &nbsp;= &#039;VERIFIER&#039;                            </span>
+</dt>
+
     </dl>
 
 
@@ -218,18 +236,11 @@
 </dt>
 
             <dt class="phpdocumentor-table-of-contents__entry -property -protected">
-    <a href="classes/chillerlan-OAuth-Storage-SessionStorage.html#property_stateVar">$stateVar</a>
+    <a href="classes/chillerlan-OAuth-Storage-SessionStorage.html#property_storageVar">$storageVar</a>
     <span>
                         &nbsp;: string            </span>
 </dt>
-<dd>the key name for the CSRF token storage array in $_SESSION</dd>
-
-            <dt class="phpdocumentor-table-of-contents__entry -property -protected">
-    <a href="classes/chillerlan-OAuth-Storage-SessionStorage.html#property_tokenVar">$tokenVar</a>
-    <span>
-                        &nbsp;: string            </span>
-</dt>
-<dd>the key name for the token storage array in $_SESSION</dd>
+<dd>the key name for the storage array in $_SESSION</dd>
 
     </dl>
 
@@ -266,7 +277,19 @@
 </dt>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
+    <a href="classes/chillerlan-OAuth-Storage-SessionStorage.html#method_clearAllCodeVerifiers">clearAllCodeVerifiers()</a>
+    <span>
+                                &nbsp;: static    </span>
+</dt>
+
+            <dt class="phpdocumentor-table-of-contents__entry -method -public">
     <a href="classes/chillerlan-OAuth-Storage-SessionStorage.html#method_clearAllCSRFStates">clearAllCSRFStates()</a>
+    <span>
+                                &nbsp;: static    </span>
+</dt>
+
+            <dt class="phpdocumentor-table-of-contents__entry -method -public">
+    <a href="classes/chillerlan-OAuth-Storage-SessionStorage.html#method_clearCodeVerifier">clearCodeVerifier()</a>
     <span>
                                 &nbsp;: static    </span>
 </dt>
@@ -298,6 +321,12 @@
 </dt>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
+    <a href="classes/chillerlan-OAuth-Storage-SessionStorage.html#method_getCodeVerifier">getCodeVerifier()</a>
+    <span>
+                                &nbsp;: string    </span>
+</dt>
+
+            <dt class="phpdocumentor-table-of-contents__entry -method -public">
     <a href="classes/chillerlan-OAuth-Storage-SessionStorage.html#method_getCSRFState">getCSRFState()</a>
     <span>
                                 &nbsp;: string    </span>
@@ -305,6 +334,12 @@
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
     <a href="classes/chillerlan-OAuth-Storage-SessionStorage.html#method_hasAccessToken">hasAccessToken()</a>
+    <span>
+                                &nbsp;: bool    </span>
+</dt>
+
+            <dt class="phpdocumentor-table-of-contents__entry -method -public">
+    <a href="classes/chillerlan-OAuth-Storage-SessionStorage.html#method_hasCodeVerifier">hasCodeVerifier()</a>
     <span>
                                 &nbsp;: bool    </span>
 </dt>
@@ -324,6 +359,12 @@
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
     <a href="classes/chillerlan-OAuth-Storage-SessionStorage.html#method_storeAccessToken">storeAccessToken()</a>
+    <span>
+                                &nbsp;: static    </span>
+</dt>
+
+            <dt class="phpdocumentor-table-of-contents__entry -method -public">
+    <a href="classes/chillerlan-OAuth-Storage-SessionStorage.html#method_storeCodeVerifier">storeCodeVerifier()</a>
     <span>
                                 &nbsp;: static    </span>
 </dt>
@@ -385,7 +426,7 @@ and returns a value that is suited for the underlying storage engine</dd>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Storage/OAuthStorageAbstract.php"><a href="files/src-storage-oauthstorageabstract.html"><abbr title="src/Storage/OAuthStorageAbstract.php">OAuthStorageAbstract.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">31</span>
+    <span class="phpdocumentor-element-found-in__line">35</span>
 
     </aside>
 
@@ -413,7 +454,7 @@ and returns a value that is suited for the underlying storage engine</dd>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Storage/OAuthStorageAbstract.php"><a href="files/src-storage-oauthstorageabstract.html"><abbr title="src/Storage/OAuthStorageAbstract.php">OAuthStorageAbstract.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">28</span>
+    <span class="phpdocumentor-element-found-in__line">32</span>
 
     </aside>
 
@@ -441,7 +482,7 @@ and returns a value that is suited for the underlying storage engine</dd>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Storage/OAuthStorageAbstract.php"><a href="files/src-storage-oauthstorageabstract.html"><abbr title="src/Storage/OAuthStorageAbstract.php">OAuthStorageAbstract.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">27</span>
+    <span class="phpdocumentor-element-found-in__line">31</span>
 
     </aside>
 
@@ -469,7 +510,7 @@ and returns a value that is suited for the underlying storage engine</dd>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Storage/OAuthStorageAbstract.php"><a href="files/src-storage-oauthstorageabstract.html"><abbr title="src/Storage/OAuthStorageAbstract.php">OAuthStorageAbstract.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">29</span>
+    <span class="phpdocumentor-element-found-in__line">33</span>
 
     </aside>
 
@@ -479,6 +520,90 @@ and returns a value that is suited for the underlying storage engine</dd>
     <span class="phpdocumentor-signature__final">final</span>    <span class="phpdocumentor-signature__type">mixed</span>
     <span class="phpdocumentor-signature__name">ENCRYPT_FORMAT_HEX</span>
     = <span class="phpdocumentor-signature__default-value">0b10</span>
+</code>
+
+
+    
+    
+    
+
+</article>
+                    <article class="phpdocumentor-element -constant -protected ">
+    <h4 class="phpdocumentor-element__name" id="constant_KEY_STATE">
+        KEY_STATE
+        <a href="classes/chillerlan-OAuth-Storage-OAuthStorageAbstract.html#constant_KEY_STATE" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h4>
+
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/Storage/OAuthStorageAbstract.php"><a href="files/src-storage-oauthstorageabstract.html"><abbr title="src/Storage/OAuthStorageAbstract.php">OAuthStorageAbstract.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">28</span>
+
+    </aside>
+
+    
+    <code class="phpdocumentor-signature phpdocumentor-code ">
+    <span class="phpdocumentor-signature__visibility">protected</span>
+    <span class="phpdocumentor-signature__final">final</span>    <span class="phpdocumentor-signature__type">mixed</span>
+    <span class="phpdocumentor-signature__name">KEY_STATE</span>
+    = <span class="phpdocumentor-signature__default-value">&#039;STATE&#039;</span>
+</code>
+
+
+    
+    
+    
+
+</article>
+                    <article class="phpdocumentor-element -constant -protected ">
+    <h4 class="phpdocumentor-element__name" id="constant_KEY_TOKEN">
+        KEY_TOKEN
+        <a href="classes/chillerlan-OAuth-Storage-OAuthStorageAbstract.html#constant_KEY_TOKEN" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h4>
+
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/Storage/OAuthStorageAbstract.php"><a href="files/src-storage-oauthstorageabstract.html"><abbr title="src/Storage/OAuthStorageAbstract.php">OAuthStorageAbstract.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">27</span>
+
+    </aside>
+
+    
+    <code class="phpdocumentor-signature phpdocumentor-code ">
+    <span class="phpdocumentor-signature__visibility">protected</span>
+    <span class="phpdocumentor-signature__final">final</span>    <span class="phpdocumentor-signature__type">mixed</span>
+    <span class="phpdocumentor-signature__name">KEY_TOKEN</span>
+    = <span class="phpdocumentor-signature__default-value">&#039;TOKEN&#039;</span>
+</code>
+
+
+    
+    
+    
+
+</article>
+                    <article class="phpdocumentor-element -constant -protected ">
+    <h4 class="phpdocumentor-element__name" id="constant_KEY_VERIFIER">
+        KEY_VERIFIER
+        <a href="classes/chillerlan-OAuth-Storage-OAuthStorageAbstract.html#constant_KEY_VERIFIER" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h4>
+
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/Storage/OAuthStorageAbstract.php"><a href="files/src-storage-oauthstorageabstract.html"><abbr title="src/Storage/OAuthStorageAbstract.php">OAuthStorageAbstract.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">29</span>
+
+    </aside>
+
+    
+    <code class="phpdocumentor-signature phpdocumentor-code ">
+    <span class="phpdocumentor-signature__visibility">protected</span>
+    <span class="phpdocumentor-signature__final">final</span>    <span class="phpdocumentor-signature__type">mixed</span>
+    <span class="phpdocumentor-signature__name">KEY_VERIFIER</span>
+    = <span class="phpdocumentor-signature__default-value">&#039;VERIFIER&#039;</span>
 </code>
 
 
@@ -513,7 +638,7 @@ and returns a value that is suited for the underlying storage engine</dd>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Storage/OAuthStorageAbstract.php"><a href="files/src-storage-oauthstorageabstract.html"><abbr title="src/Storage/OAuthStorageAbstract.php">OAuthStorageAbstract.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">38</span>
+    <span class="phpdocumentor-element-found-in__line">42</span>
 
     </aside>
 
@@ -546,7 +671,7 @@ and returns a value that is suited for the underlying storage engine</dd>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Storage/OAuthStorageAbstract.php"><a href="files/src-storage-oauthstorageabstract.html"><abbr title="src/Storage/OAuthStorageAbstract.php">OAuthStorageAbstract.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">37</span>
+    <span class="phpdocumentor-element-found-in__line">41</span>
 
     </aside>
 
@@ -569,43 +694,9 @@ and returns a value that is suited for the underlying storage engine</dd>
             -protected
                                                         "
 >
-    <h4 class="phpdocumentor-element__name" id="property_stateVar">
-        $stateVar
-        <a href="classes/chillerlan-OAuth-Storage-SessionStorage.html#property_stateVar" class="headerlink"><i class="fas fa-link"></i></a>
-
-        <span class="phpdocumentor-element__modifiers">
-                                </span>
-    </h4>
-    <aside class="phpdocumentor-element-found-in">
-    <abbr class="phpdocumentor-element-found-in__file" title="src/Storage/SessionStorage.php"><a href="files/src-storage-sessionstorage.html"><abbr title="src/Storage/SessionStorage.php">SessionStorage.php</abbr></a></abbr>
-    :
-    <span class="phpdocumentor-element-found-in__line">33</span>
-
-    </aside>
-
-        <p class="phpdocumentor-summary">the key name for the CSRF token storage array in $_SESSION</p>
-
-    <code class="phpdocumentor-code phpdocumentor-signature ">
-    <span class="phpdocumentor-signature__visibility">protected</span>
-        <span class="phpdocumentor-signature__type">string</span>
-    <span class="phpdocumentor-signature__name">$stateVar</span>
-    </code>
-
-    
-    
-    
-
-</article>
-                    <article
-        class="
-            phpdocumentor-element
-            -property
-            -protected
-                                                        "
->
-    <h4 class="phpdocumentor-element__name" id="property_tokenVar">
-        $tokenVar
-        <a href="classes/chillerlan-OAuth-Storage-SessionStorage.html#property_tokenVar" class="headerlink"><i class="fas fa-link"></i></a>
+    <h4 class="phpdocumentor-element__name" id="property_storageVar">
+        $storageVar
+        <a href="classes/chillerlan-OAuth-Storage-SessionStorage.html#property_storageVar" class="headerlink"><i class="fas fa-link"></i></a>
 
         <span class="phpdocumentor-element__modifiers">
                                 </span>
@@ -617,12 +708,12 @@ and returns a value that is suited for the underlying storage engine</dd>
 
     </aside>
 
-        <p class="phpdocumentor-summary">the key name for the token storage array in $_SESSION</p>
+        <p class="phpdocumentor-summary">the key name for the storage array in $_SESSION</p>
 
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">protected</span>
         <span class="phpdocumentor-signature__type">string</span>
-    <span class="phpdocumentor-signature__name">$tokenVar</span>
+    <span class="phpdocumentor-signature__name">$storageVar</span>
     </code>
 
     
@@ -652,7 +743,7 @@ and returns a value that is suited for the underlying storage engine</dd>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Storage/OAuthStorageAbstract.php"><a href="files/src-storage-oauthstorageabstract.html"><abbr title="src/Storage/OAuthStorageAbstract.php">OAuthStorageAbstract.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">36</span>
+    <span class="phpdocumentor-element-found-in__line">40</span>
 
     </aside>
 
@@ -701,7 +792,7 @@ and returns a value that is suited for the underlying storage engine</dd>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Storage/SessionStorage.php"><a href="files/src-storage-sessionstorage.html"><abbr title="src/Storage/SessionStorage.php">SessionStorage.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">64</span>
+    <span class="phpdocumentor-element-found-in__line">56</span>
 
     </aside>
 
@@ -747,7 +838,7 @@ and returns a value that is suited for the underlying storage engine</dd>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Storage/SessionStorage.php"><a href="files/src-storage-sessionstorage.html"><abbr title="src/Storage/SessionStorage.php">SessionStorage.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">101</span>
+    <span class="phpdocumentor-element-found-in__line">93</span>
 
     </aside>
 
@@ -806,7 +897,7 @@ and returns a value that is suited for the underlying storage engine</dd>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Storage/SessionStorage.php"><a href="files/src-storage-sessionstorage.html"><abbr title="src/Storage/SessionStorage.php">SessionStorage.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">114</span>
+    <span class="phpdocumentor-element-found-in__line">102</span>
 
     </aside>
 
@@ -847,6 +938,55 @@ and returns a value that is suited for the underlying storage engine</dd>
             -public
                                                         "
 >
+    <h4 class="phpdocumentor-element__name" id="method_clearAllCodeVerifiers">
+        clearAllCodeVerifiers()
+        <a href="classes/chillerlan-OAuth-Storage-SessionStorage.html#method_clearAllCodeVerifiers" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h4>
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/Storage/SessionStorage.php"><a href="files/src-storage-sessionstorage.html"><abbr title="src/Storage/SessionStorage.php">SessionStorage.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">194</span>
+
+    </aside>
+
+    
+    <code class="phpdocumentor-code phpdocumentor-signature ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+                    <span class="phpdocumentor-signature__name">clearAllCodeVerifiers</span><span>(</span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">static</span></code>
+
+    <div class="phpdocumentor-label-line">
+        </div>
+    
+    
+    
+    <h5 class="phpdocumentor-tag-list__heading" id="tags">
+        Tags
+        <a href="classes/chillerlan-OAuth-Storage-SessionStorage.html#method_clearAllCodeVerifiers#tags" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h5>
+    <dl class="phpdocumentor-tag-list">
+                                    <dt class="phpdocumentor-tag-list__entry">
+                    <span class="phpdocumentor-tag__name">inheritDoc</span>
+                </dt>
+                <dd class="phpdocumentor-tag-list__definition">
+                                                                                
+                                             
+                                    </dd>
+                                            </dl>
+
+            <section>
+        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
+        <span class="phpdocumentor-signature__response_type">static</span>
+            </section>
+
+</article>
+                    <article
+        class="phpdocumentor-element
+            -method
+            -public
+                                                        "
+>
     <h4 class="phpdocumentor-element__name" id="method_clearAllCSRFStates">
         clearAllCSRFStates()
         <a href="classes/chillerlan-OAuth-Storage-SessionStorage.html#method_clearAllCSRFStates" class="headerlink"><i class="fas fa-link"></i></a>
@@ -855,7 +995,7 @@ and returns a value that is suited for the underlying storage engine</dd>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Storage/SessionStorage.php"><a href="files/src-storage-sessionstorage.html"><abbr title="src/Storage/SessionStorage.php">SessionStorage.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">169</span>
+    <span class="phpdocumentor-element-found-in__line">148</span>
 
     </aside>
 
@@ -896,6 +1036,65 @@ and returns a value that is suited for the underlying storage engine</dd>
             -public
                                                         "
 >
+    <h4 class="phpdocumentor-element__name" id="method_clearCodeVerifier">
+        clearCodeVerifier()
+        <a href="classes/chillerlan-OAuth-Storage-SessionStorage.html#method_clearCodeVerifier" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h4>
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/Storage/SessionStorage.php"><a href="files/src-storage-sessionstorage.html"><abbr title="src/Storage/SessionStorage.php">SessionStorage.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">185</span>
+
+    </aside>
+
+    
+    <code class="phpdocumentor-code phpdocumentor-signature ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+                    <span class="phpdocumentor-signature__name">clearCodeVerifier</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$provider</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">static</span></code>
+
+    <div class="phpdocumentor-label-line">
+        </div>
+    
+        <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
+    <dl class="phpdocumentor-argument-list">
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-signature__argument__name">$provider</span>
+                : <span class="phpdocumentor-signature__argument__return-type">string</span>
+                            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                
+            </dd>
+            </dl>
+
+    
+    <h5 class="phpdocumentor-tag-list__heading" id="tags">
+        Tags
+        <a href="classes/chillerlan-OAuth-Storage-SessionStorage.html#method_clearCodeVerifier#tags" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h5>
+    <dl class="phpdocumentor-tag-list">
+                                    <dt class="phpdocumentor-tag-list__entry">
+                    <span class="phpdocumentor-tag__name">inheritDoc</span>
+                </dt>
+                <dd class="phpdocumentor-tag-list__definition">
+                                                                                
+                                             
+                                    </dd>
+                                            </dl>
+
+            <section>
+        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
+        <span class="phpdocumentor-signature__response_type">static</span>
+            </section>
+
+</article>
+                    <article
+        class="phpdocumentor-element
+            -method
+            -public
+                                                        "
+>
     <h4 class="phpdocumentor-element__name" id="method_clearCSRFState">
         clearCSRFState()
         <a href="classes/chillerlan-OAuth-Storage-SessionStorage.html#method_clearCSRFState" class="headerlink"><i class="fas fa-link"></i></a>
@@ -904,7 +1103,7 @@ and returns a value that is suited for the underlying storage engine</dd>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Storage/SessionStorage.php"><a href="files/src-storage-sessionstorage.html"><abbr title="src/Storage/SessionStorage.php">SessionStorage.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">156</span>
+    <span class="phpdocumentor-element-found-in__line">139</span>
 
     </aside>
 
@@ -963,7 +1162,7 @@ and returns a value that is suited for the underlying storage engine</dd>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Storage/SessionStorage.php"><a href="files/src-storage-sessionstorage.html"><abbr title="src/Storage/SessionStorage.php">SessionStorage.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">38</span>
+    <span class="phpdocumentor-element-found-in__line">33</span>
 
     </aside>
 
@@ -995,7 +1194,7 @@ and returns a value that is suited for the underlying storage engine</dd>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Storage/OAuthStorageAbstract.php"><a href="files/src-storage-oauthstorageabstract.html"><abbr title="src/Storage/OAuthStorageAbstract.php">OAuthStorageAbstract.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">97</span>
+    <span class="phpdocumentor-element-found-in__line">101</span>
 
     </aside>
 
@@ -1055,7 +1254,7 @@ and returns a value that is suited for the underlying storage engine</dd>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Storage/SessionStorage.php"><a href="files/src-storage-sessionstorage.html"><abbr title="src/Storage/SessionStorage.php">SessionStorage.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">82</span>
+    <span class="phpdocumentor-element-found-in__line">74</span>
 
     </aside>
 
@@ -1106,6 +1305,65 @@ and returns a value that is suited for the underlying storage engine</dd>
             -public
                                                         "
 >
+    <h4 class="phpdocumentor-element__name" id="method_getCodeVerifier">
+        getCodeVerifier()
+        <a href="classes/chillerlan-OAuth-Storage-SessionStorage.html#method_getCodeVerifier" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h4>
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/Storage/SessionStorage.php"><a href="files/src-storage-sessionstorage.html"><abbr title="src/Storage/SessionStorage.php">SessionStorage.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">166</span>
+
+    </aside>
+
+    
+    <code class="phpdocumentor-code phpdocumentor-signature ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+                    <span class="phpdocumentor-signature__name">getCodeVerifier</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$provider</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">string</span></code>
+
+    <div class="phpdocumentor-label-line">
+        </div>
+    
+        <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
+    <dl class="phpdocumentor-argument-list">
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-signature__argument__name">$provider</span>
+                : <span class="phpdocumentor-signature__argument__return-type">string</span>
+                            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                
+            </dd>
+            </dl>
+
+    
+    <h5 class="phpdocumentor-tag-list__heading" id="tags">
+        Tags
+        <a href="classes/chillerlan-OAuth-Storage-SessionStorage.html#method_getCodeVerifier#tags" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h5>
+    <dl class="phpdocumentor-tag-list">
+                                    <dt class="phpdocumentor-tag-list__entry">
+                    <span class="phpdocumentor-tag__name">inheritDoc</span>
+                </dt>
+                <dd class="phpdocumentor-tag-list__definition">
+                                                                                
+                                             
+                                    </dd>
+                                            </dl>
+
+            <section>
+        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
+        <span class="phpdocumentor-signature__response_type">string</span>
+            </section>
+
+</article>
+                    <article
+        class="phpdocumentor-element
+            -method
+            -public
+                                                        "
+>
     <h4 class="phpdocumentor-element__name" id="method_getCSRFState">
         getCSRFState()
         <a href="classes/chillerlan-OAuth-Storage-SessionStorage.html#method_getCSRFState" class="headerlink"><i class="fas fa-link"></i></a>
@@ -1114,7 +1372,7 @@ and returns a value that is suited for the underlying storage engine</dd>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Storage/SessionStorage.php"><a href="files/src-storage-sessionstorage.html"><abbr title="src/Storage/SessionStorage.php">SessionStorage.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">137</span>
+    <span class="phpdocumentor-element-found-in__line">120</span>
 
     </aside>
 
@@ -1173,7 +1431,7 @@ and returns a value that is suited for the underlying storage engine</dd>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Storage/SessionStorage.php"><a href="files/src-storage-sessionstorage.html"><abbr title="src/Storage/SessionStorage.php">SessionStorage.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">94</span>
+    <span class="phpdocumentor-element-found-in__line">86</span>
 
     </aside>
 
@@ -1224,6 +1482,65 @@ and returns a value that is suited for the underlying storage engine</dd>
             -public
                                                         "
 >
+    <h4 class="phpdocumentor-element__name" id="method_hasCodeVerifier">
+        hasCodeVerifier()
+        <a href="classes/chillerlan-OAuth-Storage-SessionStorage.html#method_hasCodeVerifier" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h4>
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/Storage/SessionStorage.php"><a href="files/src-storage-sessionstorage.html"><abbr title="src/Storage/SessionStorage.php">SessionStorage.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">178</span>
+
+    </aside>
+
+    
+    <code class="phpdocumentor-code phpdocumentor-signature ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+                    <span class="phpdocumentor-signature__name">hasCodeVerifier</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$provider</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">bool</span></code>
+
+    <div class="phpdocumentor-label-line">
+        </div>
+    
+        <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
+    <dl class="phpdocumentor-argument-list">
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-signature__argument__name">$provider</span>
+                : <span class="phpdocumentor-signature__argument__return-type">string</span>
+                            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                
+            </dd>
+            </dl>
+
+    
+    <h5 class="phpdocumentor-tag-list__heading" id="tags">
+        Tags
+        <a href="classes/chillerlan-OAuth-Storage-SessionStorage.html#method_hasCodeVerifier#tags" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h5>
+    <dl class="phpdocumentor-tag-list">
+                                    <dt class="phpdocumentor-tag-list__entry">
+                    <span class="phpdocumentor-tag__name">inheritDoc</span>
+                </dt>
+                <dd class="phpdocumentor-tag-list__definition">
+                                                                                
+                                             
+                                    </dd>
+                                            </dl>
+
+            <section>
+        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
+        <span class="phpdocumentor-signature__response_type">bool</span>
+            </section>
+
+</article>
+                    <article
+        class="phpdocumentor-element
+            -method
+            -public
+                                                        "
+>
     <h4 class="phpdocumentor-element__name" id="method_hasCSRFState">
         hasCSRFState()
         <a href="classes/chillerlan-OAuth-Storage-SessionStorage.html#method_hasCSRFState" class="headerlink"><i class="fas fa-link"></i></a>
@@ -1232,7 +1549,7 @@ and returns a value that is suited for the underlying storage engine</dd>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Storage/SessionStorage.php"><a href="files/src-storage-sessionstorage.html"><abbr title="src/Storage/SessionStorage.php">SessionStorage.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">149</span>
+    <span class="phpdocumentor-element-found-in__line">132</span>
 
     </aside>
 
@@ -1291,7 +1608,7 @@ and returns a value that is suited for the underlying storage engine</dd>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Storage/OAuthStorageAbstract.php"><a href="files/src-storage-oauthstorageabstract.html"><abbr title="src/Storage/OAuthStorageAbstract.php">OAuthStorageAbstract.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">60</span>
+    <span class="phpdocumentor-element-found-in__line">64</span>
 
     </aside>
 
@@ -1358,7 +1675,7 @@ and returns a value that is suited for the underlying storage engine</dd>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Storage/SessionStorage.php"><a href="files/src-storage-sessionstorage.html"><abbr title="src/Storage/SessionStorage.php">SessionStorage.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">73</span>
+    <span class="phpdocumentor-element-found-in__line">65</span>
 
     </aside>
 
@@ -1416,6 +1733,72 @@ and returns a value that is suited for the underlying storage engine</dd>
             -public
                                                         "
 >
+    <h4 class="phpdocumentor-element__name" id="method_storeCodeVerifier">
+        storeCodeVerifier()
+        <a href="classes/chillerlan-OAuth-Storage-SessionStorage.html#method_storeCodeVerifier" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h4>
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/Storage/SessionStorage.php"><a href="files/src-storage-sessionstorage.html"><abbr title="src/Storage/SessionStorage.php">SessionStorage.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">157</span>
+
+    </aside>
+
+    
+    <code class="phpdocumentor-code phpdocumentor-signature ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+                    <span class="phpdocumentor-signature__name">storeCodeVerifier</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$verifier</span></span><span class="phpdocumentor-signature__argument"><span>, </span><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$provider</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">static</span></code>
+
+    <div class="phpdocumentor-label-line">
+        </div>
+    
+        <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
+    <dl class="phpdocumentor-argument-list">
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-signature__argument__name">$verifier</span>
+                : <span class="phpdocumentor-signature__argument__return-type">string</span>
+                            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                
+            </dd>
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-signature__argument__name">$provider</span>
+                : <span class="phpdocumentor-signature__argument__return-type">string</span>
+                            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                
+            </dd>
+            </dl>
+
+    
+    <h5 class="phpdocumentor-tag-list__heading" id="tags">
+        Tags
+        <a href="classes/chillerlan-OAuth-Storage-SessionStorage.html#method_storeCodeVerifier#tags" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h5>
+    <dl class="phpdocumentor-tag-list">
+                                    <dt class="phpdocumentor-tag-list__entry">
+                    <span class="phpdocumentor-tag__name">inheritDoc</span>
+                </dt>
+                <dd class="phpdocumentor-tag-list__definition">
+                                                                                
+                                             
+                                    </dd>
+                                            </dl>
+
+            <section>
+        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
+        <span class="phpdocumentor-signature__response_type">static</span>
+            </section>
+
+</article>
+                    <article
+        class="phpdocumentor-element
+            -method
+            -public
+                                                        "
+>
     <h4 class="phpdocumentor-element__name" id="method_storeCSRFState">
         storeCSRFState()
         <a href="classes/chillerlan-OAuth-Storage-SessionStorage.html#method_storeCSRFState" class="headerlink"><i class="fas fa-link"></i></a>
@@ -1424,7 +1807,7 @@ and returns a value that is suited for the underlying storage engine</dd>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Storage/SessionStorage.php"><a href="files/src-storage-sessionstorage.html"><abbr title="src/Storage/SessionStorage.php">SessionStorage.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">128</span>
+    <span class="phpdocumentor-element-found-in__line">111</span>
 
     </aside>
 
@@ -1490,7 +1873,7 @@ and returns a value that is suited for the underlying storage engine</dd>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Storage/OAuthStorageAbstract.php"><a href="files/src-storage-oauthstorageabstract.html"><abbr title="src/Storage/OAuthStorageAbstract.php">OAuthStorageAbstract.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">84</span>
+    <span class="phpdocumentor-element-found-in__line">88</span>
 
     </aside>
 
@@ -1547,7 +1930,7 @@ and returns a value that is suited for the underlying storage engine</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Storage/OAuthStorageAbstract.php"><a href="files/src-storage-oauthstorageabstract.html"><abbr title="src/Storage/OAuthStorageAbstract.php">OAuthStorageAbstract.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">138</span>
+    <span class="phpdocumentor-element-found-in__line">142</span>
 
     </aside>
 
@@ -1631,7 +2014,7 @@ and returns a value that is suited for the underlying storage engine</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Storage/OAuthStorageAbstract.php"><a href="files/src-storage-oauthstorageabstract.html"><abbr title="src/Storage/OAuthStorageAbstract.php">OAuthStorageAbstract.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">113</span>
+    <span class="phpdocumentor-element-found-in__line">117</span>
 
     </aside>
 
@@ -1715,7 +2098,7 @@ and returns a value that is suited for the underlying storage engine</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Storage/OAuthStorageAbstract.php"><a href="files/src-storage-oauthstorageabstract.html"><abbr title="src/Storage/OAuthStorageAbstract.php">OAuthStorageAbstract.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">71</span>
+    <span class="phpdocumentor-element-found-in__line">75</span>
 
     </aside>
 
@@ -1879,6 +2262,9 @@ and returns a value that is suited for the underlying storage engine</p>
                                                     <li><a href="classes/chillerlan-OAuth-Storage-OAuthStorageAbstract.html#constant_ENCRYPT_FORMAT_BASE64">ENCRYPT_FORMAT_BASE64</a></li>
                                                     <li><a href="classes/chillerlan-OAuth-Storage-OAuthStorageAbstract.html#constant_ENCRYPT_FORMAT_BINARY">ENCRYPT_FORMAT_BINARY</a></li>
                                                     <li><a href="classes/chillerlan-OAuth-Storage-OAuthStorageAbstract.html#constant_ENCRYPT_FORMAT_HEX">ENCRYPT_FORMAT_HEX</a></li>
+                                                    <li><a href="classes/chillerlan-OAuth-Storage-OAuthStorageAbstract.html#constant_KEY_STATE">KEY_STATE</a></li>
+                                                    <li><a href="classes/chillerlan-OAuth-Storage-OAuthStorageAbstract.html#constant_KEY_TOKEN">KEY_TOKEN</a></li>
+                                                    <li><a href="classes/chillerlan-OAuth-Storage-OAuthStorageAbstract.html#constant_KEY_VERIFIER">KEY_VERIFIER</a></li>
                                             </ul>
                 </li>
             
@@ -1887,8 +2273,7 @@ and returns a value that is suited for the underlying storage engine</p>
                     <ul class="phpdocumentor-list -clean">
                                                     <li><a href="classes/chillerlan-OAuth-Storage-OAuthStorageAbstract.html#property_logger">$logger<a href="classes/chillerlan-OAuth-Storage-SessionStorage.html"></li>
                                                     <li><a href="classes/chillerlan-OAuth-Storage-OAuthStorageAbstract.html#property_options">$options<a href="classes/chillerlan-OAuth-Storage-SessionStorage.html"></li>
-                                                    <li><a href="classes/chillerlan-OAuth-Storage-SessionStorage.html#property_stateVar">$stateVar<a href="classes/chillerlan-OAuth-Storage-SessionStorage.html"></li>
-                                                    <li><a href="classes/chillerlan-OAuth-Storage-SessionStorage.html#property_tokenVar">$tokenVar<a href="classes/chillerlan-OAuth-Storage-SessionStorage.html"></li>
+                                                    <li><a href="classes/chillerlan-OAuth-Storage-SessionStorage.html#property_storageVar">$storageVar<a href="classes/chillerlan-OAuth-Storage-SessionStorage.html"></li>
                                             </ul>
                 </li>
             
@@ -1899,16 +2284,21 @@ and returns a value that is suited for the underlying storage engine</p>
                                             <li><a href="classes/chillerlan-OAuth-Storage-SessionStorage.html#method___destruct">__destruct()</a></li>
                                             <li><a href="classes/chillerlan-OAuth-Storage-SessionStorage.html#method_clearAccessToken">clearAccessToken()</a></li>
                                             <li><a href="classes/chillerlan-OAuth-Storage-SessionStorage.html#method_clearAllAccessTokens">clearAllAccessTokens()</a></li>
+                                            <li><a href="classes/chillerlan-OAuth-Storage-SessionStorage.html#method_clearAllCodeVerifiers">clearAllCodeVerifiers()</a></li>
                                             <li><a href="classes/chillerlan-OAuth-Storage-SessionStorage.html#method_clearAllCSRFStates">clearAllCSRFStates()</a></li>
+                                            <li><a href="classes/chillerlan-OAuth-Storage-SessionStorage.html#method_clearCodeVerifier">clearCodeVerifier()</a></li>
                                             <li><a href="classes/chillerlan-OAuth-Storage-SessionStorage.html#method_clearCSRFState">clearCSRFState()</a></li>
                                             <li><a href="classes/chillerlan-OAuth-Storage-SessionStorage.html#method_construct">construct()</a></li>
                                             <li><a href="classes/chillerlan-OAuth-Storage-OAuthStorageAbstract.html#method_fromStorage">fromStorage()</a></li>
                                             <li><a href="classes/chillerlan-OAuth-Storage-SessionStorage.html#method_getAccessToken">getAccessToken()</a></li>
+                                            <li><a href="classes/chillerlan-OAuth-Storage-SessionStorage.html#method_getCodeVerifier">getCodeVerifier()</a></li>
                                             <li><a href="classes/chillerlan-OAuth-Storage-SessionStorage.html#method_getCSRFState">getCSRFState()</a></li>
                                             <li><a href="classes/chillerlan-OAuth-Storage-SessionStorage.html#method_hasAccessToken">hasAccessToken()</a></li>
+                                            <li><a href="classes/chillerlan-OAuth-Storage-SessionStorage.html#method_hasCodeVerifier">hasCodeVerifier()</a></li>
                                             <li><a href="classes/chillerlan-OAuth-Storage-SessionStorage.html#method_hasCSRFState">hasCSRFState()</a></li>
                                             <li><a href="classes/chillerlan-OAuth-Storage-OAuthStorageAbstract.html#method_setLogger">setLogger()</a></li>
                                             <li><a href="classes/chillerlan-OAuth-Storage-SessionStorage.html#method_storeAccessToken">storeAccessToken()</a></li>
+                                            <li><a href="classes/chillerlan-OAuth-Storage-SessionStorage.html#method_storeCodeVerifier">storeCodeVerifier()</a></li>
                                             <li><a href="classes/chillerlan-OAuth-Storage-SessionStorage.html#method_storeCSRFState">storeCSRFState()</a></li>
                                             <li><a href="classes/chillerlan-OAuth-Storage-OAuthStorageAbstract.html#method_toStorage">toStorage()</a></li>
                                             <li><a href="classes/chillerlan-OAuth-Storage-OAuthStorageAbstract.html#method_decrypt">decrypt()</a></li>

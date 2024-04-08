@@ -286,6 +286,13 @@
 </dt>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
+    <a href="classes/chillerlan-OAuthTest-Providers-Unit-OAuth2ProviderUnitTestAbstract.html#method_challengeProvider">challengeProvider()</a>
+    <span>
+                                &nbsp;: array&lt;string|int, mixed&gt;    </span>
+</dt>
+<dd>test values from RFC-7636, Appendix B</dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -method -public">
     <a href="classes/chillerlan-OAuthTest-Providers-Unit-OAuthProviderUnitTestAbstract.html#method_requestTargetProvider">requestTargetProvider()</a>
     <span>
                                 &nbsp;: array&lt;string|int, mixed&gt;    </span>
@@ -304,13 +311,13 @@
 </dt>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a href="classes/chillerlan-OAuthTest-Providers-Unit-OAuth2ProviderUnitTestAbstract.html#method_testCheckCSRFStateInvalidStateException">testCheckCSRFStateInvalidStateException()</a>
+    <a href="classes/chillerlan-OAuthTest-Providers-Unit-OAuth2ProviderUnitTestAbstract.html#method_testCheckCSRFStateMismatchException">testCheckCSRFStateMismatchException()</a>
     <span>
                                 &nbsp;: void    </span>
 </dt>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a href="classes/chillerlan-OAuthTest-Providers-Unit-OAuth2ProviderUnitTestAbstract.html#method_testCheckCSRFStateMismatchException">testCheckCSRFStateMismatchException()</a>
+    <a href="classes/chillerlan-OAuthTest-Providers-Unit-OAuth2ProviderUnitTestAbstract.html#method_testCheckCSRFStateNotFoundException">testCheckCSRFStateNotFoundException()</a>
     <span>
                                 &nbsp;: void    </span>
 </dt>
@@ -323,6 +330,12 @@
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
     <a href="classes/chillerlan-OAuthTest-Providers-Unit-TwitchTest.html#method_testClientCredentialsTokenRequest">testClientCredentialsTokenRequest()</a>
+    <span>
+                                &nbsp;: void    </span>
+</dt>
+
+            <dt class="phpdocumentor-table-of-contents__entry -method -public">
+    <a href="classes/chillerlan-OAuthTest-Providers-Unit-OAuth2ProviderUnitTestAbstract.html#method_testGenerateChallenge">testGenerateChallenge()</a>
     <span>
                                 &nbsp;: void    </span>
 </dt>
@@ -382,7 +395,7 @@
 </dt>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a href="classes/chillerlan-OAuthTest-Providers-Unit-OAuthProviderUnitTestAbstract.html#method_testGetRequestBodyInvalidContentTypeException">testGetRequestBodyInvalidContentTypeException()</a>
+    <a href="classes/chillerlan-OAuthTest-Providers-Unit-OAuthProviderUnitTestAbstract.html#method_testGetRequestBodyInvalidContentTypeForArrayException">testGetRequestBodyInvalidContentTypeForArrayException()</a>
     <span>
                                 &nbsp;: void    </span>
 </dt>
@@ -497,6 +510,30 @@
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
     <a href="classes/chillerlan-OAuthTest-Providers-Unit-OAuth2ProviderUnitTestAbstract.html#method_testSendAccessTokenRequest">testSendAccessTokenRequest()</a>
+    <span>
+                                &nbsp;: void    </span>
+</dt>
+
+            <dt class="phpdocumentor-table-of-contents__entry -method -public">
+    <a href="classes/chillerlan-OAuthTest-Providers-Unit-OAuth2ProviderUnitTestAbstract.html#method_testSetCodeChallengeInvalidParams">testSetCodeChallengeInvalidParams()</a>
+    <span>
+                                &nbsp;: void    </span>
+</dt>
+
+            <dt class="phpdocumentor-table-of-contents__entry -method -public">
+    <a href="classes/chillerlan-OAuthTest-Providers-Unit-OAuth2ProviderUnitTestAbstract.html#method_testSetCodeChallengeNotSupportedException">testSetCodeChallengeNotSupportedException()</a>
+    <span>
+                                &nbsp;: void    </span>
+</dt>
+
+            <dt class="phpdocumentor-table-of-contents__entry -method -public">
+    <a href="classes/chillerlan-OAuthTest-Providers-Unit-OAuth2ProviderUnitTestAbstract.html#method_testSetCodeVerifierInvalidParams">testSetCodeVerifierInvalidParams()</a>
+    <span>
+                                &nbsp;: void    </span>
+</dt>
+
+            <dt class="phpdocumentor-table-of-contents__entry -method -public">
+    <a href="classes/chillerlan-OAuthTest-Providers-Unit-OAuth2ProviderUnitTestAbstract.html#method_testSetCodeVerifierNotSupportedException">testSetCodeVerifierNotSupportedException()</a>
     <span>
                                 &nbsp;: void    </span>
 </dt>
@@ -1110,7 +1147,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="tests/Providers/Unit/OAuthProviderUnitTestAbstract.php"><a href="files/tests-providers-unit-oauthproviderunittestabstract.html"><abbr title="tests/Providers/Unit/OAuthProviderUnitTestAbstract.php">OAuthProviderUnitTestAbstract.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">68</span>
+    <span class="phpdocumentor-element-found-in__line">72</span>
 
     </aside>
 
@@ -1137,6 +1174,57 @@
             -public
                                     -static                    "
 >
+    <h4 class="phpdocumentor-element__name" id="method_challengeProvider">
+        challengeProvider()
+        <a href="classes/chillerlan-OAuthTest-Providers-Unit-OAuth2ProviderUnitTestAbstract.html#method_challengeProvider" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h4>
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="tests/Providers/Unit/OAuth2ProviderUnitTestAbstract.php"><a href="files/tests-providers-unit-oauth2providerunittestabstract.html"><abbr title="tests/Providers/Unit/OAuth2ProviderUnitTestAbstract.php">OAuth2ProviderUnitTestAbstract.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">478</span>
+
+    </aside>
+
+        <p class="phpdocumentor-summary">test values from RFC-7636, Appendix B</p>
+
+    <code class="phpdocumentor-code phpdocumentor-signature ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+            <span class="phpdocumentor-signature__static">static</span>        <span class="phpdocumentor-signature__name">challengeProvider</span><span>(</span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">array&lt;string|int, mixed&gt;</span></code>
+
+    <div class="phpdocumentor-label-line">
+        </div>
+    
+    
+    
+    <h5 class="phpdocumentor-tag-list__heading" id="tags">
+        Tags
+        <a href="classes/chillerlan-OAuthTest-Providers-Unit-OAuth2ProviderUnitTestAbstract.html#method_challengeProvider#tags" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h5>
+    <dl class="phpdocumentor-tag-list">
+                                    <dt class="phpdocumentor-tag-list__entry">
+                    <span class="phpdocumentor-tag__name">see</span>
+                </dt>
+                <dd class="phpdocumentor-tag-list__definition">
+                                                                                    <span class="phpdocumentor-tag-link"><a href="https://datatracker.ietf.org/doc/html/rfc7636#appendix-B">https://datatracker.ietf.org/doc/html/rfc7636#appendix-B</a></span>
+                                        
+                                             
+                                    </dd>
+                                            </dl>
+
+            <section>
+        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
+        <span class="phpdocumentor-signature__response_type">array&lt;string|int, mixed&gt;</span>
+            </section>
+
+</article>
+                    <article
+        class="phpdocumentor-element
+            -method
+            -public
+                                    -static                    "
+>
     <h4 class="phpdocumentor-element__name" id="method_requestTargetProvider">
         requestTargetProvider()
         <a href="classes/chillerlan-OAuthTest-Providers-Unit-OAuthProviderUnitTestAbstract.html#method_requestTargetProvider" class="headerlink"><i class="fas fa-link"></i></a>
@@ -1145,7 +1233,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="tests/Providers/Unit/OAuthProviderUnitTestAbstract.php"><a href="files/tests-providers-unit-oauthproviderunittestabstract.html"><abbr title="tests/Providers/Unit/OAuthProviderUnitTestAbstract.php">OAuthProviderUnitTestAbstract.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">109</span>
+    <span class="phpdocumentor-element-found-in__line">113</span>
 
     </aside>
 
@@ -1180,7 +1268,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="tests/Providers/Unit/OAuth2ProviderUnitTestAbstract.php"><a href="files/tests-providers-unit-oauth2providerunittestabstract.html"><abbr title="tests/Providers/Unit/OAuth2ProviderUnitTestAbstract.php">OAuth2ProviderUnitTestAbstract.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">303</span>
+    <span class="phpdocumentor-element-found-in__line">326</span>
 
     </aside>
 
@@ -1211,7 +1299,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="tests/Providers/Unit/OAuth2ProviderUnitTestAbstract.php"><a href="files/tests-providers-unit-oauth2providerunittestabstract.html"><abbr title="tests/Providers/Unit/OAuth2ProviderUnitTestAbstract.php">OAuth2ProviderUnitTestAbstract.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">319</span>
+    <span class="phpdocumentor-element-found-in__line">342</span>
 
     </aside>
 
@@ -1219,37 +1307,6 @@
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
                     <span class="phpdocumentor-signature__name">testCheckCSRFStateEmptyException</span><span>(</span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">void</span></code>
-
-    <div class="phpdocumentor-label-line">
-        </div>
-    
-    
-    
-
-    
-</article>
-                    <article
-        class="phpdocumentor-element
-            -method
-            -public
-                                                        "
->
-    <h4 class="phpdocumentor-element__name" id="method_testCheckCSRFStateInvalidStateException">
-        testCheckCSRFStateInvalidStateException()
-        <a href="classes/chillerlan-OAuthTest-Providers-Unit-OAuth2ProviderUnitTestAbstract.html#method_testCheckCSRFStateInvalidStateException" class="headerlink"><i class="fas fa-link"></i></a>
-
-    </h4>
-    <aside class="phpdocumentor-element-found-in">
-    <abbr class="phpdocumentor-element-found-in__file" title="tests/Providers/Unit/OAuth2ProviderUnitTestAbstract.php"><a href="files/tests-providers-unit-oauth2providerunittestabstract.html"><abbr title="tests/Providers/Unit/OAuth2ProviderUnitTestAbstract.php">OAuth2ProviderUnitTestAbstract.php</abbr></a></abbr>
-    :
-    <span class="phpdocumentor-element-found-in__line">331</span>
-
-    </aside>
-
-    
-    <code class="phpdocumentor-code phpdocumentor-signature ">
-    <span class="phpdocumentor-signature__visibility">public</span>
-                    <span class="phpdocumentor-signature__name">testCheckCSRFStateInvalidStateException</span><span>(</span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">void</span></code>
 
     <div class="phpdocumentor-label-line">
         </div>
@@ -1273,7 +1330,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="tests/Providers/Unit/OAuth2ProviderUnitTestAbstract.php"><a href="files/tests-providers-unit-oauth2providerunittestabstract.html"><abbr title="tests/Providers/Unit/OAuth2ProviderUnitTestAbstract.php">OAuth2ProviderUnitTestAbstract.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">343</span>
+    <span class="phpdocumentor-element-found-in__line">365</span>
 
     </aside>
 
@@ -1281,6 +1338,37 @@
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
                     <span class="phpdocumentor-signature__name">testCheckCSRFStateMismatchException</span><span>(</span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">void</span></code>
+
+    <div class="phpdocumentor-label-line">
+        </div>
+    
+    
+    
+
+    
+</article>
+                    <article
+        class="phpdocumentor-element
+            -method
+            -public
+                                                        "
+>
+    <h4 class="phpdocumentor-element__name" id="method_testCheckCSRFStateNotFoundException">
+        testCheckCSRFStateNotFoundException()
+        <a href="classes/chillerlan-OAuthTest-Providers-Unit-OAuth2ProviderUnitTestAbstract.html#method_testCheckCSRFStateNotFoundException" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h4>
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="tests/Providers/Unit/OAuth2ProviderUnitTestAbstract.php"><a href="files/tests-providers-unit-oauth2providerunittestabstract.html"><abbr title="tests/Providers/Unit/OAuth2ProviderUnitTestAbstract.php">OAuth2ProviderUnitTestAbstract.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">354</span>
+
+    </aside>
+
+    
+    <code class="phpdocumentor-code phpdocumentor-signature ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+                    <span class="phpdocumentor-signature__name">testCheckCSRFStateNotFoundException</span><span>(</span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">void</span></code>
 
     <div class="phpdocumentor-label-line">
         </div>
@@ -1304,7 +1392,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="tests/Providers/Unit/OAuth2ProviderUnitTestAbstract.php"><a href="files/tests-providers-unit-oauth2providerunittestabstract.html"><abbr title="tests/Providers/Unit/OAuth2ProviderUnitTestAbstract.php">OAuth2ProviderUnitTestAbstract.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">369</span>
+    <span class="phpdocumentor-element-found-in__line">391</span>
 
     </aside>
 
@@ -1358,6 +1446,61 @@
             -public
                                                         "
 >
+    <h4 class="phpdocumentor-element__name" id="method_testGenerateChallenge">
+        testGenerateChallenge()
+        <a href="classes/chillerlan-OAuthTest-Providers-Unit-OAuth2ProviderUnitTestAbstract.html#method_testGenerateChallenge" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h4>
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="tests/Providers/Unit/OAuth2ProviderUnitTestAbstract.php"><a href="files/tests-providers-unit-oauth2providerunittestabstract.html"><abbr title="tests/Providers/Unit/OAuth2ProviderUnitTestAbstract.php">OAuth2ProviderUnitTestAbstract.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">487</span>
+
+    </aside>
+
+    
+    <code class="phpdocumentor-code phpdocumentor-signature ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+                    <span class="phpdocumentor-signature__name">testGenerateChallenge</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$challengeMethod</span></span><span class="phpdocumentor-signature__argument"><span>, </span><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$verifier</span></span><span class="phpdocumentor-signature__argument"><span>, </span><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$expected</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">void</span></code>
+
+    <div class="phpdocumentor-label-line">
+        </div>
+    
+        <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
+    <dl class="phpdocumentor-argument-list">
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-signature__argument__name">$challengeMethod</span>
+                : <span class="phpdocumentor-signature__argument__return-type">string</span>
+                            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                
+            </dd>
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-signature__argument__name">$verifier</span>
+                : <span class="phpdocumentor-signature__argument__return-type">string</span>
+                            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                
+            </dd>
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-signature__argument__name">$expected</span>
+                : <span class="phpdocumentor-signature__argument__return-type">string</span>
+                            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                
+            </dd>
+            </dl>
+
+    
+
+    
+</article>
+                    <article
+        class="phpdocumentor-element
+            -method
+            -public
+                                                        "
+>
     <h4 class="phpdocumentor-element__name" id="method_testGetAccessToken">
         testGetAccessToken()
         <a href="classes/chillerlan-OAuthTest-Providers-Unit-OAuth2ProviderUnitTestAbstract.html#method_testGetAccessToken" class="headerlink"><i class="fas fa-link"></i></a>
@@ -1397,7 +1540,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="tests/Providers/Unit/OAuth2ProviderUnitTestAbstract.php"><a href="files/tests-providers-unit-oauth2providerunittestabstract.html"><abbr title="tests/Providers/Unit/OAuth2ProviderUnitTestAbstract.php">OAuth2ProviderUnitTestAbstract.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">168</span>
+    <span class="phpdocumentor-element-found-in__line">182</span>
 
     </aside>
 
@@ -1490,7 +1633,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="tests/Providers/Unit/OAuth2ProviderUnitTestAbstract.php"><a href="files/tests-providers-unit-oauth2providerunittestabstract.html"><abbr title="tests/Providers/Unit/OAuth2ProviderUnitTestAbstract.php">OAuth2ProviderUnitTestAbstract.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">274</span>
+    <span class="phpdocumentor-element-found-in__line">297</span>
 
     </aside>
 
@@ -1521,7 +1664,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="tests/Providers/Unit/OAuth2ProviderUnitTestAbstract.php"><a href="files/tests-providers-unit-oauth2providerunittestabstract.html"><abbr title="tests/Providers/Unit/OAuth2ProviderUnitTestAbstract.php">OAuth2ProviderUnitTestAbstract.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">227</span>
+    <span class="phpdocumentor-element-found-in__line">250</span>
 
     </aside>
 
@@ -1583,7 +1726,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="tests/Providers/Unit/OAuth2ProviderUnitTestAbstract.php"><a href="files/tests-providers-unit-oauth2providerunittestabstract.html"><abbr title="tests/Providers/Unit/OAuth2ProviderUnitTestAbstract.php">OAuth2ProviderUnitTestAbstract.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">404</span>
+    <span class="phpdocumentor-element-found-in__line">426</span>
 
     </aside>
 
@@ -1614,7 +1757,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="tests/Providers/Unit/OAuth2ProviderUnitTestAbstract.php"><a href="files/tests-providers-unit-oauth2providerunittestabstract.html"><abbr title="tests/Providers/Unit/OAuth2ProviderUnitTestAbstract.php">OAuth2ProviderUnitTestAbstract.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">195</span>
+    <span class="phpdocumentor-element-found-in__line">218</span>
 
     </aside>
 
@@ -1637,22 +1780,22 @@
             -public
                                                         "
 >
-    <h4 class="phpdocumentor-element__name" id="method_testGetRequestBodyInvalidContentTypeException">
-        testGetRequestBodyInvalidContentTypeException()
-        <a href="classes/chillerlan-OAuthTest-Providers-Unit-OAuthProviderUnitTestAbstract.html#method_testGetRequestBodyInvalidContentTypeException" class="headerlink"><i class="fas fa-link"></i></a>
+    <h4 class="phpdocumentor-element__name" id="method_testGetRequestBodyInvalidContentTypeForArrayException">
+        testGetRequestBodyInvalidContentTypeForArrayException()
+        <a href="classes/chillerlan-OAuthTest-Providers-Unit-OAuthProviderUnitTestAbstract.html#method_testGetRequestBodyInvalidContentTypeForArrayException" class="headerlink"><i class="fas fa-link"></i></a>
 
     </h4>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="tests/Providers/Unit/OAuthProviderUnitTestAbstract.php"><a href="files/tests-providers-unit-oauthproviderunittestabstract.html"><abbr title="tests/Providers/Unit/OAuthProviderUnitTestAbstract.php">OAuthProviderUnitTestAbstract.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">95</span>
+    <span class="phpdocumentor-element-found-in__line">99</span>
 
     </aside>
 
     
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
-                    <span class="phpdocumentor-signature__name">testGetRequestBodyInvalidContentTypeException</span><span>(</span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">void</span></code>
+                    <span class="phpdocumentor-signature__name">testGetRequestBodyInvalidContentTypeForArrayException</span><span>(</span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">void</span></code>
 
     <div class="phpdocumentor-label-line">
         </div>
@@ -1676,7 +1819,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="tests/Providers/Unit/OAuthProviderUnitTestAbstract.php"><a href="files/tests-providers-unit-oauthproviderunittestabstract.html"><abbr title="tests/Providers/Unit/OAuthProviderUnitTestAbstract.php">OAuthProviderUnitTestAbstract.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">80</span>
+    <span class="phpdocumentor-element-found-in__line">84</span>
 
     </aside>
 
@@ -1731,7 +1874,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="tests/Providers/Unit/OAuthProviderUnitTestAbstract.php"><a href="files/tests-providers-unit-oauthproviderunittestabstract.html"><abbr title="tests/Providers/Unit/OAuthProviderUnitTestAbstract.php">OAuthProviderUnitTestAbstract.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">49</span>
+    <span class="phpdocumentor-element-found-in__line">51</span>
 
     </aside>
 
@@ -1762,7 +1905,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="tests/Providers/Unit/OAuthProviderUnitTestAbstract.php"><a href="files/tests-providers-unit-oauthproviderunittestabstract.html"><abbr title="tests/Providers/Unit/OAuthProviderUnitTestAbstract.php">OAuthProviderUnitTestAbstract.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">57</span>
+    <span class="phpdocumentor-element-found-in__line">60</span>
 
     </aside>
 
@@ -1793,7 +1936,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="tests/Providers/Unit/OAuthProviderUnitTestAbstract.php"><a href="files/tests-providers-unit-oauthproviderunittestabstract.html"><abbr title="tests/Providers/Unit/OAuthProviderUnitTestAbstract.php">OAuthProviderUnitTestAbstract.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">123</span>
+    <span class="phpdocumentor-element-found-in__line">127</span>
 
     </aside>
 
@@ -1841,7 +1984,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="tests/Providers/Unit/OAuthProviderUnitTestAbstract.php"><a href="files/tests-providers-unit-oauthproviderunittestabstract.html"><abbr title="tests/Providers/Unit/OAuthProviderUnitTestAbstract.php">OAuthProviderUnitTestAbstract.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">130</span>
+    <span class="phpdocumentor-element-found-in__line">134</span>
 
     </aside>
 
@@ -1872,7 +2015,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="tests/Providers/Unit/OAuthProviderUnitTestAbstract.php"><a href="files/tests-providers-unit-oauthproviderunittestabstract.html"><abbr title="tests/Providers/Unit/OAuthProviderUnitTestAbstract.php">OAuthProviderUnitTestAbstract.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">38</span>
+    <span class="phpdocumentor-element-found-in__line">40</span>
 
     </aside>
 
@@ -1903,7 +2046,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="tests/Providers/Unit/OAuthProviderUnitTestAbstract.php"><a href="files/tests-providers-unit-oauthproviderunittestabstract.html"><abbr title="tests/Providers/Unit/OAuthProviderUnitTestAbstract.php">OAuthProviderUnitTestAbstract.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">178</span>
+    <span class="phpdocumentor-element-found-in__line">188</span>
 
     </aside>
 
@@ -1965,7 +2108,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="tests/Providers/Unit/OAuthProviderUnitTestAbstract.php"><a href="files/tests-providers-unit-oauthproviderunittestabstract.html"><abbr title="tests/Providers/Unit/OAuthProviderUnitTestAbstract.php">OAuthProviderUnitTestAbstract.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">30</span>
+    <span class="phpdocumentor-element-found-in__line">32</span>
 
     </aside>
 
@@ -2151,7 +2294,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="tests/Providers/Unit/OAuthProviderUnitTestAbstract.php"><a href="files/tests-providers-unit-oauthproviderunittestabstract.html"><abbr title="tests/Providers/Unit/OAuthProviderUnitTestAbstract.php">OAuthProviderUnitTestAbstract.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">34</span>
+    <span class="phpdocumentor-element-found-in__line">36</span>
 
     </aside>
 
@@ -2182,7 +2325,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="tests/Providers/Unit/OAuth2ProviderUnitTestAbstract.php"><a href="files/tests-providers-unit-oauth2providerunittestabstract.html"><abbr title="tests/Providers/Unit/OAuth2ProviderUnitTestAbstract.php">OAuth2ProviderUnitTestAbstract.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">386</span>
+    <span class="phpdocumentor-element-found-in__line">408</span>
 
     </aside>
 
@@ -2213,7 +2356,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="tests/Providers/Unit/OAuth2ProviderUnitTestAbstract.php"><a href="files/tests-providers-unit-oauth2providerunittestabstract.html"><abbr title="tests/Providers/Unit/OAuth2ProviderUnitTestAbstract.php">OAuth2ProviderUnitTestAbstract.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">419</span>
+    <span class="phpdocumentor-element-found-in__line">441</span>
 
     </aside>
 
@@ -2244,7 +2387,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="tests/Providers/Unit/OAuth2ProviderUnitTestAbstract.php"><a href="files/tests-providers-unit-oauth2providerunittestabstract.html"><abbr title="tests/Providers/Unit/OAuth2ProviderUnitTestAbstract.php">OAuth2ProviderUnitTestAbstract.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">434</span>
+    <span class="phpdocumentor-element-found-in__line">456</span>
 
     </aside>
 
@@ -2275,7 +2418,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="tests/Providers/Unit/OAuth2ProviderUnitTestAbstract.php"><a href="files/tests-providers-unit-oauth2providerunittestabstract.html"><abbr title="tests/Providers/Unit/OAuth2ProviderUnitTestAbstract.php">OAuth2ProviderUnitTestAbstract.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">178</span>
+    <span class="phpdocumentor-element-found-in__line">201</span>
 
     </aside>
 
@@ -2283,6 +2426,130 @@
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
                     <span class="phpdocumentor-signature__name">testSendAccessTokenRequest</span><span>(</span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">void</span></code>
+
+    <div class="phpdocumentor-label-line">
+        </div>
+    
+    
+    
+
+    
+</article>
+                    <article
+        class="phpdocumentor-element
+            -method
+            -public
+                                                        "
+>
+    <h4 class="phpdocumentor-element__name" id="method_testSetCodeChallengeInvalidParams">
+        testSetCodeChallengeInvalidParams()
+        <a href="classes/chillerlan-OAuthTest-Providers-Unit-OAuth2ProviderUnitTestAbstract.html#method_testSetCodeChallengeInvalidParams" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h4>
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="tests/Providers/Unit/OAuth2ProviderUnitTestAbstract.php"><a href="files/tests-providers-unit-oauth2providerunittestabstract.html"><abbr title="tests/Providers/Unit/OAuth2ProviderUnitTestAbstract.php">OAuth2ProviderUnitTestAbstract.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">497</span>
+
+    </aside>
+
+    
+    <code class="phpdocumentor-code phpdocumentor-signature ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+                    <span class="phpdocumentor-signature__name">testSetCodeChallengeInvalidParams</span><span>(</span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">void</span></code>
+
+    <div class="phpdocumentor-label-line">
+        </div>
+    
+    
+    
+
+    
+</article>
+                    <article
+        class="phpdocumentor-element
+            -method
+            -public
+                                                        "
+>
+    <h4 class="phpdocumentor-element__name" id="method_testSetCodeChallengeNotSupportedException">
+        testSetCodeChallengeNotSupportedException()
+        <a href="classes/chillerlan-OAuthTest-Providers-Unit-OAuth2ProviderUnitTestAbstract.html#method_testSetCodeChallengeNotSupportedException" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h4>
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="tests/Providers/Unit/OAuth2ProviderUnitTestAbstract.php"><a href="files/tests-providers-unit-oauth2providerunittestabstract.html"><abbr title="tests/Providers/Unit/OAuth2ProviderUnitTestAbstract.php">OAuth2ProviderUnitTestAbstract.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">521</span>
+
+    </aside>
+
+    
+    <code class="phpdocumentor-code phpdocumentor-signature ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+                    <span class="phpdocumentor-signature__name">testSetCodeChallengeNotSupportedException</span><span>(</span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">void</span></code>
+
+    <div class="phpdocumentor-label-line">
+        </div>
+    
+    
+    
+
+    
+</article>
+                    <article
+        class="phpdocumentor-element
+            -method
+            -public
+                                                        "
+>
+    <h4 class="phpdocumentor-element__name" id="method_testSetCodeVerifierInvalidParams">
+        testSetCodeVerifierInvalidParams()
+        <a href="classes/chillerlan-OAuthTest-Providers-Unit-OAuth2ProviderUnitTestAbstract.html#method_testSetCodeVerifierInvalidParams" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h4>
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="tests/Providers/Unit/OAuth2ProviderUnitTestAbstract.php"><a href="files/tests-providers-unit-oauth2providerunittestabstract.html"><abbr title="tests/Providers/Unit/OAuth2ProviderUnitTestAbstract.php">OAuth2ProviderUnitTestAbstract.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">509</span>
+
+    </aside>
+
+    
+    <code class="phpdocumentor-code phpdocumentor-signature ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+                    <span class="phpdocumentor-signature__name">testSetCodeVerifierInvalidParams</span><span>(</span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">void</span></code>
+
+    <div class="phpdocumentor-label-line">
+        </div>
+    
+    
+    
+
+    
+</article>
+                    <article
+        class="phpdocumentor-element
+            -method
+            -public
+                                                        "
+>
+    <h4 class="phpdocumentor-element__name" id="method_testSetCodeVerifierNotSupportedException">
+        testSetCodeVerifierNotSupportedException()
+        <a href="classes/chillerlan-OAuthTest-Providers-Unit-OAuth2ProviderUnitTestAbstract.html#method_testSetCodeVerifierNotSupportedException" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h4>
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="tests/Providers/Unit/OAuth2ProviderUnitTestAbstract.php"><a href="files/tests-providers-unit-oauth2providerunittestabstract.html"><abbr title="tests/Providers/Unit/OAuth2ProviderUnitTestAbstract.php">OAuth2ProviderUnitTestAbstract.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">533</span>
+
+    </aside>
+
+    
+    <code class="phpdocumentor-code phpdocumentor-signature ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+                    <span class="phpdocumentor-signature__name">testSetCodeVerifierNotSupportedException</span><span>(</span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">void</span></code>
 
     <div class="phpdocumentor-label-line">
         </div>
@@ -2306,7 +2573,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="tests/Providers/Unit/OAuth2ProviderUnitTestAbstract.php"><a href="files/tests-providers-unit-oauth2providerunittestabstract.html"><abbr title="tests/Providers/Unit/OAuth2ProviderUnitTestAbstract.php">OAuth2ProviderUnitTestAbstract.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">290</span>
+    <span class="phpdocumentor-element-found-in__line">313</span>
 
     </aside>
 
@@ -2337,7 +2604,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="tests/Providers/Unit/OAuth2ProviderUnitTestAbstract.php"><a href="files/tests-providers-unit-oauth2providerunittestabstract.html"><abbr title="tests/Providers/Unit/OAuth2ProviderUnitTestAbstract.php">OAuth2ProviderUnitTestAbstract.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">357</span>
+    <span class="phpdocumentor-element-found-in__line">379</span>
 
     </aside>
 
@@ -2368,7 +2635,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="tests/Providers/Unit/OAuthProviderUnitTestAbstract.php"><a href="files/tests-providers-unit-oauthproviderunittestabstract.html"><abbr title="tests/Providers/Unit/OAuthProviderUnitTestAbstract.php">OAuthProviderUnitTestAbstract.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">142</span>
+    <span class="phpdocumentor-element-found-in__line">146</span>
 
     </aside>
 
@@ -2399,7 +2666,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="tests/Providers/Unit/OAuthProviderUnitTestAbstract.php"><a href="files/tests-providers-unit-oauthproviderunittestabstract.html"><abbr title="tests/Providers/Unit/OAuthProviderUnitTestAbstract.php">OAuthProviderUnitTestAbstract.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">161</span>
+    <span class="phpdocumentor-element-found-in__line">172</span>
 
     </aside>
 
@@ -2959,13 +3226,15 @@
             <li>
                 <ul class="phpdocumentor-list -clean">
                                             <li><a href="classes/chillerlan-OAuthTest-Providers-Unit-OAuthProviderUnitTestAbstract.html#method_arrayBodyProvider">arrayBodyProvider()</a></li>
+                                            <li><a href="classes/chillerlan-OAuthTest-Providers-Unit-OAuth2ProviderUnitTestAbstract.html#method_challengeProvider">challengeProvider()</a></li>
                                             <li><a href="classes/chillerlan-OAuthTest-Providers-Unit-OAuthProviderUnitTestAbstract.html#method_requestTargetProvider">requestTargetProvider()</a></li>
                                             <li><a href="classes/chillerlan-OAuthTest-Providers-Unit-OAuth2ProviderUnitTestAbstract.html#method_testCheckCSRFState">testCheckCSRFState()</a></li>
                                             <li><a href="classes/chillerlan-OAuthTest-Providers-Unit-OAuth2ProviderUnitTestAbstract.html#method_testCheckCSRFStateEmptyException">testCheckCSRFStateEmptyException()</a></li>
-                                            <li><a href="classes/chillerlan-OAuthTest-Providers-Unit-OAuth2ProviderUnitTestAbstract.html#method_testCheckCSRFStateInvalidStateException">testCheckCSRFStateInvalidStateException()</a></li>
                                             <li><a href="classes/chillerlan-OAuthTest-Providers-Unit-OAuth2ProviderUnitTestAbstract.html#method_testCheckCSRFStateMismatchException">testCheckCSRFStateMismatchException()</a></li>
+                                            <li><a href="classes/chillerlan-OAuthTest-Providers-Unit-OAuth2ProviderUnitTestAbstract.html#method_testCheckCSRFStateNotFoundException">testCheckCSRFStateNotFoundException()</a></li>
                                             <li><a href="classes/chillerlan-OAuthTest-Providers-Unit-OAuth2ProviderUnitTestAbstract.html#method_testCheckCSRFStateNotSupportedException">testCheckCSRFStateNotSupportedException()</a></li>
                                             <li><a href="classes/chillerlan-OAuthTest-Providers-Unit-TwitchTest.html#method_testClientCredentialsTokenRequest">testClientCredentialsTokenRequest()</a></li>
+                                            <li><a href="classes/chillerlan-OAuthTest-Providers-Unit-OAuth2ProviderUnitTestAbstract.html#method_testGenerateChallenge">testGenerateChallenge()</a></li>
                                             <li><a href="classes/chillerlan-OAuthTest-Providers-Unit-OAuth2ProviderUnitTestAbstract.html#method_testGetAccessToken">testGetAccessToken()</a></li>
                                             <li><a href="classes/chillerlan-OAuthTest-Providers-Unit-OAuth2ProviderUnitTestAbstract.html#method_testGetAccessTokenRequestBodyParams">testGetAccessTokenRequestBodyParams()</a></li>
                                             <li><a href="classes/chillerlan-OAuthTest-Providers-Unit-OAuth2ProviderUnitTestAbstract.html#method_testGetAuthURL">testGetAuthURL()</a></li>
@@ -2975,7 +3244,7 @@
                                             <li><a href="classes/chillerlan-OAuthTest-Providers-Unit-TwitchTest.html#method_testGetClientCredentialsTokenRequestBodyParams">testGetClientCredentialsTokenRequestBodyParams()</a></li>
                                             <li><a href="classes/chillerlan-OAuthTest-Providers-Unit-OAuth2ProviderUnitTestAbstract.html#method_testGetRefreshAccessTokenRequestBodyParams">testGetRefreshAccessTokenRequestBodyParams()</a></li>
                                             <li><a href="classes/chillerlan-OAuthTest-Providers-Unit-OAuth2ProviderUnitTestAbstract.html#method_testGetRequestAuthorization">testGetRequestAuthorization()</a></li>
-                                            <li><a href="classes/chillerlan-OAuthTest-Providers-Unit-OAuthProviderUnitTestAbstract.html#method_testGetRequestBodyInvalidContentTypeException">testGetRequestBodyInvalidContentTypeException()</a></li>
+                                            <li><a href="classes/chillerlan-OAuthTest-Providers-Unit-OAuthProviderUnitTestAbstract.html#method_testGetRequestBodyInvalidContentTypeForArrayException">testGetRequestBodyInvalidContentTypeForArrayException()</a></li>
                                             <li><a href="classes/chillerlan-OAuthTest-Providers-Unit-OAuthProviderUnitTestAbstract.html#method_testGetRequestBodyWithArray">testGetRequestBodyWithArray()</a></li>
                                             <li><a href="classes/chillerlan-OAuthTest-Providers-Unit-OAuthProviderUnitTestAbstract.html#method_testGetRequestBodyWithStreaminterface">testGetRequestBodyWithStreaminterface()</a></li>
                                             <li><a href="classes/chillerlan-OAuthTest-Providers-Unit-OAuthProviderUnitTestAbstract.html#method_testGetRequestBodyWithString">testGetRequestBodyWithString()</a></li>
@@ -2995,6 +3264,10 @@
                                             <li><a href="classes/chillerlan-OAuthTest-Providers-Unit-OAuth2ProviderUnitTestAbstract.html#method_testRefreshAccessTokenNoRefreshTokenException">testRefreshAccessTokenNoRefreshTokenException()</a></li>
                                             <li><a href="classes/chillerlan-OAuthTest-Providers-Unit-OAuth2ProviderUnitTestAbstract.html#method_testRefreshAccessTokenNotSupportedException">testRefreshAccessTokenNotSupportedException()</a></li>
                                             <li><a href="classes/chillerlan-OAuthTest-Providers-Unit-OAuth2ProviderUnitTestAbstract.html#method_testSendAccessTokenRequest">testSendAccessTokenRequest()</a></li>
+                                            <li><a href="classes/chillerlan-OAuthTest-Providers-Unit-OAuth2ProviderUnitTestAbstract.html#method_testSetCodeChallengeInvalidParams">testSetCodeChallengeInvalidParams()</a></li>
+                                            <li><a href="classes/chillerlan-OAuthTest-Providers-Unit-OAuth2ProviderUnitTestAbstract.html#method_testSetCodeChallengeNotSupportedException">testSetCodeChallengeNotSupportedException()</a></li>
+                                            <li><a href="classes/chillerlan-OAuthTest-Providers-Unit-OAuth2ProviderUnitTestAbstract.html#method_testSetCodeVerifierInvalidParams">testSetCodeVerifierInvalidParams()</a></li>
+                                            <li><a href="classes/chillerlan-OAuthTest-Providers-Unit-OAuth2ProviderUnitTestAbstract.html#method_testSetCodeVerifierNotSupportedException">testSetCodeVerifierNotSupportedException()</a></li>
                                             <li><a href="classes/chillerlan-OAuthTest-Providers-Unit-OAuth2ProviderUnitTestAbstract.html#method_testSetCSRFState">testSetCSRFState()</a></li>
                                             <li><a href="classes/chillerlan-OAuthTest-Providers-Unit-OAuth2ProviderUnitTestAbstract.html#method_testSetCSRFStateNotSupportedException">testSetCSRFStateNotSupportedException()</a></li>
                                             <li><a href="classes/chillerlan-OAuthTest-Providers-Unit-OAuthProviderUnitTestAbstract.html#method_testTokenInvalidate">testTokenInvalidate()</a></li>

@@ -196,6 +196,13 @@
 <dd>The application key (or client-id) given by your provider</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -property -protected">
+    <a href="classes/chillerlan-OAuth-OAuthOptionsTrait.html#property_pkceVerifierLength">$pkceVerifierLength</a>
+    <span>
+                        &nbsp;: int            </span>
+</dt>
+<dd>The length of the PKCE challenge verifier (43-128 characters)</dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -property -protected">
     <a href="classes/chillerlan-OAuth-OAuthOptionsTrait.html#property_secret">$secret</a>
     <span>
                         &nbsp;: string            </span>
@@ -210,13 +217,6 @@
 <dd>Whether to start the session when session storage is used</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -property -protected">
-    <a href="classes/chillerlan-OAuth-OAuthOptionsTrait.html#property_sessionStateVar">$sessionStateVar</a>
-    <span>
-                        &nbsp;: string            </span>
-</dt>
-<dd>The session array key for &lt;state&gt; storage (OAuth2)</dd>
-
-            <dt class="phpdocumentor-table-of-contents__entry -property -protected">
     <a href="classes/chillerlan-OAuth-OAuthOptionsTrait.html#property_sessionStop">$sessionStop</a>
     <span>
                         &nbsp;: bool            </span>
@@ -224,11 +224,11 @@
 <dd>Whether to end the session when session storage is used</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -property -protected">
-    <a href="classes/chillerlan-OAuth-OAuthOptionsTrait.html#property_sessionTokenVar">$sessionTokenVar</a>
+    <a href="classes/chillerlan-OAuth-OAuthOptionsTrait.html#property_sessionStorageVar">$sessionStorageVar</a>
     <span>
                         &nbsp;: string            </span>
 </dt>
-<dd>The session array key for token storage</dd>
+<dd>The session key for the storage array</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -property -protected">
     <a href="classes/chillerlan-OAuth-OAuthOptionsTrait.html#property_storageEncryptionKey">$storageEncryptionKey</a>
@@ -265,6 +265,13 @@
                                 &nbsp;: void    </span>
 </dt>
 <dd>sets and verifies the file storage path</dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -method -protected">
+    <a href="classes/chillerlan-OAuth-OAuthOptionsTrait.html#method_set_pkceVerifierLength">set_pkceVerifierLength()</a>
+    <span>
+                                &nbsp;: void    </span>
+</dt>
+<dd>clamps the PKCE verifier length between 43 and 128</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -protected">
     <a href="classes/chillerlan-OAuth-OAuthOptionsTrait.html#method_set_storageEncryptionKey">set_storageEncryptionKey()</a>
@@ -338,7 +345,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/OAuthOptionsTrait.php"><a href="files/src-oauthoptionstrait.html"><abbr title="src/OAuthOptionsTrait.php">OAuthOptionsTrait.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">100</span>
+    <span class="phpdocumentor-element-found-in__line">93</span>
 
     </aside>
 
@@ -410,6 +417,55 @@
     
     
     
+
+</article>
+                    <article
+        class="
+            phpdocumentor-element
+            -property
+            -protected
+                                                        "
+>
+    <h4 class="phpdocumentor-element__name" id="property_pkceVerifierLength">
+        $pkceVerifierLength
+        <a href="classes/chillerlan-OAuth-OAuthOptionsTrait.html#property_pkceVerifierLength" class="headerlink"><i class="fas fa-link"></i></a>
+
+        <span class="phpdocumentor-element__modifiers">
+                                </span>
+    </h4>
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/OAuthOptionsTrait.php"><a href="files/src-oauthoptionstrait.html"><abbr title="src/OAuthOptionsTrait.php">OAuthOptionsTrait.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">100</span>
+
+    </aside>
+
+        <p class="phpdocumentor-summary">The length of the PKCE challenge verifier (43-128 characters)</p>
+
+    <code class="phpdocumentor-code phpdocumentor-signature ">
+    <span class="phpdocumentor-signature__visibility">protected</span>
+        <span class="phpdocumentor-signature__type">int</span>
+    <span class="phpdocumentor-signature__name">$pkceVerifierLength</span>
+     = <span class="phpdocumentor-signature__default-value">128</span></code>
+
+    
+    
+    
+    <h5 class="phpdocumentor-tag-list__heading" id="tags">
+        Tags
+        <a href="classes/chillerlan-OAuth-OAuthOptionsTrait.html#property_pkceVerifierLength#tags" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h5>
+    <dl class="phpdocumentor-tag-list">
+                                    <dt class="phpdocumentor-tag-list__entry">
+                    <span class="phpdocumentor-tag__name">see</span>
+                </dt>
+                <dd class="phpdocumentor-tag-list__definition">
+                                                                                    <span class="phpdocumentor-tag-link"><a href="https://datatracker.ietf.org/doc/html/rfc7636#section-4.1">https://datatracker.ietf.org/doc/html/rfc7636#section-4.1</a></span>
+                                        
+                                             
+                                    </dd>
+                                            </dl>
 
 </article>
                     <article
@@ -512,55 +568,6 @@
             -protected
                                                         "
 >
-    <h4 class="phpdocumentor-element__name" id="property_sessionStateVar">
-        $sessionStateVar
-        <a href="classes/chillerlan-OAuth-OAuthOptionsTrait.html#property_sessionStateVar" class="headerlink"><i class="fas fa-link"></i></a>
-
-        <span class="phpdocumentor-element__modifiers">
-                                </span>
-    </h4>
-    <aside class="phpdocumentor-element-found-in">
-    <abbr class="phpdocumentor-element-found-in__file" title="src/OAuthOptionsTrait.php"><a href="files/src-oauthoptionstrait.html"><abbr title="src/OAuthOptionsTrait.php">OAuthOptionsTrait.php</abbr></a></abbr>
-    :
-    <span class="phpdocumentor-element-found-in__line">92</span>
-
-    </aside>
-
-        <p class="phpdocumentor-summary">The session array key for &lt;state&gt; storage (OAuth2)</p>
-
-    <code class="phpdocumentor-code phpdocumentor-signature ">
-    <span class="phpdocumentor-signature__visibility">protected</span>
-        <span class="phpdocumentor-signature__type">string</span>
-    <span class="phpdocumentor-signature__name">$sessionStateVar</span>
-     = <span class="phpdocumentor-signature__default-value">&#039;chillerlan-oauth-state&#039;</span></code>
-
-    
-    
-    
-    <h5 class="phpdocumentor-tag-list__heading" id="tags">
-        Tags
-        <a href="classes/chillerlan-OAuth-OAuthOptionsTrait.html#property_sessionStateVar#tags" class="headerlink"><i class="fas fa-link"></i></a>
-
-    </h5>
-    <dl class="phpdocumentor-tag-list">
-                                    <dt class="phpdocumentor-tag-list__entry">
-                    <span class="phpdocumentor-tag__name">see</span>
-                </dt>
-                <dd class="phpdocumentor-tag-list__definition">
-                                                                                    <span class="phpdocumentor-tag-link"><a href="classes/chillerlan-OAuth-Storage-SessionStorage.html"><abbr title="\chillerlan\OAuth\Storage\SessionStorage">SessionStorage</abbr></a></span>
-                                        
-                                             
-                                    </dd>
-                                            </dl>
-
-</article>
-                    <article
-        class="
-            phpdocumentor-element
-            -property
-            -protected
-                                                        "
->
     <h4 class="phpdocumentor-element__name" id="property_sessionStop">
         $sessionStop
         <a href="classes/chillerlan-OAuth-OAuthOptionsTrait.html#property_sessionStop" class="headerlink"><i class="fas fa-link"></i></a>
@@ -620,9 +627,9 @@
             -protected
                                                         "
 >
-    <h4 class="phpdocumentor-element__name" id="property_sessionTokenVar">
-        $sessionTokenVar
-        <a href="classes/chillerlan-OAuth-OAuthOptionsTrait.html#property_sessionTokenVar" class="headerlink"><i class="fas fa-link"></i></a>
+    <h4 class="phpdocumentor-element__name" id="property_sessionStorageVar">
+        $sessionStorageVar
+        <a href="classes/chillerlan-OAuth-OAuthOptionsTrait.html#property_sessionStorageVar" class="headerlink"><i class="fas fa-link"></i></a>
 
         <span class="phpdocumentor-element__modifiers">
                                 </span>
@@ -634,20 +641,20 @@
 
     </aside>
 
-        <p class="phpdocumentor-summary">The session array key for token storage</p>
+        <p class="phpdocumentor-summary">The session key for the storage array</p>
 
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">protected</span>
         <span class="phpdocumentor-signature__type">string</span>
-    <span class="phpdocumentor-signature__name">$sessionTokenVar</span>
-     = <span class="phpdocumentor-signature__default-value">&#039;chillerlan-oauth-token&#039;</span></code>
+    <span class="phpdocumentor-signature__name">$sessionStorageVar</span>
+     = <span class="phpdocumentor-signature__default-value">&#039;chillerlan-oauth-storage&#039;</span></code>
 
     
     
     
     <h5 class="phpdocumentor-tag-list__heading" id="tags">
         Tags
-        <a href="classes/chillerlan-OAuth-OAuthOptionsTrait.html#property_sessionTokenVar#tags" class="headerlink"><i class="fas fa-link"></i></a>
+        <a href="classes/chillerlan-OAuth-OAuthOptionsTrait.html#property_sessionStorageVar#tags" class="headerlink"><i class="fas fa-link"></i></a>
 
     </h5>
     <dl class="phpdocumentor-tag-list">
@@ -873,6 +880,48 @@
             -protected
                                                         "
 >
+    <h4 class="phpdocumentor-element__name" id="method_set_pkceVerifierLength">
+        set_pkceVerifierLength()
+        <a href="classes/chillerlan-OAuth-OAuthOptionsTrait.html#method_set_pkceVerifierLength" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h4>
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/OAuthOptionsTrait.php"><a href="files/src-oauthoptionstrait.html"><abbr title="src/OAuthOptionsTrait.php">OAuthOptionsTrait.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">130</span>
+
+    </aside>
+
+        <p class="phpdocumentor-summary">clamps the PKCE verifier length between 43 and 128</p>
+
+    <code class="phpdocumentor-code phpdocumentor-signature ">
+    <span class="phpdocumentor-signature__visibility">protected</span>
+                    <span class="phpdocumentor-signature__name">set_pkceVerifierLength</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">int&nbsp;</span><span class="phpdocumentor-signature__argument__name">$pkceVerifierLength</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">void</span></code>
+
+    <div class="phpdocumentor-label-line">
+        </div>
+    
+        <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
+    <dl class="phpdocumentor-argument-list">
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-signature__argument__name">$pkceVerifierLength</span>
+                : <span class="phpdocumentor-signature__argument__return-type">int</span>
+                            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                
+            </dd>
+            </dl>
+
+    
+
+    
+</article>
+                    <article
+        class="phpdocumentor-element
+            -method
+            -protected
+                                                        "
+>
     <h4 class="phpdocumentor-element__name" id="method_set_storageEncryptionKey">
         set_storageEncryptionKey()
         <a href="classes/chillerlan-OAuth-OAuthOptionsTrait.html#method_set_storageEncryptionKey" class="headerlink"><i class="fas fa-link"></i></a>
@@ -1025,11 +1074,11 @@
                                                     <li><a href="classes/chillerlan-OAuth-OAuthOptionsTrait.html#property_callbackURL">$callbackURL<a href="classes/chillerlan-OAuth-OAuthOptions.html"></li>
                                                     <li><a href="classes/chillerlan-OAuth-OAuthOptionsTrait.html#property_fileStoragePath">$fileStoragePath<a href="classes/chillerlan-OAuth-OAuthOptions.html"></li>
                                                     <li><a href="classes/chillerlan-OAuth-OAuthOptionsTrait.html#property_key">$key<a href="classes/chillerlan-OAuth-OAuthOptions.html"></li>
+                                                    <li><a href="classes/chillerlan-OAuth-OAuthOptionsTrait.html#property_pkceVerifierLength">$pkceVerifierLength<a href="classes/chillerlan-OAuth-OAuthOptions.html"></li>
                                                     <li><a href="classes/chillerlan-OAuth-OAuthOptionsTrait.html#property_secret">$secret<a href="classes/chillerlan-OAuth-OAuthOptions.html"></li>
                                                     <li><a href="classes/chillerlan-OAuth-OAuthOptionsTrait.html#property_sessionStart">$sessionStart<a href="classes/chillerlan-OAuth-OAuthOptions.html"></li>
-                                                    <li><a href="classes/chillerlan-OAuth-OAuthOptionsTrait.html#property_sessionStateVar">$sessionStateVar<a href="classes/chillerlan-OAuth-OAuthOptions.html"></li>
                                                     <li><a href="classes/chillerlan-OAuth-OAuthOptionsTrait.html#property_sessionStop">$sessionStop<a href="classes/chillerlan-OAuth-OAuthOptions.html"></li>
-                                                    <li><a href="classes/chillerlan-OAuth-OAuthOptionsTrait.html#property_sessionTokenVar">$sessionTokenVar<a href="classes/chillerlan-OAuth-OAuthOptions.html"></li>
+                                                    <li><a href="classes/chillerlan-OAuth-OAuthOptionsTrait.html#property_sessionStorageVar">$sessionStorageVar<a href="classes/chillerlan-OAuth-OAuthOptions.html"></li>
                                                     <li><a href="classes/chillerlan-OAuth-OAuthOptionsTrait.html#property_storageEncryptionKey">$storageEncryptionKey<a href="classes/chillerlan-OAuth-OAuthOptions.html"></li>
                                                     <li><a href="classes/chillerlan-OAuth-OAuthOptionsTrait.html#property_tokenAutoRefresh">$tokenAutoRefresh<a href="classes/chillerlan-OAuth-OAuthOptions.html"></li>
                                                     <li><a href="classes/chillerlan-OAuth-OAuthOptionsTrait.html#property_useStorageEncryption">$useStorageEncryption<a href="classes/chillerlan-OAuth-OAuthOptions.html"></li>
@@ -1040,6 +1089,7 @@
             <li>
                 <ul class="phpdocumentor-list -clean">
                                             <li><a href="classes/chillerlan-OAuth-OAuthOptionsTrait.html#method_set_fileStoragePath">set_fileStoragePath()</a></li>
+                                            <li><a href="classes/chillerlan-OAuth-OAuthOptionsTrait.html#method_set_pkceVerifierLength">set_pkceVerifierLength()</a></li>
                                             <li><a href="classes/chillerlan-OAuth-OAuthOptionsTrait.html#method_set_storageEncryptionKey">set_storageEncryptionKey()</a></li>
                                     </ul>
             </li>

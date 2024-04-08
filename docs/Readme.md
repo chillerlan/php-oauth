@@ -66,6 +66,13 @@ The markdown sources for the [Read the Docs online manual](https://php-oauth.rea
 
 - [Quickstart](./Usage/Quickstart.md)
 - [Authorization flow](./Usage/Authorization.md)
+-
+
+### Development
+
+- [Create a Provider](./Development/Create-provider.md)
+- [Running tests](./Development/Test-suite.md)
+- [Using the examples](./Development/Using-examples.md)
 
 
 ### Appendix

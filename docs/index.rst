@@ -29,6 +29,14 @@ This work is licensed under the Creative Commons Attribution 4.0 International (
 
 .. toctree::
    :maxdepth: 3
+   :caption: Development
+
+   Development/Create-provider.md
+   Development/Test-suite.md
+   Development/Using-examples.md
+
+.. toctree::
+   :maxdepth: 3
    :caption: Appendix
 
    Appendix/Contribute.md

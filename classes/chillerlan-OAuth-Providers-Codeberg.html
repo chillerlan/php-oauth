@@ -117,7 +117,7 @@
 
     <article class="phpdocumentor-element -class">
         <h2 class="phpdocumentor-content__title">
-    Gitea
+    Codeberg
 
         <span class="phpdocumentor-element__extends">
         extends <a href="classes/chillerlan-OAuth-Core-OAuth2Provider.html"><abbr title="\chillerlan\OAuth\Core\OAuth2Provider">OAuth2Provider</abbr></a>
@@ -142,7 +142,7 @@
 </div>
 
         <aside class="phpdocumentor-element-found-in">
-    <abbr class="phpdocumentor-element-found-in__file" title="src/Providers/Gitea.php"><a href="files/src-providers-gitea.html"><abbr title="src/Providers/Gitea.php">Gitea.php</abbr></a></abbr>
+    <abbr class="phpdocumentor-element-found-in__file" title="src/Providers/Codeberg.php"><a href="files/src-providers-codeberg.html"><abbr title="src/Providers/Codeberg.php">Codeberg.php</abbr></a></abbr>
     :
     <span class="phpdocumentor-element-found-in__line">22</span>
 
@@ -154,7 +154,7 @@
 
     <h5 class="phpdocumentor-tag-list__heading" id="tags">
         Tags
-        <a href="classes/chillerlan-OAuth-Providers-Gitea.html#tags" class="headerlink"><i class="fas fa-link"></i></a>
+        <a href="classes/chillerlan-OAuth-Providers-Codeberg.html#tags" class="headerlink"><i class="fas fa-link"></i></a>
 
     </h5>
     <dl class="phpdocumentor-tag-list">
@@ -162,7 +162,7 @@
                     <span class="phpdocumentor-tag__name">see</span>
                 </dt>
                 <dd class="phpdocumentor-tag-list__definition">
-                                                                                    <span class="phpdocumentor-tag-link"><a href="https://docs.gitea.com/development/oauth2-provider">https://docs.gitea.com/development/oauth2-provider</a></span>
+                                                                                    <span class="phpdocumentor-tag-link"><a href="https://codeberg.org/api/swagger">https://codeberg.org/api/swagger</a></span>
                                         
                                              
                                     </dd>
@@ -172,7 +172,7 @@
 
 <h3 id="toc">
     Table of Contents
-    <a href="classes/chillerlan-OAuth-Providers-Gitea.html#toc" class="headerlink"><i class="fas fa-link"></i></a>
+    <a href="classes/chillerlan-OAuth-Providers-Codeberg.html#toc" class="headerlink"><i class="fas fa-link"></i></a>
 
 </h3>
 
@@ -180,7 +180,7 @@
 
     <h4 id="toc-interfaces">
         Interfaces
-        <a href="classes/chillerlan-OAuth-Providers-Gitea.html#toc-interfaces" class="headerlink"><i class="fas fa-link"></i></a>
+        <a href="classes/chillerlan-OAuth-Providers-Codeberg.html#toc-interfaces" class="headerlink"><i class="fas fa-link"></i></a>
 
     </h4>
     <dl class="phpdocumentor-table-of-contents">
@@ -192,158 +192,20 @@ usually via a &quot;/me&quot;, &quot;/user&quot; or &quot;/tokeninfo&quot; endpo
 
 <h4 id="toc-constants">
     Constants
-    <a href="classes/chillerlan-OAuth-Providers-Gitea.html#toc-constants" class="headerlink"><i class="fas fa-link"></i></a>
+    <a href="classes/chillerlan-OAuth-Providers-Codeberg.html#toc-constants" class="headerlink"><i class="fas fa-link"></i></a>
 
 </h4>
 <dl class="phpdocumentor-table-of-contents">
             <dt class="phpdocumentor-table-of-contents__entry -constant -public">
-    <a href="classes/chillerlan-OAuth-Providers-Gitea.html#constant_DEFAULT_SCOPES">DEFAULT_SCOPES</a>
+    <a href="classes/chillerlan-OAuth-Providers-Codeberg.html#constant_DEFAULT_SCOPES">DEFAULT_SCOPES</a>
     <span>
-        &nbsp;= [self::SCOPE_REPOSITORY_READ, self::SCOPE_USER_READ]                            </span>
+        &nbsp;= [self::SCOPE_USER]                            </span>
 </dt>
 
             <dt class="phpdocumentor-table-of-contents__entry -constant -public">
-    <a href="classes/chillerlan-OAuth-Providers-Gitea.html#constant_SCOPE_ACTIVITYPUB">SCOPE_ACTIVITYPUB</a>
-    <span>
-        &nbsp;= &#039;activitypub&#039;                            </span>
-</dt>
-
-            <dt class="phpdocumentor-table-of-contents__entry -constant -public">
-    <a href="classes/chillerlan-OAuth-Providers-Gitea.html#constant_SCOPE_ACTIVITYPUB_READ">SCOPE_ACTIVITYPUB_READ</a>
-    <span>
-        &nbsp;= &#039;read:activitypub&#039;                            </span>
-</dt>
-
-            <dt class="phpdocumentor-table-of-contents__entry -constant -public">
-    <a href="classes/chillerlan-OAuth-Providers-Gitea.html#constant_SCOPE_ACTIVITYPUB_WRITE">SCOPE_ACTIVITYPUB_WRITE</a>
-    <span>
-        &nbsp;= &#039;write:activitypub&#039;                            </span>
-</dt>
-
-            <dt class="phpdocumentor-table-of-contents__entry -constant -public">
-    <a href="classes/chillerlan-OAuth-Providers-Gitea.html#constant_SCOPE_ADMIN">SCOPE_ADMIN</a>
-    <span>
-        &nbsp;= &#039;admin&#039;                            </span>
-</dt>
-
-            <dt class="phpdocumentor-table-of-contents__entry -constant -public">
-    <a href="classes/chillerlan-OAuth-Providers-Gitea.html#constant_SCOPE_ADMIN_READ">SCOPE_ADMIN_READ</a>
-    <span>
-        &nbsp;= &#039;read:admin&#039;                            </span>
-</dt>
-
-            <dt class="phpdocumentor-table-of-contents__entry -constant -public">
-    <a href="classes/chillerlan-OAuth-Providers-Gitea.html#constant_SCOPE_ADMIN_WRITE">SCOPE_ADMIN_WRITE</a>
-    <span>
-        &nbsp;= &#039;write:admin&#039;                            </span>
-</dt>
-
-            <dt class="phpdocumentor-table-of-contents__entry -constant -public">
-    <a href="classes/chillerlan-OAuth-Providers-Gitea.html#constant_SCOPE_ISSUE">SCOPE_ISSUE</a>
-    <span>
-        &nbsp;= &#039;issue&#039;                            </span>
-</dt>
-
-            <dt class="phpdocumentor-table-of-contents__entry -constant -public">
-    <a href="classes/chillerlan-OAuth-Providers-Gitea.html#constant_SCOPE_ISSUE_READ">SCOPE_ISSUE_READ</a>
-    <span>
-        &nbsp;= &#039;read:issue&#039;                            </span>
-</dt>
-
-            <dt class="phpdocumentor-table-of-contents__entry -constant -public">
-    <a href="classes/chillerlan-OAuth-Providers-Gitea.html#constant_SCOPE_ISSUE_WRITE">SCOPE_ISSUE_WRITE</a>
-    <span>
-        &nbsp;= &#039;write:issue&#039;                            </span>
-</dt>
-
-            <dt class="phpdocumentor-table-of-contents__entry -constant -public">
-    <a href="classes/chillerlan-OAuth-Providers-Gitea.html#constant_SCOPE_NOTIFICATION">SCOPE_NOTIFICATION</a>
-    <span>
-        &nbsp;= &#039;notification&#039;                            </span>
-</dt>
-
-            <dt class="phpdocumentor-table-of-contents__entry -constant -public">
-    <a href="classes/chillerlan-OAuth-Providers-Gitea.html#constant_SCOPE_NOTIFICATION_READ">SCOPE_NOTIFICATION_READ</a>
-    <span>
-        &nbsp;= &#039;read:notification&#039;                            </span>
-</dt>
-
-            <dt class="phpdocumentor-table-of-contents__entry -constant -public">
-    <a href="classes/chillerlan-OAuth-Providers-Gitea.html#constant_SCOPE_NOTIFICATION_WRITE">SCOPE_NOTIFICATION_WRITE</a>
-    <span>
-        &nbsp;= &#039;write:notification&#039;                            </span>
-</dt>
-
-            <dt class="phpdocumentor-table-of-contents__entry -constant -public">
-    <a href="classes/chillerlan-OAuth-Providers-Gitea.html#constant_SCOPE_ORGANIZATION">SCOPE_ORGANIZATION</a>
-    <span>
-        &nbsp;= &#039;organization&#039;                            </span>
-</dt>
-
-            <dt class="phpdocumentor-table-of-contents__entry -constant -public">
-    <a href="classes/chillerlan-OAuth-Providers-Gitea.html#constant_SCOPE_ORGANIZATION_READ">SCOPE_ORGANIZATION_READ</a>
-    <span>
-        &nbsp;= &#039;read:organization&#039;                            </span>
-</dt>
-
-            <dt class="phpdocumentor-table-of-contents__entry -constant -public">
-    <a href="classes/chillerlan-OAuth-Providers-Gitea.html#constant_SCOPE_ORGANIZATION_WRITE">SCOPE_ORGANIZATION_WRITE</a>
-    <span>
-        &nbsp;= &#039;write:organization&#039;                            </span>
-</dt>
-
-            <dt class="phpdocumentor-table-of-contents__entry -constant -public">
-    <a href="classes/chillerlan-OAuth-Providers-Gitea.html#constant_SCOPE_PACKAGE">SCOPE_PACKAGE</a>
-    <span>
-        &nbsp;= &#039;package&#039;                            </span>
-</dt>
-
-            <dt class="phpdocumentor-table-of-contents__entry -constant -public">
-    <a href="classes/chillerlan-OAuth-Providers-Gitea.html#constant_SCOPE_PACKAGE_READ">SCOPE_PACKAGE_READ</a>
-    <span>
-        &nbsp;= &#039;read:package&#039;                            </span>
-</dt>
-
-            <dt class="phpdocumentor-table-of-contents__entry -constant -public">
-    <a href="classes/chillerlan-OAuth-Providers-Gitea.html#constant_SCOPE_PACKAGE_WRITE">SCOPE_PACKAGE_WRITE</a>
-    <span>
-        &nbsp;= &#039;write:package&#039;                            </span>
-</dt>
-
-            <dt class="phpdocumentor-table-of-contents__entry -constant -public">
-    <a href="classes/chillerlan-OAuth-Providers-Gitea.html#constant_SCOPE_REPOSITORY">SCOPE_REPOSITORY</a>
-    <span>
-        &nbsp;= &#039;repository&#039;                            </span>
-</dt>
-
-            <dt class="phpdocumentor-table-of-contents__entry -constant -public">
-    <a href="classes/chillerlan-OAuth-Providers-Gitea.html#constant_SCOPE_REPOSITORY_READ">SCOPE_REPOSITORY_READ</a>
-    <span>
-        &nbsp;= &#039;read:repository&#039;                            </span>
-</dt>
-
-            <dt class="phpdocumentor-table-of-contents__entry -constant -public">
-    <a href="classes/chillerlan-OAuth-Providers-Gitea.html#constant_SCOPE_REPOSITORY_WRITE">SCOPE_REPOSITORY_WRITE</a>
-    <span>
-        &nbsp;= &#039;write:repository&#039;                            </span>
-</dt>
-
-            <dt class="phpdocumentor-table-of-contents__entry -constant -public">
-    <a href="classes/chillerlan-OAuth-Providers-Gitea.html#constant_SCOPE_USER">SCOPE_USER</a>
+    <a href="classes/chillerlan-OAuth-Providers-Codeberg.html#constant_SCOPE_USER">SCOPE_USER</a>
     <span>
         &nbsp;= &#039;user&#039;                            </span>
-</dt>
-
-            <dt class="phpdocumentor-table-of-contents__entry -constant -public">
-    <a href="classes/chillerlan-OAuth-Providers-Gitea.html#constant_SCOPE_USER_READ">SCOPE_USER_READ</a>
-    <span>
-        &nbsp;= &#039;read:user&#039;                            </span>
-</dt>
-
-            <dt class="phpdocumentor-table-of-contents__entry -constant -public">
-    <a href="classes/chillerlan-OAuth-Providers-Gitea.html#constant_SCOPE_USER_WRITE">SCOPE_USER_WRITE</a>
-    <span>
-        &nbsp;= &#039;write:user&#039;                            </span>
 </dt>
 
             <dt class="phpdocumentor-table-of-contents__entry -constant -protected">
@@ -357,36 +219,36 @@ usually via a &quot;/me&quot;, &quot;/user&quot; or &quot;/tokeninfo&quot; endpo
 
 <h4 id="toc-properties">
     Properties
-    <a href="classes/chillerlan-OAuth-Providers-Gitea.html#toc-properties" class="headerlink"><i class="fas fa-link"></i></a>
+    <a href="classes/chillerlan-OAuth-Providers-Codeberg.html#toc-properties" class="headerlink"><i class="fas fa-link"></i></a>
 
 </h4>
 <dl class="phpdocumentor-table-of-contents">
             <dt class="phpdocumentor-table-of-contents__entry -property -protected">
-    <a href="classes/chillerlan-OAuth-Providers-Gitea.html#property_accessTokenURL">$accessTokenURL</a>
+    <a href="classes/chillerlan-OAuth-Providers-Codeberg.html#property_accessTokenURL">$accessTokenURL</a>
     <span>
                         &nbsp;: string            </span>
 </dt>
 
             <dt class="phpdocumentor-table-of-contents__entry -property -protected">
-    <a href="classes/chillerlan-OAuth-Providers-Gitea.html#property_apiDocs">$apiDocs</a>
+    <a href="classes/chillerlan-OAuth-Providers-Codeberg.html#property_apiDocs">$apiDocs</a>
     <span>
                         &nbsp;: string|null            </span>
 </dt>
 
             <dt class="phpdocumentor-table-of-contents__entry -property -protected">
-    <a href="classes/chillerlan-OAuth-Providers-Gitea.html#property_apiURL">$apiURL</a>
+    <a href="classes/chillerlan-OAuth-Providers-Codeberg.html#property_apiURL">$apiURL</a>
     <span>
                         &nbsp;: string            </span>
 </dt>
 
             <dt class="phpdocumentor-table-of-contents__entry -property -protected">
-    <a href="classes/chillerlan-OAuth-Providers-Gitea.html#property_applicationURL">$applicationURL</a>
+    <a href="classes/chillerlan-OAuth-Providers-Codeberg.html#property_applicationURL">$applicationURL</a>
     <span>
                         &nbsp;: string|null            </span>
 </dt>
 
             <dt class="phpdocumentor-table-of-contents__entry -property -protected">
-    <a href="classes/chillerlan-OAuth-Providers-Gitea.html#property_authorizationURL">$authorizationURL</a>
+    <a href="classes/chillerlan-OAuth-Providers-Codeberg.html#property_authorizationURL">$authorizationURL</a>
     <span>
                         &nbsp;: string            </span>
 </dt>
@@ -462,7 +324,7 @@ usually via a &quot;/me&quot;, &quot;/user&quot; or &quot;/tokeninfo&quot; endpo
 </dt>
 
             <dt class="phpdocumentor-table-of-contents__entry -property -protected">
-    <a href="classes/chillerlan-OAuth-Providers-Gitea.html#property_userRevokeURL">$userRevokeURL</a>
+    <a href="classes/chillerlan-OAuth-Providers-Codeberg.html#property_userRevokeURL">$userRevokeURL</a>
     <span>
                         &nbsp;: string|null            </span>
 </dt>
@@ -471,7 +333,7 @@ usually via a &quot;/me&quot;, &quot;/user&quot; or &quot;/tokeninfo&quot; endpo
 
 <h4 id="toc-methods">
     Methods
-    <a href="classes/chillerlan-OAuth-Providers-Gitea.html#toc-methods" class="headerlink"><i class="fas fa-link"></i></a>
+    <a href="classes/chillerlan-OAuth-Providers-Codeberg.html#toc-methods" class="headerlink"><i class="fas fa-link"></i></a>
 
 </h4>
 <dl class="phpdocumentor-table-of-contents">
@@ -536,7 +398,7 @@ if the provider implements the CSRFToken interface, and returns an AccessToken o
 </dt>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a href="classes/chillerlan-OAuth-Providers-Gitea.html#method_me">me()</a>
+    <a href="classes/chillerlan-OAuth-Providers-Codeberg.html#method_me">me()</a>
     <span>
                                 &nbsp;: <a href="classes/chillerlan-OAuth-Core-AuthenticatedUser.html"><abbr title="\chillerlan\OAuth\Core\AuthenticatedUser">AuthenticatedUser</abbr></a>    </span>
 </dt>
@@ -755,158 +617,18 @@ anything except host and path will be ignored, scheme will always be set to &quo
     <section class="phpdocumentor-constants">
         <h3 class="phpdocumentor-elements__header" id="constants">
             Constants
-            <a href="classes/chillerlan-OAuth-Providers-Gitea.html#constants" class="headerlink"><i class="fas fa-link"></i></a>
+            <a href="classes/chillerlan-OAuth-Providers-Codeberg.html#constants" class="headerlink"><i class="fas fa-link"></i></a>
 
         </h3>
                     <article class="phpdocumentor-element -constant -public ">
     <h4 class="phpdocumentor-element__name" id="constant_DEFAULT_SCOPES">
         DEFAULT_SCOPES
-        <a href="classes/chillerlan-OAuth-Providers-Gitea.html#constant_DEFAULT_SCOPES" class="headerlink"><i class="fas fa-link"></i></a>
+        <a href="classes/chillerlan-OAuth-Providers-Codeberg.html#constant_DEFAULT_SCOPES" class="headerlink"><i class="fas fa-link"></i></a>
 
     </h4>
 
     <aside class="phpdocumentor-element-found-in">
-    <abbr class="phpdocumentor-element-found-in__file" title="src/Providers/Gitea.php"><a href="files/src-providers-gitea.html"><abbr title="src/Providers/Gitea.php">Gitea.php</abbr></a></abbr>
-    :
-    <span class="phpdocumentor-element-found-in__line">52</span>
-
-    </aside>
-
-    
-    <code class="phpdocumentor-signature phpdocumentor-code ">
-    <span class="phpdocumentor-signature__visibility">public</span>
-        <span class="phpdocumentor-signature__type">mixed</span>
-    <span class="phpdocumentor-signature__name">DEFAULT_SCOPES</span>
-    = <span class="phpdocumentor-signature__default-value">[self::SCOPE_REPOSITORY_READ, self::SCOPE_USER_READ]</span>
-</code>
-
-
-    
-    
-    
-
-</article>
-                    <article class="phpdocumentor-element -constant -public ">
-    <h4 class="phpdocumentor-element__name" id="constant_SCOPE_ACTIVITYPUB">
-        SCOPE_ACTIVITYPUB
-        <a href="classes/chillerlan-OAuth-Providers-Gitea.html#constant_SCOPE_ACTIVITYPUB" class="headerlink"><i class="fas fa-link"></i></a>
-
-    </h4>
-
-    <aside class="phpdocumentor-element-found-in">
-    <abbr class="phpdocumentor-element-found-in__file" title="src/Providers/Gitea.php"><a href="files/src-providers-gitea.html"><abbr title="src/Providers/Gitea.php">Gitea.php</abbr></a></abbr>
-    :
-    <span class="phpdocumentor-element-found-in__line">24</span>
-
-    </aside>
-
-    
-    <code class="phpdocumentor-signature phpdocumentor-code ">
-    <span class="phpdocumentor-signature__visibility">public</span>
-        <span class="phpdocumentor-signature__type">mixed</span>
-    <span class="phpdocumentor-signature__name">SCOPE_ACTIVITYPUB</span>
-    = <span class="phpdocumentor-signature__default-value">&#039;activitypub&#039;</span>
-</code>
-
-
-    
-    
-    
-
-</article>
-                    <article class="phpdocumentor-element -constant -public ">
-    <h4 class="phpdocumentor-element__name" id="constant_SCOPE_ACTIVITYPUB_READ">
-        SCOPE_ACTIVITYPUB_READ
-        <a href="classes/chillerlan-OAuth-Providers-Gitea.html#constant_SCOPE_ACTIVITYPUB_READ" class="headerlink"><i class="fas fa-link"></i></a>
-
-    </h4>
-
-    <aside class="phpdocumentor-element-found-in">
-    <abbr class="phpdocumentor-element-found-in__file" title="src/Providers/Gitea.php"><a href="files/src-providers-gitea.html"><abbr title="src/Providers/Gitea.php">Gitea.php</abbr></a></abbr>
-    :
-    <span class="phpdocumentor-element-found-in__line">25</span>
-
-    </aside>
-
-    
-    <code class="phpdocumentor-signature phpdocumentor-code ">
-    <span class="phpdocumentor-signature__visibility">public</span>
-        <span class="phpdocumentor-signature__type">mixed</span>
-    <span class="phpdocumentor-signature__name">SCOPE_ACTIVITYPUB_READ</span>
-    = <span class="phpdocumentor-signature__default-value">&#039;read:activitypub&#039;</span>
-</code>
-
-
-    
-    
-    
-
-</article>
-                    <article class="phpdocumentor-element -constant -public ">
-    <h4 class="phpdocumentor-element__name" id="constant_SCOPE_ACTIVITYPUB_WRITE">
-        SCOPE_ACTIVITYPUB_WRITE
-        <a href="classes/chillerlan-OAuth-Providers-Gitea.html#constant_SCOPE_ACTIVITYPUB_WRITE" class="headerlink"><i class="fas fa-link"></i></a>
-
-    </h4>
-
-    <aside class="phpdocumentor-element-found-in">
-    <abbr class="phpdocumentor-element-found-in__file" title="src/Providers/Gitea.php"><a href="files/src-providers-gitea.html"><abbr title="src/Providers/Gitea.php">Gitea.php</abbr></a></abbr>
-    :
-    <span class="phpdocumentor-element-found-in__line">26</span>
-
-    </aside>
-
-    
-    <code class="phpdocumentor-signature phpdocumentor-code ">
-    <span class="phpdocumentor-signature__visibility">public</span>
-        <span class="phpdocumentor-signature__type">mixed</span>
-    <span class="phpdocumentor-signature__name">SCOPE_ACTIVITYPUB_WRITE</span>
-    = <span class="phpdocumentor-signature__default-value">&#039;write:activitypub&#039;</span>
-</code>
-
-
-    
-    
-    
-
-</article>
-                    <article class="phpdocumentor-element -constant -public ">
-    <h4 class="phpdocumentor-element__name" id="constant_SCOPE_ADMIN">
-        SCOPE_ADMIN
-        <a href="classes/chillerlan-OAuth-Providers-Gitea.html#constant_SCOPE_ADMIN" class="headerlink"><i class="fas fa-link"></i></a>
-
-    </h4>
-
-    <aside class="phpdocumentor-element-found-in">
-    <abbr class="phpdocumentor-element-found-in__file" title="src/Providers/Gitea.php"><a href="files/src-providers-gitea.html"><abbr title="src/Providers/Gitea.php">Gitea.php</abbr></a></abbr>
-    :
-    <span class="phpdocumentor-element-found-in__line">27</span>
-
-    </aside>
-
-    
-    <code class="phpdocumentor-signature phpdocumentor-code ">
-    <span class="phpdocumentor-signature__visibility">public</span>
-        <span class="phpdocumentor-signature__type">mixed</span>
-    <span class="phpdocumentor-signature__name">SCOPE_ADMIN</span>
-    = <span class="phpdocumentor-signature__default-value">&#039;admin&#039;</span>
-</code>
-
-
-    
-    
-    
-
-</article>
-                    <article class="phpdocumentor-element -constant -public ">
-    <h4 class="phpdocumentor-element__name" id="constant_SCOPE_ADMIN_READ">
-        SCOPE_ADMIN_READ
-        <a href="classes/chillerlan-OAuth-Providers-Gitea.html#constant_SCOPE_ADMIN_READ" class="headerlink"><i class="fas fa-link"></i></a>
-
-    </h4>
-
-    <aside class="phpdocumentor-element-found-in">
-    <abbr class="phpdocumentor-element-found-in__file" title="src/Providers/Gitea.php"><a href="files/src-providers-gitea.html"><abbr title="src/Providers/Gitea.php">Gitea.php</abbr></a></abbr>
+    <abbr class="phpdocumentor-element-found-in__file" title="src/Providers/Codeberg.php"><a href="files/src-providers-codeberg.html"><abbr title="src/Providers/Codeberg.php">Codeberg.php</abbr></a></abbr>
     :
     <span class="phpdocumentor-element-found-in__line">28</span>
 
@@ -916,456 +638,8 @@ anything except host and path will be ignored, scheme will always be set to &quo
     <code class="phpdocumentor-signature phpdocumentor-code ">
     <span class="phpdocumentor-signature__visibility">public</span>
         <span class="phpdocumentor-signature__type">mixed</span>
-    <span class="phpdocumentor-signature__name">SCOPE_ADMIN_READ</span>
-    = <span class="phpdocumentor-signature__default-value">&#039;read:admin&#039;</span>
-</code>
-
-
-    
-    
-    
-
-</article>
-                    <article class="phpdocumentor-element -constant -public ">
-    <h4 class="phpdocumentor-element__name" id="constant_SCOPE_ADMIN_WRITE">
-        SCOPE_ADMIN_WRITE
-        <a href="classes/chillerlan-OAuth-Providers-Gitea.html#constant_SCOPE_ADMIN_WRITE" class="headerlink"><i class="fas fa-link"></i></a>
-
-    </h4>
-
-    <aside class="phpdocumentor-element-found-in">
-    <abbr class="phpdocumentor-element-found-in__file" title="src/Providers/Gitea.php"><a href="files/src-providers-gitea.html"><abbr title="src/Providers/Gitea.php">Gitea.php</abbr></a></abbr>
-    :
-    <span class="phpdocumentor-element-found-in__line">29</span>
-
-    </aside>
-
-    
-    <code class="phpdocumentor-signature phpdocumentor-code ">
-    <span class="phpdocumentor-signature__visibility">public</span>
-        <span class="phpdocumentor-signature__type">mixed</span>
-    <span class="phpdocumentor-signature__name">SCOPE_ADMIN_WRITE</span>
-    = <span class="phpdocumentor-signature__default-value">&#039;write:admin&#039;</span>
-</code>
-
-
-    
-    
-    
-
-</article>
-                    <article class="phpdocumentor-element -constant -public ">
-    <h4 class="phpdocumentor-element__name" id="constant_SCOPE_ISSUE">
-        SCOPE_ISSUE
-        <a href="classes/chillerlan-OAuth-Providers-Gitea.html#constant_SCOPE_ISSUE" class="headerlink"><i class="fas fa-link"></i></a>
-
-    </h4>
-
-    <aside class="phpdocumentor-element-found-in">
-    <abbr class="phpdocumentor-element-found-in__file" title="src/Providers/Gitea.php"><a href="files/src-providers-gitea.html"><abbr title="src/Providers/Gitea.php">Gitea.php</abbr></a></abbr>
-    :
-    <span class="phpdocumentor-element-found-in__line">30</span>
-
-    </aside>
-
-    
-    <code class="phpdocumentor-signature phpdocumentor-code ">
-    <span class="phpdocumentor-signature__visibility">public</span>
-        <span class="phpdocumentor-signature__type">mixed</span>
-    <span class="phpdocumentor-signature__name">SCOPE_ISSUE</span>
-    = <span class="phpdocumentor-signature__default-value">&#039;issue&#039;</span>
-</code>
-
-
-    
-    
-    
-
-</article>
-                    <article class="phpdocumentor-element -constant -public ">
-    <h4 class="phpdocumentor-element__name" id="constant_SCOPE_ISSUE_READ">
-        SCOPE_ISSUE_READ
-        <a href="classes/chillerlan-OAuth-Providers-Gitea.html#constant_SCOPE_ISSUE_READ" class="headerlink"><i class="fas fa-link"></i></a>
-
-    </h4>
-
-    <aside class="phpdocumentor-element-found-in">
-    <abbr class="phpdocumentor-element-found-in__file" title="src/Providers/Gitea.php"><a href="files/src-providers-gitea.html"><abbr title="src/Providers/Gitea.php">Gitea.php</abbr></a></abbr>
-    :
-    <span class="phpdocumentor-element-found-in__line">31</span>
-
-    </aside>
-
-    
-    <code class="phpdocumentor-signature phpdocumentor-code ">
-    <span class="phpdocumentor-signature__visibility">public</span>
-        <span class="phpdocumentor-signature__type">mixed</span>
-    <span class="phpdocumentor-signature__name">SCOPE_ISSUE_READ</span>
-    = <span class="phpdocumentor-signature__default-value">&#039;read:issue&#039;</span>
-</code>
-
-
-    
-    
-    
-
-</article>
-                    <article class="phpdocumentor-element -constant -public ">
-    <h4 class="phpdocumentor-element__name" id="constant_SCOPE_ISSUE_WRITE">
-        SCOPE_ISSUE_WRITE
-        <a href="classes/chillerlan-OAuth-Providers-Gitea.html#constant_SCOPE_ISSUE_WRITE" class="headerlink"><i class="fas fa-link"></i></a>
-
-    </h4>
-
-    <aside class="phpdocumentor-element-found-in">
-    <abbr class="phpdocumentor-element-found-in__file" title="src/Providers/Gitea.php"><a href="files/src-providers-gitea.html"><abbr title="src/Providers/Gitea.php">Gitea.php</abbr></a></abbr>
-    :
-    <span class="phpdocumentor-element-found-in__line">32</span>
-
-    </aside>
-
-    
-    <code class="phpdocumentor-signature phpdocumentor-code ">
-    <span class="phpdocumentor-signature__visibility">public</span>
-        <span class="phpdocumentor-signature__type">mixed</span>
-    <span class="phpdocumentor-signature__name">SCOPE_ISSUE_WRITE</span>
-    = <span class="phpdocumentor-signature__default-value">&#039;write:issue&#039;</span>
-</code>
-
-
-    
-    
-    
-
-</article>
-                    <article class="phpdocumentor-element -constant -public ">
-    <h4 class="phpdocumentor-element__name" id="constant_SCOPE_NOTIFICATION">
-        SCOPE_NOTIFICATION
-        <a href="classes/chillerlan-OAuth-Providers-Gitea.html#constant_SCOPE_NOTIFICATION" class="headerlink"><i class="fas fa-link"></i></a>
-
-    </h4>
-
-    <aside class="phpdocumentor-element-found-in">
-    <abbr class="phpdocumentor-element-found-in__file" title="src/Providers/Gitea.php"><a href="files/src-providers-gitea.html"><abbr title="src/Providers/Gitea.php">Gitea.php</abbr></a></abbr>
-    :
-    <span class="phpdocumentor-element-found-in__line">36</span>
-
-    </aside>
-
-    
-    <code class="phpdocumentor-signature phpdocumentor-code ">
-    <span class="phpdocumentor-signature__visibility">public</span>
-        <span class="phpdocumentor-signature__type">mixed</span>
-    <span class="phpdocumentor-signature__name">SCOPE_NOTIFICATION</span>
-    = <span class="phpdocumentor-signature__default-value">&#039;notification&#039;</span>
-</code>
-
-
-    
-    
-    
-
-</article>
-                    <article class="phpdocumentor-element -constant -public ">
-    <h4 class="phpdocumentor-element__name" id="constant_SCOPE_NOTIFICATION_READ">
-        SCOPE_NOTIFICATION_READ
-        <a href="classes/chillerlan-OAuth-Providers-Gitea.html#constant_SCOPE_NOTIFICATION_READ" class="headerlink"><i class="fas fa-link"></i></a>
-
-    </h4>
-
-    <aside class="phpdocumentor-element-found-in">
-    <abbr class="phpdocumentor-element-found-in__file" title="src/Providers/Gitea.php"><a href="files/src-providers-gitea.html"><abbr title="src/Providers/Gitea.php">Gitea.php</abbr></a></abbr>
-    :
-    <span class="phpdocumentor-element-found-in__line">37</span>
-
-    </aside>
-
-    
-    <code class="phpdocumentor-signature phpdocumentor-code ">
-    <span class="phpdocumentor-signature__visibility">public</span>
-        <span class="phpdocumentor-signature__type">mixed</span>
-    <span class="phpdocumentor-signature__name">SCOPE_NOTIFICATION_READ</span>
-    = <span class="phpdocumentor-signature__default-value">&#039;read:notification&#039;</span>
-</code>
-
-
-    
-    
-    
-
-</article>
-                    <article class="phpdocumentor-element -constant -public ">
-    <h4 class="phpdocumentor-element__name" id="constant_SCOPE_NOTIFICATION_WRITE">
-        SCOPE_NOTIFICATION_WRITE
-        <a href="classes/chillerlan-OAuth-Providers-Gitea.html#constant_SCOPE_NOTIFICATION_WRITE" class="headerlink"><i class="fas fa-link"></i></a>
-
-    </h4>
-
-    <aside class="phpdocumentor-element-found-in">
-    <abbr class="phpdocumentor-element-found-in__file" title="src/Providers/Gitea.php"><a href="files/src-providers-gitea.html"><abbr title="src/Providers/Gitea.php">Gitea.php</abbr></a></abbr>
-    :
-    <span class="phpdocumentor-element-found-in__line">38</span>
-
-    </aside>
-
-    
-    <code class="phpdocumentor-signature phpdocumentor-code ">
-    <span class="phpdocumentor-signature__visibility">public</span>
-        <span class="phpdocumentor-signature__type">mixed</span>
-    <span class="phpdocumentor-signature__name">SCOPE_NOTIFICATION_WRITE</span>
-    = <span class="phpdocumentor-signature__default-value">&#039;write:notification&#039;</span>
-</code>
-
-
-    
-    
-    
-
-</article>
-                    <article class="phpdocumentor-element -constant -public ">
-    <h4 class="phpdocumentor-element__name" id="constant_SCOPE_ORGANIZATION">
-        SCOPE_ORGANIZATION
-        <a href="classes/chillerlan-OAuth-Providers-Gitea.html#constant_SCOPE_ORGANIZATION" class="headerlink"><i class="fas fa-link"></i></a>
-
-    </h4>
-
-    <aside class="phpdocumentor-element-found-in">
-    <abbr class="phpdocumentor-element-found-in__file" title="src/Providers/Gitea.php"><a href="files/src-providers-gitea.html"><abbr title="src/Providers/Gitea.php">Gitea.php</abbr></a></abbr>
-    :
-    <span class="phpdocumentor-element-found-in__line">39</span>
-
-    </aside>
-
-    
-    <code class="phpdocumentor-signature phpdocumentor-code ">
-    <span class="phpdocumentor-signature__visibility">public</span>
-        <span class="phpdocumentor-signature__type">mixed</span>
-    <span class="phpdocumentor-signature__name">SCOPE_ORGANIZATION</span>
-    = <span class="phpdocumentor-signature__default-value">&#039;organization&#039;</span>
-</code>
-
-
-    
-    
-    
-
-</article>
-                    <article class="phpdocumentor-element -constant -public ">
-    <h4 class="phpdocumentor-element__name" id="constant_SCOPE_ORGANIZATION_READ">
-        SCOPE_ORGANIZATION_READ
-        <a href="classes/chillerlan-OAuth-Providers-Gitea.html#constant_SCOPE_ORGANIZATION_READ" class="headerlink"><i class="fas fa-link"></i></a>
-
-    </h4>
-
-    <aside class="phpdocumentor-element-found-in">
-    <abbr class="phpdocumentor-element-found-in__file" title="src/Providers/Gitea.php"><a href="files/src-providers-gitea.html"><abbr title="src/Providers/Gitea.php">Gitea.php</abbr></a></abbr>
-    :
-    <span class="phpdocumentor-element-found-in__line">40</span>
-
-    </aside>
-
-    
-    <code class="phpdocumentor-signature phpdocumentor-code ">
-    <span class="phpdocumentor-signature__visibility">public</span>
-        <span class="phpdocumentor-signature__type">mixed</span>
-    <span class="phpdocumentor-signature__name">SCOPE_ORGANIZATION_READ</span>
-    = <span class="phpdocumentor-signature__default-value">&#039;read:organization&#039;</span>
-</code>
-
-
-    
-    
-    
-
-</article>
-                    <article class="phpdocumentor-element -constant -public ">
-    <h4 class="phpdocumentor-element__name" id="constant_SCOPE_ORGANIZATION_WRITE">
-        SCOPE_ORGANIZATION_WRITE
-        <a href="classes/chillerlan-OAuth-Providers-Gitea.html#constant_SCOPE_ORGANIZATION_WRITE" class="headerlink"><i class="fas fa-link"></i></a>
-
-    </h4>
-
-    <aside class="phpdocumentor-element-found-in">
-    <abbr class="phpdocumentor-element-found-in__file" title="src/Providers/Gitea.php"><a href="files/src-providers-gitea.html"><abbr title="src/Providers/Gitea.php">Gitea.php</abbr></a></abbr>
-    :
-    <span class="phpdocumentor-element-found-in__line">41</span>
-
-    </aside>
-
-    
-    <code class="phpdocumentor-signature phpdocumentor-code ">
-    <span class="phpdocumentor-signature__visibility">public</span>
-        <span class="phpdocumentor-signature__type">mixed</span>
-    <span class="phpdocumentor-signature__name">SCOPE_ORGANIZATION_WRITE</span>
-    = <span class="phpdocumentor-signature__default-value">&#039;write:organization&#039;</span>
-</code>
-
-
-    
-    
-    
-
-</article>
-                    <article class="phpdocumentor-element -constant -public ">
-    <h4 class="phpdocumentor-element__name" id="constant_SCOPE_PACKAGE">
-        SCOPE_PACKAGE
-        <a href="classes/chillerlan-OAuth-Providers-Gitea.html#constant_SCOPE_PACKAGE" class="headerlink"><i class="fas fa-link"></i></a>
-
-    </h4>
-
-    <aside class="phpdocumentor-element-found-in">
-    <abbr class="phpdocumentor-element-found-in__file" title="src/Providers/Gitea.php"><a href="files/src-providers-gitea.html"><abbr title="src/Providers/Gitea.php">Gitea.php</abbr></a></abbr>
-    :
-    <span class="phpdocumentor-element-found-in__line">42</span>
-
-    </aside>
-
-    
-    <code class="phpdocumentor-signature phpdocumentor-code ">
-    <span class="phpdocumentor-signature__visibility">public</span>
-        <span class="phpdocumentor-signature__type">mixed</span>
-    <span class="phpdocumentor-signature__name">SCOPE_PACKAGE</span>
-    = <span class="phpdocumentor-signature__default-value">&#039;package&#039;</span>
-</code>
-
-
-    
-    
-    
-
-</article>
-                    <article class="phpdocumentor-element -constant -public ">
-    <h4 class="phpdocumentor-element__name" id="constant_SCOPE_PACKAGE_READ">
-        SCOPE_PACKAGE_READ
-        <a href="classes/chillerlan-OAuth-Providers-Gitea.html#constant_SCOPE_PACKAGE_READ" class="headerlink"><i class="fas fa-link"></i></a>
-
-    </h4>
-
-    <aside class="phpdocumentor-element-found-in">
-    <abbr class="phpdocumentor-element-found-in__file" title="src/Providers/Gitea.php"><a href="files/src-providers-gitea.html"><abbr title="src/Providers/Gitea.php">Gitea.php</abbr></a></abbr>
-    :
-    <span class="phpdocumentor-element-found-in__line">43</span>
-
-    </aside>
-
-    
-    <code class="phpdocumentor-signature phpdocumentor-code ">
-    <span class="phpdocumentor-signature__visibility">public</span>
-        <span class="phpdocumentor-signature__type">mixed</span>
-    <span class="phpdocumentor-signature__name">SCOPE_PACKAGE_READ</span>
-    = <span class="phpdocumentor-signature__default-value">&#039;read:package&#039;</span>
-</code>
-
-
-    
-    
-    
-
-</article>
-                    <article class="phpdocumentor-element -constant -public ">
-    <h4 class="phpdocumentor-element__name" id="constant_SCOPE_PACKAGE_WRITE">
-        SCOPE_PACKAGE_WRITE
-        <a href="classes/chillerlan-OAuth-Providers-Gitea.html#constant_SCOPE_PACKAGE_WRITE" class="headerlink"><i class="fas fa-link"></i></a>
-
-    </h4>
-
-    <aside class="phpdocumentor-element-found-in">
-    <abbr class="phpdocumentor-element-found-in__file" title="src/Providers/Gitea.php"><a href="files/src-providers-gitea.html"><abbr title="src/Providers/Gitea.php">Gitea.php</abbr></a></abbr>
-    :
-    <span class="phpdocumentor-element-found-in__line">44</span>
-
-    </aside>
-
-    
-    <code class="phpdocumentor-signature phpdocumentor-code ">
-    <span class="phpdocumentor-signature__visibility">public</span>
-        <span class="phpdocumentor-signature__type">mixed</span>
-    <span class="phpdocumentor-signature__name">SCOPE_PACKAGE_WRITE</span>
-    = <span class="phpdocumentor-signature__default-value">&#039;write:package&#039;</span>
-</code>
-
-
-    
-    
-    
-
-</article>
-                    <article class="phpdocumentor-element -constant -public ">
-    <h4 class="phpdocumentor-element__name" id="constant_SCOPE_REPOSITORY">
-        SCOPE_REPOSITORY
-        <a href="classes/chillerlan-OAuth-Providers-Gitea.html#constant_SCOPE_REPOSITORY" class="headerlink"><i class="fas fa-link"></i></a>
-
-    </h4>
-
-    <aside class="phpdocumentor-element-found-in">
-    <abbr class="phpdocumentor-element-found-in__file" title="src/Providers/Gitea.php"><a href="files/src-providers-gitea.html"><abbr title="src/Providers/Gitea.php">Gitea.php</abbr></a></abbr>
-    :
-    <span class="phpdocumentor-element-found-in__line">45</span>
-
-    </aside>
-
-    
-    <code class="phpdocumentor-signature phpdocumentor-code ">
-    <span class="phpdocumentor-signature__visibility">public</span>
-        <span class="phpdocumentor-signature__type">mixed</span>
-    <span class="phpdocumentor-signature__name">SCOPE_REPOSITORY</span>
-    = <span class="phpdocumentor-signature__default-value">&#039;repository&#039;</span>
-</code>
-
-
-    
-    
-    
-
-</article>
-                    <article class="phpdocumentor-element -constant -public ">
-    <h4 class="phpdocumentor-element__name" id="constant_SCOPE_REPOSITORY_READ">
-        SCOPE_REPOSITORY_READ
-        <a href="classes/chillerlan-OAuth-Providers-Gitea.html#constant_SCOPE_REPOSITORY_READ" class="headerlink"><i class="fas fa-link"></i></a>
-
-    </h4>
-
-    <aside class="phpdocumentor-element-found-in">
-    <abbr class="phpdocumentor-element-found-in__file" title="src/Providers/Gitea.php"><a href="files/src-providers-gitea.html"><abbr title="src/Providers/Gitea.php">Gitea.php</abbr></a></abbr>
-    :
-    <span class="phpdocumentor-element-found-in__line">46</span>
-
-    </aside>
-
-    
-    <code class="phpdocumentor-signature phpdocumentor-code ">
-    <span class="phpdocumentor-signature__visibility">public</span>
-        <span class="phpdocumentor-signature__type">mixed</span>
-    <span class="phpdocumentor-signature__name">SCOPE_REPOSITORY_READ</span>
-    = <span class="phpdocumentor-signature__default-value">&#039;read:repository&#039;</span>
-</code>
-
-
-    
-    
-    
-
-</article>
-                    <article class="phpdocumentor-element -constant -public ">
-    <h4 class="phpdocumentor-element__name" id="constant_SCOPE_REPOSITORY_WRITE">
-        SCOPE_REPOSITORY_WRITE
-        <a href="classes/chillerlan-OAuth-Providers-Gitea.html#constant_SCOPE_REPOSITORY_WRITE" class="headerlink"><i class="fas fa-link"></i></a>
-
-    </h4>
-
-    <aside class="phpdocumentor-element-found-in">
-    <abbr class="phpdocumentor-element-found-in__file" title="src/Providers/Gitea.php"><a href="files/src-providers-gitea.html"><abbr title="src/Providers/Gitea.php">Gitea.php</abbr></a></abbr>
-    :
-    <span class="phpdocumentor-element-found-in__line">47</span>
-
-    </aside>
-
-    
-    <code class="phpdocumentor-signature phpdocumentor-code ">
-    <span class="phpdocumentor-signature__visibility">public</span>
-        <span class="phpdocumentor-signature__type">mixed</span>
-    <span class="phpdocumentor-signature__name">SCOPE_REPOSITORY_WRITE</span>
-    = <span class="phpdocumentor-signature__default-value">&#039;write:repository&#039;</span>
+    <span class="phpdocumentor-signature__name">DEFAULT_SCOPES</span>
+    = <span class="phpdocumentor-signature__default-value">[self::SCOPE_USER]</span>
 </code>
 
 
@@ -1377,14 +651,14 @@ anything except host and path will be ignored, scheme will always be set to &quo
                     <article class="phpdocumentor-element -constant -public ">
     <h4 class="phpdocumentor-element__name" id="constant_SCOPE_USER">
         SCOPE_USER
-        <a href="classes/chillerlan-OAuth-Providers-Gitea.html#constant_SCOPE_USER" class="headerlink"><i class="fas fa-link"></i></a>
+        <a href="classes/chillerlan-OAuth-Providers-Codeberg.html#constant_SCOPE_USER" class="headerlink"><i class="fas fa-link"></i></a>
 
     </h4>
 
     <aside class="phpdocumentor-element-found-in">
-    <abbr class="phpdocumentor-element-found-in__file" title="src/Providers/Gitea.php"><a href="files/src-providers-gitea.html"><abbr title="src/Providers/Gitea.php">Gitea.php</abbr></a></abbr>
+    <abbr class="phpdocumentor-element-found-in__file" title="src/Providers/Codeberg.php"><a href="files/src-providers-codeberg.html"><abbr title="src/Providers/Codeberg.php">Codeberg.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">48</span>
+    <span class="phpdocumentor-element-found-in__line">26</span>
 
     </aside>
 
@@ -1394,62 +668,6 @@ anything except host and path will be ignored, scheme will always be set to &quo
         <span class="phpdocumentor-signature__type">mixed</span>
     <span class="phpdocumentor-signature__name">SCOPE_USER</span>
     = <span class="phpdocumentor-signature__default-value">&#039;user&#039;</span>
-</code>
-
-
-    
-    
-    
-
-</article>
-                    <article class="phpdocumentor-element -constant -public ">
-    <h4 class="phpdocumentor-element__name" id="constant_SCOPE_USER_READ">
-        SCOPE_USER_READ
-        <a href="classes/chillerlan-OAuth-Providers-Gitea.html#constant_SCOPE_USER_READ" class="headerlink"><i class="fas fa-link"></i></a>
-
-    </h4>
-
-    <aside class="phpdocumentor-element-found-in">
-    <abbr class="phpdocumentor-element-found-in__file" title="src/Providers/Gitea.php"><a href="files/src-providers-gitea.html"><abbr title="src/Providers/Gitea.php">Gitea.php</abbr></a></abbr>
-    :
-    <span class="phpdocumentor-element-found-in__line">49</span>
-
-    </aside>
-
-    
-    <code class="phpdocumentor-signature phpdocumentor-code ">
-    <span class="phpdocumentor-signature__visibility">public</span>
-        <span class="phpdocumentor-signature__type">mixed</span>
-    <span class="phpdocumentor-signature__name">SCOPE_USER_READ</span>
-    = <span class="phpdocumentor-signature__default-value">&#039;read:user&#039;</span>
-</code>
-
-
-    
-    
-    
-
-</article>
-                    <article class="phpdocumentor-element -constant -public ">
-    <h4 class="phpdocumentor-element__name" id="constant_SCOPE_USER_WRITE">
-        SCOPE_USER_WRITE
-        <a href="classes/chillerlan-OAuth-Providers-Gitea.html#constant_SCOPE_USER_WRITE" class="headerlink"><i class="fas fa-link"></i></a>
-
-    </h4>
-
-    <aside class="phpdocumentor-element-found-in">
-    <abbr class="phpdocumentor-element-found-in__file" title="src/Providers/Gitea.php"><a href="files/src-providers-gitea.html"><abbr title="src/Providers/Gitea.php">Gitea.php</abbr></a></abbr>
-    :
-    <span class="phpdocumentor-element-found-in__line">50</span>
-
-    </aside>
-
-    
-    <code class="phpdocumentor-signature phpdocumentor-code ">
-    <span class="phpdocumentor-signature__visibility">public</span>
-        <span class="phpdocumentor-signature__type">mixed</span>
-    <span class="phpdocumentor-signature__name">SCOPE_USER_WRITE</span>
-    = <span class="phpdocumentor-signature__default-value">&#039;write:user&#039;</span>
 </code>
 
 
@@ -1492,7 +710,7 @@ anything except host and path will be ignored, scheme will always be set to &quo
     <section class="phpdocumentor-properties">
         <h3 class="phpdocumentor-elements__header" id="properties">
             Properties
-            <a href="classes/chillerlan-OAuth-Providers-Gitea.html#properties" class="headerlink"><i class="fas fa-link"></i></a>
+            <a href="classes/chillerlan-OAuth-Providers-Codeberg.html#properties" class="headerlink"><i class="fas fa-link"></i></a>
 
         </h3>
                     <article
@@ -1504,15 +722,15 @@ anything except host and path will be ignored, scheme will always be set to &quo
 >
     <h4 class="phpdocumentor-element__name" id="property_accessTokenURL">
         $accessTokenURL
-        <a href="classes/chillerlan-OAuth-Providers-Gitea.html#property_accessTokenURL" class="headerlink"><i class="fas fa-link"></i></a>
+        <a href="classes/chillerlan-OAuth-Providers-Codeberg.html#property_accessTokenURL" class="headerlink"><i class="fas fa-link"></i></a>
 
         <span class="phpdocumentor-element__modifiers">
                                 </span>
     </h4>
     <aside class="phpdocumentor-element-found-in">
-    <abbr class="phpdocumentor-element-found-in__file" title="src/Providers/Gitea.php"><a href="files/src-providers-gitea.html"><abbr title="src/Providers/Gitea.php">Gitea.php</abbr></a></abbr>
+    <abbr class="phpdocumentor-element-found-in__file" title="src/Providers/Codeberg.php"><a href="files/src-providers-codeberg.html"><abbr title="src/Providers/Codeberg.php">Codeberg.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">58</span>
+    <span class="phpdocumentor-element-found-in__line">33</span>
 
     </aside>
 
@@ -1521,7 +739,7 @@ anything except host and path will be ignored, scheme will always be set to &quo
     <span class="phpdocumentor-signature__visibility">protected</span>
         <span class="phpdocumentor-signature__type">string</span>
     <span class="phpdocumentor-signature__name">$accessTokenURL</span>
-     = <span class="phpdocumentor-signature__default-value">&#039;https://gitea.com/login/oauth/access_token&#039;</span></code>
+     = <span class="phpdocumentor-signature__default-value">&#039;https://codeberg.org/login/oauth/access_token&#039;</span></code>
 
     
     
@@ -1537,15 +755,15 @@ anything except host and path will be ignored, scheme will always be set to &quo
 >
     <h4 class="phpdocumentor-element__name" id="property_apiDocs">
         $apiDocs
-        <a href="classes/chillerlan-OAuth-Providers-Gitea.html#property_apiDocs" class="headerlink"><i class="fas fa-link"></i></a>
+        <a href="classes/chillerlan-OAuth-Providers-Codeberg.html#property_apiDocs" class="headerlink"><i class="fas fa-link"></i></a>
 
         <span class="phpdocumentor-element__modifiers">
                                 </span>
     </h4>
     <aside class="phpdocumentor-element-found-in">
-    <abbr class="phpdocumentor-element-found-in__file" title="src/Providers/Gitea.php"><a href="files/src-providers-gitea.html"><abbr title="src/Providers/Gitea.php">Gitea.php</abbr></a></abbr>
+    <abbr class="phpdocumentor-element-found-in__file" title="src/Providers/Codeberg.php"><a href="files/src-providers-codeberg.html"><abbr title="src/Providers/Codeberg.php">Codeberg.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">60</span>
+    <span class="phpdocumentor-element-found-in__line">35</span>
 
     </aside>
 
@@ -1554,7 +772,7 @@ anything except host and path will be ignored, scheme will always be set to &quo
     <span class="phpdocumentor-signature__visibility">protected</span>
         <span class="phpdocumentor-signature__type">string|null</span>
     <span class="phpdocumentor-signature__name">$apiDocs</span>
-     = <span class="phpdocumentor-signature__default-value">&#039;https://docs.gitea.com/api/1.20/&#039;</span></code>
+     = <span class="phpdocumentor-signature__default-value">&#039;https://codeberg.org/api/swagger&#039;</span></code>
 
     
     
@@ -1570,15 +788,15 @@ anything except host and path will be ignored, scheme will always be set to &quo
 >
     <h4 class="phpdocumentor-element__name" id="property_apiURL">
         $apiURL
-        <a href="classes/chillerlan-OAuth-Providers-Gitea.html#property_apiURL" class="headerlink"><i class="fas fa-link"></i></a>
+        <a href="classes/chillerlan-OAuth-Providers-Codeberg.html#property_apiURL" class="headerlink"><i class="fas fa-link"></i></a>
 
         <span class="phpdocumentor-element__modifiers">
                                 </span>
     </h4>
     <aside class="phpdocumentor-element-found-in">
-    <abbr class="phpdocumentor-element-found-in__file" title="src/Providers/Gitea.php"><a href="files/src-providers-gitea.html"><abbr title="src/Providers/Gitea.php">Gitea.php</abbr></a></abbr>
+    <abbr class="phpdocumentor-element-found-in__file" title="src/Providers/Codeberg.php"><a href="files/src-providers-codeberg.html"><abbr title="src/Providers/Codeberg.php">Codeberg.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">59</span>
+    <span class="phpdocumentor-element-found-in__line">34</span>
 
     </aside>
 
@@ -1587,7 +805,7 @@ anything except host and path will be ignored, scheme will always be set to &quo
     <span class="phpdocumentor-signature__visibility">protected</span>
         <span class="phpdocumentor-signature__type">string</span>
     <span class="phpdocumentor-signature__name">$apiURL</span>
-     = <span class="phpdocumentor-signature__default-value">&#039;https://gitea.com/api&#039;</span></code>
+     = <span class="phpdocumentor-signature__default-value">&#039;https://codeberg.org/api&#039;</span></code>
 
     
     
@@ -1603,15 +821,15 @@ anything except host and path will be ignored, scheme will always be set to &quo
 >
     <h4 class="phpdocumentor-element__name" id="property_applicationURL">
         $applicationURL
-        <a href="classes/chillerlan-OAuth-Providers-Gitea.html#property_applicationURL" class="headerlink"><i class="fas fa-link"></i></a>
+        <a href="classes/chillerlan-OAuth-Providers-Codeberg.html#property_applicationURL" class="headerlink"><i class="fas fa-link"></i></a>
 
         <span class="phpdocumentor-element__modifiers">
                                 </span>
     </h4>
     <aside class="phpdocumentor-element-found-in">
-    <abbr class="phpdocumentor-element-found-in__file" title="src/Providers/Gitea.php"><a href="files/src-providers-gitea.html"><abbr title="src/Providers/Gitea.php">Gitea.php</abbr></a></abbr>
+    <abbr class="phpdocumentor-element-found-in__file" title="src/Providers/Codeberg.php"><a href="files/src-providers-codeberg.html"><abbr title="src/Providers/Codeberg.php">Codeberg.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">61</span>
+    <span class="phpdocumentor-element-found-in__line">36</span>
 
     </aside>
 
@@ -1620,7 +838,7 @@ anything except host and path will be ignored, scheme will always be set to &quo
     <span class="phpdocumentor-signature__visibility">protected</span>
         <span class="phpdocumentor-signature__type">string|null</span>
     <span class="phpdocumentor-signature__name">$applicationURL</span>
-     = <span class="phpdocumentor-signature__default-value">&#039;https://gitea.com/user/settings/applications&#039;</span></code>
+     = <span class="phpdocumentor-signature__default-value">&#039;https://codeberg.org/user/settings/applications&#039;</span></code>
 
     
     
@@ -1636,15 +854,15 @@ anything except host and path will be ignored, scheme will always be set to &quo
 >
     <h4 class="phpdocumentor-element__name" id="property_authorizationURL">
         $authorizationURL
-        <a href="classes/chillerlan-OAuth-Providers-Gitea.html#property_authorizationURL" class="headerlink"><i class="fas fa-link"></i></a>
+        <a href="classes/chillerlan-OAuth-Providers-Codeberg.html#property_authorizationURL" class="headerlink"><i class="fas fa-link"></i></a>
 
         <span class="phpdocumentor-element__modifiers">
                                 </span>
     </h4>
     <aside class="phpdocumentor-element-found-in">
-    <abbr class="phpdocumentor-element-found-in__file" title="src/Providers/Gitea.php"><a href="files/src-providers-gitea.html"><abbr title="src/Providers/Gitea.php">Gitea.php</abbr></a></abbr>
+    <abbr class="phpdocumentor-element-found-in__file" title="src/Providers/Codeberg.php"><a href="files/src-providers-codeberg.html"><abbr title="src/Providers/Codeberg.php">Codeberg.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">57</span>
+    <span class="phpdocumentor-element-found-in__line">32</span>
 
     </aside>
 
@@ -1653,7 +871,7 @@ anything except host and path will be ignored, scheme will always be set to &quo
     <span class="phpdocumentor-signature__visibility">protected</span>
         <span class="phpdocumentor-signature__type">string</span>
     <span class="phpdocumentor-signature__name">$authorizationURL</span>
-     = <span class="phpdocumentor-signature__default-value">&#039;https://gitea.com/login/oauth/authorize&#039;</span></code>
+     = <span class="phpdocumentor-signature__default-value">&#039;https://codeberg.org/login/oauth/authorize&#039;</span></code>
 
     
     
@@ -2070,15 +1288,15 @@ anything except host and path will be ignored, scheme will always be set to &quo
 >
     <h4 class="phpdocumentor-element__name" id="property_userRevokeURL">
         $userRevokeURL
-        <a href="classes/chillerlan-OAuth-Providers-Gitea.html#property_userRevokeURL" class="headerlink"><i class="fas fa-link"></i></a>
+        <a href="classes/chillerlan-OAuth-Providers-Codeberg.html#property_userRevokeURL" class="headerlink"><i class="fas fa-link"></i></a>
 
         <span class="phpdocumentor-element__modifiers">
                                 </span>
     </h4>
     <aside class="phpdocumentor-element-found-in">
-    <abbr class="phpdocumentor-element-found-in__file" title="src/Providers/Gitea.php"><a href="files/src-providers-gitea.html"><abbr title="src/Providers/Gitea.php">Gitea.php</abbr></a></abbr>
+    <abbr class="phpdocumentor-element-found-in__file" title="src/Providers/Codeberg.php"><a href="files/src-providers-codeberg.html"><abbr title="src/Providers/Codeberg.php">Codeberg.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">62</span>
+    <span class="phpdocumentor-element-found-in__line">37</span>
 
     </aside>
 
@@ -2087,7 +1305,7 @@ anything except host and path will be ignored, scheme will always be set to &quo
     <span class="phpdocumentor-signature__visibility">protected</span>
         <span class="phpdocumentor-signature__type">string|null</span>
     <span class="phpdocumentor-signature__name">$userRevokeURL</span>
-     = <span class="phpdocumentor-signature__default-value">&#039;https://gitea.com/user/settings/applications&#039;</span></code>
+     = <span class="phpdocumentor-signature__default-value">&#039;https://codeberg.org/user/settings/applications&#039;</span></code>
 
     
     
@@ -2099,7 +1317,7 @@ anything except host and path will be ignored, scheme will always be set to &quo
             <section class="phpdocumentor-methods">
         <h3 class="phpdocumentor-elements__header" id="methods">
             Methods
-            <a href="classes/chillerlan-OAuth-Providers-Gitea.html#methods" class="headerlink"><i class="fas fa-link"></i></a>
+            <a href="classes/chillerlan-OAuth-Providers-Codeberg.html#methods" class="headerlink"><i class="fas fa-link"></i></a>
 
         </h3>
                     <article
@@ -2699,13 +1917,13 @@ if the provider implements the CSRFToken interface, and returns an AccessToken o
 >
     <h4 class="phpdocumentor-element__name" id="method_me">
         me()
-        <a href="classes/chillerlan-OAuth-Providers-Gitea.html#method_me" class="headerlink"><i class="fas fa-link"></i></a>
+        <a href="classes/chillerlan-OAuth-Providers-Codeberg.html#method_me" class="headerlink"><i class="fas fa-link"></i></a>
 
     </h4>
     <aside class="phpdocumentor-element-found-in">
-    <abbr class="phpdocumentor-element-found-in__file" title="src/Providers/Gitea.php"><a href="files/src-providers-gitea.html"><abbr title="src/Providers/Gitea.php">Gitea.php</abbr></a></abbr>
+    <abbr class="phpdocumentor-element-found-in__file" title="src/Providers/Codeberg.php"><a href="files/src-providers-codeberg.html"><abbr title="src/Providers/Codeberg.php">Codeberg.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">68</span>
+    <span class="phpdocumentor-element-found-in__line">43</span>
 
     </aside>
 
@@ -2722,7 +1940,7 @@ if the provider implements the CSRFToken interface, and returns an AccessToken o
     
     <h5 class="phpdocumentor-tag-list__heading" id="tags">
         Tags
-        <a href="classes/chillerlan-OAuth-Providers-Gitea.html#method_me#tags" class="headerlink"><i class="fas fa-link"></i></a>
+        <a href="classes/chillerlan-OAuth-Providers-Codeberg.html#method_me#tags" class="headerlink"><i class="fas fa-link"></i></a>
 
     </h5>
     <dl class="phpdocumentor-tag-list">
@@ -4526,7 +3744,7 @@ the spec mandates a JSON body which is what almost all providers send - weird ex
     <div class="phpdocumentor-modal-bg" data-exit-button></div>
     <div class="phpdocumentor-modal-container">
         <div class="phpdocumentor-modal-content">
-            <pre style="max-height: 500px; overflow-y: scroll" data-src="files/src/Providers/Gitea.php.txt" class="language-php line-numbers linkable-line-numbers"></pre>
+            <pre style="max-height: 500px; overflow-y: scroll" data-src="files/src/Providers/Codeberg.php.txt" class="language-php line-numbers linkable-line-numbers"></pre>
         </div>
         <button data-exit-button class="phpdocumentor-modal__close">&times;</button>
     </div>
@@ -4625,39 +3843,16 @@ the spec mandates a JSON body which is what almost all providers send - weird ex
             <li class="phpdocumentor-on-this-page-section__title">Table Of Contents</li>
             <li>
                 <ul class="phpdocumentor-list -clean">
-                                        <li><a href="classes/chillerlan-OAuth-Providers-Gitea.html#toc-constants">Constants</a></li>
-                                                            <li><a href="classes/chillerlan-OAuth-Providers-Gitea.html#toc-properties">Properties</a></li>
-                                                            <li><a href="classes/chillerlan-OAuth-Providers-Gitea.html#toc-methods">Methods</a></li>
+                                        <li><a href="classes/chillerlan-OAuth-Providers-Codeberg.html#toc-constants">Constants</a></li>
+                                                            <li><a href="classes/chillerlan-OAuth-Providers-Codeberg.html#toc-properties">Properties</a></li>
+                                                            <li><a href="classes/chillerlan-OAuth-Providers-Codeberg.html#toc-methods">Methods</a></li>
                                     </ul>
             </li>
                             <li class="phpdocumentor-on-this-page-section__title">Constants</li>
                 <li>
                     <ul class="phpdocumentor-list -clean">
-                                                    <li><a href="classes/chillerlan-OAuth-Providers-Gitea.html#constant_DEFAULT_SCOPES">DEFAULT_SCOPES</a></li>
-                                                    <li><a href="classes/chillerlan-OAuth-Providers-Gitea.html#constant_SCOPE_ACTIVITYPUB">SCOPE_ACTIVITYPUB</a></li>
-                                                    <li><a href="classes/chillerlan-OAuth-Providers-Gitea.html#constant_SCOPE_ACTIVITYPUB_READ">SCOPE_ACTIVITYPUB_READ</a></li>
-                                                    <li><a href="classes/chillerlan-OAuth-Providers-Gitea.html#constant_SCOPE_ACTIVITYPUB_WRITE">SCOPE_ACTIVITYPUB_WRITE</a></li>
-                                                    <li><a href="classes/chillerlan-OAuth-Providers-Gitea.html#constant_SCOPE_ADMIN">SCOPE_ADMIN</a></li>
-                                                    <li><a href="classes/chillerlan-OAuth-Providers-Gitea.html#constant_SCOPE_ADMIN_READ">SCOPE_ADMIN_READ</a></li>
-                                                    <li><a href="classes/chillerlan-OAuth-Providers-Gitea.html#constant_SCOPE_ADMIN_WRITE">SCOPE_ADMIN_WRITE</a></li>
-                                                    <li><a href="classes/chillerlan-OAuth-Providers-Gitea.html#constant_SCOPE_ISSUE">SCOPE_ISSUE</a></li>
-                                                    <li><a href="classes/chillerlan-OAuth-Providers-Gitea.html#constant_SCOPE_ISSUE_READ">SCOPE_ISSUE_READ</a></li>
-                                                    <li><a href="classes/chillerlan-OAuth-Providers-Gitea.html#constant_SCOPE_ISSUE_WRITE">SCOPE_ISSUE_WRITE</a></li>
-                                                    <li><a href="classes/chillerlan-OAuth-Providers-Gitea.html#constant_SCOPE_NOTIFICATION">SCOPE_NOTIFICATION</a></li>
-                                                    <li><a href="classes/chillerlan-OAuth-Providers-Gitea.html#constant_SCOPE_NOTIFICATION_READ">SCOPE_NOTIFICATION_READ</a></li>
-                                                    <li><a href="classes/chillerlan-OAuth-Providers-Gitea.html#constant_SCOPE_NOTIFICATION_WRITE">SCOPE_NOTIFICATION_WRITE</a></li>
-                                                    <li><a href="classes/chillerlan-OAuth-Providers-Gitea.html#constant_SCOPE_ORGANIZATION">SCOPE_ORGANIZATION</a></li>
-                                                    <li><a href="classes/chillerlan-OAuth-Providers-Gitea.html#constant_SCOPE_ORGANIZATION_READ">SCOPE_ORGANIZATION_READ</a></li>
-                                                    <li><a href="classes/chillerlan-OAuth-Providers-Gitea.html#constant_SCOPE_ORGANIZATION_WRITE">SCOPE_ORGANIZATION_WRITE</a></li>
-                                                    <li><a href="classes/chillerlan-OAuth-Providers-Gitea.html#constant_SCOPE_PACKAGE">SCOPE_PACKAGE</a></li>
-                                                    <li><a href="classes/chillerlan-OAuth-Providers-Gitea.html#constant_SCOPE_PACKAGE_READ">SCOPE_PACKAGE_READ</a></li>
-                                                    <li><a href="classes/chillerlan-OAuth-Providers-Gitea.html#constant_SCOPE_PACKAGE_WRITE">SCOPE_PACKAGE_WRITE</a></li>
-                                                    <li><a href="classes/chillerlan-OAuth-Providers-Gitea.html#constant_SCOPE_REPOSITORY">SCOPE_REPOSITORY</a></li>
-                                                    <li><a href="classes/chillerlan-OAuth-Providers-Gitea.html#constant_SCOPE_REPOSITORY_READ">SCOPE_REPOSITORY_READ</a></li>
-                                                    <li><a href="classes/chillerlan-OAuth-Providers-Gitea.html#constant_SCOPE_REPOSITORY_WRITE">SCOPE_REPOSITORY_WRITE</a></li>
-                                                    <li><a href="classes/chillerlan-OAuth-Providers-Gitea.html#constant_SCOPE_USER">SCOPE_USER</a></li>
-                                                    <li><a href="classes/chillerlan-OAuth-Providers-Gitea.html#constant_SCOPE_USER_READ">SCOPE_USER_READ</a></li>
-                                                    <li><a href="classes/chillerlan-OAuth-Providers-Gitea.html#constant_SCOPE_USER_WRITE">SCOPE_USER_WRITE</a></li>
+                                                    <li><a href="classes/chillerlan-OAuth-Providers-Codeberg.html#constant_DEFAULT_SCOPES">DEFAULT_SCOPES</a></li>
+                                                    <li><a href="classes/chillerlan-OAuth-Providers-Codeberg.html#constant_SCOPE_USER">SCOPE_USER</a></li>
                                                     <li><a href="classes/chillerlan-OAuth-Core-OAuthProvider.html#constant_MAGIC_PROPERTIES">MAGIC_PROPERTIES</a></li>
                                             </ul>
                 </li>
@@ -4665,23 +3860,23 @@ the spec mandates a JSON body which is what almost all providers send - weird ex
                             <li class="phpdocumentor-on-this-page-section__title">Properties</li>
                 <li>
                     <ul class="phpdocumentor-list -clean">
-                                                    <li><a href="classes/chillerlan-OAuth-Providers-Gitea.html#property_accessTokenURL">$accessTokenURL<a href="classes/chillerlan-OAuth-Providers-Gitea.html"></li>
-                                                    <li><a href="classes/chillerlan-OAuth-Providers-Gitea.html#property_apiDocs">$apiDocs<a href="classes/chillerlan-OAuth-Providers-Gitea.html"></li>
-                                                    <li><a href="classes/chillerlan-OAuth-Providers-Gitea.html#property_apiURL">$apiURL<a href="classes/chillerlan-OAuth-Providers-Gitea.html"></li>
-                                                    <li><a href="classes/chillerlan-OAuth-Providers-Gitea.html#property_applicationURL">$applicationURL<a href="classes/chillerlan-OAuth-Providers-Gitea.html"></li>
-                                                    <li><a href="classes/chillerlan-OAuth-Providers-Gitea.html#property_authorizationURL">$authorizationURL<a href="classes/chillerlan-OAuth-Providers-Gitea.html"></li>
-                                                    <li><a href="classes/chillerlan-OAuth-Core-OAuth2Provider.html#property_clientCredentialsTokenURL">$clientCredentialsTokenURL<a href="classes/chillerlan-OAuth-Providers-Gitea.html"></li>
-                                                    <li><a href="classes/chillerlan-OAuth-Core-OAuthProvider.html#property_http">$http<a href="classes/chillerlan-OAuth-Providers-Gitea.html"></li>
-                                                    <li><a href="classes/chillerlan-OAuth-Core-OAuthProvider.html#property_logger">$logger<a href="classes/chillerlan-OAuth-Providers-Gitea.html"></li>
-                                                    <li><a href="classes/chillerlan-OAuth-Core-OAuthProvider.html#property_name">$name<a href="classes/chillerlan-OAuth-Providers-Gitea.html"></li>
-                                                    <li><a href="classes/chillerlan-OAuth-Core-OAuthProvider.html#property_options">$options<a href="classes/chillerlan-OAuth-Providers-Gitea.html"></li>
-                                                    <li><a href="classes/chillerlan-OAuth-Core-OAuth2Provider.html#property_refreshTokenURL">$refreshTokenURL<a href="classes/chillerlan-OAuth-Providers-Gitea.html"></li>
-                                                    <li><a href="classes/chillerlan-OAuth-Core-OAuthProvider.html#property_requestFactory">$requestFactory<a href="classes/chillerlan-OAuth-Providers-Gitea.html"></li>
-                                                    <li><a href="classes/chillerlan-OAuth-Core-OAuthProvider.html#property_revokeURL">$revokeURL<a href="classes/chillerlan-OAuth-Providers-Gitea.html"></li>
-                                                    <li><a href="classes/chillerlan-OAuth-Core-OAuthProvider.html#property_storage">$storage<a href="classes/chillerlan-OAuth-Providers-Gitea.html"></li>
-                                                    <li><a href="classes/chillerlan-OAuth-Core-OAuthProvider.html#property_streamFactory">$streamFactory<a href="classes/chillerlan-OAuth-Providers-Gitea.html"></li>
-                                                    <li><a href="classes/chillerlan-OAuth-Core-OAuthProvider.html#property_uriFactory">$uriFactory<a href="classes/chillerlan-OAuth-Providers-Gitea.html"></li>
-                                                    <li><a href="classes/chillerlan-OAuth-Providers-Gitea.html#property_userRevokeURL">$userRevokeURL<a href="classes/chillerlan-OAuth-Providers-Gitea.html"></li>
+                                                    <li><a href="classes/chillerlan-OAuth-Providers-Codeberg.html#property_accessTokenURL">$accessTokenURL<a href="classes/chillerlan-OAuth-Providers-Codeberg.html"></li>
+                                                    <li><a href="classes/chillerlan-OAuth-Providers-Codeberg.html#property_apiDocs">$apiDocs<a href="classes/chillerlan-OAuth-Providers-Codeberg.html"></li>
+                                                    <li><a href="classes/chillerlan-OAuth-Providers-Codeberg.html#property_apiURL">$apiURL<a href="classes/chillerlan-OAuth-Providers-Codeberg.html"></li>
+                                                    <li><a href="classes/chillerlan-OAuth-Providers-Codeberg.html#property_applicationURL">$applicationURL<a href="classes/chillerlan-OAuth-Providers-Codeberg.html"></li>
+                                                    <li><a href="classes/chillerlan-OAuth-Providers-Codeberg.html#property_authorizationURL">$authorizationURL<a href="classes/chillerlan-OAuth-Providers-Codeberg.html"></li>
+                                                    <li><a href="classes/chillerlan-OAuth-Core-OAuth2Provider.html#property_clientCredentialsTokenURL">$clientCredentialsTokenURL<a href="classes/chillerlan-OAuth-Providers-Codeberg.html"></li>
+                                                    <li><a href="classes/chillerlan-OAuth-Core-OAuthProvider.html#property_http">$http<a href="classes/chillerlan-OAuth-Providers-Codeberg.html"></li>
+                                                    <li><a href="classes/chillerlan-OAuth-Core-OAuthProvider.html#property_logger">$logger<a href="classes/chillerlan-OAuth-Providers-Codeberg.html"></li>
+                                                    <li><a href="classes/chillerlan-OAuth-Core-OAuthProvider.html#property_name">$name<a href="classes/chillerlan-OAuth-Providers-Codeberg.html"></li>
+                                                    <li><a href="classes/chillerlan-OAuth-Core-OAuthProvider.html#property_options">$options<a href="classes/chillerlan-OAuth-Providers-Codeberg.html"></li>
+                                                    <li><a href="classes/chillerlan-OAuth-Core-OAuth2Provider.html#property_refreshTokenURL">$refreshTokenURL<a href="classes/chillerlan-OAuth-Providers-Codeberg.html"></li>
+                                                    <li><a href="classes/chillerlan-OAuth-Core-OAuthProvider.html#property_requestFactory">$requestFactory<a href="classes/chillerlan-OAuth-Providers-Codeberg.html"></li>
+                                                    <li><a href="classes/chillerlan-OAuth-Core-OAuthProvider.html#property_revokeURL">$revokeURL<a href="classes/chillerlan-OAuth-Providers-Codeberg.html"></li>
+                                                    <li><a href="classes/chillerlan-OAuth-Core-OAuthProvider.html#property_storage">$storage<a href="classes/chillerlan-OAuth-Providers-Codeberg.html"></li>
+                                                    <li><a href="classes/chillerlan-OAuth-Core-OAuthProvider.html#property_streamFactory">$streamFactory<a href="classes/chillerlan-OAuth-Providers-Codeberg.html"></li>
+                                                    <li><a href="classes/chillerlan-OAuth-Core-OAuthProvider.html#property_uriFactory">$uriFactory<a href="classes/chillerlan-OAuth-Providers-Codeberg.html"></li>
+                                                    <li><a href="classes/chillerlan-OAuth-Providers-Codeberg.html#property_userRevokeURL">$userRevokeURL<a href="classes/chillerlan-OAuth-Providers-Codeberg.html"></li>
                                             </ul>
                 </li>
             
@@ -4697,7 +3892,7 @@ the spec mandates a JSON body which is what almost all providers send - weird ex
                                             <li><a href="classes/chillerlan-OAuth-Core-OAuth2Provider.html#method_getRequestAuthorization">getRequestAuthorization()</a></li>
                                             <li><a href="classes/chillerlan-OAuth-Core-OAuthProvider.html#method_getStorage">getStorage()</a></li>
                                             <li><a href="classes/chillerlan-OAuth-Core-OAuthProvider.html#method_InvalidateAccessToken">InvalidateAccessToken()</a></li>
-                                            <li><a href="classes/chillerlan-OAuth-Providers-Gitea.html#method_me">me()</a></li>
+                                            <li><a href="classes/chillerlan-OAuth-Providers-Codeberg.html#method_me">me()</a></li>
                                             <li><a href="classes/chillerlan-OAuth-Core-OAuth2Provider.html#method_refreshAccessToken">refreshAccessToken()</a></li>
                                             <li><a href="classes/chillerlan-OAuth-Core-OAuthProvider.html#method_request">request()</a></li>
                                             <li><a href="classes/chillerlan-OAuth-Core-OAuthProvider.html#method_sendRequest">sendRequest()</a></li>
@@ -4746,7 +3941,7 @@ the spec mandates a JSON body which is what almost all providers send - weird ex
     </section>
 </section>
         </div>
-        <a href="classes/chillerlan-OAuth-Providers-Gitea.html#top" class="phpdocumentor-back-to-top"><i class="fas fa-chevron-circle-up"></i></a>
+        <a href="classes/chillerlan-OAuth-Providers-Codeberg.html#top" class="phpdocumentor-back-to-top"><i class="fas fa-chevron-circle-up"></i></a>
 
     </main>
 

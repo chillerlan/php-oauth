@@ -1136,6 +1136,56 @@ Search.appendIndex(
             "summary": "",
             "url": "classes/chillerlan-OAuth-Providers-Bitbucket.html#property_applicationURL"
         },                {
+            "fqsen": "\\chillerlan\\OAuth\\Providers\\Codeberg",
+            "name": "Codeberg",
+            "summary": "Implements\u0020an\u0020abstract\u0020OAuth2\u0020provider\u0020with\u0020all\u0020methods\u0020required\u0020by\u0020the\u0020OAuth2Interface.",
+            "url": "classes/chillerlan-OAuth-Providers-Codeberg.html"
+        },                {
+            "fqsen": "\\chillerlan\\OAuth\\Providers\\Codeberg\u003A\u003Ame\u0028\u0029",
+            "name": "me",
+            "summary": "Returns\u0020information\u0020about\u0020the\u0020currently\u0020authenticated\u0020user\u0020\u0028usually\u0020a\u0020\/me\u0020or\u0020\/user\u0020endpoint\u0029.",
+            "url": "classes/chillerlan-OAuth-Providers-Codeberg.html#method_me"
+        },                {
+            "fqsen": "\\chillerlan\\OAuth\\Providers\\Codeberg\u003A\u003ASCOPE_USER",
+            "name": "SCOPE_USER",
+            "summary": "",
+            "url": "classes/chillerlan-OAuth-Providers-Codeberg.html#constant_SCOPE_USER"
+        },                {
+            "fqsen": "\\chillerlan\\OAuth\\Providers\\Codeberg\u003A\u003ADEFAULT_SCOPES",
+            "name": "DEFAULT_SCOPES",
+            "summary": "",
+            "url": "classes/chillerlan-OAuth-Providers-Codeberg.html#constant_DEFAULT_SCOPES"
+        },                {
+            "fqsen": "\\chillerlan\\OAuth\\Providers\\Codeberg\u003A\u003A\u0024authorizationURL",
+            "name": "authorizationURL",
+            "summary": "",
+            "url": "classes/chillerlan-OAuth-Providers-Codeberg.html#property_authorizationURL"
+        },                {
+            "fqsen": "\\chillerlan\\OAuth\\Providers\\Codeberg\u003A\u003A\u0024accessTokenURL",
+            "name": "accessTokenURL",
+            "summary": "",
+            "url": "classes/chillerlan-OAuth-Providers-Codeberg.html#property_accessTokenURL"
+        },                {
+            "fqsen": "\\chillerlan\\OAuth\\Providers\\Codeberg\u003A\u003A\u0024apiURL",
+            "name": "apiURL",
+            "summary": "",
+            "url": "classes/chillerlan-OAuth-Providers-Codeberg.html#property_apiURL"
+        },                {
+            "fqsen": "\\chillerlan\\OAuth\\Providers\\Codeberg\u003A\u003A\u0024apiDocs",
+            "name": "apiDocs",
+            "summary": "",
+            "url": "classes/chillerlan-OAuth-Providers-Codeberg.html#property_apiDocs"
+        },                {
+            "fqsen": "\\chillerlan\\OAuth\\Providers\\Codeberg\u003A\u003A\u0024applicationURL",
+            "name": "applicationURL",
+            "summary": "",
+            "url": "classes/chillerlan-OAuth-Providers-Codeberg.html#property_applicationURL"
+        },                {
+            "fqsen": "\\chillerlan\\OAuth\\Providers\\Codeberg\u003A\u003A\u0024userRevokeURL",
+            "name": "userRevokeURL",
+            "summary": "",
+            "url": "classes/chillerlan-OAuth-Providers-Codeberg.html#property_userRevokeURL"
+        },                {
             "fqsen": "\\chillerlan\\OAuth\\Providers\\Deezer",
             "name": "Deezer",
             "summary": "Deezer\u0020OAuth2",
@@ -5136,6 +5186,21 @@ Search.appendIndex(
             "summary": "",
             "url": "classes/chillerlan-OAuthTest-Providers-Live-BitbucketAPITest.html#method_getEnvPrefix"
         },                {
+            "fqsen": "\\chillerlan\\OAuthTest\\Providers\\Live\\CodebergAPITest",
+            "name": "CodebergAPITest",
+            "summary": "",
+            "url": "classes/chillerlan-OAuthTest-Providers-Live-CodebergAPITest.html"
+        },                {
+            "fqsen": "\\chillerlan\\OAuthTest\\Providers\\Live\\CodebergAPITest\u003A\u003AgetProviderFQCN\u0028\u0029",
+            "name": "getProviderFQCN",
+            "summary": "",
+            "url": "classes/chillerlan-OAuthTest-Providers-Live-CodebergAPITest.html#method_getProviderFQCN"
+        },                {
+            "fqsen": "\\chillerlan\\OAuthTest\\Providers\\Live\\CodebergAPITest\u003A\u003AgetEnvPrefix\u0028\u0029",
+            "name": "getEnvPrefix",
+            "summary": "",
+            "url": "classes/chillerlan-OAuthTest-Providers-Live-CodebergAPITest.html#method_getEnvPrefix"
+        },                {
             "fqsen": "\\chillerlan\\OAuthTest\\Providers\\Live\\DeezerAPITest",
             "name": "DeezerAPITest",
             "summary": "",
@@ -6130,6 +6195,16 @@ Search.appendIndex(
             "name": "getProviderFQCN",
             "summary": "",
             "url": "classes/chillerlan-OAuthTest-Providers-Unit-BitbucketTest.html#method_getProviderFQCN"
+        },                {
+            "fqsen": "\\chillerlan\\OAuthTest\\Providers\\Unit\\CodebergTest",
+            "name": "CodebergTest",
+            "summary": "",
+            "url": "classes/chillerlan-OAuthTest-Providers-Unit-CodebergTest.html"
+        },                {
+            "fqsen": "\\chillerlan\\OAuthTest\\Providers\\Unit\\CodebergTest\u003A\u003AgetProviderFQCN\u0028\u0029",
+            "name": "getProviderFQCN",
+            "summary": "",
+            "url": "classes/chillerlan-OAuthTest-Providers-Unit-CodebergTest.html#method_getProviderFQCN"
         },                {
             "fqsen": "\\chillerlan\\OAuthTest\\Providers\\Unit\\DeezerTest",
             "name": "DeezerTest",

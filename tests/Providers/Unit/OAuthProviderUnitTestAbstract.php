@@ -14,6 +14,7 @@ namespace chillerlan\OAuthTest\Providers\Unit;
 use chillerlan\OAuth\Core\AccessToken;
 use chillerlan\OAuth\Core\OAuthInterface;
 use chillerlan\OAuth\Core\TokenInvalidate;
+use chillerlan\OAuth\Core\UserInfo;
 use chillerlan\OAuth\Providers\ProviderException;
 use chillerlan\OAuth\Storage\TokenNotFoundException;
 use chillerlan\OAuthTest\Providers\ProviderUnitTestAbstract;
@@ -185,6 +186,11 @@ abstract class OAuthProviderUnitTestAbstract extends ProviderUnitTestAbstract{
 	 */
 
 	public function testMeUnknownErrorException():void{
+
+		if(!$this->provider instanceof UserInfo){
+			$this::markTestSkipped('UserInfo N/A');
+		}
+
 		$this->expectException(ProviderException::class);
 		$this->expectExceptionMessage('user info error HTTP/404');
 

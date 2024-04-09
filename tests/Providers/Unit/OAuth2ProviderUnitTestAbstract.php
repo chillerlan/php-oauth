@@ -187,10 +187,13 @@ abstract class OAuth2ProviderUnitTestAbstract extends OAuthProviderUnitTestAbstr
 		$params = $this->invokeReflectionMethod('getAccessTokenRequestBodyParams', ['*test_code*']);
 
 		$this::assertSame('*test_code*', $params['code']);
-		$this::assertSame($this->options->key, $params['client_id']);
-		$this::assertSame($this->options->secret, $params['client_secret']);
 		$this::assertSame($this->options->callbackURL, $params['redirect_uri']);
 		$this::assertSame('authorization_code', $params['grant_type']);
+
+		if(!$this->provider::USES_BASIC_AUTH_IN_ACCESS_TOKEN_REQUEST){
+			$this::assertSame($this->options->key, $params['client_id']);
+			$this::assertSame($this->options->secret, $params['client_secret']);
+		}
 
 		if($this->provider instanceof PKCE){
 			$this::assertSame($verifier, $params['code_verifier']);
@@ -208,6 +211,13 @@ abstract class OAuth2ProviderUnitTestAbstract extends OAuthProviderUnitTestAbstr
 		$this::assertSame($url, $json->request->url);
 		$this::assertSame('POST', $json->request->method);
 		$this::assertSame('foo=bar', $json->body);
+
+		if($this->provider::USES_BASIC_AUTH_IN_ACCESS_TOKEN_REQUEST){
+			$authHeader = 'Basic '.base64_encode($this->options->key.':'.$this->options->secret);
+
+			$this::assertSame($authHeader, $json->headers->{'Authorization'});
+		}
+
 	}
 
 

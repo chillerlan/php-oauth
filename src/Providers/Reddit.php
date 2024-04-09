@@ -13,14 +13,11 @@ declare(strict_types=1);
 
 namespace chillerlan\OAuth\Providers;
 
-use chillerlan\HTTP\Utils\QueryUtil;
 use chillerlan\OAuth\Core\{
 	AccessToken, AuthenticatedUser, ClientCredentials, CSRFToken, OAuth2Interface,
 	OAuth2Provider, TokenInvalidate, TokenRefresh, UserInfo
 };
-use Psr\Http\Message\ResponseInterface;
 use function sprintf;
-use const PHP_QUERY_RFC1738;
 
 /**
  * @see https://github.com/reddit-archive/reddit/wiki/OAuth2
@@ -76,6 +73,8 @@ class Reddit extends OAuth2Provider implements ClientCredentials, CSRFToken, Tok
 		'User-Agent' => self::USER_AGENT,
 	];
 
+	public const USES_BASIC_AUTH_IN_ACCESS_TOKEN_REQUEST = true;
+
 	protected string      $authorizationURL = 'https://www.reddit.com/api/v1/authorize';
 	protected string      $accessTokenURL   = 'https://www.reddit.com/api/v1/access_token';
 	protected string      $apiURL           = 'https://oauth.reddit.com/api';
@@ -83,34 +82,6 @@ class Reddit extends OAuth2Provider implements ClientCredentials, CSRFToken, Tok
 	protected string|null $apiDocs          = 'https://www.reddit.com/dev/api';
 	protected string|null $applicationURL   = 'https://www.reddit.com/prefs/apps/';
 	protected string|null $userRevokeURL    = 'https://www.reddit.com/settings/privacy';
-
-	/**
-	 * @inheritDoc
-	 */
-	protected function getAccessTokenRequestBodyParams(string $code):array{
-		return [
-			'code'         => $code,
-			'grant_type'   => 'authorization_code',
-			'redirect_uri' => $this->options->callbackURL,
-		];
-	}
-
-	/**
-	 * @inheritDoc
-	 */
-	protected function sendAccessTokenRequest(string $url, array $body):ResponseInterface{
-
-		$request = $this->requestFactory
-			->createRequest('POST', $url)
-			->withHeader('Accept-Encoding', 'identity')
-			->withHeader('Content-Type', 'application/x-www-form-urlencoded')
-			->withBody($this->streamFactory->createStream(QueryUtil::build($body, PHP_QUERY_RFC1738)))
-		;
-
-		$request = $this->addBasicAuthHeader($request);
-
-		return $this->http->sendRequest($request);
-	}
 
 	/**
 	 * @inheritDoc

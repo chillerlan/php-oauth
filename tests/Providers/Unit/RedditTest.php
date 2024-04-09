@@ -11,8 +11,7 @@ declare(strict_types=1);
 
 namespace chillerlan\OAuthTest\Providers\Unit;
 
-use chillerlan\OAuth\Core\AccessToken;
-use chillerlan\OAuth\Core\TokenInvalidate;
+use chillerlan\OAuth\Core\{AccessToken, TokenInvalidate};
 use chillerlan\OAuth\Providers\Reddit;
 
 /**
@@ -22,14 +21,6 @@ class RedditTest extends OAuth2ProviderUnitTestAbstract{
 
 	protected function getProviderFQCN():string{
 		return Reddit::class;
-	}
-
-	public function testGetAccessTokenRequestBodyParams():void{
-		$params = $this->invokeReflectionMethod('getAccessTokenRequestBodyParams', ['*test_code*']);
-
-		$this::assertSame('*test_code*', $params['code']);
-		$this::assertSame($this->options->callbackURL, $params['redirect_uri']);
-		$this::assertSame('authorization_code', $params['grant_type']);
 	}
 
 	public function testTokenInvalidate():void{

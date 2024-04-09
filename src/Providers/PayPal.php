@@ -13,10 +13,7 @@ declare(strict_types=1);
 
 namespace chillerlan\OAuth\Providers;
 
-use chillerlan\HTTP\Utils\QueryUtil;
 use chillerlan\OAuth\Core\{AuthenticatedUser, ClientCredentials, CSRFToken, OAuth2Provider, TokenRefresh, UserInfo};
-use Psr\Http\Message\ResponseInterface;
-use const PHP_QUERY_RFC1738;
 
 /**
  * PayPal OAuth2
@@ -36,39 +33,13 @@ class PayPal extends OAuth2Provider implements ClientCredentials, CSRFToken, Tok
 		self::SCOPE_EMAIL,
 	];
 
+	public const USES_BASIC_AUTH_IN_ACCESS_TOKEN_REQUEST = true;
+
 	protected string      $accessTokenURL   = 'https://api.paypal.com/v1/oauth2/token';
 	protected string      $authorizationURL = 'https://www.paypal.com/connect';
 	protected string      $apiURL           = 'https://api.paypal.com';
 	protected string|null $applicationURL   = 'https://developer.paypal.com/developer/applications/';
 	protected string|null $apiDocs          = 'https://developer.paypal.com/docs/connect-with-paypal/reference/';
-
-	/**
-	 * @inheritDoc
-	 */
-	protected function getAccessTokenRequestBodyParams(string $code):array{
-		return [
-			'code'         => $code,
-			'grant_type'   => 'authorization_code',
-			'redirect_uri' => $this->options->callbackURL,
-		];
-	}
-
-	/**
-	 * @inheritDoc
-	 */
-	protected function sendAccessTokenRequest(string $url, array $body):ResponseInterface{
-
-		$request = $this->requestFactory
-			->createRequest('POST', $url)
-			->withHeader('Accept-Encoding', 'identity')
-			->withHeader('Content-Type', 'application/x-www-form-urlencoded')
-			->withBody($this->streamFactory->createStream(QueryUtil::build($body, PHP_QUERY_RFC1738)))
-		;
-
-		$request = $this->addBasicAuthHeader($request);
-
-		return $this->http->sendRequest($request);
-	}
 
 	/**
 	 * @inheritDoc

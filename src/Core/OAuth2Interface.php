@@ -60,6 +60,20 @@ interface OAuth2Interface extends OAuthInterface{
 	public const SCOPES_DELIMITER = ' ';
 
 	/**
+	 * This indicates that the current provider requires an `Authorization: Basic <base64(key:secret)>` header
+	 * in the access token request, rather than the key and secret in the request body.
+	 *
+	 * It saves provider inplementations from the hassle to override the respective methods:
+	 *
+	 *   - `OAuth2Provider::getAccessTokenRequestBodyParams()`
+	 *   - `OAuth2Provider::sendAccessTokenRequest()`
+	 *
+	 * I'm not sure where to put this: here or a feature interface (it's not exactly a feature).
+	 * I'll leave it here for now, subject to change.
+	 */
+	public const USES_BASIC_AUTH_IN_ACCESS_TOKEN_REQUEST = false;
+
+	/**
 	 * Obtains an OAuth2 access token with the given $code, verifies the $state
 	 * if the provider implements the CSRFToken interface, and returns an AccessToken object
 	 *

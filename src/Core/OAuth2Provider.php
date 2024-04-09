@@ -185,12 +185,15 @@ abstract class OAuth2Provider extends OAuthProvider implements OAuth2Interface{
 	protected function getAccessTokenRequestBodyParams(string $code):array{
 
 		$params = [
-			'client_id'     => $this->options->key,
-			'client_secret' => $this->options->secret,
-			'code'          => $code,
-			'grant_type'    => 'authorization_code',
-			'redirect_uri'  => $this->options->callbackURL,
+			'code'         => $code,
+			'grant_type'   => 'authorization_code',
+			'redirect_uri' => $this->options->callbackURL,
 		];
+
+		if(!$this::USES_BASIC_AUTH_IN_ACCESS_TOKEN_REQUEST){
+			$params['client_id']     = $this->options->key;
+			$params['client_secret'] = $this->options->secret;
+		}
 
 		if($this instanceof PKCE){
 			$params = $this->setCodeVerifier($params);
@@ -213,6 +216,10 @@ abstract class OAuth2Provider extends OAuthProvider implements OAuth2Interface{
 
 		foreach($this::HEADERS_AUTH as $header => $value){
 			$request = $request->withHeader($header, $value);
+		}
+
+		if($this::USES_BASIC_AUTH_IN_ACCESS_TOKEN_REQUEST){
+			$request = $this->addBasicAuthHeader($request);
 		}
 
 		return $this->http->sendRequest($request);

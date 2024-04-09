@@ -9,7 +9,7 @@
  */
 declare(strict_types=1);
 
-use chillerlan\OAuth\Core\CSRFToken;
+use chillerlan\OAuth\Core\{CSRFToken, UserInfo};
 
 /**
  * @var \chillerlan\OAuth\Core\OAuth2Interface $provider
@@ -45,10 +45,13 @@ elseif(isset($_GET['granted']) && $_GET['granted'] === $name){
 	// use the file storage from now on
 	$provider->setStorage($factory->getFileStorage());
 
-	$me        = print_r($provider->me(), true);
+	if($provider instanceof UserInfo){
+		printf('<pre>%s</pre>', print_r($provider->me(), true));
+	}
+
 	$tokenJSON = $provider->getAccessTokenFromStorage()->toJSON();
 
-	printf('<pre>%s</pre><textarea cols="120" rows="5" onclick="this.select();">%s</textarea>', $me, $tokenJSON);
+	printf('<textarea cols="120" rows="5" onclick="this.select();">%s</textarea>', $tokenJSON);
 }
 // step 1 (optional): display a login link
 else{

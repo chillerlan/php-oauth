@@ -118,10 +118,10 @@
 
     <article class="phpdocumentor-element -class">
         <h2 class="phpdocumentor-content__title">
-    SteamOpenIDAPITest
+    RedditAPITest
 
         <span class="phpdocumentor-element__extends">
-        extends <a href="classes/chillerlan-OAuthTest-Providers-Live-OAuthProviderLiveTestAbstract.html"><abbr title="\chillerlan\OAuthTest\Providers\Live\OAuthProviderLiveTestAbstract">OAuthProviderLiveTestAbstract</abbr></a>
+        extends <a href="classes/chillerlan-OAuthTest-Providers-Live-OAuth2ProviderLiveTestAbstract.html"><abbr title="\chillerlan\OAuthTest\Providers\Live\OAuth2ProviderLiveTestAbstract">OAuth2ProviderLiveTestAbstract</abbr></a>
     </span>
     
             <div class="phpdocumentor-element__package">
@@ -136,15 +136,13 @@
 
 <div class="phpdocumentor-label-line">
 
-    <div class="phpdocumentor-label phpdocumentor-label--success"><span>Final</span><span>Yes</span></div>
-
 
 </div>
 
         <aside class="phpdocumentor-element-found-in">
-    <abbr class="phpdocumentor-element-found-in__file" title="tests/Providers/Live/SteamOpenIDAPITest.php"><a href="files/tests-providers-live-steamopenidapitest.html"><abbr title="tests/Providers/Live/SteamOpenIDAPITest.php">SteamOpenIDAPITest.php</abbr></a></abbr>
+    <abbr class="phpdocumentor-element-found-in__file" title="tests/Providers/Live/RedditAPITest.php"><a href="files/tests-providers-live-redditapitest.html"><abbr title="tests/Providers/Live/RedditAPITest.php">RedditAPITest.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">21</span>
+    <span class="phpdocumentor-element-found-in__line">20</span>
 
     </aside>
 
@@ -156,7 +154,7 @@
 
 <h3 id="toc">
     Table of Contents
-    <a href="classes/chillerlan-OAuthTest-Providers-Live-SteamOpenIDAPITest.html#toc" class="headerlink"><i class="fas fa-link"></i></a>
+    <a href="classes/chillerlan-OAuthTest-Providers-Live-RedditAPITest.html#toc" class="headerlink"><i class="fas fa-link"></i></a>
 
 </h3>
 
@@ -168,7 +166,7 @@
 
 <h4 id="toc-constants">
     Constants
-    <a href="classes/chillerlan-OAuthTest-Providers-Live-SteamOpenIDAPITest.html#toc-constants" class="headerlink"><i class="fas fa-link"></i></a>
+    <a href="classes/chillerlan-OAuthTest-Providers-Live-RedditAPITest.html#toc-constants" class="headerlink"><i class="fas fa-link"></i></a>
 
 </h4>
 <dl class="phpdocumentor-table-of-contents">
@@ -189,14 +187,20 @@
 
 <h4 id="toc-properties">
     Properties
-    <a href="classes/chillerlan-OAuthTest-Providers-Live-SteamOpenIDAPITest.html#toc-properties" class="headerlink"><i class="fas fa-link"></i></a>
+    <a href="classes/chillerlan-OAuthTest-Providers-Live-RedditAPITest.html#toc-properties" class="headerlink"><i class="fas fa-link"></i></a>
 
 </h4>
 <dl class="phpdocumentor-table-of-contents">
             <dt class="phpdocumentor-table-of-contents__entry -property -public">
-    <a href="classes/chillerlan-OAuthTest-Providers-Live-SteamOpenIDAPITest.html#property_provider">$provider</a>
+    <a href="classes/chillerlan-OAuthTest-Providers-Live-RedditAPITest.html#property_provider">$provider</a>
     <span>
-                        &nbsp;: <a href="classes/chillerlan-OAuth-Providers-SteamOpenID.html"><abbr title="\chillerlan\OAuth\Providers\SteamOpenID">SteamOpenID</abbr></a>            </span>
+                        &nbsp;: <a href="classes/chillerlan-OAuth-Providers-Reddit.html"><abbr title="\chillerlan\OAuth\Providers\Reddit">Reddit</abbr></a>            </span>
+</dt>
+
+            <dt class="phpdocumentor-table-of-contents__entry -property -public">
+    <a href="classes/chillerlan-OAuthTest-Providers-Live-OAuth2ProviderLiveTestAbstract.html#property_provider">$provider</a>
+    <span>
+                        &nbsp;: <a href="classes/chillerlan-OAuth-Core-OAuth2Interface.html"><abbr title="\chillerlan\OAuth\Core\OAuth2Interface">OAuth2Interface</abbr></a>            </span>
 </dt>
 
             <dt class="phpdocumentor-table-of-contents__entry -property -public">
@@ -209,6 +213,12 @@
     <a href="classes/chillerlan-OAuthTest-Providers-ProviderUnitTestAbstract.html#property_CFG_DIR">$CFG_DIR</a>
     <span>
                         &nbsp;: string            </span>
+</dt>
+
+            <dt class="phpdocumentor-table-of-contents__entry -property -protected">
+    <a href="classes/chillerlan-OAuthTest-Providers-Live-OAuth2ProviderLiveTestAbstract.html#property_clientCredentialsScopes">$clientCredentialsScopes</a>
+    <span>
+                        &nbsp;: array&lt;string|int, mixed&gt;            </span>
 </dt>
 
             <dt class="phpdocumentor-table-of-contents__entry -property -protected">
@@ -233,12 +243,6 @@
     <a href="classes/chillerlan-OAuthTest-Providers-ProviderUnitTestAbstract.html#property_HTTP_CLIENT_FACTORY">$HTTP_CLIENT_FACTORY</a>
     <span>
                         &nbsp;: string            </span>
-</dt>
-
-            <dt class="phpdocumentor-table-of-contents__entry -property -protected">
-    <a href="classes/chillerlan-OAuthTest-Providers-Live-SteamOpenIDAPITest.html#property_id">$id</a>
-    <span>
-                        &nbsp;: int            </span>
 </dt>
 
             <dt class="phpdocumentor-table-of-contents__entry -property -protected">
@@ -288,7 +292,7 @@
 
 <h4 id="toc-methods">
     Methods
-    <a href="classes/chillerlan-OAuthTest-Providers-Live-SteamOpenIDAPITest.html#toc-methods" class="headerlink"><i class="fas fa-link"></i></a>
+    <a href="classes/chillerlan-OAuthTest-Providers-Live-RedditAPITest.html#toc-methods" class="headerlink"><i class="fas fa-link"></i></a>
 
 </h4>
 <dl class="phpdocumentor-table-of-contents">
@@ -299,13 +303,19 @@
 </dt>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a href="classes/chillerlan-OAuthTest-Providers-Live-SteamOpenIDAPITest.html#method_testUnauthorizedAccessException">testUnauthorizedAccessException()</a>
+    <a href="classes/chillerlan-OAuthTest-Providers-Live-OAuth2ProviderLiveTestAbstract.html#method_testRequestCredentialsToken">testRequestCredentialsToken()</a>
+    <span>
+                                &nbsp;: void    </span>
+</dt>
+
+            <dt class="phpdocumentor-table-of-contents__entry -method -public">
+    <a href="classes/chillerlan-OAuthTest-Providers-Live-OAuthProviderLiveTestAbstract.html#method_testUnauthorizedAccessException">testUnauthorizedAccessException()</a>
     <span>
                                 &nbsp;: void    </span>
 </dt>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -protected">
-    <a href="classes/chillerlan-OAuthTest-Providers-Live-SteamOpenIDAPITest.html#method_assertMeResponse">assertMeResponse()</a>
+    <a href="classes/chillerlan-OAuthTest-Providers-Live-OAuthProviderLiveTestAbstract.html#method_assertMeResponse">assertMeResponse()</a>
     <span>
                                 &nbsp;: void    </span>
 </dt>
@@ -317,7 +327,7 @@
 </dt>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -protected">
-    <a href="classes/chillerlan-OAuthTest-Providers-Live-SteamOpenIDAPITest.html#method_getEnvPrefix">getEnvPrefix()</a>
+    <a href="classes/chillerlan-OAuthTest-Providers-Live-RedditAPITest.html#method_getEnvPrefix">getEnvPrefix()</a>
     <span>
                                 &nbsp;: string    </span>
 </dt>
@@ -330,7 +340,7 @@
 <dd>creates a stupid simple ClientInterface that returns the given response instance</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -protected">
-    <a href="classes/chillerlan-OAuthTest-Providers-Live-SteamOpenIDAPITest.html#method_getProviderFQCN">getProviderFQCN()</a>
+    <a href="classes/chillerlan-OAuthTest-Providers-Live-RedditAPITest.html#method_getProviderFQCN">getProviderFQCN()</a>
     <span>
                                 &nbsp;: string    </span>
 </dt>
@@ -379,7 +389,7 @@
 </dt>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -protected">
-    <a href="classes/chillerlan-OAuthTest-Providers-Live-SteamOpenIDAPITest.html#method_setUp">setUp()</a>
+    <a href="classes/chillerlan-OAuthTest-Providers-ProviderUnitTestAbstract.html#method_setUp">setUp()</a>
     <span>
                                 &nbsp;: void    </span>
 </dt>
@@ -393,7 +403,7 @@
     <section class="phpdocumentor-constants">
         <h3 class="phpdocumentor-elements__header" id="constants">
             Constants
-            <a href="classes/chillerlan-OAuthTest-Providers-Live-SteamOpenIDAPITest.html#constants" class="headerlink"><i class="fas fa-link"></i></a>
+            <a href="classes/chillerlan-OAuthTest-Providers-Live-RedditAPITest.html#constants" class="headerlink"><i class="fas fa-link"></i></a>
 
         </h3>
                     <article class="phpdocumentor-element -constant -protected ">
@@ -458,7 +468,7 @@
     <section class="phpdocumentor-properties">
         <h3 class="phpdocumentor-elements__header" id="properties">
             Properties
-            <a href="classes/chillerlan-OAuthTest-Providers-Live-SteamOpenIDAPITest.html#properties" class="headerlink"><i class="fas fa-link"></i></a>
+            <a href="classes/chillerlan-OAuthTest-Providers-Live-RedditAPITest.html#properties" class="headerlink"><i class="fas fa-link"></i></a>
 
         </h3>
                     <article
@@ -470,13 +480,13 @@
 >
     <h4 class="phpdocumentor-element__name" id="property_provider">
         $provider
-        <a href="classes/chillerlan-OAuthTest-Providers-Live-SteamOpenIDAPITest.html#property_provider" class="headerlink"><i class="fas fa-link"></i></a>
+        <a href="classes/chillerlan-OAuthTest-Providers-Live-RedditAPITest.html#property_provider" class="headerlink"><i class="fas fa-link"></i></a>
 
         <span class="phpdocumentor-element__modifiers">
                                 </span>
     </h4>
     <aside class="phpdocumentor-element-found-in">
-    <abbr class="phpdocumentor-element-found-in__file" title="tests/Providers/Live/SteamOpenIDAPITest.php"><a href="files/tests-providers-live-steamopenidapitest.html"><abbr title="tests/Providers/Live/SteamOpenIDAPITest.php">SteamOpenIDAPITest.php</abbr></a></abbr>
+    <abbr class="phpdocumentor-element-found-in__file" title="tests/Providers/Live/RedditAPITest.php"><a href="files/tests-providers-live-redditapitest.html"><abbr title="tests/Providers/Live/RedditAPITest.php">RedditAPITest.php</abbr></a></abbr>
     :
     <span class="phpdocumentor-element-found-in__line">0</span>
 
@@ -485,7 +495,40 @@
     
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
-        <span class="phpdocumentor-signature__type"><a href="classes/chillerlan-OAuth-Providers-SteamOpenID.html"><abbr title="\chillerlan\OAuth\Providers\SteamOpenID">SteamOpenID</abbr></a></span>
+        <span class="phpdocumentor-signature__type"><a href="classes/chillerlan-OAuth-Providers-Reddit.html"><abbr title="\chillerlan\OAuth\Providers\Reddit">Reddit</abbr></a></span>
+    <span class="phpdocumentor-signature__name">$provider</span>
+    </code>
+
+    
+    
+    
+
+</article>
+                    <article
+        class="
+            phpdocumentor-element
+            -property
+            -public
+                                                        "
+>
+    <h4 class="phpdocumentor-element__name" id="property_provider">
+        $provider
+        <a href="classes/chillerlan-OAuthTest-Providers-Live-OAuth2ProviderLiveTestAbstract.html#property_provider" class="headerlink"><i class="fas fa-link"></i></a>
+
+        <span class="phpdocumentor-element__modifiers">
+                                </span>
+    </h4>
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="tests/Providers/Live/OAuth2ProviderLiveTestAbstract.php"><a href="files/tests-providers-live-oauth2providerlivetestabstract.html"><abbr title="tests/Providers/Live/OAuth2ProviderLiveTestAbstract.php">OAuth2ProviderLiveTestAbstract.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">0</span>
+
+    </aside>
+
+    
+    <code class="phpdocumentor-code phpdocumentor-signature ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+        <span class="phpdocumentor-signature__type"><a href="classes/chillerlan-OAuth-Core-OAuth2Interface.html"><abbr title="\chillerlan\OAuth\Core\OAuth2Interface">OAuth2Interface</abbr></a></span>
     <span class="phpdocumentor-signature__name">$provider</span>
     </code>
 
@@ -554,6 +597,39 @@
         <span class="phpdocumentor-signature__type">string</span>
     <span class="phpdocumentor-signature__name">$CFG_DIR</span>
     </code>
+
+    
+    
+    
+
+</article>
+                    <article
+        class="
+            phpdocumentor-element
+            -property
+            -protected
+                                                        "
+>
+    <h4 class="phpdocumentor-element__name" id="property_clientCredentialsScopes">
+        $clientCredentialsScopes
+        <a href="classes/chillerlan-OAuthTest-Providers-Live-OAuth2ProviderLiveTestAbstract.html#property_clientCredentialsScopes" class="headerlink"><i class="fas fa-link"></i></a>
+
+        <span class="phpdocumentor-element__modifiers">
+                                </span>
+    </h4>
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="tests/Providers/Live/OAuth2ProviderLiveTestAbstract.php"><a href="files/tests-providers-live-oauth2providerlivetestabstract.html"><abbr title="tests/Providers/Live/OAuth2ProviderLiveTestAbstract.php">OAuth2ProviderLiveTestAbstract.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">24</span>
+
+    </aside>
+
+    
+    <code class="phpdocumentor-code phpdocumentor-signature ">
+    <span class="phpdocumentor-signature__visibility">protected</span>
+        <span class="phpdocumentor-signature__type">array&lt;string|int, mixed&gt;</span>
+    <span class="phpdocumentor-signature__name">$clientCredentialsScopes</span>
+     = <span class="phpdocumentor-signature__default-value">[]</span></code>
 
     
     
@@ -686,39 +762,6 @@
         <span class="phpdocumentor-signature__type">string</span>
     <span class="phpdocumentor-signature__name">$HTTP_CLIENT_FACTORY</span>
      = <span class="phpdocumentor-signature__default-value">\chillerlan\OAuthTest\Providers\ProviderUnitTestHttpClientFactory::class</span></code>
-
-    
-    
-    
-
-</article>
-                    <article
-        class="
-            phpdocumentor-element
-            -property
-            -protected
-                                                        "
->
-    <h4 class="phpdocumentor-element__name" id="property_id">
-        $id
-        <a href="classes/chillerlan-OAuthTest-Providers-Live-SteamOpenIDAPITest.html#property_id" class="headerlink"><i class="fas fa-link"></i></a>
-
-        <span class="phpdocumentor-element__modifiers">
-                                </span>
-    </h4>
-    <aside class="phpdocumentor-element-found-in">
-    <abbr class="phpdocumentor-element-found-in__file" title="tests/Providers/Live/SteamOpenIDAPITest.php"><a href="files/tests-providers-live-steamopenidapitest.html"><abbr title="tests/Providers/Live/SteamOpenIDAPITest.php">SteamOpenIDAPITest.php</abbr></a></abbr>
-    :
-    <span class="phpdocumentor-element-found-in__line">24</span>
-
-    </aside>
-
-    
-    <code class="phpdocumentor-code phpdocumentor-signature ">
-    <span class="phpdocumentor-signature__visibility">protected</span>
-        <span class="phpdocumentor-signature__type">int</span>
-    <span class="phpdocumentor-signature__name">$id</span>
-    </code>
 
     
     
@@ -962,7 +1005,7 @@
             <section class="phpdocumentor-methods">
         <h3 class="phpdocumentor-elements__header" id="methods">
             Methods
-            <a href="classes/chillerlan-OAuthTest-Providers-Live-SteamOpenIDAPITest.html#methods" class="headerlink"><i class="fas fa-link"></i></a>
+            <a href="classes/chillerlan-OAuthTest-Providers-Live-RedditAPITest.html#methods" class="headerlink"><i class="fas fa-link"></i></a>
 
         </h3>
                     <article
@@ -1002,15 +1045,46 @@
             -public
                                                         "
 >
-    <h4 class="phpdocumentor-element__name" id="method_testUnauthorizedAccessException">
-        testUnauthorizedAccessException()
-        <a href="classes/chillerlan-OAuthTest-Providers-Live-SteamOpenIDAPITest.html#method_testUnauthorizedAccessException" class="headerlink"><i class="fas fa-link"></i></a>
+    <h4 class="phpdocumentor-element__name" id="method_testRequestCredentialsToken">
+        testRequestCredentialsToken()
+        <a href="classes/chillerlan-OAuthTest-Providers-Live-OAuth2ProviderLiveTestAbstract.html#method_testRequestCredentialsToken" class="headerlink"><i class="fas fa-link"></i></a>
 
     </h4>
     <aside class="phpdocumentor-element-found-in">
-    <abbr class="phpdocumentor-element-found-in__file" title="tests/Providers/Live/SteamOpenIDAPITest.php"><a href="files/tests-providers-live-steamopenidapitest.html"><abbr title="tests/Providers/Live/SteamOpenIDAPITest.php">SteamOpenIDAPITest.php</abbr></a></abbr>
+    <abbr class="phpdocumentor-element-found-in__file" title="tests/Providers/Live/OAuth2ProviderLiveTestAbstract.php"><a href="files/tests-providers-live-oauth2providerlivetestabstract.html"><abbr title="tests/Providers/Live/OAuth2ProviderLiveTestAbstract.php">OAuth2ProviderLiveTestAbstract.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">42</span>
+    <span class="phpdocumentor-element-found-in__line">26</span>
+
+    </aside>
+
+    
+    <code class="phpdocumentor-code phpdocumentor-signature ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+                    <span class="phpdocumentor-signature__name">testRequestCredentialsToken</span><span>(</span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">void</span></code>
+
+    <div class="phpdocumentor-label-line">
+        </div>
+    
+    
+    
+
+    
+</article>
+                    <article
+        class="phpdocumentor-element
+            -method
+            -public
+                                                        "
+>
+    <h4 class="phpdocumentor-element__name" id="method_testUnauthorizedAccessException">
+        testUnauthorizedAccessException()
+        <a href="classes/chillerlan-OAuthTest-Providers-Live-OAuthProviderLiveTestAbstract.html#method_testUnauthorizedAccessException" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h4>
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="tests/Providers/Live/OAuthProviderLiveTestAbstract.php"><a href="files/tests-providers-live-oauthproviderlivetestabstract.html"><abbr title="tests/Providers/Live/OAuthProviderLiveTestAbstract.php">OAuthProviderLiveTestAbstract.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">68</span>
 
     </aside>
 
@@ -1035,13 +1109,13 @@
 >
     <h4 class="phpdocumentor-element__name" id="method_assertMeResponse">
         assertMeResponse()
-        <a href="classes/chillerlan-OAuthTest-Providers-Live-SteamOpenIDAPITest.html#method_assertMeResponse" class="headerlink"><i class="fas fa-link"></i></a>
+        <a href="classes/chillerlan-OAuthTest-Providers-Live-OAuthProviderLiveTestAbstract.html#method_assertMeResponse" class="headerlink"><i class="fas fa-link"></i></a>
 
     </h4>
     <aside class="phpdocumentor-element-found-in">
-    <abbr class="phpdocumentor-element-found-in__file" title="tests/Providers/Live/SteamOpenIDAPITest.php"><a href="files/tests-providers-live-steamopenidapitest.html"><abbr title="tests/Providers/Live/SteamOpenIDAPITest.php">SteamOpenIDAPITest.php</abbr></a></abbr>
+    <abbr class="phpdocumentor-element-found-in__file" title="tests/Providers/Live/OAuthProviderLiveTestAbstract.php"><a href="files/tests-providers-live-oauthproviderlivetestabstract.html"><abbr title="tests/Providers/Live/OAuthProviderLiveTestAbstract.php">OAuthProviderLiveTestAbstract.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">46</span>
+    <span class="phpdocumentor-element-found-in__line">31</span>
 
     </aside>
 
@@ -1117,13 +1191,13 @@
 >
     <h4 class="phpdocumentor-element__name" id="method_getEnvPrefix">
         getEnvPrefix()
-        <a href="classes/chillerlan-OAuthTest-Providers-Live-SteamOpenIDAPITest.html#method_getEnvPrefix" class="headerlink"><i class="fas fa-link"></i></a>
+        <a href="classes/chillerlan-OAuthTest-Providers-Live-RedditAPITest.html#method_getEnvPrefix" class="headerlink"><i class="fas fa-link"></i></a>
 
     </h4>
     <aside class="phpdocumentor-element-found-in">
-    <abbr class="phpdocumentor-element-found-in__file" title="tests/Providers/Live/SteamOpenIDAPITest.php"><a href="files/tests-providers-live-steamopenidapitest.html"><abbr title="tests/Providers/Live/SteamOpenIDAPITest.php">SteamOpenIDAPITest.php</abbr></a></abbr>
+    <abbr class="phpdocumentor-element-found-in__file" title="tests/Providers/Live/RedditAPITest.php"><a href="files/tests-providers-live-redditapitest.html"><abbr title="tests/Providers/Live/RedditAPITest.php">RedditAPITest.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">30</span>
+    <span class="phpdocumentor-element-found-in__line">28</span>
 
     </aside>
 
@@ -1198,13 +1272,13 @@
 >
     <h4 class="phpdocumentor-element__name" id="method_getProviderFQCN">
         getProviderFQCN()
-        <a href="classes/chillerlan-OAuthTest-Providers-Live-SteamOpenIDAPITest.html#method_getProviderFQCN" class="headerlink"><i class="fas fa-link"></i></a>
+        <a href="classes/chillerlan-OAuthTest-Providers-Live-RedditAPITest.html#method_getProviderFQCN" class="headerlink"><i class="fas fa-link"></i></a>
 
     </h4>
     <aside class="phpdocumentor-element-found-in">
-    <abbr class="phpdocumentor-element-found-in__file" title="tests/Providers/Live/SteamOpenIDAPITest.php"><a href="files/tests-providers-live-steamopenidapitest.html"><abbr title="tests/Providers/Live/SteamOpenIDAPITest.php">SteamOpenIDAPITest.php</abbr></a></abbr>
+    <abbr class="phpdocumentor-element-found-in__file" title="tests/Providers/Live/RedditAPITest.php"><a href="files/tests-providers-live-redditapitest.html"><abbr title="tests/Providers/Live/RedditAPITest.php">RedditAPITest.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">26</span>
+    <span class="phpdocumentor-element-found-in__line">24</span>
 
     </aside>
 
@@ -1523,13 +1597,13 @@
 >
     <h4 class="phpdocumentor-element__name" id="method_setUp">
         setUp()
-        <a href="classes/chillerlan-OAuthTest-Providers-Live-SteamOpenIDAPITest.html#method_setUp" class="headerlink"><i class="fas fa-link"></i></a>
+        <a href="classes/chillerlan-OAuthTest-Providers-ProviderUnitTestAbstract.html#method_setUp" class="headerlink"><i class="fas fa-link"></i></a>
 
     </h4>
     <aside class="phpdocumentor-element-found-in">
-    <abbr class="phpdocumentor-element-found-in__file" title="tests/Providers/Live/SteamOpenIDAPITest.php"><a href="files/tests-providers-live-steamopenidapitest.html"><abbr title="tests/Providers/Live/SteamOpenIDAPITest.php">SteamOpenIDAPITest.php</abbr></a></abbr>
+    <abbr class="phpdocumentor-element-found-in__file" title="tests/Providers/ProviderUnitTestAbstract.php"><a href="files/tests-providers-providerunittestabstract.html"><abbr title="tests/Providers/ProviderUnitTestAbstract.php">ProviderUnitTestAbstract.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">34</span>
+    <span class="phpdocumentor-element-found-in__line">57</span>
 
     </aside>
 
@@ -1552,7 +1626,7 @@
     <div class="phpdocumentor-modal-bg" data-exit-button></div>
     <div class="phpdocumentor-modal-container">
         <div class="phpdocumentor-modal-content">
-            <pre style="max-height: 500px; overflow-y: scroll" data-src="files/tests/Providers/Live/SteamOpenIDAPITest.php.txt" class="language-php line-numbers linkable-line-numbers"></pre>
+            <pre style="max-height: 500px; overflow-y: scroll" data-src="files/tests/Providers/Live/RedditAPITest.php.txt" class="language-php line-numbers linkable-line-numbers"></pre>
         </div>
         <button data-exit-button class="phpdocumentor-modal__close">&times;</button>
     </div>
@@ -1651,9 +1725,9 @@
             <li class="phpdocumentor-on-this-page-section__title">Table Of Contents</li>
             <li>
                 <ul class="phpdocumentor-list -clean">
-                                        <li><a href="classes/chillerlan-OAuthTest-Providers-Live-SteamOpenIDAPITest.html#toc-constants">Constants</a></li>
-                                                            <li><a href="classes/chillerlan-OAuthTest-Providers-Live-SteamOpenIDAPITest.html#toc-properties">Properties</a></li>
-                                                            <li><a href="classes/chillerlan-OAuthTest-Providers-Live-SteamOpenIDAPITest.html#toc-methods">Methods</a></li>
+                                        <li><a href="classes/chillerlan-OAuthTest-Providers-Live-RedditAPITest.html#toc-constants">Constants</a></li>
+                                                            <li><a href="classes/chillerlan-OAuthTest-Providers-Live-RedditAPITest.html#toc-properties">Properties</a></li>
+                                                            <li><a href="classes/chillerlan-OAuthTest-Providers-Live-RedditAPITest.html#toc-methods">Methods</a></li>
                                     </ul>
             </li>
                             <li class="phpdocumentor-on-this-page-section__title">Constants</li>
@@ -1667,21 +1741,22 @@
                             <li class="phpdocumentor-on-this-page-section__title">Properties</li>
                 <li>
                     <ul class="phpdocumentor-list -clean">
-                                                    <li><a href="classes/chillerlan-OAuthTest-Providers-Live-SteamOpenIDAPITest.html#property_provider">$provider<a href="classes/chillerlan-OAuthTest-Providers-Live-SteamOpenIDAPITest.html"></li>
-                                                    <li><a href="classes/chillerlan-OAuthTest-Providers-Live-OAuthProviderLiveTestAbstract.html#property_provider">$provider<a href="classes/chillerlan-OAuthTest-Providers-Live-SteamOpenIDAPITest.html"></li>
-                                                    <li><a href="classes/chillerlan-OAuthTest-Providers-ProviderUnitTestAbstract.html#property_CFG_DIR">$CFG_DIR<a href="classes/chillerlan-OAuthTest-Providers-Live-SteamOpenIDAPITest.html"></li>
-                                                    <li><a href="classes/chillerlan-OAuthTest-Providers-ProviderLiveTestAbstract.html#property_dotEnv">$dotEnv<a href="classes/chillerlan-OAuthTest-Providers-Live-SteamOpenIDAPITest.html"></li>
-                                                    <li><a href="classes/chillerlan-OAuthTest-Providers-ProviderUnitTestAbstract.html#property_ENV_IS_CI">$ENV_IS_CI<a href="classes/chillerlan-OAuthTest-Providers-Live-SteamOpenIDAPITest.html"></li>
-                                                    <li><a href="classes/chillerlan-OAuthTest-Providers-ProviderLiveTestAbstract.html#property_ENV_PREFIX">$ENV_PREFIX<a href="classes/chillerlan-OAuthTest-Providers-Live-SteamOpenIDAPITest.html"></li>
-                                                    <li><a href="classes/chillerlan-OAuthTest-Providers-ProviderUnitTestAbstract.html#property_HTTP_CLIENT_FACTORY">$HTTP_CLIENT_FACTORY<a href="classes/chillerlan-OAuthTest-Providers-Live-SteamOpenIDAPITest.html"></li>
-                                                    <li><a href="classes/chillerlan-OAuthTest-Providers-Live-SteamOpenIDAPITest.html#property_id">$id<a href="classes/chillerlan-OAuthTest-Providers-Live-SteamOpenIDAPITest.html"></li>
-                                                    <li><a href="classes/chillerlan-OAuthTest-Providers-ProviderUnitTestAbstract.html#property_logger">$logger<a href="classes/chillerlan-OAuthTest-Providers-Live-SteamOpenIDAPITest.html"></li>
-                                                    <li><a href="classes/chillerlan-OAuthTest-Providers-ProviderUnitTestAbstract.html#property_options">$options<a href="classes/chillerlan-OAuthTest-Providers-Live-SteamOpenIDAPITest.html"></li>
-                                                    <li><a href="classes/chillerlan-OAuthTest-Providers-ProviderUnitTestAbstract.html#property_provider">$provider<a href="classes/chillerlan-OAuthTest-Providers-Live-SteamOpenIDAPITest.html"></li>
-                                                    <li><a href="classes/chillerlan-OAuthTest-Providers-ProviderUnitTestAbstract.html#property_providerFactory">$providerFactory<a href="classes/chillerlan-OAuthTest-Providers-Live-SteamOpenIDAPITest.html"></li>
-                                                    <li><a href="classes/chillerlan-OAuthTest-Providers-ProviderUnitTestAbstract.html#property_reflection">$reflection<a href="classes/chillerlan-OAuthTest-Providers-Live-SteamOpenIDAPITest.html"></li>
-                                                    <li><a href="classes/chillerlan-OAuthTest-Providers-ProviderUnitTestAbstract.html#property_storage">$storage<a href="classes/chillerlan-OAuthTest-Providers-Live-SteamOpenIDAPITest.html"></li>
-                                                    <li><a href="classes/chillerlan-OAuthTest-Providers-ProviderLiveTestAbstract.html#property_TEST_USER">$TEST_USER<a href="classes/chillerlan-OAuthTest-Providers-Live-SteamOpenIDAPITest.html"></li>
+                                                    <li><a href="classes/chillerlan-OAuthTest-Providers-Live-RedditAPITest.html#property_provider">$provider<a href="classes/chillerlan-OAuthTest-Providers-Live-RedditAPITest.html"></li>
+                                                    <li><a href="classes/chillerlan-OAuthTest-Providers-Live-OAuth2ProviderLiveTestAbstract.html#property_provider">$provider<a href="classes/chillerlan-OAuthTest-Providers-Live-RedditAPITest.html"></li>
+                                                    <li><a href="classes/chillerlan-OAuthTest-Providers-Live-OAuthProviderLiveTestAbstract.html#property_provider">$provider<a href="classes/chillerlan-OAuthTest-Providers-Live-RedditAPITest.html"></li>
+                                                    <li><a href="classes/chillerlan-OAuthTest-Providers-ProviderUnitTestAbstract.html#property_CFG_DIR">$CFG_DIR<a href="classes/chillerlan-OAuthTest-Providers-Live-RedditAPITest.html"></li>
+                                                    <li><a href="classes/chillerlan-OAuthTest-Providers-Live-OAuth2ProviderLiveTestAbstract.html#property_clientCredentialsScopes">$clientCredentialsScopes<a href="classes/chillerlan-OAuthTest-Providers-Live-RedditAPITest.html"></li>
+                                                    <li><a href="classes/chillerlan-OAuthTest-Providers-ProviderLiveTestAbstract.html#property_dotEnv">$dotEnv<a href="classes/chillerlan-OAuthTest-Providers-Live-RedditAPITest.html"></li>
+                                                    <li><a href="classes/chillerlan-OAuthTest-Providers-ProviderUnitTestAbstract.html#property_ENV_IS_CI">$ENV_IS_CI<a href="classes/chillerlan-OAuthTest-Providers-Live-RedditAPITest.html"></li>
+                                                    <li><a href="classes/chillerlan-OAuthTest-Providers-ProviderLiveTestAbstract.html#property_ENV_PREFIX">$ENV_PREFIX<a href="classes/chillerlan-OAuthTest-Providers-Live-RedditAPITest.html"></li>
+                                                    <li><a href="classes/chillerlan-OAuthTest-Providers-ProviderUnitTestAbstract.html#property_HTTP_CLIENT_FACTORY">$HTTP_CLIENT_FACTORY<a href="classes/chillerlan-OAuthTest-Providers-Live-RedditAPITest.html"></li>
+                                                    <li><a href="classes/chillerlan-OAuthTest-Providers-ProviderUnitTestAbstract.html#property_logger">$logger<a href="classes/chillerlan-OAuthTest-Providers-Live-RedditAPITest.html"></li>
+                                                    <li><a href="classes/chillerlan-OAuthTest-Providers-ProviderUnitTestAbstract.html#property_options">$options<a href="classes/chillerlan-OAuthTest-Providers-Live-RedditAPITest.html"></li>
+                                                    <li><a href="classes/chillerlan-OAuthTest-Providers-ProviderUnitTestAbstract.html#property_provider">$provider<a href="classes/chillerlan-OAuthTest-Providers-Live-RedditAPITest.html"></li>
+                                                    <li><a href="classes/chillerlan-OAuthTest-Providers-ProviderUnitTestAbstract.html#property_providerFactory">$providerFactory<a href="classes/chillerlan-OAuthTest-Providers-Live-RedditAPITest.html"></li>
+                                                    <li><a href="classes/chillerlan-OAuthTest-Providers-ProviderUnitTestAbstract.html#property_reflection">$reflection<a href="classes/chillerlan-OAuthTest-Providers-Live-RedditAPITest.html"></li>
+                                                    <li><a href="classes/chillerlan-OAuthTest-Providers-ProviderUnitTestAbstract.html#property_storage">$storage<a href="classes/chillerlan-OAuthTest-Providers-Live-RedditAPITest.html"></li>
+                                                    <li><a href="classes/chillerlan-OAuthTest-Providers-ProviderLiveTestAbstract.html#property_TEST_USER">$TEST_USER<a href="classes/chillerlan-OAuthTest-Providers-Live-RedditAPITest.html"></li>
                                             </ul>
                 </li>
             
@@ -1689,12 +1764,13 @@
             <li>
                 <ul class="phpdocumentor-list -clean">
                                             <li><a href="classes/chillerlan-OAuthTest-Providers-Live-OAuthProviderLiveTestAbstract.html#method_testMe">testMe()</a></li>
-                                            <li><a href="classes/chillerlan-OAuthTest-Providers-Live-SteamOpenIDAPITest.html#method_testUnauthorizedAccessException">testUnauthorizedAccessException()</a></li>
-                                            <li><a href="classes/chillerlan-OAuthTest-Providers-Live-SteamOpenIDAPITest.html#method_assertMeResponse">assertMeResponse()</a></li>
+                                            <li><a href="classes/chillerlan-OAuthTest-Providers-Live-OAuth2ProviderLiveTestAbstract.html#method_testRequestCredentialsToken">testRequestCredentialsToken()</a></li>
+                                            <li><a href="classes/chillerlan-OAuthTest-Providers-Live-OAuthProviderLiveTestAbstract.html#method_testUnauthorizedAccessException">testUnauthorizedAccessException()</a></li>
+                                            <li><a href="classes/chillerlan-OAuthTest-Providers-Live-OAuthProviderLiveTestAbstract.html#method_assertMeResponse">assertMeResponse()</a></li>
                                             <li><a href="classes/chillerlan-OAuthTest-Providers-Live-OAuthProviderLiveTestAbstract.html#method_assertUnauthorizedAccessException">assertUnauthorizedAccessException()</a></li>
-                                            <li><a href="classes/chillerlan-OAuthTest-Providers-Live-SteamOpenIDAPITest.html#method_getEnvPrefix">getEnvPrefix()</a></li>
+                                            <li><a href="classes/chillerlan-OAuthTest-Providers-Live-RedditAPITest.html#method_getEnvPrefix">getEnvPrefix()</a></li>
                                             <li><a href="classes/chillerlan-OAuthTest-Providers-ProviderUnitTestAbstract.html#method_getMockHttpClient">getMockHttpClient()</a></li>
-                                            <li><a href="classes/chillerlan-OAuthTest-Providers-Live-SteamOpenIDAPITest.html#method_getProviderFQCN">getProviderFQCN()</a></li>
+                                            <li><a href="classes/chillerlan-OAuthTest-Providers-Live-RedditAPITest.html#method_getProviderFQCN">getProviderFQCN()</a></li>
                                             <li><a href="classes/chillerlan-OAuthTest-Providers-ProviderUnitTestAbstract.html#method_getReflectionProperty">getReflectionProperty()</a></li>
                                             <li><a href="classes/chillerlan-OAuthTest-Providers-ProviderUnitTestAbstract.html#method_initConfig">initConfig()</a></li>
                                             <li><a href="classes/chillerlan-OAuthTest-Providers-ProviderUnitTestAbstract.html#method_initOptions">initOptions()</a></li>
@@ -1702,7 +1778,7 @@
                                             <li><a href="classes/chillerlan-OAuthTest-Providers-ProviderUnitTestAbstract.html#method_invokeReflectionMethod">invokeReflectionMethod()</a></li>
                                             <li><a href="classes/chillerlan-OAuthTest-Providers-ProviderUnitTestAbstract.html#method_setMockResponse">setMockResponse()</a></li>
                                             <li><a href="classes/chillerlan-OAuthTest-Providers-ProviderUnitTestAbstract.html#method_setReflectionProperty">setReflectionProperty()</a></li>
-                                            <li><a href="classes/chillerlan-OAuthTest-Providers-Live-SteamOpenIDAPITest.html#method_setUp">setUp()</a></li>
+                                            <li><a href="classes/chillerlan-OAuthTest-Providers-ProviderUnitTestAbstract.html#method_setUp">setUp()</a></li>
                                     </ul>
             </li>
                     </ul>
@@ -1722,7 +1798,7 @@
     </section>
 </section>
         </div>
-        <a href="classes/chillerlan-OAuthTest-Providers-Live-SteamOpenIDAPITest.html#top" class="phpdocumentor-back-to-top"><i class="fas fa-chevron-circle-up"></i></a>
+        <a href="classes/chillerlan-OAuthTest-Providers-Live-RedditAPITest.html#top" class="phpdocumentor-back-to-top"><i class="fas fa-chevron-circle-up"></i></a>
 
     </main>
 

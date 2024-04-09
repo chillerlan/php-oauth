@@ -605,6 +605,13 @@ and returns a PSR-7 ResponseInterface with the corresponding API response</dd>
 <dd>Sets an access token in the current OAuthStorageInterface (shorthand/convenience)</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -protected">
+    <a href="classes/chillerlan-OAuth-Core-OAuthProvider.html#method_addBasicAuthHeader">addBasicAuthHeader()</a>
+    <span>
+                                &nbsp;: <abbr title="\Psr\Http\Message\RequestInterface">RequestInterface</abbr>    </span>
+</dt>
+<dd>Adds an &quot;Authorization: Basic &lt;base64(key:secret)&gt;&quot; header to the given request</dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -method -protected">
     <a href="classes/chillerlan-OAuth-Core-OAuthProvider.html#method_cleanBodyParams">cleanBodyParams()</a>
     <span>
                                 &nbsp;: array&lt;string|int, mixed&gt;    </span>
@@ -2246,7 +2253,7 @@ anything except host and path will be ignored, scheme will always be set to &quo
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Core/OAuth2Provider.php"><a href="files/src-core-oauth2provider.html"><abbr title="src/Core/OAuth2Provider.php">OAuth2Provider.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">165</span>
+    <span class="phpdocumentor-element-found-in__line">167</span>
 
     </aside>
 
@@ -2437,7 +2444,7 @@ if the provider implements the CSRFToken interface, and returns an AccessToken o
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Core/OAuth2Provider.php"><a href="files/src-core-oauth2provider.html"><abbr title="src/Core/OAuth2Provider.php">OAuth2Provider.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">253</span>
+    <span class="phpdocumentor-element-found-in__line">255</span>
 
     </aside>
 
@@ -2506,7 +2513,7 @@ if the provider implements the CSRFToken interface, and returns an AccessToken o
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Core/OAuth2Provider.php"><a href="files/src-core-oauth2provider.html"><abbr title="src/Core/OAuth2Provider.php">OAuth2Provider.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">222</span>
+    <span class="phpdocumentor-element-found-in__line">224</span>
 
     </aside>
 
@@ -2629,7 +2636,7 @@ if the provider implements the CSRFToken interface, and returns an AccessToken o
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Core/OAuthProvider.php"><a href="files/src-core-oauthprovider.html"><abbr title="src/Core/OAuthProvider.php">OAuthProvider.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">254</span>
+    <span class="phpdocumentor-element-found-in__line">263</span>
 
     </aside>
 
@@ -2762,7 +2769,7 @@ if the provider implements the CSRFToken interface, and returns an AccessToken o
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Core/OAuth2Provider.php"><a href="files/src-core-oauth2provider.html"><abbr title="src/Core/OAuth2Provider.php">OAuth2Provider.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">313</span>
+    <span class="phpdocumentor-element-found-in__line">315</span>
 
     </aside>
 
@@ -2831,7 +2838,7 @@ if the provider implements the CSRFToken interface, and returns an AccessToken o
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Core/OAuthProvider.php"><a href="files/src-core-oauthprovider.html"><abbr title="src/Core/OAuthProvider.php">OAuthProvider.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">279</span>
+    <span class="phpdocumentor-element-found-in__line">288</span>
 
     </aside>
 
@@ -2935,7 +2942,7 @@ and returns a PSR-7 ResponseInterface with the corresponding API response</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Core/OAuthProvider.php"><a href="files/src-core-oauthprovider.html"><abbr title="src/Core/OAuthProvider.php">OAuthProvider.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">262</span>
+    <span class="phpdocumentor-element-found-in__line">271</span>
 
     </aside>
 
@@ -3396,6 +3403,52 @@ and returns a PSR-7 ResponseInterface with the corresponding API response</p>
             -protected
                                                         "
 >
+    <h4 class="phpdocumentor-element__name" id="method_addBasicAuthHeader">
+        addBasicAuthHeader()
+        <a href="classes/chillerlan-OAuth-Core-OAuthProvider.html#method_addBasicAuthHeader" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h4>
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/Core/OAuthProvider.php"><a href="files/src-core-oauthprovider.html"><abbr title="src/Core/OAuthProvider.php">OAuthProvider.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">242</span>
+
+    </aside>
+
+        <p class="phpdocumentor-summary">Adds an &quot;Authorization: Basic &lt;base64(key:secret)&gt;&quot; header to the given request</p>
+
+    <code class="phpdocumentor-code phpdocumentor-signature ">
+    <span class="phpdocumentor-signature__visibility">protected</span>
+                    <span class="phpdocumentor-signature__name">addBasicAuthHeader</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type"><abbr title="\Psr\Http\Message\RequestInterface">RequestInterface</abbr>&nbsp;</span><span class="phpdocumentor-signature__argument__name">$request</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type"><abbr title="\Psr\Http\Message\RequestInterface">RequestInterface</abbr></span></code>
+
+    <div class="phpdocumentor-label-line">
+        </div>
+    
+        <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
+    <dl class="phpdocumentor-argument-list">
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-signature__argument__name">$request</span>
+                : <span class="phpdocumentor-signature__argument__return-type"><abbr title="\Psr\Http\Message\RequestInterface">RequestInterface</abbr></span>
+                            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                
+            </dd>
+            </dl>
+
+    
+
+            <section>
+        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
+        <span class="phpdocumentor-signature__response_type"><abbr title="\Psr\Http\Message\RequestInterface">RequestInterface</abbr></span>
+            </section>
+
+</article>
+                    <article
+        class="phpdocumentor-element
+            -method
+            -protected
+                                                        "
+>
     <h4 class="phpdocumentor-element__name" id="method_cleanBodyParams">
         cleanBodyParams()
         <a href="classes/chillerlan-OAuth-Core-OAuthProvider.html#method_cleanBodyParams" class="headerlink"><i class="fas fa-link"></i></a>
@@ -3579,7 +3632,7 @@ so that you don&#039;t have to implement the monstrous original `__construct()`<
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Core/OAuth2Provider.php"><a href="files/src-core-oauth2provider.html"><abbr title="src/Core/OAuth2Provider.php">OAuth2Provider.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">183</span>
+    <span class="phpdocumentor-element-found-in__line">185</span>
 
     </aside>
 
@@ -3678,7 +3731,7 @@ so that you don&#039;t have to implement the monstrous original `__construct()`<
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Core/OAuth2Provider.php"><a href="files/src-core-oauth2provider.html"><abbr title="src/Core/OAuth2Provider.php">OAuth2Provider.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">278</span>
+    <span class="phpdocumentor-element-found-in__line">280</span>
 
     </aside>
 
@@ -3724,7 +3777,7 @@ so that you don&#039;t have to implement the monstrous original `__construct()`<
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Core/OAuthProvider.php"><a href="files/src-core-oauthprovider.html"><abbr title="src/Core/OAuthProvider.php">OAuthProvider.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">425</span>
+    <span class="phpdocumentor-element-found-in__line">434</span>
 
     </aside>
 
@@ -3816,7 +3869,7 @@ so that you don&#039;t have to implement the monstrous original `__construct()`<
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Core/OAuth2Provider.php"><a href="files/src-core-oauth2provider.html"><abbr title="src/Core/OAuth2Provider.php">OAuth2Provider.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">344</span>
+    <span class="phpdocumentor-element-found-in__line">346</span>
 
     </aside>
 
@@ -3908,7 +3961,7 @@ so that you don&#039;t have to implement the monstrous original `__construct()`<
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Core/OAuthProvider.php"><a href="files/src-core-oauthprovider.html"><abbr title="src/Core/OAuthProvider.php">OAuthProvider.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">355</span>
+    <span class="phpdocumentor-element-found-in__line">364</span>
 
     </aside>
 
@@ -4033,7 +4086,7 @@ anything except host and path will be ignored, scheme will always be set to &quo
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Core/OAuth2Provider.php"><a href="files/src-core-oauth2provider.html"><abbr title="src/Core/OAuth2Provider.php">OAuth2Provider.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">151</span>
+    <span class="phpdocumentor-element-found-in__line">153</span>
 
     </aside>
 
@@ -4102,7 +4155,7 @@ the spec mandates a JSON body which is what almost all providers send - weird ex
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Core/OAuthProvider.php"><a href="files/src-core-oauthprovider.html"><abbr title="src/Core/OAuthProvider.php">OAuthProvider.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">450</span>
+    <span class="phpdocumentor-element-found-in__line">459</span>
 
     </aside>
 
@@ -4161,7 +4214,7 @@ the spec mandates a JSON body which is what almost all providers send - weird ex
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Core/OAuthProvider.php"><a href="files/src-core-oauthprovider.html"><abbr title="src/Core/OAuthProvider.php">OAuthProvider.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">245</span>
+    <span class="phpdocumentor-element-found-in__line">254</span>
 
     </aside>
 
@@ -4307,7 +4360,7 @@ the spec mandates a JSON body which is what almost all providers send - weird ex
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Core/OAuth2Provider.php"><a href="files/src-core-oauth2provider.html"><abbr title="src/Core/OAuth2Provider.php">OAuth2Provider.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">203</span>
+    <span class="phpdocumentor-element-found-in__line">205</span>
 
     </aside>
 
@@ -4360,7 +4413,7 @@ the spec mandates a JSON body which is what almost all providers send - weird ex
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Core/OAuth2Provider.php"><a href="files/src-core-oauth2provider.html"><abbr title="src/Core/OAuth2Provider.php">OAuth2Provider.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">291</span>
+    <span class="phpdocumentor-element-found-in__line">293</span>
 
     </aside>
 
@@ -4413,7 +4466,7 @@ the spec mandates a JSON body which is what almost all providers send - weird ex
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Core/OAuthProvider.php"><a href="files/src-core-oauthprovider.html"><abbr title="src/Core/OAuthProvider.php">OAuthProvider.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">403</span>
+    <span class="phpdocumentor-element-found-in__line">412</span>
 
     </aside>
 
@@ -4466,7 +4519,7 @@ the spec mandates a JSON body which is what almost all providers send - weird ex
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Core/OAuthProvider.php"><a href="files/src-core-oauthprovider.html"><abbr title="src/Core/OAuthProvider.php">OAuthProvider.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">316</span>
+    <span class="phpdocumentor-element-found-in__line">325</span>
 
     </aside>
 
@@ -4707,6 +4760,7 @@ the spec mandates a JSON body which is what almost all providers send - weird ex
                                             <li><a href="classes/chillerlan-OAuth-Core-OAuthProvider.html#method_setStreamFactory">setStreamFactory()</a></li>
                                             <li><a href="classes/chillerlan-OAuth-Core-OAuthProvider.html#method_setUriFactory">setUriFactory()</a></li>
                                             <li><a href="classes/chillerlan-OAuth-Core-OAuthProvider.html#method_storeAccessToken">storeAccessToken()</a></li>
+                                            <li><a href="classes/chillerlan-OAuth-Core-OAuthProvider.html#method_addBasicAuthHeader">addBasicAuthHeader()</a></li>
                                             <li><a href="classes/chillerlan-OAuth-Core-OAuthProvider.html#method_cleanBodyParams">cleanBodyParams()</a></li>
                                             <li><a href="classes/chillerlan-OAuth-Core-OAuthProvider.html#method_cleanQueryParams">cleanQueryParams()</a></li>
                                             <li><a href="classes/chillerlan-OAuth-Core-OAuthProvider.html#method_construct">construct()</a></li>

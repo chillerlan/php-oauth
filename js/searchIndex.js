@@ -506,6 +506,11 @@ Search.appendIndex(
             "summary": "Cleans\u0020an\u0020array\u0020of\u0020body\u0020parameters",
             "url": "classes/chillerlan-OAuth-Core-OAuthProvider.html#method_cleanBodyParams"
         },                {
+            "fqsen": "\\chillerlan\\OAuth\\Core\\OAuthProvider\u003A\u003AaddBasicAuthHeader\u0028\u0029",
+            "name": "addBasicAuthHeader",
+            "summary": "Adds\u0020an\u0020\u0022Authorization\u003A\u0020Basic\u0020\u003Cbase64\u0028key\u003Asecret\u0029\u003E\u0022\u0020header\u0020to\u0020the\u0020given\u0020request",
+            "url": "classes/chillerlan-OAuth-Core-OAuthProvider.html#method_addBasicAuthHeader"
+        },                {
             "fqsen": "\\chillerlan\\OAuth\\Core\\OAuthProvider\u003A\u003Anonce\u0028\u0029",
             "name": "nonce",
             "summary": "returns\u0020a\u002032\u0020byte\u0020random\u0020string\u0020\u0028in\u0020hexadecimal\u0020representation\u0029\u0020for\u0020use\u0020as\u0020a\u0020nonce",
@@ -3321,6 +3326,231 @@ Search.appendIndex(
             "summary": "",
             "url": "classes/chillerlan-OAuth-Providers-ProviderException.html"
         },                {
+            "fqsen": "\\chillerlan\\OAuth\\Providers\\Reddit",
+            "name": "Reddit",
+            "summary": "Implements\u0020an\u0020abstract\u0020OAuth2\u0020provider\u0020with\u0020all\u0020methods\u0020required\u0020by\u0020the\u0020OAuth2Interface.",
+            "url": "classes/chillerlan-OAuth-Providers-Reddit.html"
+        },                {
+            "fqsen": "\\chillerlan\\OAuth\\Providers\\Reddit\u003A\u003AgetAccessTokenRequestBodyParams\u0028\u0029",
+            "name": "getAccessTokenRequestBodyParams",
+            "summary": "prepares\u0020the\u0020request\u0020body\u0020parameters\u0020for\u0020the\u0020access\u0020token\u0020request",
+            "url": "classes/chillerlan-OAuth-Providers-Reddit.html#method_getAccessTokenRequestBodyParams"
+        },                {
+            "fqsen": "\\chillerlan\\OAuth\\Providers\\Reddit\u003A\u003AsendAccessTokenRequest\u0028\u0029",
+            "name": "sendAccessTokenRequest",
+            "summary": "sends\u0020a\u0020request\u0020to\u0020the\u0020access\/refresh\u0020token\u0020endpoint\u0020\u0024url\u0020with\u0020the\u0020given\u0020\u0024body\u0020as\u0020form\u0020data",
+            "url": "classes/chillerlan-OAuth-Providers-Reddit.html#method_sendAccessTokenRequest"
+        },                {
+            "fqsen": "\\chillerlan\\OAuth\\Providers\\Reddit\u003A\u003Ame\u0028\u0029",
+            "name": "me",
+            "summary": "Returns\u0020information\u0020about\u0020the\u0020currently\u0020authenticated\u0020user\u0020\u0028usually\u0020a\u0020\/me\u0020or\u0020\/user\u0020endpoint\u0029.",
+            "url": "classes/chillerlan-OAuth-Providers-Reddit.html#method_me"
+        },                {
+            "fqsen": "\\chillerlan\\OAuth\\Providers\\Reddit\u003A\u003AinvalidateAccessToken\u0028\u0029",
+            "name": "invalidateAccessToken",
+            "summary": "Allows\u0020to\u0020invalidate\u0020an\u0020access\u0020token",
+            "url": "classes/chillerlan-OAuth-Providers-Reddit.html#method_invalidateAccessToken"
+        },                {
+            "fqsen": "\\chillerlan\\OAuth\\Providers\\Reddit\u003A\u003ASCOPE_ACCOUNT",
+            "name": "SCOPE_ACCOUNT",
+            "summary": "",
+            "url": "classes/chillerlan-OAuth-Providers-Reddit.html#constant_SCOPE_ACCOUNT"
+        },                {
+            "fqsen": "\\chillerlan\\OAuth\\Providers\\Reddit\u003A\u003ASCOPE_CREDDITS",
+            "name": "SCOPE_CREDDITS",
+            "summary": "",
+            "url": "classes/chillerlan-OAuth-Providers-Reddit.html#constant_SCOPE_CREDDITS"
+        },                {
+            "fqsen": "\\chillerlan\\OAuth\\Providers\\Reddit\u003A\u003ASCOPE_EDIT",
+            "name": "SCOPE_EDIT",
+            "summary": "",
+            "url": "classes/chillerlan-OAuth-Providers-Reddit.html#constant_SCOPE_EDIT"
+        },                {
+            "fqsen": "\\chillerlan\\OAuth\\Providers\\Reddit\u003A\u003ASCOPE_FLAIR",
+            "name": "SCOPE_FLAIR",
+            "summary": "",
+            "url": "classes/chillerlan-OAuth-Providers-Reddit.html#constant_SCOPE_FLAIR"
+        },                {
+            "fqsen": "\\chillerlan\\OAuth\\Providers\\Reddit\u003A\u003ASCOPE_HISTORY",
+            "name": "SCOPE_HISTORY",
+            "summary": "",
+            "url": "classes/chillerlan-OAuth-Providers-Reddit.html#constant_SCOPE_HISTORY"
+        },                {
+            "fqsen": "\\chillerlan\\OAuth\\Providers\\Reddit\u003A\u003ASCOPE_IDENTITY",
+            "name": "SCOPE_IDENTITY",
+            "summary": "",
+            "url": "classes/chillerlan-OAuth-Providers-Reddit.html#constant_SCOPE_IDENTITY"
+        },                {
+            "fqsen": "\\chillerlan\\OAuth\\Providers\\Reddit\u003A\u003ASCOPE_LIVEMANAGE",
+            "name": "SCOPE_LIVEMANAGE",
+            "summary": "",
+            "url": "classes/chillerlan-OAuth-Providers-Reddit.html#constant_SCOPE_LIVEMANAGE"
+        },                {
+            "fqsen": "\\chillerlan\\OAuth\\Providers\\Reddit\u003A\u003ASCOPE_MODCONFIG",
+            "name": "SCOPE_MODCONFIG",
+            "summary": "",
+            "url": "classes/chillerlan-OAuth-Providers-Reddit.html#constant_SCOPE_MODCONFIG"
+        },                {
+            "fqsen": "\\chillerlan\\OAuth\\Providers\\Reddit\u003A\u003ASCOPE_MODCONTRIBUTORS",
+            "name": "SCOPE_MODCONTRIBUTORS",
+            "summary": "",
+            "url": "classes/chillerlan-OAuth-Providers-Reddit.html#constant_SCOPE_MODCONTRIBUTORS"
+        },                {
+            "fqsen": "\\chillerlan\\OAuth\\Providers\\Reddit\u003A\u003ASCOPE_MODFLAIR",
+            "name": "SCOPE_MODFLAIR",
+            "summary": "",
+            "url": "classes/chillerlan-OAuth-Providers-Reddit.html#constant_SCOPE_MODFLAIR"
+        },                {
+            "fqsen": "\\chillerlan\\OAuth\\Providers\\Reddit\u003A\u003ASCOPE_MODLOG",
+            "name": "SCOPE_MODLOG",
+            "summary": "",
+            "url": "classes/chillerlan-OAuth-Providers-Reddit.html#constant_SCOPE_MODLOG"
+        },                {
+            "fqsen": "\\chillerlan\\OAuth\\Providers\\Reddit\u003A\u003ASCOPE_MODMAIL",
+            "name": "SCOPE_MODMAIL",
+            "summary": "",
+            "url": "classes/chillerlan-OAuth-Providers-Reddit.html#constant_SCOPE_MODMAIL"
+        },                {
+            "fqsen": "\\chillerlan\\OAuth\\Providers\\Reddit\u003A\u003ASCOPE_MODNOTE",
+            "name": "SCOPE_MODNOTE",
+            "summary": "",
+            "url": "classes/chillerlan-OAuth-Providers-Reddit.html#constant_SCOPE_MODNOTE"
+        },                {
+            "fqsen": "\\chillerlan\\OAuth\\Providers\\Reddit\u003A\u003ASCOPE_MODOTHERS",
+            "name": "SCOPE_MODOTHERS",
+            "summary": "",
+            "url": "classes/chillerlan-OAuth-Providers-Reddit.html#constant_SCOPE_MODOTHERS"
+        },                {
+            "fqsen": "\\chillerlan\\OAuth\\Providers\\Reddit\u003A\u003ASCOPE_MODPOSTS",
+            "name": "SCOPE_MODPOSTS",
+            "summary": "",
+            "url": "classes/chillerlan-OAuth-Providers-Reddit.html#constant_SCOPE_MODPOSTS"
+        },                {
+            "fqsen": "\\chillerlan\\OAuth\\Providers\\Reddit\u003A\u003ASCOPE_MODSELF",
+            "name": "SCOPE_MODSELF",
+            "summary": "",
+            "url": "classes/chillerlan-OAuth-Providers-Reddit.html#constant_SCOPE_MODSELF"
+        },                {
+            "fqsen": "\\chillerlan\\OAuth\\Providers\\Reddit\u003A\u003ASCOPE_MODTRAFFIC",
+            "name": "SCOPE_MODTRAFFIC",
+            "summary": "",
+            "url": "classes/chillerlan-OAuth-Providers-Reddit.html#constant_SCOPE_MODTRAFFIC"
+        },                {
+            "fqsen": "\\chillerlan\\OAuth\\Providers\\Reddit\u003A\u003ASCOPE_MODWIKI",
+            "name": "SCOPE_MODWIKI",
+            "summary": "",
+            "url": "classes/chillerlan-OAuth-Providers-Reddit.html#constant_SCOPE_MODWIKI"
+        },                {
+            "fqsen": "\\chillerlan\\OAuth\\Providers\\Reddit\u003A\u003ASCOPE_MYSUBREDDITS",
+            "name": "SCOPE_MYSUBREDDITS",
+            "summary": "",
+            "url": "classes/chillerlan-OAuth-Providers-Reddit.html#constant_SCOPE_MYSUBREDDITS"
+        },                {
+            "fqsen": "\\chillerlan\\OAuth\\Providers\\Reddit\u003A\u003ASCOPE_PRIVATEMESSAGES",
+            "name": "SCOPE_PRIVATEMESSAGES",
+            "summary": "",
+            "url": "classes/chillerlan-OAuth-Providers-Reddit.html#constant_SCOPE_PRIVATEMESSAGES"
+        },                {
+            "fqsen": "\\chillerlan\\OAuth\\Providers\\Reddit\u003A\u003ASCOPE_READ",
+            "name": "SCOPE_READ",
+            "summary": "",
+            "url": "classes/chillerlan-OAuth-Providers-Reddit.html#constant_SCOPE_READ"
+        },                {
+            "fqsen": "\\chillerlan\\OAuth\\Providers\\Reddit\u003A\u003ASCOPE_REPORT",
+            "name": "SCOPE_REPORT",
+            "summary": "",
+            "url": "classes/chillerlan-OAuth-Providers-Reddit.html#constant_SCOPE_REPORT"
+        },                {
+            "fqsen": "\\chillerlan\\OAuth\\Providers\\Reddit\u003A\u003ASCOPE_SAVE",
+            "name": "SCOPE_SAVE",
+            "summary": "",
+            "url": "classes/chillerlan-OAuth-Providers-Reddit.html#constant_SCOPE_SAVE"
+        },                {
+            "fqsen": "\\chillerlan\\OAuth\\Providers\\Reddit\u003A\u003ASCOPE_STRUCTUREDSTYLES",
+            "name": "SCOPE_STRUCTUREDSTYLES",
+            "summary": "",
+            "url": "classes/chillerlan-OAuth-Providers-Reddit.html#constant_SCOPE_STRUCTUREDSTYLES"
+        },                {
+            "fqsen": "\\chillerlan\\OAuth\\Providers\\Reddit\u003A\u003ASCOPE_SUBMIT",
+            "name": "SCOPE_SUBMIT",
+            "summary": "",
+            "url": "classes/chillerlan-OAuth-Providers-Reddit.html#constant_SCOPE_SUBMIT"
+        },                {
+            "fqsen": "\\chillerlan\\OAuth\\Providers\\Reddit\u003A\u003ASCOPE_SUBSCRIBE",
+            "name": "SCOPE_SUBSCRIBE",
+            "summary": "",
+            "url": "classes/chillerlan-OAuth-Providers-Reddit.html#constant_SCOPE_SUBSCRIBE"
+        },                {
+            "fqsen": "\\chillerlan\\OAuth\\Providers\\Reddit\u003A\u003ASCOPE_VOTE",
+            "name": "SCOPE_VOTE",
+            "summary": "",
+            "url": "classes/chillerlan-OAuth-Providers-Reddit.html#constant_SCOPE_VOTE"
+        },                {
+            "fqsen": "\\chillerlan\\OAuth\\Providers\\Reddit\u003A\u003ASCOPE_WIKIEDIT",
+            "name": "SCOPE_WIKIEDIT",
+            "summary": "",
+            "url": "classes/chillerlan-OAuth-Providers-Reddit.html#constant_SCOPE_WIKIEDIT"
+        },                {
+            "fqsen": "\\chillerlan\\OAuth\\Providers\\Reddit\u003A\u003ASCOPE_WIKIREAD",
+            "name": "SCOPE_WIKIREAD",
+            "summary": "",
+            "url": "classes/chillerlan-OAuth-Providers-Reddit.html#constant_SCOPE_WIKIREAD"
+        },                {
+            "fqsen": "\\chillerlan\\OAuth\\Providers\\Reddit\u003A\u003ADEFAULT_SCOPES",
+            "name": "DEFAULT_SCOPES",
+            "summary": "",
+            "url": "classes/chillerlan-OAuth-Providers-Reddit.html#constant_DEFAULT_SCOPES"
+        },                {
+            "fqsen": "\\chillerlan\\OAuth\\Providers\\Reddit\u003A\u003AUSER_AGENT",
+            "name": "USER_AGENT",
+            "summary": "",
+            "url": "classes/chillerlan-OAuth-Providers-Reddit.html#constant_USER_AGENT"
+        },                {
+            "fqsen": "\\chillerlan\\OAuth\\Providers\\Reddit\u003A\u003AHEADERS_AUTH",
+            "name": "HEADERS_AUTH",
+            "summary": "",
+            "url": "classes/chillerlan-OAuth-Providers-Reddit.html#constant_HEADERS_AUTH"
+        },                {
+            "fqsen": "\\chillerlan\\OAuth\\Providers\\Reddit\u003A\u003AHEADERS_API",
+            "name": "HEADERS_API",
+            "summary": "",
+            "url": "classes/chillerlan-OAuth-Providers-Reddit.html#constant_HEADERS_API"
+        },                {
+            "fqsen": "\\chillerlan\\OAuth\\Providers\\Reddit\u003A\u003A\u0024authorizationURL",
+            "name": "authorizationURL",
+            "summary": "",
+            "url": "classes/chillerlan-OAuth-Providers-Reddit.html#property_authorizationURL"
+        },                {
+            "fqsen": "\\chillerlan\\OAuth\\Providers\\Reddit\u003A\u003A\u0024accessTokenURL",
+            "name": "accessTokenURL",
+            "summary": "",
+            "url": "classes/chillerlan-OAuth-Providers-Reddit.html#property_accessTokenURL"
+        },                {
+            "fqsen": "\\chillerlan\\OAuth\\Providers\\Reddit\u003A\u003A\u0024apiURL",
+            "name": "apiURL",
+            "summary": "",
+            "url": "classes/chillerlan-OAuth-Providers-Reddit.html#property_apiURL"
+        },                {
+            "fqsen": "\\chillerlan\\OAuth\\Providers\\Reddit\u003A\u003A\u0024revokeURL",
+            "name": "revokeURL",
+            "summary": "",
+            "url": "classes/chillerlan-OAuth-Providers-Reddit.html#property_revokeURL"
+        },                {
+            "fqsen": "\\chillerlan\\OAuth\\Providers\\Reddit\u003A\u003A\u0024apiDocs",
+            "name": "apiDocs",
+            "summary": "",
+            "url": "classes/chillerlan-OAuth-Providers-Reddit.html#property_apiDocs"
+        },                {
+            "fqsen": "\\chillerlan\\OAuth\\Providers\\Reddit\u003A\u003A\u0024applicationURL",
+            "name": "applicationURL",
+            "summary": "",
+            "url": "classes/chillerlan-OAuth-Providers-Reddit.html#property_applicationURL"
+        },                {
+            "fqsen": "\\chillerlan\\OAuth\\Providers\\Reddit\u003A\u003A\u0024userRevokeURL",
+            "name": "userRevokeURL",
+            "summary": "",
+            "url": "classes/chillerlan-OAuth-Providers-Reddit.html#property_userRevokeURL"
+        },                {
             "fqsen": "\\chillerlan\\OAuth\\Providers\\Slack",
             "name": "Slack",
             "summary": "Slack\u0020v2\u0020OAuth2",
@@ -3855,6 +4085,11 @@ Search.appendIndex(
             "name": "getRequestAuthorization",
             "summary": "",
             "url": "classes/chillerlan-OAuth-Providers-SteamOpenID.html#method_getRequestAuthorization"
+        },                {
+            "fqsen": "\\chillerlan\\OAuth\\Providers\\SteamOpenID\u003A\u003Ame\u0028\u0029",
+            "name": "me",
+            "summary": "Returns\u0020information\u0020about\u0020the\u0020currently\u0020authenticated\u0020user\u0020\u0028usually\u0020a\u0020\/me\u0020or\u0020\/user\u0020endpoint\u0029.",
+            "url": "classes/chillerlan-OAuth-Providers-SteamOpenID.html#method_me"
         },                {
             "fqsen": "\\chillerlan\\OAuth\\Providers\\SteamOpenID\u003A\u003A\u0024authorizationURL",
             "name": "authorizationURL",
@@ -5821,6 +6056,21 @@ Search.appendIndex(
             "summary": "",
             "url": "classes/chillerlan-OAuthTest-Providers-Live-PayPalAPITest.html#method_assertMeResponse"
         },                {
+            "fqsen": "\\chillerlan\\OAuthTest\\Providers\\Live\\RedditAPITest",
+            "name": "RedditAPITest",
+            "summary": "",
+            "url": "classes/chillerlan-OAuthTest-Providers-Live-RedditAPITest.html"
+        },                {
+            "fqsen": "\\chillerlan\\OAuthTest\\Providers\\Live\\RedditAPITest\u003A\u003AgetProviderFQCN\u0028\u0029",
+            "name": "getProviderFQCN",
+            "summary": "",
+            "url": "classes/chillerlan-OAuthTest-Providers-Live-RedditAPITest.html#method_getProviderFQCN"
+        },                {
+            "fqsen": "\\chillerlan\\OAuthTest\\Providers\\Live\\RedditAPITest\u003A\u003AgetEnvPrefix\u0028\u0029",
+            "name": "getEnvPrefix",
+            "summary": "",
+            "url": "classes/chillerlan-OAuthTest-Providers-Live-RedditAPITest.html#method_getEnvPrefix"
+        },                {
             "fqsen": "\\chillerlan\\OAuthTest\\Providers\\Live\\SlackAPITest",
             "name": "SlackAPITest",
             "summary": "",
@@ -5900,6 +6150,11 @@ Search.appendIndex(
             "name": "testUnauthorizedAccessException",
             "summary": "",
             "url": "classes/chillerlan-OAuthTest-Providers-Live-SteamOpenIDAPITest.html#method_testUnauthorizedAccessException"
+        },                {
+            "fqsen": "\\chillerlan\\OAuthTest\\Providers\\Live\\SteamOpenIDAPITest\u003A\u003AassertMeResponse\u0028\u0029",
+            "name": "assertMeResponse",
+            "summary": "",
+            "url": "classes/chillerlan-OAuthTest-Providers-Live-SteamOpenIDAPITest.html#method_assertMeResponse"
         },                {
             "fqsen": "\\chillerlan\\OAuthTest\\Providers\\Live\\SteamOpenIDAPITest\u003A\u003A\u0024id",
             "name": "id",
@@ -7040,6 +7295,26 @@ Search.appendIndex(
             "name": "testSendAccessTokenRequest",
             "summary": "",
             "url": "classes/chillerlan-OAuthTest-Providers-Unit-PayPalTest.html#method_testSendAccessTokenRequest"
+        },                {
+            "fqsen": "\\chillerlan\\OAuthTest\\Providers\\Unit\\RedditTest",
+            "name": "RedditTest",
+            "summary": "",
+            "url": "classes/chillerlan-OAuthTest-Providers-Unit-RedditTest.html"
+        },                {
+            "fqsen": "\\chillerlan\\OAuthTest\\Providers\\Unit\\RedditTest\u003A\u003AgetProviderFQCN\u0028\u0029",
+            "name": "getProviderFQCN",
+            "summary": "",
+            "url": "classes/chillerlan-OAuthTest-Providers-Unit-RedditTest.html#method_getProviderFQCN"
+        },                {
+            "fqsen": "\\chillerlan\\OAuthTest\\Providers\\Unit\\RedditTest\u003A\u003AtestGetAccessTokenRequestBodyParams\u0028\u0029",
+            "name": "testGetAccessTokenRequestBodyParams",
+            "summary": "",
+            "url": "classes/chillerlan-OAuthTest-Providers-Unit-RedditTest.html#method_testGetAccessTokenRequestBodyParams"
+        },                {
+            "fqsen": "\\chillerlan\\OAuthTest\\Providers\\Unit\\RedditTest\u003A\u003AtestTokenInvalidate\u0028\u0029",
+            "name": "testTokenInvalidate",
+            "summary": "",
+            "url": "classes/chillerlan-OAuthTest-Providers-Unit-RedditTest.html#method_testTokenInvalidate"
         },                {
             "fqsen": "\\chillerlan\\OAuthTest\\Providers\\Unit\\SlackTest",
             "name": "SlackTest",

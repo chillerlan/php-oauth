@@ -117,7 +117,7 @@
 
     <article class="phpdocumentor-element -class">
         <h2 class="phpdocumentor-content__title">
-    MusicBrainz
+    Reddit
 
         <span class="phpdocumentor-element__extends">
         extends <a href="classes/chillerlan-OAuth-Core-OAuth2Provider.html"><abbr title="\chillerlan\OAuth\Core\OAuth2Provider">OAuth2Provider</abbr></a>
@@ -132,7 +132,7 @@
     
             <span class="phpdocumentor-element__implements">
             implements
-                            <a href="classes/chillerlan-OAuth-Core-CSRFToken.html"><abbr title="\chillerlan\OAuth\Core\CSRFToken">CSRFToken</abbr></a>,                             <a href="classes/chillerlan-OAuth-Core-TokenInvalidate.html"><abbr title="\chillerlan\OAuth\Core\TokenInvalidate">TokenInvalidate</abbr></a>,                             <a href="classes/chillerlan-OAuth-Core-TokenRefresh.html"><abbr title="\chillerlan\OAuth\Core\TokenRefresh">TokenRefresh</abbr></a>,                             <a href="classes/chillerlan-OAuth-Core-UserInfo.html"><abbr title="\chillerlan\OAuth\Core\UserInfo">UserInfo</abbr></a>                    </span>
+                            <a href="classes/chillerlan-OAuth-Core-ClientCredentials.html"><abbr title="\chillerlan\OAuth\Core\ClientCredentials">ClientCredentials</abbr></a>,                             <a href="classes/chillerlan-OAuth-Core-CSRFToken.html"><abbr title="\chillerlan\OAuth\Core\CSRFToken">CSRFToken</abbr></a>,                             <a href="classes/chillerlan-OAuth-Core-TokenRefresh.html"><abbr title="\chillerlan\OAuth\Core\TokenRefresh">TokenRefresh</abbr></a>,                             <a href="classes/chillerlan-OAuth-Core-TokenInvalidate.html"><abbr title="\chillerlan\OAuth\Core\TokenInvalidate">TokenInvalidate</abbr></a>,                             <a href="classes/chillerlan-OAuth-Core-UserInfo.html"><abbr title="\chillerlan\OAuth\Core\UserInfo">UserInfo</abbr></a>                    </span>
     
     </h2>
 
@@ -142,19 +142,19 @@
 </div>
 
         <aside class="phpdocumentor-element-found-in">
-    <abbr class="phpdocumentor-element-found-in__file" title="src/Providers/MusicBrainz.php"><a href="files/src-providers-musicbrainz.html"><abbr title="src/Providers/MusicBrainz.php">MusicBrainz.php</abbr></a></abbr>
+    <abbr class="phpdocumentor-element-found-in__file" title="src/Providers/Reddit.php"><a href="files/src-providers-reddit.html"><abbr title="src/Providers/Reddit.php">Reddit.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">28</span>
+    <span class="phpdocumentor-element-found-in__line">31</span>
 
     </aside>
 
-            <p class="phpdocumentor-summary">MusicBrainz OAuth2</p>
+            <p class="phpdocumentor-summary">Implements an abstract OAuth2 provider with all methods required by the OAuth2Interface.</p>
 
 
 
     <h5 class="phpdocumentor-tag-list__heading" id="tags">
         Tags
-        <a href="classes/chillerlan-OAuth-Providers-MusicBrainz.html#tags" class="headerlink"><i class="fas fa-link"></i></a>
+        <a href="classes/chillerlan-OAuth-Providers-Reddit.html#tags" class="headerlink"><i class="fas fa-link"></i></a>
 
     </h5>
     <dl class="phpdocumentor-tag-list">
@@ -162,7 +162,7 @@
                     <span class="phpdocumentor-tag__name">see</span>
                 </dt>
                 <dd class="phpdocumentor-tag-list__definition">
-                                                                                    <span class="phpdocumentor-tag-link"><a href="https://musicbrainz.org/doc/Development">https://musicbrainz.org/doc/Development</a></span>
+                                                                                    <span class="phpdocumentor-tag-link"><a href="https://github.com/reddit-archive/reddit/wiki/OAuth2">https://github.com/reddit-archive/reddit/wiki/OAuth2</a></span>
                                         
                                              
                                     </dd>
@@ -170,7 +170,23 @@
                     <span class="phpdocumentor-tag__name">see</span>
                 </dt>
                 <dd class="phpdocumentor-tag-list__definition">
-                                                                                    <span class="phpdocumentor-tag-link"><a href="https://musicbrainz.org/doc/Development/OAuth2">https://musicbrainz.org/doc/Development/OAuth2</a></span>
+                                                                                    <span class="phpdocumentor-tag-link"><a href="https://github.com/reddit-archive/reddit/wiki/API">https://github.com/reddit-archive/reddit/wiki/API</a></span>
+                                        
+                                             
+                                    </dd>
+                            <dt class="phpdocumentor-tag-list__entry">
+                    <span class="phpdocumentor-tag__name">see</span>
+                </dt>
+                <dd class="phpdocumentor-tag-list__definition">
+                                                                                    <span class="phpdocumentor-tag-link"><a href="https://support.reddithelp.com/hc/en-us/articles/16160319875092-Reddit-Data-API-Wiki">https://support.reddithelp.com/hc/en-us/articles/16160319875092-Reddit-Data-API-Wiki</a></span>
+                                        
+                                             
+                                    </dd>
+                            <dt class="phpdocumentor-tag-list__entry">
+                    <span class="phpdocumentor-tag__name">see</span>
+                </dt>
+                <dd class="phpdocumentor-tag-list__definition">
+                                                                                    <span class="phpdocumentor-tag-link"><a href="https://www.reddit.com/dev/api">https://www.reddit.com/dev/api</a></span>
                                         
                                              
                                     </dd>
@@ -180,7 +196,7 @@
 
 <h3 id="toc">
     Table of Contents
-    <a href="classes/chillerlan-OAuth-Providers-MusicBrainz.html#toc" class="headerlink"><i class="fas fa-link"></i></a>
+    <a href="classes/chillerlan-OAuth-Providers-Reddit.html#toc" class="headerlink"><i class="fas fa-link"></i></a>
 
 </h3>
 
@@ -188,11 +204,11 @@
 
     <h4 id="toc-interfaces">
         Interfaces
-        <a href="classes/chillerlan-OAuth-Providers-MusicBrainz.html#toc-interfaces" class="headerlink"><i class="fas fa-link"></i></a>
+        <a href="classes/chillerlan-OAuth-Providers-Reddit.html#toc-interfaces" class="headerlink"><i class="fas fa-link"></i></a>
 
     </h4>
     <dl class="phpdocumentor-table-of-contents">
-                    <dt class="phpdocumentor-table-of-contents__entry -interface"><a href="classes/chillerlan-OAuth-Core-CSRFToken.html"><abbr title="\chillerlan\OAuth\Core\CSRFToken">CSRFToken</abbr></a></dt><dd>Specifies the methods required for the OAuth2 CSRF token validation (&quot;state parameter&quot;)</dd>            <dt class="phpdocumentor-table-of-contents__entry -interface"><a href="classes/chillerlan-OAuth-Core-TokenInvalidate.html"><abbr title="\chillerlan\OAuth\Core\TokenInvalidate">TokenInvalidate</abbr></a></dt><dd>Indicates whether the provider is capable of invalidating access tokens</dd>            <dt class="phpdocumentor-table-of-contents__entry -interface"><a href="classes/chillerlan-OAuth-Core-TokenRefresh.html"><abbr title="\chillerlan\OAuth\Core\TokenRefresh">TokenRefresh</abbr></a></dt><dd>Indicates whether the provider is capable of the OAuth2 token refresh.</dd>            <dt class="phpdocumentor-table-of-contents__entry -interface"><a href="classes/chillerlan-OAuth-Core-UserInfo.html"><abbr title="\chillerlan\OAuth\Core\UserInfo">UserInfo</abbr></a></dt><dd>This nterface indicates whether the service can provide information about the currently authenticated user,
+                    <dt class="phpdocumentor-table-of-contents__entry -interface"><a href="classes/chillerlan-OAuth-Core-ClientCredentials.html"><abbr title="\chillerlan\OAuth\Core\ClientCredentials">ClientCredentials</abbr></a></dt><dd>Indicates whether the provider is capable of the OAuth2 client credentials authentication flow.</dd>            <dt class="phpdocumentor-table-of-contents__entry -interface"><a href="classes/chillerlan-OAuth-Core-CSRFToken.html"><abbr title="\chillerlan\OAuth\Core\CSRFToken">CSRFToken</abbr></a></dt><dd>Specifies the methods required for the OAuth2 CSRF token validation (&quot;state parameter&quot;)</dd>            <dt class="phpdocumentor-table-of-contents__entry -interface"><a href="classes/chillerlan-OAuth-Core-TokenRefresh.html"><abbr title="\chillerlan\OAuth\Core\TokenRefresh">TokenRefresh</abbr></a></dt><dd>Indicates whether the provider is capable of the OAuth2 token refresh.</dd>            <dt class="phpdocumentor-table-of-contents__entry -interface"><a href="classes/chillerlan-OAuth-Core-TokenInvalidate.html"><abbr title="\chillerlan\OAuth\Core\TokenInvalidate">TokenInvalidate</abbr></a></dt><dd>Indicates whether the provider is capable of invalidating access tokens</dd>            <dt class="phpdocumentor-table-of-contents__entry -interface"><a href="classes/chillerlan-OAuth-Core-UserInfo.html"><abbr title="\chillerlan\OAuth\Core\UserInfo">UserInfo</abbr></a></dt><dd>This nterface indicates whether the service can provide information about the currently authenticated user,
 usually via a &quot;/me&quot;, &quot;/user&quot; or &quot;/tokeninfo&quot; endpoint.</dd>    </dl>
 
 
@@ -200,56 +216,206 @@ usually via a &quot;/me&quot;, &quot;/user&quot; or &quot;/tokeninfo&quot; endpo
 
 <h4 id="toc-constants">
     Constants
-    <a href="classes/chillerlan-OAuth-Providers-MusicBrainz.html#toc-constants" class="headerlink"><i class="fas fa-link"></i></a>
+    <a href="classes/chillerlan-OAuth-Providers-Reddit.html#toc-constants" class="headerlink"><i class="fas fa-link"></i></a>
 
 </h4>
 <dl class="phpdocumentor-table-of-contents">
             <dt class="phpdocumentor-table-of-contents__entry -constant -public">
-    <a href="classes/chillerlan-OAuth-Providers-MusicBrainz.html#constant_DEFAULT_SCOPES">DEFAULT_SCOPES</a>
+    <a href="classes/chillerlan-OAuth-Providers-Reddit.html#constant_DEFAULT_SCOPES">DEFAULT_SCOPES</a>
     <span>
-        &nbsp;= [self::SCOPE_PROFILE, self::SCOPE_EMAIL, self::SCOPE_TAG, self::SCOPE_RATING, self::SCOPE_COLLECTION]                            </span>
+        &nbsp;= [self::SCOPE_ACCOUNT, self::SCOPE_IDENTITY, self::SCOPE_READ]                            </span>
 </dt>
 
             <dt class="phpdocumentor-table-of-contents__entry -constant -public">
-    <a href="classes/chillerlan-OAuth-Providers-MusicBrainz.html#constant_SCOPE_COLLECTION">SCOPE_COLLECTION</a>
+    <a href="classes/chillerlan-OAuth-Providers-Reddit.html#constant_HEADERS_API">HEADERS_API</a>
     <span>
-        &nbsp;= &#039;collection&#039;                            </span>
+        &nbsp;= [&#039;User-Agent&#039; =&gt; self::USER_AGENT]                            </span>
 </dt>
 
             <dt class="phpdocumentor-table-of-contents__entry -constant -public">
-    <a href="classes/chillerlan-OAuth-Providers-MusicBrainz.html#constant_SCOPE_EMAIL">SCOPE_EMAIL</a>
+    <a href="classes/chillerlan-OAuth-Providers-Reddit.html#constant_HEADERS_AUTH">HEADERS_AUTH</a>
     <span>
-        &nbsp;= &#039;email&#039;                            </span>
+        &nbsp;= [&#039;User-Agent&#039; =&gt; self::USER_AGENT]                            </span>
 </dt>
 
             <dt class="phpdocumentor-table-of-contents__entry -constant -public">
-    <a href="classes/chillerlan-OAuth-Providers-MusicBrainz.html#constant_SCOPE_PROFILE">SCOPE_PROFILE</a>
+    <a href="classes/chillerlan-OAuth-Providers-Reddit.html#constant_SCOPE_ACCOUNT">SCOPE_ACCOUNT</a>
     <span>
-        &nbsp;= &#039;profile&#039;                            </span>
+        &nbsp;= &#039;account&#039;                            </span>
 </dt>
 
             <dt class="phpdocumentor-table-of-contents__entry -constant -public">
-    <a href="classes/chillerlan-OAuth-Providers-MusicBrainz.html#constant_SCOPE_RATING">SCOPE_RATING</a>
+    <a href="classes/chillerlan-OAuth-Providers-Reddit.html#constant_SCOPE_CREDDITS">SCOPE_CREDDITS</a>
     <span>
-        &nbsp;= &#039;rating&#039;                            </span>
+        &nbsp;= &#039;creddits&#039;                            </span>
 </dt>
 
             <dt class="phpdocumentor-table-of-contents__entry -constant -public">
-    <a href="classes/chillerlan-OAuth-Providers-MusicBrainz.html#constant_SCOPE_SUBMIT_BARCODE">SCOPE_SUBMIT_BARCODE</a>
+    <a href="classes/chillerlan-OAuth-Providers-Reddit.html#constant_SCOPE_EDIT">SCOPE_EDIT</a>
     <span>
-        &nbsp;= &#039;submit_barcode&#039;                            </span>
+        &nbsp;= &#039;edit&#039;                            </span>
 </dt>
 
             <dt class="phpdocumentor-table-of-contents__entry -constant -public">
-    <a href="classes/chillerlan-OAuth-Providers-MusicBrainz.html#constant_SCOPE_SUBMIT_ISRC">SCOPE_SUBMIT_ISRC</a>
+    <a href="classes/chillerlan-OAuth-Providers-Reddit.html#constant_SCOPE_FLAIR">SCOPE_FLAIR</a>
     <span>
-        &nbsp;= &#039;submit_isrc&#039;                            </span>
+        &nbsp;= &#039;flair&#039;                            </span>
 </dt>
 
             <dt class="phpdocumentor-table-of-contents__entry -constant -public">
-    <a href="classes/chillerlan-OAuth-Providers-MusicBrainz.html#constant_SCOPE_TAG">SCOPE_TAG</a>
+    <a href="classes/chillerlan-OAuth-Providers-Reddit.html#constant_SCOPE_HISTORY">SCOPE_HISTORY</a>
     <span>
-        &nbsp;= &#039;tag&#039;                            </span>
+        &nbsp;= &#039;history&#039;                            </span>
+</dt>
+
+            <dt class="phpdocumentor-table-of-contents__entry -constant -public">
+    <a href="classes/chillerlan-OAuth-Providers-Reddit.html#constant_SCOPE_IDENTITY">SCOPE_IDENTITY</a>
+    <span>
+        &nbsp;= &#039;identity&#039;                            </span>
+</dt>
+
+            <dt class="phpdocumentor-table-of-contents__entry -constant -public">
+    <a href="classes/chillerlan-OAuth-Providers-Reddit.html#constant_SCOPE_LIVEMANAGE">SCOPE_LIVEMANAGE</a>
+    <span>
+        &nbsp;= &#039;livemanage&#039;                            </span>
+</dt>
+
+            <dt class="phpdocumentor-table-of-contents__entry -constant -public">
+    <a href="classes/chillerlan-OAuth-Providers-Reddit.html#constant_SCOPE_MODCONFIG">SCOPE_MODCONFIG</a>
+    <span>
+        &nbsp;= &#039;modconfig&#039;                            </span>
+</dt>
+
+            <dt class="phpdocumentor-table-of-contents__entry -constant -public">
+    <a href="classes/chillerlan-OAuth-Providers-Reddit.html#constant_SCOPE_MODCONTRIBUTORS">SCOPE_MODCONTRIBUTORS</a>
+    <span>
+        &nbsp;= &#039;modcontributors&#039;                            </span>
+</dt>
+
+            <dt class="phpdocumentor-table-of-contents__entry -constant -public">
+    <a href="classes/chillerlan-OAuth-Providers-Reddit.html#constant_SCOPE_MODFLAIR">SCOPE_MODFLAIR</a>
+    <span>
+        &nbsp;= &#039;modflair&#039;                            </span>
+</dt>
+
+            <dt class="phpdocumentor-table-of-contents__entry -constant -public">
+    <a href="classes/chillerlan-OAuth-Providers-Reddit.html#constant_SCOPE_MODLOG">SCOPE_MODLOG</a>
+    <span>
+        &nbsp;= &#039;modlog&#039;                            </span>
+</dt>
+
+            <dt class="phpdocumentor-table-of-contents__entry -constant -public">
+    <a href="classes/chillerlan-OAuth-Providers-Reddit.html#constant_SCOPE_MODMAIL">SCOPE_MODMAIL</a>
+    <span>
+        &nbsp;= &#039;modmail&#039;                            </span>
+</dt>
+
+            <dt class="phpdocumentor-table-of-contents__entry -constant -public">
+    <a href="classes/chillerlan-OAuth-Providers-Reddit.html#constant_SCOPE_MODNOTE">SCOPE_MODNOTE</a>
+    <span>
+        &nbsp;= &#039;modnote&#039;                            </span>
+</dt>
+
+            <dt class="phpdocumentor-table-of-contents__entry -constant -public">
+    <a href="classes/chillerlan-OAuth-Providers-Reddit.html#constant_SCOPE_MODOTHERS">SCOPE_MODOTHERS</a>
+    <span>
+        &nbsp;= &#039;modothers&#039;                            </span>
+</dt>
+
+            <dt class="phpdocumentor-table-of-contents__entry -constant -public">
+    <a href="classes/chillerlan-OAuth-Providers-Reddit.html#constant_SCOPE_MODPOSTS">SCOPE_MODPOSTS</a>
+    <span>
+        &nbsp;= &#039;modposts&#039;                            </span>
+</dt>
+
+            <dt class="phpdocumentor-table-of-contents__entry -constant -public">
+    <a href="classes/chillerlan-OAuth-Providers-Reddit.html#constant_SCOPE_MODSELF">SCOPE_MODSELF</a>
+    <span>
+        &nbsp;= &#039;modself&#039;                            </span>
+</dt>
+
+            <dt class="phpdocumentor-table-of-contents__entry -constant -public">
+    <a href="classes/chillerlan-OAuth-Providers-Reddit.html#constant_SCOPE_MODTRAFFIC">SCOPE_MODTRAFFIC</a>
+    <span>
+        &nbsp;= &#039;modtraffic&#039;                            </span>
+</dt>
+
+            <dt class="phpdocumentor-table-of-contents__entry -constant -public">
+    <a href="classes/chillerlan-OAuth-Providers-Reddit.html#constant_SCOPE_MODWIKI">SCOPE_MODWIKI</a>
+    <span>
+        &nbsp;= &#039;modwiki&#039;                            </span>
+</dt>
+
+            <dt class="phpdocumentor-table-of-contents__entry -constant -public">
+    <a href="classes/chillerlan-OAuth-Providers-Reddit.html#constant_SCOPE_MYSUBREDDITS">SCOPE_MYSUBREDDITS</a>
+    <span>
+        &nbsp;= &#039;mysubreddits&#039;                            </span>
+</dt>
+
+            <dt class="phpdocumentor-table-of-contents__entry -constant -public">
+    <a href="classes/chillerlan-OAuth-Providers-Reddit.html#constant_SCOPE_PRIVATEMESSAGES">SCOPE_PRIVATEMESSAGES</a>
+    <span>
+        &nbsp;= &#039;privatemessages&#039;                            </span>
+</dt>
+
+            <dt class="phpdocumentor-table-of-contents__entry -constant -public">
+    <a href="classes/chillerlan-OAuth-Providers-Reddit.html#constant_SCOPE_READ">SCOPE_READ</a>
+    <span>
+        &nbsp;= &#039;read&#039;                            </span>
+</dt>
+
+            <dt class="phpdocumentor-table-of-contents__entry -constant -public">
+    <a href="classes/chillerlan-OAuth-Providers-Reddit.html#constant_SCOPE_REPORT">SCOPE_REPORT</a>
+    <span>
+        &nbsp;= &#039;report&#039;                            </span>
+</dt>
+
+            <dt class="phpdocumentor-table-of-contents__entry -constant -public">
+    <a href="classes/chillerlan-OAuth-Providers-Reddit.html#constant_SCOPE_SAVE">SCOPE_SAVE</a>
+    <span>
+        &nbsp;= &#039;save&#039;                            </span>
+</dt>
+
+            <dt class="phpdocumentor-table-of-contents__entry -constant -public">
+    <a href="classes/chillerlan-OAuth-Providers-Reddit.html#constant_SCOPE_STRUCTUREDSTYLES">SCOPE_STRUCTUREDSTYLES</a>
+    <span>
+        &nbsp;= &#039;structuredstyles&#039;                            </span>
+</dt>
+
+            <dt class="phpdocumentor-table-of-contents__entry -constant -public">
+    <a href="classes/chillerlan-OAuth-Providers-Reddit.html#constant_SCOPE_SUBMIT">SCOPE_SUBMIT</a>
+    <span>
+        &nbsp;= &#039;submit&#039;                            </span>
+</dt>
+
+            <dt class="phpdocumentor-table-of-contents__entry -constant -public">
+    <a href="classes/chillerlan-OAuth-Providers-Reddit.html#constant_SCOPE_SUBSCRIBE">SCOPE_SUBSCRIBE</a>
+    <span>
+        &nbsp;= &#039;subscribe&#039;                            </span>
+</dt>
+
+            <dt class="phpdocumentor-table-of-contents__entry -constant -public">
+    <a href="classes/chillerlan-OAuth-Providers-Reddit.html#constant_SCOPE_VOTE">SCOPE_VOTE</a>
+    <span>
+        &nbsp;= &#039;vote&#039;                            </span>
+</dt>
+
+            <dt class="phpdocumentor-table-of-contents__entry -constant -public">
+    <a href="classes/chillerlan-OAuth-Providers-Reddit.html#constant_SCOPE_WIKIEDIT">SCOPE_WIKIEDIT</a>
+    <span>
+        &nbsp;= &#039;wikiedit&#039;                            </span>
+</dt>
+
+            <dt class="phpdocumentor-table-of-contents__entry -constant -public">
+    <a href="classes/chillerlan-OAuth-Providers-Reddit.html#constant_SCOPE_WIKIREAD">SCOPE_WIKIREAD</a>
+    <span>
+        &nbsp;= &#039;wikiread&#039;                            </span>
+</dt>
+
+            <dt class="phpdocumentor-table-of-contents__entry -constant -public">
+    <a href="classes/chillerlan-OAuth-Providers-Reddit.html#constant_USER_AGENT">USER_AGENT</a>
+    <span>
+        &nbsp;= \chillerlan\OAuth\Core\OAuth2Interface::USER_AGENT . &#039; (by /u/chillerlan)&#039;                            </span>
 </dt>
 
             <dt class="phpdocumentor-table-of-contents__entry -constant -protected">
@@ -263,36 +429,36 @@ usually via a &quot;/me&quot;, &quot;/user&quot; or &quot;/tokeninfo&quot; endpo
 
 <h4 id="toc-properties">
     Properties
-    <a href="classes/chillerlan-OAuth-Providers-MusicBrainz.html#toc-properties" class="headerlink"><i class="fas fa-link"></i></a>
+    <a href="classes/chillerlan-OAuth-Providers-Reddit.html#toc-properties" class="headerlink"><i class="fas fa-link"></i></a>
 
 </h4>
 <dl class="phpdocumentor-table-of-contents">
             <dt class="phpdocumentor-table-of-contents__entry -property -protected">
-    <a href="classes/chillerlan-OAuth-Providers-MusicBrainz.html#property_accessTokenURL">$accessTokenURL</a>
+    <a href="classes/chillerlan-OAuth-Providers-Reddit.html#property_accessTokenURL">$accessTokenURL</a>
     <span>
                         &nbsp;: string            </span>
 </dt>
 
             <dt class="phpdocumentor-table-of-contents__entry -property -protected">
-    <a href="classes/chillerlan-OAuth-Providers-MusicBrainz.html#property_apiDocs">$apiDocs</a>
+    <a href="classes/chillerlan-OAuth-Providers-Reddit.html#property_apiDocs">$apiDocs</a>
     <span>
                         &nbsp;: string|null            </span>
 </dt>
 
             <dt class="phpdocumentor-table-of-contents__entry -property -protected">
-    <a href="classes/chillerlan-OAuth-Providers-MusicBrainz.html#property_apiURL">$apiURL</a>
+    <a href="classes/chillerlan-OAuth-Providers-Reddit.html#property_apiURL">$apiURL</a>
     <span>
                         &nbsp;: string            </span>
 </dt>
 
             <dt class="phpdocumentor-table-of-contents__entry -property -protected">
-    <a href="classes/chillerlan-OAuth-Providers-MusicBrainz.html#property_applicationURL">$applicationURL</a>
+    <a href="classes/chillerlan-OAuth-Providers-Reddit.html#property_applicationURL">$applicationURL</a>
     <span>
                         &nbsp;: string|null            </span>
 </dt>
 
             <dt class="phpdocumentor-table-of-contents__entry -property -protected">
-    <a href="classes/chillerlan-OAuth-Providers-MusicBrainz.html#property_authorizationURL">$authorizationURL</a>
+    <a href="classes/chillerlan-OAuth-Providers-Reddit.html#property_authorizationURL">$authorizationURL</a>
     <span>
                         &nbsp;: string            </span>
 </dt>
@@ -343,7 +509,7 @@ usually via a &quot;/me&quot;, &quot;/user&quot; or &quot;/tokeninfo&quot; endpo
 </dt>
 
             <dt class="phpdocumentor-table-of-contents__entry -property -protected">
-    <a href="classes/chillerlan-OAuth-Providers-MusicBrainz.html#property_revokeURL">$revokeURL</a>
+    <a href="classes/chillerlan-OAuth-Providers-Reddit.html#property_revokeURL">$revokeURL</a>
     <span>
                         &nbsp;: string            </span>
 </dt>
@@ -367,7 +533,7 @@ usually via a &quot;/me&quot;, &quot;/user&quot; or &quot;/tokeninfo&quot; endpo
 </dt>
 
             <dt class="phpdocumentor-table-of-contents__entry -property -protected">
-    <a href="classes/chillerlan-OAuth-Providers-MusicBrainz.html#property_userRevokeURL">$userRevokeURL</a>
+    <a href="classes/chillerlan-OAuth-Providers-Reddit.html#property_userRevokeURL">$userRevokeURL</a>
     <span>
                         &nbsp;: string|null            </span>
 </dt>
@@ -376,7 +542,7 @@ usually via a &quot;/me&quot;, &quot;/user&quot; or &quot;/tokeninfo&quot; endpo
 
 <h4 id="toc-methods">
     Methods
-    <a href="classes/chillerlan-OAuth-Providers-MusicBrainz.html#toc-methods" class="headerlink"><i class="fas fa-link"></i></a>
+    <a href="classes/chillerlan-OAuth-Providers-Reddit.html#toc-methods" class="headerlink"><i class="fas fa-link"></i></a>
 
 </h4>
 <dl class="phpdocumentor-table-of-contents">
@@ -441,14 +607,14 @@ if the provider implements the CSRFToken interface, and returns an AccessToken o
 </dt>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a href="classes/chillerlan-OAuth-Providers-MusicBrainz.html#method_invalidateAccessToken">invalidateAccessToken()</a>
+    <a href="classes/chillerlan-OAuth-Providers-Reddit.html#method_invalidateAccessToken">invalidateAccessToken()</a>
     <span>
                                 &nbsp;: bool    </span>
 </dt>
 <dd>Allows to invalidate an access token</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a href="classes/chillerlan-OAuth-Providers-MusicBrainz.html#method_me">me()</a>
+    <a href="classes/chillerlan-OAuth-Providers-Reddit.html#method_me">me()</a>
     <span>
                                 &nbsp;: <a href="classes/chillerlan-OAuth-Core-AuthenticatedUser.html"><abbr title="\chillerlan\OAuth\Core\AuthenticatedUser">AuthenticatedUser</abbr></a>    </span>
 </dt>
@@ -461,10 +627,12 @@ if the provider implements the CSRFToken interface, and returns an AccessToken o
 </dt>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a href="classes/chillerlan-OAuth-Providers-MusicBrainz.html#method_request">request()</a>
+    <a href="classes/chillerlan-OAuth-Core-OAuthProvider.html#method_request">request()</a>
     <span>
                                 &nbsp;: <abbr title="\Psr\Http\Message\ResponseInterface">ResponseInterface</abbr>    </span>
 </dt>
+<dd>Prepares an API request to $path with the given parameters, gets authorization, fires the request
+and returns a PSR-7 ResponseInterface with the corresponding API response</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
     <a href="classes/chillerlan-OAuth-Core-OAuthProvider.html#method_sendRequest">sendRequest()</a>
@@ -551,7 +719,7 @@ so that you don&#039;t have to implement the monstrous original `__construct()`<
 <dd>Creates an access token with the provider set to $this-&gt;name</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -protected">
-    <a href="classes/chillerlan-OAuth-Core-OAuth2Provider.html#method_getAccessTokenRequestBodyParams">getAccessTokenRequestBodyParams()</a>
+    <a href="classes/chillerlan-OAuth-Providers-Reddit.html#method_getAccessTokenRequestBodyParams">getAccessTokenRequestBodyParams()</a>
     <span>
                                 &nbsp;: array&lt;string|int, mixed&gt;    </span>
 </dt>
@@ -579,7 +747,7 @@ so that you don&#039;t have to implement the monstrous original `__construct()`<
 <dd>fetches the provider&#039;s &quot;me&quot; endpoint and returns the JSON data as an array</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -protected">
-    <a href="classes/chillerlan-OAuth-Providers-MusicBrainz.html#method_getRefreshAccessTokenRequestBodyParams">getRefreshAccessTokenRequestBodyParams()</a>
+    <a href="classes/chillerlan-OAuth-Core-OAuth2Provider.html#method_getRefreshAccessTokenRequestBodyParams">getRefreshAccessTokenRequestBodyParams()</a>
     <span>
                                 &nbsp;: array&lt;string|int, mixed&gt;    </span>
 </dt>
@@ -636,7 +804,7 @@ anything except host and path will be ignored, scheme will always be set to &quo
 <dd>Parses the response from a request to the token endpoint</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -protected">
-    <a href="classes/chillerlan-OAuth-Core-OAuth2Provider.html#method_sendAccessTokenRequest">sendAccessTokenRequest()</a>
+    <a href="classes/chillerlan-OAuth-Providers-Reddit.html#method_sendAccessTokenRequest">sendAccessTokenRequest()</a>
     <span>
                                 &nbsp;: <abbr title="\Psr\Http\Message\ResponseInterface">ResponseInterface</abbr>    </span>
 </dt>
@@ -672,20 +840,20 @@ anything except host and path will be ignored, scheme will always be set to &quo
     <section class="phpdocumentor-constants">
         <h3 class="phpdocumentor-elements__header" id="constants">
             Constants
-            <a href="classes/chillerlan-OAuth-Providers-MusicBrainz.html#constants" class="headerlink"><i class="fas fa-link"></i></a>
+            <a href="classes/chillerlan-OAuth-Providers-Reddit.html#constants" class="headerlink"><i class="fas fa-link"></i></a>
 
         </h3>
                     <article class="phpdocumentor-element -constant -public ">
     <h4 class="phpdocumentor-element__name" id="constant_DEFAULT_SCOPES">
         DEFAULT_SCOPES
-        <a href="classes/chillerlan-OAuth-Providers-MusicBrainz.html#constant_DEFAULT_SCOPES" class="headerlink"><i class="fas fa-link"></i></a>
+        <a href="classes/chillerlan-OAuth-Providers-Reddit.html#constant_DEFAULT_SCOPES" class="headerlink"><i class="fas fa-link"></i></a>
 
     </h4>
 
     <aside class="phpdocumentor-element-found-in">
-    <abbr class="phpdocumentor-element-found-in__file" title="src/Providers/MusicBrainz.php"><a href="files/src-providers-musicbrainz.html"><abbr title="src/Providers/MusicBrainz.php">MusicBrainz.php</abbr></a></abbr>
+    <abbr class="phpdocumentor-element-found-in__file" title="src/Providers/Reddit.php"><a href="files/src-providers-reddit.html"><abbr title="src/Providers/Reddit.php">Reddit.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">38</span>
+    <span class="phpdocumentor-element-found-in__line">63</span>
 
     </aside>
 
@@ -694,7 +862,7 @@ anything except host and path will be ignored, scheme will always be set to &quo
     <span class="phpdocumentor-signature__visibility">public</span>
         <span class="phpdocumentor-signature__type">mixed</span>
     <span class="phpdocumentor-signature__name">DEFAULT_SCOPES</span>
-    = <span class="phpdocumentor-signature__default-value">[self::SCOPE_PROFILE, self::SCOPE_EMAIL, self::SCOPE_TAG, self::SCOPE_RATING, self::SCOPE_COLLECTION]</span>
+    = <span class="phpdocumentor-signature__default-value">[self::SCOPE_ACCOUNT, self::SCOPE_IDENTITY, self::SCOPE_READ]</span>
 </code>
 
 
@@ -704,16 +872,16 @@ anything except host and path will be ignored, scheme will always be set to &quo
 
 </article>
                     <article class="phpdocumentor-element -constant -public ">
-    <h4 class="phpdocumentor-element__name" id="constant_SCOPE_COLLECTION">
-        SCOPE_COLLECTION
-        <a href="classes/chillerlan-OAuth-Providers-MusicBrainz.html#constant_SCOPE_COLLECTION" class="headerlink"><i class="fas fa-link"></i></a>
+    <h4 class="phpdocumentor-element__name" id="constant_HEADERS_API">
+        HEADERS_API
+        <a href="classes/chillerlan-OAuth-Providers-Reddit.html#constant_HEADERS_API" class="headerlink"><i class="fas fa-link"></i></a>
 
     </h4>
 
     <aside class="phpdocumentor-element-found-in">
-    <abbr class="phpdocumentor-element-found-in__file" title="src/Providers/MusicBrainz.php"><a href="files/src-providers-musicbrainz.html"><abbr title="src/Providers/MusicBrainz.php">MusicBrainz.php</abbr></a></abbr>
+    <abbr class="phpdocumentor-element-found-in__file" title="src/Providers/Reddit.php"><a href="files/src-providers-reddit.html"><abbr title="src/Providers/Reddit.php">Reddit.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">34</span>
+    <span class="phpdocumentor-element-found-in__line">75</span>
 
     </aside>
 
@@ -721,8 +889,8 @@ anything except host and path will be ignored, scheme will always be set to &quo
     <code class="phpdocumentor-signature phpdocumentor-code ">
     <span class="phpdocumentor-signature__visibility">public</span>
         <span class="phpdocumentor-signature__type">mixed</span>
-    <span class="phpdocumentor-signature__name">SCOPE_COLLECTION</span>
-    = <span class="phpdocumentor-signature__default-value">&#039;collection&#039;</span>
+    <span class="phpdocumentor-signature__name">HEADERS_API</span>
+    = <span class="phpdocumentor-signature__default-value">[&#039;User-Agent&#039; =&gt; self::USER_AGENT]</span>
 </code>
 
 
@@ -732,16 +900,16 @@ anything except host and path will be ignored, scheme will always be set to &quo
 
 </article>
                     <article class="phpdocumentor-element -constant -public ">
-    <h4 class="phpdocumentor-element__name" id="constant_SCOPE_EMAIL">
-        SCOPE_EMAIL
-        <a href="classes/chillerlan-OAuth-Providers-MusicBrainz.html#constant_SCOPE_EMAIL" class="headerlink"><i class="fas fa-link"></i></a>
+    <h4 class="phpdocumentor-element__name" id="constant_HEADERS_AUTH">
+        HEADERS_AUTH
+        <a href="classes/chillerlan-OAuth-Providers-Reddit.html#constant_HEADERS_AUTH" class="headerlink"><i class="fas fa-link"></i></a>
 
     </h4>
 
     <aside class="phpdocumentor-element-found-in">
-    <abbr class="phpdocumentor-element-found-in__file" title="src/Providers/MusicBrainz.php"><a href="files/src-providers-musicbrainz.html"><abbr title="src/Providers/MusicBrainz.php">MusicBrainz.php</abbr></a></abbr>
+    <abbr class="phpdocumentor-element-found-in__file" title="src/Providers/Reddit.php"><a href="files/src-providers-reddit.html"><abbr title="src/Providers/Reddit.php">Reddit.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">31</span>
+    <span class="phpdocumentor-element-found-in__line">71</span>
 
     </aside>
 
@@ -749,8 +917,8 @@ anything except host and path will be ignored, scheme will always be set to &quo
     <code class="phpdocumentor-signature phpdocumentor-code ">
     <span class="phpdocumentor-signature__visibility">public</span>
         <span class="phpdocumentor-signature__type">mixed</span>
-    <span class="phpdocumentor-signature__name">SCOPE_EMAIL</span>
-    = <span class="phpdocumentor-signature__default-value">&#039;email&#039;</span>
+    <span class="phpdocumentor-signature__name">HEADERS_AUTH</span>
+    = <span class="phpdocumentor-signature__default-value">[&#039;User-Agent&#039; =&gt; self::USER_AGENT]</span>
 </code>
 
 
@@ -760,42 +928,14 @@ anything except host and path will be ignored, scheme will always be set to &quo
 
 </article>
                     <article class="phpdocumentor-element -constant -public ">
-    <h4 class="phpdocumentor-element__name" id="constant_SCOPE_PROFILE">
-        SCOPE_PROFILE
-        <a href="classes/chillerlan-OAuth-Providers-MusicBrainz.html#constant_SCOPE_PROFILE" class="headerlink"><i class="fas fa-link"></i></a>
+    <h4 class="phpdocumentor-element__name" id="constant_SCOPE_ACCOUNT">
+        SCOPE_ACCOUNT
+        <a href="classes/chillerlan-OAuth-Providers-Reddit.html#constant_SCOPE_ACCOUNT" class="headerlink"><i class="fas fa-link"></i></a>
 
     </h4>
 
     <aside class="phpdocumentor-element-found-in">
-    <abbr class="phpdocumentor-element-found-in__file" title="src/Providers/MusicBrainz.php"><a href="files/src-providers-musicbrainz.html"><abbr title="src/Providers/MusicBrainz.php">MusicBrainz.php</abbr></a></abbr>
-    :
-    <span class="phpdocumentor-element-found-in__line">30</span>
-
-    </aside>
-
-    
-    <code class="phpdocumentor-signature phpdocumentor-code ">
-    <span class="phpdocumentor-signature__visibility">public</span>
-        <span class="phpdocumentor-signature__type">mixed</span>
-    <span class="phpdocumentor-signature__name">SCOPE_PROFILE</span>
-    = <span class="phpdocumentor-signature__default-value">&#039;profile&#039;</span>
-</code>
-
-
-    
-    
-    
-
-</article>
-                    <article class="phpdocumentor-element -constant -public ">
-    <h4 class="phpdocumentor-element__name" id="constant_SCOPE_RATING">
-        SCOPE_RATING
-        <a href="classes/chillerlan-OAuth-Providers-MusicBrainz.html#constant_SCOPE_RATING" class="headerlink"><i class="fas fa-link"></i></a>
-
-    </h4>
-
-    <aside class="phpdocumentor-element-found-in">
-    <abbr class="phpdocumentor-element-found-in__file" title="src/Providers/MusicBrainz.php"><a href="files/src-providers-musicbrainz.html"><abbr title="src/Providers/MusicBrainz.php">MusicBrainz.php</abbr></a></abbr>
+    <abbr class="phpdocumentor-element-found-in__file" title="src/Providers/Reddit.php"><a href="files/src-providers-reddit.html"><abbr title="src/Providers/Reddit.php">Reddit.php</abbr></a></abbr>
     :
     <span class="phpdocumentor-element-found-in__line">33</span>
 
@@ -805,8 +945,8 @@ anything except host and path will be ignored, scheme will always be set to &quo
     <code class="phpdocumentor-signature phpdocumentor-code ">
     <span class="phpdocumentor-signature__visibility">public</span>
         <span class="phpdocumentor-signature__type">mixed</span>
-    <span class="phpdocumentor-signature__name">SCOPE_RATING</span>
-    = <span class="phpdocumentor-signature__default-value">&#039;rating&#039;</span>
+    <span class="phpdocumentor-signature__name">SCOPE_ACCOUNT</span>
+    = <span class="phpdocumentor-signature__default-value">&#039;account&#039;</span>
 </code>
 
 
@@ -816,16 +956,16 @@ anything except host and path will be ignored, scheme will always be set to &quo
 
 </article>
                     <article class="phpdocumentor-element -constant -public ">
-    <h4 class="phpdocumentor-element__name" id="constant_SCOPE_SUBMIT_BARCODE">
-        SCOPE_SUBMIT_BARCODE
-        <a href="classes/chillerlan-OAuth-Providers-MusicBrainz.html#constant_SCOPE_SUBMIT_BARCODE" class="headerlink"><i class="fas fa-link"></i></a>
+    <h4 class="phpdocumentor-element__name" id="constant_SCOPE_CREDDITS">
+        SCOPE_CREDDITS
+        <a href="classes/chillerlan-OAuth-Providers-Reddit.html#constant_SCOPE_CREDDITS" class="headerlink"><i class="fas fa-link"></i></a>
 
     </h4>
 
     <aside class="phpdocumentor-element-found-in">
-    <abbr class="phpdocumentor-element-found-in__file" title="src/Providers/MusicBrainz.php"><a href="files/src-providers-musicbrainz.html"><abbr title="src/Providers/MusicBrainz.php">MusicBrainz.php</abbr></a></abbr>
+    <abbr class="phpdocumentor-element-found-in__file" title="src/Providers/Reddit.php"><a href="files/src-providers-reddit.html"><abbr title="src/Providers/Reddit.php">Reddit.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">36</span>
+    <span class="phpdocumentor-element-found-in__line">34</span>
 
     </aside>
 
@@ -833,8 +973,8 @@ anything except host and path will be ignored, scheme will always be set to &quo
     <code class="phpdocumentor-signature phpdocumentor-code ">
     <span class="phpdocumentor-signature__visibility">public</span>
         <span class="phpdocumentor-signature__type">mixed</span>
-    <span class="phpdocumentor-signature__name">SCOPE_SUBMIT_BARCODE</span>
-    = <span class="phpdocumentor-signature__default-value">&#039;submit_barcode&#039;</span>
+    <span class="phpdocumentor-signature__name">SCOPE_CREDDITS</span>
+    = <span class="phpdocumentor-signature__default-value">&#039;creddits&#039;</span>
 </code>
 
 
@@ -844,14 +984,14 @@ anything except host and path will be ignored, scheme will always be set to &quo
 
 </article>
                     <article class="phpdocumentor-element -constant -public ">
-    <h4 class="phpdocumentor-element__name" id="constant_SCOPE_SUBMIT_ISRC">
-        SCOPE_SUBMIT_ISRC
-        <a href="classes/chillerlan-OAuth-Providers-MusicBrainz.html#constant_SCOPE_SUBMIT_ISRC" class="headerlink"><i class="fas fa-link"></i></a>
+    <h4 class="phpdocumentor-element__name" id="constant_SCOPE_EDIT">
+        SCOPE_EDIT
+        <a href="classes/chillerlan-OAuth-Providers-Reddit.html#constant_SCOPE_EDIT" class="headerlink"><i class="fas fa-link"></i></a>
 
     </h4>
 
     <aside class="phpdocumentor-element-found-in">
-    <abbr class="phpdocumentor-element-found-in__file" title="src/Providers/MusicBrainz.php"><a href="files/src-providers-musicbrainz.html"><abbr title="src/Providers/MusicBrainz.php">MusicBrainz.php</abbr></a></abbr>
+    <abbr class="phpdocumentor-element-found-in__file" title="src/Providers/Reddit.php"><a href="files/src-providers-reddit.html"><abbr title="src/Providers/Reddit.php">Reddit.php</abbr></a></abbr>
     :
     <span class="phpdocumentor-element-found-in__line">35</span>
 
@@ -861,8 +1001,8 @@ anything except host and path will be ignored, scheme will always be set to &quo
     <code class="phpdocumentor-signature phpdocumentor-code ">
     <span class="phpdocumentor-signature__visibility">public</span>
         <span class="phpdocumentor-signature__type">mixed</span>
-    <span class="phpdocumentor-signature__name">SCOPE_SUBMIT_ISRC</span>
-    = <span class="phpdocumentor-signature__default-value">&#039;submit_isrc&#039;</span>
+    <span class="phpdocumentor-signature__name">SCOPE_EDIT</span>
+    = <span class="phpdocumentor-signature__default-value">&#039;edit&#039;</span>
 </code>
 
 
@@ -872,16 +1012,16 @@ anything except host and path will be ignored, scheme will always be set to &quo
 
 </article>
                     <article class="phpdocumentor-element -constant -public ">
-    <h4 class="phpdocumentor-element__name" id="constant_SCOPE_TAG">
-        SCOPE_TAG
-        <a href="classes/chillerlan-OAuth-Providers-MusicBrainz.html#constant_SCOPE_TAG" class="headerlink"><i class="fas fa-link"></i></a>
+    <h4 class="phpdocumentor-element__name" id="constant_SCOPE_FLAIR">
+        SCOPE_FLAIR
+        <a href="classes/chillerlan-OAuth-Providers-Reddit.html#constant_SCOPE_FLAIR" class="headerlink"><i class="fas fa-link"></i></a>
 
     </h4>
 
     <aside class="phpdocumentor-element-found-in">
-    <abbr class="phpdocumentor-element-found-in__file" title="src/Providers/MusicBrainz.php"><a href="files/src-providers-musicbrainz.html"><abbr title="src/Providers/MusicBrainz.php">MusicBrainz.php</abbr></a></abbr>
+    <abbr class="phpdocumentor-element-found-in__file" title="src/Providers/Reddit.php"><a href="files/src-providers-reddit.html"><abbr title="src/Providers/Reddit.php">Reddit.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">32</span>
+    <span class="phpdocumentor-element-found-in__line">36</span>
 
     </aside>
 
@@ -889,8 +1029,736 @@ anything except host and path will be ignored, scheme will always be set to &quo
     <code class="phpdocumentor-signature phpdocumentor-code ">
     <span class="phpdocumentor-signature__visibility">public</span>
         <span class="phpdocumentor-signature__type">mixed</span>
-    <span class="phpdocumentor-signature__name">SCOPE_TAG</span>
-    = <span class="phpdocumentor-signature__default-value">&#039;tag&#039;</span>
+    <span class="phpdocumentor-signature__name">SCOPE_FLAIR</span>
+    = <span class="phpdocumentor-signature__default-value">&#039;flair&#039;</span>
+</code>
+
+
+    
+    
+    
+
+</article>
+                    <article class="phpdocumentor-element -constant -public ">
+    <h4 class="phpdocumentor-element__name" id="constant_SCOPE_HISTORY">
+        SCOPE_HISTORY
+        <a href="classes/chillerlan-OAuth-Providers-Reddit.html#constant_SCOPE_HISTORY" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h4>
+
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/Providers/Reddit.php"><a href="files/src-providers-reddit.html"><abbr title="src/Providers/Reddit.php">Reddit.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">37</span>
+
+    </aside>
+
+    
+    <code class="phpdocumentor-signature phpdocumentor-code ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+        <span class="phpdocumentor-signature__type">mixed</span>
+    <span class="phpdocumentor-signature__name">SCOPE_HISTORY</span>
+    = <span class="phpdocumentor-signature__default-value">&#039;history&#039;</span>
+</code>
+
+
+    
+    
+    
+
+</article>
+                    <article class="phpdocumentor-element -constant -public ">
+    <h4 class="phpdocumentor-element__name" id="constant_SCOPE_IDENTITY">
+        SCOPE_IDENTITY
+        <a href="classes/chillerlan-OAuth-Providers-Reddit.html#constant_SCOPE_IDENTITY" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h4>
+
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/Providers/Reddit.php"><a href="files/src-providers-reddit.html"><abbr title="src/Providers/Reddit.php">Reddit.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">38</span>
+
+    </aside>
+
+    
+    <code class="phpdocumentor-signature phpdocumentor-code ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+        <span class="phpdocumentor-signature__type">mixed</span>
+    <span class="phpdocumentor-signature__name">SCOPE_IDENTITY</span>
+    = <span class="phpdocumentor-signature__default-value">&#039;identity&#039;</span>
+</code>
+
+
+    
+    
+    
+
+</article>
+                    <article class="phpdocumentor-element -constant -public ">
+    <h4 class="phpdocumentor-element__name" id="constant_SCOPE_LIVEMANAGE">
+        SCOPE_LIVEMANAGE
+        <a href="classes/chillerlan-OAuth-Providers-Reddit.html#constant_SCOPE_LIVEMANAGE" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h4>
+
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/Providers/Reddit.php"><a href="files/src-providers-reddit.html"><abbr title="src/Providers/Reddit.php">Reddit.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">39</span>
+
+    </aside>
+
+    
+    <code class="phpdocumentor-signature phpdocumentor-code ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+        <span class="phpdocumentor-signature__type">mixed</span>
+    <span class="phpdocumentor-signature__name">SCOPE_LIVEMANAGE</span>
+    = <span class="phpdocumentor-signature__default-value">&#039;livemanage&#039;</span>
+</code>
+
+
+    
+    
+    
+
+</article>
+                    <article class="phpdocumentor-element -constant -public ">
+    <h4 class="phpdocumentor-element__name" id="constant_SCOPE_MODCONFIG">
+        SCOPE_MODCONFIG
+        <a href="classes/chillerlan-OAuth-Providers-Reddit.html#constant_SCOPE_MODCONFIG" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h4>
+
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/Providers/Reddit.php"><a href="files/src-providers-reddit.html"><abbr title="src/Providers/Reddit.php">Reddit.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">40</span>
+
+    </aside>
+
+    
+    <code class="phpdocumentor-signature phpdocumentor-code ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+        <span class="phpdocumentor-signature__type">mixed</span>
+    <span class="phpdocumentor-signature__name">SCOPE_MODCONFIG</span>
+    = <span class="phpdocumentor-signature__default-value">&#039;modconfig&#039;</span>
+</code>
+
+
+    
+    
+    
+
+</article>
+                    <article class="phpdocumentor-element -constant -public ">
+    <h4 class="phpdocumentor-element__name" id="constant_SCOPE_MODCONTRIBUTORS">
+        SCOPE_MODCONTRIBUTORS
+        <a href="classes/chillerlan-OAuth-Providers-Reddit.html#constant_SCOPE_MODCONTRIBUTORS" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h4>
+
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/Providers/Reddit.php"><a href="files/src-providers-reddit.html"><abbr title="src/Providers/Reddit.php">Reddit.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">41</span>
+
+    </aside>
+
+    
+    <code class="phpdocumentor-signature phpdocumentor-code ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+        <span class="phpdocumentor-signature__type">mixed</span>
+    <span class="phpdocumentor-signature__name">SCOPE_MODCONTRIBUTORS</span>
+    = <span class="phpdocumentor-signature__default-value">&#039;modcontributors&#039;</span>
+</code>
+
+
+    
+    
+    
+
+</article>
+                    <article class="phpdocumentor-element -constant -public ">
+    <h4 class="phpdocumentor-element__name" id="constant_SCOPE_MODFLAIR">
+        SCOPE_MODFLAIR
+        <a href="classes/chillerlan-OAuth-Providers-Reddit.html#constant_SCOPE_MODFLAIR" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h4>
+
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/Providers/Reddit.php"><a href="files/src-providers-reddit.html"><abbr title="src/Providers/Reddit.php">Reddit.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">42</span>
+
+    </aside>
+
+    
+    <code class="phpdocumentor-signature phpdocumentor-code ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+        <span class="phpdocumentor-signature__type">mixed</span>
+    <span class="phpdocumentor-signature__name">SCOPE_MODFLAIR</span>
+    = <span class="phpdocumentor-signature__default-value">&#039;modflair&#039;</span>
+</code>
+
+
+    
+    
+    
+
+</article>
+                    <article class="phpdocumentor-element -constant -public ">
+    <h4 class="phpdocumentor-element__name" id="constant_SCOPE_MODLOG">
+        SCOPE_MODLOG
+        <a href="classes/chillerlan-OAuth-Providers-Reddit.html#constant_SCOPE_MODLOG" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h4>
+
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/Providers/Reddit.php"><a href="files/src-providers-reddit.html"><abbr title="src/Providers/Reddit.php">Reddit.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">43</span>
+
+    </aside>
+
+    
+    <code class="phpdocumentor-signature phpdocumentor-code ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+        <span class="phpdocumentor-signature__type">mixed</span>
+    <span class="phpdocumentor-signature__name">SCOPE_MODLOG</span>
+    = <span class="phpdocumentor-signature__default-value">&#039;modlog&#039;</span>
+</code>
+
+
+    
+    
+    
+
+</article>
+                    <article class="phpdocumentor-element -constant -public ">
+    <h4 class="phpdocumentor-element__name" id="constant_SCOPE_MODMAIL">
+        SCOPE_MODMAIL
+        <a href="classes/chillerlan-OAuth-Providers-Reddit.html#constant_SCOPE_MODMAIL" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h4>
+
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/Providers/Reddit.php"><a href="files/src-providers-reddit.html"><abbr title="src/Providers/Reddit.php">Reddit.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">44</span>
+
+    </aside>
+
+    
+    <code class="phpdocumentor-signature phpdocumentor-code ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+        <span class="phpdocumentor-signature__type">mixed</span>
+    <span class="phpdocumentor-signature__name">SCOPE_MODMAIL</span>
+    = <span class="phpdocumentor-signature__default-value">&#039;modmail&#039;</span>
+</code>
+
+
+    
+    
+    
+
+</article>
+                    <article class="phpdocumentor-element -constant -public ">
+    <h4 class="phpdocumentor-element__name" id="constant_SCOPE_MODNOTE">
+        SCOPE_MODNOTE
+        <a href="classes/chillerlan-OAuth-Providers-Reddit.html#constant_SCOPE_MODNOTE" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h4>
+
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/Providers/Reddit.php"><a href="files/src-providers-reddit.html"><abbr title="src/Providers/Reddit.php">Reddit.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">45</span>
+
+    </aside>
+
+    
+    <code class="phpdocumentor-signature phpdocumentor-code ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+        <span class="phpdocumentor-signature__type">mixed</span>
+    <span class="phpdocumentor-signature__name">SCOPE_MODNOTE</span>
+    = <span class="phpdocumentor-signature__default-value">&#039;modnote&#039;</span>
+</code>
+
+
+    
+    
+    
+
+</article>
+                    <article class="phpdocumentor-element -constant -public ">
+    <h4 class="phpdocumentor-element__name" id="constant_SCOPE_MODOTHERS">
+        SCOPE_MODOTHERS
+        <a href="classes/chillerlan-OAuth-Providers-Reddit.html#constant_SCOPE_MODOTHERS" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h4>
+
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/Providers/Reddit.php"><a href="files/src-providers-reddit.html"><abbr title="src/Providers/Reddit.php">Reddit.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">46</span>
+
+    </aside>
+
+    
+    <code class="phpdocumentor-signature phpdocumentor-code ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+        <span class="phpdocumentor-signature__type">mixed</span>
+    <span class="phpdocumentor-signature__name">SCOPE_MODOTHERS</span>
+    = <span class="phpdocumentor-signature__default-value">&#039;modothers&#039;</span>
+</code>
+
+
+    
+    
+    
+
+</article>
+                    <article class="phpdocumentor-element -constant -public ">
+    <h4 class="phpdocumentor-element__name" id="constant_SCOPE_MODPOSTS">
+        SCOPE_MODPOSTS
+        <a href="classes/chillerlan-OAuth-Providers-Reddit.html#constant_SCOPE_MODPOSTS" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h4>
+
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/Providers/Reddit.php"><a href="files/src-providers-reddit.html"><abbr title="src/Providers/Reddit.php">Reddit.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">47</span>
+
+    </aside>
+
+    
+    <code class="phpdocumentor-signature phpdocumentor-code ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+        <span class="phpdocumentor-signature__type">mixed</span>
+    <span class="phpdocumentor-signature__name">SCOPE_MODPOSTS</span>
+    = <span class="phpdocumentor-signature__default-value">&#039;modposts&#039;</span>
+</code>
+
+
+    
+    
+    
+
+</article>
+                    <article class="phpdocumentor-element -constant -public ">
+    <h4 class="phpdocumentor-element__name" id="constant_SCOPE_MODSELF">
+        SCOPE_MODSELF
+        <a href="classes/chillerlan-OAuth-Providers-Reddit.html#constant_SCOPE_MODSELF" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h4>
+
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/Providers/Reddit.php"><a href="files/src-providers-reddit.html"><abbr title="src/Providers/Reddit.php">Reddit.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">48</span>
+
+    </aside>
+
+    
+    <code class="phpdocumentor-signature phpdocumentor-code ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+        <span class="phpdocumentor-signature__type">mixed</span>
+    <span class="phpdocumentor-signature__name">SCOPE_MODSELF</span>
+    = <span class="phpdocumentor-signature__default-value">&#039;modself&#039;</span>
+</code>
+
+
+    
+    
+    
+
+</article>
+                    <article class="phpdocumentor-element -constant -public ">
+    <h4 class="phpdocumentor-element__name" id="constant_SCOPE_MODTRAFFIC">
+        SCOPE_MODTRAFFIC
+        <a href="classes/chillerlan-OAuth-Providers-Reddit.html#constant_SCOPE_MODTRAFFIC" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h4>
+
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/Providers/Reddit.php"><a href="files/src-providers-reddit.html"><abbr title="src/Providers/Reddit.php">Reddit.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">49</span>
+
+    </aside>
+
+    
+    <code class="phpdocumentor-signature phpdocumentor-code ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+        <span class="phpdocumentor-signature__type">mixed</span>
+    <span class="phpdocumentor-signature__name">SCOPE_MODTRAFFIC</span>
+    = <span class="phpdocumentor-signature__default-value">&#039;modtraffic&#039;</span>
+</code>
+
+
+    
+    
+    
+
+</article>
+                    <article class="phpdocumentor-element -constant -public ">
+    <h4 class="phpdocumentor-element__name" id="constant_SCOPE_MODWIKI">
+        SCOPE_MODWIKI
+        <a href="classes/chillerlan-OAuth-Providers-Reddit.html#constant_SCOPE_MODWIKI" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h4>
+
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/Providers/Reddit.php"><a href="files/src-providers-reddit.html"><abbr title="src/Providers/Reddit.php">Reddit.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">50</span>
+
+    </aside>
+
+    
+    <code class="phpdocumentor-signature phpdocumentor-code ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+        <span class="phpdocumentor-signature__type">mixed</span>
+    <span class="phpdocumentor-signature__name">SCOPE_MODWIKI</span>
+    = <span class="phpdocumentor-signature__default-value">&#039;modwiki&#039;</span>
+</code>
+
+
+    
+    
+    
+
+</article>
+                    <article class="phpdocumentor-element -constant -public ">
+    <h4 class="phpdocumentor-element__name" id="constant_SCOPE_MYSUBREDDITS">
+        SCOPE_MYSUBREDDITS
+        <a href="classes/chillerlan-OAuth-Providers-Reddit.html#constant_SCOPE_MYSUBREDDITS" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h4>
+
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/Providers/Reddit.php"><a href="files/src-providers-reddit.html"><abbr title="src/Providers/Reddit.php">Reddit.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">51</span>
+
+    </aside>
+
+    
+    <code class="phpdocumentor-signature phpdocumentor-code ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+        <span class="phpdocumentor-signature__type">mixed</span>
+    <span class="phpdocumentor-signature__name">SCOPE_MYSUBREDDITS</span>
+    = <span class="phpdocumentor-signature__default-value">&#039;mysubreddits&#039;</span>
+</code>
+
+
+    
+    
+    
+
+</article>
+                    <article class="phpdocumentor-element -constant -public ">
+    <h4 class="phpdocumentor-element__name" id="constant_SCOPE_PRIVATEMESSAGES">
+        SCOPE_PRIVATEMESSAGES
+        <a href="classes/chillerlan-OAuth-Providers-Reddit.html#constant_SCOPE_PRIVATEMESSAGES" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h4>
+
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/Providers/Reddit.php"><a href="files/src-providers-reddit.html"><abbr title="src/Providers/Reddit.php">Reddit.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">52</span>
+
+    </aside>
+
+    
+    <code class="phpdocumentor-signature phpdocumentor-code ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+        <span class="phpdocumentor-signature__type">mixed</span>
+    <span class="phpdocumentor-signature__name">SCOPE_PRIVATEMESSAGES</span>
+    = <span class="phpdocumentor-signature__default-value">&#039;privatemessages&#039;</span>
+</code>
+
+
+    
+    
+    
+
+</article>
+                    <article class="phpdocumentor-element -constant -public ">
+    <h4 class="phpdocumentor-element__name" id="constant_SCOPE_READ">
+        SCOPE_READ
+        <a href="classes/chillerlan-OAuth-Providers-Reddit.html#constant_SCOPE_READ" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h4>
+
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/Providers/Reddit.php"><a href="files/src-providers-reddit.html"><abbr title="src/Providers/Reddit.php">Reddit.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">53</span>
+
+    </aside>
+
+    
+    <code class="phpdocumentor-signature phpdocumentor-code ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+        <span class="phpdocumentor-signature__type">mixed</span>
+    <span class="phpdocumentor-signature__name">SCOPE_READ</span>
+    = <span class="phpdocumentor-signature__default-value">&#039;read&#039;</span>
+</code>
+
+
+    
+    
+    
+
+</article>
+                    <article class="phpdocumentor-element -constant -public ">
+    <h4 class="phpdocumentor-element__name" id="constant_SCOPE_REPORT">
+        SCOPE_REPORT
+        <a href="classes/chillerlan-OAuth-Providers-Reddit.html#constant_SCOPE_REPORT" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h4>
+
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/Providers/Reddit.php"><a href="files/src-providers-reddit.html"><abbr title="src/Providers/Reddit.php">Reddit.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">54</span>
+
+    </aside>
+
+    
+    <code class="phpdocumentor-signature phpdocumentor-code ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+        <span class="phpdocumentor-signature__type">mixed</span>
+    <span class="phpdocumentor-signature__name">SCOPE_REPORT</span>
+    = <span class="phpdocumentor-signature__default-value">&#039;report&#039;</span>
+</code>
+
+
+    
+    
+    
+
+</article>
+                    <article class="phpdocumentor-element -constant -public ">
+    <h4 class="phpdocumentor-element__name" id="constant_SCOPE_SAVE">
+        SCOPE_SAVE
+        <a href="classes/chillerlan-OAuth-Providers-Reddit.html#constant_SCOPE_SAVE" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h4>
+
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/Providers/Reddit.php"><a href="files/src-providers-reddit.html"><abbr title="src/Providers/Reddit.php">Reddit.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">55</span>
+
+    </aside>
+
+    
+    <code class="phpdocumentor-signature phpdocumentor-code ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+        <span class="phpdocumentor-signature__type">mixed</span>
+    <span class="phpdocumentor-signature__name">SCOPE_SAVE</span>
+    = <span class="phpdocumentor-signature__default-value">&#039;save&#039;</span>
+</code>
+
+
+    
+    
+    
+
+</article>
+                    <article class="phpdocumentor-element -constant -public ">
+    <h4 class="phpdocumentor-element__name" id="constant_SCOPE_STRUCTUREDSTYLES">
+        SCOPE_STRUCTUREDSTYLES
+        <a href="classes/chillerlan-OAuth-Providers-Reddit.html#constant_SCOPE_STRUCTUREDSTYLES" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h4>
+
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/Providers/Reddit.php"><a href="files/src-providers-reddit.html"><abbr title="src/Providers/Reddit.php">Reddit.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">56</span>
+
+    </aside>
+
+    
+    <code class="phpdocumentor-signature phpdocumentor-code ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+        <span class="phpdocumentor-signature__type">mixed</span>
+    <span class="phpdocumentor-signature__name">SCOPE_STRUCTUREDSTYLES</span>
+    = <span class="phpdocumentor-signature__default-value">&#039;structuredstyles&#039;</span>
+</code>
+
+
+    
+    
+    
+
+</article>
+                    <article class="phpdocumentor-element -constant -public ">
+    <h4 class="phpdocumentor-element__name" id="constant_SCOPE_SUBMIT">
+        SCOPE_SUBMIT
+        <a href="classes/chillerlan-OAuth-Providers-Reddit.html#constant_SCOPE_SUBMIT" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h4>
+
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/Providers/Reddit.php"><a href="files/src-providers-reddit.html"><abbr title="src/Providers/Reddit.php">Reddit.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">57</span>
+
+    </aside>
+
+    
+    <code class="phpdocumentor-signature phpdocumentor-code ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+        <span class="phpdocumentor-signature__type">mixed</span>
+    <span class="phpdocumentor-signature__name">SCOPE_SUBMIT</span>
+    = <span class="phpdocumentor-signature__default-value">&#039;submit&#039;</span>
+</code>
+
+
+    
+    
+    
+
+</article>
+                    <article class="phpdocumentor-element -constant -public ">
+    <h4 class="phpdocumentor-element__name" id="constant_SCOPE_SUBSCRIBE">
+        SCOPE_SUBSCRIBE
+        <a href="classes/chillerlan-OAuth-Providers-Reddit.html#constant_SCOPE_SUBSCRIBE" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h4>
+
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/Providers/Reddit.php"><a href="files/src-providers-reddit.html"><abbr title="src/Providers/Reddit.php">Reddit.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">58</span>
+
+    </aside>
+
+    
+    <code class="phpdocumentor-signature phpdocumentor-code ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+        <span class="phpdocumentor-signature__type">mixed</span>
+    <span class="phpdocumentor-signature__name">SCOPE_SUBSCRIBE</span>
+    = <span class="phpdocumentor-signature__default-value">&#039;subscribe&#039;</span>
+</code>
+
+
+    
+    
+    
+
+</article>
+                    <article class="phpdocumentor-element -constant -public ">
+    <h4 class="phpdocumentor-element__name" id="constant_SCOPE_VOTE">
+        SCOPE_VOTE
+        <a href="classes/chillerlan-OAuth-Providers-Reddit.html#constant_SCOPE_VOTE" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h4>
+
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/Providers/Reddit.php"><a href="files/src-providers-reddit.html"><abbr title="src/Providers/Reddit.php">Reddit.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">59</span>
+
+    </aside>
+
+    
+    <code class="phpdocumentor-signature phpdocumentor-code ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+        <span class="phpdocumentor-signature__type">mixed</span>
+    <span class="phpdocumentor-signature__name">SCOPE_VOTE</span>
+    = <span class="phpdocumentor-signature__default-value">&#039;vote&#039;</span>
+</code>
+
+
+    
+    
+    
+
+</article>
+                    <article class="phpdocumentor-element -constant -public ">
+    <h4 class="phpdocumentor-element__name" id="constant_SCOPE_WIKIEDIT">
+        SCOPE_WIKIEDIT
+        <a href="classes/chillerlan-OAuth-Providers-Reddit.html#constant_SCOPE_WIKIEDIT" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h4>
+
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/Providers/Reddit.php"><a href="files/src-providers-reddit.html"><abbr title="src/Providers/Reddit.php">Reddit.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">60</span>
+
+    </aside>
+
+    
+    <code class="phpdocumentor-signature phpdocumentor-code ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+        <span class="phpdocumentor-signature__type">mixed</span>
+    <span class="phpdocumentor-signature__name">SCOPE_WIKIEDIT</span>
+    = <span class="phpdocumentor-signature__default-value">&#039;wikiedit&#039;</span>
+</code>
+
+
+    
+    
+    
+
+</article>
+                    <article class="phpdocumentor-element -constant -public ">
+    <h4 class="phpdocumentor-element__name" id="constant_SCOPE_WIKIREAD">
+        SCOPE_WIKIREAD
+        <a href="classes/chillerlan-OAuth-Providers-Reddit.html#constant_SCOPE_WIKIREAD" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h4>
+
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/Providers/Reddit.php"><a href="files/src-providers-reddit.html"><abbr title="src/Providers/Reddit.php">Reddit.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">61</span>
+
+    </aside>
+
+    
+    <code class="phpdocumentor-signature phpdocumentor-code ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+        <span class="phpdocumentor-signature__type">mixed</span>
+    <span class="phpdocumentor-signature__name">SCOPE_WIKIREAD</span>
+    = <span class="phpdocumentor-signature__default-value">&#039;wikiread&#039;</span>
+</code>
+
+
+    
+    
+    
+
+</article>
+                    <article class="phpdocumentor-element -constant -public ">
+    <h4 class="phpdocumentor-element__name" id="constant_USER_AGENT">
+        USER_AGENT
+        <a href="classes/chillerlan-OAuth-Providers-Reddit.html#constant_USER_AGENT" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h4>
+
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/Providers/Reddit.php"><a href="files/src-providers-reddit.html"><abbr title="src/Providers/Reddit.php">Reddit.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">69</span>
+
+    </aside>
+
+    
+    <code class="phpdocumentor-signature phpdocumentor-code ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+        <span class="phpdocumentor-signature__type">mixed</span>
+    <span class="phpdocumentor-signature__name">USER_AGENT</span>
+    = <span class="phpdocumentor-signature__default-value">\chillerlan\OAuth\Core\OAuth2Interface::USER_AGENT . &#039; (by /u/chillerlan)&#039;</span>
 </code>
 
 
@@ -933,7 +1801,7 @@ anything except host and path will be ignored, scheme will always be set to &quo
     <section class="phpdocumentor-properties">
         <h3 class="phpdocumentor-elements__header" id="properties">
             Properties
-            <a href="classes/chillerlan-OAuth-Providers-MusicBrainz.html#properties" class="headerlink"><i class="fas fa-link"></i></a>
+            <a href="classes/chillerlan-OAuth-Providers-Reddit.html#properties" class="headerlink"><i class="fas fa-link"></i></a>
 
         </h3>
                     <article
@@ -945,15 +1813,15 @@ anything except host and path will be ignored, scheme will always be set to &quo
 >
     <h4 class="phpdocumentor-element__name" id="property_accessTokenURL">
         $accessTokenURL
-        <a href="classes/chillerlan-OAuth-Providers-MusicBrainz.html#property_accessTokenURL" class="headerlink"><i class="fas fa-link"></i></a>
+        <a href="classes/chillerlan-OAuth-Providers-Reddit.html#property_accessTokenURL" class="headerlink"><i class="fas fa-link"></i></a>
 
         <span class="phpdocumentor-element__modifiers">
                                 </span>
     </h4>
     <aside class="phpdocumentor-element-found-in">
-    <abbr class="phpdocumentor-element-found-in__file" title="src/Providers/MusicBrainz.php"><a href="files/src-providers-musicbrainz.html"><abbr title="src/Providers/MusicBrainz.php">MusicBrainz.php</abbr></a></abbr>
+    <abbr class="phpdocumentor-element-found-in__file" title="src/Providers/Reddit.php"><a href="files/src-providers-reddit.html"><abbr title="src/Providers/Reddit.php">Reddit.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">47</span>
+    <span class="phpdocumentor-element-found-in__line">80</span>
 
     </aside>
 
@@ -962,7 +1830,7 @@ anything except host and path will be ignored, scheme will always be set to &quo
     <span class="phpdocumentor-signature__visibility">protected</span>
         <span class="phpdocumentor-signature__type">string</span>
     <span class="phpdocumentor-signature__name">$accessTokenURL</span>
-     = <span class="phpdocumentor-signature__default-value">&#039;https://musicbrainz.org/oauth2/token&#039;</span></code>
+     = <span class="phpdocumentor-signature__default-value">&#039;https://www.reddit.com/api/v1/access_token&#039;</span></code>
 
     
     
@@ -978,15 +1846,15 @@ anything except host and path will be ignored, scheme will always be set to &quo
 >
     <h4 class="phpdocumentor-element__name" id="property_apiDocs">
         $apiDocs
-        <a href="classes/chillerlan-OAuth-Providers-MusicBrainz.html#property_apiDocs" class="headerlink"><i class="fas fa-link"></i></a>
+        <a href="classes/chillerlan-OAuth-Providers-Reddit.html#property_apiDocs" class="headerlink"><i class="fas fa-link"></i></a>
 
         <span class="phpdocumentor-element__modifiers">
                                 </span>
     </h4>
     <aside class="phpdocumentor-element-found-in">
-    <abbr class="phpdocumentor-element-found-in__file" title="src/Providers/MusicBrainz.php"><a href="files/src-providers-musicbrainz.html"><abbr title="src/Providers/MusicBrainz.php">MusicBrainz.php</abbr></a></abbr>
+    <abbr class="phpdocumentor-element-found-in__file" title="src/Providers/Reddit.php"><a href="files/src-providers-reddit.html"><abbr title="src/Providers/Reddit.php">Reddit.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">51</span>
+    <span class="phpdocumentor-element-found-in__line">83</span>
 
     </aside>
 
@@ -995,7 +1863,7 @@ anything except host and path will be ignored, scheme will always be set to &quo
     <span class="phpdocumentor-signature__visibility">protected</span>
         <span class="phpdocumentor-signature__type">string|null</span>
     <span class="phpdocumentor-signature__name">$apiDocs</span>
-     = <span class="phpdocumentor-signature__default-value">&#039;https://musicbrainz.org/doc/Development&#039;</span></code>
+     = <span class="phpdocumentor-signature__default-value">&#039;https://www.reddit.com/dev/api&#039;</span></code>
 
     
     
@@ -1011,15 +1879,15 @@ anything except host and path will be ignored, scheme will always be set to &quo
 >
     <h4 class="phpdocumentor-element__name" id="property_apiURL">
         $apiURL
-        <a href="classes/chillerlan-OAuth-Providers-MusicBrainz.html#property_apiURL" class="headerlink"><i class="fas fa-link"></i></a>
+        <a href="classes/chillerlan-OAuth-Providers-Reddit.html#property_apiURL" class="headerlink"><i class="fas fa-link"></i></a>
 
         <span class="phpdocumentor-element__modifiers">
                                 </span>
     </h4>
     <aside class="phpdocumentor-element-found-in">
-    <abbr class="phpdocumentor-element-found-in__file" title="src/Providers/MusicBrainz.php"><a href="files/src-providers-musicbrainz.html"><abbr title="src/Providers/MusicBrainz.php">MusicBrainz.php</abbr></a></abbr>
+    <abbr class="phpdocumentor-element-found-in__file" title="src/Providers/Reddit.php"><a href="files/src-providers-reddit.html"><abbr title="src/Providers/Reddit.php">Reddit.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">49</span>
+    <span class="phpdocumentor-element-found-in__line">81</span>
 
     </aside>
 
@@ -1028,7 +1896,7 @@ anything except host and path will be ignored, scheme will always be set to &quo
     <span class="phpdocumentor-signature__visibility">protected</span>
         <span class="phpdocumentor-signature__type">string</span>
     <span class="phpdocumentor-signature__name">$apiURL</span>
-     = <span class="phpdocumentor-signature__default-value">&#039;https://musicbrainz.org/ws/2&#039;</span></code>
+     = <span class="phpdocumentor-signature__default-value">&#039;https://oauth.reddit.com/api&#039;</span></code>
 
     
     
@@ -1044,15 +1912,15 @@ anything except host and path will be ignored, scheme will always be set to &quo
 >
     <h4 class="phpdocumentor-element__name" id="property_applicationURL">
         $applicationURL
-        <a href="classes/chillerlan-OAuth-Providers-MusicBrainz.html#property_applicationURL" class="headerlink"><i class="fas fa-link"></i></a>
+        <a href="classes/chillerlan-OAuth-Providers-Reddit.html#property_applicationURL" class="headerlink"><i class="fas fa-link"></i></a>
 
         <span class="phpdocumentor-element__modifiers">
                                 </span>
     </h4>
     <aside class="phpdocumentor-element-found-in">
-    <abbr class="phpdocumentor-element-found-in__file" title="src/Providers/MusicBrainz.php"><a href="files/src-providers-musicbrainz.html"><abbr title="src/Providers/MusicBrainz.php">MusicBrainz.php</abbr></a></abbr>
+    <abbr class="phpdocumentor-element-found-in__file" title="src/Providers/Reddit.php"><a href="files/src-providers-reddit.html"><abbr title="src/Providers/Reddit.php">Reddit.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">52</span>
+    <span class="phpdocumentor-element-found-in__line">84</span>
 
     </aside>
 
@@ -1061,7 +1929,7 @@ anything except host and path will be ignored, scheme will always be set to &quo
     <span class="phpdocumentor-signature__visibility">protected</span>
         <span class="phpdocumentor-signature__type">string|null</span>
     <span class="phpdocumentor-signature__name">$applicationURL</span>
-     = <span class="phpdocumentor-signature__default-value">&#039;https://musicbrainz.org/account/applications&#039;</span></code>
+     = <span class="phpdocumentor-signature__default-value">&#039;https://www.reddit.com/prefs/apps/&#039;</span></code>
 
     
     
@@ -1077,15 +1945,15 @@ anything except host and path will be ignored, scheme will always be set to &quo
 >
     <h4 class="phpdocumentor-element__name" id="property_authorizationURL">
         $authorizationURL
-        <a href="classes/chillerlan-OAuth-Providers-MusicBrainz.html#property_authorizationURL" class="headerlink"><i class="fas fa-link"></i></a>
+        <a href="classes/chillerlan-OAuth-Providers-Reddit.html#property_authorizationURL" class="headerlink"><i class="fas fa-link"></i></a>
 
         <span class="phpdocumentor-element__modifiers">
                                 </span>
     </h4>
     <aside class="phpdocumentor-element-found-in">
-    <abbr class="phpdocumentor-element-found-in__file" title="src/Providers/MusicBrainz.php"><a href="files/src-providers-musicbrainz.html"><abbr title="src/Providers/MusicBrainz.php">MusicBrainz.php</abbr></a></abbr>
+    <abbr class="phpdocumentor-element-found-in__file" title="src/Providers/Reddit.php"><a href="files/src-providers-reddit.html"><abbr title="src/Providers/Reddit.php">Reddit.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">46</span>
+    <span class="phpdocumentor-element-found-in__line">79</span>
 
     </aside>
 
@@ -1094,7 +1962,7 @@ anything except host and path will be ignored, scheme will always be set to &quo
     <span class="phpdocumentor-signature__visibility">protected</span>
         <span class="phpdocumentor-signature__type">string</span>
     <span class="phpdocumentor-signature__name">$authorizationURL</span>
-     = <span class="phpdocumentor-signature__default-value">&#039;https://musicbrainz.org/oauth2/authorize&#039;</span></code>
+     = <span class="phpdocumentor-signature__default-value">&#039;https://www.reddit.com/api/v1/authorize&#039;</span></code>
 
     
     
@@ -1363,15 +2231,15 @@ anything except host and path will be ignored, scheme will always be set to &quo
 >
     <h4 class="phpdocumentor-element__name" id="property_revokeURL">
         $revokeURL
-        <a href="classes/chillerlan-OAuth-Providers-MusicBrainz.html#property_revokeURL" class="headerlink"><i class="fas fa-link"></i></a>
+        <a href="classes/chillerlan-OAuth-Providers-Reddit.html#property_revokeURL" class="headerlink"><i class="fas fa-link"></i></a>
 
         <span class="phpdocumentor-element__modifiers">
                                 </span>
     </h4>
     <aside class="phpdocumentor-element-found-in">
-    <abbr class="phpdocumentor-element-found-in__file" title="src/Providers/MusicBrainz.php"><a href="files/src-providers-musicbrainz.html"><abbr title="src/Providers/MusicBrainz.php">MusicBrainz.php</abbr></a></abbr>
+    <abbr class="phpdocumentor-element-found-in__file" title="src/Providers/Reddit.php"><a href="files/src-providers-reddit.html"><abbr title="src/Providers/Reddit.php">Reddit.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">48</span>
+    <span class="phpdocumentor-element-found-in__line">82</span>
 
     </aside>
 
@@ -1380,7 +2248,7 @@ anything except host and path will be ignored, scheme will always be set to &quo
     <span class="phpdocumentor-signature__visibility">protected</span>
         <span class="phpdocumentor-signature__type">string</span>
     <span class="phpdocumentor-signature__name">$revokeURL</span>
-     = <span class="phpdocumentor-signature__default-value">&#039;https://musicbrainz.org/oauth2/revoke &#039;</span></code>
+     = <span class="phpdocumentor-signature__default-value">&#039;https://www.reddit.com/api/v1/revoke_token&#039;</span></code>
 
     
     
@@ -1495,15 +2363,15 @@ anything except host and path will be ignored, scheme will always be set to &quo
 >
     <h4 class="phpdocumentor-element__name" id="property_userRevokeURL">
         $userRevokeURL
-        <a href="classes/chillerlan-OAuth-Providers-MusicBrainz.html#property_userRevokeURL" class="headerlink"><i class="fas fa-link"></i></a>
+        <a href="classes/chillerlan-OAuth-Providers-Reddit.html#property_userRevokeURL" class="headerlink"><i class="fas fa-link"></i></a>
 
         <span class="phpdocumentor-element__modifiers">
                                 </span>
     </h4>
     <aside class="phpdocumentor-element-found-in">
-    <abbr class="phpdocumentor-element-found-in__file" title="src/Providers/MusicBrainz.php"><a href="files/src-providers-musicbrainz.html"><abbr title="src/Providers/MusicBrainz.php">MusicBrainz.php</abbr></a></abbr>
+    <abbr class="phpdocumentor-element-found-in__file" title="src/Providers/Reddit.php"><a href="files/src-providers-reddit.html"><abbr title="src/Providers/Reddit.php">Reddit.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">50</span>
+    <span class="phpdocumentor-element-found-in__line">85</span>
 
     </aside>
 
@@ -1512,7 +2380,7 @@ anything except host and path will be ignored, scheme will always be set to &quo
     <span class="phpdocumentor-signature__visibility">protected</span>
         <span class="phpdocumentor-signature__type">string|null</span>
     <span class="phpdocumentor-signature__name">$userRevokeURL</span>
-     = <span class="phpdocumentor-signature__default-value">&#039;https://musicbrainz.org/account/applications&#039;</span></code>
+     = <span class="phpdocumentor-signature__default-value">&#039;https://www.reddit.com/settings/privacy&#039;</span></code>
 
     
     
@@ -1524,7 +2392,7 @@ anything except host and path will be ignored, scheme will always be set to &quo
             <section class="phpdocumentor-methods">
         <h3 class="phpdocumentor-elements__header" id="methods">
             Methods
-            <a href="classes/chillerlan-OAuth-Providers-MusicBrainz.html#methods" class="headerlink"><i class="fas fa-link"></i></a>
+            <a href="classes/chillerlan-OAuth-Providers-Reddit.html#methods" class="headerlink"><i class="fas fa-link"></i></a>
 
         </h3>
                     <article
@@ -2124,13 +2992,13 @@ if the provider implements the CSRFToken interface, and returns an AccessToken o
 >
     <h4 class="phpdocumentor-element__name" id="method_invalidateAccessToken">
         invalidateAccessToken()
-        <a href="classes/chillerlan-OAuth-Providers-MusicBrainz.html#method_invalidateAccessToken" class="headerlink"><i class="fas fa-link"></i></a>
+        <a href="classes/chillerlan-OAuth-Providers-Reddit.html#method_invalidateAccessToken" class="headerlink"><i class="fas fa-link"></i></a>
 
     </h4>
     <aside class="phpdocumentor-element-found-in">
-    <abbr class="phpdocumentor-element-found-in__file" title="src/Providers/MusicBrainz.php"><a href="files/src-providers-musicbrainz.html"><abbr title="src/Providers/MusicBrainz.php">MusicBrainz.php</abbr></a></abbr>
+    <abbr class="phpdocumentor-element-found-in__file" title="src/Providers/Reddit.php"><a href="files/src-providers-reddit.html"><abbr title="src/Providers/Reddit.php">Reddit.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">112</span>
+    <span class="phpdocumentor-element-found-in__line">138</span>
 
     </aside>
 
@@ -2138,7 +3006,7 @@ if the provider implements the CSRFToken interface, and returns an AccessToken o
 
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
-                    <span class="phpdocumentor-signature__name">invalidateAccessToken</span><span>(</span><span class="phpdocumentor-signature__argument"><span>[</span><span class="phpdocumentor-signature__argument__return-type"><a href="classes/chillerlan-OAuth-Core-AccessToken.html"><abbr title="\chillerlan\OAuth\Core\AccessToken">AccessToken</abbr></a>|null&nbsp;</span><span class="phpdocumentor-signature__argument__name">$token</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">null</span><span> ]</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">bool</span></code>
+                    <span class="phpdocumentor-signature__name">invalidateAccessToken</span><span>(</span><span class="phpdocumentor-signature__argument"><span>[</span><span class="phpdocumentor-signature__argument__return-type"><a href="classes/chillerlan-OAuth-Core-AccessToken.html"><abbr title="\chillerlan\OAuth\Core\AccessToken">AccessToken</abbr></a>&nbsp;</span><span class="phpdocumentor-signature__argument__name">$token</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">null</span><span> ]</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">bool</span></code>
 
     <div class="phpdocumentor-label-line">
         </div>
@@ -2147,7 +3015,7 @@ if the provider implements the CSRFToken interface, and returns an AccessToken o
     <dl class="phpdocumentor-argument-list">
                     <dt class="phpdocumentor-argument-list__entry">
                 <span class="phpdocumentor-signature__argument__name">$token</span>
-                : <span class="phpdocumentor-signature__argument__return-type"><a href="classes/chillerlan-OAuth-Core-AccessToken.html"><abbr title="\chillerlan\OAuth\Core\AccessToken">AccessToken</abbr></a>|null</span>
+                : <span class="phpdocumentor-signature__argument__return-type"><a href="classes/chillerlan-OAuth-Core-AccessToken.html"><abbr title="\chillerlan\OAuth\Core\AccessToken">AccessToken</abbr></a></span>
                  = <span class="phpdocumentor-signature__argument__default-value">null</span>            </dt>
             <dd class="phpdocumentor-argument-list__definition">
                 
@@ -2157,11 +3025,19 @@ if the provider implements the CSRFToken interface, and returns an AccessToken o
     
     <h5 class="phpdocumentor-tag-list__heading" id="tags">
         Tags
-        <a href="classes/chillerlan-OAuth-Providers-MusicBrainz.html#method_invalidateAccessToken#tags" class="headerlink"><i class="fas fa-link"></i></a>
+        <a href="classes/chillerlan-OAuth-Providers-Reddit.html#method_invalidateAccessToken#tags" class="headerlink"><i class="fas fa-link"></i></a>
 
     </h5>
     <dl class="phpdocumentor-tag-list">
                                     <dt class="phpdocumentor-tag-list__entry">
+                    <span class="phpdocumentor-tag__name">see</span>
+                </dt>
+                <dd class="phpdocumentor-tag-list__definition">
+                                                                                    <span class="phpdocumentor-tag-link"><a href="https://github.com/reddit-archive/reddit/wiki/OAuth2#manually-revoking-a-token">https://github.com/reddit-archive/reddit/wiki/OAuth2#manually-revoking-a-token</a></span>
+                                        
+                                             
+                                    </dd>
+                                                <dt class="phpdocumentor-tag-list__entry">
                     <span class="phpdocumentor-tag__name">inheritDoc</span>
                 </dt>
                 <dd class="phpdocumentor-tag-list__definition">
@@ -2184,13 +3060,13 @@ if the provider implements the CSRFToken interface, and returns an AccessToken o
 >
     <h4 class="phpdocumentor-element__name" id="method_me">
         me()
-        <a href="classes/chillerlan-OAuth-Providers-MusicBrainz.html#method_me" class="headerlink"><i class="fas fa-link"></i></a>
+        <a href="classes/chillerlan-OAuth-Providers-Reddit.html#method_me" class="headerlink"><i class="fas fa-link"></i></a>
 
     </h4>
     <aside class="phpdocumentor-element-found-in">
-    <abbr class="phpdocumentor-element-found-in__file" title="src/Providers/MusicBrainz.php"><a href="files/src-providers-musicbrainz.html"><abbr title="src/Providers/MusicBrainz.php">MusicBrainz.php</abbr></a></abbr>
+    <abbr class="phpdocumentor-element-found-in__file" title="src/Providers/Reddit.php"><a href="files/src-providers-reddit.html"><abbr title="src/Providers/Reddit.php">Reddit.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">95</span>
+    <span class="phpdocumentor-element-found-in__line">119</span>
 
     </aside>
 
@@ -2207,7 +3083,7 @@ if the provider implements the CSRFToken interface, and returns an AccessToken o
     
     <h5 class="phpdocumentor-tag-list__heading" id="tags">
         Tags
-        <a href="classes/chillerlan-OAuth-Providers-MusicBrainz.html#method_me#tags" class="headerlink"><i class="fas fa-link"></i></a>
+        <a href="classes/chillerlan-OAuth-Providers-Reddit.html#method_me#tags" class="headerlink"><i class="fas fa-link"></i></a>
 
     </h5>
     <dl class="phpdocumentor-tag-list">
@@ -2310,17 +3186,19 @@ if the provider implements the CSRFToken interface, and returns an AccessToken o
 >
     <h4 class="phpdocumentor-element__name" id="method_request">
         request()
-        <a href="classes/chillerlan-OAuth-Providers-MusicBrainz.html#method_request" class="headerlink"><i class="fas fa-link"></i></a>
+        <a href="classes/chillerlan-OAuth-Core-OAuthProvider.html#method_request" class="headerlink"><i class="fas fa-link"></i></a>
 
     </h4>
     <aside class="phpdocumentor-element-found-in">
-    <abbr class="phpdocumentor-element-found-in__file" title="src/Providers/MusicBrainz.php"><a href="files/src-providers-musicbrainz.html"><abbr title="src/Providers/MusicBrainz.php">MusicBrainz.php</abbr></a></abbr>
+    <abbr class="phpdocumentor-element-found-in__file" title="src/Core/OAuthProvider.php"><a href="files/src-core-oauthprovider.html"><abbr title="src/Core/OAuthProvider.php">OAuthProvider.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">69</span>
+    <span class="phpdocumentor-element-found-in__line">288</span>
 
     </aside>
 
-    
+        <p class="phpdocumentor-summary">Prepares an API request to $path with the given parameters, gets authorization, fires the request
+and returns a PSR-7 ResponseInterface with the corresponding API response</p>
+
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
                     <span class="phpdocumentor-signature__name">request</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$path</span></span><span class="phpdocumentor-signature__argument"><span>[</span><span>, </span><span class="phpdocumentor-signature__argument__return-type">array&lt;string|int, mixed&gt;|null&nbsp;</span><span class="phpdocumentor-signature__argument__name">$params</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">null</span><span> ]</span></span><span class="phpdocumentor-signature__argument"><span>[</span><span>, </span><span class="phpdocumentor-signature__argument__return-type">string|null&nbsp;</span><span class="phpdocumentor-signature__argument__name">$method</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">null</span><span> ]</span></span><span class="phpdocumentor-signature__argument"><span>[</span><span>, </span><span class="phpdocumentor-signature__argument__return-type"><abbr title="\Psr\Http\Message\StreamInterface">StreamInterface</abbr>|array&lt;string|int, mixed&gt;|string|null&nbsp;</span><span class="phpdocumentor-signature__argument__name">$body</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">null</span><span> ]</span></span><span class="phpdocumentor-signature__argument"><span>[</span><span>, </span><span class="phpdocumentor-signature__argument__return-type">array&lt;string|int, mixed&gt;|null&nbsp;</span><span class="phpdocumentor-signature__argument__name">$headers</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">null</span><span> ]</span></span><span class="phpdocumentor-signature__argument"><span>[</span><span>, </span><span class="phpdocumentor-signature__argument__return-type">string|null&nbsp;</span><span class="phpdocumentor-signature__argument__name">$protocolVersion</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">null</span><span> ]</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type"><abbr title="\Psr\Http\Message\ResponseInterface">ResponseInterface</abbr></span></code>
@@ -2377,7 +3255,7 @@ if the provider implements the CSRFToken interface, and returns an AccessToken o
     
     <h5 class="phpdocumentor-tag-list__heading" id="tags">
         Tags
-        <a href="classes/chillerlan-OAuth-Providers-MusicBrainz.html#method_request#tags" class="headerlink"><i class="fas fa-link"></i></a>
+        <a href="classes/chillerlan-OAuth-Core-OAuthProvider.html#method_request#tags" class="headerlink"><i class="fas fa-link"></i></a>
 
     </h5>
     <dl class="phpdocumentor-tag-list">
@@ -2386,6 +3264,14 @@ if the provider implements the CSRFToken interface, and returns an AccessToken o
                 </dt>
                 <dd class="phpdocumentor-tag-list__definition">
                                                                                 
+                                             
+                                    </dd>
+                                                <dt class="phpdocumentor-tag-list__entry">
+                    <span class="phpdocumentor-tag__name">throws</span>
+                </dt>
+                <dd class="phpdocumentor-tag-list__definition">
+                                                                <span class="phpdocumentor-tag-link"><a href="classes/chillerlan-OAuth-Core-UnauthorizedAccessException.html"><abbr title="\chillerlan\OAuth\Core\UnauthorizedAccessException">UnauthorizedAccessException</abbr></a></span>
+                                                            
                                              
                                     </dd>
                                             </dl>
@@ -3094,13 +3980,13 @@ so that you don&#039;t have to implement the monstrous original `__construct()`<
 >
     <h4 class="phpdocumentor-element__name" id="method_getAccessTokenRequestBodyParams">
         getAccessTokenRequestBodyParams()
-        <a href="classes/chillerlan-OAuth-Core-OAuth2Provider.html#method_getAccessTokenRequestBodyParams" class="headerlink"><i class="fas fa-link"></i></a>
+        <a href="classes/chillerlan-OAuth-Providers-Reddit.html#method_getAccessTokenRequestBodyParams" class="headerlink"><i class="fas fa-link"></i></a>
 
     </h4>
     <aside class="phpdocumentor-element-found-in">
-    <abbr class="phpdocumentor-element-found-in__file" title="src/Core/OAuth2Provider.php"><a href="files/src-core-oauth2provider.html"><abbr title="src/Core/OAuth2Provider.php">OAuth2Provider.php</abbr></a></abbr>
+    <abbr class="phpdocumentor-element-found-in__file" title="src/Providers/Reddit.php"><a href="files/src-providers-reddit.html"><abbr title="src/Providers/Reddit.php">Reddit.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">185</span>
+    <span class="phpdocumentor-element-found-in__line">90</span>
 
     </aside>
 
@@ -3125,6 +4011,20 @@ so that you don&#039;t have to implement the monstrous original `__construct()`<
             </dl>
 
     
+    <h5 class="phpdocumentor-tag-list__heading" id="tags">
+        Tags
+        <a href="classes/chillerlan-OAuth-Providers-Reddit.html#method_getAccessTokenRequestBodyParams#tags" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h5>
+    <dl class="phpdocumentor-tag-list">
+                                    <dt class="phpdocumentor-tag-list__entry">
+                    <span class="phpdocumentor-tag__name">inheritDoc</span>
+                </dt>
+                <dd class="phpdocumentor-tag-list__definition">
+                                                                                
+                                             
+                                    </dd>
+                                            </dl>
 
             <section>
         <h5 class="phpdocumentor-return-value__heading">Return values</h5>
@@ -3331,13 +4231,13 @@ so that you don&#039;t have to implement the monstrous original `__construct()`<
 >
     <h4 class="phpdocumentor-element__name" id="method_getRefreshAccessTokenRequestBodyParams">
         getRefreshAccessTokenRequestBodyParams()
-        <a href="classes/chillerlan-OAuth-Providers-MusicBrainz.html#method_getRefreshAccessTokenRequestBodyParams" class="headerlink"><i class="fas fa-link"></i></a>
+        <a href="classes/chillerlan-OAuth-Core-OAuth2Provider.html#method_getRefreshAccessTokenRequestBodyParams" class="headerlink"><i class="fas fa-link"></i></a>
 
     </h4>
     <aside class="phpdocumentor-element-found-in">
-    <abbr class="phpdocumentor-element-found-in__file" title="src/Providers/MusicBrainz.php"><a href="files/src-providers-musicbrainz.html"><abbr title="src/Providers/MusicBrainz.php">MusicBrainz.php</abbr></a></abbr>
+    <abbr class="phpdocumentor-element-found-in__file" title="src/Core/OAuth2Provider.php"><a href="files/src-core-oauth2provider.html"><abbr title="src/Core/OAuth2Provider.php">OAuth2Provider.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">57</span>
+    <span class="phpdocumentor-element-found-in__line">346</span>
 
     </aside>
 
@@ -3362,20 +4262,6 @@ so that you don&#039;t have to implement the monstrous original `__construct()`<
             </dl>
 
     
-    <h5 class="phpdocumentor-tag-list__heading" id="tags">
-        Tags
-        <a href="classes/chillerlan-OAuth-Providers-MusicBrainz.html#method_getRefreshAccessTokenRequestBodyParams#tags" class="headerlink"><i class="fas fa-link"></i></a>
-
-    </h5>
-    <dl class="phpdocumentor-tag-list">
-                                    <dt class="phpdocumentor-tag-list__entry">
-                    <span class="phpdocumentor-tag__name">inheritdoc</span>
-                </dt>
-                <dd class="phpdocumentor-tag-list__definition">
-                                                                                
-                                             
-                                    </dd>
-                                            </dl>
 
             <section>
         <h5 class="phpdocumentor-return-value__heading">Return values</h5>
@@ -3836,13 +4722,13 @@ the spec mandates a JSON body which is what almost all providers send - weird ex
 >
     <h4 class="phpdocumentor-element__name" id="method_sendAccessTokenRequest">
         sendAccessTokenRequest()
-        <a href="classes/chillerlan-OAuth-Core-OAuth2Provider.html#method_sendAccessTokenRequest" class="headerlink"><i class="fas fa-link"></i></a>
+        <a href="classes/chillerlan-OAuth-Providers-Reddit.html#method_sendAccessTokenRequest" class="headerlink"><i class="fas fa-link"></i></a>
 
     </h4>
     <aside class="phpdocumentor-element-found-in">
-    <abbr class="phpdocumentor-element-found-in__file" title="src/Core/OAuth2Provider.php"><a href="files/src-core-oauth2provider.html"><abbr title="src/Core/OAuth2Provider.php">OAuth2Provider.php</abbr></a></abbr>
+    <abbr class="phpdocumentor-element-found-in__file" title="src/Providers/Reddit.php"><a href="files/src-providers-reddit.html"><abbr title="src/Providers/Reddit.php">Reddit.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">205</span>
+    <span class="phpdocumentor-element-found-in__line">101</span>
 
     </aside>
 
@@ -3874,6 +4760,20 @@ the spec mandates a JSON body which is what almost all providers send - weird ex
             </dl>
 
     
+    <h5 class="phpdocumentor-tag-list__heading" id="tags">
+        Tags
+        <a href="classes/chillerlan-OAuth-Providers-Reddit.html#method_sendAccessTokenRequest#tags" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h5>
+    <dl class="phpdocumentor-tag-list">
+                                    <dt class="phpdocumentor-tag-list__entry">
+                    <span class="phpdocumentor-tag__name">inheritDoc</span>
+                </dt>
+                <dd class="phpdocumentor-tag-list__definition">
+                                                                                
+                                             
+                                    </dd>
+                                            </dl>
 
             <section>
         <h5 class="phpdocumentor-return-value__heading">Return values</h5>
@@ -4061,7 +4961,7 @@ the spec mandates a JSON body which is what almost all providers send - weird ex
     <div class="phpdocumentor-modal-bg" data-exit-button></div>
     <div class="phpdocumentor-modal-container">
         <div class="phpdocumentor-modal-content">
-            <pre style="max-height: 500px; overflow-y: scroll" data-src="files/src/Providers/MusicBrainz.php.txt" class="language-php line-numbers linkable-line-numbers"></pre>
+            <pre style="max-height: 500px; overflow-y: scroll" data-src="files/src/Providers/Reddit.php.txt" class="language-php line-numbers linkable-line-numbers"></pre>
         </div>
         <button data-exit-button class="phpdocumentor-modal__close">&times;</button>
     </div>
@@ -4160,22 +5060,47 @@ the spec mandates a JSON body which is what almost all providers send - weird ex
             <li class="phpdocumentor-on-this-page-section__title">Table Of Contents</li>
             <li>
                 <ul class="phpdocumentor-list -clean">
-                                        <li><a href="classes/chillerlan-OAuth-Providers-MusicBrainz.html#toc-constants">Constants</a></li>
-                                                            <li><a href="classes/chillerlan-OAuth-Providers-MusicBrainz.html#toc-properties">Properties</a></li>
-                                                            <li><a href="classes/chillerlan-OAuth-Providers-MusicBrainz.html#toc-methods">Methods</a></li>
+                                        <li><a href="classes/chillerlan-OAuth-Providers-Reddit.html#toc-constants">Constants</a></li>
+                                                            <li><a href="classes/chillerlan-OAuth-Providers-Reddit.html#toc-properties">Properties</a></li>
+                                                            <li><a href="classes/chillerlan-OAuth-Providers-Reddit.html#toc-methods">Methods</a></li>
                                     </ul>
             </li>
                             <li class="phpdocumentor-on-this-page-section__title">Constants</li>
                 <li>
                     <ul class="phpdocumentor-list -clean">
-                                                    <li><a href="classes/chillerlan-OAuth-Providers-MusicBrainz.html#constant_DEFAULT_SCOPES">DEFAULT_SCOPES</a></li>
-                                                    <li><a href="classes/chillerlan-OAuth-Providers-MusicBrainz.html#constant_SCOPE_COLLECTION">SCOPE_COLLECTION</a></li>
-                                                    <li><a href="classes/chillerlan-OAuth-Providers-MusicBrainz.html#constant_SCOPE_EMAIL">SCOPE_EMAIL</a></li>
-                                                    <li><a href="classes/chillerlan-OAuth-Providers-MusicBrainz.html#constant_SCOPE_PROFILE">SCOPE_PROFILE</a></li>
-                                                    <li><a href="classes/chillerlan-OAuth-Providers-MusicBrainz.html#constant_SCOPE_RATING">SCOPE_RATING</a></li>
-                                                    <li><a href="classes/chillerlan-OAuth-Providers-MusicBrainz.html#constant_SCOPE_SUBMIT_BARCODE">SCOPE_SUBMIT_BARCODE</a></li>
-                                                    <li><a href="classes/chillerlan-OAuth-Providers-MusicBrainz.html#constant_SCOPE_SUBMIT_ISRC">SCOPE_SUBMIT_ISRC</a></li>
-                                                    <li><a href="classes/chillerlan-OAuth-Providers-MusicBrainz.html#constant_SCOPE_TAG">SCOPE_TAG</a></li>
+                                                    <li><a href="classes/chillerlan-OAuth-Providers-Reddit.html#constant_DEFAULT_SCOPES">DEFAULT_SCOPES</a></li>
+                                                    <li><a href="classes/chillerlan-OAuth-Providers-Reddit.html#constant_HEADERS_API">HEADERS_API</a></li>
+                                                    <li><a href="classes/chillerlan-OAuth-Providers-Reddit.html#constant_HEADERS_AUTH">HEADERS_AUTH</a></li>
+                                                    <li><a href="classes/chillerlan-OAuth-Providers-Reddit.html#constant_SCOPE_ACCOUNT">SCOPE_ACCOUNT</a></li>
+                                                    <li><a href="classes/chillerlan-OAuth-Providers-Reddit.html#constant_SCOPE_CREDDITS">SCOPE_CREDDITS</a></li>
+                                                    <li><a href="classes/chillerlan-OAuth-Providers-Reddit.html#constant_SCOPE_EDIT">SCOPE_EDIT</a></li>
+                                                    <li><a href="classes/chillerlan-OAuth-Providers-Reddit.html#constant_SCOPE_FLAIR">SCOPE_FLAIR</a></li>
+                                                    <li><a href="classes/chillerlan-OAuth-Providers-Reddit.html#constant_SCOPE_HISTORY">SCOPE_HISTORY</a></li>
+                                                    <li><a href="classes/chillerlan-OAuth-Providers-Reddit.html#constant_SCOPE_IDENTITY">SCOPE_IDENTITY</a></li>
+                                                    <li><a href="classes/chillerlan-OAuth-Providers-Reddit.html#constant_SCOPE_LIVEMANAGE">SCOPE_LIVEMANAGE</a></li>
+                                                    <li><a href="classes/chillerlan-OAuth-Providers-Reddit.html#constant_SCOPE_MODCONFIG">SCOPE_MODCONFIG</a></li>
+                                                    <li><a href="classes/chillerlan-OAuth-Providers-Reddit.html#constant_SCOPE_MODCONTRIBUTORS">SCOPE_MODCONTRIBUTORS</a></li>
+                                                    <li><a href="classes/chillerlan-OAuth-Providers-Reddit.html#constant_SCOPE_MODFLAIR">SCOPE_MODFLAIR</a></li>
+                                                    <li><a href="classes/chillerlan-OAuth-Providers-Reddit.html#constant_SCOPE_MODLOG">SCOPE_MODLOG</a></li>
+                                                    <li><a href="classes/chillerlan-OAuth-Providers-Reddit.html#constant_SCOPE_MODMAIL">SCOPE_MODMAIL</a></li>
+                                                    <li><a href="classes/chillerlan-OAuth-Providers-Reddit.html#constant_SCOPE_MODNOTE">SCOPE_MODNOTE</a></li>
+                                                    <li><a href="classes/chillerlan-OAuth-Providers-Reddit.html#constant_SCOPE_MODOTHERS">SCOPE_MODOTHERS</a></li>
+                                                    <li><a href="classes/chillerlan-OAuth-Providers-Reddit.html#constant_SCOPE_MODPOSTS">SCOPE_MODPOSTS</a></li>
+                                                    <li><a href="classes/chillerlan-OAuth-Providers-Reddit.html#constant_SCOPE_MODSELF">SCOPE_MODSELF</a></li>
+                                                    <li><a href="classes/chillerlan-OAuth-Providers-Reddit.html#constant_SCOPE_MODTRAFFIC">SCOPE_MODTRAFFIC</a></li>
+                                                    <li><a href="classes/chillerlan-OAuth-Providers-Reddit.html#constant_SCOPE_MODWIKI">SCOPE_MODWIKI</a></li>
+                                                    <li><a href="classes/chillerlan-OAuth-Providers-Reddit.html#constant_SCOPE_MYSUBREDDITS">SCOPE_MYSUBREDDITS</a></li>
+                                                    <li><a href="classes/chillerlan-OAuth-Providers-Reddit.html#constant_SCOPE_PRIVATEMESSAGES">SCOPE_PRIVATEMESSAGES</a></li>
+                                                    <li><a href="classes/chillerlan-OAuth-Providers-Reddit.html#constant_SCOPE_READ">SCOPE_READ</a></li>
+                                                    <li><a href="classes/chillerlan-OAuth-Providers-Reddit.html#constant_SCOPE_REPORT">SCOPE_REPORT</a></li>
+                                                    <li><a href="classes/chillerlan-OAuth-Providers-Reddit.html#constant_SCOPE_SAVE">SCOPE_SAVE</a></li>
+                                                    <li><a href="classes/chillerlan-OAuth-Providers-Reddit.html#constant_SCOPE_STRUCTUREDSTYLES">SCOPE_STRUCTUREDSTYLES</a></li>
+                                                    <li><a href="classes/chillerlan-OAuth-Providers-Reddit.html#constant_SCOPE_SUBMIT">SCOPE_SUBMIT</a></li>
+                                                    <li><a href="classes/chillerlan-OAuth-Providers-Reddit.html#constant_SCOPE_SUBSCRIBE">SCOPE_SUBSCRIBE</a></li>
+                                                    <li><a href="classes/chillerlan-OAuth-Providers-Reddit.html#constant_SCOPE_VOTE">SCOPE_VOTE</a></li>
+                                                    <li><a href="classes/chillerlan-OAuth-Providers-Reddit.html#constant_SCOPE_WIKIEDIT">SCOPE_WIKIEDIT</a></li>
+                                                    <li><a href="classes/chillerlan-OAuth-Providers-Reddit.html#constant_SCOPE_WIKIREAD">SCOPE_WIKIREAD</a></li>
+                                                    <li><a href="classes/chillerlan-OAuth-Providers-Reddit.html#constant_USER_AGENT">USER_AGENT</a></li>
                                                     <li><a href="classes/chillerlan-OAuth-Core-OAuthProvider.html#constant_MAGIC_PROPERTIES">MAGIC_PROPERTIES</a></li>
                                             </ul>
                 </li>
@@ -4183,23 +5108,23 @@ the spec mandates a JSON body which is what almost all providers send - weird ex
                             <li class="phpdocumentor-on-this-page-section__title">Properties</li>
                 <li>
                     <ul class="phpdocumentor-list -clean">
-                                                    <li><a href="classes/chillerlan-OAuth-Providers-MusicBrainz.html#property_accessTokenURL">$accessTokenURL<a href="classes/chillerlan-OAuth-Providers-MusicBrainz.html"></li>
-                                                    <li><a href="classes/chillerlan-OAuth-Providers-MusicBrainz.html#property_apiDocs">$apiDocs<a href="classes/chillerlan-OAuth-Providers-MusicBrainz.html"></li>
-                                                    <li><a href="classes/chillerlan-OAuth-Providers-MusicBrainz.html#property_apiURL">$apiURL<a href="classes/chillerlan-OAuth-Providers-MusicBrainz.html"></li>
-                                                    <li><a href="classes/chillerlan-OAuth-Providers-MusicBrainz.html#property_applicationURL">$applicationURL<a href="classes/chillerlan-OAuth-Providers-MusicBrainz.html"></li>
-                                                    <li><a href="classes/chillerlan-OAuth-Providers-MusicBrainz.html#property_authorizationURL">$authorizationURL<a href="classes/chillerlan-OAuth-Providers-MusicBrainz.html"></li>
-                                                    <li><a href="classes/chillerlan-OAuth-Core-OAuth2Provider.html#property_clientCredentialsTokenURL">$clientCredentialsTokenURL<a href="classes/chillerlan-OAuth-Providers-MusicBrainz.html"></li>
-                                                    <li><a href="classes/chillerlan-OAuth-Core-OAuthProvider.html#property_http">$http<a href="classes/chillerlan-OAuth-Providers-MusicBrainz.html"></li>
-                                                    <li><a href="classes/chillerlan-OAuth-Core-OAuthProvider.html#property_logger">$logger<a href="classes/chillerlan-OAuth-Providers-MusicBrainz.html"></li>
-                                                    <li><a href="classes/chillerlan-OAuth-Core-OAuthProvider.html#property_name">$name<a href="classes/chillerlan-OAuth-Providers-MusicBrainz.html"></li>
-                                                    <li><a href="classes/chillerlan-OAuth-Core-OAuthProvider.html#property_options">$options<a href="classes/chillerlan-OAuth-Providers-MusicBrainz.html"></li>
-                                                    <li><a href="classes/chillerlan-OAuth-Core-OAuth2Provider.html#property_refreshTokenURL">$refreshTokenURL<a href="classes/chillerlan-OAuth-Providers-MusicBrainz.html"></li>
-                                                    <li><a href="classes/chillerlan-OAuth-Core-OAuthProvider.html#property_requestFactory">$requestFactory<a href="classes/chillerlan-OAuth-Providers-MusicBrainz.html"></li>
-                                                    <li><a href="classes/chillerlan-OAuth-Providers-MusicBrainz.html#property_revokeURL">$revokeURL<a href="classes/chillerlan-OAuth-Providers-MusicBrainz.html"></li>
-                                                    <li><a href="classes/chillerlan-OAuth-Core-OAuthProvider.html#property_storage">$storage<a href="classes/chillerlan-OAuth-Providers-MusicBrainz.html"></li>
-                                                    <li><a href="classes/chillerlan-OAuth-Core-OAuthProvider.html#property_streamFactory">$streamFactory<a href="classes/chillerlan-OAuth-Providers-MusicBrainz.html"></li>
-                                                    <li><a href="classes/chillerlan-OAuth-Core-OAuthProvider.html#property_uriFactory">$uriFactory<a href="classes/chillerlan-OAuth-Providers-MusicBrainz.html"></li>
-                                                    <li><a href="classes/chillerlan-OAuth-Providers-MusicBrainz.html#property_userRevokeURL">$userRevokeURL<a href="classes/chillerlan-OAuth-Providers-MusicBrainz.html"></li>
+                                                    <li><a href="classes/chillerlan-OAuth-Providers-Reddit.html#property_accessTokenURL">$accessTokenURL<a href="classes/chillerlan-OAuth-Providers-Reddit.html"></li>
+                                                    <li><a href="classes/chillerlan-OAuth-Providers-Reddit.html#property_apiDocs">$apiDocs<a href="classes/chillerlan-OAuth-Providers-Reddit.html"></li>
+                                                    <li><a href="classes/chillerlan-OAuth-Providers-Reddit.html#property_apiURL">$apiURL<a href="classes/chillerlan-OAuth-Providers-Reddit.html"></li>
+                                                    <li><a href="classes/chillerlan-OAuth-Providers-Reddit.html#property_applicationURL">$applicationURL<a href="classes/chillerlan-OAuth-Providers-Reddit.html"></li>
+                                                    <li><a href="classes/chillerlan-OAuth-Providers-Reddit.html#property_authorizationURL">$authorizationURL<a href="classes/chillerlan-OAuth-Providers-Reddit.html"></li>
+                                                    <li><a href="classes/chillerlan-OAuth-Core-OAuth2Provider.html#property_clientCredentialsTokenURL">$clientCredentialsTokenURL<a href="classes/chillerlan-OAuth-Providers-Reddit.html"></li>
+                                                    <li><a href="classes/chillerlan-OAuth-Core-OAuthProvider.html#property_http">$http<a href="classes/chillerlan-OAuth-Providers-Reddit.html"></li>
+                                                    <li><a href="classes/chillerlan-OAuth-Core-OAuthProvider.html#property_logger">$logger<a href="classes/chillerlan-OAuth-Providers-Reddit.html"></li>
+                                                    <li><a href="classes/chillerlan-OAuth-Core-OAuthProvider.html#property_name">$name<a href="classes/chillerlan-OAuth-Providers-Reddit.html"></li>
+                                                    <li><a href="classes/chillerlan-OAuth-Core-OAuthProvider.html#property_options">$options<a href="classes/chillerlan-OAuth-Providers-Reddit.html"></li>
+                                                    <li><a href="classes/chillerlan-OAuth-Core-OAuth2Provider.html#property_refreshTokenURL">$refreshTokenURL<a href="classes/chillerlan-OAuth-Providers-Reddit.html"></li>
+                                                    <li><a href="classes/chillerlan-OAuth-Core-OAuthProvider.html#property_requestFactory">$requestFactory<a href="classes/chillerlan-OAuth-Providers-Reddit.html"></li>
+                                                    <li><a href="classes/chillerlan-OAuth-Providers-Reddit.html#property_revokeURL">$revokeURL<a href="classes/chillerlan-OAuth-Providers-Reddit.html"></li>
+                                                    <li><a href="classes/chillerlan-OAuth-Core-OAuthProvider.html#property_storage">$storage<a href="classes/chillerlan-OAuth-Providers-Reddit.html"></li>
+                                                    <li><a href="classes/chillerlan-OAuth-Core-OAuthProvider.html#property_streamFactory">$streamFactory<a href="classes/chillerlan-OAuth-Providers-Reddit.html"></li>
+                                                    <li><a href="classes/chillerlan-OAuth-Core-OAuthProvider.html#property_uriFactory">$uriFactory<a href="classes/chillerlan-OAuth-Providers-Reddit.html"></li>
+                                                    <li><a href="classes/chillerlan-OAuth-Providers-Reddit.html#property_userRevokeURL">$userRevokeURL<a href="classes/chillerlan-OAuth-Providers-Reddit.html"></li>
                                             </ul>
                 </li>
             
@@ -4215,10 +5140,10 @@ the spec mandates a JSON body which is what almost all providers send - weird ex
                                             <li><a href="classes/chillerlan-OAuth-Core-OAuth2Provider.html#method_getRequestAuthorization">getRequestAuthorization()</a></li>
                                             <li><a href="classes/chillerlan-OAuth-Core-OAuthProvider.html#method_getStorage">getStorage()</a></li>
                                             <li><a href="classes/chillerlan-OAuth-Core-OAuthProvider.html#method_InvalidateAccessToken">InvalidateAccessToken()</a></li>
-                                            <li><a href="classes/chillerlan-OAuth-Providers-MusicBrainz.html#method_invalidateAccessToken">invalidateAccessToken()</a></li>
-                                            <li><a href="classes/chillerlan-OAuth-Providers-MusicBrainz.html#method_me">me()</a></li>
+                                            <li><a href="classes/chillerlan-OAuth-Providers-Reddit.html#method_invalidateAccessToken">invalidateAccessToken()</a></li>
+                                            <li><a href="classes/chillerlan-OAuth-Providers-Reddit.html#method_me">me()</a></li>
                                             <li><a href="classes/chillerlan-OAuth-Core-OAuth2Provider.html#method_refreshAccessToken">refreshAccessToken()</a></li>
-                                            <li><a href="classes/chillerlan-OAuth-Providers-MusicBrainz.html#method_request">request()</a></li>
+                                            <li><a href="classes/chillerlan-OAuth-Core-OAuthProvider.html#method_request">request()</a></li>
                                             <li><a href="classes/chillerlan-OAuth-Core-OAuthProvider.html#method_sendRequest">sendRequest()</a></li>
                                             <li><a href="classes/chillerlan-OAuth-Core-OAuthProvider.html#method_setLogger">setLogger()</a></li>
                                             <li><a href="classes/chillerlan-OAuth-Core-OAuthProvider.html#method_setRequestFactory">setRequestFactory()</a></li>
@@ -4231,11 +5156,11 @@ the spec mandates a JSON body which is what almost all providers send - weird ex
                                             <li><a href="classes/chillerlan-OAuth-Core-OAuthProvider.html#method_cleanQueryParams">cleanQueryParams()</a></li>
                                             <li><a href="classes/chillerlan-OAuth-Core-OAuthProvider.html#method_construct">construct()</a></li>
                                             <li><a href="classes/chillerlan-OAuth-Core-OAuthProvider.html#method_createAccessToken">createAccessToken()</a></li>
-                                            <li><a href="classes/chillerlan-OAuth-Core-OAuth2Provider.html#method_getAccessTokenRequestBodyParams">getAccessTokenRequestBodyParams()</a></li>
+                                            <li><a href="classes/chillerlan-OAuth-Providers-Reddit.html#method_getAccessTokenRequestBodyParams">getAccessTokenRequestBodyParams()</a></li>
                                             <li><a href="classes/chillerlan-OAuth-Core-OAuth2Provider.html#method_getAuthorizationURLRequestParams">getAuthorizationURLRequestParams()</a></li>
                                             <li><a href="classes/chillerlan-OAuth-Core-OAuth2Provider.html#method_getClientCredentialsTokenRequestBodyParams">getClientCredentialsTokenRequestBodyParams()</a></li>
                                             <li><a href="classes/chillerlan-OAuth-Core-OAuthProvider.html#method_getMeResponseData">getMeResponseData()</a></li>
-                                            <li><a href="classes/chillerlan-OAuth-Providers-MusicBrainz.html#method_getRefreshAccessTokenRequestBodyParams">getRefreshAccessTokenRequestBodyParams()</a></li>
+                                            <li><a href="classes/chillerlan-OAuth-Core-OAuth2Provider.html#method_getRefreshAccessTokenRequestBodyParams">getRefreshAccessTokenRequestBodyParams()</a></li>
                                             <li><a href="classes/chillerlan-OAuth-Core-OAuthProvider.html#method_getRequestHeaders">getRequestHeaders()</a></li>
                                             <li><a href="classes/chillerlan-OAuth-Core-OAuthProvider.html#method_getRequestTarget">getRequestTarget()</a></li>
                                             <li><a href="classes/chillerlan-OAuth-Core-OAuthProvider.html#method_getRequestURL">getRequestURL()</a></li>
@@ -4243,7 +5168,7 @@ the spec mandates a JSON body which is what almost all providers send - weird ex
                                             <li><a href="classes/chillerlan-OAuth-Core-OAuthProvider.html#method_handleMeResponseError">handleMeResponseError()</a></li>
                                             <li><a href="classes/chillerlan-OAuth-Core-OAuthProvider.html#method_nonce">nonce()</a></li>
                                             <li><a href="classes/chillerlan-OAuth-Core-OAuth2Provider.html#method_parseTokenResponse">parseTokenResponse()</a></li>
-                                            <li><a href="classes/chillerlan-OAuth-Core-OAuth2Provider.html#method_sendAccessTokenRequest">sendAccessTokenRequest()</a></li>
+                                            <li><a href="classes/chillerlan-OAuth-Providers-Reddit.html#method_sendAccessTokenRequest">sendAccessTokenRequest()</a></li>
                                             <li><a href="classes/chillerlan-OAuth-Core-OAuth2Provider.html#method_sendClientCredentialsTokenRequest">sendClientCredentialsTokenRequest()</a></li>
                                             <li><a href="classes/chillerlan-OAuth-Core-OAuthProvider.html#method_sendMeRequest">sendMeRequest()</a></li>
                                             <li><a href="classes/chillerlan-OAuth-Core-OAuthProvider.html#method_setRequestBody">setRequestBody()</a></li>
@@ -4266,7 +5191,7 @@ the spec mandates a JSON body which is what almost all providers send - weird ex
     </section>
 </section>
         </div>
-        <a href="classes/chillerlan-OAuth-Providers-MusicBrainz.html#top" class="phpdocumentor-back-to-top"><i class="fas fa-chevron-circle-up"></i></a>
+        <a href="classes/chillerlan-OAuth-Providers-Reddit.html#top" class="phpdocumentor-back-to-top"><i class="fas fa-chevron-circle-up"></i></a>
 
     </main>
 

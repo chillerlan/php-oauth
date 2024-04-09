@@ -47,7 +47,7 @@ fully [PSR-7](https://www.php-fig.org/psr/psr-7/)/[PSR-17](https://www.php-fig.o
 | [OpenStreetmap](https://wiki.openstreetmap.org/wiki/API) | [link](https://www.openstreetmap.org/user/{USERNAME}/oauth_clients) |  | 1 | ✓ |  |  |  |  |  |
 | [Twitch](https://dev.twitch.tv/docs/api/reference/) | [link](https://dev.twitch.tv/console/apps/create) | [link](https://www.twitch.tv/settings/connections) | 2 | ✓ | ✓ |  | ✓ | ✓ | ✓ |
 | [DeviantArt](https://www.deviantart.com/developers/) | [link](https://www.deviantart.com/developers/apps) | [link](https://www.deviantart.com/settings/applications) | 2 | ✓ | ✓ |  | ✓ | ✓ | ✓ |
-| [SteamOpenID](https://developer.valvesoftware.com/wiki/Steam_Web_API) | [link](https://steamcommunity.com/dev/apikey) |  | - |  |  |  |  |  |  |
+| [SteamOpenID](https://developer.valvesoftware.com/wiki/Steam_Web_API) | [link](https://steamcommunity.com/dev/apikey) |  | - | ✓ |  |  |  |  |  |
 | [Mastodon](https://docs.joinmastodon.org/api/) | [link](https://mastodon.social/settings/applications) | [link](https://mastodon.social/oauth/authorized_applications) | 2 | ✓ | ✓ |  |  | ✓ |  |
 | [Vimeo](https://developer.vimeo.com) | [link](https://developer.vimeo.com/apps) | [link](https://vimeo.com/settings/apps) | 2 | ✓ | ✓ |  | ✓ |  | ✓ |
 | [Tumblr](https://www.tumblr.com/docs/en/api/v2) | [link](https://www.tumblr.com/oauth/apps) | [link](https://www.tumblr.com/settings/apps) | 1 | ✓ |  |  |  |  |  |
@@ -55,6 +55,7 @@ fully [PSR-7](https://www.php-fig.org/psr/psr-7/)/[PSR-17](https://www.php-fig.o
 | [PayPalSandbox](https://developer.paypal.com/docs/connect-with-paypal/reference/) | [link](https://developer.paypal.com/developer/applications/) |  | 2 | ✓ | ✓ |  | ✓ | ✓ |  |
 | [Patreon](https://docs.patreon.com/) | [link](https://www.patreon.com/portal/registration/register-clients) |  | 2 | ✓ | ✓ |  |  | ✓ |  |
 | [MicrosoftGraph](https://learn.microsoft.com/graph/overview) | [link](https://aad.portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/RegisteredApps) | [link](https://account.live.com/consent/Manage) | 2 | ✓ | ✓ |  |  |  |  |
+| [Reddit](https://www.reddit.com/dev/api) | [link](https://www.reddit.com/prefs/apps/) | [link](https://www.reddit.com/settings/privacy) | 2 | ✓ | ✓ |  | ✓ | ✓ | ✓ |
 | [Gitea](https://docs.gitea.com/api/1.20/) | [link](https://gitea.com/user/settings/applications) | [link](https://gitea.com/user/settings/applications) | 2 | ✓ | ✓ | ✓ |  | ✓ |  |
 | [Mixcloud](https://www.mixcloud.com/developers/) | [link](https://www.mixcloud.com/developers/create/) | [link](https://www.mixcloud.com/settings/applications/) | 2 | ✓ |  |  |  |  |  |
 | [Codeberg](https://codeberg.org/api/swagger) | [link](https://codeberg.org/user/settings/applications) | [link](https://codeberg.org/user/settings/applications) | 2 | ✓ | ✓ | ✓ |  | ✓ |  |

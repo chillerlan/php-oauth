@@ -59,6 +59,7 @@ fully [PSR-7](https://www.php-fig.org/psr/psr-7/)/[PSR-17](https://www.php-fig.o
 | [Gitea](https://docs.gitea.com/api/1.20/) | [link](https://gitea.com/user/settings/applications) | [link](https://gitea.com/user/settings/applications) | 2 | ✓ | ✓ | ✓ |  | ✓ |  |
 | [Mixcloud](https://www.mixcloud.com/developers/) | [link](https://www.mixcloud.com/developers/create/) | [link](https://www.mixcloud.com/settings/applications/) | 2 | ✓ |  |  |  |  |  |
 | [Codeberg](https://codeberg.org/api/swagger) | [link](https://codeberg.org/user/settings/applications) | [link](https://codeberg.org/user/settings/applications) | 2 | ✓ | ✓ | ✓ |  | ✓ |  |
+| [Pinterest](https://developers.pinterest.com/docs/) | [link](https://developers.pinterest.com/apps/) | [link](https://www.pinterest.com/settings/security) | 2 | ✓ | ✓ |  |  | ✓ |  |
 | [Flickr](https://www.flickr.com/services/api/) | [link](https://www.flickr.com/services/apps/create/) | [link](https://www.flickr.com/services/auth/list.gne) | 1 | ✓ |  |  |  |  |  |
 | [GitHub](https://docs.github.com/rest) | [link](https://github.com/settings/developers) | [link](https://github.com/settings/applications) | 2 | ✓ | ✓ |  |  | ✓ |  |
 | [OpenCaching](https://www.opencaching.de/okapi/) | [link](https://www.opencaching.de/okapi/signup.html) | [link](https://www.opencaching.de/okapi/apps/) | 1 | ✓ |  |  |  |  |  |

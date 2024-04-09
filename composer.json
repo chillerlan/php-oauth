@@ -5,8 +5,8 @@
 	"license": "MIT",
 	"type": "library",
 	"keywords": [
-		"oauth", "oauth1", "oauth2", "authorization", "authentication",
-		"client", "psr-7", "psr-17", "psr-18", "rfc5849", "rfc6749"
+		"oauth", "oauth1", "oauth2", "pkce", "authorization", "authentication",
+		"client", "psr-7", "psr-17", "psr-18", "rfc5849", "rfc6749", "rfc7636"
 	],
 	"authors": [
 		{

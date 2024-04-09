@@ -100,7 +100,9 @@ abstract class OAuth2Provider extends OAuthProvider implements OAuth2Interface{
 		}
 
 		// deezer: "error_reason", paypal: "message" (along with "links", "name")
-		foreach(['error', 'error_description', 'error_reason', 'message'] as $field){
+		// reddit sends "message" and "error" as int, which will throw a TypeError when handed into the exception
+		// detection order changed accordingly
+		foreach(['message', 'error', 'error_description', 'error_reason'] as $field){
 			if(isset($data[$field])){
 
 				if(in_array($response->getStatusCode(), [400, 401, 403], true)){

@@ -11,6 +11,7 @@ declare(strict_types=1);
 
 namespace chillerlan\OAuthTest\Providers\Live;
 
+use chillerlan\OAuth\Core\AuthenticatedUser;
 use chillerlan\OAuth\Providers\SteamOpenID;
 use PHPUnit\Framework\Attributes\Group;
 
@@ -40,6 +41,11 @@ final class SteamOpenIDAPITest extends OAuthProviderLiveTestAbstract{
 
 	public function testUnauthorizedAccessException():void{
 		$this::markTestSkipped('N/A');
+	}
+
+	protected function assertMeResponse(AuthenticatedUser $user):void{
+		var_dump($user);
+		$this::assertSame((int)$this->TEST_USER, $user->id);
 	}
 
 }

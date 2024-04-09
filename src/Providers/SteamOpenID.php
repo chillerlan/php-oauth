@@ -12,7 +12,8 @@ declare(strict_types=1);
 namespace chillerlan\OAuth\Providers;
 
 use chillerlan\HTTP\Utils\QueryUtil;
-use chillerlan\OAuth\Core\{AccessToken, OAuthProvider};
+use chillerlan\OAuth\Core\{AccessToken, AuthenticatedUser, OAuthProvider, UserInfo};
+use chillerlan\HTTP\Utils\UriUtil;
 use Psr\Http\Message\{RequestInterface, ResponseInterface, UriInterface};
 use function explode, intval, preg_replace;
 
@@ -23,7 +24,7 @@ use function explode, intval, preg_replace;
  * @see https://partner.steamgames.com/doc/webapi_overview
  * @see https://steamwebapi.azurewebsites.net/
  */
-class SteamOpenID extends OAuthProvider{
+class SteamOpenID extends OAuthProvider implements UserInfo{
 
 	protected string      $authorizationURL = 'https://steamcommunity.com/openid/login';
 	protected string      $accessTokenURL   = 'https://steamcommunity.com/openid/login';
@@ -114,17 +115,34 @@ class SteamOpenID extends OAuthProvider{
 	 *
 	 */
 	public function getRequestAuthorization(RequestInterface $request, AccessToken|null $token = null):RequestInterface{
-		$token ??= $this->storage->getAccessToken($this->name);
+		$uri = UriUtil::withQueryValue($request->getUri(), 'key', $this->options->secret);
 
-		$uri    = (string)$request->getUri();
-		$params = ['key' => $this->options->secret];
+		return $request->withUri($uri);
+	}
 
-		// the steamid parameter does not necessarily specify the current user, so add it only when it's not already set
-		if(!str_contains($uri, 'steamid=')){
-			$params['steamid']= $token->accessToken;
+	/**
+	 * @inheritDoc
+	 * @codeCoverageIgnore
+	 */
+	public function me():AuthenticatedUser{
+		$token = $this->storage->getAccessToken($this->name);
+		$json  = $this->getMeResponseData('/ISteamUser/GetPlayerSummaries/v0002/', ['steamids' => $token->accessToken]);
+
+		if(!isset($json['response']['players'][0])){
+			throw new ProviderException('invalid response');
 		}
 
-		return $request->withUri($this->uriFactory->createUri(QueryUtil::merge($uri, $params)));
+		$data = $json['response']['players'][0];
+
+		$userdata = [
+			'data'        => $data,
+			'avatar'      => $data['avatarfull'],
+			'displayName' => $data['personaname'],
+			'id'          => $data['steamid'],
+			'url'         => $data['profileurl'],
+		];
+
+		return new AuthenticatedUser($userdata);
 	}
 
 }

@@ -271,6 +271,11 @@ Search.appendIndex(
             "summary": "The\u0020delimiter\u0020string\u0020for\u0020scopes",
             "url": "classes/chillerlan-OAuth-Core-OAuth2Interface.html#constant_SCOPES_DELIMITER"
         },                {
+            "fqsen": "\\chillerlan\\OAuth\\Core\\OAuth2Interface\u003A\u003AUSES_BASIC_AUTH_IN_ACCESS_TOKEN_REQUEST",
+            "name": "USES_BASIC_AUTH_IN_ACCESS_TOKEN_REQUEST",
+            "summary": "This\u0020indicates\u0020that\u0020the\u0020current\u0020provider\u0020requires\u0020an\u0020\u0060Authorization\u003A\u0020Basic\u0020\u003Cbase64\u0028key\u003Asecret\u0029\u003E\u0060\u0020header\nin\u0020the\u0020access\u0020token\u0020request,\u0020rather\u0020than\u0020the\u0020key\u0020and\u0020secret\u0020in\u0020the\u0020request\u0020body.",
+            "url": "classes/chillerlan-OAuth-Core-OAuth2Interface.html#constant_USES_BASIC_AUTH_IN_ACCESS_TOKEN_REQUEST"
+        },                {
             "fqsen": "\\chillerlan\\OAuth\\Core\\OAuth2Provider",
             "name": "OAuth2Provider",
             "summary": "Implements\u0020an\u0020abstract\u0020OAuth2\u0020provider\u0020with\u0020all\u0020methods\u0020required\u0020by\u0020the\u0020OAuth2Interface.",
@@ -3231,16 +3236,6 @@ Search.appendIndex(
             "summary": "PayPal\u0020OAuth2",
             "url": "classes/chillerlan-OAuth-Providers-PayPal.html"
         },                {
-            "fqsen": "\\chillerlan\\OAuth\\Providers\\PayPal\u003A\u003AgetAccessTokenRequestBodyParams\u0028\u0029",
-            "name": "getAccessTokenRequestBodyParams",
-            "summary": "prepares\u0020the\u0020request\u0020body\u0020parameters\u0020for\u0020the\u0020access\u0020token\u0020request",
-            "url": "classes/chillerlan-OAuth-Providers-PayPal.html#method_getAccessTokenRequestBodyParams"
-        },                {
-            "fqsen": "\\chillerlan\\OAuth\\Providers\\PayPal\u003A\u003AsendAccessTokenRequest\u0028\u0029",
-            "name": "sendAccessTokenRequest",
-            "summary": "sends\u0020a\u0020request\u0020to\u0020the\u0020access\/refresh\u0020token\u0020endpoint\u0020\u0024url\u0020with\u0020the\u0020given\u0020\u0024body\u0020as\u0020form\u0020data",
-            "url": "classes/chillerlan-OAuth-Providers-PayPal.html#method_sendAccessTokenRequest"
-        },                {
             "fqsen": "\\chillerlan\\OAuth\\Providers\\PayPal\u003A\u003Ame\u0028\u0029",
             "name": "me",
             "summary": "Returns\u0020information\u0020about\u0020the\u0020currently\u0020authenticated\u0020user\u0020\u0028usually\u0020a\u0020\/me\u0020or\u0020\/user\u0020endpoint\u0029.",
@@ -3275,6 +3270,11 @@ Search.appendIndex(
             "name": "DEFAULT_SCOPES",
             "summary": "",
             "url": "classes/chillerlan-OAuth-Providers-PayPal.html#constant_DEFAULT_SCOPES"
+        },                {
+            "fqsen": "\\chillerlan\\OAuth\\Providers\\PayPal\u003A\u003AUSES_BASIC_AUTH_IN_ACCESS_TOKEN_REQUEST",
+            "name": "USES_BASIC_AUTH_IN_ACCESS_TOKEN_REQUEST",
+            "summary": "",
+            "url": "classes/chillerlan-OAuth-Providers-PayPal.html#constant_USES_BASIC_AUTH_IN_ACCESS_TOKEN_REQUEST"
         },                {
             "fqsen": "\\chillerlan\\OAuth\\Providers\\PayPal\u003A\u003A\u0024accessTokenURL",
             "name": "accessTokenURL",
@@ -3321,6 +3321,121 @@ Search.appendIndex(
             "summary": "",
             "url": "classes/chillerlan-OAuth-Providers-PayPalSandbox.html#property_apiURL"
         },                {
+            "fqsen": "\\chillerlan\\OAuth\\Providers\\Pinterest",
+            "name": "Pinterest",
+            "summary": "Implements\u0020an\u0020abstract\u0020OAuth2\u0020provider\u0020with\u0020all\u0020methods\u0020required\u0020by\u0020the\u0020OAuth2Interface.",
+            "url": "classes/chillerlan-OAuth-Providers-Pinterest.html"
+        },                {
+            "fqsen": "\\chillerlan\\OAuth\\Providers\\Pinterest\u003A\u003Ame\u0028\u0029",
+            "name": "me",
+            "summary": "Returns\u0020information\u0020about\u0020the\u0020currently\u0020authenticated\u0020user\u0020\u0028usually\u0020a\u0020\/me\u0020or\u0020\/user\u0020endpoint\u0029.",
+            "url": "classes/chillerlan-OAuth-Providers-Pinterest.html#method_me"
+        },                {
+            "fqsen": "\\chillerlan\\OAuth\\Providers\\Pinterest\u003A\u003ASCOPE_ADS_READ",
+            "name": "SCOPE_ADS_READ",
+            "summary": "",
+            "url": "classes/chillerlan-OAuth-Providers-Pinterest.html#constant_SCOPE_ADS_READ"
+        },                {
+            "fqsen": "\\chillerlan\\OAuth\\Providers\\Pinterest\u003A\u003ASCOPE_ADS_WRITE",
+            "name": "SCOPE_ADS_WRITE",
+            "summary": "",
+            "url": "classes/chillerlan-OAuth-Providers-Pinterest.html#constant_SCOPE_ADS_WRITE"
+        },                {
+            "fqsen": "\\chillerlan\\OAuth\\Providers\\Pinterest\u003A\u003ASCOPE_BOARDS_READ",
+            "name": "SCOPE_BOARDS_READ",
+            "summary": "",
+            "url": "classes/chillerlan-OAuth-Providers-Pinterest.html#constant_SCOPE_BOARDS_READ"
+        },                {
+            "fqsen": "\\chillerlan\\OAuth\\Providers\\Pinterest\u003A\u003ASCOPE_BOARDS_READ_SECRET",
+            "name": "SCOPE_BOARDS_READ_SECRET",
+            "summary": "",
+            "url": "classes/chillerlan-OAuth-Providers-Pinterest.html#constant_SCOPE_BOARDS_READ_SECRET"
+        },                {
+            "fqsen": "\\chillerlan\\OAuth\\Providers\\Pinterest\u003A\u003ASCOPE_BOARDS_WRITE",
+            "name": "SCOPE_BOARDS_WRITE",
+            "summary": "",
+            "url": "classes/chillerlan-OAuth-Providers-Pinterest.html#constant_SCOPE_BOARDS_WRITE"
+        },                {
+            "fqsen": "\\chillerlan\\OAuth\\Providers\\Pinterest\u003A\u003ASCOPE_BOARDS_WRITE_SECRET",
+            "name": "SCOPE_BOARDS_WRITE_SECRET",
+            "summary": "",
+            "url": "classes/chillerlan-OAuth-Providers-Pinterest.html#constant_SCOPE_BOARDS_WRITE_SECRET"
+        },                {
+            "fqsen": "\\chillerlan\\OAuth\\Providers\\Pinterest\u003A\u003ASCOPE_CATALOGS_READ",
+            "name": "SCOPE_CATALOGS_READ",
+            "summary": "",
+            "url": "classes/chillerlan-OAuth-Providers-Pinterest.html#constant_SCOPE_CATALOGS_READ"
+        },                {
+            "fqsen": "\\chillerlan\\OAuth\\Providers\\Pinterest\u003A\u003ASCOPE_CATALOGS_WRITE",
+            "name": "SCOPE_CATALOGS_WRITE",
+            "summary": "",
+            "url": "classes/chillerlan-OAuth-Providers-Pinterest.html#constant_SCOPE_CATALOGS_WRITE"
+        },                {
+            "fqsen": "\\chillerlan\\OAuth\\Providers\\Pinterest\u003A\u003ASCOPE_PINS_READ",
+            "name": "SCOPE_PINS_READ",
+            "summary": "",
+            "url": "classes/chillerlan-OAuth-Providers-Pinterest.html#constant_SCOPE_PINS_READ"
+        },                {
+            "fqsen": "\\chillerlan\\OAuth\\Providers\\Pinterest\u003A\u003ASCOPE_PINS_READ_SECRET",
+            "name": "SCOPE_PINS_READ_SECRET",
+            "summary": "",
+            "url": "classes/chillerlan-OAuth-Providers-Pinterest.html#constant_SCOPE_PINS_READ_SECRET"
+        },                {
+            "fqsen": "\\chillerlan\\OAuth\\Providers\\Pinterest\u003A\u003ASCOPE_PINS_WRITE",
+            "name": "SCOPE_PINS_WRITE",
+            "summary": "",
+            "url": "classes/chillerlan-OAuth-Providers-Pinterest.html#constant_SCOPE_PINS_WRITE"
+        },                {
+            "fqsen": "\\chillerlan\\OAuth\\Providers\\Pinterest\u003A\u003ASCOPE_PINS_WRITE_SECRET",
+            "name": "SCOPE_PINS_WRITE_SECRET",
+            "summary": "",
+            "url": "classes/chillerlan-OAuth-Providers-Pinterest.html#constant_SCOPE_PINS_WRITE_SECRET"
+        },                {
+            "fqsen": "\\chillerlan\\OAuth\\Providers\\Pinterest\u003A\u003ASCOPE_USER_ACCOUNTS_READ",
+            "name": "SCOPE_USER_ACCOUNTS_READ",
+            "summary": "",
+            "url": "classes/chillerlan-OAuth-Providers-Pinterest.html#constant_SCOPE_USER_ACCOUNTS_READ"
+        },                {
+            "fqsen": "\\chillerlan\\OAuth\\Providers\\Pinterest\u003A\u003ADEFAULT_SCOPES",
+            "name": "DEFAULT_SCOPES",
+            "summary": "",
+            "url": "classes/chillerlan-OAuth-Providers-Pinterest.html#constant_DEFAULT_SCOPES"
+        },                {
+            "fqsen": "\\chillerlan\\OAuth\\Providers\\Pinterest\u003A\u003AUSES_BASIC_AUTH_IN_ACCESS_TOKEN_REQUEST",
+            "name": "USES_BASIC_AUTH_IN_ACCESS_TOKEN_REQUEST",
+            "summary": "",
+            "url": "classes/chillerlan-OAuth-Providers-Pinterest.html#constant_USES_BASIC_AUTH_IN_ACCESS_TOKEN_REQUEST"
+        },                {
+            "fqsen": "\\chillerlan\\OAuth\\Providers\\Pinterest\u003A\u003A\u0024authorizationURL",
+            "name": "authorizationURL",
+            "summary": "",
+            "url": "classes/chillerlan-OAuth-Providers-Pinterest.html#property_authorizationURL"
+        },                {
+            "fqsen": "\\chillerlan\\OAuth\\Providers\\Pinterest\u003A\u003A\u0024accessTokenURL",
+            "name": "accessTokenURL",
+            "summary": "",
+            "url": "classes/chillerlan-OAuth-Providers-Pinterest.html#property_accessTokenURL"
+        },                {
+            "fqsen": "\\chillerlan\\OAuth\\Providers\\Pinterest\u003A\u003A\u0024apiURL",
+            "name": "apiURL",
+            "summary": "",
+            "url": "classes/chillerlan-OAuth-Providers-Pinterest.html#property_apiURL"
+        },                {
+            "fqsen": "\\chillerlan\\OAuth\\Providers\\Pinterest\u003A\u003A\u0024apiDocs",
+            "name": "apiDocs",
+            "summary": "",
+            "url": "classes/chillerlan-OAuth-Providers-Pinterest.html#property_apiDocs"
+        },                {
+            "fqsen": "\\chillerlan\\OAuth\\Providers\\Pinterest\u003A\u003A\u0024applicationURL",
+            "name": "applicationURL",
+            "summary": "",
+            "url": "classes/chillerlan-OAuth-Providers-Pinterest.html#property_applicationURL"
+        },                {
+            "fqsen": "\\chillerlan\\OAuth\\Providers\\Pinterest\u003A\u003A\u0024userRevokeURL",
+            "name": "userRevokeURL",
+            "summary": "",
+            "url": "classes/chillerlan-OAuth-Providers-Pinterest.html#property_userRevokeURL"
+        },                {
             "fqsen": "\\chillerlan\\OAuth\\Providers\\ProviderException",
             "name": "ProviderException",
             "summary": "",
@@ -3330,16 +3445,6 @@ Search.appendIndex(
             "name": "Reddit",
             "summary": "Implements\u0020an\u0020abstract\u0020OAuth2\u0020provider\u0020with\u0020all\u0020methods\u0020required\u0020by\u0020the\u0020OAuth2Interface.",
             "url": "classes/chillerlan-OAuth-Providers-Reddit.html"
-        },                {
-            "fqsen": "\\chillerlan\\OAuth\\Providers\\Reddit\u003A\u003AgetAccessTokenRequestBodyParams\u0028\u0029",
-            "name": "getAccessTokenRequestBodyParams",
-            "summary": "prepares\u0020the\u0020request\u0020body\u0020parameters\u0020for\u0020the\u0020access\u0020token\u0020request",
-            "url": "classes/chillerlan-OAuth-Providers-Reddit.html#method_getAccessTokenRequestBodyParams"
-        },                {
-            "fqsen": "\\chillerlan\\OAuth\\Providers\\Reddit\u003A\u003AsendAccessTokenRequest\u0028\u0029",
-            "name": "sendAccessTokenRequest",
-            "summary": "sends\u0020a\u0020request\u0020to\u0020the\u0020access\/refresh\u0020token\u0020endpoint\u0020\u0024url\u0020with\u0020the\u0020given\u0020\u0024body\u0020as\u0020form\u0020data",
-            "url": "classes/chillerlan-OAuth-Providers-Reddit.html#method_sendAccessTokenRequest"
         },                {
             "fqsen": "\\chillerlan\\OAuth\\Providers\\Reddit\u003A\u003Ame\u0028\u0029",
             "name": "me",
@@ -3515,6 +3620,11 @@ Search.appendIndex(
             "name": "HEADERS_API",
             "summary": "",
             "url": "classes/chillerlan-OAuth-Providers-Reddit.html#constant_HEADERS_API"
+        },                {
+            "fqsen": "\\chillerlan\\OAuth\\Providers\\Reddit\u003A\u003AUSES_BASIC_AUTH_IN_ACCESS_TOKEN_REQUEST",
+            "name": "USES_BASIC_AUTH_IN_ACCESS_TOKEN_REQUEST",
+            "summary": "",
+            "url": "classes/chillerlan-OAuth-Providers-Reddit.html#constant_USES_BASIC_AUTH_IN_ACCESS_TOKEN_REQUEST"
         },                {
             "fqsen": "\\chillerlan\\OAuth\\Providers\\Reddit\u003A\u003A\u0024authorizationURL",
             "name": "authorizationURL",
@@ -6056,6 +6166,21 @@ Search.appendIndex(
             "summary": "",
             "url": "classes/chillerlan-OAuthTest-Providers-Live-PayPalAPITest.html#method_assertMeResponse"
         },                {
+            "fqsen": "\\chillerlan\\OAuthTest\\Providers\\Live\\PinterestAPITest",
+            "name": "PinterestAPITest",
+            "summary": "",
+            "url": "classes/chillerlan-OAuthTest-Providers-Live-PinterestAPITest.html"
+        },                {
+            "fqsen": "\\chillerlan\\OAuthTest\\Providers\\Live\\PinterestAPITest\u003A\u003AgetProviderFQCN\u0028\u0029",
+            "name": "getProviderFQCN",
+            "summary": "",
+            "url": "classes/chillerlan-OAuthTest-Providers-Live-PinterestAPITest.html#method_getProviderFQCN"
+        },                {
+            "fqsen": "\\chillerlan\\OAuthTest\\Providers\\Live\\PinterestAPITest\u003A\u003AgetEnvPrefix\u0028\u0029",
+            "name": "getEnvPrefix",
+            "summary": "",
+            "url": "classes/chillerlan-OAuthTest-Providers-Live-PinterestAPITest.html#method_getEnvPrefix"
+        },                {
             "fqsen": "\\chillerlan\\OAuthTest\\Providers\\Live\\RedditAPITest",
             "name": "RedditAPITest",
             "summary": "",
@@ -7286,15 +7411,15 @@ Search.appendIndex(
             "summary": "",
             "url": "classes/chillerlan-OAuthTest-Providers-Unit-PayPalTest.html#method_getProviderFQCN"
         },                {
-            "fqsen": "\\chillerlan\\OAuthTest\\Providers\\Unit\\PayPalTest\u003A\u003AtestGetAccessTokenRequestBodyParams\u0028\u0029",
-            "name": "testGetAccessTokenRequestBodyParams",
+            "fqsen": "\\chillerlan\\OAuthTest\\Providers\\Unit\\PinterestTest",
+            "name": "PinterestTest",
             "summary": "",
-            "url": "classes/chillerlan-OAuthTest-Providers-Unit-PayPalTest.html#method_testGetAccessTokenRequestBodyParams"
+            "url": "classes/chillerlan-OAuthTest-Providers-Unit-PinterestTest.html"
         },                {
-            "fqsen": "\\chillerlan\\OAuthTest\\Providers\\Unit\\PayPalTest\u003A\u003AtestSendAccessTokenRequest\u0028\u0029",
-            "name": "testSendAccessTokenRequest",
+            "fqsen": "\\chillerlan\\OAuthTest\\Providers\\Unit\\PinterestTest\u003A\u003AgetProviderFQCN\u0028\u0029",
+            "name": "getProviderFQCN",
             "summary": "",
-            "url": "classes/chillerlan-OAuthTest-Providers-Unit-PayPalTest.html#method_testSendAccessTokenRequest"
+            "url": "classes/chillerlan-OAuthTest-Providers-Unit-PinterestTest.html#method_getProviderFQCN"
         },                {
             "fqsen": "\\chillerlan\\OAuthTest\\Providers\\Unit\\RedditTest",
             "name": "RedditTest",
@@ -7305,11 +7430,6 @@ Search.appendIndex(
             "name": "getProviderFQCN",
             "summary": "",
             "url": "classes/chillerlan-OAuthTest-Providers-Unit-RedditTest.html#method_getProviderFQCN"
-        },                {
-            "fqsen": "\\chillerlan\\OAuthTest\\Providers\\Unit\\RedditTest\u003A\u003AtestGetAccessTokenRequestBodyParams\u0028\u0029",
-            "name": "testGetAccessTokenRequestBodyParams",
-            "summary": "",
-            "url": "classes/chillerlan-OAuthTest-Providers-Unit-RedditTest.html#method_testGetAccessTokenRequestBodyParams"
         },                {
             "fqsen": "\\chillerlan\\OAuthTest\\Providers\\Unit\\RedditTest\u003A\u003AtestTokenInvalidate\u0028\u0029",
             "name": "testTokenInvalidate",

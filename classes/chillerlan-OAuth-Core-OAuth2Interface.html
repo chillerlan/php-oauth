@@ -228,6 +228,14 @@
         &nbsp;= &#039;chillerlanPhpOAuth/1.0.0 +https://github.com/chillerlan/php-oauth&#039;                            </span>
 </dt>
 
+            <dt class="phpdocumentor-table-of-contents__entry -constant -public">
+    <a href="classes/chillerlan-OAuth-Core-OAuth2Interface.html#constant_USES_BASIC_AUTH_IN_ACCESS_TOKEN_REQUEST">USES_BASIC_AUTH_IN_ACCESS_TOKEN_REQUEST</a>
+    <span>
+        &nbsp;= false                            </span>
+</dt>
+<dd>This indicates that the current provider requires an `Authorization: Basic &lt;base64(key:secret)&gt;` header
+in the access token request, rather than the key and secret in the request body.</dd>
+
     </dl>
 
 
@@ -626,6 +634,48 @@ and returns a PSR-7 ResponseInterface with the corresponding API response</dd>
     
 
 </article>
+                    <article class="phpdocumentor-element -constant -public ">
+    <h4 class="phpdocumentor-element__name" id="constant_USES_BASIC_AUTH_IN_ACCESS_TOKEN_REQUEST">
+        USES_BASIC_AUTH_IN_ACCESS_TOKEN_REQUEST
+        <a href="classes/chillerlan-OAuth-Core-OAuth2Interface.html#constant_USES_BASIC_AUTH_IN_ACCESS_TOKEN_REQUEST" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h4>
+
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/Core/OAuth2Interface.php"><a href="files/src-core-oauth2interface.html"><abbr title="src/Core/OAuth2Interface.php">OAuth2Interface.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">74</span>
+
+    </aside>
+
+        <p class="phpdocumentor-summary">This indicates that the current provider requires an `Authorization: Basic &lt;base64(key:secret)&gt;` header
+in the access token request, rather than the key and secret in the request body.</p>
+
+    <code class="phpdocumentor-signature phpdocumentor-code ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+        <span class="phpdocumentor-signature__type">mixed</span>
+    <span class="phpdocumentor-signature__name">USES_BASIC_AUTH_IN_ACCESS_TOKEN_REQUEST</span>
+    = <span class="phpdocumentor-signature__default-value">false</span>
+</code>
+
+
+        <section class="phpdocumentor-description"><p>It saves provider inplementations from the hassle to override the respective methods:</p>
+<ul>
+<li>
+<code class="prettyprint">OAuth2Provider::getAccessTokenRequestBodyParams()</code>
+</li>
+<li>
+<code class="prettyprint">OAuth2Provider::sendAccessTokenRequest()</code>
+</li>
+</ul>
+<p>I'm not sure where to put this: here or a feature interface (it's not exactly a feature).
+I'll leave it here for now, subject to change.</p>
+</section>
+
+    
+    
+
+</article>
             </section>
 
             <section class="phpdocumentor-methods">
@@ -648,7 +698,7 @@ and returns a PSR-7 ResponseInterface with the corresponding API response</dd>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Core/OAuth2Interface.php"><a href="files/src-core-oauth2interface.html"><abbr title="src/Core/OAuth2Interface.php">OAuth2Interface.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">69</span>
+    <span class="phpdocumentor-element-found-in__line">83</span>
 
     </aside>
 
@@ -1357,6 +1407,7 @@ and returns a PSR-7 ResponseInterface with the corresponding API response</p>
                                                     <li><a href="classes/chillerlan-OAuth-Core-OAuthInterface.html#constant_HEADERS_AUTH">HEADERS_AUTH</a></li>
                                                     <li><a href="classes/chillerlan-OAuth-Core-OAuth2Interface.html#constant_SCOPES_DELIMITER">SCOPES_DELIMITER</a></li>
                                                     <li><a href="classes/chillerlan-OAuth-Core-OAuthInterface.html#constant_USER_AGENT">USER_AGENT</a></li>
+                                                    <li><a href="classes/chillerlan-OAuth-Core-OAuth2Interface.html#constant_USES_BASIC_AUTH_IN_ACCESS_TOKEN_REQUEST">USES_BASIC_AUTH_IN_ACCESS_TOKEN_REQUEST</a></li>
                                             </ul>
                 </li>
                     </ul>

@@ -117,7 +117,7 @@
 
     <article class="phpdocumentor-element -class">
         <h2 class="phpdocumentor-content__title">
-    MailChimp
+    Pinterest
 
         <span class="phpdocumentor-element__extends">
         extends <a href="classes/chillerlan-OAuth-Core-OAuth2Provider.html"><abbr title="\chillerlan\OAuth\Core\OAuth2Provider">OAuth2Provider</abbr></a>
@@ -132,7 +132,7 @@
     
             <span class="phpdocumentor-element__implements">
             implements
-                            <a href="classes/chillerlan-OAuth-Core-CSRFToken.html"><abbr title="\chillerlan\OAuth\Core\CSRFToken">CSRFToken</abbr></a>,                             <a href="classes/chillerlan-OAuth-Core-UserInfo.html"><abbr title="\chillerlan\OAuth\Core\UserInfo">UserInfo</abbr></a>                    </span>
+                            <a href="classes/chillerlan-OAuth-Core-CSRFToken.html"><abbr title="\chillerlan\OAuth\Core\CSRFToken">CSRFToken</abbr></a>,                             <a href="classes/chillerlan-OAuth-Core-TokenRefresh.html"><abbr title="\chillerlan\OAuth\Core\TokenRefresh">TokenRefresh</abbr></a>,                             <a href="classes/chillerlan-OAuth-Core-UserInfo.html"><abbr title="\chillerlan\OAuth\Core\UserInfo">UserInfo</abbr></a>                    </span>
     
     </h2>
 
@@ -142,19 +142,19 @@
 </div>
 
         <aside class="phpdocumentor-element-found-in">
-    <abbr class="phpdocumentor-element-found-in__file" title="src/Providers/MailChimp.php"><a href="files/src-providers-mailchimp.html"><abbr title="src/Providers/MailChimp.php">MailChimp.php</abbr></a></abbr>
+    <abbr class="phpdocumentor-element-found-in__file" title="src/Providers/Pinterest.php"><a href="files/src-providers-pinterest.html"><abbr title="src/Providers/Pinterest.php">Pinterest.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">26</span>
+    <span class="phpdocumentor-element-found-in__line">22</span>
 
     </aside>
 
-            <p class="phpdocumentor-summary">MailChimp OAuth2</p>
+            <p class="phpdocumentor-summary">Implements an abstract OAuth2 provider with all methods required by the OAuth2Interface.</p>
 
 
 
     <h5 class="phpdocumentor-tag-list__heading" id="tags">
         Tags
-        <a href="classes/chillerlan-OAuth-Providers-MailChimp.html#tags" class="headerlink"><i class="fas fa-link"></i></a>
+        <a href="classes/chillerlan-OAuth-Providers-Pinterest.html#tags" class="headerlink"><i class="fas fa-link"></i></a>
 
     </h5>
     <dl class="phpdocumentor-tag-list">
@@ -162,15 +162,7 @@
                     <span class="phpdocumentor-tag__name">see</span>
                 </dt>
                 <dd class="phpdocumentor-tag-list__definition">
-                                                                                    <span class="phpdocumentor-tag-link"><a href="https://mailchimp.com/developer/">https://mailchimp.com/developer/</a></span>
-                                        
-                                             
-                                    </dd>
-                            <dt class="phpdocumentor-tag-list__entry">
-                    <span class="phpdocumentor-tag__name">see</span>
-                </dt>
-                <dd class="phpdocumentor-tag-list__definition">
-                                                                                    <span class="phpdocumentor-tag-link"><a href="https://mailchimp.com/developer/marketing/guides/access-user-data-oauth-2/">https://mailchimp.com/developer/marketing/guides/access-user-data-oauth-2/</a></span>
+                                                                                    <span class="phpdocumentor-tag-link"><a href="https://developers.pinterest.com/docs/getting-started/authentication/">https://developers.pinterest.com/docs/getting-started/authentication/</a></span>
                                         
                                              
                                     </dd>
@@ -180,7 +172,7 @@
 
 <h3 id="toc">
     Table of Contents
-    <a href="classes/chillerlan-OAuth-Providers-MailChimp.html#toc" class="headerlink"><i class="fas fa-link"></i></a>
+    <a href="classes/chillerlan-OAuth-Providers-Pinterest.html#toc" class="headerlink"><i class="fas fa-link"></i></a>
 
 </h3>
 
@@ -188,11 +180,11 @@
 
     <h4 id="toc-interfaces">
         Interfaces
-        <a href="classes/chillerlan-OAuth-Providers-MailChimp.html#toc-interfaces" class="headerlink"><i class="fas fa-link"></i></a>
+        <a href="classes/chillerlan-OAuth-Providers-Pinterest.html#toc-interfaces" class="headerlink"><i class="fas fa-link"></i></a>
 
     </h4>
     <dl class="phpdocumentor-table-of-contents">
-                    <dt class="phpdocumentor-table-of-contents__entry -interface"><a href="classes/chillerlan-OAuth-Core-CSRFToken.html"><abbr title="\chillerlan\OAuth\Core\CSRFToken">CSRFToken</abbr></a></dt><dd>Specifies the methods required for the OAuth2 CSRF token validation (&quot;state parameter&quot;)</dd>            <dt class="phpdocumentor-table-of-contents__entry -interface"><a href="classes/chillerlan-OAuth-Core-UserInfo.html"><abbr title="\chillerlan\OAuth\Core\UserInfo">UserInfo</abbr></a></dt><dd>This nterface indicates whether the service can provide information about the currently authenticated user,
+                    <dt class="phpdocumentor-table-of-contents__entry -interface"><a href="classes/chillerlan-OAuth-Core-CSRFToken.html"><abbr title="\chillerlan\OAuth\Core\CSRFToken">CSRFToken</abbr></a></dt><dd>Specifies the methods required for the OAuth2 CSRF token validation (&quot;state parameter&quot;)</dd>            <dt class="phpdocumentor-table-of-contents__entry -interface"><a href="classes/chillerlan-OAuth-Core-TokenRefresh.html"><abbr title="\chillerlan\OAuth\Core\TokenRefresh">TokenRefresh</abbr></a></dt><dd>Indicates whether the provider is capable of the OAuth2 token refresh.</dd>            <dt class="phpdocumentor-table-of-contents__entry -interface"><a href="classes/chillerlan-OAuth-Core-UserInfo.html"><abbr title="\chillerlan\OAuth\Core\UserInfo">UserInfo</abbr></a></dt><dd>This nterface indicates whether the service can provide information about the currently authenticated user,
 usually via a &quot;/me&quot;, &quot;/user&quot; or &quot;/tokeninfo&quot; endpoint.</dd>    </dl>
 
 
@@ -200,14 +192,98 @@ usually via a &quot;/me&quot;, &quot;/user&quot; or &quot;/tokeninfo&quot; endpo
 
 <h4 id="toc-constants">
     Constants
-    <a href="classes/chillerlan-OAuth-Providers-MailChimp.html#toc-constants" class="headerlink"><i class="fas fa-link"></i></a>
+    <a href="classes/chillerlan-OAuth-Providers-Pinterest.html#toc-constants" class="headerlink"><i class="fas fa-link"></i></a>
 
 </h4>
 <dl class="phpdocumentor-table-of-contents">
-            <dt class="phpdocumentor-table-of-contents__entry -constant -protected">
-    <a href="classes/chillerlan-OAuth-Providers-MailChimp.html#constant_API_BASE">API_BASE</a>
+            <dt class="phpdocumentor-table-of-contents__entry -constant -public">
+    <a href="classes/chillerlan-OAuth-Providers-Pinterest.html#constant_DEFAULT_SCOPES">DEFAULT_SCOPES</a>
     <span>
-        &nbsp;= &#039;https://%s.api.mailchimp.com&#039;                            </span>
+        &nbsp;= [self::SCOPE_BOARDS_READ, self::SCOPE_PINS_READ, self::SCOPE_USER_ACCOUNTS_READ]                            </span>
+</dt>
+
+            <dt class="phpdocumentor-table-of-contents__entry -constant -public">
+    <a href="classes/chillerlan-OAuth-Providers-Pinterest.html#constant_SCOPE_ADS_READ">SCOPE_ADS_READ</a>
+    <span>
+        &nbsp;= &#039;ads:read&#039;                            </span>
+</dt>
+
+            <dt class="phpdocumentor-table-of-contents__entry -constant -public">
+    <a href="classes/chillerlan-OAuth-Providers-Pinterest.html#constant_SCOPE_ADS_WRITE">SCOPE_ADS_WRITE</a>
+    <span>
+        &nbsp;= &#039;ads:write&#039;                            </span>
+</dt>
+
+            <dt class="phpdocumentor-table-of-contents__entry -constant -public">
+    <a href="classes/chillerlan-OAuth-Providers-Pinterest.html#constant_SCOPE_BOARDS_READ">SCOPE_BOARDS_READ</a>
+    <span>
+        &nbsp;= &#039;boards:read&#039;                            </span>
+</dt>
+
+            <dt class="phpdocumentor-table-of-contents__entry -constant -public">
+    <a href="classes/chillerlan-OAuth-Providers-Pinterest.html#constant_SCOPE_BOARDS_READ_SECRET">SCOPE_BOARDS_READ_SECRET</a>
+    <span>
+        &nbsp;= &#039;boards:read_secret&#039;                            </span>
+</dt>
+
+            <dt class="phpdocumentor-table-of-contents__entry -constant -public">
+    <a href="classes/chillerlan-OAuth-Providers-Pinterest.html#constant_SCOPE_BOARDS_WRITE">SCOPE_BOARDS_WRITE</a>
+    <span>
+        &nbsp;= &#039;boards:write&#039;                            </span>
+</dt>
+
+            <dt class="phpdocumentor-table-of-contents__entry -constant -public">
+    <a href="classes/chillerlan-OAuth-Providers-Pinterest.html#constant_SCOPE_BOARDS_WRITE_SECRET">SCOPE_BOARDS_WRITE_SECRET</a>
+    <span>
+        &nbsp;= &#039;boards:write_secret&#039;                            </span>
+</dt>
+
+            <dt class="phpdocumentor-table-of-contents__entry -constant -public">
+    <a href="classes/chillerlan-OAuth-Providers-Pinterest.html#constant_SCOPE_CATALOGS_READ">SCOPE_CATALOGS_READ</a>
+    <span>
+        &nbsp;= &#039;catalogs:read&#039;                            </span>
+</dt>
+
+            <dt class="phpdocumentor-table-of-contents__entry -constant -public">
+    <a href="classes/chillerlan-OAuth-Providers-Pinterest.html#constant_SCOPE_CATALOGS_WRITE">SCOPE_CATALOGS_WRITE</a>
+    <span>
+        &nbsp;= &#039;catalogs:write&#039;                            </span>
+</dt>
+
+            <dt class="phpdocumentor-table-of-contents__entry -constant -public">
+    <a href="classes/chillerlan-OAuth-Providers-Pinterest.html#constant_SCOPE_PINS_READ">SCOPE_PINS_READ</a>
+    <span>
+        &nbsp;= &#039;pins:read&#039;                            </span>
+</dt>
+
+            <dt class="phpdocumentor-table-of-contents__entry -constant -public">
+    <a href="classes/chillerlan-OAuth-Providers-Pinterest.html#constant_SCOPE_PINS_READ_SECRET">SCOPE_PINS_READ_SECRET</a>
+    <span>
+        &nbsp;= &#039;pins:read_secret&#039;                            </span>
+</dt>
+
+            <dt class="phpdocumentor-table-of-contents__entry -constant -public">
+    <a href="classes/chillerlan-OAuth-Providers-Pinterest.html#constant_SCOPE_PINS_WRITE">SCOPE_PINS_WRITE</a>
+    <span>
+        &nbsp;= &#039;pins:write&#039;                            </span>
+</dt>
+
+            <dt class="phpdocumentor-table-of-contents__entry -constant -public">
+    <a href="classes/chillerlan-OAuth-Providers-Pinterest.html#constant_SCOPE_PINS_WRITE_SECRET">SCOPE_PINS_WRITE_SECRET</a>
+    <span>
+        &nbsp;= &#039;pins:write_secret&#039;                            </span>
+</dt>
+
+            <dt class="phpdocumentor-table-of-contents__entry -constant -public">
+    <a href="classes/chillerlan-OAuth-Providers-Pinterest.html#constant_SCOPE_USER_ACCOUNTS_READ">SCOPE_USER_ACCOUNTS_READ</a>
+    <span>
+        &nbsp;= &#039;user_accounts:read&#039;                            </span>
+</dt>
+
+            <dt class="phpdocumentor-table-of-contents__entry -constant -public">
+    <a href="classes/chillerlan-OAuth-Providers-Pinterest.html#constant_USES_BASIC_AUTH_IN_ACCESS_TOKEN_REQUEST">USES_BASIC_AUTH_IN_ACCESS_TOKEN_REQUEST</a>
+    <span>
+        &nbsp;= true                            </span>
 </dt>
 
             <dt class="phpdocumentor-table-of-contents__entry -constant -protected">
@@ -216,47 +292,41 @@ usually via a &quot;/me&quot;, &quot;/user&quot; or &quot;/tokeninfo&quot; endpo
         &nbsp;= [&#039;apiDocs&#039;, &#039;apiURL&#039;, &#039;applicationURL&#039;, &#039;name&#039;, &#039;userRevokeURL&#039;]                            </span>
 </dt>
 
-            <dt class="phpdocumentor-table-of-contents__entry -constant -protected">
-    <a href="classes/chillerlan-OAuth-Providers-MailChimp.html#constant_METADATA_ENDPOINT">METADATA_ENDPOINT</a>
-    <span>
-        &nbsp;= &#039;https://login.mailchimp.com/oauth2/metadata&#039;                            </span>
-</dt>
-
     </dl>
 
 
 <h4 id="toc-properties">
     Properties
-    <a href="classes/chillerlan-OAuth-Providers-MailChimp.html#toc-properties" class="headerlink"><i class="fas fa-link"></i></a>
+    <a href="classes/chillerlan-OAuth-Providers-Pinterest.html#toc-properties" class="headerlink"><i class="fas fa-link"></i></a>
 
 </h4>
 <dl class="phpdocumentor-table-of-contents">
             <dt class="phpdocumentor-table-of-contents__entry -property -protected">
-    <a href="classes/chillerlan-OAuth-Providers-MailChimp.html#property_accessTokenURL">$accessTokenURL</a>
+    <a href="classes/chillerlan-OAuth-Providers-Pinterest.html#property_accessTokenURL">$accessTokenURL</a>
     <span>
                         &nbsp;: string            </span>
 </dt>
 
             <dt class="phpdocumentor-table-of-contents__entry -property -protected">
-    <a href="classes/chillerlan-OAuth-Providers-MailChimp.html#property_apiDocs">$apiDocs</a>
+    <a href="classes/chillerlan-OAuth-Providers-Pinterest.html#property_apiDocs">$apiDocs</a>
     <span>
                         &nbsp;: string|null            </span>
 </dt>
 
             <dt class="phpdocumentor-table-of-contents__entry -property -protected">
-    <a href="classes/chillerlan-OAuth-Providers-MailChimp.html#property_apiURL">$apiURL</a>
+    <a href="classes/chillerlan-OAuth-Providers-Pinterest.html#property_apiURL">$apiURL</a>
     <span>
                         &nbsp;: string            </span>
 </dt>
 
             <dt class="phpdocumentor-table-of-contents__entry -property -protected">
-    <a href="classes/chillerlan-OAuth-Providers-MailChimp.html#property_applicationURL">$applicationURL</a>
+    <a href="classes/chillerlan-OAuth-Providers-Pinterest.html#property_applicationURL">$applicationURL</a>
     <span>
                         &nbsp;: string|null            </span>
 </dt>
 
             <dt class="phpdocumentor-table-of-contents__entry -property -protected">
-    <a href="classes/chillerlan-OAuth-Providers-MailChimp.html#property_authorizationURL">$authorizationURL</a>
+    <a href="classes/chillerlan-OAuth-Providers-Pinterest.html#property_authorizationURL">$authorizationURL</a>
     <span>
                         &nbsp;: string            </span>
 </dt>
@@ -332,17 +402,16 @@ usually via a &quot;/me&quot;, &quot;/user&quot; or &quot;/tokeninfo&quot; endpo
 </dt>
 
             <dt class="phpdocumentor-table-of-contents__entry -property -protected">
-    <a href="classes/chillerlan-OAuth-Core-OAuthProvider.html#property_userRevokeURL">$userRevokeURL</a>
+    <a href="classes/chillerlan-OAuth-Providers-Pinterest.html#property_userRevokeURL">$userRevokeURL</a>
     <span>
                         &nbsp;: string|null            </span>
 </dt>
-<dd>an optional link to the page where a user can revoke access tokens (magic)</dd>
 
     </dl>
 
 <h4 id="toc-methods">
     Methods
-    <a href="classes/chillerlan-OAuth-Providers-MailChimp.html#toc-methods" class="headerlink"><i class="fas fa-link"></i></a>
+    <a href="classes/chillerlan-OAuth-Providers-Pinterest.html#toc-methods" class="headerlink"><i class="fas fa-link"></i></a>
 
 </h4>
 <dl class="phpdocumentor-table-of-contents">
@@ -361,7 +430,7 @@ usually via a &quot;/me&quot;, &quot;/user&quot; or &quot;/tokeninfo&quot; endpo
 <dd>Magic getter for the properties specified in self::ALLOWED_PROPERTIES</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a href="classes/chillerlan-OAuth-Providers-MailChimp.html#method_getAccessToken">getAccessToken()</a>
+    <a href="classes/chillerlan-OAuth-Core-OAuth2Provider.html#method_getAccessToken">getAccessToken()</a>
     <span>
                                 &nbsp;: <a href="classes/chillerlan-OAuth-Core-AccessToken.html"><abbr title="\chillerlan\OAuth\Core\AccessToken">AccessToken</abbr></a>    </span>
 </dt>
@@ -401,19 +470,13 @@ if the provider implements the CSRFToken interface, and returns an AccessToken o
 <dd>Returns the current OAuthStorageInterface</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a href="classes/chillerlan-OAuth-Providers-MailChimp.html#method_getTokenMetadata">getTokenMetadata()</a>
-    <span>
-                                &nbsp;: <a href="classes/chillerlan-OAuth-Core-AccessToken.html"><abbr title="\chillerlan\OAuth\Core\AccessToken">AccessToken</abbr></a>    </span>
-</dt>
-
-            <dt class="phpdocumentor-table-of-contents__entry -method -public">
     <a href="classes/chillerlan-OAuth-Core-OAuthProvider.html#method_InvalidateAccessToken">InvalidateAccessToken()</a>
     <span>
                                 &nbsp;: bool    </span>
 </dt>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a href="classes/chillerlan-OAuth-Providers-MailChimp.html#method_me">me()</a>
+    <a href="classes/chillerlan-OAuth-Providers-Pinterest.html#method_me">me()</a>
     <span>
                                 &nbsp;: <a href="classes/chillerlan-OAuth-Core-AuthenticatedUser.html"><abbr title="\chillerlan\OAuth\Core\AuthenticatedUser">AuthenticatedUser</abbr></a>    </span>
 </dt>
@@ -426,10 +489,12 @@ if the provider implements the CSRFToken interface, and returns an AccessToken o
 </dt>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a href="classes/chillerlan-OAuth-Providers-MailChimp.html#method_request">request()</a>
+    <a href="classes/chillerlan-OAuth-Core-OAuthProvider.html#method_request">request()</a>
     <span>
                                 &nbsp;: <abbr title="\Psr\Http\Message\ResponseInterface">ResponseInterface</abbr>    </span>
 </dt>
+<dd>Prepares an API request to $path with the given parameters, gets authorization, fires the request
+and returns a PSR-7 ResponseInterface with the corresponding API response</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
     <a href="classes/chillerlan-OAuth-Core-OAuthProvider.html#method_sendRequest">sendRequest()</a>
@@ -615,10 +680,11 @@ anything except host and path will be ignored, scheme will always be set to &quo
 <dd>sends a request to the client credentials endpoint, using basic authentication</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -protected">
-    <a href="classes/chillerlan-OAuth-Providers-MailChimp.html#method_sendMeRequest">sendMeRequest()</a>
+    <a href="classes/chillerlan-OAuth-Core-OAuthProvider.html#method_sendMeRequest">sendMeRequest()</a>
     <span>
                                 &nbsp;: <abbr title="\Psr\Http\Message\ResponseInterface">ResponseInterface</abbr>    </span>
 </dt>
+<dd>prepares and sends the request to the provider&#039;s &quot;me&quot; endpoint and returns a ResponseInterface</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -protected">
     <a href="classes/chillerlan-OAuth-Core-OAuthProvider.html#method_setRequestBody">setRequestBody()</a>
@@ -636,18 +702,158 @@ anything except host and path will be ignored, scheme will always be set to &quo
     <section class="phpdocumentor-constants">
         <h3 class="phpdocumentor-elements__header" id="constants">
             Constants
-            <a href="classes/chillerlan-OAuth-Providers-MailChimp.html#constants" class="headerlink"><i class="fas fa-link"></i></a>
+            <a href="classes/chillerlan-OAuth-Providers-Pinterest.html#constants" class="headerlink"><i class="fas fa-link"></i></a>
 
         </h3>
-                    <article class="phpdocumentor-element -constant -protected ">
-    <h4 class="phpdocumentor-element__name" id="constant_API_BASE">
-        API_BASE
-        <a href="classes/chillerlan-OAuth-Providers-MailChimp.html#constant_API_BASE" class="headerlink"><i class="fas fa-link"></i></a>
+                    <article class="phpdocumentor-element -constant -public ">
+    <h4 class="phpdocumentor-element__name" id="constant_DEFAULT_SCOPES">
+        DEFAULT_SCOPES
+        <a href="classes/chillerlan-OAuth-Providers-Pinterest.html#constant_DEFAULT_SCOPES" class="headerlink"><i class="fas fa-link"></i></a>
 
     </h4>
 
     <aside class="phpdocumentor-element-found-in">
-    <abbr class="phpdocumentor-element-found-in__file" title="src/Providers/MailChimp.php"><a href="files/src-providers-mailchimp.html"><abbr title="src/Providers/MailChimp.php">MailChimp.php</abbr></a></abbr>
+    <abbr class="phpdocumentor-element-found-in__file" title="src/Providers/Pinterest.php"><a href="files/src-providers-pinterest.html"><abbr title="src/Providers/Pinterest.php">Pinterest.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">38</span>
+
+    </aside>
+
+    
+    <code class="phpdocumentor-signature phpdocumentor-code ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+        <span class="phpdocumentor-signature__type">mixed</span>
+    <span class="phpdocumentor-signature__name">DEFAULT_SCOPES</span>
+    = <span class="phpdocumentor-signature__default-value">[self::SCOPE_BOARDS_READ, self::SCOPE_PINS_READ, self::SCOPE_USER_ACCOUNTS_READ]</span>
+</code>
+
+
+    
+    
+    
+
+</article>
+                    <article class="phpdocumentor-element -constant -public ">
+    <h4 class="phpdocumentor-element__name" id="constant_SCOPE_ADS_READ">
+        SCOPE_ADS_READ
+        <a href="classes/chillerlan-OAuth-Providers-Pinterest.html#constant_SCOPE_ADS_READ" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h4>
+
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/Providers/Pinterest.php"><a href="files/src-providers-pinterest.html"><abbr title="src/Providers/Pinterest.php">Pinterest.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">24</span>
+
+    </aside>
+
+    
+    <code class="phpdocumentor-signature phpdocumentor-code ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+        <span class="phpdocumentor-signature__type">mixed</span>
+    <span class="phpdocumentor-signature__name">SCOPE_ADS_READ</span>
+    = <span class="phpdocumentor-signature__default-value">&#039;ads:read&#039;</span>
+</code>
+
+
+    
+    
+    
+
+</article>
+                    <article class="phpdocumentor-element -constant -public ">
+    <h4 class="phpdocumentor-element__name" id="constant_SCOPE_ADS_WRITE">
+        SCOPE_ADS_WRITE
+        <a href="classes/chillerlan-OAuth-Providers-Pinterest.html#constant_SCOPE_ADS_WRITE" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h4>
+
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/Providers/Pinterest.php"><a href="files/src-providers-pinterest.html"><abbr title="src/Providers/Pinterest.php">Pinterest.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">25</span>
+
+    </aside>
+
+    
+    <code class="phpdocumentor-signature phpdocumentor-code ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+        <span class="phpdocumentor-signature__type">mixed</span>
+    <span class="phpdocumentor-signature__name">SCOPE_ADS_WRITE</span>
+    = <span class="phpdocumentor-signature__default-value">&#039;ads:write&#039;</span>
+</code>
+
+
+    
+    
+    
+
+</article>
+                    <article class="phpdocumentor-element -constant -public ">
+    <h4 class="phpdocumentor-element__name" id="constant_SCOPE_BOARDS_READ">
+        SCOPE_BOARDS_READ
+        <a href="classes/chillerlan-OAuth-Providers-Pinterest.html#constant_SCOPE_BOARDS_READ" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h4>
+
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/Providers/Pinterest.php"><a href="files/src-providers-pinterest.html"><abbr title="src/Providers/Pinterest.php">Pinterest.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">26</span>
+
+    </aside>
+
+    
+    <code class="phpdocumentor-signature phpdocumentor-code ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+        <span class="phpdocumentor-signature__type">mixed</span>
+    <span class="phpdocumentor-signature__name">SCOPE_BOARDS_READ</span>
+    = <span class="phpdocumentor-signature__default-value">&#039;boards:read&#039;</span>
+</code>
+
+
+    
+    
+    
+
+</article>
+                    <article class="phpdocumentor-element -constant -public ">
+    <h4 class="phpdocumentor-element__name" id="constant_SCOPE_BOARDS_READ_SECRET">
+        SCOPE_BOARDS_READ_SECRET
+        <a href="classes/chillerlan-OAuth-Providers-Pinterest.html#constant_SCOPE_BOARDS_READ_SECRET" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h4>
+
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/Providers/Pinterest.php"><a href="files/src-providers-pinterest.html"><abbr title="src/Providers/Pinterest.php">Pinterest.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">27</span>
+
+    </aside>
+
+    
+    <code class="phpdocumentor-signature phpdocumentor-code ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+        <span class="phpdocumentor-signature__type">mixed</span>
+    <span class="phpdocumentor-signature__name">SCOPE_BOARDS_READ_SECRET</span>
+    = <span class="phpdocumentor-signature__default-value">&#039;boards:read_secret&#039;</span>
+</code>
+
+
+    
+    
+    
+
+</article>
+                    <article class="phpdocumentor-element -constant -public ">
+    <h4 class="phpdocumentor-element__name" id="constant_SCOPE_BOARDS_WRITE">
+        SCOPE_BOARDS_WRITE
+        <a href="classes/chillerlan-OAuth-Providers-Pinterest.html#constant_SCOPE_BOARDS_WRITE" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h4>
+
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/Providers/Pinterest.php"><a href="files/src-providers-pinterest.html"><abbr title="src/Providers/Pinterest.php">Pinterest.php</abbr></a></abbr>
     :
     <span class="phpdocumentor-element-found-in__line">28</span>
 
@@ -655,10 +861,262 @@ anything except host and path will be ignored, scheme will always be set to &quo
 
     
     <code class="phpdocumentor-signature phpdocumentor-code ">
-    <span class="phpdocumentor-signature__visibility">protected</span>
+    <span class="phpdocumentor-signature__visibility">public</span>
         <span class="phpdocumentor-signature__type">mixed</span>
-    <span class="phpdocumentor-signature__name">API_BASE</span>
-    = <span class="phpdocumentor-signature__default-value">&#039;https://%s.api.mailchimp.com&#039;</span>
+    <span class="phpdocumentor-signature__name">SCOPE_BOARDS_WRITE</span>
+    = <span class="phpdocumentor-signature__default-value">&#039;boards:write&#039;</span>
+</code>
+
+
+    
+    
+    
+
+</article>
+                    <article class="phpdocumentor-element -constant -public ">
+    <h4 class="phpdocumentor-element__name" id="constant_SCOPE_BOARDS_WRITE_SECRET">
+        SCOPE_BOARDS_WRITE_SECRET
+        <a href="classes/chillerlan-OAuth-Providers-Pinterest.html#constant_SCOPE_BOARDS_WRITE_SECRET" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h4>
+
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/Providers/Pinterest.php"><a href="files/src-providers-pinterest.html"><abbr title="src/Providers/Pinterest.php">Pinterest.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">29</span>
+
+    </aside>
+
+    
+    <code class="phpdocumentor-signature phpdocumentor-code ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+        <span class="phpdocumentor-signature__type">mixed</span>
+    <span class="phpdocumentor-signature__name">SCOPE_BOARDS_WRITE_SECRET</span>
+    = <span class="phpdocumentor-signature__default-value">&#039;boards:write_secret&#039;</span>
+</code>
+
+
+    
+    
+    
+
+</article>
+                    <article class="phpdocumentor-element -constant -public ">
+    <h4 class="phpdocumentor-element__name" id="constant_SCOPE_CATALOGS_READ">
+        SCOPE_CATALOGS_READ
+        <a href="classes/chillerlan-OAuth-Providers-Pinterest.html#constant_SCOPE_CATALOGS_READ" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h4>
+
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/Providers/Pinterest.php"><a href="files/src-providers-pinterest.html"><abbr title="src/Providers/Pinterest.php">Pinterest.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">30</span>
+
+    </aside>
+
+    
+    <code class="phpdocumentor-signature phpdocumentor-code ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+        <span class="phpdocumentor-signature__type">mixed</span>
+    <span class="phpdocumentor-signature__name">SCOPE_CATALOGS_READ</span>
+    = <span class="phpdocumentor-signature__default-value">&#039;catalogs:read&#039;</span>
+</code>
+
+
+    
+    
+    
+
+</article>
+                    <article class="phpdocumentor-element -constant -public ">
+    <h4 class="phpdocumentor-element__name" id="constant_SCOPE_CATALOGS_WRITE">
+        SCOPE_CATALOGS_WRITE
+        <a href="classes/chillerlan-OAuth-Providers-Pinterest.html#constant_SCOPE_CATALOGS_WRITE" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h4>
+
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/Providers/Pinterest.php"><a href="files/src-providers-pinterest.html"><abbr title="src/Providers/Pinterest.php">Pinterest.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">31</span>
+
+    </aside>
+
+    
+    <code class="phpdocumentor-signature phpdocumentor-code ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+        <span class="phpdocumentor-signature__type">mixed</span>
+    <span class="phpdocumentor-signature__name">SCOPE_CATALOGS_WRITE</span>
+    = <span class="phpdocumentor-signature__default-value">&#039;catalogs:write&#039;</span>
+</code>
+
+
+    
+    
+    
+
+</article>
+                    <article class="phpdocumentor-element -constant -public ">
+    <h4 class="phpdocumentor-element__name" id="constant_SCOPE_PINS_READ">
+        SCOPE_PINS_READ
+        <a href="classes/chillerlan-OAuth-Providers-Pinterest.html#constant_SCOPE_PINS_READ" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h4>
+
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/Providers/Pinterest.php"><a href="files/src-providers-pinterest.html"><abbr title="src/Providers/Pinterest.php">Pinterest.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">32</span>
+
+    </aside>
+
+    
+    <code class="phpdocumentor-signature phpdocumentor-code ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+        <span class="phpdocumentor-signature__type">mixed</span>
+    <span class="phpdocumentor-signature__name">SCOPE_PINS_READ</span>
+    = <span class="phpdocumentor-signature__default-value">&#039;pins:read&#039;</span>
+</code>
+
+
+    
+    
+    
+
+</article>
+                    <article class="phpdocumentor-element -constant -public ">
+    <h4 class="phpdocumentor-element__name" id="constant_SCOPE_PINS_READ_SECRET">
+        SCOPE_PINS_READ_SECRET
+        <a href="classes/chillerlan-OAuth-Providers-Pinterest.html#constant_SCOPE_PINS_READ_SECRET" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h4>
+
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/Providers/Pinterest.php"><a href="files/src-providers-pinterest.html"><abbr title="src/Providers/Pinterest.php">Pinterest.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">33</span>
+
+    </aside>
+
+    
+    <code class="phpdocumentor-signature phpdocumentor-code ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+        <span class="phpdocumentor-signature__type">mixed</span>
+    <span class="phpdocumentor-signature__name">SCOPE_PINS_READ_SECRET</span>
+    = <span class="phpdocumentor-signature__default-value">&#039;pins:read_secret&#039;</span>
+</code>
+
+
+    
+    
+    
+
+</article>
+                    <article class="phpdocumentor-element -constant -public ">
+    <h4 class="phpdocumentor-element__name" id="constant_SCOPE_PINS_WRITE">
+        SCOPE_PINS_WRITE
+        <a href="classes/chillerlan-OAuth-Providers-Pinterest.html#constant_SCOPE_PINS_WRITE" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h4>
+
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/Providers/Pinterest.php"><a href="files/src-providers-pinterest.html"><abbr title="src/Providers/Pinterest.php">Pinterest.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">34</span>
+
+    </aside>
+
+    
+    <code class="phpdocumentor-signature phpdocumentor-code ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+        <span class="phpdocumentor-signature__type">mixed</span>
+    <span class="phpdocumentor-signature__name">SCOPE_PINS_WRITE</span>
+    = <span class="phpdocumentor-signature__default-value">&#039;pins:write&#039;</span>
+</code>
+
+
+    
+    
+    
+
+</article>
+                    <article class="phpdocumentor-element -constant -public ">
+    <h4 class="phpdocumentor-element__name" id="constant_SCOPE_PINS_WRITE_SECRET">
+        SCOPE_PINS_WRITE_SECRET
+        <a href="classes/chillerlan-OAuth-Providers-Pinterest.html#constant_SCOPE_PINS_WRITE_SECRET" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h4>
+
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/Providers/Pinterest.php"><a href="files/src-providers-pinterest.html"><abbr title="src/Providers/Pinterest.php">Pinterest.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">35</span>
+
+    </aside>
+
+    
+    <code class="phpdocumentor-signature phpdocumentor-code ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+        <span class="phpdocumentor-signature__type">mixed</span>
+    <span class="phpdocumentor-signature__name">SCOPE_PINS_WRITE_SECRET</span>
+    = <span class="phpdocumentor-signature__default-value">&#039;pins:write_secret&#039;</span>
+</code>
+
+
+    
+    
+    
+
+</article>
+                    <article class="phpdocumentor-element -constant -public ">
+    <h4 class="phpdocumentor-element__name" id="constant_SCOPE_USER_ACCOUNTS_READ">
+        SCOPE_USER_ACCOUNTS_READ
+        <a href="classes/chillerlan-OAuth-Providers-Pinterest.html#constant_SCOPE_USER_ACCOUNTS_READ" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h4>
+
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/Providers/Pinterest.php"><a href="files/src-providers-pinterest.html"><abbr title="src/Providers/Pinterest.php">Pinterest.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">36</span>
+
+    </aside>
+
+    
+    <code class="phpdocumentor-signature phpdocumentor-code ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+        <span class="phpdocumentor-signature__type">mixed</span>
+    <span class="phpdocumentor-signature__name">SCOPE_USER_ACCOUNTS_READ</span>
+    = <span class="phpdocumentor-signature__default-value">&#039;user_accounts:read&#039;</span>
+</code>
+
+
+    
+    
+    
+
+</article>
+                    <article class="phpdocumentor-element -constant -public ">
+    <h4 class="phpdocumentor-element__name" id="constant_USES_BASIC_AUTH_IN_ACCESS_TOKEN_REQUEST">
+        USES_BASIC_AUTH_IN_ACCESS_TOKEN_REQUEST
+        <a href="classes/chillerlan-OAuth-Providers-Pinterest.html#constant_USES_BASIC_AUTH_IN_ACCESS_TOKEN_REQUEST" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h4>
+
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/Providers/Pinterest.php"><a href="files/src-providers-pinterest.html"><abbr title="src/Providers/Pinterest.php">Pinterest.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">44</span>
+
+    </aside>
+
+    
+    <code class="phpdocumentor-signature phpdocumentor-code ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+        <span class="phpdocumentor-signature__type">mixed</span>
+    <span class="phpdocumentor-signature__name">USES_BASIC_AUTH_IN_ACCESS_TOKEN_REQUEST</span>
+    = <span class="phpdocumentor-signature__default-value">true</span>
 </code>
 
 
@@ -695,41 +1153,13 @@ anything except host and path will be ignored, scheme will always be set to &quo
     
 
 </article>
-                    <article class="phpdocumentor-element -constant -protected ">
-    <h4 class="phpdocumentor-element__name" id="constant_METADATA_ENDPOINT">
-        METADATA_ENDPOINT
-        <a href="classes/chillerlan-OAuth-Providers-MailChimp.html#constant_METADATA_ENDPOINT" class="headerlink"><i class="fas fa-link"></i></a>
-
-    </h4>
-
-    <aside class="phpdocumentor-element-found-in">
-    <abbr class="phpdocumentor-element-found-in__file" title="src/Providers/MailChimp.php"><a href="files/src-providers-mailchimp.html"><abbr title="src/Providers/MailChimp.php">MailChimp.php</abbr></a></abbr>
-    :
-    <span class="phpdocumentor-element-found-in__line">29</span>
-
-    </aside>
-
-    
-    <code class="phpdocumentor-signature phpdocumentor-code ">
-    <span class="phpdocumentor-signature__visibility">protected</span>
-        <span class="phpdocumentor-signature__type">mixed</span>
-    <span class="phpdocumentor-signature__name">METADATA_ENDPOINT</span>
-    = <span class="phpdocumentor-signature__default-value">&#039;https://login.mailchimp.com/oauth2/metadata&#039;</span>
-</code>
-
-
-    
-    
-    
-
-</article>
             </section>
 
         
     <section class="phpdocumentor-properties">
         <h3 class="phpdocumentor-elements__header" id="properties">
             Properties
-            <a href="classes/chillerlan-OAuth-Providers-MailChimp.html#properties" class="headerlink"><i class="fas fa-link"></i></a>
+            <a href="classes/chillerlan-OAuth-Providers-Pinterest.html#properties" class="headerlink"><i class="fas fa-link"></i></a>
 
         </h3>
                     <article
@@ -741,15 +1171,15 @@ anything except host and path will be ignored, scheme will always be set to &quo
 >
     <h4 class="phpdocumentor-element__name" id="property_accessTokenURL">
         $accessTokenURL
-        <a href="classes/chillerlan-OAuth-Providers-MailChimp.html#property_accessTokenURL" class="headerlink"><i class="fas fa-link"></i></a>
+        <a href="classes/chillerlan-OAuth-Providers-Pinterest.html#property_accessTokenURL" class="headerlink"><i class="fas fa-link"></i></a>
 
         <span class="phpdocumentor-element__modifiers">
                                 </span>
     </h4>
     <aside class="phpdocumentor-element-found-in">
-    <abbr class="phpdocumentor-element-found-in__file" title="src/Providers/MailChimp.php"><a href="files/src-providers-mailchimp.html"><abbr title="src/Providers/MailChimp.php">MailChimp.php</abbr></a></abbr>
+    <abbr class="phpdocumentor-element-found-in__file" title="src/Providers/Pinterest.php"><a href="files/src-providers-pinterest.html"><abbr title="src/Providers/Pinterest.php">Pinterest.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">32</span>
+    <span class="phpdocumentor-element-found-in__line">47</span>
 
     </aside>
 
@@ -758,7 +1188,7 @@ anything except host and path will be ignored, scheme will always be set to &quo
     <span class="phpdocumentor-signature__visibility">protected</span>
         <span class="phpdocumentor-signature__type">string</span>
     <span class="phpdocumentor-signature__name">$accessTokenURL</span>
-     = <span class="phpdocumentor-signature__default-value">&#039;https://login.mailchimp.com/oauth2/token&#039;</span></code>
+     = <span class="phpdocumentor-signature__default-value">&#039;https://api.pinterest.com/v5/oauth/token&#039;</span></code>
 
     
     
@@ -774,15 +1204,15 @@ anything except host and path will be ignored, scheme will always be set to &quo
 >
     <h4 class="phpdocumentor-element__name" id="property_apiDocs">
         $apiDocs
-        <a href="classes/chillerlan-OAuth-Providers-MailChimp.html#property_apiDocs" class="headerlink"><i class="fas fa-link"></i></a>
+        <a href="classes/chillerlan-OAuth-Providers-Pinterest.html#property_apiDocs" class="headerlink"><i class="fas fa-link"></i></a>
 
         <span class="phpdocumentor-element__modifiers">
                                 </span>
     </h4>
     <aside class="phpdocumentor-element-found-in">
-    <abbr class="phpdocumentor-element-found-in__file" title="src/Providers/MailChimp.php"><a href="files/src-providers-mailchimp.html"><abbr title="src/Providers/MailChimp.php">MailChimp.php</abbr></a></abbr>
+    <abbr class="phpdocumentor-element-found-in__file" title="src/Providers/Pinterest.php"><a href="files/src-providers-pinterest.html"><abbr title="src/Providers/Pinterest.php">Pinterest.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">33</span>
+    <span class="phpdocumentor-element-found-in__line">49</span>
 
     </aside>
 
@@ -791,7 +1221,7 @@ anything except host and path will be ignored, scheme will always be set to &quo
     <span class="phpdocumentor-signature__visibility">protected</span>
         <span class="phpdocumentor-signature__type">string|null</span>
     <span class="phpdocumentor-signature__name">$apiDocs</span>
-     = <span class="phpdocumentor-signature__default-value">&#039;https://mailchimp.com/developer/&#039;</span></code>
+     = <span class="phpdocumentor-signature__default-value">&#039;https://developers.pinterest.com/docs/&#039;</span></code>
 
     
     
@@ -807,15 +1237,15 @@ anything except host and path will be ignored, scheme will always be set to &quo
 >
     <h4 class="phpdocumentor-element__name" id="property_apiURL">
         $apiURL
-        <a href="classes/chillerlan-OAuth-Providers-MailChimp.html#property_apiURL" class="headerlink"><i class="fas fa-link"></i></a>
+        <a href="classes/chillerlan-OAuth-Providers-Pinterest.html#property_apiURL" class="headerlink"><i class="fas fa-link"></i></a>
 
         <span class="phpdocumentor-element__modifiers">
                                 </span>
     </h4>
     <aside class="phpdocumentor-element-found-in">
-    <abbr class="phpdocumentor-element-found-in__file" title="src/Providers/MailChimp.php"><a href="files/src-providers-mailchimp.html"><abbr title="src/Providers/MailChimp.php">MailChimp.php</abbr></a></abbr>
+    <abbr class="phpdocumentor-element-found-in__file" title="src/Providers/Pinterest.php"><a href="files/src-providers-pinterest.html"><abbr title="src/Providers/Pinterest.php">Pinterest.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">36</span>
+    <span class="phpdocumentor-element-found-in__line">48</span>
 
     </aside>
 
@@ -824,7 +1254,7 @@ anything except host and path will be ignored, scheme will always be set to &quo
     <span class="phpdocumentor-signature__visibility">protected</span>
         <span class="phpdocumentor-signature__type">string</span>
     <span class="phpdocumentor-signature__name">$apiURL</span>
-     = <span class="phpdocumentor-signature__default-value">&#039;&#039;</span></code>
+     = <span class="phpdocumentor-signature__default-value">&#039;https://api.pinterest.com&#039;</span></code>
 
     
     
@@ -840,15 +1270,15 @@ anything except host and path will be ignored, scheme will always be set to &quo
 >
     <h4 class="phpdocumentor-element__name" id="property_applicationURL">
         $applicationURL
-        <a href="classes/chillerlan-OAuth-Providers-MailChimp.html#property_applicationURL" class="headerlink"><i class="fas fa-link"></i></a>
+        <a href="classes/chillerlan-OAuth-Providers-Pinterest.html#property_applicationURL" class="headerlink"><i class="fas fa-link"></i></a>
 
         <span class="phpdocumentor-element__modifiers">
                                 </span>
     </h4>
     <aside class="phpdocumentor-element-found-in">
-    <abbr class="phpdocumentor-element-found-in__file" title="src/Providers/MailChimp.php"><a href="files/src-providers-mailchimp.html"><abbr title="src/Providers/MailChimp.php">MailChimp.php</abbr></a></abbr>
+    <abbr class="phpdocumentor-element-found-in__file" title="src/Providers/Pinterest.php"><a href="files/src-providers-pinterest.html"><abbr title="src/Providers/Pinterest.php">Pinterest.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">34</span>
+    <span class="phpdocumentor-element-found-in__line">50</span>
 
     </aside>
 
@@ -857,7 +1287,7 @@ anything except host and path will be ignored, scheme will always be set to &quo
     <span class="phpdocumentor-signature__visibility">protected</span>
         <span class="phpdocumentor-signature__type">string|null</span>
     <span class="phpdocumentor-signature__name">$applicationURL</span>
-     = <span class="phpdocumentor-signature__default-value">&#039;https://admin.mailchimp.com/account/oauth2/&#039;</span></code>
+     = <span class="phpdocumentor-signature__default-value">&#039;https://developers.pinterest.com/apps/&#039;</span></code>
 
     
     
@@ -873,15 +1303,15 @@ anything except host and path will be ignored, scheme will always be set to &quo
 >
     <h4 class="phpdocumentor-element__name" id="property_authorizationURL">
         $authorizationURL
-        <a href="classes/chillerlan-OAuth-Providers-MailChimp.html#property_authorizationURL" class="headerlink"><i class="fas fa-link"></i></a>
+        <a href="classes/chillerlan-OAuth-Providers-Pinterest.html#property_authorizationURL" class="headerlink"><i class="fas fa-link"></i></a>
 
         <span class="phpdocumentor-element__modifiers">
                                 </span>
     </h4>
     <aside class="phpdocumentor-element-found-in">
-    <abbr class="phpdocumentor-element-found-in__file" title="src/Providers/MailChimp.php"><a href="files/src-providers-mailchimp.html"><abbr title="src/Providers/MailChimp.php">MailChimp.php</abbr></a></abbr>
+    <abbr class="phpdocumentor-element-found-in__file" title="src/Providers/Pinterest.php"><a href="files/src-providers-pinterest.html"><abbr title="src/Providers/Pinterest.php">Pinterest.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">31</span>
+    <span class="phpdocumentor-element-found-in__line">46</span>
 
     </aside>
 
@@ -890,7 +1320,7 @@ anything except host and path will be ignored, scheme will always be set to &quo
     <span class="phpdocumentor-signature__visibility">protected</span>
         <span class="phpdocumentor-signature__type">string</span>
     <span class="phpdocumentor-signature__name">$authorizationURL</span>
-     = <span class="phpdocumentor-signature__default-value">&#039;https://login.mailchimp.com/oauth2/authorize&#039;</span></code>
+     = <span class="phpdocumentor-signature__default-value">&#039;https://www.pinterest.com/oauth/&#039;</span></code>
 
     
     
@@ -1307,25 +1737,24 @@ anything except host and path will be ignored, scheme will always be set to &quo
 >
     <h4 class="phpdocumentor-element__name" id="property_userRevokeURL">
         $userRevokeURL
-        <a href="classes/chillerlan-OAuth-Core-OAuthProvider.html#property_userRevokeURL" class="headerlink"><i class="fas fa-link"></i></a>
+        <a href="classes/chillerlan-OAuth-Providers-Pinterest.html#property_userRevokeURL" class="headerlink"><i class="fas fa-link"></i></a>
 
         <span class="phpdocumentor-element__modifiers">
                                 </span>
     </h4>
     <aside class="phpdocumentor-element-found-in">
-    <abbr class="phpdocumentor-element-found-in__file" title="src/Core/OAuthProvider.php"><a href="files/src-core-oauthprovider.html"><abbr title="src/Core/OAuthProvider.php">OAuthProvider.php</abbr></a></abbr>
+    <abbr class="phpdocumentor-element-found-in__file" title="src/Providers/Pinterest.php"><a href="files/src-providers-pinterest.html"><abbr title="src/Providers/Pinterest.php">Pinterest.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">86</span>
+    <span class="phpdocumentor-element-found-in__line">51</span>
 
     </aside>
 
-        <p class="phpdocumentor-summary">an optional link to the page where a user can revoke access tokens (magic)</p>
-
+    
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">protected</span>
         <span class="phpdocumentor-signature__type">string|null</span>
     <span class="phpdocumentor-signature__name">$userRevokeURL</span>
-     = <span class="phpdocumentor-signature__default-value">null</span></code>
+     = <span class="phpdocumentor-signature__default-value">&#039;https://www.pinterest.com/settings/security&#039;</span></code>
 
     
     
@@ -1337,7 +1766,7 @@ anything except host and path will be ignored, scheme will always be set to &quo
             <section class="phpdocumentor-methods">
         <h3 class="phpdocumentor-elements__header" id="methods">
             Methods
-            <a href="classes/chillerlan-OAuth-Providers-MailChimp.html#methods" class="headerlink"><i class="fas fa-link"></i></a>
+            <a href="classes/chillerlan-OAuth-Providers-Pinterest.html#methods" class="headerlink"><i class="fas fa-link"></i></a>
 
         </h3>
                     <article
@@ -1478,13 +1907,13 @@ anything except host and path will be ignored, scheme will always be set to &quo
 >
     <h4 class="phpdocumentor-element__name" id="method_getAccessToken">
         getAccessToken()
-        <a href="classes/chillerlan-OAuth-Providers-MailChimp.html#method_getAccessToken" class="headerlink"><i class="fas fa-link"></i></a>
+        <a href="classes/chillerlan-OAuth-Core-OAuth2Provider.html#method_getAccessToken" class="headerlink"><i class="fas fa-link"></i></a>
 
     </h4>
     <aside class="phpdocumentor-element-found-in">
-    <abbr class="phpdocumentor-element-found-in__file" title="src/Providers/MailChimp.php"><a href="files/src-providers-mailchimp.html"><abbr title="src/Providers/MailChimp.php">MailChimp.php</abbr></a></abbr>
+    <abbr class="phpdocumentor-element-found-in__file" title="src/Core/OAuth2Provider.php"><a href="files/src-core-oauth2provider.html"><abbr title="src/Core/OAuth2Provider.php">OAuth2Provider.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">41</span>
+    <span class="phpdocumentor-element-found-in__line">167</span>
 
     </aside>
 
@@ -1519,7 +1948,7 @@ if the provider implements the CSRFToken interface, and returns an AccessToken o
     
     <h5 class="phpdocumentor-tag-list__heading" id="tags">
         Tags
-        <a href="classes/chillerlan-OAuth-Providers-MailChimp.html#method_getAccessToken#tags" class="headerlink"><i class="fas fa-link"></i></a>
+        <a href="classes/chillerlan-OAuth-Core-OAuth2Provider.html#method_getAccessToken#tags" class="headerlink"><i class="fas fa-link"></i></a>
 
     </h5>
     <dl class="phpdocumentor-tag-list">
@@ -1859,66 +2288,6 @@ if the provider implements the CSRFToken interface, and returns an AccessToken o
             -public
                                                         "
 >
-    <h4 class="phpdocumentor-element__name" id="method_getTokenMetadata">
-        getTokenMetadata()
-        <a href="classes/chillerlan-OAuth-Providers-MailChimp.html#method_getTokenMetadata" class="headerlink"><i class="fas fa-link"></i></a>
-
-    </h4>
-    <aside class="phpdocumentor-element-found-in">
-    <abbr class="phpdocumentor-element-found-in__file" title="src/Providers/MailChimp.php"><a href="files/src-providers-mailchimp.html"><abbr title="src/Providers/MailChimp.php">MailChimp.php</abbr></a></abbr>
-    :
-    <span class="phpdocumentor-element-found-in__line">58</span>
-
-    </aside>
-
-    
-    <code class="phpdocumentor-code phpdocumentor-signature ">
-    <span class="phpdocumentor-signature__visibility">public</span>
-                    <span class="phpdocumentor-signature__name">getTokenMetadata</span><span>(</span><span class="phpdocumentor-signature__argument"><span>[</span><span class="phpdocumentor-signature__argument__return-type"><a href="classes/chillerlan-OAuth-Core-AccessToken.html"><abbr title="\chillerlan\OAuth\Core\AccessToken">AccessToken</abbr></a>|null&nbsp;</span><span class="phpdocumentor-signature__argument__name">$token</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">null</span><span> ]</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type"><a href="classes/chillerlan-OAuth-Core-AccessToken.html"><abbr title="\chillerlan\OAuth\Core\AccessToken">AccessToken</abbr></a></span></code>
-
-    <div class="phpdocumentor-label-line">
-        </div>
-    
-        <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
-    <dl class="phpdocumentor-argument-list">
-                    <dt class="phpdocumentor-argument-list__entry">
-                <span class="phpdocumentor-signature__argument__name">$token</span>
-                : <span class="phpdocumentor-signature__argument__return-type"><a href="classes/chillerlan-OAuth-Core-AccessToken.html"><abbr title="\chillerlan\OAuth\Core\AccessToken">AccessToken</abbr></a>|null</span>
-                 = <span class="phpdocumentor-signature__argument__default-value">null</span>            </dt>
-            <dd class="phpdocumentor-argument-list__definition">
-                
-            </dd>
-            </dl>
-
-    
-    <h5 class="phpdocumentor-tag-list__heading" id="tags">
-        Tags
-        <a href="classes/chillerlan-OAuth-Providers-MailChimp.html#method_getTokenMetadata#tags" class="headerlink"><i class="fas fa-link"></i></a>
-
-    </h5>
-    <dl class="phpdocumentor-tag-list">
-                                    <dt class="phpdocumentor-tag-list__entry">
-                    <span class="phpdocumentor-tag__name">throws</span>
-                </dt>
-                <dd class="phpdocumentor-tag-list__definition">
-                                                                <span class="phpdocumentor-tag-link"><a href="classes/chillerlan-OAuth-OAuthException.html"><abbr title="\chillerlan\OAuth\OAuthException">OAuthException</abbr></a></span>
-                                                            
-                                             
-                                    </dd>
-                                            </dl>
-
-            <section>
-        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
-        <span class="phpdocumentor-signature__response_type"><a href="classes/chillerlan-OAuth-Core-AccessToken.html"><abbr title="\chillerlan\OAuth\Core\AccessToken">AccessToken</abbr></a></span>
-            </section>
-
-</article>
-                    <article
-        class="phpdocumentor-element
-            -method
-            -public
-                                                        "
->
     <h4 class="phpdocumentor-element__name" id="method_InvalidateAccessToken">
         InvalidateAccessToken()
         <a href="classes/chillerlan-OAuth-Core-OAuthProvider.html#method_InvalidateAccessToken" class="headerlink"><i class="fas fa-link"></i></a>
@@ -1997,13 +2366,13 @@ if the provider implements the CSRFToken interface, and returns an AccessToken o
 >
     <h4 class="phpdocumentor-element__name" id="method_me">
         me()
-        <a href="classes/chillerlan-OAuth-Providers-MailChimp.html#method_me" class="headerlink"><i class="fas fa-link"></i></a>
+        <a href="classes/chillerlan-OAuth-Providers-Pinterest.html#method_me" class="headerlink"><i class="fas fa-link"></i></a>
 
     </h4>
     <aside class="phpdocumentor-element-found-in">
-    <abbr class="phpdocumentor-element-found-in__file" title="src/Providers/MailChimp.php"><a href="files/src-providers-mailchimp.html"><abbr title="src/Providers/MailChimp.php">MailChimp.php</abbr></a></abbr>
+    <abbr class="phpdocumentor-element-found-in__file" title="src/Providers/Pinterest.php"><a href="files/src-providers-pinterest.html"><abbr title="src/Providers/Pinterest.php">Pinterest.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">115</span>
+    <span class="phpdocumentor-element-found-in__line">57</span>
 
     </aside>
 
@@ -2020,19 +2389,11 @@ if the provider implements the CSRFToken interface, and returns an AccessToken o
     
     <h5 class="phpdocumentor-tag-list__heading" id="tags">
         Tags
-        <a href="classes/chillerlan-OAuth-Providers-MailChimp.html#method_me#tags" class="headerlink"><i class="fas fa-link"></i></a>
+        <a href="classes/chillerlan-OAuth-Providers-Pinterest.html#method_me#tags" class="headerlink"><i class="fas fa-link"></i></a>
 
     </h5>
     <dl class="phpdocumentor-tag-list">
                                     <dt class="phpdocumentor-tag-list__entry">
-                    <span class="phpdocumentor-tag__name">see</span>
-                </dt>
-                <dd class="phpdocumentor-tag-list__definition">
-                                                                                    <span class="phpdocumentor-tag-link"><a href="https://mailchimp.com/developer/marketing/api/root/list-api-root-resources/">https://mailchimp.com/developer/marketing/api/root/list-api-root-resources/</a></span>
-                                        
-                                             
-                                    </dd>
-                                                <dt class="phpdocumentor-tag-list__entry">
                     <span class="phpdocumentor-tag__name">inheritDoc</span>
                 </dt>
                 <dd class="phpdocumentor-tag-list__definition">
@@ -2131,17 +2492,19 @@ if the provider implements the CSRFToken interface, and returns an AccessToken o
 >
     <h4 class="phpdocumentor-element__name" id="method_request">
         request()
-        <a href="classes/chillerlan-OAuth-Providers-MailChimp.html#method_request" class="headerlink"><i class="fas fa-link"></i></a>
+        <a href="classes/chillerlan-OAuth-Core-OAuthProvider.html#method_request" class="headerlink"><i class="fas fa-link"></i></a>
 
     </h4>
     <aside class="phpdocumentor-element-found-in">
-    <abbr class="phpdocumentor-element-found-in__file" title="src/Providers/MailChimp.php"><a href="files/src-providers-mailchimp.html"><abbr title="src/Providers/MailChimp.php">MailChimp.php</abbr></a></abbr>
+    <abbr class="phpdocumentor-element-found-in__file" title="src/Core/OAuthProvider.php"><a href="files/src-core-oauthprovider.html"><abbr title="src/Core/OAuthProvider.php">OAuthProvider.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">87</span>
+    <span class="phpdocumentor-element-found-in__line">288</span>
 
     </aside>
 
-    
+        <p class="phpdocumentor-summary">Prepares an API request to $path with the given parameters, gets authorization, fires the request
+and returns a PSR-7 ResponseInterface with the corresponding API response</p>
+
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
                     <span class="phpdocumentor-signature__name">request</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$path</span></span><span class="phpdocumentor-signature__argument"><span>[</span><span>, </span><span class="phpdocumentor-signature__argument__return-type">array&lt;string|int, mixed&gt;|null&nbsp;</span><span class="phpdocumentor-signature__argument__name">$params</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">null</span><span> ]</span></span><span class="phpdocumentor-signature__argument"><span>[</span><span>, </span><span class="phpdocumentor-signature__argument__return-type">string|null&nbsp;</span><span class="phpdocumentor-signature__argument__name">$method</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">null</span><span> ]</span></span><span class="phpdocumentor-signature__argument"><span>[</span><span>, </span><span class="phpdocumentor-signature__argument__return-type"><abbr title="\Psr\Http\Message\StreamInterface">StreamInterface</abbr>|array&lt;string|int, mixed&gt;|string|null&nbsp;</span><span class="phpdocumentor-signature__argument__name">$body</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">null</span><span> ]</span></span><span class="phpdocumentor-signature__argument"><span>[</span><span>, </span><span class="phpdocumentor-signature__argument__return-type">array&lt;string|int, mixed&gt;|null&nbsp;</span><span class="phpdocumentor-signature__argument__name">$headers</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">null</span><span> ]</span></span><span class="phpdocumentor-signature__argument"><span>[</span><span>, </span><span class="phpdocumentor-signature__argument__return-type">string|null&nbsp;</span><span class="phpdocumentor-signature__argument__name">$protocolVersion</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">null</span><span> ]</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type"><abbr title="\Psr\Http\Message\ResponseInterface">ResponseInterface</abbr></span></code>
@@ -2198,15 +2561,23 @@ if the provider implements the CSRFToken interface, and returns an AccessToken o
     
     <h5 class="phpdocumentor-tag-list__heading" id="tags">
         Tags
-        <a href="classes/chillerlan-OAuth-Providers-MailChimp.html#method_request#tags" class="headerlink"><i class="fas fa-link"></i></a>
+        <a href="classes/chillerlan-OAuth-Core-OAuthProvider.html#method_request#tags" class="headerlink"><i class="fas fa-link"></i></a>
 
     </h5>
     <dl class="phpdocumentor-tag-list">
                                     <dt class="phpdocumentor-tag-list__entry">
-                    <span class="phpdocumentor-tag__name">inheritdoc</span>
+                    <span class="phpdocumentor-tag__name">inheritDoc</span>
                 </dt>
                 <dd class="phpdocumentor-tag-list__definition">
                                                                                 
+                                             
+                                    </dd>
+                                                <dt class="phpdocumentor-tag-list__entry">
+                    <span class="phpdocumentor-tag__name">throws</span>
+                </dt>
+                <dd class="phpdocumentor-tag-list__definition">
+                                                                <span class="phpdocumentor-tag-link"><a href="classes/chillerlan-OAuth-Core-UnauthorizedAccessException.html"><abbr title="\chillerlan\OAuth\Core\UnauthorizedAccessException">UnauthorizedAccessException</abbr></a></span>
+                                                            
                                              
                                     </dd>
                                             </dl>
@@ -3749,17 +4120,18 @@ the spec mandates a JSON body which is what almost all providers send - weird ex
 >
     <h4 class="phpdocumentor-element__name" id="method_sendMeRequest">
         sendMeRequest()
-        <a href="classes/chillerlan-OAuth-Providers-MailChimp.html#method_sendMeRequest" class="headerlink"><i class="fas fa-link"></i></a>
+        <a href="classes/chillerlan-OAuth-Core-OAuthProvider.html#method_sendMeRequest" class="headerlink"><i class="fas fa-link"></i></a>
 
     </h4>
     <aside class="phpdocumentor-element-found-in">
-    <abbr class="phpdocumentor-element-found-in__file" title="src/Providers/MailChimp.php"><a href="files/src-providers-mailchimp.html"><abbr title="src/Providers/MailChimp.php">MailChimp.php</abbr></a></abbr>
+    <abbr class="phpdocumentor-element-found-in__file" title="src/Core/OAuthProvider.php"><a href="files/src-core-oauthprovider.html"><abbr title="src/Core/OAuthProvider.php">OAuthProvider.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">105</span>
+    <span class="phpdocumentor-element-found-in__line">412</span>
 
     </aside>
 
-    
+        <p class="phpdocumentor-summary">prepares and sends the request to the provider&#039;s &quot;me&quot; endpoint and returns a ResponseInterface</p>
+
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">protected</span>
                     <span class="phpdocumentor-signature__name">sendMeRequest</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$endpoint</span></span><span class="phpdocumentor-signature__argument"><span>[</span><span>, </span><span class="phpdocumentor-signature__argument__return-type">array&lt;string|int, mixed&gt;|null&nbsp;</span><span class="phpdocumentor-signature__argument__name">$params</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">null</span><span> ]</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type"><abbr title="\Psr\Http\Message\ResponseInterface">ResponseInterface</abbr></span></code>
@@ -3786,20 +4158,6 @@ the spec mandates a JSON body which is what almost all providers send - weird ex
             </dl>
 
     
-    <h5 class="phpdocumentor-tag-list__heading" id="tags">
-        Tags
-        <a href="classes/chillerlan-OAuth-Providers-MailChimp.html#method_sendMeRequest#tags" class="headerlink"><i class="fas fa-link"></i></a>
-
-    </h5>
-    <dl class="phpdocumentor-tag-list">
-                                    <dt class="phpdocumentor-tag-list__entry">
-                    <span class="phpdocumentor-tag__name">inheritDoc</span>
-                </dt>
-                <dd class="phpdocumentor-tag-list__definition">
-                                                                                
-                                             
-                                    </dd>
-                                            </dl>
 
             <section>
         <h5 class="phpdocumentor-return-value__heading">Return values</h5>
@@ -3881,7 +4239,7 @@ the spec mandates a JSON body which is what almost all providers send - weird ex
     <div class="phpdocumentor-modal-bg" data-exit-button></div>
     <div class="phpdocumentor-modal-container">
         <div class="phpdocumentor-modal-content">
-            <pre style="max-height: 500px; overflow-y: scroll" data-src="files/src/Providers/MailChimp.php.txt" class="language-php line-numbers linkable-line-numbers"></pre>
+            <pre style="max-height: 500px; overflow-y: scroll" data-src="files/src/Providers/Pinterest.php.txt" class="language-php line-numbers linkable-line-numbers"></pre>
         </div>
         <button data-exit-button class="phpdocumentor-modal__close">&times;</button>
     </div>
@@ -3980,40 +4338,53 @@ the spec mandates a JSON body which is what almost all providers send - weird ex
             <li class="phpdocumentor-on-this-page-section__title">Table Of Contents</li>
             <li>
                 <ul class="phpdocumentor-list -clean">
-                                        <li><a href="classes/chillerlan-OAuth-Providers-MailChimp.html#toc-constants">Constants</a></li>
-                                                            <li><a href="classes/chillerlan-OAuth-Providers-MailChimp.html#toc-properties">Properties</a></li>
-                                                            <li><a href="classes/chillerlan-OAuth-Providers-MailChimp.html#toc-methods">Methods</a></li>
+                                        <li><a href="classes/chillerlan-OAuth-Providers-Pinterest.html#toc-constants">Constants</a></li>
+                                                            <li><a href="classes/chillerlan-OAuth-Providers-Pinterest.html#toc-properties">Properties</a></li>
+                                                            <li><a href="classes/chillerlan-OAuth-Providers-Pinterest.html#toc-methods">Methods</a></li>
                                     </ul>
             </li>
                             <li class="phpdocumentor-on-this-page-section__title">Constants</li>
                 <li>
                     <ul class="phpdocumentor-list -clean">
-                                                    <li><a href="classes/chillerlan-OAuth-Providers-MailChimp.html#constant_API_BASE">API_BASE</a></li>
+                                                    <li><a href="classes/chillerlan-OAuth-Providers-Pinterest.html#constant_DEFAULT_SCOPES">DEFAULT_SCOPES</a></li>
+                                                    <li><a href="classes/chillerlan-OAuth-Providers-Pinterest.html#constant_SCOPE_ADS_READ">SCOPE_ADS_READ</a></li>
+                                                    <li><a href="classes/chillerlan-OAuth-Providers-Pinterest.html#constant_SCOPE_ADS_WRITE">SCOPE_ADS_WRITE</a></li>
+                                                    <li><a href="classes/chillerlan-OAuth-Providers-Pinterest.html#constant_SCOPE_BOARDS_READ">SCOPE_BOARDS_READ</a></li>
+                                                    <li><a href="classes/chillerlan-OAuth-Providers-Pinterest.html#constant_SCOPE_BOARDS_READ_SECRET">SCOPE_BOARDS_READ_SECRET</a></li>
+                                                    <li><a href="classes/chillerlan-OAuth-Providers-Pinterest.html#constant_SCOPE_BOARDS_WRITE">SCOPE_BOARDS_WRITE</a></li>
+                                                    <li><a href="classes/chillerlan-OAuth-Providers-Pinterest.html#constant_SCOPE_BOARDS_WRITE_SECRET">SCOPE_BOARDS_WRITE_SECRET</a></li>
+                                                    <li><a href="classes/chillerlan-OAuth-Providers-Pinterest.html#constant_SCOPE_CATALOGS_READ">SCOPE_CATALOGS_READ</a></li>
+                                                    <li><a href="classes/chillerlan-OAuth-Providers-Pinterest.html#constant_SCOPE_CATALOGS_WRITE">SCOPE_CATALOGS_WRITE</a></li>
+                                                    <li><a href="classes/chillerlan-OAuth-Providers-Pinterest.html#constant_SCOPE_PINS_READ">SCOPE_PINS_READ</a></li>
+                                                    <li><a href="classes/chillerlan-OAuth-Providers-Pinterest.html#constant_SCOPE_PINS_READ_SECRET">SCOPE_PINS_READ_SECRET</a></li>
+                                                    <li><a href="classes/chillerlan-OAuth-Providers-Pinterest.html#constant_SCOPE_PINS_WRITE">SCOPE_PINS_WRITE</a></li>
+                                                    <li><a href="classes/chillerlan-OAuth-Providers-Pinterest.html#constant_SCOPE_PINS_WRITE_SECRET">SCOPE_PINS_WRITE_SECRET</a></li>
+                                                    <li><a href="classes/chillerlan-OAuth-Providers-Pinterest.html#constant_SCOPE_USER_ACCOUNTS_READ">SCOPE_USER_ACCOUNTS_READ</a></li>
+                                                    <li><a href="classes/chillerlan-OAuth-Providers-Pinterest.html#constant_USES_BASIC_AUTH_IN_ACCESS_TOKEN_REQUEST">USES_BASIC_AUTH_IN_ACCESS_TOKEN_REQUEST</a></li>
                                                     <li><a href="classes/chillerlan-OAuth-Core-OAuthProvider.html#constant_MAGIC_PROPERTIES">MAGIC_PROPERTIES</a></li>
-                                                    <li><a href="classes/chillerlan-OAuth-Providers-MailChimp.html#constant_METADATA_ENDPOINT">METADATA_ENDPOINT</a></li>
                                             </ul>
                 </li>
             
                             <li class="phpdocumentor-on-this-page-section__title">Properties</li>
                 <li>
                     <ul class="phpdocumentor-list -clean">
-                                                    <li><a href="classes/chillerlan-OAuth-Providers-MailChimp.html#property_accessTokenURL">$accessTokenURL<a href="classes/chillerlan-OAuth-Providers-MailChimp.html"></li>
-                                                    <li><a href="classes/chillerlan-OAuth-Providers-MailChimp.html#property_apiDocs">$apiDocs<a href="classes/chillerlan-OAuth-Providers-MailChimp.html"></li>
-                                                    <li><a href="classes/chillerlan-OAuth-Providers-MailChimp.html#property_apiURL">$apiURL<a href="classes/chillerlan-OAuth-Providers-MailChimp.html"></li>
-                                                    <li><a href="classes/chillerlan-OAuth-Providers-MailChimp.html#property_applicationURL">$applicationURL<a href="classes/chillerlan-OAuth-Providers-MailChimp.html"></li>
-                                                    <li><a href="classes/chillerlan-OAuth-Providers-MailChimp.html#property_authorizationURL">$authorizationURL<a href="classes/chillerlan-OAuth-Providers-MailChimp.html"></li>
-                                                    <li><a href="classes/chillerlan-OAuth-Core-OAuth2Provider.html#property_clientCredentialsTokenURL">$clientCredentialsTokenURL<a href="classes/chillerlan-OAuth-Providers-MailChimp.html"></li>
-                                                    <li><a href="classes/chillerlan-OAuth-Core-OAuthProvider.html#property_http">$http<a href="classes/chillerlan-OAuth-Providers-MailChimp.html"></li>
-                                                    <li><a href="classes/chillerlan-OAuth-Core-OAuthProvider.html#property_logger">$logger<a href="classes/chillerlan-OAuth-Providers-MailChimp.html"></li>
-                                                    <li><a href="classes/chillerlan-OAuth-Core-OAuthProvider.html#property_name">$name<a href="classes/chillerlan-OAuth-Providers-MailChimp.html"></li>
-                                                    <li><a href="classes/chillerlan-OAuth-Core-OAuthProvider.html#property_options">$options<a href="classes/chillerlan-OAuth-Providers-MailChimp.html"></li>
-                                                    <li><a href="classes/chillerlan-OAuth-Core-OAuth2Provider.html#property_refreshTokenURL">$refreshTokenURL<a href="classes/chillerlan-OAuth-Providers-MailChimp.html"></li>
-                                                    <li><a href="classes/chillerlan-OAuth-Core-OAuthProvider.html#property_requestFactory">$requestFactory<a href="classes/chillerlan-OAuth-Providers-MailChimp.html"></li>
-                                                    <li><a href="classes/chillerlan-OAuth-Core-OAuthProvider.html#property_revokeURL">$revokeURL<a href="classes/chillerlan-OAuth-Providers-MailChimp.html"></li>
-                                                    <li><a href="classes/chillerlan-OAuth-Core-OAuthProvider.html#property_storage">$storage<a href="classes/chillerlan-OAuth-Providers-MailChimp.html"></li>
-                                                    <li><a href="classes/chillerlan-OAuth-Core-OAuthProvider.html#property_streamFactory">$streamFactory<a href="classes/chillerlan-OAuth-Providers-MailChimp.html"></li>
-                                                    <li><a href="classes/chillerlan-OAuth-Core-OAuthProvider.html#property_uriFactory">$uriFactory<a href="classes/chillerlan-OAuth-Providers-MailChimp.html"></li>
-                                                    <li><a href="classes/chillerlan-OAuth-Core-OAuthProvider.html#property_userRevokeURL">$userRevokeURL<a href="classes/chillerlan-OAuth-Providers-MailChimp.html"></li>
+                                                    <li><a href="classes/chillerlan-OAuth-Providers-Pinterest.html#property_accessTokenURL">$accessTokenURL<a href="classes/chillerlan-OAuth-Providers-Pinterest.html"></li>
+                                                    <li><a href="classes/chillerlan-OAuth-Providers-Pinterest.html#property_apiDocs">$apiDocs<a href="classes/chillerlan-OAuth-Providers-Pinterest.html"></li>
+                                                    <li><a href="classes/chillerlan-OAuth-Providers-Pinterest.html#property_apiURL">$apiURL<a href="classes/chillerlan-OAuth-Providers-Pinterest.html"></li>
+                                                    <li><a href="classes/chillerlan-OAuth-Providers-Pinterest.html#property_applicationURL">$applicationURL<a href="classes/chillerlan-OAuth-Providers-Pinterest.html"></li>
+                                                    <li><a href="classes/chillerlan-OAuth-Providers-Pinterest.html#property_authorizationURL">$authorizationURL<a href="classes/chillerlan-OAuth-Providers-Pinterest.html"></li>
+                                                    <li><a href="classes/chillerlan-OAuth-Core-OAuth2Provider.html#property_clientCredentialsTokenURL">$clientCredentialsTokenURL<a href="classes/chillerlan-OAuth-Providers-Pinterest.html"></li>
+                                                    <li><a href="classes/chillerlan-OAuth-Core-OAuthProvider.html#property_http">$http<a href="classes/chillerlan-OAuth-Providers-Pinterest.html"></li>
+                                                    <li><a href="classes/chillerlan-OAuth-Core-OAuthProvider.html#property_logger">$logger<a href="classes/chillerlan-OAuth-Providers-Pinterest.html"></li>
+                                                    <li><a href="classes/chillerlan-OAuth-Core-OAuthProvider.html#property_name">$name<a href="classes/chillerlan-OAuth-Providers-Pinterest.html"></li>
+                                                    <li><a href="classes/chillerlan-OAuth-Core-OAuthProvider.html#property_options">$options<a href="classes/chillerlan-OAuth-Providers-Pinterest.html"></li>
+                                                    <li><a href="classes/chillerlan-OAuth-Core-OAuth2Provider.html#property_refreshTokenURL">$refreshTokenURL<a href="classes/chillerlan-OAuth-Providers-Pinterest.html"></li>
+                                                    <li><a href="classes/chillerlan-OAuth-Core-OAuthProvider.html#property_requestFactory">$requestFactory<a href="classes/chillerlan-OAuth-Providers-Pinterest.html"></li>
+                                                    <li><a href="classes/chillerlan-OAuth-Core-OAuthProvider.html#property_revokeURL">$revokeURL<a href="classes/chillerlan-OAuth-Providers-Pinterest.html"></li>
+                                                    <li><a href="classes/chillerlan-OAuth-Core-OAuthProvider.html#property_storage">$storage<a href="classes/chillerlan-OAuth-Providers-Pinterest.html"></li>
+                                                    <li><a href="classes/chillerlan-OAuth-Core-OAuthProvider.html#property_streamFactory">$streamFactory<a href="classes/chillerlan-OAuth-Providers-Pinterest.html"></li>
+                                                    <li><a href="classes/chillerlan-OAuth-Core-OAuthProvider.html#property_uriFactory">$uriFactory<a href="classes/chillerlan-OAuth-Providers-Pinterest.html"></li>
+                                                    <li><a href="classes/chillerlan-OAuth-Providers-Pinterest.html#property_userRevokeURL">$userRevokeURL<a href="classes/chillerlan-OAuth-Providers-Pinterest.html"></li>
                                             </ul>
                 </li>
             
@@ -4022,17 +4393,16 @@ the spec mandates a JSON body which is what almost all providers send - weird ex
                 <ul class="phpdocumentor-list -clean">
                                             <li><a href="classes/chillerlan-OAuth-Core-OAuthProvider.html#method___construct">__construct()</a></li>
                                             <li><a href="classes/chillerlan-OAuth-Core-OAuthProvider.html#method___get">__get()</a></li>
-                                            <li><a href="classes/chillerlan-OAuth-Providers-MailChimp.html#method_getAccessToken">getAccessToken()</a></li>
+                                            <li><a href="classes/chillerlan-OAuth-Core-OAuth2Provider.html#method_getAccessToken">getAccessToken()</a></li>
                                             <li><a href="classes/chillerlan-OAuth-Core-OAuthProvider.html#method_getAccessTokenFromStorage">getAccessTokenFromStorage()</a></li>
                                             <li><a href="classes/chillerlan-OAuth-Core-OAuth2Provider.html#method_getAuthorizationURL">getAuthorizationURL()</a></li>
                                             <li><a href="classes/chillerlan-OAuth-Core-OAuth2Provider.html#method_getClientCredentialsToken">getClientCredentialsToken()</a></li>
                                             <li><a href="classes/chillerlan-OAuth-Core-OAuth2Provider.html#method_getRequestAuthorization">getRequestAuthorization()</a></li>
                                             <li><a href="classes/chillerlan-OAuth-Core-OAuthProvider.html#method_getStorage">getStorage()</a></li>
-                                            <li><a href="classes/chillerlan-OAuth-Providers-MailChimp.html#method_getTokenMetadata">getTokenMetadata()</a></li>
                                             <li><a href="classes/chillerlan-OAuth-Core-OAuthProvider.html#method_InvalidateAccessToken">InvalidateAccessToken()</a></li>
-                                            <li><a href="classes/chillerlan-OAuth-Providers-MailChimp.html#method_me">me()</a></li>
+                                            <li><a href="classes/chillerlan-OAuth-Providers-Pinterest.html#method_me">me()</a></li>
                                             <li><a href="classes/chillerlan-OAuth-Core-OAuth2Provider.html#method_refreshAccessToken">refreshAccessToken()</a></li>
-                                            <li><a href="classes/chillerlan-OAuth-Providers-MailChimp.html#method_request">request()</a></li>
+                                            <li><a href="classes/chillerlan-OAuth-Core-OAuthProvider.html#method_request">request()</a></li>
                                             <li><a href="classes/chillerlan-OAuth-Core-OAuthProvider.html#method_sendRequest">sendRequest()</a></li>
                                             <li><a href="classes/chillerlan-OAuth-Core-OAuthProvider.html#method_setLogger">setLogger()</a></li>
                                             <li><a href="classes/chillerlan-OAuth-Core-OAuthProvider.html#method_setRequestFactory">setRequestFactory()</a></li>
@@ -4059,7 +4429,7 @@ the spec mandates a JSON body which is what almost all providers send - weird ex
                                             <li><a href="classes/chillerlan-OAuth-Core-OAuth2Provider.html#method_parseTokenResponse">parseTokenResponse()</a></li>
                                             <li><a href="classes/chillerlan-OAuth-Core-OAuth2Provider.html#method_sendAccessTokenRequest">sendAccessTokenRequest()</a></li>
                                             <li><a href="classes/chillerlan-OAuth-Core-OAuth2Provider.html#method_sendClientCredentialsTokenRequest">sendClientCredentialsTokenRequest()</a></li>
-                                            <li><a href="classes/chillerlan-OAuth-Providers-MailChimp.html#method_sendMeRequest">sendMeRequest()</a></li>
+                                            <li><a href="classes/chillerlan-OAuth-Core-OAuthProvider.html#method_sendMeRequest">sendMeRequest()</a></li>
                                             <li><a href="classes/chillerlan-OAuth-Core-OAuthProvider.html#method_setRequestBody">setRequestBody()</a></li>
                                     </ul>
             </li>
@@ -4080,7 +4450,7 @@ the spec mandates a JSON body which is what almost all providers send - weird ex
     </section>
 </section>
         </div>
-        <a href="classes/chillerlan-OAuth-Providers-MailChimp.html#top" class="phpdocumentor-back-to-top"><i class="fas fa-chevron-circle-up"></i></a>
+        <a href="classes/chillerlan-OAuth-Providers-Pinterest.html#top" class="phpdocumentor-back-to-top"><i class="fas fa-chevron-circle-up"></i></a>
 
     </main>
 

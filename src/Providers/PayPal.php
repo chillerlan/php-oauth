@@ -16,8 +16,7 @@ namespace chillerlan\OAuth\Providers;
 use chillerlan\HTTP\Utils\QueryUtil;
 use chillerlan\OAuth\Core\{AuthenticatedUser, ClientCredentials, CSRFToken, OAuth2Provider, TokenRefresh, UserInfo};
 use Psr\Http\Message\ResponseInterface;
-use function sodium_bin2base64, sprintf;
-use const PHP_QUERY_RFC1738, SODIUM_BASE64_VARIANT_ORIGINAL;
+use const PHP_QUERY_RFC1738;
 
 /**
  * PayPal OAuth2
@@ -58,15 +57,15 @@ class PayPal extends OAuth2Provider implements ClientCredentials, CSRFToken, Tok
 	 * @inheritDoc
 	 */
 	protected function sendAccessTokenRequest(string $url, array $body):ResponseInterface{
-		$auth = sodium_bin2base64(sprintf('%s:%s', $this->options->key, $this->options->secret), SODIUM_BASE64_VARIANT_ORIGINAL);
 
 		$request = $this->requestFactory
 			->createRequest('POST', $url)
 			->withHeader('Accept-Encoding', 'identity')
-			->withHeader('Authorization', sprintf('Basic %s', $auth))
 			->withHeader('Content-Type', 'application/x-www-form-urlencoded')
 			->withBody($this->streamFactory->createStream(QueryUtil::build($body, PHP_QUERY_RFC1738)))
 		;
+
+		$request = $this->addBasicAuthHeader($request);
 
 		return $this->http->sendRequest($request);
 	}

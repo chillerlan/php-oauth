@@ -12,8 +12,7 @@ declare(strict_types=1);
 namespace chillerlan\OAuth\Providers;
 
 use chillerlan\OAuth\Core\{AccessToken, AuthenticatedUser, CSRFToken, OAuth2Provider, TokenInvalidate, UserInfo};
-use function sodium_bin2base64, sprintf;
-use const SODIUM_BASE64_VARIANT_ORIGINAL;
+use function sprintf;
 
 /**
  * BigCartel OAuth2
@@ -58,13 +57,11 @@ class BigCartel extends OAuth2Provider implements CSRFToken, TokenInvalidate, Us
 	public function invalidateAccessToken(AccessToken|null $token = null):bool{
 		$tokenToInvalidate = ($token ?? $this->storage->getAccessToken($this->name));
 
-		$auth = sodium_bin2base64(sprintf('%s:%s', $this->options->key, $this->options->secret), SODIUM_BASE64_VARIANT_ORIGINAL);
-
 		$request = $this->requestFactory
 			->createRequest('POST', sprintf('%s/%s', $this->revokeURL, $this->getAccountID($tokenToInvalidate)))
-			->withHeader('Authorization', sprintf('Basic %s', $auth))
 		;
 
+		$request  = $this->addBasicAuthHeader($request);
 		$response = $this->http->sendRequest($request);
 
 		if($response->getStatusCode() === 204){

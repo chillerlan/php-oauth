@@ -16,7 +16,7 @@ use chillerlan\OAuth\Providers\ProviderException;
 use Psr\Http\Message\{RequestInterface, ResponseInterface, UriInterface};
 use Throwable;
 use function array_merge, date, explode, hash, hash_equals, implode, in_array, is_array, random_int, sodium_bin2base64, sprintf;
-use const PHP_QUERY_RFC1738, PHP_VERSION_ID, SODIUM_BASE64_VARIANT_ORIGINAL, SODIUM_BASE64_VARIANT_URLSAFE_NO_PADDING;
+use const PHP_QUERY_RFC1738, PHP_VERSION_ID, SODIUM_BASE64_VARIANT_URLSAFE_NO_PADDING;
 
 /**
  * Implements an abstract OAuth2 provider with all methods required by the OAuth2Interface.
@@ -291,12 +291,10 @@ abstract class OAuth2Provider extends OAuthProvider implements OAuth2Interface{
 	 * sends a request to the client credentials endpoint, using basic authentication
 	 */
 	protected function sendClientCredentialsTokenRequest(string $url, array $body):ResponseInterface{
-		$auth = sodium_bin2base64(sprintf('%s:%s', $this->options->key, $this->options->secret), SODIUM_BASE64_VARIANT_ORIGINAL);
 
 		$request = $this->requestFactory
 			->createRequest('POST', $url)
 			->withHeader('Accept-Encoding', 'identity')
-			->withHeader('Authorization', sprintf('Basic %s', $auth))
 			->withHeader('Content-Type', 'application/x-www-form-urlencoded')
 			->withBody($this->streamFactory->createStream(QueryUtil::build($body, PHP_QUERY_RFC1738)))
 		;
@@ -304,6 +302,8 @@ abstract class OAuth2Provider extends OAuthProvider implements OAuth2Interface{
 		foreach($this::HEADERS_AUTH as $header => $value){
 			$request = $request->withHeader($header, $value);
 		}
+
+		$request = $this->addBasicAuthHeader($request);
 
 		return $this->http->sendRequest($request);
 	}

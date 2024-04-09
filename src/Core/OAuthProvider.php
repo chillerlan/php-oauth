@@ -24,9 +24,9 @@ use Psr\Http\Message\{
 use Psr\Log\{LoggerInterface, NullLogger};
 use ReflectionClass, UnhandledMatchError;
 use function array_merge, array_shift, explode, implode, in_array, is_array, is_string,
-	json_encode, ltrim, random_bytes, rtrim, sodium_bin2hex, sprintf, str_contains,
-	str_starts_with, strip_tags, strtolower;
-use const PHP_QUERY_RFC1738;
+	json_encode, ltrim, random_bytes, rtrim, sodium_bin2hex, sodium_bin2base64,
+	sprintf, str_contains, str_starts_with, strip_tags, strtolower;
+use const PHP_QUERY_RFC1738, SODIUM_BASE64_VARIANT_ORIGINAL;
 
 /**
  * Implements an abstract OAuth provider with all methods required by the OAuthInterface.
@@ -234,6 +234,15 @@ abstract class OAuthProvider implements OAuthInterface{
 	 */
 	protected function cleanBodyParams(iterable $params):array{
 		return QueryUtil::cleanParams($params, QueryUtil::BOOLEANS_AS_BOOL, true);
+	}
+
+	/**
+	 * Adds an "Authorization: Basic <base64(key:secret)>" header to the given request
+	 */
+	protected function addBasicAuthHeader(RequestInterface $request):RequestInterface{
+		$auth = sodium_bin2base64(sprintf('%s:%s', $this->options->key, $this->options->secret), SODIUM_BASE64_VARIANT_ORIGINAL);
+
+		return $request->withHeader('Authorization', sprintf('Basic %s', $auth));
 	}
 
 	/**

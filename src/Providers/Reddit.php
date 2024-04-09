@@ -19,8 +19,8 @@ use chillerlan\OAuth\Core\{
 	OAuth2Provider, TokenInvalidate, TokenRefresh, UserInfo
 };
 use Psr\Http\Message\ResponseInterface;
-use function sodium_bin2base64, sprintf;
-use const PHP_QUERY_RFC1738, SODIUM_BASE64_VARIANT_ORIGINAL;
+use function sprintf;
+use const PHP_QUERY_RFC1738;
 
 /**
  * @see https://github.com/reddit-archive/reddit/wiki/OAuth2
@@ -99,15 +99,15 @@ class Reddit extends OAuth2Provider implements ClientCredentials, CSRFToken, Tok
 	 * @inheritDoc
 	 */
 	protected function sendAccessTokenRequest(string $url, array $body):ResponseInterface{
-		$auth = sodium_bin2base64(sprintf('%s:%s', $this->options->key, $this->options->secret), SODIUM_BASE64_VARIANT_ORIGINAL);
 
 		$request = $this->requestFactory
 			->createRequest('POST', $url)
 			->withHeader('Accept-Encoding', 'identity')
-			->withHeader('Authorization', sprintf('Basic %s', $auth))
 			->withHeader('Content-Type', 'application/x-www-form-urlencoded')
 			->withBody($this->streamFactory->createStream(QueryUtil::build($body, PHP_QUERY_RFC1738)))
 		;
+
+		$request = $this->addBasicAuthHeader($request);
 
 		return $this->http->sendRequest($request);
 	}
@@ -143,14 +143,12 @@ class Reddit extends OAuth2Provider implements ClientCredentials, CSRFToken, Tok
 			'token_type_hint' => 'access_token',
 		];
 
-		$auth = sodium_bin2base64(sprintf('%s:%s', $this->options->key, $this->options->secret), SODIUM_BASE64_VARIANT_ORIGINAL);
-
 		$request = $this->requestFactory
 			->createRequest('POST', $this->revokeURL)
-			->withHeader('Authorization', sprintf('Basic %s', $auth))
 			->withHeader('Content-Type', 'application/x-www-form-urlencoded')
 		;
 
+		$request  = $this->addBasicAuthHeader($request);
 		$request  = $this->setRequestBody($bodyParams, $request);
 		$response = $this->http->sendRequest($request);
 

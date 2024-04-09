@@ -129,6 +129,7 @@ Note: replace `dev-main` with a [version constraint](https://getcomposer.org/doc
 | [Patreon](https://docs.patreon.com/) | [link](https://www.patreon.com/portal/registration/register-clients) |  | 2 | ✓ | ✓ |  |  | ✓ |  |
 | [PayPal](https://developer.paypal.com/docs/connect-with-paypal/reference/) | [link](https://developer.paypal.com/developer/applications/) |  | 2 | ✓ | ✓ |  | ✓ | ✓ |  |
 | [PayPalSandbox](https://developer.paypal.com/docs/connect-with-paypal/reference/) | [link](https://developer.paypal.com/developer/applications/) |  | 2 | ✓ | ✓ |  | ✓ | ✓ |  |
+| [Pinterest](https://developers.pinterest.com/docs/) | [link](https://developers.pinterest.com/apps/) | [link](https://www.pinterest.com/settings/security) | 2 | ✓ | ✓ |  |  | ✓ |  |
 | [Reddit](https://www.reddit.com/dev/api) | [link](https://www.reddit.com/prefs/apps/) | [link](https://www.reddit.com/settings/privacy) | 2 | ✓ | ✓ |  | ✓ | ✓ | ✓ |
 | [Slack](https://api.slack.com) | [link](https://api.slack.com/apps) | [link](https://slack.com/apps/manage) | 2 | ✓ | ✓ |  |  |  |  |
 | [SoundCloud](https://developers.soundcloud.com/) | [link](https://soundcloud.com/you/apps) | [link](https://soundcloud.com/settings/connections) | 2 | ✓ |  |  | ✓ | ✓ |  |

@@ -17,6 +17,9 @@ use ReflectionMethod;
 use function implode;
 use const DIRECTORY_SEPARATOR;
 
+/**
+ * Tests the file storage
+ */
 class FileStorageTest extends StorageTestAbstract{
 
 	protected const STORAGE_PATH = __DIR__.DIRECTORY_SEPARATOR.'.filestorage';

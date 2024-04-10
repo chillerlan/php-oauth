@@ -1,6 +1,6 @@
 <?php
 /**
- * Class EncryptedFileStorageTest
+ * Class SessionStorageEncryptedTest
  *
  * @created      01.04.2024
  * @author       smiley <smiley@chillerlan.net>
@@ -14,16 +14,17 @@ namespace chillerlan\OAuthTest\Storage;
 use chillerlan\OAuth\OAuthOptions;
 
 /**
- *
+ * Tests the session storage (encrypted)
  */
-final class EncryptedFileStorageTest extends FileStorageTest{
+final class SessionStorageEncryptedTest extends SessionStorageTest{
 
 	protected function initOptions():OAuthOptions{
 		$options = new OAuthOptions;
 
-		$options->fileStoragePath      = $this::STORAGE_PATH;
 		$options->useStorageEncryption = true;
 		$options->storageEncryptionKey = $this::ENCRYPTION_KEY;
+		$options->sessionStart         = true;
+		$options->sessionStorageVar    = 'session_test';
 
 		return $options;
 	}

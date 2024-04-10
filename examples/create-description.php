@@ -9,7 +9,7 @@ declare(strict_types=1);
 
 use chillerlan\OAuth\Core\{
 	ClientCredentials, CSRFToken, OAuth1Interface, OAuth2Interface,
-	OAuthInterface, PKCE, TokenInvalidate, TokenRefresh, UserInfo
+	PKCE, TokenInvalidate, TokenRefresh, UserInfo, Utilities
 };
 
 /**
@@ -31,7 +31,7 @@ $table = [
 	'|----------|------|--------|-----|------|------|------|----|----|----|',
 ];
 
-foreach(getProviders(__DIR__.'/../src/Providers') as $p){
+foreach(Utilities::getProviders() as $p){
 	/** @var \OAuthExampleProviderFactory $factory */
 	$provider = $factory->getProvider($p['fqcn'], OAuthExampleProviderFactory::STORAGE_MEMORY);
 
@@ -85,34 +85,3 @@ foreach(FILES as $file){
 }
 
 exit;
-
-function getProviders(string $providerDir):array{
-	$providerDir = realpath($providerDir);
-	$providers   = [];
-
-	/** @var \SplFileInfo $e */
-	foreach(new IteratorIterator(new DirectoryIterator($providerDir)) as $e){
-
-		if($e->getExtension() !== 'php'){
-			continue;
-		}
-
-		$class = 'chillerlan\\OAuth\\Providers\\'.substr($e->getFilename(), 0, -4);
-
-		try{
-			$r = new ReflectionClass($class);
-
-			if(!$r->implementsInterface(OAuthInterface::class) || $r->isAbstract()){
-				continue;
-			}
-
-			$providers[hash('crc32b', $r->getShortName())] = ['name' => $r->getShortName(), 'fqcn' => $class];
-		}
-		catch(Throwable){
-			continue;
-		}
-
-	}
-
-	return $providers;
-}

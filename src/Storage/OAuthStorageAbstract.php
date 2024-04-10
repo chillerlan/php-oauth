@@ -12,12 +12,10 @@ declare(strict_types=1);
 namespace chillerlan\OAuth\Storage;
 
 use chillerlan\OAuth\OAuthOptions;
-use chillerlan\OAuth\Core\AccessToken;
+use chillerlan\OAuth\Core\{AccessToken, Utilities};
 use chillerlan\Settings\SettingsContainerInterface;
 use Psr\Log\{LoggerInterface, NullLogger};
-use function random_bytes, sodium_base642bin, sodium_bin2base64, sodium_bin2hex, sodium_crypto_secretbox,
-	sodium_crypto_secretbox_open, sodium_hex2bin, sodium_memzero, substr, trim;
-use const SODIUM_BASE64_VARIANT_ORIGINAL, SODIUM_CRYPTO_SECRETBOX_NONCEBYTES;
+use function trim;
 
 /**
  * Implements an abstract OAuth storage adapter
@@ -28,11 +26,7 @@ abstract class OAuthStorageAbstract implements OAuthStorageInterface{
 	final protected const KEY_STATE    = 'STATE';
 	final protected const KEY_VERIFIER = 'VERIFIER';
 
-	final protected const ENCRYPT_FORMAT_BINARY = 0b00;
-	final protected const ENCRYPT_FORMAT_BASE64 = 0b01;
-	final protected const ENCRYPT_FORMAT_HEX    = 0b10;
-
-	protected const ENCRYPT_FORMAT = self::ENCRYPT_FORMAT_HEX;
+	protected const ENCRYPT_FORMAT = Utilities::ENCRYPT_FORMAT_HEX;
 
 	/**
 	 * OAuthStorageAbstract constructor.
@@ -89,7 +83,7 @@ abstract class OAuthStorageAbstract implements OAuthStorageInterface{
 		$tokenJSON = $token->toJSON();
 
 		if($this->options->useStorageEncryption === true){
-			return $this->encrypt($tokenJSON, $this->options->storageEncryptionKey);
+			return $this->encrypt($tokenJSON);
 		}
 
 		return $tokenJSON;
@@ -101,67 +95,24 @@ abstract class OAuthStorageAbstract implements OAuthStorageInterface{
 	public function fromStorage(mixed $data):AccessToken{
 
 		if($this->options->useStorageEncryption === true){
-			$data = $this->decrypt($data, $this->options->storageEncryptionKey);
+			$data = $this->decrypt($data);
 		}
 
 		return (new AccessToken)->fromJSON($data);
 	}
 
 	/**
-	 * encrypts the given $data with $key
-	 *
-	 * @see \sodium_crypto_secretbox()
-	 * @see \sodium_bin2base64()
-	 * @see \sodium_bin2hex()
+	 * encrypts the given $data
 	 */
-	protected function encrypt(string $data, string $key):string{
-		$nonce = random_bytes(SODIUM_CRYPTO_SECRETBOX_NONCEBYTES);
-		$box   = sodium_crypto_secretbox($data, $nonce, $key);
-
-		$out = match($this::ENCRYPT_FORMAT){
-			$this::ENCRYPT_FORMAT_BINARY => $nonce.$box,
-			$this::ENCRYPT_FORMAT_BASE64 => sodium_bin2base64($nonce.$box, SODIUM_BASE64_VARIANT_ORIGINAL),
-			$this::ENCRYPT_FORMAT_HEX    => sodium_bin2hex($nonce.$box),
-		};
-
-		sodium_memzero($data);
-		sodium_memzero($key);
-		sodium_memzero($nonce);
-		sodium_memzero($box);
-
-		return $out;
+	protected function encrypt(string $data):string{
+		return Utilities::encrypt($data, $this->options->storageEncryptionKey, $this::ENCRYPT_FORMAT);
 	}
 
 	/**
-	 * decrypts the given $encrypted data with $key
-	 *
-	 * @see \sodium_crypto_secretbox_open()
-	 * @see \sodium_base642bin()
-	 * @see \sodium_hex2bin()
+	 * decrypts the given $encrypted data
 	 */
-	protected function decrypt(string $encrypted, string $key):string{
-
-		$bin = match($this::ENCRYPT_FORMAT){
-			$this::ENCRYPT_FORMAT_BINARY => $encrypted,
-			$this::ENCRYPT_FORMAT_BASE64 => sodium_base642bin($encrypted, SODIUM_BASE64_VARIANT_ORIGINAL),
-			$this::ENCRYPT_FORMAT_HEX    => sodium_hex2bin($encrypted),
-		};
-
-		$nonce = substr($bin, 0, SODIUM_CRYPTO_SECRETBOX_NONCEBYTES);
-		$box   = substr($bin, SODIUM_CRYPTO_SECRETBOX_NONCEBYTES);
-		$data  = sodium_crypto_secretbox_open($box, $nonce, $key);
-
-		sodium_memzero($encrypted);
-		sodium_memzero($key);
-		sodium_memzero($bin);
-		sodium_memzero($nonce);
-		sodium_memzero($box);
-
-		if($data === false){
-			throw new OAuthStorageException('decryption failed'); // @codeCoverageIgnore
-		}
-
-		return $data;
+	protected function decrypt(string $encrypted):string{
+		return Utilities::decrypt($encrypted, $this->options->storageEncryptionKey, $this::ENCRYPT_FORMAT);
 	}
 
 }

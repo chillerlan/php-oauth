@@ -11,11 +11,11 @@ declare(strict_types=1);
 
 namespace chillerlan\OAuth\Storage;
 
-use chillerlan\OAuth\Core\AccessToken;
 use chillerlan\OAuth\OAuthOptions;
+use chillerlan\OAuth\Core\{AccessToken, Utilities};
 use chillerlan\Settings\SettingsContainerInterface;
-use DirectoryIterator;
 use Psr\Log\{LoggerInterface, NullLogger};
+use DirectoryIterator;
 use function dirname, file_exists, file_get_contents, file_put_contents, hash, implode,
 	is_dir, is_file, mkdir, sprintf, str_starts_with, substr, trim, unlink;
 use const DIRECTORY_SEPARATOR;
@@ -31,7 +31,7 @@ use const DIRECTORY_SEPARATOR;
  */
 class FileStorage extends OAuthStorageAbstract{
 
-	final protected const ENCRYPT_FORMAT = self::ENCRYPT_FORMAT_BINARY;
+	final protected const ENCRYPT_FORMAT = Utilities::ENCRYPT_FORMAT_BINARY;
 
 	/**
 	 * OAuthStorageAbstract constructor.
@@ -114,7 +114,7 @@ class FileStorage extends OAuthStorageAbstract{
 	public function storeCSRFState(string $state, string $provider):static{
 
 		if($this->options->useStorageEncryption === true){
-			$state = $this->encrypt($state, $this->options->storageEncryptionKey);
+			$state = $this->encrypt($state);
 		}
 
 		$this->saveFile($state, $this::KEY_STATE, $provider);
@@ -133,7 +133,7 @@ class FileStorage extends OAuthStorageAbstract{
 		}
 
 		if($this->options->useStorageEncryption === true){
-			return $this->decrypt($state, $this->options->storageEncryptionKey);
+			return $this->decrypt($state);
 		}
 
 		return $state;
@@ -170,7 +170,7 @@ class FileStorage extends OAuthStorageAbstract{
 	public function storeCodeVerifier(string $verifier, string $provider):static{
 
 		if($this->options->useStorageEncryption === true){
-			$verifier = $this->encrypt($verifier, $this->options->storageEncryptionKey);
+			$verifier = $this->encrypt($verifier);
 		}
 
 		$this->saveFile($verifier, $this::KEY_VERIFIER, $provider);
@@ -189,7 +189,7 @@ class FileStorage extends OAuthStorageAbstract{
 		}
 
 		if($this->options->useStorageEncryption === true){
-			return $this->decrypt($verifier, $this->options->storageEncryptionKey);
+			return $this->decrypt($verifier);
 		}
 
 		return $verifier;

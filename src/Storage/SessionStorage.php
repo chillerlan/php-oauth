@@ -111,6 +111,11 @@ class SessionStorage extends OAuthStorageAbstract{
 	 * @inheritDoc
 	 */
 	public function storeCSRFState(string $state, string $provider):static{
+
+		if($this->options->useStorageEncryption === true){
+			$state = $this->encrypt($state);
+		}
+
 		$_SESSION[$this->storageVar][$this::KEY_STATE][$this->getProviderName($provider)] = $state;
 
 		return $this;
@@ -121,11 +126,17 @@ class SessionStorage extends OAuthStorageAbstract{
 	 */
 	public function getCSRFState(string $provider):string{
 
-		if($this->hasCSRFState($provider)){
-			return $_SESSION[$this->storageVar][$this::KEY_STATE][$this->getProviderName($provider)];
+		if(!$this->hasCSRFState($provider)){
+			throw new StateNotFoundException;
 		}
 
-		throw new StateNotFoundException;
+		$state = $_SESSION[$this->storageVar][$this::KEY_STATE][$this->getProviderName($provider)];
+
+		if($this->options->useStorageEncryption === true){
+			return $this->decrypt($state);
+		}
+
+		return $state;
 	}
 
 	/**
@@ -157,6 +168,11 @@ class SessionStorage extends OAuthStorageAbstract{
 	 * @inheritDoc
 	 */
 	public function storeCodeVerifier(string $verifier, string $provider):static{
+
+		if($this->options->useStorageEncryption === true){
+			$verifier = $this->encrypt($verifier);
+		}
+
 		$_SESSION[$this->storageVar][$this::KEY_VERIFIER][$this->getProviderName($provider)] = $verifier;
 
 		return $this;
@@ -167,11 +183,17 @@ class SessionStorage extends OAuthStorageAbstract{
 	 */
 	public function getCodeVerifier(string $provider):string{
 
-		if($this->hasCodeVerifier($provider)){
-			return $_SESSION[$this->storageVar][$this::KEY_VERIFIER][$this->getProviderName($provider)];
+		if(!$this->hasCodeVerifier($provider)){
+			throw new VerifierNotFoundException;
 		}
 
-		throw new VerifierNotFoundException;
+		$verifier = $_SESSION[$this->storageVar][$this::KEY_VERIFIER][$this->getProviderName($provider)];
+
+		if($this->options->useStorageEncryption === true){
+			return $this->decrypt($verifier);
+		}
+
+		return $verifier;
 	}
 
 	/**

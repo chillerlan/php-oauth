@@ -12,8 +12,7 @@ declare(strict_types=1);
 namespace chillerlan\OAuth;
 
 use chillerlan\OAuth\Storage\OAuthStorageException;
-use function is_dir, is_writable, max, min, realpath, sprintf, strlen, trim;
-use const SODIUM_CRYPTO_SECRETBOX_KEYBYTES;
+use function is_dir, is_writable, max, min, preg_match, realpath, sprintf, strtolower, trim;
 
 /**
  * The settings for the OAuth provider
@@ -43,7 +42,7 @@ trait OAuthOptionsTrait{
 	protected bool $useStorageEncryption = false;
 
 	/**
-	 * The encryption key to use
+	 * The encryption key (hexadecimal) to use
 	 *
 	 * @see \sodium_crypto_secretbox_keygen()
 	 * @see \chillerlan\OAuth\Storage\FileStorage
@@ -103,8 +102,9 @@ trait OAuthOptionsTrait{
 	 * sets an encryption key
 	 */
 	protected function set_storageEncryptionKey(string $storageEncryptionKey):void{
+		$storageEncryptionKey = strtolower($storageEncryptionKey);
 
-		if(strlen($storageEncryptionKey) !== SODIUM_CRYPTO_SECRETBOX_KEYBYTES){
+		if(!preg_match('/^[a-f0-9]{64}$/', $storageEncryptionKey)){
 			throw new OAuthStorageException('invalid encryption key');
 		}
 

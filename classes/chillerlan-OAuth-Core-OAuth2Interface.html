@@ -216,6 +216,13 @@
 <dd>additional headers to use during authentication</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -constant -public">
+    <a href="classes/chillerlan-OAuth-Core-OAuthInterface.html#constant_IDENTIFIER">IDENTIFIER</a>
+    <span>
+        &nbsp;= &#039;&#039;                            </span>
+</dt>
+<dd>An identifier for the provider, usually the class name in ALLCAPS (required)</dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -constant -public">
     <a href="classes/chillerlan-OAuth-Core-OAuth2Interface.html#constant_SCOPES_DELIMITER">SCOPES_DELIMITER</a>
     <span>
         &nbsp;= &#039; &#039;                            </span>
@@ -227,6 +234,7 @@
     <span>
         &nbsp;= &#039;chillerlanPhpOAuth/1.0.0 +https://github.com/chillerlan/php-oauth&#039;                            </span>
 </dt>
+<dd>A common user agent string that can be used in requests</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -constant -public">
     <a href="classes/chillerlan-OAuth-Core-OAuth2Interface.html#constant_USES_BASIC_AUTH_IN_ACCESS_TOKEN_REQUEST">USES_BASIC_AUTH_IN_ACCESS_TOKEN_REQUEST</a>
@@ -525,7 +533,7 @@ and returns a PSR-7 ResponseInterface with the corresponding API response</dd>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Core/OAuthInterface.php"><a href="files/src-core-oauthinterface.html"><abbr title="src/Core/OAuthInterface.php">OAuthInterface.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">51</span>
+    <span class="phpdocumentor-element-found-in__line">59</span>
 
     </aside>
 
@@ -556,7 +564,7 @@ and returns a PSR-7 ResponseInterface with the corresponding API response</dd>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Core/OAuthInterface.php"><a href="files/src-core-oauthinterface.html"><abbr title="src/Core/OAuthInterface.php">OAuthInterface.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">42</span>
+    <span class="phpdocumentor-element-found-in__line">50</span>
 
     </aside>
 
@@ -573,6 +581,35 @@ and returns a PSR-7 ResponseInterface with the corresponding API response</dd>
         <section class="phpdocumentor-description"><p>Note: must not contain: Accept-Encoding, Authorization, Content-Length, Content-Type</p>
 </section>
 
+    
+    
+
+</article>
+                    <article class="phpdocumentor-element -constant -public ">
+    <h4 class="phpdocumentor-element__name" id="constant_IDENTIFIER">
+        IDENTIFIER
+        <a href="classes/chillerlan-OAuth-Core-OAuthInterface.html#constant_IDENTIFIER" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h4>
+
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/Core/OAuthInterface.php"><a href="files/src-core-oauthinterface.html"><abbr title="src/Core/OAuthInterface.php">OAuthInterface.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">41</span>
+
+    </aside>
+
+        <p class="phpdocumentor-summary">An identifier for the provider, usually the class name in ALLCAPS (required)</p>
+
+    <code class="phpdocumentor-signature phpdocumentor-code ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+        <span class="phpdocumentor-signature__type">mixed</span>
+    <span class="phpdocumentor-signature__name">IDENTIFIER</span>
+    = <span class="phpdocumentor-signature__default-value">&#039;&#039;</span>
+</code>
+
+
+    
     
     
 
@@ -616,11 +653,12 @@ and returns a PSR-7 ResponseInterface with the corresponding API response</dd>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Core/OAuthInterface.php"><a href="files/src-core-oauthinterface.html"><abbr title="src/Core/OAuthInterface.php">OAuthInterface.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">33</span>
+    <span class="phpdocumentor-element-found-in__line">36</span>
 
     </aside>
 
-    
+        <p class="phpdocumentor-summary">A common user agent string that can be used in requests</p>
+
     <code class="phpdocumentor-signature phpdocumentor-code ">
     <span class="phpdocumentor-signature__visibility">public</span>
         <span class="phpdocumentor-signature__type">mixed</span>
@@ -775,7 +813,7 @@ if the provider implements the CSRFToken interface, and returns an AccessToken o
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Core/OAuthInterface.php"><a href="files/src-core-oauthinterface.html"><abbr title="src/Core/OAuthInterface.php">OAuthInterface.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">101</span>
+    <span class="phpdocumentor-element-found-in__line">109</span>
 
     </aside>
 
@@ -811,7 +849,7 @@ if the provider implements the CSRFToken interface, and returns an AccessToken o
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Core/OAuthInterface.php"><a href="files/src-core-oauthinterface.html"><abbr title="src/Core/OAuthInterface.php">OAuthInterface.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">60</span>
+    <span class="phpdocumentor-element-found-in__line">68</span>
 
     </aside>
 
@@ -888,7 +926,7 @@ and returns a PSR-7 UriInterface with all necessary parameters set</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Core/OAuthInterface.php"><a href="files/src-core-oauthinterface.html"><abbr title="src/Core/OAuthInterface.php">OAuthInterface.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">91</span>
+    <span class="phpdocumentor-element-found-in__line">99</span>
 
     </aside>
 
@@ -924,7 +962,7 @@ and returns a PSR-7 UriInterface with all necessary parameters set</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Core/OAuthInterface.php"><a href="files/src-core-oauthinterface.html"><abbr title="src/Core/OAuthInterface.php">OAuthInterface.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">74</span>
+    <span class="phpdocumentor-element-found-in__line">82</span>
 
     </aside>
 
@@ -1006,7 +1044,7 @@ and returns a PSR-7 ResponseInterface with the corresponding API response</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Core/OAuthInterface.php"><a href="files/src-core-oauthinterface.html"><abbr title="src/Core/OAuthInterface.php">OAuthInterface.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">106</span>
+    <span class="phpdocumentor-element-found-in__line">114</span>
 
     </aside>
 
@@ -1052,7 +1090,7 @@ and returns a PSR-7 ResponseInterface with the corresponding API response</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Core/OAuthInterface.php"><a href="files/src-core-oauthinterface.html"><abbr title="src/Core/OAuthInterface.php">OAuthInterface.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">111</span>
+    <span class="phpdocumentor-element-found-in__line">119</span>
 
     </aside>
 
@@ -1098,7 +1136,7 @@ and returns a PSR-7 ResponseInterface with the corresponding API response</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Core/OAuthInterface.php"><a href="files/src-core-oauthinterface.html"><abbr title="src/Core/OAuthInterface.php">OAuthInterface.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">86</span>
+    <span class="phpdocumentor-element-found-in__line">94</span>
 
     </aside>
 
@@ -1144,7 +1182,7 @@ and returns a PSR-7 ResponseInterface with the corresponding API response</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Core/OAuthInterface.php"><a href="files/src-core-oauthinterface.html"><abbr title="src/Core/OAuthInterface.php">OAuthInterface.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">116</span>
+    <span class="phpdocumentor-element-found-in__line">124</span>
 
     </aside>
 
@@ -1190,7 +1228,7 @@ and returns a PSR-7 ResponseInterface with the corresponding API response</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Core/OAuthInterface.php"><a href="files/src-core-oauthinterface.html"><abbr title="src/Core/OAuthInterface.php">OAuthInterface.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">121</span>
+    <span class="phpdocumentor-element-found-in__line">129</span>
 
     </aside>
 
@@ -1236,7 +1274,7 @@ and returns a PSR-7 ResponseInterface with the corresponding API response</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Core/OAuthInterface.php"><a href="files/src-core-oauthinterface.html"><abbr title="src/Core/OAuthInterface.php">OAuthInterface.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">96</span>
+    <span class="phpdocumentor-element-found-in__line">104</span>
 
     </aside>
 
@@ -1405,6 +1443,7 @@ and returns a PSR-7 ResponseInterface with the corresponding API response</p>
                                                     <li><a href="classes/chillerlan-OAuth-Core-OAuth2Interface.html#constant_DEFAULT_SCOPES">DEFAULT_SCOPES</a></li>
                                                     <li><a href="classes/chillerlan-OAuth-Core-OAuthInterface.html#constant_HEADERS_API">HEADERS_API</a></li>
                                                     <li><a href="classes/chillerlan-OAuth-Core-OAuthInterface.html#constant_HEADERS_AUTH">HEADERS_AUTH</a></li>
+                                                    <li><a href="classes/chillerlan-OAuth-Core-OAuthInterface.html#constant_IDENTIFIER">IDENTIFIER</a></li>
                                                     <li><a href="classes/chillerlan-OAuth-Core-OAuth2Interface.html#constant_SCOPES_DELIMITER">SCOPES_DELIMITER</a></li>
                                                     <li><a href="classes/chillerlan-OAuth-Core-OAuthInterface.html#constant_USER_AGENT">USER_AGENT</a></li>
                                                     <li><a href="classes/chillerlan-OAuth-Core-OAuth2Interface.html#constant_USES_BASIC_AUTH_IN_ACCESS_TOKEN_REQUEST">USES_BASIC_AUTH_IN_ACCESS_TOKEN_REQUEST</a></li>

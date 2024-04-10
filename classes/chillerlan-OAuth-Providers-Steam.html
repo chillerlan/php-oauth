@@ -117,7 +117,7 @@
 
     <article class="phpdocumentor-element -class">
         <h2 class="phpdocumentor-content__title">
-    SteamOpenID
+    Steam
 
         <span class="phpdocumentor-element__extends">
         extends <a href="classes/chillerlan-OAuth-Core-OAuthProvider.html"><abbr title="\chillerlan\OAuth\Core\OAuthProvider">OAuthProvider</abbr></a>
@@ -142,7 +142,7 @@
 </div>
 
         <aside class="phpdocumentor-element-found-in">
-    <abbr class="phpdocumentor-element-found-in__file" title="src/Providers/SteamOpenID.php"><a href="files/src-providers-steamopenid.html"><abbr title="src/Providers/SteamOpenID.php">SteamOpenID.php</abbr></a></abbr>
+    <abbr class="phpdocumentor-element-found-in__file" title="src/Providers/Steam.php"><a href="files/src-providers-steam.html"><abbr title="src/Providers/Steam.php">Steam.php</abbr></a></abbr>
     :
     <span class="phpdocumentor-element-found-in__line">27</span>
 
@@ -154,7 +154,7 @@
 
     <h5 class="phpdocumentor-tag-list__heading" id="tags">
         Tags
-        <a href="classes/chillerlan-OAuth-Providers-SteamOpenID.html#tags" class="headerlink"><i class="fas fa-link"></i></a>
+        <a href="classes/chillerlan-OAuth-Providers-Steam.html#tags" class="headerlink"><i class="fas fa-link"></i></a>
 
     </h5>
     <dl class="phpdocumentor-tag-list">
@@ -188,7 +188,7 @@
 
 <h3 id="toc">
     Table of Contents
-    <a href="classes/chillerlan-OAuth-Providers-SteamOpenID.html#toc" class="headerlink"><i class="fas fa-link"></i></a>
+    <a href="classes/chillerlan-OAuth-Providers-Steam.html#toc" class="headerlink"><i class="fas fa-link"></i></a>
 
 </h3>
 
@@ -196,7 +196,7 @@
 
     <h4 id="toc-interfaces">
         Interfaces
-        <a href="classes/chillerlan-OAuth-Providers-SteamOpenID.html#toc-interfaces" class="headerlink"><i class="fas fa-link"></i></a>
+        <a href="classes/chillerlan-OAuth-Providers-Steam.html#toc-interfaces" class="headerlink"><i class="fas fa-link"></i></a>
 
     </h4>
     <dl class="phpdocumentor-table-of-contents">
@@ -208,10 +208,16 @@ usually via a &quot;/me&quot;, &quot;/user&quot; or &quot;/tokeninfo&quot; endpo
 
 <h4 id="toc-constants">
     Constants
-    <a href="classes/chillerlan-OAuth-Providers-SteamOpenID.html#toc-constants" class="headerlink"><i class="fas fa-link"></i></a>
+    <a href="classes/chillerlan-OAuth-Providers-Steam.html#toc-constants" class="headerlink"><i class="fas fa-link"></i></a>
 
 </h4>
 <dl class="phpdocumentor-table-of-contents">
+            <dt class="phpdocumentor-table-of-contents__entry -constant -public">
+    <a href="classes/chillerlan-OAuth-Providers-Steam.html#constant_IDENTIFIER">IDENTIFIER</a>
+    <span>
+        &nbsp;= &#039;STEAM&#039;                            </span>
+</dt>
+
             <dt class="phpdocumentor-table-of-contents__entry -constant -protected">
     <a href="classes/chillerlan-OAuth-Core-OAuthProvider.html#constant_MAGIC_PROPERTIES">MAGIC_PROPERTIES</a>
     <span>
@@ -223,40 +229,40 @@ usually via a &quot;/me&quot;, &quot;/user&quot; or &quot;/tokeninfo&quot; endpo
 
 <h4 id="toc-properties">
     Properties
-    <a href="classes/chillerlan-OAuth-Providers-SteamOpenID.html#toc-properties" class="headerlink"><i class="fas fa-link"></i></a>
+    <a href="classes/chillerlan-OAuth-Providers-Steam.html#toc-properties" class="headerlink"><i class="fas fa-link"></i></a>
 
 </h4>
 <dl class="phpdocumentor-table-of-contents">
             <dt class="phpdocumentor-table-of-contents__entry -property -protected">
-    <a href="classes/chillerlan-OAuth-Providers-SteamOpenID.html#property_accessTokenURL">$accessTokenURL</a>
+    <a href="classes/chillerlan-OAuth-Providers-Steam.html#property_accessTokenURL">$accessTokenURL</a>
     <span>
                         &nbsp;: string            </span>
 </dt>
 <dd>the provider&#039;s access token exchange URL</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -property -protected">
-    <a href="classes/chillerlan-OAuth-Providers-SteamOpenID.html#property_apiDocs">$apiDocs</a>
+    <a href="classes/chillerlan-OAuth-Providers-Steam.html#property_apiDocs">$apiDocs</a>
     <span>
                         &nbsp;: string|null            </span>
 </dt>
 <dd>an optional link to the provider&#039;s API docs (magic)</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -property -protected">
-    <a href="classes/chillerlan-OAuth-Providers-SteamOpenID.html#property_apiURL">$apiURL</a>
+    <a href="classes/chillerlan-OAuth-Providers-Steam.html#property_apiURL">$apiURL</a>
     <span>
                         &nbsp;: string            </span>
 </dt>
 <dd>the API base URL (magic)</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -property -protected">
-    <a href="classes/chillerlan-OAuth-Providers-SteamOpenID.html#property_applicationURL">$applicationURL</a>
+    <a href="classes/chillerlan-OAuth-Providers-Steam.html#property_applicationURL">$applicationURL</a>
     <span>
                         &nbsp;: string|null            </span>
 </dt>
 <dd>an optional URL to the provider&#039;s credential registration/application page (magic)</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -property -protected">
-    <a href="classes/chillerlan-OAuth-Providers-SteamOpenID.html#property_authorizationURL">$authorizationURL</a>
+    <a href="classes/chillerlan-OAuth-Providers-Steam.html#property_authorizationURL">$authorizationURL</a>
     <span>
                         &nbsp;: string            </span>
 </dt>
@@ -329,7 +335,7 @@ usually via a &quot;/me&quot;, &quot;/user&quot; or &quot;/tokeninfo&quot; endpo
 
 <h4 id="toc-methods">
     Methods
-    <a href="classes/chillerlan-OAuth-Providers-SteamOpenID.html#toc-methods" class="headerlink"><i class="fas fa-link"></i></a>
+    <a href="classes/chillerlan-OAuth-Providers-Steam.html#toc-methods" class="headerlink"><i class="fas fa-link"></i></a>
 
 </h4>
 <dl class="phpdocumentor-table-of-contents">
@@ -348,7 +354,7 @@ usually via a &quot;/me&quot;, &quot;/user&quot; or &quot;/tokeninfo&quot; endpo
 <dd>Magic getter for the properties specified in self::ALLOWED_PROPERTIES</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a href="classes/chillerlan-OAuth-Providers-SteamOpenID.html#method_getAccessToken">getAccessToken()</a>
+    <a href="classes/chillerlan-OAuth-Providers-Steam.html#method_getAccessToken">getAccessToken()</a>
     <span>
                                 &nbsp;: <a href="classes/chillerlan-OAuth-Core-AccessToken.html"><abbr title="\chillerlan\OAuth\Core\AccessToken">AccessToken</abbr></a>    </span>
 </dt>
@@ -361,14 +367,14 @@ usually via a &quot;/me&quot;, &quot;/user&quot; or &quot;/tokeninfo&quot; endpo
 <dd>Gets an access token from the current OAuthStorageInterface (shorthand/convenience)</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a href="classes/chillerlan-OAuth-Providers-SteamOpenID.html#method_getAuthorizationURL">getAuthorizationURL()</a>
+    <a href="classes/chillerlan-OAuth-Providers-Steam.html#method_getAuthorizationURL">getAuthorizationURL()</a>
     <span>
                                 &nbsp;: <abbr title="\Psr\Http\Message\UriInterface">UriInterface</abbr>    </span>
 </dt>
 <dd>we ignore user supplied params here</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a href="classes/chillerlan-OAuth-Providers-SteamOpenID.html#method_getRequestAuthorization">getRequestAuthorization()</a>
+    <a href="classes/chillerlan-OAuth-Providers-Steam.html#method_getRequestAuthorization">getRequestAuthorization()</a>
     <span>
                                 &nbsp;: <abbr title="\Psr\Http\Message\RequestInterface">RequestInterface</abbr>    </span>
 </dt>
@@ -387,7 +393,7 @@ usually via a &quot;/me&quot;, &quot;/user&quot; or &quot;/tokeninfo&quot; endpo
 </dt>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a href="classes/chillerlan-OAuth-Providers-SteamOpenID.html#method_me">me()</a>
+    <a href="classes/chillerlan-OAuth-Providers-Steam.html#method_me">me()</a>
     <span>
                                 &nbsp;: <a href="classes/chillerlan-OAuth-Core-AuthenticatedUser.html"><abbr title="\chillerlan\OAuth\Core\AuthenticatedUser">AuthenticatedUser</abbr></a>    </span>
 </dt>
@@ -529,7 +535,7 @@ anything except host and path will be ignored, scheme will always be set to &quo
 <dd>returns a 32 byte random string (in hexadecimal representation) for use as a nonce</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -protected">
-    <a href="classes/chillerlan-OAuth-Providers-SteamOpenID.html#method_parseTokenResponse">parseTokenResponse()</a>
+    <a href="classes/chillerlan-OAuth-Providers-Steam.html#method_parseTokenResponse">parseTokenResponse()</a>
     <span>
                                 &nbsp;: <a href="classes/chillerlan-OAuth-Core-AccessToken.html"><abbr title="\chillerlan\OAuth\Core\AccessToken">AccessToken</abbr></a>    </span>
 </dt>
@@ -557,9 +563,37 @@ anything except host and path will be ignored, scheme will always be set to &quo
     <section class="phpdocumentor-constants">
         <h3 class="phpdocumentor-elements__header" id="constants">
             Constants
-            <a href="classes/chillerlan-OAuth-Providers-SteamOpenID.html#constants" class="headerlink"><i class="fas fa-link"></i></a>
+            <a href="classes/chillerlan-OAuth-Providers-Steam.html#constants" class="headerlink"><i class="fas fa-link"></i></a>
 
         </h3>
+                    <article class="phpdocumentor-element -constant -public ">
+    <h4 class="phpdocumentor-element__name" id="constant_IDENTIFIER">
+        IDENTIFIER
+        <a href="classes/chillerlan-OAuth-Providers-Steam.html#constant_IDENTIFIER" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h4>
+
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/Providers/Steam.php"><a href="files/src-providers-steam.html"><abbr title="src/Providers/Steam.php">Steam.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">29</span>
+
+    </aside>
+
+    
+    <code class="phpdocumentor-signature phpdocumentor-code ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+        <span class="phpdocumentor-signature__type">mixed</span>
+    <span class="phpdocumentor-signature__name">IDENTIFIER</span>
+    = <span class="phpdocumentor-signature__default-value">&#039;STEAM&#039;</span>
+</code>
+
+
+    
+    
+    
+
+</article>
                     <article class="phpdocumentor-element -constant -protected ">
     <h4 class="phpdocumentor-element__name" id="constant_MAGIC_PROPERTIES">
         MAGIC_PROPERTIES
@@ -594,7 +628,7 @@ anything except host and path will be ignored, scheme will always be set to &quo
     <section class="phpdocumentor-properties">
         <h3 class="phpdocumentor-elements__header" id="properties">
             Properties
-            <a href="classes/chillerlan-OAuth-Providers-SteamOpenID.html#properties" class="headerlink"><i class="fas fa-link"></i></a>
+            <a href="classes/chillerlan-OAuth-Providers-Steam.html#properties" class="headerlink"><i class="fas fa-link"></i></a>
 
         </h3>
                     <article
@@ -606,15 +640,15 @@ anything except host and path will be ignored, scheme will always be set to &quo
 >
     <h4 class="phpdocumentor-element__name" id="property_accessTokenURL">
         $accessTokenURL
-        <a href="classes/chillerlan-OAuth-Providers-SteamOpenID.html#property_accessTokenURL" class="headerlink"><i class="fas fa-link"></i></a>
+        <a href="classes/chillerlan-OAuth-Providers-Steam.html#property_accessTokenURL" class="headerlink"><i class="fas fa-link"></i></a>
 
         <span class="phpdocumentor-element__modifiers">
                                 </span>
     </h4>
     <aside class="phpdocumentor-element-found-in">
-    <abbr class="phpdocumentor-element-found-in__file" title="src/Providers/SteamOpenID.php"><a href="files/src-providers-steamopenid.html"><abbr title="src/Providers/SteamOpenID.php">SteamOpenID.php</abbr></a></abbr>
+    <abbr class="phpdocumentor-element-found-in__file" title="src/Providers/Steam.php"><a href="files/src-providers-steam.html"><abbr title="src/Providers/Steam.php">Steam.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">30</span>
+    <span class="phpdocumentor-element-found-in__line">32</span>
 
     </aside>
 
@@ -640,15 +674,15 @@ anything except host and path will be ignored, scheme will always be set to &quo
 >
     <h4 class="phpdocumentor-element__name" id="property_apiDocs">
         $apiDocs
-        <a href="classes/chillerlan-OAuth-Providers-SteamOpenID.html#property_apiDocs" class="headerlink"><i class="fas fa-link"></i></a>
+        <a href="classes/chillerlan-OAuth-Providers-Steam.html#property_apiDocs" class="headerlink"><i class="fas fa-link"></i></a>
 
         <span class="phpdocumentor-element__modifiers">
                                 </span>
     </h4>
     <aside class="phpdocumentor-element-found-in">
-    <abbr class="phpdocumentor-element-found-in__file" title="src/Providers/SteamOpenID.php"><a href="files/src-providers-steamopenid.html"><abbr title="src/Providers/SteamOpenID.php">SteamOpenID.php</abbr></a></abbr>
+    <abbr class="phpdocumentor-element-found-in__file" title="src/Providers/Steam.php"><a href="files/src-providers-steam.html"><abbr title="src/Providers/Steam.php">Steam.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">33</span>
+    <span class="phpdocumentor-element-found-in__line">35</span>
 
     </aside>
 
@@ -674,15 +708,15 @@ anything except host and path will be ignored, scheme will always be set to &quo
 >
     <h4 class="phpdocumentor-element__name" id="property_apiURL">
         $apiURL
-        <a href="classes/chillerlan-OAuth-Providers-SteamOpenID.html#property_apiURL" class="headerlink"><i class="fas fa-link"></i></a>
+        <a href="classes/chillerlan-OAuth-Providers-Steam.html#property_apiURL" class="headerlink"><i class="fas fa-link"></i></a>
 
         <span class="phpdocumentor-element__modifiers">
                                 </span>
     </h4>
     <aside class="phpdocumentor-element-found-in">
-    <abbr class="phpdocumentor-element-found-in__file" title="src/Providers/SteamOpenID.php"><a href="files/src-providers-steamopenid.html"><abbr title="src/Providers/SteamOpenID.php">SteamOpenID.php</abbr></a></abbr>
+    <abbr class="phpdocumentor-element-found-in__file" title="src/Providers/Steam.php"><a href="files/src-providers-steam.html"><abbr title="src/Providers/Steam.php">Steam.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">31</span>
+    <span class="phpdocumentor-element-found-in__line">33</span>
 
     </aside>
 
@@ -708,15 +742,15 @@ anything except host and path will be ignored, scheme will always be set to &quo
 >
     <h4 class="phpdocumentor-element__name" id="property_applicationURL">
         $applicationURL
-        <a href="classes/chillerlan-OAuth-Providers-SteamOpenID.html#property_applicationURL" class="headerlink"><i class="fas fa-link"></i></a>
+        <a href="classes/chillerlan-OAuth-Providers-Steam.html#property_applicationURL" class="headerlink"><i class="fas fa-link"></i></a>
 
         <span class="phpdocumentor-element__modifiers">
                                 </span>
     </h4>
     <aside class="phpdocumentor-element-found-in">
-    <abbr class="phpdocumentor-element-found-in__file" title="src/Providers/SteamOpenID.php"><a href="files/src-providers-steamopenid.html"><abbr title="src/Providers/SteamOpenID.php">SteamOpenID.php</abbr></a></abbr>
+    <abbr class="phpdocumentor-element-found-in__file" title="src/Providers/Steam.php"><a href="files/src-providers-steam.html"><abbr title="src/Providers/Steam.php">Steam.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">32</span>
+    <span class="phpdocumentor-element-found-in__line">34</span>
 
     </aside>
 
@@ -742,15 +776,15 @@ anything except host and path will be ignored, scheme will always be set to &quo
 >
     <h4 class="phpdocumentor-element__name" id="property_authorizationURL">
         $authorizationURL
-        <a href="classes/chillerlan-OAuth-Providers-SteamOpenID.html#property_authorizationURL" class="headerlink"><i class="fas fa-link"></i></a>
+        <a href="classes/chillerlan-OAuth-Providers-Steam.html#property_authorizationURL" class="headerlink"><i class="fas fa-link"></i></a>
 
         <span class="phpdocumentor-element__modifiers">
                                 </span>
     </h4>
     <aside class="phpdocumentor-element-found-in">
-    <abbr class="phpdocumentor-element-found-in__file" title="src/Providers/SteamOpenID.php"><a href="files/src-providers-steamopenid.html"><abbr title="src/Providers/SteamOpenID.php">SteamOpenID.php</abbr></a></abbr>
+    <abbr class="phpdocumentor-element-found-in__file" title="src/Providers/Steam.php"><a href="files/src-providers-steam.html"><abbr title="src/Providers/Steam.php">Steam.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">29</span>
+    <span class="phpdocumentor-element-found-in__line">31</span>
 
     </aside>
 
@@ -1120,7 +1154,7 @@ anything except host and path will be ignored, scheme will always be set to &quo
             <section class="phpdocumentor-methods">
         <h3 class="phpdocumentor-elements__header" id="methods">
             Methods
-            <a href="classes/chillerlan-OAuth-Providers-SteamOpenID.html#methods" class="headerlink"><i class="fas fa-link"></i></a>
+            <a href="classes/chillerlan-OAuth-Providers-Steam.html#methods" class="headerlink"><i class="fas fa-link"></i></a>
 
         </h3>
                     <article
@@ -1261,13 +1295,13 @@ anything except host and path will be ignored, scheme will always be set to &quo
 >
     <h4 class="phpdocumentor-element__name" id="method_getAccessToken">
         getAccessToken()
-        <a href="classes/chillerlan-OAuth-Providers-SteamOpenID.html#method_getAccessToken" class="headerlink"><i class="fas fa-link"></i></a>
+        <a href="classes/chillerlan-OAuth-Providers-Steam.html#method_getAccessToken" class="headerlink"><i class="fas fa-link"></i></a>
 
     </h4>
     <aside class="phpdocumentor-element-found-in">
-    <abbr class="phpdocumentor-element-found-in__file" title="src/Providers/SteamOpenID.php"><a href="files/src-providers-steamopenid.html"><abbr title="src/Providers/SteamOpenID.php">SteamOpenID.php</abbr></a></abbr>
+    <abbr class="phpdocumentor-element-found-in__file" title="src/Providers/Steam.php"><a href="files/src-providers-steam.html"><abbr title="src/Providers/Steam.php">Steam.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">57</span>
+    <span class="phpdocumentor-element-found-in__line">59</span>
 
     </aside>
 
@@ -1363,13 +1397,13 @@ anything except host and path will be ignored, scheme will always be set to &quo
 >
     <h4 class="phpdocumentor-element__name" id="method_getAuthorizationURL">
         getAuthorizationURL()
-        <a href="classes/chillerlan-OAuth-Providers-SteamOpenID.html#method_getAuthorizationURL" class="headerlink"><i class="fas fa-link"></i></a>
+        <a href="classes/chillerlan-OAuth-Providers-Steam.html#method_getAuthorizationURL" class="headerlink"><i class="fas fa-link"></i></a>
 
     </h4>
     <aside class="phpdocumentor-element-found-in">
-    <abbr class="phpdocumentor-element-found-in__file" title="src/Providers/SteamOpenID.php"><a href="files/src-providers-steamopenid.html"><abbr title="src/Providers/SteamOpenID.php">SteamOpenID.php</abbr></a></abbr>
+    <abbr class="phpdocumentor-element-found-in__file" title="src/Providers/Steam.php"><a href="files/src-providers-steam.html"><abbr title="src/Providers/Steam.php">Steam.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">40</span>
+    <span class="phpdocumentor-element-found-in__line">42</span>
 
     </aside>
 
@@ -1403,7 +1437,7 @@ anything except host and path will be ignored, scheme will always be set to &quo
     
     <h5 class="phpdocumentor-tag-list__heading" id="tags">
         Tags
-        <a href="classes/chillerlan-OAuth-Providers-SteamOpenID.html#method_getAuthorizationURL#tags" class="headerlink"><i class="fas fa-link"></i></a>
+        <a href="classes/chillerlan-OAuth-Providers-Steam.html#method_getAuthorizationURL#tags" class="headerlink"><i class="fas fa-link"></i></a>
 
     </h5>
     <dl class="phpdocumentor-tag-list">
@@ -1430,13 +1464,13 @@ anything except host and path will be ignored, scheme will always be set to &quo
 >
     <h4 class="phpdocumentor-element__name" id="method_getRequestAuthorization">
         getRequestAuthorization()
-        <a href="classes/chillerlan-OAuth-Providers-SteamOpenID.html#method_getRequestAuthorization" class="headerlink"><i class="fas fa-link"></i></a>
+        <a href="classes/chillerlan-OAuth-Providers-Steam.html#method_getRequestAuthorization" class="headerlink"><i class="fas fa-link"></i></a>
 
     </h4>
     <aside class="phpdocumentor-element-found-in">
-    <abbr class="phpdocumentor-element-found-in__file" title="src/Providers/SteamOpenID.php"><a href="files/src-providers-steamopenid.html"><abbr title="src/Providers/SteamOpenID.php">SteamOpenID.php</abbr></a></abbr>
+    <abbr class="phpdocumentor-element-found-in__file" title="src/Providers/Steam.php"><a href="files/src-providers-steam.html"><abbr title="src/Providers/Steam.php">Steam.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">117</span>
+    <span class="phpdocumentor-element-found-in__line">119</span>
 
     </aside>
 
@@ -1615,13 +1649,13 @@ anything except host and path will be ignored, scheme will always be set to &quo
 >
     <h4 class="phpdocumentor-element__name" id="method_me">
         me()
-        <a href="classes/chillerlan-OAuth-Providers-SteamOpenID.html#method_me" class="headerlink"><i class="fas fa-link"></i></a>
+        <a href="classes/chillerlan-OAuth-Providers-Steam.html#method_me" class="headerlink"><i class="fas fa-link"></i></a>
 
     </h4>
     <aside class="phpdocumentor-element-found-in">
-    <abbr class="phpdocumentor-element-found-in__file" title="src/Providers/SteamOpenID.php"><a href="files/src-providers-steamopenid.html"><abbr title="src/Providers/SteamOpenID.php">SteamOpenID.php</abbr></a></abbr>
+    <abbr class="phpdocumentor-element-found-in__file" title="src/Providers/Steam.php"><a href="files/src-providers-steam.html"><abbr title="src/Providers/Steam.php">Steam.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">127</span>
+    <span class="phpdocumentor-element-found-in__line">129</span>
 
     </aside>
 
@@ -1638,7 +1672,7 @@ anything except host and path will be ignored, scheme will always be set to &quo
     
     <h5 class="phpdocumentor-tag-list__heading" id="tags">
         Tags
-        <a href="classes/chillerlan-OAuth-Providers-SteamOpenID.html#method_me#tags" class="headerlink"><i class="fas fa-link"></i></a>
+        <a href="classes/chillerlan-OAuth-Providers-Steam.html#method_me#tags" class="headerlink"><i class="fas fa-link"></i></a>
 
     </h5>
     <dl class="phpdocumentor-tag-list">
@@ -2857,13 +2891,13 @@ anything except host and path will be ignored, scheme will always be set to &quo
 >
     <h4 class="phpdocumentor-element__name" id="method_parseTokenResponse">
         parseTokenResponse()
-        <a href="classes/chillerlan-OAuth-Providers-SteamOpenID.html#method_parseTokenResponse" class="headerlink"><i class="fas fa-link"></i></a>
+        <a href="classes/chillerlan-OAuth-Providers-Steam.html#method_parseTokenResponse" class="headerlink"><i class="fas fa-link"></i></a>
 
     </h4>
     <aside class="phpdocumentor-element-found-in">
-    <abbr class="phpdocumentor-element-found-in__file" title="src/Providers/SteamOpenID.php"><a href="files/src-providers-steamopenid.html"><abbr title="src/Providers/SteamOpenID.php">SteamOpenID.php</abbr></a></abbr>
+    <abbr class="phpdocumentor-element-found-in__file" title="src/Providers/Steam.php"><a href="files/src-providers-steam.html"><abbr title="src/Providers/Steam.php">Steam.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">94</span>
+    <span class="phpdocumentor-element-found-in__line">96</span>
 
     </aside>
 
@@ -2889,7 +2923,7 @@ anything except host and path will be ignored, scheme will always be set to &quo
     
     <h5 class="phpdocumentor-tag-list__heading" id="tags">
         Tags
-        <a href="classes/chillerlan-OAuth-Providers-SteamOpenID.html#method_parseTokenResponse#tags" class="headerlink"><i class="fas fa-link"></i></a>
+        <a href="classes/chillerlan-OAuth-Providers-Steam.html#method_parseTokenResponse#tags" class="headerlink"><i class="fas fa-link"></i></a>
 
     </h5>
     <dl class="phpdocumentor-tag-list">
@@ -3036,7 +3070,7 @@ anything except host and path will be ignored, scheme will always be set to &quo
     <div class="phpdocumentor-modal-bg" data-exit-button></div>
     <div class="phpdocumentor-modal-container">
         <div class="phpdocumentor-modal-content">
-            <pre style="max-height: 500px; overflow-y: scroll" data-src="files/src/Providers/SteamOpenID.php.txt" class="language-php line-numbers linkable-line-numbers"></pre>
+            <pre style="max-height: 500px; overflow-y: scroll" data-src="files/src/Providers/Steam.php.txt" class="language-php line-numbers linkable-line-numbers"></pre>
         </div>
         <button data-exit-button class="phpdocumentor-modal__close">&times;</button>
     </div>
@@ -3135,14 +3169,15 @@ anything except host and path will be ignored, scheme will always be set to &quo
             <li class="phpdocumentor-on-this-page-section__title">Table Of Contents</li>
             <li>
                 <ul class="phpdocumentor-list -clean">
-                                        <li><a href="classes/chillerlan-OAuth-Providers-SteamOpenID.html#toc-constants">Constants</a></li>
-                                                            <li><a href="classes/chillerlan-OAuth-Providers-SteamOpenID.html#toc-properties">Properties</a></li>
-                                                            <li><a href="classes/chillerlan-OAuth-Providers-SteamOpenID.html#toc-methods">Methods</a></li>
+                                        <li><a href="classes/chillerlan-OAuth-Providers-Steam.html#toc-constants">Constants</a></li>
+                                                            <li><a href="classes/chillerlan-OAuth-Providers-Steam.html#toc-properties">Properties</a></li>
+                                                            <li><a href="classes/chillerlan-OAuth-Providers-Steam.html#toc-methods">Methods</a></li>
                                     </ul>
             </li>
                             <li class="phpdocumentor-on-this-page-section__title">Constants</li>
                 <li>
                     <ul class="phpdocumentor-list -clean">
+                                                    <li><a href="classes/chillerlan-OAuth-Providers-Steam.html#constant_IDENTIFIER">IDENTIFIER</a></li>
                                                     <li><a href="classes/chillerlan-OAuth-Core-OAuthProvider.html#constant_MAGIC_PROPERTIES">MAGIC_PROPERTIES</a></li>
                                             </ul>
                 </li>
@@ -3150,21 +3185,21 @@ anything except host and path will be ignored, scheme will always be set to &quo
                             <li class="phpdocumentor-on-this-page-section__title">Properties</li>
                 <li>
                     <ul class="phpdocumentor-list -clean">
-                                                    <li><a href="classes/chillerlan-OAuth-Providers-SteamOpenID.html#property_accessTokenURL">$accessTokenURL<a href="classes/chillerlan-OAuth-Providers-SteamOpenID.html"></li>
-                                                    <li><a href="classes/chillerlan-OAuth-Providers-SteamOpenID.html#property_apiDocs">$apiDocs<a href="classes/chillerlan-OAuth-Providers-SteamOpenID.html"></li>
-                                                    <li><a href="classes/chillerlan-OAuth-Providers-SteamOpenID.html#property_apiURL">$apiURL<a href="classes/chillerlan-OAuth-Providers-SteamOpenID.html"></li>
-                                                    <li><a href="classes/chillerlan-OAuth-Providers-SteamOpenID.html#property_applicationURL">$applicationURL<a href="classes/chillerlan-OAuth-Providers-SteamOpenID.html"></li>
-                                                    <li><a href="classes/chillerlan-OAuth-Providers-SteamOpenID.html#property_authorizationURL">$authorizationURL<a href="classes/chillerlan-OAuth-Providers-SteamOpenID.html"></li>
-                                                    <li><a href="classes/chillerlan-OAuth-Core-OAuthProvider.html#property_http">$http<a href="classes/chillerlan-OAuth-Providers-SteamOpenID.html"></li>
-                                                    <li><a href="classes/chillerlan-OAuth-Core-OAuthProvider.html#property_logger">$logger<a href="classes/chillerlan-OAuth-Providers-SteamOpenID.html"></li>
-                                                    <li><a href="classes/chillerlan-OAuth-Core-OAuthProvider.html#property_name">$name<a href="classes/chillerlan-OAuth-Providers-SteamOpenID.html"></li>
-                                                    <li><a href="classes/chillerlan-OAuth-Core-OAuthProvider.html#property_options">$options<a href="classes/chillerlan-OAuth-Providers-SteamOpenID.html"></li>
-                                                    <li><a href="classes/chillerlan-OAuth-Core-OAuthProvider.html#property_requestFactory">$requestFactory<a href="classes/chillerlan-OAuth-Providers-SteamOpenID.html"></li>
-                                                    <li><a href="classes/chillerlan-OAuth-Core-OAuthProvider.html#property_revokeURL">$revokeURL<a href="classes/chillerlan-OAuth-Providers-SteamOpenID.html"></li>
-                                                    <li><a href="classes/chillerlan-OAuth-Core-OAuthProvider.html#property_storage">$storage<a href="classes/chillerlan-OAuth-Providers-SteamOpenID.html"></li>
-                                                    <li><a href="classes/chillerlan-OAuth-Core-OAuthProvider.html#property_streamFactory">$streamFactory<a href="classes/chillerlan-OAuth-Providers-SteamOpenID.html"></li>
-                                                    <li><a href="classes/chillerlan-OAuth-Core-OAuthProvider.html#property_uriFactory">$uriFactory<a href="classes/chillerlan-OAuth-Providers-SteamOpenID.html"></li>
-                                                    <li><a href="classes/chillerlan-OAuth-Core-OAuthProvider.html#property_userRevokeURL">$userRevokeURL<a href="classes/chillerlan-OAuth-Providers-SteamOpenID.html"></li>
+                                                    <li><a href="classes/chillerlan-OAuth-Providers-Steam.html#property_accessTokenURL">$accessTokenURL<a href="classes/chillerlan-OAuth-Providers-Steam.html"></li>
+                                                    <li><a href="classes/chillerlan-OAuth-Providers-Steam.html#property_apiDocs">$apiDocs<a href="classes/chillerlan-OAuth-Providers-Steam.html"></li>
+                                                    <li><a href="classes/chillerlan-OAuth-Providers-Steam.html#property_apiURL">$apiURL<a href="classes/chillerlan-OAuth-Providers-Steam.html"></li>
+                                                    <li><a href="classes/chillerlan-OAuth-Providers-Steam.html#property_applicationURL">$applicationURL<a href="classes/chillerlan-OAuth-Providers-Steam.html"></li>
+                                                    <li><a href="classes/chillerlan-OAuth-Providers-Steam.html#property_authorizationURL">$authorizationURL<a href="classes/chillerlan-OAuth-Providers-Steam.html"></li>
+                                                    <li><a href="classes/chillerlan-OAuth-Core-OAuthProvider.html#property_http">$http<a href="classes/chillerlan-OAuth-Providers-Steam.html"></li>
+                                                    <li><a href="classes/chillerlan-OAuth-Core-OAuthProvider.html#property_logger">$logger<a href="classes/chillerlan-OAuth-Providers-Steam.html"></li>
+                                                    <li><a href="classes/chillerlan-OAuth-Core-OAuthProvider.html#property_name">$name<a href="classes/chillerlan-OAuth-Providers-Steam.html"></li>
+                                                    <li><a href="classes/chillerlan-OAuth-Core-OAuthProvider.html#property_options">$options<a href="classes/chillerlan-OAuth-Providers-Steam.html"></li>
+                                                    <li><a href="classes/chillerlan-OAuth-Core-OAuthProvider.html#property_requestFactory">$requestFactory<a href="classes/chillerlan-OAuth-Providers-Steam.html"></li>
+                                                    <li><a href="classes/chillerlan-OAuth-Core-OAuthProvider.html#property_revokeURL">$revokeURL<a href="classes/chillerlan-OAuth-Providers-Steam.html"></li>
+                                                    <li><a href="classes/chillerlan-OAuth-Core-OAuthProvider.html#property_storage">$storage<a href="classes/chillerlan-OAuth-Providers-Steam.html"></li>
+                                                    <li><a href="classes/chillerlan-OAuth-Core-OAuthProvider.html#property_streamFactory">$streamFactory<a href="classes/chillerlan-OAuth-Providers-Steam.html"></li>
+                                                    <li><a href="classes/chillerlan-OAuth-Core-OAuthProvider.html#property_uriFactory">$uriFactory<a href="classes/chillerlan-OAuth-Providers-Steam.html"></li>
+                                                    <li><a href="classes/chillerlan-OAuth-Core-OAuthProvider.html#property_userRevokeURL">$userRevokeURL<a href="classes/chillerlan-OAuth-Providers-Steam.html"></li>
                                             </ul>
                 </li>
             
@@ -3173,13 +3208,13 @@ anything except host and path will be ignored, scheme will always be set to &quo
                 <ul class="phpdocumentor-list -clean">
                                             <li><a href="classes/chillerlan-OAuth-Core-OAuthProvider.html#method___construct">__construct()</a></li>
                                             <li><a href="classes/chillerlan-OAuth-Core-OAuthProvider.html#method___get">__get()</a></li>
-                                            <li><a href="classes/chillerlan-OAuth-Providers-SteamOpenID.html#method_getAccessToken">getAccessToken()</a></li>
+                                            <li><a href="classes/chillerlan-OAuth-Providers-Steam.html#method_getAccessToken">getAccessToken()</a></li>
                                             <li><a href="classes/chillerlan-OAuth-Core-OAuthProvider.html#method_getAccessTokenFromStorage">getAccessTokenFromStorage()</a></li>
-                                            <li><a href="classes/chillerlan-OAuth-Providers-SteamOpenID.html#method_getAuthorizationURL">getAuthorizationURL()</a></li>
-                                            <li><a href="classes/chillerlan-OAuth-Providers-SteamOpenID.html#method_getRequestAuthorization">getRequestAuthorization()</a></li>
+                                            <li><a href="classes/chillerlan-OAuth-Providers-Steam.html#method_getAuthorizationURL">getAuthorizationURL()</a></li>
+                                            <li><a href="classes/chillerlan-OAuth-Providers-Steam.html#method_getRequestAuthorization">getRequestAuthorization()</a></li>
                                             <li><a href="classes/chillerlan-OAuth-Core-OAuthProvider.html#method_getStorage">getStorage()</a></li>
                                             <li><a href="classes/chillerlan-OAuth-Core-OAuthProvider.html#method_InvalidateAccessToken">InvalidateAccessToken()</a></li>
-                                            <li><a href="classes/chillerlan-OAuth-Providers-SteamOpenID.html#method_me">me()</a></li>
+                                            <li><a href="classes/chillerlan-OAuth-Providers-Steam.html#method_me">me()</a></li>
                                             <li><a href="classes/chillerlan-OAuth-Core-OAuthProvider.html#method_request">request()</a></li>
                                             <li><a href="classes/chillerlan-OAuth-Core-OAuthProvider.html#method_sendRequest">sendRequest()</a></li>
                                             <li><a href="classes/chillerlan-OAuth-Core-OAuthProvider.html#method_setLogger">setLogger()</a></li>
@@ -3199,7 +3234,7 @@ anything except host and path will be ignored, scheme will always be set to &quo
                                             <li><a href="classes/chillerlan-OAuth-Core-OAuthProvider.html#method_getRequestURL">getRequestURL()</a></li>
                                             <li><a href="classes/chillerlan-OAuth-Core-OAuthProvider.html#method_handleMeResponseError">handleMeResponseError()</a></li>
                                             <li><a href="classes/chillerlan-OAuth-Core-OAuthProvider.html#method_nonce">nonce()</a></li>
-                                            <li><a href="classes/chillerlan-OAuth-Providers-SteamOpenID.html#method_parseTokenResponse">parseTokenResponse()</a></li>
+                                            <li><a href="classes/chillerlan-OAuth-Providers-Steam.html#method_parseTokenResponse">parseTokenResponse()</a></li>
                                             <li><a href="classes/chillerlan-OAuth-Core-OAuthProvider.html#method_sendMeRequest">sendMeRequest()</a></li>
                                             <li><a href="classes/chillerlan-OAuth-Core-OAuthProvider.html#method_setRequestBody">setRequestBody()</a></li>
                                     </ul>
@@ -3221,7 +3256,7 @@ anything except host and path will be ignored, scheme will always be set to &quo
     </section>
 </section>
         </div>
-        <a href="classes/chillerlan-OAuth-Providers-SteamOpenID.html#top" class="phpdocumentor-back-to-top"><i class="fas fa-chevron-circle-up"></i></a>
+        <a href="classes/chillerlan-OAuth-Providers-Steam.html#top" class="phpdocumentor-back-to-top"><i class="fas fa-chevron-circle-up"></i></a>
 
     </main>
 

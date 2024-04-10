@@ -96,7 +96,7 @@ fully [PSR-7](https://www.php-fig.org/psr/psr-7/)/[PSR-17](https://www.php-fig.o
 - **CC**: indicates that the provider supports the [Client Credentials Grant](https://datatracker.ietf.org/doc/html/rfc6749#section-4.4) (implements the `ClientCredentials` interface)
 - **TR**: indicates that the provider is capable of [refreshing an access token](https://datatracker.ietf.org/doc/html/rfc6749#section-10.4) (implements the `TokenRefresh` interface)
 - **TI**: indicates that the provider is capable of revoking/invalidating an access token (implements the `TokenInvalidate` interface)
-<!-- TABLE_END -->
+<!-- TABLE-END -->
 
 ## Shameless advertising
 

@@ -22,7 +22,7 @@ require_once __DIR__.'/provider-example-common.php';
 
 const FILES         = [__DIR__.'/../README.md', __DIR__.'/../docs/Basics/Overview.md'];
 const REPLACE_START = '<!-- TABLE-START -->';
-const REPLACE_END   = '<!-- TABLE_END -->';
+const REPLACE_END   = '<!-- TABLE-END -->';
 
 $table = [
 	'<!-- this table is auto-created via /examples/create-description.php -->',

@@ -88,7 +88,7 @@ class OAuthExampleProviderFactory{
 	):OAuthInterface|OAuth1Interface|OAuth2Interface{
 		$options = new OAuthOptions;
 		/** @param \chillerlan\OAuth\Core\OAuthInterface $providerFQN */
-		$options->key              = ($this->getEnvVar($providerFQN::IIDENTIFIER.'_KEY') ?? '');
+		$options->key              = ($this->getEnvVar($providerFQN::IDENTIFIER.'_KEY') ?? '');
 		$options->secret           = ($this->getEnvVar($providerFQN::IDENTIFIER.'_SECRET') ?? '');
 		$options->callbackURL      = ($this->getEnvVar($providerFQN::IDENTIFIER.'_CALLBACK_URL') ?? '');
 		$options->tokenAutoRefresh = true;

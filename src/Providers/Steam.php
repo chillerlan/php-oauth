@@ -1,6 +1,6 @@
 <?php
 /**
- * Class SteamOpenID
+ * Class Steam
  *
  * @created      15.03.2021
  * @author       smiley <smiley@chillerlan.net>
@@ -24,9 +24,9 @@ use function explode, intval, preg_replace;
  * @see https://partner.steamgames.com/doc/webapi_overview
  * @see https://steamwebapi.azurewebsites.net/
  */
-class SteamOpenID extends OAuthProvider implements UserInfo{
+class Steam extends OAuthProvider implements UserInfo{
 
-	public const IDENTIFIER = 'STEAMOPENID';
+	public const IDENTIFIER = 'STEAM';
 
 	protected string      $authorizationURL = 'https://steamcommunity.com/openid/login';
 	protected string      $accessTokenURL   = 'https://steamcommunity.com/openid/login';

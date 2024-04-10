@@ -1,6 +1,6 @@
 <?php
 /**
- * Class SteamOpenIDAPITest
+ * Class SteamAPITest
  *
  * @created      15.03.2021
  * @author       smiley <smiley@chillerlan.net>
@@ -12,19 +12,19 @@ declare(strict_types=1);
 namespace chillerlan\OAuthTest\Providers\Live;
 
 use chillerlan\OAuth\Core\AuthenticatedUser;
-use chillerlan\OAuth\Providers\SteamOpenID;
+use chillerlan\OAuth\Providers\Steam;
 use PHPUnit\Framework\Attributes\Group;
 
 /**
- * @property \chillerlan\OAuth\Providers\SteamOpenID $provider
+ * @property \chillerlan\OAuth\Providers\Steam $provider
  */
 #[Group('providerLiveTest')]
-final class SteamOpenIDAPITest extends OAuthProviderLiveTestAbstract{
+final class SteamAPITest extends OAuthProviderLiveTestAbstract{
 
 	protected int $id;
 
 	protected function getProviderFQCN():string{
-		return SteamOpenID::class;
+		return Steam::class;
 	}
 
 	protected function setUp():void{
@@ -40,7 +40,6 @@ final class SteamOpenIDAPITest extends OAuthProviderLiveTestAbstract{
 	}
 
 	protected function assertMeResponse(AuthenticatedUser $user):void{
-		var_dump($user);
 		$this::assertSame((int)$this->TEST_USER, $user->id);
 	}
 

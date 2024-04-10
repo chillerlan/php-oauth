@@ -9,16 +9,15 @@
  */
 declare(strict_types=1);
 
-use chillerlan\HTTP\Utils\MessageUtil;
-use chillerlan\OAuth\Providers\SteamOpenID;
+use chillerlan\OAuth\Providers\Steam;
 
 require_once __DIR__.'/../provider-example-common.php';
 
 /**
- * @var \OAuthExampleProviderFactory            $factory
- * @var \chillerlan\OAuth\Providers\SteamOpenID $provider
+ * @var \OAuthExampleProviderFactory      $factory
+ * @var \chillerlan\OAuth\Providers\Steam $provider
  */
-$provider = $factory->getProvider(SteamOpenID::class);
+$provider = $factory->getProvider(Steam::class);
 $name     = $provider->name;
 
 // step 2: redirect to the provider's login screen
@@ -27,7 +26,7 @@ if(isset($_GET['login']) && $_GET['login'] === $name){
 }
 // step 3: receive the access token
 elseif(isset($_GET['openid_sig']) && isset($_GET['openid_signed'])){
-	// the SteamOpenID provider takes the whole $_GET array as it uses multiple of the query parameters
+	// the Steam provider takes the whole $_GET array as it uses multiple of the query parameters
 	$token = $provider->getAccessToken($_GET);
 
 	// save the token [...]
@@ -45,9 +44,8 @@ elseif(isset($_GET['granted']) && $_GET['granted'] === $name){
 	// use the file storage from now on
 	$provider->setStorage($factory->getFileStorage());
 
+	$data      = $provider->me();
 	$token     = $provider->getAccessTokenFromStorage(); // the user's steamid is stored as access token
-	$response  = $provider->request('/ISteamUser/GetPlayerSummaries/v2', ['steamids' => $token->accessToken]);
-	$data      = print_r(MessageUtil::decodeJSON($response), true);
 	$tokenJSON = $token->toJSON();
 
 	printf('<pre>%s</pre><textarea cols="120" rows="5" onclick="this.select();">%s</textarea>', $data, $tokenJSON);

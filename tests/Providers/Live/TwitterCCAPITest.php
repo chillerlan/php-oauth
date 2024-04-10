@@ -24,10 +24,6 @@ final class TwitterCCAPITest extends OAuth2ProviderLiveTestAbstract{
 		return TwitterCC::class;
 	}
 
-	protected function getEnvPrefix():string{
-		return 'TWITTER';
-	}
-
 	public function testUnauthorizedAccessException():void{
 		$this::markTestSkipped('N/A');
 	}

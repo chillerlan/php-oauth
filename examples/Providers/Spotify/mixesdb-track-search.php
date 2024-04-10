@@ -15,7 +15,6 @@ declare(strict_types=1);
 /**
  * @var \OAuthExampleProviderFactory        $factory
  * @var \chillerlan\OAuth\Providers\Spotify $spotify
- * @var string                              $ENVVAR
  */
 require_once __DIR__.'/spotify-common.php';
 require_once __DIR__.'/MixesDBTrackSearch.php';
@@ -31,7 +30,7 @@ if(!file_exists($file)){
 	include __DIR__.'/mixesdb-scrape.php';
 }
 
-$spotify = $factory->getProvider(MixesDBTrackSearch::class, $ENVVAR, OAuthExampleProviderFactory::STORAGE_FILE);
+$spotify = $factory->getProvider(MixesDBTrackSearch::class, OAuthExampleProviderFactory::STORAGE_FILE);
 $spotify->getTracks($file, $since, $until, $find, $limit, $playlistPerSet);
 
 exit;

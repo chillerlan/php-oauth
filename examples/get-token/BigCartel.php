@@ -11,12 +11,10 @@ declare(strict_types=1);
 
 use chillerlan\OAuth\Providers\BigCartel;
 
-$ENVVAR ??= 'BIGCARTEL';
-
 require_once __DIR__.'/../provider-example-common.php';
 
 /** @var \OAuthExampleProviderFactory $factory */
-$provider = $factory->getProvider(BigCartel::class, $ENVVAR);
+$provider = $factory->getProvider(BigCartel::class);
 
 /*
  * The BigCartel AccessToken instance holds additional values:

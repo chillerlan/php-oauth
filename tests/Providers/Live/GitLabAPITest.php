@@ -25,8 +25,4 @@ final class GitLabAPITest extends OAuth2ProviderLiveTestAbstract{
 		return GitLab::class;
 	}
 
-	protected function getEnvPrefix():string{
-		return 'GITLAB';
-	}
-
 }

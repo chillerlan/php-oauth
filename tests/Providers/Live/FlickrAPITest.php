@@ -27,8 +27,4 @@ final class FlickrAPITest extends OAuth1ProviderLiveTestAbstract{
 		return Flickr::class;
 	}
 
-	protected function getEnvPrefix():string{
-		return 'FLICKR';
-	}
-
 }

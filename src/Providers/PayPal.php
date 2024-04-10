@@ -22,6 +22,8 @@ use chillerlan\OAuth\Core\{AuthenticatedUser, ClientCredentials, CSRFToken, OAut
  */
 class PayPal extends OAuth2Provider implements ClientCredentials, CSRFToken, TokenRefresh, UserInfo{
 
+	public const IDENTIFIER = 'PAYPAL';
+
 	public const SCOPE_BASIC_AUTH     = 'openid';
 	public const SCOPE_FULL_NAME      = 'profile';
 	public const SCOPE_EMAIL          = 'email';

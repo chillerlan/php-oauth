@@ -26,10 +26,6 @@ final class MusicBrainzAPITest extends OAuth2ProviderLiveTestAbstract{
 		return MusicBrainz::class;
 	}
 
-	protected function getEnvPrefix():string{
-		return 'MUSICBRAINZ';
-	}
-
 	public function testArtistId():void{
 		try{
 			$response = $this->provider->request(

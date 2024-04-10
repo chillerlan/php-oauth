@@ -24,8 +24,4 @@ final class BitbucketAPITest extends OAuth2ProviderLiveTestAbstract{
 		return Bitbucket::class;
 	}
 
-	protected function getEnvPrefix():string{
-		return 'BITBUCKET';
-	}
-
 }

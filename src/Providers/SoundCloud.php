@@ -22,6 +22,8 @@ use chillerlan\OAuth\Core\{AuthenticatedUser, ClientCredentials, OAuth2Provider,
  */
 class SoundCloud extends OAuth2Provider implements ClientCredentials, TokenRefresh, UserInfo{
 
+	public const IDENTIFIER = 'SOUNDCLOUD';
+
 	public const SCOPE_NONEXPIRING      = 'non-expiring';
 #	public const SCOPE_EMAIL            = 'email'; // ???
 

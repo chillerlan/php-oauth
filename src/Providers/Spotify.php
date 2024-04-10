@@ -24,6 +24,8 @@ use chillerlan\OAuth\Core\{AuthenticatedUser, ClientCredentials, CSRFToken, OAut
  */
 class Spotify extends OAuth2Provider implements ClientCredentials, CSRFToken, TokenRefresh, UserInfo{
 
+	public const IDENTIFIER = 'SPOTIFY';
+
 	/**
 	 * @see https://developer.spotify.com/documentation/web-api/concepts/scopes
 	 */

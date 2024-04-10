@@ -25,6 +25,8 @@ use function sprintf;
  */
 class Discord extends OAuth2Provider implements ClientCredentials, CSRFToken, TokenInvalidate, TokenRefresh, UserInfo{
 
+	public const IDENTIFIER = 'DISCORD';
+
 	public const SCOPE_APPLICATIONS_COMMANDS                    = 'applications.commands';
 	public const SCOPE_APPLICATIONS_COMMANDS_UPDATE             = 'applications.commands.update';
 	public const SCOPE_APPLICATIONS_COMMANDS_PERMISSIONS_UPDATE = 'applications.commands.permissions.update';

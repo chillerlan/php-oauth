@@ -27,6 +27,8 @@ use function in_array, strtoupper;
  */
 class MusicBrainz extends OAuth2Provider implements CSRFToken, TokenInvalidate, TokenRefresh, UserInfo{
 
+	public const IDENTIFIER = 'MUSICBRAINZ';
+
 	public const SCOPE_PROFILE        = 'profile';
 	public const SCOPE_EMAIL          = 'email';
 	public const SCOPE_TAG            = 'tag';

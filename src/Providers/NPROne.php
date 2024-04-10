@@ -24,6 +24,8 @@ use function in_array, sprintf, strtolower;
  */
 class NPROne extends OAuth2Provider implements CSRFToken, TokenRefresh, TokenInvalidate, UserInfo{
 
+	public const IDENTIFIER = 'NPRONE';
+
 	public const SCOPE_IDENTITY_READONLY  = 'identity.readonly';
 	public const SCOPE_IDENTITY_WRITE     = 'identity.write';
 	public const SCOPE_LISTENING_READONLY = 'listening.readonly';

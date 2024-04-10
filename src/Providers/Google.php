@@ -24,6 +24,8 @@ use chillerlan\OAuth\Core\{AuthenticatedUser, CSRFToken, OAuth2Provider, UserInf
  */
 class Google extends OAuth2Provider implements CSRFToken, UserInfo{
 
+	public const IDENTIFIER = 'GOOGLE';
+
 	public const SCOPE_EMAIL            = 'email';
 	public const SCOPE_PROFILE          = 'profile';
 	public const SCOPE_USERINFO_EMAIL   = 'https://www.googleapis.com/auth/userinfo.email';

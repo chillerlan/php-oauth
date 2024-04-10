@@ -26,6 +26,8 @@ use function array_merge;
  */
 class Mastodon extends OAuth2Provider implements CSRFToken, TokenRefresh, UserInfo{
 
+	public const IDENTIFIER = 'MASTODON';
+
 	public const SCOPE_READ   = 'read';
 	public const SCOPE_WRITE  = 'write';
 	public const SCOPE_FOLLOW = 'follow';

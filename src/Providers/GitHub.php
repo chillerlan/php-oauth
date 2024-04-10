@@ -24,6 +24,8 @@ use chillerlan\OAuth\Core\{AuthenticatedUser, CSRFToken, OAuth2Provider, TokenRe
  */
 class GitHub extends OAuth2Provider implements CSRFToken, TokenRefresh, UserInfo{
 
+	public const IDENTIFIER = 'GITHUB';
+
 	public const SCOPE_USER             = 'user';
 	public const SCOPE_USER_EMAIL       = 'user:email';
 	public const SCOPE_USER_FOLLOW      = 'user:follow';

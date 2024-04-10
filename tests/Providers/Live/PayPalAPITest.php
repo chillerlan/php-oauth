@@ -27,10 +27,6 @@ final class PayPalAPITest extends OAuth2ProviderLiveTestAbstract{
 		return PayPal::class;
 	}
 
-	protected function getEnvPrefix():string{
-		return 'PAYPAL'; // PAYPAL_SANDBOX
-	}
-
 	protected function assertMeResponse(AuthenticatedUser $user):void{
 		$this::assertSame($this->TEST_USER, $user->email);
 	}

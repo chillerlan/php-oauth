@@ -25,8 +25,4 @@ final class PatreonAPITest extends OAuth2ProviderLiveTestAbstract{
 		return Patreon::class;
 	}
 
-	protected function getEnvPrefix():string{
-		return 'PATREON';
-	}
-
 }

@@ -24,8 +24,4 @@ class PinterestAPITest extends OAuth2ProviderLiveTestAbstract{
 		return Pinterest::class;
 	}
 
-	protected function getEnvPrefix():string{
-		return 'PINTEREST';
-	}
-
 }

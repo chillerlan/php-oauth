@@ -25,8 +25,4 @@ final class DeezerAPITest extends OAuth2ProviderLiveTestAbstract{
 		return Deezer::class;
 	}
 
-	protected function getEnvPrefix():string{
-		return 'DEEZER';
-	}
-
 }

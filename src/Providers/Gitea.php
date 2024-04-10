@@ -21,6 +21,8 @@ use function sprintf;
  */
 class Gitea extends OAuth2Provider implements CSRFToken, PKCE, TokenRefresh, UserInfo{
 
+	public const IDENTIFIER = 'GITEA';
+
 	public const SCOPE_ACTIVITYPUB        = 'activitypub';
 	public const SCOPE_ACTIVITYPUB_READ   = 'read:activitypub';
 	public const SCOPE_ACTIVITYPUB_WRITE  = 'write:activitypub';

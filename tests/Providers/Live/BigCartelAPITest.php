@@ -24,8 +24,4 @@ final class BigCartelAPITest extends OAuth2ProviderLiveTestAbstract{
 		return BigCartel::class;
 	}
 
-	protected function getEnvPrefix():string{
-		return 'BIGCARTEL';
-	}
-
 }

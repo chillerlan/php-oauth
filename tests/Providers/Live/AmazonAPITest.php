@@ -26,10 +26,6 @@ final class AmazonAPITest extends OAuth2ProviderLiveTestAbstract{
 		return Amazon::class;
 	}
 
-	protected function getEnvPrefix():string{
-		return 'AMAZON';
-	}
-
 	protected function assertMeResponse(AuthenticatedUser $user):void{
 		$this::assertMatchesRegularExpression('/[a-z\d.]+/i', $user->id);
 	}

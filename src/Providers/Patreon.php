@@ -25,6 +25,8 @@ use function in_array;
  */
 class Patreon extends OAuth2Provider implements CSRFToken, TokenRefresh, UserInfo{
 
+	public const IDENTIFIER = 'PATREON';
+
 	public const SCOPE_V1_USERS                     = 'users';
 	public const SCOPE_V1_PLEDGES_TO_ME             = 'pledges-to-me';
 	public const SCOPE_V1_MY_CAMPAIGN               = 'my-campaign';

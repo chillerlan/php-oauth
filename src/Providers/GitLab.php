@@ -20,6 +20,8 @@ use chillerlan\OAuth\Core\{AuthenticatedUser, ClientCredentials, CSRFToken, OAut
  */
 class GitLab extends OAuth2Provider implements ClientCredentials, CSRFToken, TokenRefresh, UserInfo{
 
+	public const IDENTIFIER = 'GITLAB';
+
 	protected string      $authorizationURL = 'https://gitlab.com/oauth/authorize';
 	protected string      $accessTokenURL   = 'https://gitlab.com/oauth/token';
 	protected string      $apiURL           = 'https://gitlab.com/api';

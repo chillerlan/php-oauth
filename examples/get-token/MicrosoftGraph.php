@@ -11,12 +11,10 @@ declare(strict_types=1);
 
 use chillerlan\OAuth\Providers\MicrosoftGraph;
 
-$ENVVAR ??= 'MICROSOFT_AAD';
-
 require_once __DIR__.'/../provider-example-common.php';
 
 /** @var \OAuthExampleProviderFactory $factory */
-$provider = $factory->getProvider(MicrosoftGraph::class, $ENVVAR);
+$provider = $factory->getProvider(MicrosoftGraph::class);
 
 require_once __DIR__.'/_flow-oauth2.php';
 

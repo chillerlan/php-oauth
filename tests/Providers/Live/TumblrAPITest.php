@@ -24,10 +24,6 @@ final class TumblrAPITest extends OAuth1ProviderLiveTestAbstract{
 		return Tumblr::class;
 	}
 
-	protected function getEnvPrefix():string{
-		return 'TUMBLR';
-	}
-
 	public function testTokenExchange():void{
 		// only outcomment if wou want to deliberately invaildate your current token
 		$this::markTestSkipped('N/A - will invalidate the current token');

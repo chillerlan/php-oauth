@@ -45,16 +45,14 @@ abstract class ProviderLiveTestAbstract extends ProviderUnitTestAbstract{
 		parent::setUp();
 	}
 
-	/**
-	 * returns the prefix in the .env file for the current provider
-	 */
-	abstract protected function getEnvPrefix():string;
-
 	protected function initConfig():void{
 		parent::initConfig();
 
+		/** @var \chillerlan\OAuth\Core\OAuthInterface $providerFQCN */
+		$providerFQCN = $this->getProviderFQCN();
+
 		$this->dotEnv     = (new DotEnv($this->CFG_DIR, constant('TEST_ENVFILE'), false))->load();
-		$this->ENV_PREFIX = $this->getEnvPrefix();
+		$this->ENV_PREFIX = $providerFQCN::IDENTIFIER;
 		$this->TEST_USER  = (string)$this->dotEnv->get($this->ENV_PREFIX.'_TESTUSER');
 	}
 

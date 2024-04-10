@@ -21,6 +21,8 @@ use function implode;
  */
 class OpenCaching extends OAuth1Provider implements UserInfo{
 
+	public const IDENTIFIER = 'OPENCACHING';
+
 	protected const USER_FIELDS = [
 		'uuid', 'username', 'profile_url', 'internal_id', 'date_registered',
 		'caches_found', 'caches_notfound', 'caches_hidden', 'rcmds_given',

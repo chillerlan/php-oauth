@@ -25,6 +25,8 @@ use function array_merge, sprintf;
  */
 class MailChimp extends OAuth2Provider implements CSRFToken, UserInfo{
 
+	public const IDENTIFIER = 'MAILCHIMP';
+
 	protected const API_BASE          = 'https://%s.api.mailchimp.com';
 	protected const METADATA_ENDPOINT = 'https://login.mailchimp.com/oauth2/metadata';
 

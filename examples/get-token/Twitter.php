@@ -12,12 +12,10 @@ declare(strict_types=1);
 
 use chillerlan\OAuth\Providers\Twitter;
 
-$ENVVAR ??= 'TWITTER';
-
 require_once __DIR__.'/../provider-example-common.php';
 
 /** @var \OAuthExampleProviderFactory $factory */
-$provider = $factory->getProvider(Twitter::class, $ENVVAR);
+$provider = $factory->getProvider(Twitter::class);
 
 /*
  * The Twitter AccessToken instance holds additional values:

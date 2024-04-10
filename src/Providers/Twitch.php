@@ -31,6 +31,8 @@ use const PHP_QUERY_RFC1738;
  */
 class Twitch extends OAuth2Provider implements ClientCredentials, CSRFToken, TokenInvalidate, TokenRefresh, UserInfo{
 
+	public const IDENTIFIER = 'TWITCH';
+
 	public const SCOPE_ANALYTICS_READ_EXTENSIONS  = 'analytics:read:extensions';
 	public const SCOPE_ANALYTICS_READ_GAMES       = 'analytics:read:games';
 	public const SCOPE_BITS_READ                  = 'bits:read';

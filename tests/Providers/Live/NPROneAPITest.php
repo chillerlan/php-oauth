@@ -26,10 +26,6 @@ final class NPROneAPITest extends OAuth2ProviderLiveTestAbstract{
 		return NPROne::class;
 	}
 
-	protected function getEnvPrefix():string{
-		return 'NPRONE';
-	}
-
 	protected function assertMeResponse(AuthenticatedUser $user):void{
 		$this::assertSame($this->TEST_USER, $user->email);
 	}

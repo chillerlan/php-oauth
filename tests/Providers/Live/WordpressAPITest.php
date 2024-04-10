@@ -24,8 +24,4 @@ final class WordpressAPITest extends OAuth2ProviderLiveTestAbstract{
 		return WordPress::class;
 	}
 
-	protected function getEnvPrefix():string{
-		return 'WORDPRESS';
-	}
-
 }

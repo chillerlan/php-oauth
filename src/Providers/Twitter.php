@@ -23,6 +23,8 @@ use function sprintf, str_replace;
  */
 class Twitter extends OAuth1Provider implements UserInfo{
 
+	public const IDENTIFIER = 'TWITTER';
+
 	// choose your fighter
 	/** @see https://developer.twitter.com/en/docs/basics/authentication/api-reference/authorize */
 	protected string $authorizationURL     = 'https://api.twitter.com/oauth/authorize';

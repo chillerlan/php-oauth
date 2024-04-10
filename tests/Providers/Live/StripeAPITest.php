@@ -25,10 +25,6 @@ final class StripeAPITest extends OAuth2ProviderLiveTestAbstract{
 		return Stripe::class;
 	}
 
-	protected function getEnvPrefix():string{
-		return 'STRIPE';
-	}
-
 	protected function assertMeResponse(AuthenticatedUser $user):void{
 		$this::assertSame($this->TEST_USER, $user->id);
 	}

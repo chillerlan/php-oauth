@@ -16,7 +16,6 @@ declare(strict_types=1);
 /**
  * @var \OAuthExampleProviderFactory $factory
  * @var \SpotifyNewReleases          $spotify
- * @var string                       $ENVVAR
  */
 
 require_once __DIR__.'/spotify-common.php';
@@ -30,7 +29,7 @@ $skipVariousArtist = true;
 $fromCache         = false;
 $cacheDir          =  __DIR__.'/cache';
 
-$spotify = $factory->getProvider(SpotifyNewReleases::class, $ENVVAR, OAuthExampleProviderFactory::STORAGE_FILE);
+$spotify = $factory->getProvider(SpotifyNewReleases::class, OAuthExampleProviderFactory::STORAGE_FILE);
 $spotify->getNewReleases($since, $until, $minTracks, $skipVariousArtist, $skipAppearsOn, $fromCache, $cacheDir);
 
 /*

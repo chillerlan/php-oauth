@@ -29,10 +29,6 @@ final class GuildWars2APITest extends OAuth2ProviderLiveTestAbstract{
 		return GuildWars2::class;
 	}
 
-	protected function getEnvPrefix():string{
-		return '';
-	}
-
 	protected function setUp():void{
 		parent::setUp();
 

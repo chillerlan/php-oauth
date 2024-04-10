@@ -27,8 +27,4 @@ final class TwitterAPITest extends OAuth1ProviderLiveTestAbstract{
 		return Twitter::class;
 	}
 
-	protected function getEnvPrefix():string{
-		return 'TWITTER';
-	}
-
 }

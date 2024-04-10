@@ -27,6 +27,8 @@ use function str_replace;
  */
 class Vimeo extends OAuth2Provider implements ClientCredentials, CSRFToken, TokenInvalidate, UserInfo{
 
+	public const IDENTIFIER = 'VIMEO';
+
 	/**
 	 * @see https://developer.vimeo.com/api/authentication#understanding-the-auth-process
 	 */

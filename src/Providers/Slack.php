@@ -25,6 +25,8 @@ use function sprintf;
  */
 class Slack extends OAuth2Provider implements CSRFToken, UserInfo{
 
+	public const IDENTIFIER = 'SLACK';
+
 	// bot token
 	public const SCOPE_BOT                 = 'bot';
 

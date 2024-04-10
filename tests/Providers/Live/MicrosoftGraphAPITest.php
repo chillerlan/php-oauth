@@ -25,8 +25,4 @@ final class MicrosoftGraphAPITest extends OAuth2ProviderLiveTestAbstract{
 		return MicrosoftGraph::class;
 	}
 
-	protected function getEnvPrefix():string{
-		return 'MICROSOFT_AAD';
-	}
-
 }

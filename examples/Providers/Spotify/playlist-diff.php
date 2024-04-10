@@ -34,8 +34,7 @@ class PlaylistDiff extends SpotifyClient{
 /**
  * @var \OAuthExampleProviderFactory $factory
  * @var \PlaylistDiff                $spotify
- * @var string                       $ENVVAR
  */
 
-$spotify = $factory->getProvider(PlaylistDiff::class, $ENVVAR, OAuthExampleProviderFactory::STORAGE_FILE);
+$spotify = $factory->getProvider(PlaylistDiff::class, OAuthExampleProviderFactory::STORAGE_FILE);
 $spotify->diff('37i9dQZF1DX4UtSsGT1Sbe', '37i9dQZF1DXb57FjYWz00c', true);

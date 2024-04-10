@@ -24,8 +24,4 @@ final class GitHubAPITest extends OAuth2ProviderLiveTestAbstract{
 		return GitHub::class;
 	}
 
-	protected function getEnvPrefix():string{
-		return 'GITHUB';
-	}
-
 }

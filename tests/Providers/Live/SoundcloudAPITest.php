@@ -24,10 +24,6 @@ final class SoundcloudAPITest extends OAuth2ProviderLiveTestAbstract{
 		return SoundCloud::class;
 	}
 
-	protected function getEnvPrefix():string{
-		return 'SOUNDCLOUD';
-	}
-
 	public function testRequestCredentialsToken():void{
 		$this::markTestSkipped('may fail because SoundCloud deleted older applications');
 	}

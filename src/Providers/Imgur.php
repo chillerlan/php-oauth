@@ -24,6 +24,8 @@ use function sprintf, time;
  */
 class Imgur extends OAuth2Provider implements CSRFToken, TokenRefresh, UserInfo{
 
+	public const IDENTIFIER = 'IMGUR';
+
 	protected string      $authorizationURL = 'https://api.imgur.com/oauth2/authorize';
 	protected string      $accessTokenURL   = 'https://api.imgur.com/oauth2/token';
 	protected string      $apiURL           = 'https://api.imgur.com';

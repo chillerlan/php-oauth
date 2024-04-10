@@ -25,10 +25,6 @@ final class OpenStreetmap2APITest extends OAuth2ProviderLiveTestAbstract{
 		return OpenStreetmap2::class;
 	}
 
-	protected function getEnvPrefix():string{
-		return 'OPENSTREETMAP2';
-	}
-
 	protected function assertMeResponse(AuthenticatedUser $user):void{
 		$this::assertSame($this->TEST_USER, $user->displayName);
 	}

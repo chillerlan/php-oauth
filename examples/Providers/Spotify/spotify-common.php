@@ -13,10 +13,8 @@ namespace chillerlan\OAuthExamples\Providers\Spotify;
 
 use chillerlan\OAuth\Providers\Spotify;
 
-$ENVVAR = 'SPOTIFY';
-
 require_once __DIR__.'/../../provider-example-common.php';
 require_once __DIR__.'/SpotifyClient.php';
 
 /** @var \OAuthExampleProviderFactory $factory */
-$spotify = $factory->getProvider(Spotify::class, $ENVVAR, \OAuthExampleProviderFactory::STORAGE_FILE);
+$spotify = $factory->getProvider(Spotify::class, \OAuthExampleProviderFactory::STORAGE_FILE);

@@ -11,13 +11,12 @@ declare(strict_types=1);
 
 use chillerlan\OAuth\Providers\PayPal;
 
-$ENVVAR ??= 'PAYPAL'; // PAYPAL_SANDBOX
 $PARAMS ??= ['flowEntry' => 'static', 'fullPage' => 'true'];
 
 require_once __DIR__.'/../provider-example-common.php';
 
 /** @var \OAuthExampleProviderFactory $factory */
-$provider = $factory->getProvider(PayPal::class, $ENVVAR); // PayPalSandbox
+$provider = $factory->getProvider(PayPal::class); // PayPalSandbox
 
 require_once __DIR__.'/_flow-oauth2.php';
 

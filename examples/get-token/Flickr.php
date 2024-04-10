@@ -11,13 +11,12 @@ declare(strict_types=1);
 
 use chillerlan\OAuth\Providers\Flickr;
 
-$ENVVAR ??= 'FLICKR';
 $PARAMS ??= ['perms' => Flickr::PERM_DELETE];
 
 require_once __DIR__.'/../provider-example-common.php';
 
 /** @var \OAuthExampleProviderFactory $factory */
-$provider = $factory->getProvider(Flickr::class, $ENVVAR);
+$provider = $factory->getProvider(Flickr::class);
 
 /*
  * The Flickr AccessToken instance holds additional values:

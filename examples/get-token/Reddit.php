@@ -11,13 +11,12 @@ declare(strict_types=1);
 
 use chillerlan\OAuth\Providers\Reddit;
 
-$ENVVAR ??= 'REDDIT';
 $PARAMS ??= ['duration' => 'permanent'];
 
 require_once __DIR__.'/../provider-example-common.php';
 
 /** @var \OAuthExampleProviderFactory $factory */
-$provider = $factory->getProvider(Reddit::class, $ENVVAR);
+$provider = $factory->getProvider(Reddit::class);
 
 require_once __DIR__.'/_flow-oauth2.php';
 

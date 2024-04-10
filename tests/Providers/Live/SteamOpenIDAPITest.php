@@ -27,10 +27,6 @@ final class SteamOpenIDAPITest extends OAuthProviderLiveTestAbstract{
 		return SteamOpenID::class;
 	}
 
-	protected function getEnvPrefix():string{
-		return 'STEAMOPENID';
-	}
-
 	protected function setUp():void{
 		parent::setUp();
 

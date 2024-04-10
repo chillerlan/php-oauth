@@ -26,6 +26,8 @@ use function explode, intval, preg_replace;
  */
 class SteamOpenID extends OAuthProvider implements UserInfo{
 
+	public const IDENTIFIER = 'STEAMOPENID';
+
 	protected string      $authorizationURL = 'https://steamcommunity.com/openid/login';
 	protected string      $accessTokenURL   = 'https://steamcommunity.com/openid/login';
 	protected string      $apiURL           = 'https://api.steampowered.com';

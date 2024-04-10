@@ -12,15 +12,13 @@ declare(strict_types=1);
 use chillerlan\HTTP\Utils\MessageUtil;
 use chillerlan\OAuth\Providers\SteamOpenID;
 
-$ENVVAR ??= 'STEAMOPENID';
-
 require_once __DIR__.'/../provider-example-common.php';
 
 /**
  * @var \OAuthExampleProviderFactory            $factory
  * @var \chillerlan\OAuth\Providers\SteamOpenID $provider
  */
-$provider = $factory->getProvider(SteamOpenID::class, $ENVVAR);
+$provider = $factory->getProvider(SteamOpenID::class);
 $name     = $provider->name;
 
 // step 2: redirect to the provider's login screen

@@ -24,8 +24,4 @@ final class OpenCachingAPITest extends OAuth1ProviderLiveTestAbstract{
 		return OpenCaching::class;
 	}
 
-	protected function getEnvPrefix():string{
-		return 'OKAPI';
-	}
-
 }

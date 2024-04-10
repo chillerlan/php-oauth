@@ -26,6 +26,8 @@ use chillerlan\OAuth\Core\{AccessToken, AuthenticatedUser, CSRFToken, OAuth2Prov
  */
 class Stripe extends OAuth2Provider implements CSRFToken, TokenRefresh, TokenInvalidate, UserInfo{
 
+	public const IDENTIFIER = 'STRIPE';
+
 	public const SCOPE_READ_WRITE = 'read_write';
 	public const SCOPE_READ_ONLY  = 'read_only';
 

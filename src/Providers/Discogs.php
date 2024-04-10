@@ -22,6 +22,8 @@ use function sprintf;
  */
 class Discogs extends OAuth1Provider implements UserInfo{
 
+	public const IDENTIFIER = 'DISCOGS';
+
 	public const HEADERS_API = [
 		'Accept' => 'application/vnd.discogs.v2.discogs+json',
 	];

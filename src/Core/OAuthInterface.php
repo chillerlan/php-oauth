@@ -30,7 +30,15 @@ use Psr\Http\Message\{
  */
 interface OAuthInterface extends ClientInterface{
 
+	/**
+	 * A common user agent string that can be used in requests
+	 */
 	public const USER_AGENT = 'chillerlanPhpOAuth/1.0.0 +https://github.com/chillerlan/php-oauth';
+
+	/**
+	 * An identifier for the provider, usually the class name in ALLCAPS (required)
+	 */
+	public const IDENTIFIER = '';
 
 	/**
 	 * additional headers to use during authentication

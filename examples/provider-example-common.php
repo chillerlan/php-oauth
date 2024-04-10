@@ -25,14 +25,12 @@ require_once __DIR__.'/OAuthExampleProviderFactory.php';
  *
  * @var string     $CFGDIR - the directory where configuration is stored (.env, cacert, tokens)
  * @var string     $ENVFILE  - the name of the .env file in case it differs from the default
- * @var string     $ENVVAR   - name prefix for the environment variable
  * @var string     $LOGLEVEL - log level for the test logger, use 'none' to suppress logging
  * @var array|null $PARAMS   - additional params to pass to getAuthorizationURL()
  * @var array|null $SCOPES   - a set of scopes for the current provider (OAuth2 only)
  */
 $CFGDIR   ??= __DIR__.'/../.config';
 $ENVFILE  ??= '.env_example';
-$ENVVAR   ??= '';
 $LOGLEVEL ??= 'info';
 $PARAMS   ??= null;
 $SCOPES   ??= null;

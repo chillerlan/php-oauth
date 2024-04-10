@@ -28,6 +28,8 @@ use function implode, preg_match, str_starts_with, substr;
  */
 class GuildWars2 extends OAuth2Provider implements UserInfo{
 
+	public const IDENTIFIER = 'GUILDWARS2';
+
 	public const SCOPE_ACCOUNT     = 'account';
 	public const SCOPE_INVENTORIES = 'inventories';
 	public const SCOPE_CHARACTERS  = 'characters';

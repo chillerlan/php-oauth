@@ -21,6 +21,8 @@ use function sprintf;
  */
 class Tumblr2 extends OAuth2Provider implements CSRFToken, TokenRefresh, ClientCredentials, UserInfo{
 
+	public const IDENTIFIER = 'TUMBLR2';
+
 	public const SCOPE_BASIC          = 'basic';
 	public const SCOPE_WRITE          = 'write';
 	public const SCOPE_OFFLINE_ACCESS = 'offline_access';

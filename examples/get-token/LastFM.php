@@ -11,8 +11,6 @@ declare(strict_types=1);
 
 use chillerlan\OAuth\Providers\LastFM;
 
-$ENVVAR ??= 'LASTFM';
-
 require_once __DIR__.'/../provider-example-common.php';
 
 /**
@@ -20,7 +18,7 @@ require_once __DIR__.'/../provider-example-common.php';
  * @var array|null                   $PARAMS
  */
 
-$provider = $factory->getProvider(LastFM::class, $ENVVAR);
+$provider = $factory->getProvider(LastFM::class);
 $name     = $provider->name;
 
 // step 2: redirect to the provider's login screen

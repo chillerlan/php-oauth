@@ -24,8 +24,4 @@ final class DiscogsAPITest extends OAuth1ProviderLiveTestAbstract{
 		return Discogs::class;
 	}
 
-	protected function getEnvPrefix():string{
-		return 'DISCOGS';
-	}
-
 }

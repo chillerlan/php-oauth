@@ -24,8 +24,4 @@ final class ImgurAPITest extends OAuth2ProviderLiveTestAbstract{
 		return Imgur::class;
 	}
 
-	protected function getEnvPrefix():string{
-		return 'IMGUR';
-	}
-
 }

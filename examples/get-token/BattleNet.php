@@ -11,12 +11,10 @@ declare(strict_types=1);
 
 use chillerlan\OAuth\Providers\BattleNet;
 
-$ENVVAR ??= 'BATTLENET';
-
 require_once __DIR__.'/../provider-example-common.php';
 
 /** @var \OAuthExampleProviderFactory $factory */
-$provider = $factory->getProvider(BattleNet::class, $ENVVAR);
+$provider = $factory->getProvider(BattleNet::class);
 
 require_once __DIR__.'/_flow-oauth2.php';
 

@@ -22,6 +22,8 @@ use chillerlan\OAuth\Core\{AuthenticatedUser, OAuth2Provider, UserInfo};
  */
 class Mixcloud extends OAuth2Provider implements UserInfo{
 
+	public const IDENTIFIER = 'MIXCLOUD';
+
 	public const AUTH_METHOD = self::AUTH_METHOD_QUERY;
 
 	protected string      $authorizationURL = 'https://www.mixcloud.com/oauth/authorize';

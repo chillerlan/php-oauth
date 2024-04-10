@@ -24,6 +24,8 @@ use chillerlan\OAuth\Core\{AuthenticatedUser, CSRFToken, OAuth2Provider, UserInf
  */
 class OpenStreetmap2 extends OAuth2Provider implements CSRFToken, UserInfo{
 
+	public const IDENTIFIER = 'OPENSTREETMAP2';
+
 	public const SCOPE_READ_PREFS       = 'read_prefs';
 	public const SCOPE_WRITE_PREFS      = 'write_prefs';
 	public const SCOPE_WRITE_DIARY      = 'write_diary';

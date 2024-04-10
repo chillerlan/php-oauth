@@ -22,6 +22,8 @@ use function array_merge, sprintf;
  */
 class Foursquare extends OAuth2Provider implements UserInfo{
 
+	public const IDENTIFIER = 'FOURSQUARE';
+
 	public const AUTH_METHOD       = self::AUTH_METHOD_QUERY;
 	public const AUTH_PREFIX_QUERY = 'oauth_token';
 

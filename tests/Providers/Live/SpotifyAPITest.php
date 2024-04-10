@@ -24,8 +24,4 @@ final class SpotifyAPITest extends OAuth2ProviderLiveTestAbstract{
 		return Spotify::class;
 	}
 
-	protected function getEnvPrefix():string{
-		return 'SPOTIFY';
-	}
-
 }

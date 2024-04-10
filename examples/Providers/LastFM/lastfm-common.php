@@ -10,9 +10,7 @@ declare(strict_types=1);
 
 use chillerlan\OAuth\Providers\LastFM;
 
-$ENVVAR = 'LASTFM';
-
 require_once __DIR__.'/../../provider-example-common.php';
 
 /** @var \OAuthExampleProviderFactory $factory */
-$lfm = $factory->getProvider(LastFM::class, $ENVVAR, OAuthExampleProviderFactory::STORAGE_FILE);
+$lfm = $factory->getProvider(LastFM::class, OAuthExampleProviderFactory::STORAGE_FILE);

@@ -27,6 +27,8 @@ use const PHP_QUERY_RFC1738;
  */
 class LastFM extends OAuthProvider implements UserInfo{
 
+	public const IDENTIFIER = 'LASTFM';
+
 	public const PERIOD_OVERALL = 'overall';
 	public const PERIOD_7DAY    = '7day';
 	public const PERIOD_1MONTH  = '1month';

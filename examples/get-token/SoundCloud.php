@@ -11,12 +11,10 @@ declare(strict_types=1);
 
 use chillerlan\OAuth\Providers\SoundCloud;
 
-$ENVVAR ??= 'SOUNDCLOUD';
-
 require_once __DIR__.'/../provider-example-common.php';
 
 /** @var \OAuthExampleProviderFactory $factory */
-$provider = $factory->getProvider(SoundCloud::class, $ENVVAR);
+$provider = $factory->getProvider(SoundCloud::class);
 
 require_once __DIR__.'/_flow-oauth2.php';
 

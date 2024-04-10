@@ -24,10 +24,6 @@ final class MailChimpAPITest extends OAuth2ProviderLiveTestAbstract{
 		return MailChimp::class;
 	}
 
-	protected function getEnvPrefix():string{
-		return 'MAILCHIMP';
-	}
-
 	public function testGetTokenMetadata():void{
 		$token = $this->storage->getAccessToken($this->provider->name);
 		$token = $this->provider->getTokenMetadata($token);

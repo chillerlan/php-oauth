@@ -26,10 +26,6 @@ final class MastodonAPITest extends OAuth2ProviderLiveTestAbstract{
 		return Mastodon::class;
 	}
 
-	protected function getEnvPrefix():string{
-		return 'MASTODON';
-	}
-
 	protected function setUp():void{
 		parent::setUp();
 

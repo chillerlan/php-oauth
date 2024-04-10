@@ -11,12 +11,10 @@ declare(strict_types=1);
 
 use chillerlan\OAuth\Providers\Vimeo;
 
-$ENVVAR ??= 'VIMEO';
-
 require_once __DIR__.'/../provider-example-common.php';
 
 /** @var \OAuthExampleProviderFactory $factory */
-$provider = $factory->getProvider(Vimeo::class, $ENVVAR);
+$provider = $factory->getProvider(Vimeo::class);
 
 /*
  * The Vimeo AccessToken instance holds additional values:

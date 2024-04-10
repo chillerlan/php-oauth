@@ -22,6 +22,8 @@ use chillerlan\OAuth\Core\{AuthenticatedUser, CSRFToken, OAuth2Provider, UserInf
  */
 class WordPress extends OAuth2Provider implements CSRFToken, UserInfo{
 
+	public const IDENTIFIER = 'WORDPRESS';
+
 	public const SCOPE_AUTH   = 'auth';
 	public const SCOPE_GLOBAL = 'global';
 

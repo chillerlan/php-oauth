@@ -25,10 +25,6 @@ final class DiscordAPITest extends OAuth2ProviderLiveTestAbstract{
 		return Discord::class;
 	}
 
-	protected function getEnvPrefix():string{
-		return 'DISCORD';
-	}
-
 	public function testRequestCredentialsToken():void{
 		$token = $this->provider->getClientCredentialsToken([Discord::SCOPE_CONNECTIONS, Discord::SCOPE_IDENTIFY]);
 

@@ -23,6 +23,8 @@ use chillerlan\OAuth\Core\{AuthenticatedUser, OAuth1Provider, UserInfo};
  */
 class OpenStreetmap extends OAuth1Provider implements UserInfo{
 
+	public const IDENTIFIER = 'OPENSTREETMAP';
+
 	protected string      $requestTokenURL  = 'https://www.openstreetmap.org/oauth/request_token';
 	protected string      $authorizationURL = 'https://www.openstreetmap.org/oauth/authorize';
 	protected string      $accessTokenURL   = 'https://www.openstreetmap.org/oauth/access_token';

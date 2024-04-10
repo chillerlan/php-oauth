@@ -26,6 +26,8 @@ use function array_merge, sprintf;
  */
 class Flickr extends OAuth1Provider implements UserInfo{
 
+	public const IDENTIFIER = 'FLICKR';
+
 	public const PERM_READ   = 'read';
 	public const PERM_WRITE  = 'write';
 	public const PERM_DELETE = 'delete';

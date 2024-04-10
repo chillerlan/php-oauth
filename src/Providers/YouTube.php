@@ -18,6 +18,8 @@ namespace chillerlan\OAuth\Providers;
  */
 class YouTube extends Google{
 
+	public const IDENTIFIER = 'YOUTUBE';
+
 	public const SCOPE_YOUTUBE       = 'https://www.googleapis.com/auth/youtube';
 	public const SCOPE_YOUTUBE_GDATA = 'https://gdata.youtube.com';
 

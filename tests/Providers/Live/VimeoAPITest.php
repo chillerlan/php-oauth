@@ -24,8 +24,4 @@ final class VimeoAPITest extends OAuth2ProviderLiveTestAbstract{
 		return Vimeo::class;
 	}
 
-	protected function getEnvPrefix():string{
-		return 'VIMEO';
-	}
-
 }

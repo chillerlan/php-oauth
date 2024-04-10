@@ -27,6 +27,8 @@ use function sprintf;
  */
 class Reddit extends OAuth2Provider implements ClientCredentials, CSRFToken, TokenRefresh, TokenInvalidate, UserInfo{
 
+	public const IDENTIFIER = 'REDDIT';
+
 	public const SCOPE_ACCOUNT          = 'account';
 	public const SCOPE_CREDDITS         = 'creddits';
 	public const SCOPE_EDIT             = 'edit';

@@ -25,6 +25,8 @@ use function array_merge, implode, trim;
  */
 class Deezer extends OAuth2Provider implements CSRFToken, UserInfo{
 
+	public const IDENTIFIER = 'DEEZER';
+
 	public const SCOPE_BASIC             = 'basic_access';
 	public const SCOPE_EMAIL             = 'email';
 	public const SCOPE_OFFLINE_ACCESS    = 'offline_access';

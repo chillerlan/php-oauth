@@ -28,6 +28,8 @@ use function sprintf;
  */
 class DeviantArt extends OAuth2Provider implements ClientCredentials, CSRFToken, TokenInvalidate, TokenRefresh, UserInfo{
 
+	public const IDENTIFIER = 'DEVIANTART';
+
 	public const SCOPE_BASIC        = 'basic';
 	public const SCOPE_BROWSE       = 'browse';
 	public const SCOPE_COLLECTION   = 'collection';

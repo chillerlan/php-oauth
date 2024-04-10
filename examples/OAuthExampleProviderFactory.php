@@ -84,14 +84,13 @@ class OAuthExampleProviderFactory{
 
 	public function getProvider(
 		string $providerFQN,
-		string $envVar,
 		int    $storageType = self::STORAGE_SESSION,
 	):OAuthInterface|OAuth1Interface|OAuth2Interface{
 		$options = new OAuthOptions;
-
-		$options->key              = ($this->getEnvVar($envVar.'_KEY') ?? '');
-		$options->secret           = ($this->getEnvVar($envVar.'_SECRET') ?? '');
-		$options->callbackURL      = ($this->getEnvVar($envVar.'_CALLBACK_URL') ?? '');
+		/** @param \chillerlan\OAuth\Core\OAuthInterface $providerFQN */
+		$options->key              = ($this->getEnvVar($providerFQN::IIDENTIFIER.'_KEY') ?? '');
+		$options->secret           = ($this->getEnvVar($providerFQN::IDENTIFIER.'_SECRET') ?? '');
+		$options->callbackURL      = ($this->getEnvVar($providerFQN::IDENTIFIER.'_CALLBACK_URL') ?? '');
 		$options->tokenAutoRefresh = true;
 		$options->sessionStart     = true;
 

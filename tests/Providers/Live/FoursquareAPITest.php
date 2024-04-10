@@ -24,8 +24,4 @@ final class FoursquareAPITest extends OAuth2ProviderLiveTestAbstract{
 		return Foursquare::class;
 	}
 
-	protected function getEnvPrefix():string{
-		return 'FOURSQUARE';
-	}
-
 }

@@ -24,8 +24,4 @@ final class Tumblr2APITest extends OAuth2ProviderLiveTestAbstract{
 		return Tumblr2::class;
 	}
 
-	protected function getEnvPrefix():string{
-		return 'TUMBLR';
-	}
-
 }

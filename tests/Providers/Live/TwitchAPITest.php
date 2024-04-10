@@ -24,8 +24,4 @@ final class TwitchAPITest extends OAuth2ProviderLiveTestAbstract{
 		return Twitch::class;
 	}
 
-	protected function getEnvPrefix():string{
-		return 'TWITCH';
-	}
-
 }

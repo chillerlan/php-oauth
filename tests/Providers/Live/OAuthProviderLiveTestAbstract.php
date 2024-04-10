@@ -49,7 +49,7 @@ abstract class OAuthProviderLiveTestAbstract extends ProviderLiveTestAbstract{
 			$this->assertMeResponse($user);
 		}
 		catch(ExpectationFailedException $e){
-			$var = $this->getEnvPrefix().'_TESTUSER';
+			$var = $this->ENV_PREFIX.'_TESTUSER';
 
 			if($this->dotEnv->get($var) === null){
 				throw new InvalidArgumentException(sprintf('variable "%s" is not set in "%s"', $var, constant('TEST_ENVFILE')));

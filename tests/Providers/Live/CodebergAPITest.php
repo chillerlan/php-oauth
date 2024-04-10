@@ -24,8 +24,4 @@ class CodebergAPITest extends OAuth2ProviderLiveTestAbstract{
 		return Codeberg::class;
 	}
 
-	protected function getEnvPrefix():string{
-		return 'CODEBERG';
-	}
-
 }

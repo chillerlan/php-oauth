@@ -26,10 +26,6 @@ final class YouTubeAPITest extends OAuth2ProviderLiveTestAbstract{
 		return YouTube::class;
 	}
 
-	protected function getEnvPrefix():string{
-		return 'GOOGLE';
-	}
-
 	protected function assertMeResponse(AuthenticatedUser $user):void{
 		$this::assertSame($this->TEST_USER, $user->email);
 	}

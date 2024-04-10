@@ -27,10 +27,6 @@ final class BattleNetAPITest extends OAuth2ProviderLiveTestAbstract{
 		return BattleNet::class;
 	}
 
-	protected function getEnvPrefix():string{
-		return 'BATTLENET';
-	}
-
 	protected function assertMeResponse(AuthenticatedUser $user):void{
 		$this::assertSame($this->TEST_USER, explode('#', $user->handle)[0]);
 	}

@@ -11,12 +11,10 @@ declare(strict_types=1);
 
 use chillerlan\OAuth\Providers\Imgur;
 
-$ENVVAR ??= 'IMGUR';
-
 require_once __DIR__.'/../provider-example-common.php';
 
 /** @var \OAuthExampleProviderFactory $factory */
-$provider = $factory->getProvider(Imgur::class, $ENVVAR);
+$provider = $factory->getProvider(Imgur::class);
 
 /*
  * The Imgur AccessToken instance holds additional values:

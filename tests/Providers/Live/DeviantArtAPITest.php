@@ -25,8 +25,4 @@ final class DeviantArtAPITest extends OAuth2ProviderLiveTestAbstract{
 		return DeviantArt::class;
 	}
 
-	protected function getEnvPrefix():string{
-		return 'DEVIANTART';
-	}
-
 }

@@ -24,8 +24,4 @@ class GiteaAPITest extends OAuth2ProviderLiveTestAbstract{
 		return Gitea::class;
 	}
 
-	protected function getEnvPrefix():string{
-		return 'GITEA';
-	}
-
 }

@@ -20,6 +20,8 @@ use chillerlan\OAuth\Core\{AuthenticatedUser, UserInfo};
  */
 class MicrosoftGraph extends AzureActiveDirectory implements UserInfo{
 
+	public const IDENTIFIER = 'MICROSOFTGRAPH';
+
 	public const SCOPE_USER_READ          = 'User.Read';
 	public const SCOPE_USER_READBASIC_ALL = 'User.ReadBasic.All';
 

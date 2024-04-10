@@ -24,6 +24,8 @@ use function sprintf;
  */
 class Tumblr extends OAuth1Provider implements UserInfo{
 
+	public const IDENTIFIER = 'TUMBLR';
+
 	protected string      $requestTokenURL  = 'https://www.tumblr.com/oauth/request_token';
 	protected string      $authorizationURL = 'https://www.tumblr.com/oauth/authorize';
 	protected string      $accessTokenURL   = 'https://www.tumblr.com/oauth/access_token';

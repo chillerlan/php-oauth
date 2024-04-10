@@ -25,8 +25,4 @@ class RedditAPITest extends OAuth2ProviderLiveTestAbstract{
 		return Reddit::class;
 	}
 
-	protected function getEnvPrefix():string{
-		return 'REDDIT';
-	}
-
 }

@@ -24,8 +24,4 @@ final class MixcloudAPITest extends OAuth2ProviderLiveTestAbstract{
 		return Mixcloud::class;
 	}
 
-	protected function getEnvPrefix():string{
-		return 'MIXCLOUD';
-	}
-
 }

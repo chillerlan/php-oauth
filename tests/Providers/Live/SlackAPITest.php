@@ -25,10 +25,6 @@ final class SlackAPITest extends OAuth2ProviderLiveTestAbstract{
 		return Slack::class;
 	}
 
-	protected function getEnvPrefix():string{
-		return 'SLACK';
-	}
-
 	protected function assertMeResponse(AuthenticatedUser $user):void{
 		$this::assertSame($this->TEST_USER, $user->email);
 	}

@@ -22,6 +22,8 @@ use function sprintf;
  */
 class BigCartel extends OAuth2Provider implements CSRFToken, TokenInvalidate, UserInfo{
 
+	public const IDENTIFIER = 'BIGCARTEL';
+
 	public const HEADERS_API = [
 		'Accept' => 'application/vnd.api+json',
 	];

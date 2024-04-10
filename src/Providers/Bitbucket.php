@@ -20,6 +20,8 @@ use chillerlan\OAuth\Core\{AuthenticatedUser, ClientCredentials, CSRFToken, OAut
  */
 class Bitbucket extends OAuth2Provider implements ClientCredentials, CSRFToken, TokenRefresh, UserInfo{
 
+	public const IDENTIFIER = 'BITBUCKET';
+
 	protected string      $authorizationURL = 'https://bitbucket.org/site/oauth2/authorize';
 	protected string      $accessTokenURL   = 'https://bitbucket.org/site/oauth2/access_token';
 	protected string      $apiURL           = 'https://api.bitbucket.org/2.0';

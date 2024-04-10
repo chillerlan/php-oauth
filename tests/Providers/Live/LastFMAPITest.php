@@ -24,8 +24,4 @@ final class LastFMAPITest extends OAuthProviderLiveTestAbstract{
 		return LastFM::class;
 	}
 
-	protected function getEnvPrefix():string{
-		return 'LASTFM';
-	}
-
 }

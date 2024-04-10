@@ -21,6 +21,8 @@ use function sprintf;
  */
 class Pinterest extends OAuth2Provider implements CSRFToken, TokenRefresh, UserInfo{
 
+	public const IDENTIFIER = 'PINTEREST';
+
 	public const SCOPE_ADS_READ            = 'ads:read';
 	public const SCOPE_ADS_WRITE           = 'ads:write';
 	public const SCOPE_BOARDS_READ         = 'boards:read';

@@ -44,9 +44,10 @@ A transparent, framework-agnostic, easily extensible PHP [PSR-18](https://www.ph
     - [PKCE Code Challenge](https://datatracker.ietf.org/doc/html/rfc7636) (Proof Key for Code Exchange)
   - Proprietary, OAuth-like authorization flows (e.g. [Last.fm](https://www.last.fm/api/authentication))
   - Invalidation of access tokens (if supported by the provider)
-- Provider instances act as [PSR-18](https://www.php-fig.org/psr/psr-18/) HTTP client, wrapping the given PSR-18 HTTP instance
-  - Requests to the provider API will have required OAuth headers and tokens added automatically
 - Several built-in provider implementations ([see below](#implemented-providers))
+  - Provider instances act as [PSR-18](https://www.php-fig.org/psr/psr-18/) HTTP client, wrapping the given PSR-18 HTTP instance
+  - Requests to the provider API will have required OAuth headers and tokens added automatically
+- Optional token encryption via [`sodium_crypto_secretbox()`](https://www.php.net/manual/en/function.sodium-crypto-secretbox) for the internal storage engines
 - A unified user data object `AuthenticatedUser` via the `OAuthInterface::me()` method
 
 
@@ -166,5 +167,5 @@ I don't take responsibility for stolen OAuth tokens. Use at your own risk.
 
 ## Privacy policy
 
-This library does not store or process user data on its own - it only handles the OAuth flow for an application.
+This library does not store or process user data on its own - it only handles the OAuth flow for an application.<br/>
 Implementers are responsible for a proper privacy policy in accordance with the service providers.

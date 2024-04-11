@@ -14,7 +14,7 @@ namespace chillerlan\OAuthTest\Core;
 use chillerlan\OAuth\Core\{OAuthInterface, Utilities};
 use PHPUnit\Framework\Attributes\DataProvider;
 use PHPUnit\Framework\TestCase;
-use ReflectionClass;
+use InvalidArgumentException, ReflectionClass;
 
 /**
  *
@@ -35,6 +35,13 @@ class UtilitiesTest extends TestCase{
 		foreach($providers as $provider){
 			$this::assertTrue((new ReflectionClass($provider['fqcn']))->implementsInterface(OAuthInterface::class));
 		}
+	}
+
+	public function testGetProvidersInvalidPathException():void{
+		$this->expectException(InvalidArgumentException::class);
+		$this->expectExceptionMessage('invalid $providerDir');
+
+		Utilities::getProviders('/foo');
 	}
 
 	public static function encryptionFormatProvider():array{

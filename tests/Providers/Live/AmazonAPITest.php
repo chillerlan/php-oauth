@@ -30,7 +30,7 @@ final class AmazonAPITest extends OAuth2ProviderLiveTestAbstract{
 		$this::assertMatchesRegularExpression('/[a-z\d.]+/i', $user->id);
 	}
 
-	public function testUnauthorizedAccessException():void{
+	public function testMeUnauthorizedAccessException():void{
 		$token                    = $this->storage->getAccessToken($this->provider->name);
 		// avoid refresh
 		$token->expires           = AccessToken::NEVER_EXPIRES;

@@ -52,6 +52,9 @@ abstract class OAuthProviderUnitTestAbstract extends ProviderUnitTestAbstract{
 		$this::assertNull($this->provider->foo);
 	}
 
+	public function testIdentifierIsNonEmpty():void{
+		$this::assertNotEmpty($this->provider::IDENTIFIER);
+	}
 
 	/*
 	 * request body

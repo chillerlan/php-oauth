@@ -18,6 +18,8 @@ use chillerlan\OAuth\Core\{AccessToken, ClientCredentials, CSRFToken, OAuth2Prov
  */
 final class DummyOAuth2Provider extends OAuth2Provider implements ClientCredentials, CSRFToken, PKCE, TokenRefresh, TokenInvalidate{
 
+	public const IDENTIFIER = 'DUMMYOAUTH2PROVIDER';
+
 	public const AUTH_METHOD  = self::AUTH_METHOD_QUERY;
 	public const HEADERS_AUTH = ['foo' => 'bar'];
 	public const HEADERS_API  = ['foo' => 'bar'];

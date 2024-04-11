@@ -35,7 +35,7 @@ final class SteamAPITest extends OAuthProviderLiveTestAbstract{
 		$this->id = $token->extraParams['id_int']; // SteamID64
 	}
 
-	public function testUnauthorizedAccessException():void{
+	public function testMeUnauthorizedAccessException():void{
 		$this::markTestSkipped('N/A');
 	}
 

@@ -68,7 +68,7 @@ abstract class OAuthProviderLiveTestAbstract extends ProviderLiveTestAbstract{
 		$this->provider->me();
 	}
 
-	public function testUnauthorizedAccessException():void{
+	public function testMeUnauthorizedAccessException():void{
 
 		if(!$this->provider instanceof UserInfo){
 			$this::markTestSkipped('AuthenticatedUser N/A');

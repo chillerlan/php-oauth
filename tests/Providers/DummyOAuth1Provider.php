@@ -18,6 +18,8 @@ use chillerlan\OAuth\Core\{AccessToken, OAuth1Provider, TokenInvalidate};
  */
 final class DummyOAuth1Provider extends OAuth1Provider implements TokenInvalidate{
 
+	public const IDENTIFIER = 'DUMMYOAUTH1PROVIDER';
+
 	public const HEADERS_AUTH = ['foo' => 'bar'];
 	public const HEADERS_API  = ['foo' => 'bar'];
 

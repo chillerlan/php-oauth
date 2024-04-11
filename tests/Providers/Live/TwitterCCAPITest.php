@@ -24,7 +24,7 @@ final class TwitterCCAPITest extends OAuth2ProviderLiveTestAbstract{
 		return TwitterCC::class;
 	}
 
-	public function testUnauthorizedAccessException():void{
+	public function testMeUnauthorizedAccessException():void{
 		$this::markTestSkipped('N/A');
 	}
 

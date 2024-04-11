@@ -39,6 +39,7 @@ abstract class OAuthProviderLiveTestAbstract extends ProviderLiveTestAbstract{
 		}
 
 		try{
+			/** @phan-suppress-next-line PhanUndeclaredMethod ($this->provider is, in fact, instance of UserInfo) */
 			$user = $this->provider->me();
 		}
 		catch(UnauthorizedAccessException){
@@ -46,6 +47,7 @@ abstract class OAuthProviderLiveTestAbstract extends ProviderLiveTestAbstract{
 		}
 
 		try{
+			/** @phan-suppress-next-line PhanPossiblyUndeclaredVariable */
 			$this->assertMeResponse($user);
 		}
 		catch(ExpectationFailedException $e){
@@ -62,10 +64,16 @@ abstract class OAuthProviderLiveTestAbstract extends ProviderLiveTestAbstract{
 	protected function assertUnauthorizedAccessException(AccessToken $token):void{
 		$this->expectException(UnauthorizedAccessException::class);
 
+		/** @phan-suppress-next-line PhanUndeclaredMethod ($this->provider is, in fact, instance of UserInfo) */
 		$this->provider->me();
 	}
 
 	public function testUnauthorizedAccessException():void{
+
+		if(!$this->provider instanceof UserInfo){
+			$this::markTestSkipped('AuthenticatedUser N/A');
+		}
+
 		$token                    = $this->storage->getAccessToken($this->provider->name);
 		// avoid refresh
 		$token->expires           = AccessToken::NEVER_EXPIRES;

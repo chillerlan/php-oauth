@@ -6,6 +6,8 @@
  * @author       smiley <smiley@chillerlan.net>
  * @copyright    2024 smiley
  * @license      MIT
+ *
+ * @phan-file-suppress PhanUndeclaredMethod, PhanAccessMethodInternal
  */
 declare(strict_types=1);
 
@@ -43,7 +45,10 @@ abstract class OAuthProviderUnitTestAbstract extends ProviderUnitTestAbstract{
 
 	public function testMagicGet():void{
 		$this::assertSame($this->reflection->getShortName(), $this->provider->name);
-		/** @noinspection PhpUndefinedFieldInspection */
+		/**
+		 * @noinspection PhpUndefinedFieldInspection
+		 * @phan-suppress-next-next-line PhanUndeclaredProperty
+		 */
 		$this::assertNull($this->provider->foo);
 	}
 

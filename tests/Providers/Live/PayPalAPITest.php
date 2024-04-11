@@ -14,7 +14,6 @@ namespace chillerlan\OAuthTest\Providers\Live;
 use chillerlan\OAuth\Core\AuthenticatedUser;
 use chillerlan\OAuth\Providers\PayPal;
 use PHPUnit\Framework\Attributes\Group;
-use function is_array;
 
 /**
  * @property \chillerlan\OAuth\Providers\PayPal $provider

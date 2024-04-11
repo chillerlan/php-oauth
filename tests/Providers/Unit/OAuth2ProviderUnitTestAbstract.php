@@ -6,6 +6,8 @@
  * @author       smiley <smiley@chillerlan.net>
  * @copyright    2018 smiley
  * @license      MIT
+ *
+ * @phan-file-suppress PhanUndeclaredMethod, PhanAccessMethodInternal
  */
 declare(strict_types=1);
 

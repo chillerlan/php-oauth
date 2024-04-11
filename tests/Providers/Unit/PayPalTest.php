@@ -11,9 +11,7 @@ declare(strict_types=1);
 
 namespace chillerlan\OAuthTest\Providers\Unit;
 
-use chillerlan\HTTP\Utils\MessageUtil;
 use chillerlan\OAuth\Providers\PayPal;
-use function base64_encode;
 
 /**
  * @property \chillerlan\OAuth\Providers\PayPal $provider

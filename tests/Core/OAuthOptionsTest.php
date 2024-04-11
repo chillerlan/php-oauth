@@ -31,7 +31,7 @@ class OAuthOptionsTest extends TestCase{
 	public function testSetStorageEncryptionKeyInvalidException():void{
 		$this->expectException(OAuthStorageException::class);
 		$this->expectExceptionMessage('invalid encryption key');
-
+		/** @phan-suppress-next-line PhanNoopNew */
 		new OAuthOptions(['storageEncryptionKey' => 'foo']);
 	}
 
@@ -44,7 +44,7 @@ class OAuthOptionsTest extends TestCase{
 	public function testSetFileStoragePathInvalidException():void{
 		$this->expectException(OAuthStorageException::class);
 		$this->expectExceptionMessage('invalid storage path "/foo"');
-
+		/** @phan-suppress-next-line PhanNoopNew */
 		new OAuthOptions(['fileStoragePath' => '/foo']);
 	}
 

@@ -30,7 +30,7 @@ abstract class OAuth2ProviderLiveTestAbstract extends OAuthProviderLiveTestAbstr
 		}
 
 		$this->provider->setStorage(new MemoryStorage);
-
+		/** @phan-suppress-next-line PhanUndeclaredMethod ($this->provider is, in fact, instance of ClientCredentials) */
 		$token = $this->provider->getClientCredentialsToken($this->clientCredentialsScopes);
 
 		$this::assertInstanceOf(AccessToken::class, $token);

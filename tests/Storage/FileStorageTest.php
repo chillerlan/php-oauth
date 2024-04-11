@@ -40,14 +40,14 @@ class FileStorageTest extends StorageTestAbstract{
 	public function testInvalidUserException():void{
 		$this->expectException(OAuthStorageException::class);
 		$this->expectExceptionMessage('invalid OAuth user');
-
+		/** @phan-suppress-next-line PhanNoopNew */
 		new FileStorage('');
 	}
 
 	public function testEmptyStoragePathException():void{
 		$this->expectException(OAuthStorageException::class);
 		$this->expectExceptionMessage('no storage path given');
-
+		/** @phan-suppress-next-line PhanNoopNew */
 		new FileStorage('oauth_user');
 	}
 

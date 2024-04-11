@@ -31,7 +31,7 @@ elseif(isset($_GET['code'])){
 	if($provider instanceof CSRFToken && isset($_GET['state'])){
 		$state = $_GET['state'];
 	}
-
+	/** @phan-suppress-next-line PhanUndeclaredMethod ($provider is, in fact, also instance of OAuthInterface) */
 	$token = $provider->getAccessToken($_GET['code'], $state);
 
 	// save the token [...]
@@ -48,7 +48,7 @@ elseif(isset($_GET['granted']) && $_GET['granted'] === $name){
 	if($provider instanceof UserInfo){
 		printf('<pre>%s</pre>', print_r($provider->me(), true));
 	}
-
+	/** @phan-suppress-next-line PhanUndeclaredMethod */
 	$tokenJSON = $provider->getAccessTokenFromStorage()->toJSON();
 
 	printf('<textarea cols="120" rows="5" onclick="this.select();">%s</textarea>', $tokenJSON);

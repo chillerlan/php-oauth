@@ -41,7 +41,7 @@ elseif(isset($_GET['granted']) && $_GET['granted'] === $name){
 	if($provider instanceof UserInfo){
 		printf('<pre>%s</pre>', print_r($provider->me(), true));
 	}
-
+	/** @phan-suppress-next-line PhanUndeclaredMethod ($provider is, in fact, also instance of OAuthInterface) */
 	$tokenJSON = $provider->getAccessTokenFromStorage()->toJSON();
 
 	printf('<textarea cols="120" rows="5" onclick="this.select();">%s</textarea>', $tokenJSON);

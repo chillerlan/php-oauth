@@ -22,17 +22,17 @@ use function time;
  * @see https://datatracker.ietf.org/doc/html/rfc6749#section-1.4
  *
  * // Oauth1
- * @property string|null $accessTokenSecret
+ * @property string|null                    $accessTokenSecret
  *
  * // Oauth2
- * @property array       $scopes
- * @property string|null $refreshToken
+ * @property array                          $scopes
+ * @property string|null                    $refreshToken
  *
  * // common
- * @property string|null $accessToken
- * @property int         $expires
- * @property array       $extraParams
- * @property string      $provider
+ * @property string|null                    $accessToken
+ * @property DateTime|DateInterval|int|null $expires
+ * @property array                          $extraParams
+ * @property string                         $provider
  */
 final class AccessToken extends SettingsContainerAbstract{
 

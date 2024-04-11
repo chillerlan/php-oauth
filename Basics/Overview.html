@@ -197,12 +197,13 @@ fully <a class="reference external" href="https://www.php-fig.org/psr/psr-7/">PS
 <li><p>Invalidation of access tokens (if supported by the provider)</p></li>
 </ul>
 </li>
-<li><p>Provider instances act as <a class="reference external" href="https://www.php-fig.org/psr/psr-18/">PSR-18</a> HTTP client, wrapping the given PSR-18 HTTP instance</p>
+<li><p>Several built-in provider implementations (<a class="reference internal" href="#implemented-providers"><span class="xref myst">see below</span></a>)</p>
 <ul>
+<li><p>Provider instances act as <a class="reference external" href="https://www.php-fig.org/psr/psr-18/">PSR-18</a> HTTP client, wrapping the given PSR-18 HTTP instance</p></li>
 <li><p>Requests to the provider API will have required OAuth headers and tokens added automatically</p></li>
 </ul>
 </li>
-<li><p>Several built-in provider implementations (<a class="reference internal" href="#implemented-providers"><span class="xref myst">see below</span></a>)</p></li>
+<li><p>Optional token encryption via <a class="reference external" href="https://www.php.net/manual/en/function.sodium-crypto-secretbox"><code class="docutils literal notranslate"><span class="pre">sodium_crypto_secretbox()</span></code></a> for the internal storage engines</p></li>
 <li><p>A unified user data object <code class="docutils literal notranslate"><span class="pre">AuthenticatedUser</span></code> via the <code class="docutils literal notranslate"><span class="pre">OAuthInterface::me()</span></code> method</p></li>
 </ul>
 </section>
@@ -751,7 +752,7 @@ fully <a class="reference external" href="https://www.php-fig.org/psr/psr-7/">PS
 <li><p><strong>TR</strong>: indicates that the provider is capable of <a class="reference external" href="https://datatracker.ietf.org/doc/html/rfc6749#section-10.4">refreshing an access token</a> (implements the <code class="docutils literal notranslate"><span class="pre">TokenRefresh</span></code> interface)</p></li>
 <li><p><strong>TI</strong>: indicates that the provider is capable of revoking/invalidating an access token (implements the <code class="docutils literal notranslate"><span class="pre">TokenInvalidate</span></code> interface)</p></li>
 </ul>
-<!-- TABLE_END -->
+<!-- TABLE-END -->
 </section>
 <section id="shameless-advertising">
 <h2>Shameless advertising<a class="headerlink" href="#shameless-advertising" title="Link to this heading"></a></h2>

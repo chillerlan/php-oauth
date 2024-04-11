@@ -27,7 +27,7 @@ Whether to use encryption for the file storage
 
 ## storageEncryptionKey
 
-The encryption key to use
+The encryption key (hexadecimal) to use
 
 
 **See also:**

@@ -16,9 +16,10 @@ fully [PSR-7](https://www.php-fig.org/psr/psr-7/)/[PSR-17](https://www.php-fig.o
 		- [PKCE Code Challenge](https://datatracker.ietf.org/doc/html/rfc7636) (Proof Key for Code Exchange)
 	- Proprietary, OAuth-like authorization flows (e.g. [Last.fm](https://www.last.fm/api/authentication))
 	- Invalidation of access tokens (if supported by the provider)
-- Provider instances act as [PSR-18](https://www.php-fig.org/psr/psr-18/) HTTP client, wrapping the given PSR-18 HTTP instance
-	- Requests to the provider API will have required OAuth headers and tokens added automatically
 - Several built-in provider implementations ([see below](#implemented-providers))
+	- Provider instances act as [PSR-18](https://www.php-fig.org/psr/psr-18/) HTTP client, wrapping the given PSR-18 HTTP instance
+	- Requests to the provider API will have required OAuth headers and tokens added automatically
+- Optional token encryption via [`sodium_crypto_secretbox()`](https://www.php.net/manual/en/function.sodium-crypto-secretbox) for the internal storage engines
 - A unified user data object `AuthenticatedUser` via the `OAuthInterface::me()` method
 
 
@@ -95,7 +96,7 @@ fully [PSR-7](https://www.php-fig.org/psr/psr-7/)/[PSR-17](https://www.php-fig.o
 - **CC**: indicates that the provider supports the [Client Credentials Grant](https://datatracker.ietf.org/doc/html/rfc6749#section-4.4) (implements the `ClientCredentials` interface)
 - **TR**: indicates that the provider is capable of [refreshing an access token](https://datatracker.ietf.org/doc/html/rfc6749#section-10.4) (implements the `TokenRefresh` interface)
 - **TI**: indicates that the provider is capable of revoking/invalidating an access token (implements the `TokenInvalidate` interface)
-<!-- TABLE_END -->
+<!-- TABLE-END -->
 
 ## Shameless advertising
 

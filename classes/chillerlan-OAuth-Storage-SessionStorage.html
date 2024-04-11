@@ -175,25 +175,7 @@
             <dt class="phpdocumentor-table-of-contents__entry -constant -protected">
     <a href="classes/chillerlan-OAuth-Storage-OAuthStorageAbstract.html#constant_ENCRYPT_FORMAT">ENCRYPT_FORMAT</a>
     <span>
-        &nbsp;= self::ENCRYPT_FORMAT_HEX                            </span>
-</dt>
-
-            <dt class="phpdocumentor-table-of-contents__entry -constant -protected">
-    <a href="classes/chillerlan-OAuth-Storage-OAuthStorageAbstract.html#constant_ENCRYPT_FORMAT_BASE64">ENCRYPT_FORMAT_BASE64</a>
-    <span>
-        &nbsp;= 0b1                            </span>
-</dt>
-
-            <dt class="phpdocumentor-table-of-contents__entry -constant -protected">
-    <a href="classes/chillerlan-OAuth-Storage-OAuthStorageAbstract.html#constant_ENCRYPT_FORMAT_BINARY">ENCRYPT_FORMAT_BINARY</a>
-    <span>
-        &nbsp;= 0b0                            </span>
-</dt>
-
-            <dt class="phpdocumentor-table-of-contents__entry -constant -protected">
-    <a href="classes/chillerlan-OAuth-Storage-OAuthStorageAbstract.html#constant_ENCRYPT_FORMAT_HEX">ENCRYPT_FORMAT_HEX</a>
-    <span>
-        &nbsp;= 0b10                            </span>
+        &nbsp;= \chillerlan\OAuth\Core\Utilities::ENCRYPT_FORMAT_HEX                            </span>
 </dt>
 
             <dt class="phpdocumentor-table-of-contents__entry -constant -protected">
@@ -388,14 +370,14 @@ and returns a value that is suited for the underlying storage engine</dd>
     <span>
                                 &nbsp;: string    </span>
 </dt>
-<dd>decrypts the given $encrypted data with $key</dd>
+<dd>decrypts the given $encrypted data</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -protected">
     <a href="classes/chillerlan-OAuth-Storage-OAuthStorageAbstract.html#method_encrypt">encrypt()</a>
     <span>
                                 &nbsp;: string    </span>
 </dt>
-<dd>encrypts the given $data with $key</dd>
+<dd>encrypts the given $data</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -protected">
     <a href="classes/chillerlan-OAuth-Storage-OAuthStorageAbstract.html#method_getProviderName">getProviderName()</a>
@@ -426,7 +408,7 @@ and returns a value that is suited for the underlying storage engine</dd>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Storage/OAuthStorageAbstract.php"><a href="files/src-storage-oauthstorageabstract.html"><abbr title="src/Storage/OAuthStorageAbstract.php">OAuthStorageAbstract.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">35</span>
+    <span class="phpdocumentor-element-found-in__line">29</span>
 
     </aside>
 
@@ -435,91 +417,7 @@ and returns a value that is suited for the underlying storage engine</dd>
     <span class="phpdocumentor-signature__visibility">protected</span>
         <span class="phpdocumentor-signature__type">mixed</span>
     <span class="phpdocumentor-signature__name">ENCRYPT_FORMAT</span>
-    = <span class="phpdocumentor-signature__default-value">self::ENCRYPT_FORMAT_HEX</span>
-</code>
-
-
-    
-    
-    
-
-</article>
-                    <article class="phpdocumentor-element -constant -protected ">
-    <h4 class="phpdocumentor-element__name" id="constant_ENCRYPT_FORMAT_BASE64">
-        ENCRYPT_FORMAT_BASE64
-        <a href="classes/chillerlan-OAuth-Storage-OAuthStorageAbstract.html#constant_ENCRYPT_FORMAT_BASE64" class="headerlink"><i class="fas fa-link"></i></a>
-
-    </h4>
-
-    <aside class="phpdocumentor-element-found-in">
-    <abbr class="phpdocumentor-element-found-in__file" title="src/Storage/OAuthStorageAbstract.php"><a href="files/src-storage-oauthstorageabstract.html"><abbr title="src/Storage/OAuthStorageAbstract.php">OAuthStorageAbstract.php</abbr></a></abbr>
-    :
-    <span class="phpdocumentor-element-found-in__line">32</span>
-
-    </aside>
-
-    
-    <code class="phpdocumentor-signature phpdocumentor-code ">
-    <span class="phpdocumentor-signature__visibility">protected</span>
-    <span class="phpdocumentor-signature__final">final</span>    <span class="phpdocumentor-signature__type">mixed</span>
-    <span class="phpdocumentor-signature__name">ENCRYPT_FORMAT_BASE64</span>
-    = <span class="phpdocumentor-signature__default-value">0b1</span>
-</code>
-
-
-    
-    
-    
-
-</article>
-                    <article class="phpdocumentor-element -constant -protected ">
-    <h4 class="phpdocumentor-element__name" id="constant_ENCRYPT_FORMAT_BINARY">
-        ENCRYPT_FORMAT_BINARY
-        <a href="classes/chillerlan-OAuth-Storage-OAuthStorageAbstract.html#constant_ENCRYPT_FORMAT_BINARY" class="headerlink"><i class="fas fa-link"></i></a>
-
-    </h4>
-
-    <aside class="phpdocumentor-element-found-in">
-    <abbr class="phpdocumentor-element-found-in__file" title="src/Storage/OAuthStorageAbstract.php"><a href="files/src-storage-oauthstorageabstract.html"><abbr title="src/Storage/OAuthStorageAbstract.php">OAuthStorageAbstract.php</abbr></a></abbr>
-    :
-    <span class="phpdocumentor-element-found-in__line">31</span>
-
-    </aside>
-
-    
-    <code class="phpdocumentor-signature phpdocumentor-code ">
-    <span class="phpdocumentor-signature__visibility">protected</span>
-    <span class="phpdocumentor-signature__final">final</span>    <span class="phpdocumentor-signature__type">mixed</span>
-    <span class="phpdocumentor-signature__name">ENCRYPT_FORMAT_BINARY</span>
-    = <span class="phpdocumentor-signature__default-value">0b0</span>
-</code>
-
-
-    
-    
-    
-
-</article>
-                    <article class="phpdocumentor-element -constant -protected ">
-    <h4 class="phpdocumentor-element__name" id="constant_ENCRYPT_FORMAT_HEX">
-        ENCRYPT_FORMAT_HEX
-        <a href="classes/chillerlan-OAuth-Storage-OAuthStorageAbstract.html#constant_ENCRYPT_FORMAT_HEX" class="headerlink"><i class="fas fa-link"></i></a>
-
-    </h4>
-
-    <aside class="phpdocumentor-element-found-in">
-    <abbr class="phpdocumentor-element-found-in__file" title="src/Storage/OAuthStorageAbstract.php"><a href="files/src-storage-oauthstorageabstract.html"><abbr title="src/Storage/OAuthStorageAbstract.php">OAuthStorageAbstract.php</abbr></a></abbr>
-    :
-    <span class="phpdocumentor-element-found-in__line">33</span>
-
-    </aside>
-
-    
-    <code class="phpdocumentor-signature phpdocumentor-code ">
-    <span class="phpdocumentor-signature__visibility">protected</span>
-    <span class="phpdocumentor-signature__final">final</span>    <span class="phpdocumentor-signature__type">mixed</span>
-    <span class="phpdocumentor-signature__name">ENCRYPT_FORMAT_HEX</span>
-    = <span class="phpdocumentor-signature__default-value">0b10</span>
+    = <span class="phpdocumentor-signature__default-value">\chillerlan\OAuth\Core\Utilities::ENCRYPT_FORMAT_HEX</span>
 </code>
 
 
@@ -538,7 +436,7 @@ and returns a value that is suited for the underlying storage engine</dd>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Storage/OAuthStorageAbstract.php"><a href="files/src-storage-oauthstorageabstract.html"><abbr title="src/Storage/OAuthStorageAbstract.php">OAuthStorageAbstract.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">28</span>
+    <span class="phpdocumentor-element-found-in__line">26</span>
 
     </aside>
 
@@ -566,7 +464,7 @@ and returns a value that is suited for the underlying storage engine</dd>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Storage/OAuthStorageAbstract.php"><a href="files/src-storage-oauthstorageabstract.html"><abbr title="src/Storage/OAuthStorageAbstract.php">OAuthStorageAbstract.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">27</span>
+    <span class="phpdocumentor-element-found-in__line">25</span>
 
     </aside>
 
@@ -594,7 +492,7 @@ and returns a value that is suited for the underlying storage engine</dd>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Storage/OAuthStorageAbstract.php"><a href="files/src-storage-oauthstorageabstract.html"><abbr title="src/Storage/OAuthStorageAbstract.php">OAuthStorageAbstract.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">29</span>
+    <span class="phpdocumentor-element-found-in__line">27</span>
 
     </aside>
 
@@ -638,7 +536,7 @@ and returns a value that is suited for the underlying storage engine</dd>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Storage/OAuthStorageAbstract.php"><a href="files/src-storage-oauthstorageabstract.html"><abbr title="src/Storage/OAuthStorageAbstract.php">OAuthStorageAbstract.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">42</span>
+    <span class="phpdocumentor-element-found-in__line">36</span>
 
     </aside>
 
@@ -671,7 +569,7 @@ and returns a value that is suited for the underlying storage engine</dd>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Storage/OAuthStorageAbstract.php"><a href="files/src-storage-oauthstorageabstract.html"><abbr title="src/Storage/OAuthStorageAbstract.php">OAuthStorageAbstract.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">41</span>
+    <span class="phpdocumentor-element-found-in__line">35</span>
 
     </aside>
 
@@ -743,7 +641,7 @@ and returns a value that is suited for the underlying storage engine</dd>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Storage/OAuthStorageAbstract.php"><a href="files/src-storage-oauthstorageabstract.html"><abbr title="src/Storage/OAuthStorageAbstract.php">OAuthStorageAbstract.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">40</span>
+    <span class="phpdocumentor-element-found-in__line">34</span>
 
     </aside>
 
@@ -946,7 +844,7 @@ and returns a value that is suited for the underlying storage engine</dd>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Storage/SessionStorage.php"><a href="files/src-storage-sessionstorage.html"><abbr title="src/Storage/SessionStorage.php">SessionStorage.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">196</span>
+    <span class="phpdocumentor-element-found-in__line">218</span>
 
     </aside>
 
@@ -995,7 +893,7 @@ and returns a value that is suited for the underlying storage engine</dd>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Storage/SessionStorage.php"><a href="files/src-storage-sessionstorage.html"><abbr title="src/Storage/SessionStorage.php">SessionStorage.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">150</span>
+    <span class="phpdocumentor-element-found-in__line">161</span>
 
     </aside>
 
@@ -1044,7 +942,7 @@ and returns a value that is suited for the underlying storage engine</dd>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Storage/SessionStorage.php"><a href="files/src-storage-sessionstorage.html"><abbr title="src/Storage/SessionStorage.php">SessionStorage.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">187</span>
+    <span class="phpdocumentor-element-found-in__line">209</span>
 
     </aside>
 
@@ -1103,7 +1001,7 @@ and returns a value that is suited for the underlying storage engine</dd>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Storage/SessionStorage.php"><a href="files/src-storage-sessionstorage.html"><abbr title="src/Storage/SessionStorage.php">SessionStorage.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">141</span>
+    <span class="phpdocumentor-element-found-in__line">152</span>
 
     </aside>
 
@@ -1194,7 +1092,7 @@ and returns a value that is suited for the underlying storage engine</dd>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Storage/OAuthStorageAbstract.php"><a href="files/src-storage-oauthstorageabstract.html"><abbr title="src/Storage/OAuthStorageAbstract.php">OAuthStorageAbstract.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">101</span>
+    <span class="phpdocumentor-element-found-in__line">95</span>
 
     </aside>
 
@@ -1313,7 +1211,7 @@ and returns a value that is suited for the underlying storage engine</dd>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Storage/SessionStorage.php"><a href="files/src-storage-sessionstorage.html"><abbr title="src/Storage/SessionStorage.php">SessionStorage.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">168</span>
+    <span class="phpdocumentor-element-found-in__line">184</span>
 
     </aside>
 
@@ -1372,7 +1270,7 @@ and returns a value that is suited for the underlying storage engine</dd>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Storage/SessionStorage.php"><a href="files/src-storage-sessionstorage.html"><abbr title="src/Storage/SessionStorage.php">SessionStorage.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">122</span>
+    <span class="phpdocumentor-element-found-in__line">127</span>
 
     </aside>
 
@@ -1490,7 +1388,7 @@ and returns a value that is suited for the underlying storage engine</dd>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Storage/SessionStorage.php"><a href="files/src-storage-sessionstorage.html"><abbr title="src/Storage/SessionStorage.php">SessionStorage.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">180</span>
+    <span class="phpdocumentor-element-found-in__line">202</span>
 
     </aside>
 
@@ -1549,7 +1447,7 @@ and returns a value that is suited for the underlying storage engine</dd>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Storage/SessionStorage.php"><a href="files/src-storage-sessionstorage.html"><abbr title="src/Storage/SessionStorage.php">SessionStorage.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">134</span>
+    <span class="phpdocumentor-element-found-in__line">145</span>
 
     </aside>
 
@@ -1608,7 +1506,7 @@ and returns a value that is suited for the underlying storage engine</dd>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Storage/OAuthStorageAbstract.php"><a href="files/src-storage-oauthstorageabstract.html"><abbr title="src/Storage/OAuthStorageAbstract.php">OAuthStorageAbstract.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">64</span>
+    <span class="phpdocumentor-element-found-in__line">58</span>
 
     </aside>
 
@@ -1741,7 +1639,7 @@ and returns a value that is suited for the underlying storage engine</dd>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Storage/SessionStorage.php"><a href="files/src-storage-sessionstorage.html"><abbr title="src/Storage/SessionStorage.php">SessionStorage.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">159</span>
+    <span class="phpdocumentor-element-found-in__line">170</span>
 
     </aside>
 
@@ -1873,7 +1771,7 @@ and returns a value that is suited for the underlying storage engine</dd>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Storage/OAuthStorageAbstract.php"><a href="files/src-storage-oauthstorageabstract.html"><abbr title="src/Storage/OAuthStorageAbstract.php">OAuthStorageAbstract.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">88</span>
+    <span class="phpdocumentor-element-found-in__line">82</span>
 
     </aside>
 
@@ -1930,15 +1828,15 @@ and returns a value that is suited for the underlying storage engine</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Storage/OAuthStorageAbstract.php"><a href="files/src-storage-oauthstorageabstract.html"><abbr title="src/Storage/OAuthStorageAbstract.php">OAuthStorageAbstract.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">142</span>
+    <span class="phpdocumentor-element-found-in__line">114</span>
 
     </aside>
 
-        <p class="phpdocumentor-summary">decrypts the given $encrypted data with $key</p>
+        <p class="phpdocumentor-summary">decrypts the given $encrypted data</p>
 
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">protected</span>
-                    <span class="phpdocumentor-signature__name">decrypt</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$encrypted</span></span><span class="phpdocumentor-signature__argument"><span>, </span><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$key</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">string</span></code>
+                    <span class="phpdocumentor-signature__name">decrypt</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$encrypted</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">string</span></code>
 
     <div class="phpdocumentor-label-line">
         </div>
@@ -1952,47 +1850,9 @@ and returns a value that is suited for the underlying storage engine</p>
             <dd class="phpdocumentor-argument-list__definition">
                 
             </dd>
-                    <dt class="phpdocumentor-argument-list__entry">
-                <span class="phpdocumentor-signature__argument__name">$key</span>
-                : <span class="phpdocumentor-signature__argument__return-type">string</span>
-                            </dt>
-            <dd class="phpdocumentor-argument-list__definition">
-                
-            </dd>
             </dl>
 
     
-    <h5 class="phpdocumentor-tag-list__heading" id="tags">
-        Tags
-        <a href="classes/chillerlan-OAuth-Storage-OAuthStorageAbstract.html#method_decrypt#tags" class="headerlink"><i class="fas fa-link"></i></a>
-
-    </h5>
-    <dl class="phpdocumentor-tag-list">
-                                    <dt class="phpdocumentor-tag-list__entry">
-                    <span class="phpdocumentor-tag__name">see</span>
-                </dt>
-                <dd class="phpdocumentor-tag-list__definition">
-                                                                                    <span class="phpdocumentor-tag-link"><abbr title="\sodium_crypto_secretbox_open()">sodium_crypto_secretbox_open()</abbr></span>
-                                        
-                                             
-                                    </dd>
-                            <dt class="phpdocumentor-tag-list__entry">
-                    <span class="phpdocumentor-tag__name">see</span>
-                </dt>
-                <dd class="phpdocumentor-tag-list__definition">
-                                                                                    <span class="phpdocumentor-tag-link"><abbr title="\sodium_base642bin()">sodium_base642bin()</abbr></span>
-                                        
-                                             
-                                    </dd>
-                            <dt class="phpdocumentor-tag-list__entry">
-                    <span class="phpdocumentor-tag__name">see</span>
-                </dt>
-                <dd class="phpdocumentor-tag-list__definition">
-                                                                                    <span class="phpdocumentor-tag-link"><abbr title="\sodium_hex2bin()">sodium_hex2bin()</abbr></span>
-                                        
-                                             
-                                    </dd>
-                                            </dl>
 
             <section>
         <h5 class="phpdocumentor-return-value__heading">Return values</h5>
@@ -2014,15 +1874,15 @@ and returns a value that is suited for the underlying storage engine</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Storage/OAuthStorageAbstract.php"><a href="files/src-storage-oauthstorageabstract.html"><abbr title="src/Storage/OAuthStorageAbstract.php">OAuthStorageAbstract.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">117</span>
+    <span class="phpdocumentor-element-found-in__line">107</span>
 
     </aside>
 
-        <p class="phpdocumentor-summary">encrypts the given $data with $key</p>
+        <p class="phpdocumentor-summary">encrypts the given $data</p>
 
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">protected</span>
-                    <span class="phpdocumentor-signature__name">encrypt</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$data</span></span><span class="phpdocumentor-signature__argument"><span>, </span><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$key</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">string</span></code>
+                    <span class="phpdocumentor-signature__name">encrypt</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$data</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">string</span></code>
 
     <div class="phpdocumentor-label-line">
         </div>
@@ -2036,47 +1896,9 @@ and returns a value that is suited for the underlying storage engine</p>
             <dd class="phpdocumentor-argument-list__definition">
                 
             </dd>
-                    <dt class="phpdocumentor-argument-list__entry">
-                <span class="phpdocumentor-signature__argument__name">$key</span>
-                : <span class="phpdocumentor-signature__argument__return-type">string</span>
-                            </dt>
-            <dd class="phpdocumentor-argument-list__definition">
-                
-            </dd>
             </dl>
 
     
-    <h5 class="phpdocumentor-tag-list__heading" id="tags">
-        Tags
-        <a href="classes/chillerlan-OAuth-Storage-OAuthStorageAbstract.html#method_encrypt#tags" class="headerlink"><i class="fas fa-link"></i></a>
-
-    </h5>
-    <dl class="phpdocumentor-tag-list">
-                                    <dt class="phpdocumentor-tag-list__entry">
-                    <span class="phpdocumentor-tag__name">see</span>
-                </dt>
-                <dd class="phpdocumentor-tag-list__definition">
-                                                                                    <span class="phpdocumentor-tag-link"><abbr title="\sodium_crypto_secretbox()">sodium_crypto_secretbox()</abbr></span>
-                                        
-                                             
-                                    </dd>
-                            <dt class="phpdocumentor-tag-list__entry">
-                    <span class="phpdocumentor-tag__name">see</span>
-                </dt>
-                <dd class="phpdocumentor-tag-list__definition">
-                                                                                    <span class="phpdocumentor-tag-link"><abbr title="\sodium_bin2base64()">sodium_bin2base64()</abbr></span>
-                                        
-                                             
-                                    </dd>
-                            <dt class="phpdocumentor-tag-list__entry">
-                    <span class="phpdocumentor-tag__name">see</span>
-                </dt>
-                <dd class="phpdocumentor-tag-list__definition">
-                                                                                    <span class="phpdocumentor-tag-link"><abbr title="\sodium_bin2hex()">sodium_bin2hex()</abbr></span>
-                                        
-                                             
-                                    </dd>
-                                            </dl>
 
             <section>
         <h5 class="phpdocumentor-return-value__heading">Return values</h5>
@@ -2098,7 +1920,7 @@ and returns a value that is suited for the underlying storage engine</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Storage/OAuthStorageAbstract.php"><a href="files/src-storage-oauthstorageabstract.html"><abbr title="src/Storage/OAuthStorageAbstract.php">OAuthStorageAbstract.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">75</span>
+    <span class="phpdocumentor-element-found-in__line">69</span>
 
     </aside>
 
@@ -2259,9 +2081,6 @@ and returns a value that is suited for the underlying storage engine</p>
                 <li>
                     <ul class="phpdocumentor-list -clean">
                                                     <li><a href="classes/chillerlan-OAuth-Storage-OAuthStorageAbstract.html#constant_ENCRYPT_FORMAT">ENCRYPT_FORMAT</a></li>
-                                                    <li><a href="classes/chillerlan-OAuth-Storage-OAuthStorageAbstract.html#constant_ENCRYPT_FORMAT_BASE64">ENCRYPT_FORMAT_BASE64</a></li>
-                                                    <li><a href="classes/chillerlan-OAuth-Storage-OAuthStorageAbstract.html#constant_ENCRYPT_FORMAT_BINARY">ENCRYPT_FORMAT_BINARY</a></li>
-                                                    <li><a href="classes/chillerlan-OAuth-Storage-OAuthStorageAbstract.html#constant_ENCRYPT_FORMAT_HEX">ENCRYPT_FORMAT_HEX</a></li>
                                                     <li><a href="classes/chillerlan-OAuth-Storage-OAuthStorageAbstract.html#constant_KEY_STATE">KEY_STATE</a></li>
                                                     <li><a href="classes/chillerlan-OAuth-Storage-OAuthStorageAbstract.html#constant_KEY_TOKEN">KEY_TOKEN</a></li>
                                                     <li><a href="classes/chillerlan-OAuth-Storage-OAuthStorageAbstract.html#constant_KEY_VERIFIER">KEY_VERIFIER</a></li>

@@ -51,7 +51,7 @@ abstract class ProviderLiveTestAbstract extends ProviderUnitTestAbstract{
 		/** @var \chillerlan\OAuth\Core\OAuthInterface $providerFQCN */
 		$providerFQCN = $this->getProviderFQCN();
 
-		$this->dotEnv     = (new DotEnv($this->CFG_DIR, constant('TEST_ENVFILE'), false))->load();
+		$this->dotEnv     = (new DotEnv($this::CFGDIR, constant('TEST_ENVFILE'), false))->load();
 		$this->ENV_PREFIX = $providerFQCN::IDENTIFIER;
 		$this->TEST_USER  = (string)$this->dotEnv->get($this->ENV_PREFIX.'_TESTUSER');
 	}
@@ -59,7 +59,7 @@ abstract class ProviderLiveTestAbstract extends ProviderUnitTestAbstract{
 	protected function initOptions():OAuthOptions{
 		$options                   = new OAuthOptions;
 		$options->tokenAutoRefresh = true;
-		$options->fileStoragePath  = $this->CFG_DIR.'/.filestorage';
+		$options->fileStoragePath  = $this::CFGDIR.'/.filestorage';
 
 		if(!empty($this->ENV_PREFIX)){
 			$options->key    = ($this->dotEnv->get($this->ENV_PREFIX.'_KEY') ?? '');

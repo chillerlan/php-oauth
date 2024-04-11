@@ -44,9 +44,7 @@
 	<php>
 		<!-- whether the test runs on CI - set to false to allow live API tests to run -->
 		<const name="TEST_IS_CI" value="true"/>
-		<!-- the config directory, where .env, cacert.pem and test oauth tokens reside, relative from project root -->
-		<const name="TEST_CFGDIR" value=".config"/>
-		<!-- the filename of your .env file -->
+		<!-- the filename of your .env file in the config dir [project root]/.config -->
 		<const name="TEST_ENVFILE" value=".env_example"/>
 		<!-- the http client factory for live api tests -->
 		<const name="HTTP_CLIENT_FACTORY" value="chillerlan\PHPUnitHttp\GuzzleHttpClientFactory"/>

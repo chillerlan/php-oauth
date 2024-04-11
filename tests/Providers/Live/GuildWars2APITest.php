@@ -32,11 +32,7 @@ final class GuildWars2APITest extends OAuth2ProviderLiveTestAbstract{
 	protected function setUp():void{
 		parent::setUp();
 
-		$tokenfile = $this->CFG_DIR.'/'.$this->provider->name.'.token.json';
-
-		$this->token = !file_exists($tokenfile)
-			? $this->provider->storeGW2Token($this->dotEnv->GW2_TOKEN)
-			: (new AccessToken)->fromJSON(file_get_contents($tokenfile));
+		$this->provider->storeGW2Token($this->dotEnv->GW2_TOKEN);
 
 		$this->tokenname = $this->dotEnv->GW2_TOKEN_NAME;
 	}

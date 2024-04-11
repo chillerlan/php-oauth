@@ -22,4 +22,12 @@ final class FlickrTest extends OAuth1ProviderUnitTestAbstract{
 		return Flickr::class;
 	}
 
+	public function testRequest():void{
+		$this::markTestIncomplete();
+	}
+
+	public function testRequestUnauthorizedException():void{
+		$this::markTestIncomplete();
+	}
+
 }

@@ -33,22 +33,4 @@ final class PatreonTest extends OAuth2ProviderUnitTestAbstract{
 		;
 	}
 
-	public function testMeUnknownErrorException():void{
-		$this->expectException(ProviderException::class);
-		$this->expectExceptionMessage('user info error HTTP/404');
-
-		$response = $this->responseFactory
-			->createResponse(404)
-			->withHeader('Content-Type', 'application/json')
-			->withBody($this->streamFactory->createStream('{}'))
-		;
-
-		$this->setMockResponse($response);
-
-		$this->provider
-			->storeAccessToken(new AccessToken(['expires' => 42, 'scopes' => ['identity']]))
-			->me()
-		;
-	}
-
 }

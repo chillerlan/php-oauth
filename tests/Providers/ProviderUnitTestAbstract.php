@@ -11,6 +11,7 @@ declare(strict_types=1);
 
 namespace chillerlan\OAuthTest\Providers;
 
+use chillerlan\OAuth\Core\AccessToken;
 use chillerlan\OAuth\Core\OAuthInterface;
 use chillerlan\OAuth\OAuthOptions;
 use chillerlan\OAuth\OAuthProviderFactory;
@@ -29,7 +30,6 @@ use Throwable;
 use function constant;
 use function defined;
 use function ini_set;
-use function ltrim;
 use function realpath;
 use function sprintf;
 
@@ -48,11 +48,11 @@ abstract class ProviderUnitTestAbstract extends TestCase{
 
 	protected string $HTTP_CLIENT_FACTORY = ProviderUnitTestHttpClientFactory::class;
 
-	protected string $CFG_DIR;
 	protected bool   $ENV_IS_CI;
 
-	protected const PROJECT_ROOT = __DIR__.'/../../';
-	protected const CACERT       = __DIR__.'/../cacert.pem';
+	protected const PROJECT_ROOT = __DIR__.'/../..';
+	protected const CFGDIR       = self::PROJECT_ROOT.'/.config';
+	protected const CACERT       = self::PROJECT_ROOT.'/tests/cacert.pem';
 
 	protected function setUp():void{
 		ini_set('date.timezone', 'UTC');
@@ -102,17 +102,10 @@ abstract class ProviderUnitTestAbstract extends TestCase{
 
 	protected function initConfig():void{
 
-		foreach(['TEST_CFGDIR', 'TEST_ENVFILE'] as $constant){
+		foreach(['TEST_ENVFILE'] as $constant){
 			if(!defined($constant)){
 				throw new InvalidArgumentException(sprintf('constant "%s" not set -> see phpunit.xml', $constant));
 			}
-		}
-
-		$cfgdir        = constant('TEST_CFGDIR');
-		$this->CFG_DIR = realpath($this::PROJECT_ROOT.ltrim($cfgdir, '/\\'));
-
-		if($this->CFG_DIR === false){
-			throw new InvalidArgumentException(sprintf('invalid config dir "%s" (relative from project root)', $cfgdir));
 		}
 
 	}
@@ -184,6 +177,24 @@ abstract class ProviderUnitTestAbstract extends TestCase{
 		}
 
 		$this->setReflectionProperty('http', $this->getMockHttpClient($response));
+	}
+
+	/**
+	 * Creates a test access token with the given parameters or a set of defaults
+	 */
+	protected function getTestToken(array|null $params = null):AccessToken{
+
+		$params ??= [
+			'accessToken'       => 'test_access_token',
+			'accessTokenSecret' => 'test_access_token_secret',
+			'refreshToken'      => 'test_refresh_token',
+			'expires'           => 42,
+			// patreon requires a scope set
+			'scopes'            => ['identity', 'scope1', 'scope2'],
+			'provider'          => $this->provider->name,
+		];
+
+		return new AccessToken($params);
 	}
 
 }

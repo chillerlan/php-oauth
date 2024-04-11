@@ -12,7 +12,8 @@ declare(strict_types=1);
 namespace chillerlan\OAuthTest\Providers\Unit;
 
 use chillerlan\OAuth\Core\{
-	AccessToken, ClientCredentials, CSRFStateMismatchException, CSRFToken, OAuth2Interface, PKCE, TokenRefresh
+	ClientCredentials, CSRFStateMismatchException, CSRFToken,
+	OAuth2Interface, PKCE, TokenRefresh, UnauthorizedAccessException
 };
 use chillerlan\HTTP\Utils\{MessageUtil, QueryUtil};
 use chillerlan\OAuth\OAuthException;
@@ -80,11 +81,8 @@ abstract class OAuth2ProviderUnitTestAbstract extends OAuthProviderUnitTestAbstr
 	 */
 
 	public function testParseTokenResponse():void{
-
-		$response = $this->responseFactory
-			->createResponse()
-			->withBody($this->streamFactory->createStream($this::TEST_TOKEN))
-		;
+		$body     = $this->streamFactory->createStream($this::TEST_TOKEN);
+		$response = $this->responseFactory->createResponse()->withBody($body);
 
 		/** @var \chillerlan\OAuth\Core\AccessToken $token */
 		$token = $this->invokeReflectionMethod('parseTokenResponse', [$response]);
@@ -102,10 +100,8 @@ abstract class OAuth2ProviderUnitTestAbstract extends OAuthProviderUnitTestAbstr
 		$tokendata['scope'] = implode($this->provider::SCOPES_DELIMITER, $scopes);
 		$tokenJSON          = json_encode($tokendata);
 
-		$response = $this->responseFactory
-			->createResponse()
-			->withBody($this->streamFactory->createStream($tokenJSON))
-		;
+		$body     = $this->streamFactory->createStream($tokenJSON);
+		$response = $this->responseFactory->createResponse()->withBody($body);
 
 		/** @var \chillerlan\OAuth\Core\AccessToken $token */
 		$token = $this->invokeReflectionMethod('parseTokenResponse', [$response]);
@@ -117,10 +113,8 @@ abstract class OAuth2ProviderUnitTestAbstract extends OAuthProviderUnitTestAbstr
 		$this->expectException(ProviderException::class);
 		$this->expectExceptionMessage('unable to parse token response');
 
-		$response = $this->responseFactory
-			->createResponse()
-			->withBody($this->streamFactory->createStream('""'))
-		;
+		$body     = $this->streamFactory->createStream('""');
+		$response = $this->responseFactory->createResponse()->withBody($body);
 
 		$this->invokeReflectionMethod('parseTokenResponse', [$response]);
 	}
@@ -129,10 +123,18 @@ abstract class OAuth2ProviderUnitTestAbstract extends OAuthProviderUnitTestAbstr
 		$this->expectException(ProviderException::class);
 		$this->expectExceptionMessage('error retrieving access token');
 
-		$response = $this->responseFactory
-			->createResponse()
-			->withBody($this->streamFactory->createStream('{"error":"whatever"}'))
-		;
+		$body     = $this->streamFactory->createStream('{"error":"whatever"}');
+		$response = $this->responseFactory->createResponse()->withBody($body);
+
+		$this->invokeReflectionMethod('parseTokenResponse', [$response]);
+	}
+
+	public function testParseTokenResponseUnauthorizedException():void{
+		$this->expectException(UnauthorizedAccessException::class);
+		$this->expectExceptionMessage('Unauthorized');
+
+		$body     = $this->streamFactory->createStream('{"error":"Unauthorized"}');
+		$response = $this->responseFactory->createResponse(401)->withBody($body);
 
 		$this->invokeReflectionMethod('parseTokenResponse', [$response]);
 	}
@@ -141,10 +143,8 @@ abstract class OAuth2ProviderUnitTestAbstract extends OAuthProviderUnitTestAbstr
 		$this->expectException(ProviderException::class);
 		$this->expectExceptionMessage('access token missing');
 
-		$response = $this->responseFactory
-			->createResponse()
-			->withBody($this->streamFactory->createStream('{"foo":"bar"}'))
-		;
+		$body     = $this->streamFactory->createStream('{"foo":"bar"}');
+		$response = $this->responseFactory->createResponse()->withBody($body);
 
 		$this->invokeReflectionMethod('parseTokenResponse', [$response]);
 	}
@@ -226,30 +226,48 @@ abstract class OAuth2ProviderUnitTestAbstract extends OAuthProviderUnitTestAbstr
 	 */
 
 	public function testGetRequestAuthorization():void{
-		$request    = $this->requestFactory->createRequest('GET', 'https://foo.bar');
-		$token      = new AccessToken([
-			'accessTokenSecret' => 'test_token_secret',
-			'accessToken' => 'test_token',
-			'expires' => 3600,
-		]);
+		$this->provider->storeAccessToken($this->getTestToken());
 
-		$this->provider->storeAccessToken($token);
+		$request = $this->requestFactory->createRequest('GET', 'https://foo.bar');
 
 		// header (default)
 		if($this->provider::AUTH_METHOD === OAuth2Interface::AUTH_METHOD_HEADER){
 			$this::assertStringContainsString(
-				$this->provider::AUTH_PREFIX_HEADER.' test_token',
+				$this->provider::AUTH_PREFIX_HEADER.' test_access_token',
 				$this->provider->getRequestAuthorization($request)->getHeaderLine('Authorization')
 			);
 		}
 		// query
 		elseif($this->provider::AUTH_METHOD === OAuth2Interface::AUTH_METHOD_QUERY){
 			$this::assertStringContainsString(
-				$this->provider::AUTH_PREFIX_QUERY.'=test_token',
+				$this->provider::AUTH_PREFIX_QUERY.'=test_access_token',
 				$this->provider->getRequestAuthorization($request)->getUri()->getQuery()
 			);
 		}
 
+	}
+
+	public function testGetRequestAuthorizationWithTokenRefresh():void{
+
+		if(!$this->provider instanceof TokenRefresh){
+			$this->markTestSkipped('TokenRefresh N/A');
+		}
+
+		$token = $this->getTestToken([
+			'accessToken'  => 'test_token',
+			'refreshToken' => 'test_refresh_token',
+			// expiry unknown
+		]);
+
+		$this->storage->storeAccessToken($token, $this->provider->name);
+		$this->setMockResponse($this->streamFactory->createStream($this::TEST_TOKEN));
+
+		$request = $this->requestFactory->createRequest('GET', 'https://foo.bar');
+		$this->provider->getRequestAuthorization($request);
+
+		// token was refreshed
+		$token = $this->storage->getAccessToken($this->provider->name);
+		$this->assertSame('2YotnFZFEjr1zCsicMWpAA', $token->accessToken);
 	}
 
 
@@ -427,7 +445,7 @@ abstract class OAuth2ProviderUnitTestAbstract extends OAuthProviderUnitTestAbstr
 
 		$this->setMockResponse($this->streamFactory->createStream(json_encode($tokenResponse)));
 
-		$oldToken = new AccessToken(['accessToken' => 'nope', 'refreshToken' => 'test_refresh_token']);
+		$oldToken = $this->getTestToken();
 		$newToken = $this->provider->refreshAccessToken($oldToken);
 
 		$this->assertSame('2YotnFZFEjr1zCsicMWpAA', $newToken->accessToken);
@@ -455,12 +473,14 @@ abstract class OAuth2ProviderUnitTestAbstract extends OAuthProviderUnitTestAbstr
 		}
 
 		$this->expectException(OAuthException::class);
-		$this->expectExceptionMessage('no refresh token available, token expired [');
+		$this->expectExceptionMessage('no refresh token available, token expired');
 
-		$token = new AccessToken(['expires' => 1, 'refreshToken' => null]);
-		$this->provider->storeAccessToken($token);
+		$token = $this->getTestToken(['expires' => 1, 'refreshToken' => null]);
 
-		$this->provider->refreshAccessToken();
+		$this->provider
+			->storeAccessToken($token)
+			->refreshAccessToken()
+		;
 	}
 
 	public function testRefreshAccessTokenNotSupportedException():void{

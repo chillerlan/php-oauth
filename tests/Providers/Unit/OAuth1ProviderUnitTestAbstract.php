@@ -11,7 +11,7 @@ declare(strict_types=1);
 
 namespace chillerlan\OAuthTest\Providers\Unit;
 
-use chillerlan\OAuth\Core\{AccessToken, OAuth1Interface};
+use chillerlan\OAuth\Core\{AccessToken, OAuth1Interface, UnauthorizedAccessException};
 use chillerlan\HTTP\Utils\MessageUtil;
 use chillerlan\OAuth\Providers\ProviderException;
 use function str_starts_with;
@@ -78,11 +78,8 @@ abstract class OAuth1ProviderUnitTestAbstract extends OAuthProviderUnitTestAbstr
 	 */
 
 	public function testParseAccessTokenResponse():void{
-
-		$response = $this->responseFactory
-			->createResponse()
-			->withBody($this->streamFactory->createStream($this::TEST_ACCESS_TOKEN))
-		;
+		$body     = $this->streamFactory->createStream($this::TEST_ACCESS_TOKEN);
+		$response = $this->responseFactory->createResponse()->withBody($body);
 
 		/** @var \chillerlan\OAuth\Core\AccessToken $token */
 		$token = $this->invokeReflectionMethod('parseTokenResponse', [$response]);
@@ -92,11 +89,8 @@ abstract class OAuth1ProviderUnitTestAbstract extends OAuthProviderUnitTestAbstr
 	}
 
 	public function testParseTemporaryCredentialsTokenResponse():void{
-
-		$response = $this->responseFactory
-			->createResponse()
-			->withBody($this->streamFactory->createStream($this::TEST_REQUEST_TOKEN))
-		;
+		$body     = $this->streamFactory->createStream($this::TEST_REQUEST_TOKEN);
+		$response = $this->responseFactory->createResponse()->withBody($body);
 
 		/** @var \chillerlan\OAuth\Core\AccessToken $token */
 		$token = $this->invokeReflectionMethod('parseTokenResponse', [$response, true]);
@@ -118,6 +112,16 @@ abstract class OAuth1ProviderUnitTestAbstract extends OAuthProviderUnitTestAbstr
 
 		$body     = $this->streamFactory->createStream('error=whatever');
 		$response = $this->responseFactory->createResponse()->withBody($body);
+
+		$this->invokeReflectionMethod('parseTokenResponse', [$response]);
+	}
+
+	public function testParseTokenResponseUnauthorizedException():void{
+		$this->expectException(UnauthorizedAccessException::class);
+		$this->expectExceptionMessage('Unauthorized');
+
+		$body     = $this->streamFactory->createStream('error=Unauthorized');
+		$response = $this->responseFactory->createResponse(401)->withBody($body);
 
 		$this->invokeReflectionMethod('parseTokenResponse', [$response]);
 	}
@@ -150,7 +154,7 @@ abstract class OAuth1ProviderUnitTestAbstract extends OAuthProviderUnitTestAbstr
 	public function testGetAccessToken():void{
 		$this->setMockResponse($this->streamFactory->createStream($this::TEST_ACCESS_TOKEN));
 
-		$requestToken = new AccessToken([
+		$requestToken = $this->getTestToken([
 			'accessToken'       => 'hdk48Djdsa',
 			'accessTokenSecret' => 'xyz4992k83j47x0b',
 			'expires'           => AccessToken::NEVER_EXPIRES,
@@ -165,7 +169,7 @@ abstract class OAuth1ProviderUnitTestAbstract extends OAuthProviderUnitTestAbstr
 
 	public function testSendAccessTokenRequest():void{
 		// we need the request token for the access token request
-		$requestToken = new AccessToken([
+		$requestToken = $this->getTestToken([
 			'accessToken'       => 'hdk48Djdsa',
 			'accessTokenSecret' => 'xyz4992k83j47x0b',
 			'expires'           => AccessToken::NEVER_EXPIRES,
@@ -190,11 +194,12 @@ abstract class OAuth1ProviderUnitTestAbstract extends OAuthProviderUnitTestAbstr
 		$this->expectException(ProviderException::class);
 		$this->expectExceptionMessage('request token mismatch');
 
-		$requestToken = new AccessToken(['accessToken' => 'hdk48Djdsa']);
+		$requestToken = $this->getTestToken(['accessToken' => 'hdk48Djdsa']);
 
-		$this->provider->storeAccessToken($requestToken);
-
-		$this->provider->getAccessToken('nope', 'verifier');
+		$this->provider
+			->storeAccessToken($requestToken)
+			->getAccessToken('nope', 'verifier')
+		;
 	}
 
 
@@ -204,7 +209,7 @@ abstract class OAuth1ProviderUnitTestAbstract extends OAuthProviderUnitTestAbstr
 
 	public function testGetRequestAuthorization():void{
 		$request = $this->requestFactory->createRequest('GET', 'https://foo.bar');
-		$token   = new AccessToken([
+		$token   = $this->getTestToken([
 			'accessTokenSecret' => 'test_token_secret',
 			'accessToken'       => 'test_token',
 			'expires'           => AccessToken::NEVER_EXPIRES,

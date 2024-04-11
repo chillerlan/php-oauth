@@ -12,6 +12,7 @@ declare(strict_types=1);
 namespace chillerlan\OAuthTest\Providers\Unit;
 
 use chillerlan\HTTP\Utils\QueryUtil;
+use chillerlan\OAuth\Core\UnauthorizedAccessException;
 use chillerlan\OAuth\Providers\Deezer;
 use chillerlan\OAuth\Providers\ProviderException;
 use function implode;
@@ -47,6 +48,18 @@ final class DeezerTest extends OAuth2ProviderUnitTestAbstract{
 		$response = $this->responseFactory
 			->createResponse()
 			->withBody($this->streamFactory->createStream('error_reason=whatever'))
+		;
+
+		$this->invokeReflectionMethod('parseTokenResponse', [$response]);
+	}
+
+	public function testParseTokenResponseUnauthorizedException():void{
+		$this->expectException(UnauthorizedAccessException::class);
+		$this->expectExceptionMessage('Unauthorized');
+
+		$response = $this->responseFactory
+			->createResponse(401)
+			->withBody($this->streamFactory->createStream('error_reason=Unauthorized'))
 		;
 
 		$this->invokeReflectionMethod('parseTokenResponse', [$response]);

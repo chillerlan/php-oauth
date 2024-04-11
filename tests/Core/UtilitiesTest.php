@@ -12,8 +12,8 @@ declare(strict_types=1);
 namespace chillerlan\OAuthTest\Core;
 
 use chillerlan\OAuth\Core\{OAuthInterface, Utilities};
-use Monolog\Test\TestCase;
 use PHPUnit\Framework\Attributes\DataProvider;
+use PHPUnit\Framework\TestCase;
 use ReflectionClass;
 
 /**

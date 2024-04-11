@@ -22,8 +22,16 @@ final class SteamTest extends OAuthProviderUnitTestAbstract{
 		return Steam::class;
 	}
 
+	public function testRequest():void{
+		$this::markTestIncomplete();
+	}
+
 	public function testMeUnknownErrorException():void{
 		$this->markTestSkipped('N/A');
+	}
+
+	public function testGetRequestAuthorizationInvalidTokenException():void{
+		$this::markTestSkipped('N/A');
 	}
 
 }

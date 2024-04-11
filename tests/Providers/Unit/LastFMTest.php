@@ -22,4 +22,16 @@ final class LastFMTest extends OAuthProviderUnitTestAbstract{
 		return LastFM::class;
 	}
 
+	public function testRequest():void{
+		$this::markTestIncomplete();
+	}
+
+	public function testGetRequestAuthorizationInvalidTokenException():void{
+		$this::markTestSkipped('N/A');
+	}
+
+	public function testMeResponseInvalidContentTypeException():void{
+		$this::markTestSkipped('N/A');
+	}
+
 }

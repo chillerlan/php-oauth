@@ -14,11 +14,11 @@ declare(strict_types=1);
 namespace chillerlan\OAuth\Providers;
 
 use chillerlan\HTTP\Utils\{MessageUtil, QueryUtil};
-use chillerlan\OAuth\Core\{AccessToken, AuthenticatedUser, OAuthProvider, UnauthorizedAccessException, UserInfo};
+use chillerlan\OAuth\Core\{AccessToken, AuthenticatedUser, OAuthProvider, UserInfo};
+use chillerlan\Settings\SettingsContainerAbstract;
 use Psr\Http\Message\{RequestInterface, ResponseInterface, StreamInterface, UriInterface};
-use Throwable;
-use function array_merge, in_array, is_array, ksort, md5, sprintf;
-use const PHP_QUERY_RFC1738;
+use DateTimeInterface, InvalidArgumentException, Throwable;
+use function array_chunk, array_filter, array_merge, in_array, is_array, ksort, md5, sprintf, strtoupper, trim;
 
 /**
  * Last.fm
@@ -52,6 +52,8 @@ class LastFM extends OAuthProvider implements UserInfo{
 	protected string|null $apiDocs          = 'https://www.last.fm/api/';
 	protected string|null $applicationURL   = 'https://www.last.fm/api/account/create';
 
+	protected array $scrobbles = [];
+
 	/**
 	 * @inheritdoc
 	 */
@@ -65,29 +67,22 @@ class LastFM extends OAuthProvider implements UserInfo{
 	}
 
 	/**
-	 *
+	 * Obtains an authentication token
 	 */
-	protected function getSignature(array $params):string{
-		ksort($params);
+	public function getAccessToken(string $session_token):AccessToken{
+		$params   = $this->getAccessTokenRequestBodyParams($session_token);
+		$response = $this->sendAccessTokenRequest($this->accessTokenURL, $params);
+		$token    = $this->parseTokenResponse($response);
 
-		$signature = '';
+		$this->storage->storeAccessToken($token, $this->name);
 
-		foreach($params as $k => $v){
-
-			if(in_array($k, ['format', 'callback'])){
-				continue;
-			}
-
-			$signature .= $k.$v;
-		}
-
-		return md5($signature.$this->options->secret);
+		return $token;
 	}
 
 	/**
-	 *
+	 * prepares the request body parameters for the access token request
 	 */
-	public function getAccessToken(string $session_token):AccessToken{
+	protected function getAccessTokenRequestBodyParams(string $session_token):array{
 
 		$params = [
 			'method'  => 'auth.getSession',
@@ -96,11 +91,22 @@ class LastFM extends OAuthProvider implements UserInfo{
 			'token'   => $session_token,
 		];
 
-		$params['api_sig'] = $this->getSignature($params);
+		return $this->addSignature($params);
+	}
 
-		$request = $this->requestFactory->createRequest('GET', QueryUtil::merge($this->accessTokenURL, $params));
+	/**
+	 * sends a request to the access token endpoint $url with the given $params as URL query
+	 */
+	protected function sendAccessTokenRequest(string $url, array $params):ResponseInterface{
 
-		return $this->parseTokenResponse($this->http->sendRequest($request));
+		$request = $this->requestFactory
+			->createRequest('GET', QueryUtil::merge($url, $params))
+			->withHeader('Accept', 'application/json')
+			->withHeader('Accept-Encoding', 'identity')
+			->withHeader('Content-Length', '0')
+		;
+
+		return $this->http->sendRequest($request);
 	}
 
 	/**
@@ -120,7 +126,7 @@ class LastFM extends OAuthProvider implements UserInfo{
 		}
 
 		if(isset($data['error'])){
-			throw new ProviderException('error retrieving access token: '.$data['message']);
+			throw new ProviderException(sprintf('error retrieving access token: "%s"', $data['message']));
 		}
 
 		if(!isset($data['session']['key'])){
@@ -136,8 +142,6 @@ class LastFM extends OAuthProvider implements UserInfo{
 
 		$token->extraParams = $data;
 
-		$this->storage->storeAccessToken($token, $this->name);
-
 		return $token;
 	}
 
@@ -152,94 +156,285 @@ class LastFM extends OAuthProvider implements UserInfo{
 		array|null                        $headers = null,
 		string|null                       $protocolVersion = null
 	):ResponseInterface{
+		$method    = strtoupper($method ?? 'GET');
+		$headers ??= [];
 
 		if($body !== null && !is_array($body)){
-			throw new ProviderException('$body must be an array');
+			throw new InvalidArgumentException('$body must be an array');
 		}
 
-		$method ??= 'GET';
-		$params ??= [];
-		$body   ??= [];
+		// all parameters go either in the query or in the body - there is no in-between
+		$params = array_merge(($params ?? []), ($body ?? []), ['method' => $path]);
 
-		$params = array_merge($params, $body, [
-			'method'  => $path,
-			'format'  => 'json',
-			'api_key' => $this->options->key,
-			'sk'      => $this->storage->getAccessToken($this->name)->accessToken,
-		]);
+		if(!isset($params['format'])){
+			$params['format']  = 'json';
+			$headers['Accept'] = 'application/json';
+		}
 
-		$params['api_sig'] = $this->getSignature($params);
+		// request authorization is always part of the parameter array
+		$params = $this->getAuthorization($params);
 
 		if($method === 'POST'){
 			$body   = $params;
 			$params = [];
+
+			$headers['Content-Type'] = 'application/x-www-form-urlencoded';
 		}
 
-		/** @phan-suppress-next-line PhanTypeMismatchArgumentNullable */
-		$request = $this->requestFactory->createRequest($method, QueryUtil::merge($this->apiURL, $params));
+		return parent::request('', $params, $method, $body, $headers, $protocolVersion);
+	}
 
-		/** @noinspection PhpParamsInspection */
-		foreach(array_merge($this::HEADERS_API, ($headers ?? [])) as $header => $value){
-			$request = $request->withAddedHeader($header, $value);
+	/**
+	 * adds the authorization parameters to the request parameters
+	 */
+	protected function getAuthorization(array $params, AccessToken|null $token = null):array{
+		$token ??= $this->storage->getAccessToken($this->name);
+
+		$params = array_merge($params, [
+			'api_key' => $this->options->key,
+			'sk'      => $token->accessToken,
+		]);
+
+		return $this->addSignature($params);
+	}
+
+	/**
+	 * @inheritDoc
+	 */
+	public function getRequestAuthorization(RequestInterface $request, AccessToken|null $token = null):RequestInterface{
+		// noop - just return the request
+		return $request;
+	}
+
+	/**
+	 * returns the signature for the set of parameters
+	 */
+	protected function addSignature(array $params):array{
+
+		if(!isset($params['api_key'])){
+			throw new ProviderException('"api_key" missing'); // @codeCoverageIgnore
 		}
 
-		if($method === 'POST'){
-			$request = $request->withHeader('Content-Type', 'application/x-www-form-urlencoded');
-			$body    = $this->streamFactory->createStream(QueryUtil::build($body, PHP_QUERY_RFC1738));
-			$request = $request->withBody($body);
+		ksort($params);
+
+		$signature = '';
+
+		foreach($params as $k => $v){
+
+			if(in_array($k, ['format', 'callback'])){
+				continue;
+			}
+
+			$signature .= $k.$v;
 		}
 
-		$response = $this->sendRequest($request);
+		$params['api_sig'] = md5($signature.$this->options->secret);
 
-		// we're throwing here immideately on unauthorized/forbidden
-		if(in_array($response->getStatusCode(), [401, 403], true)){
-			throw new UnauthorizedAccessException;
-		}
+		return $params;
+	}
 
-		return $response;
+	/**
+	 * @inheritDoc
+	 */
+	protected function sendMeRequest(string $endpoint, array|null $params = null):ResponseInterface{
+		return $this->request($endpoint, $params);
 	}
 
 	/**
 	 * @inheritDoc
 	 * @codeCoverageIgnore
 	 */
-	public function getRequestAuthorization(RequestInterface $request, AccessToken|null $token = null):RequestInterface{
-		return $request;
-	}
-
-	/**
-	 * @inheritDoc
-	 */
 	public function me():AuthenticatedUser{
-		$response = $this->request('user.getInfo');
-		$status   = $response->getStatusCode();
-		$json     = MessageUtil::decodeJSON($response, true);
+		$json = $this->getMeResponseData('user.getInfo');
 
-		if($status === 200){
+		$userdata = [
+			'data'        => $json,
+			'avatar'      => $json['user']['image'][3]['#text'],
+			'handle'      => $json['user']['name'],
+			'displayName' => $json['user']['realname'],
+			'url'         => $json['user']['url'],
+		];
 
-			$userdata = [
-				'data'        => $json,
-				'avatar'      => $json['user']['image'][3]['#text'],
-				'handle'      => $json['user']['name'],
-				'displayName' => $json['user']['realname'],
-				'url'         => $json['user']['url'],
-			];
-
-			return new AuthenticatedUser($userdata);
-		}
-
-		if(isset($json['error'], $json['error_description'])){
-			throw new ProviderException($json['error_description']);
-		}
-
-		throw new ProviderException(sprintf('user info error HTTP/%s', $status));
+		return new AuthenticatedUser($userdata);
 	}
 
 	/**
-	 * @todo
+	 * Scrobbles an array of one or more tracks
 	 *
-	 * @param array $tracks
+	 * There is no limit for adding tracks, they will be sent to the API in chunks of 50 automatically.
+	 * The return value of this method is an array that contains a response array for each 50 tracks sent,
+	 * if an error happened, the element will be null.
+	 *
+	 * Each track array may consist of the following values
+	 *
+	 *   - artist      : [required] The artist name.
+	 *   - track       : [required] The track name.
+	 *   - timestamp   : [required] The time the track started playing, in UNIX timestamp format (UTC time zone).
+	 *   - album       : [optional] The album name.
+	 *   - context     : [optional] Sub-client version (not public, only enabled for certain API keys)
+	 *   - streamId    : [optional] The stream id for this track received from the radio.getPlaylist service,
+	 *                             if scrobbling Last.fm radio (unavailable)
+	 *   - chosenByUser: [optional] Set to 1 if the user chose this song, or 0 if the song was chosen by someone else
+	 *                             (such as a radio station or recommendation service). Assumes 1 if not specified
+	 *   - trackNumber : [optional] The track number of the track on the album.
+	 *   - mbid        : [optional] The MusicBrainz Track ID.
+	 *   - albumArtist : [optional] The album artist - if this differs from the track artist.
+	 *   - duration    : [optional] The length of the track in seconds.
+	 *
+	 * @see https://www.last.fm/api/show/track.scrobble
 	 */
-#	public function scrobble(array $tracks){}
+	public function scrobble(array $tracks):array{
+
+		// a single track was given
+		if(isset($tracks['artist'], $tracks['track'], $tracks['timestamp'])){
+			$tracks = [$tracks];
+		}
+
+		foreach($tracks as $track){
+			$this->addScrobble($track);
+		}
+
+		if(empty($this->scrobbles)){
+			throw new InvalidArgumentException('no tracks to scrobble'); // @codeCoverageIgnore
+		}
+
+		// we're going to collect the responses in an array
+		$return = [];
+
+		// 50 tracks max per request
+		foreach(array_chunk($this->scrobbles, 50) as $chunk){
+			$body = [];
+
+			foreach($chunk as $i => $track){
+				foreach($track as $key => $value){
+					$body[sprintf('%s[%s]', $key, $i)] = $value;
+				}
+			}
+
+			$return[] = $this->sendScrobbles($body);
+		}
+
+		return $return;
+	}
+
+	/**
+	 * Adds a track to scrobble
+	 */
+	public function addScrobble(array $track):static{
+
+		if(!isset($track['artist'], $track['track'], $track['timestamp'])){
+			throw new InvalidArgumentException('"artist", "track" and "timestamp" are required'); // @codeCoverageIgnore
+		}
+
+		$this->scrobbles[] = $this->parseTrack($track);
+
+		return $this;
+	}
+
+	/**
+	 * @codeCoverageIgnore
+	 */
+	public function clearScrobbles():static{
+		$this->scrobbles = [];
+
+		return $this;
+	}
+
+	/**
+	 * @codeCoverageIgnore
+	 */
+	protected function parseTrack(array $track):array{
+		// we're using the settings container and its setters to enforce variables and types etc.
+		return (new class($track) extends SettingsContainerAbstract{
+
+			protected string      $artist;
+			protected string      $track;
+			protected int         $timestamp;
+			protected string|null $album        = null;
+			protected string|null $context      = null;
+			protected string|null $streamId     = null;
+			protected int         $chosenByUser = 1;
+			protected int|null    $trackNumber  = null;
+			protected string|null $mbid         = null;
+			protected string|null $albumArtist  = null;
+			protected int|null    $duration     = null;
+
+			protected function construct():void{
+				foreach(['artist', 'track', 'album', 'context', 'streamId', 'mbid', 'albumArtist'] as $var){
+
+					if($this->{$var} === null){
+						continue;
+					}
+
+					$this->{$var} = trim($this->{$var});
+
+					if(empty($this->{$var})){
+						throw new InvalidArgumentException(sprintf('variable "%s" must not be empty', $var));
+					}
+				}
+			}
+
+			public function toArray():array{
+				// filter out the null values
+				return array_filter(parent::toArray(), fn(mixed $val):bool => $val !== null);
+			}
+
+			protected function set_timestamp(DateTimeInterface|int $timestamp):void{
+
+				if($timestamp instanceof DateTimeInterface){
+					$timestamp = $timestamp->getTimestamp();
+				}
+
+				$this->timestamp = $timestamp;
+			}
+
+			protected function set_chosenByUser(bool $chosenByUser):void{
+				$this->chosenByUser = (int)$chosenByUser;
+			}
+
+			protected function set_trackNumber(int $trackNumber):void{
+
+				if($trackNumber < 1){
+					throw new InvalidArgumentException('invalid track number');
+				}
+
+				$this->trackNumber = $trackNumber;
+			}
+
+			protected function set_duration(int $duration):void{
+
+				if($duration < 0){
+					throw new InvalidArgumentException('invalid track duration');
+				}
+
+				$this->duration = $duration;
+			}
+
+		})->toArray();
+	}
+
+	/**
+	 * @codeCoverageIgnore
+	 */
+	protected function sendScrobbles(array $body):array|null{
+
+		$response = $this->request(
+			path  : 'track.scrobble',
+			method: 'POST',
+			body  : $body,
+		);
+
+		if($response->getStatusCode() === 200){
+			$json = MessageUtil::decodeJSON($response, true);
+
+			if(!isset($json['scrobbles'])){
+				return null;
+			}
+
+			return $json['scrobbles'];
+		}
+
+		return null;
+	}
 
 }

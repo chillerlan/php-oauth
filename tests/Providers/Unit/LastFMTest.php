@@ -98,7 +98,6 @@ final class LastFMTest extends OAuthProviderUnitTestAbstract{
 	 * access token
 	 */
 
-
 	public function testGetAccessToken():void{
 		$this->setMockResponse($this->streamFactory->createStream($this::TEST_TOKEN));
 
@@ -106,7 +105,6 @@ final class LastFMTest extends OAuthProviderUnitTestAbstract{
 
 		$this->assertSame('sk', $token->accessToken);
 		$this::assertSame('lfm-user', $token->extraParams['session']['name']);
-
 	}
 
 	public function testGetAccessTokenRequestBodyParams():void{

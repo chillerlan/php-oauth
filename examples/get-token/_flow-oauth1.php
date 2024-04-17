@@ -24,7 +24,7 @@ if(isset($_GET['login']) && $_GET['login'] === $name){
 	header('Location: '.$provider->getAuthorizationURL($PARAMS));
 }
 // step 3: receive the access token
-elseif(isset($_GET['oauth_token']) && isset($_GET['oauth_verifier'])){
+elseif(isset($_GET['oauth_token'], $_GET['oauth_verifier'])){
 	$token = $provider->getAccessToken($_GET['oauth_token'], $_GET['oauth_verifier']);
 
 	// save the token [...]

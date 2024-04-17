@@ -25,7 +25,7 @@ if(isset($_GET['login']) && $_GET['login'] === $name){
 	header('Location: '.$provider->getAuthorizationURL());
 }
 // step 3: receive the access token
-elseif(isset($_GET['openid_sig']) && isset($_GET['openid_signed'])){
+elseif(isset($_GET['openid_sig'], $_GET['openid_signed'], $_GET['openid_claimed_id'])){
 	// the Steam provider takes the whole $_GET array as it uses multiple of the query parameters
 	$token = $provider->getAccessToken($_GET);
 
@@ -44,11 +44,10 @@ elseif(isset($_GET['granted']) && $_GET['granted'] === $name){
 	// use the file storage from now on
 	$provider->setStorage($factory->getFileStorage());
 
-	$data      = $provider->me();
-	$token     = $provider->getAccessTokenFromStorage(); // the user's steamid is stored as access token
-	$tokenJSON = $token->toJSON();
+	$token = $provider->getAccessTokenFromStorage(); // the user's steamid is stored as access token
 
-	printf('<pre>%s</pre><textarea cols="120" rows="5" onclick="this.select();">%s</textarea>', $data, $tokenJSON);
+	printf('<pre>%s</pre>', print_r($provider->me(), true));
+	printf('<textarea cols="120" rows="5" onclick="this.select();">%s</textarea>', $token->toJSON());
 }
 // step 1 (optional): display a login link
 else{

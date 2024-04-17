@@ -144,7 +144,7 @@
         <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="tests/Providers/Unit/SteamTest.php"><a href="files/tests-providers-unit-steamtest.html"><abbr title="tests/Providers/Unit/SteamTest.php">SteamTest.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">19</span>
+    <span class="phpdocumentor-element-found-in__line">22</span>
 
     </aside>
 
@@ -182,6 +182,24 @@
     <a href="classes/chillerlan-OAuthTest-Providers-ProviderUnitTestAbstract.html#constant_CFGDIR">CFGDIR</a>
     <span>
         &nbsp;= self::PROJECT_ROOT . &#039;/.config&#039;                            </span>
+</dt>
+
+            <dt class="phpdocumentor-table-of-contents__entry -constant -protected">
+    <a href="classes/chillerlan-OAuthTest-Providers-Unit-SteamTest.html#constant_ID_INVALID">ID_INVALID</a>
+    <span>
+        &nbsp;= &quot;ns:http://specs.openid.net/auth/2.0\nis_valid:false\n&quot;                            </span>
+</dt>
+
+            <dt class="phpdocumentor-table-of-contents__entry -constant -protected">
+    <a href="classes/chillerlan-OAuthTest-Providers-Unit-SteamTest.html#constant_ID_VALID">ID_VALID</a>
+    <span>
+        &nbsp;= &quot;ns:http://specs.openid.net/auth/2.0\nis_valid:true\n&quot;                            </span>
+</dt>
+
+            <dt class="phpdocumentor-table-of-contents__entry -constant -protected">
+    <a href="classes/chillerlan-OAuthTest-Providers-Unit-SteamTest.html#constant_OPENID_CALLBACK">OPENID_CALLBACK</a>
+    <span>
+        &nbsp;= [&#039;openid_ns&#039; =&gt; &#039;http://specs.openid.net/auth/2.0&#039;, &#039;openid_mode&#039; =&gt; &#039;id_res&#039;, &#039;openid_op_endpoint&#039; =&gt; &#039;https://steamcommunity.com/openid/login&#039;, &#039;openid_claimed_id&#039; =&gt; &#039;https://steamcommunity.com/openid/id/69420&#039;, &#039;openid_identity&#039; =&gt; &#039;https://steamcommunity.com/openid/id/69420&#039;, &#039;openid_return_to&#039; =&gt; &#039;https://smiley.codes/oauth/&#039;, &#039;openid_response_nonce&#039; =&gt; &#039;2021-03-16T06:40:46ZtLLZ4JqhLZ2IULBg8x2P8YitHQY=&#039;, &#039;openid_assoc_handle&#039; =&gt; &#039;1234567890&#039;, &#039;openid_signed&#039; =&gt; &#039;signed,op_endpoint,claimed_id,identity,return_to,response_nonce,assoc_handle&#039;, &#039;openid_sig&#039; =&gt; &#039;7WEtj64YlaJLNqL6M0gZvVmOLFg=&#039;]                            </span>
 </dt>
 
             <dt class="phpdocumentor-table-of-contents__entry -constant -protected">
@@ -286,6 +304,24 @@
 </dt>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
+    <a href="classes/chillerlan-OAuthTest-Providers-Unit-SteamTest.html#method_testGetAccessToken">testGetAccessToken()</a>
+    <span>
+                                &nbsp;: void    </span>
+</dt>
+
+            <dt class="phpdocumentor-table-of-contents__entry -method -public">
+    <a href="classes/chillerlan-OAuthTest-Providers-Unit-SteamTest.html#method_testGetAccessTokenRequestBodyParams">testGetAccessTokenRequestBodyParams()</a>
+    <span>
+                                &nbsp;: void    </span>
+</dt>
+
+            <dt class="phpdocumentor-table-of-contents__entry -method -public">
+    <a href="classes/chillerlan-OAuthTest-Providers-Unit-SteamTest.html#method_testGetAuthURL">testGetAuthURL()</a>
+    <span>
+                                &nbsp;: void    </span>
+</dt>
+
+            <dt class="phpdocumentor-table-of-contents__entry -method -public">
     <a href="classes/chillerlan-OAuthTest-Providers-Unit-OAuthProviderUnitTestAbstract.html#method_testGetMeResponseData">testGetMeResponseData()</a>
     <span>
                                 &nbsp;: void    </span>
@@ -370,13 +406,31 @@
 </dt>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a href="classes/chillerlan-OAuthTest-Providers-Unit-SteamTest.html#method_testMeUnknownErrorException">testMeUnknownErrorException()</a>
+    <a href="classes/chillerlan-OAuthTest-Providers-Unit-OAuthProviderUnitTestAbstract.html#method_testMeUnknownErrorException">testMeUnknownErrorException()</a>
     <span>
                                 &nbsp;: void    </span>
 </dt>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
     <a href="classes/chillerlan-OAuthTest-Providers-Unit-OAuthProviderUnitTestAbstract.html#method_testOAuthInstance">testOAuthInstance()</a>
+    <span>
+                                &nbsp;: void    </span>
+</dt>
+
+            <dt class="phpdocumentor-table-of-contents__entry -method -public">
+    <a href="classes/chillerlan-OAuthTest-Providers-Unit-SteamTest.html#method_testParseAccessTokenResponse">testParseAccessTokenResponse()</a>
+    <span>
+                                &nbsp;: void    </span>
+</dt>
+
+            <dt class="phpdocumentor-table-of-contents__entry -method -public">
+    <a href="classes/chillerlan-OAuthTest-Providers-Unit-SteamTest.html#method_testParseTokenResponseInvalidIdException">testParseTokenResponseInvalidIdException()</a>
+    <span>
+                                &nbsp;: void    </span>
+</dt>
+
+            <dt class="phpdocumentor-table-of-contents__entry -method -public">
+    <a href="classes/chillerlan-OAuthTest-Providers-Unit-SteamTest.html#method_testParseTokenResponseNoDataException">testParseTokenResponseNoDataException()</a>
     <span>
                                 &nbsp;: void    </span>
 </dt>
@@ -540,6 +594,90 @@
         <span class="phpdocumentor-signature__type">mixed</span>
     <span class="phpdocumentor-signature__name">CFGDIR</span>
     = <span class="phpdocumentor-signature__default-value">self::PROJECT_ROOT . &#039;/.config&#039;</span>
+</code>
+
+
+    
+    
+    
+
+</article>
+                    <article class="phpdocumentor-element -constant -protected ">
+    <h4 class="phpdocumentor-element__name" id="constant_ID_INVALID">
+        ID_INVALID
+        <a href="classes/chillerlan-OAuthTest-Providers-Unit-SteamTest.html#constant_ID_INVALID" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h4>
+
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="tests/Providers/Unit/SteamTest.php"><a href="files/tests-providers-unit-steamtest.html"><abbr title="tests/Providers/Unit/SteamTest.php">SteamTest.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">25</span>
+
+    </aside>
+
+    
+    <code class="phpdocumentor-signature phpdocumentor-code ">
+    <span class="phpdocumentor-signature__visibility">protected</span>
+        <span class="phpdocumentor-signature__type">mixed</span>
+    <span class="phpdocumentor-signature__name">ID_INVALID</span>
+    = <span class="phpdocumentor-signature__default-value">&quot;ns:http://specs.openid.net/auth/2.0\nis_valid:false\n&quot;</span>
+</code>
+
+
+    
+    
+    
+
+</article>
+                    <article class="phpdocumentor-element -constant -protected ">
+    <h4 class="phpdocumentor-element__name" id="constant_ID_VALID">
+        ID_VALID
+        <a href="classes/chillerlan-OAuthTest-Providers-Unit-SteamTest.html#constant_ID_VALID" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h4>
+
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="tests/Providers/Unit/SteamTest.php"><a href="files/tests-providers-unit-steamtest.html"><abbr title="tests/Providers/Unit/SteamTest.php">SteamTest.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">24</span>
+
+    </aside>
+
+    
+    <code class="phpdocumentor-signature phpdocumentor-code ">
+    <span class="phpdocumentor-signature__visibility">protected</span>
+        <span class="phpdocumentor-signature__type">mixed</span>
+    <span class="phpdocumentor-signature__name">ID_VALID</span>
+    = <span class="phpdocumentor-signature__default-value">&quot;ns:http://specs.openid.net/auth/2.0\nis_valid:true\n&quot;</span>
+</code>
+
+
+    
+    
+    
+
+</article>
+                    <article class="phpdocumentor-element -constant -protected ">
+    <h4 class="phpdocumentor-element__name" id="constant_OPENID_CALLBACK">
+        OPENID_CALLBACK
+        <a href="classes/chillerlan-OAuthTest-Providers-Unit-SteamTest.html#constant_OPENID_CALLBACK" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h4>
+
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="tests/Providers/Unit/SteamTest.php"><a href="files/tests-providers-unit-steamtest.html"><abbr title="tests/Providers/Unit/SteamTest.php">SteamTest.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">28</span>
+
+    </aside>
+
+    
+    <code class="phpdocumentor-signature phpdocumentor-code ">
+    <span class="phpdocumentor-signature__visibility">protected</span>
+        <span class="phpdocumentor-signature__type">mixed</span>
+    <span class="phpdocumentor-signature__name">OPENID_CALLBACK</span>
+    = <span class="phpdocumentor-signature__default-value">[&#039;openid_ns&#039; =&gt; &#039;http://specs.openid.net/auth/2.0&#039;, &#039;openid_mode&#039; =&gt; &#039;id_res&#039;, &#039;openid_op_endpoint&#039; =&gt; &#039;https://steamcommunity.com/openid/login&#039;, &#039;openid_claimed_id&#039; =&gt; &#039;https://steamcommunity.com/openid/id/69420&#039;, &#039;openid_identity&#039; =&gt; &#039;https://steamcommunity.com/openid/id/69420&#039;, &#039;openid_return_to&#039; =&gt; &#039;https://smiley.codes/oauth/&#039;, &#039;openid_response_nonce&#039; =&gt; &#039;2021-03-16T06:40:46ZtLLZ4JqhLZ2IULBg8x2P8YitHQY=&#039;, &#039;openid_assoc_handle&#039; =&gt; &#039;1234567890&#039;, &#039;openid_signed&#039; =&gt; &#039;signed,op_endpoint,claimed_id,identity,return_to,response_nonce,assoc_handle&#039;, &#039;openid_sig&#039; =&gt; &#039;7WEtj64YlaJLNqL6M0gZvVmOLFg=&#039;]</span>
 </code>
 
 
@@ -1034,6 +1172,99 @@
             -public
                                                         "
 >
+    <h4 class="phpdocumentor-element__name" id="method_testGetAccessToken">
+        testGetAccessToken()
+        <a href="classes/chillerlan-OAuthTest-Providers-Unit-SteamTest.html#method_testGetAccessToken" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h4>
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="tests/Providers/Unit/SteamTest.php"><a href="files/tests-providers-unit-steamtest.html"><abbr title="tests/Providers/Unit/SteamTest.php">SteamTest.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">95</span>
+
+    </aside>
+
+    
+    <code class="phpdocumentor-code phpdocumentor-signature ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+                    <span class="phpdocumentor-signature__name">testGetAccessToken</span><span>(</span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">void</span></code>
+
+    <div class="phpdocumentor-label-line">
+        </div>
+    
+    
+    
+
+    
+</article>
+                    <article
+        class="phpdocumentor-element
+            -method
+            -public
+                                                        "
+>
+    <h4 class="phpdocumentor-element__name" id="method_testGetAccessTokenRequestBodyParams">
+        testGetAccessTokenRequestBodyParams()
+        <a href="classes/chillerlan-OAuthTest-Providers-Unit-SteamTest.html#method_testGetAccessTokenRequestBodyParams" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h4>
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="tests/Providers/Unit/SteamTest.php"><a href="files/tests-providers-unit-steamtest.html"><abbr title="tests/Providers/Unit/SteamTest.php">SteamTest.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">103</span>
+
+    </aside>
+
+    
+    <code class="phpdocumentor-code phpdocumentor-signature ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+                    <span class="phpdocumentor-signature__name">testGetAccessTokenRequestBodyParams</span><span>(</span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">void</span></code>
+
+    <div class="phpdocumentor-label-line">
+        </div>
+    
+    
+    
+
+    
+</article>
+                    <article
+        class="phpdocumentor-element
+            -method
+            -public
+                                                        "
+>
+    <h4 class="phpdocumentor-element__name" id="method_testGetAuthURL">
+        testGetAuthURL()
+        <a href="classes/chillerlan-OAuthTest-Providers-Unit-SteamTest.html#method_testGetAuthURL" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h4>
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="tests/Providers/Unit/SteamTest.php"><a href="files/tests-providers-unit-steamtest.html"><abbr title="tests/Providers/Unit/SteamTest.php">SteamTest.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">50</span>
+
+    </aside>
+
+    
+    <code class="phpdocumentor-code phpdocumentor-signature ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+                    <span class="phpdocumentor-signature__name">testGetAuthURL</span><span>(</span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">void</span></code>
+
+    <div class="phpdocumentor-label-line">
+        </div>
+    
+    
+    
+
+    
+</article>
+                    <article
+        class="phpdocumentor-element
+            -method
+            -public
+                                                        "
+>
     <h4 class="phpdocumentor-element__name" id="method_testGetMeResponseData">
         testGetMeResponseData()
         <a href="classes/chillerlan-OAuthTest-Providers-Unit-OAuthProviderUnitTestAbstract.html#method_testGetMeResponseData" class="headerlink"><i class="fas fa-link"></i></a>
@@ -1073,7 +1304,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="tests/Providers/Unit/SteamTest.php"><a href="files/tests-providers-unit-steamtest.html"><abbr title="tests/Providers/Unit/SteamTest.php">SteamTest.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">33</span>
+    <span class="phpdocumentor-element-found-in__line">135</span>
 
     </aside>
 
@@ -1528,13 +1759,13 @@
 >
     <h4 class="phpdocumentor-element__name" id="method_testMeUnknownErrorException">
         testMeUnknownErrorException()
-        <a href="classes/chillerlan-OAuthTest-Providers-Unit-SteamTest.html#method_testMeUnknownErrorException" class="headerlink"><i class="fas fa-link"></i></a>
+        <a href="classes/chillerlan-OAuthTest-Providers-Unit-OAuthProviderUnitTestAbstract.html#method_testMeUnknownErrorException" class="headerlink"><i class="fas fa-link"></i></a>
 
     </h4>
     <aside class="phpdocumentor-element-found-in">
-    <abbr class="phpdocumentor-element-found-in__file" title="tests/Providers/Unit/SteamTest.php"><a href="files/tests-providers-unit-steamtest.html"><abbr title="tests/Providers/Unit/SteamTest.php">SteamTest.php</abbr></a></abbr>
+    <abbr class="phpdocumentor-element-found-in__file" title="tests/Providers/Unit/OAuthProviderUnitTestAbstract.php"><a href="files/tests-providers-unit-oauthproviderunittestabstract.html"><abbr title="tests/Providers/Unit/OAuthProviderUnitTestAbstract.php">OAuthProviderUnitTestAbstract.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">29</span>
+    <span class="phpdocumentor-element-found-in__line">291</span>
 
     </aside>
 
@@ -1573,6 +1804,99 @@
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
                     <span class="phpdocumentor-signature__name">testOAuthInstance</span><span>(</span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">void</span></code>
+
+    <div class="phpdocumentor-label-line">
+        </div>
+    
+    
+    
+
+    
+</article>
+                    <article
+        class="phpdocumentor-element
+            -method
+            -public
+                                                        "
+>
+    <h4 class="phpdocumentor-element__name" id="method_testParseAccessTokenResponse">
+        testParseAccessTokenResponse()
+        <a href="classes/chillerlan-OAuthTest-Providers-Unit-SteamTest.html#method_testParseAccessTokenResponse" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h4>
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="tests/Providers/Unit/SteamTest.php"><a href="files/tests-providers-unit-steamtest.html"><abbr title="tests/Providers/Unit/SteamTest.php">SteamTest.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">63</span>
+
+    </aside>
+
+    
+    <code class="phpdocumentor-code phpdocumentor-signature ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+                    <span class="phpdocumentor-signature__name">testParseAccessTokenResponse</span><span>(</span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">void</span></code>
+
+    <div class="phpdocumentor-label-line">
+        </div>
+    
+    
+    
+
+    
+</article>
+                    <article
+        class="phpdocumentor-element
+            -method
+            -public
+                                                        "
+>
+    <h4 class="phpdocumentor-element__name" id="method_testParseTokenResponseInvalidIdException">
+        testParseTokenResponseInvalidIdException()
+        <a href="classes/chillerlan-OAuthTest-Providers-Unit-SteamTest.html#method_testParseTokenResponseInvalidIdException" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h4>
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="tests/Providers/Unit/SteamTest.php"><a href="files/tests-providers-unit-steamtest.html"><abbr title="tests/Providers/Unit/SteamTest.php">SteamTest.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">80</span>
+
+    </aside>
+
+    
+    <code class="phpdocumentor-code phpdocumentor-signature ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+                    <span class="phpdocumentor-signature__name">testParseTokenResponseInvalidIdException</span><span>(</span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">void</span></code>
+
+    <div class="phpdocumentor-label-line">
+        </div>
+    
+    
+    
+
+    
+</article>
+                    <article
+        class="phpdocumentor-element
+            -method
+            -public
+                                                        "
+>
+    <h4 class="phpdocumentor-element__name" id="method_testParseTokenResponseNoDataException">
+        testParseTokenResponseNoDataException()
+        <a href="classes/chillerlan-OAuthTest-Providers-Unit-SteamTest.html#method_testParseTokenResponseNoDataException" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h4>
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="tests/Providers/Unit/SteamTest.php"><a href="files/tests-providers-unit-steamtest.html"><abbr title="tests/Providers/Unit/SteamTest.php">SteamTest.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">73</span>
+
+    </aside>
+
+    
+    <code class="phpdocumentor-code phpdocumentor-signature ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+                    <span class="phpdocumentor-signature__name">testParseTokenResponseNoDataException</span><span>(</span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">void</span></code>
 
     <div class="phpdocumentor-label-line">
         </div>
@@ -1627,7 +1951,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="tests/Providers/Unit/SteamTest.php"><a href="files/tests-providers-unit-steamtest.html"><abbr title="tests/Providers/Unit/SteamTest.php">SteamTest.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">25</span>
+    <span class="phpdocumentor-element-found-in__line">115</span>
 
     </aside>
 
@@ -1797,7 +2121,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="tests/Providers/Unit/SteamTest.php"><a href="files/tests-providers-unit-steamtest.html"><abbr title="tests/Providers/Unit/SteamTest.php">SteamTest.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">21</span>
+    <span class="phpdocumentor-element-found-in__line">42</span>
 
     </aside>
 
@@ -2300,6 +2624,9 @@
                     <ul class="phpdocumentor-list -clean">
                                                     <li><a href="classes/chillerlan-OAuthTest-Providers-ProviderUnitTestAbstract.html#constant_CACERT">CACERT</a></li>
                                                     <li><a href="classes/chillerlan-OAuthTest-Providers-ProviderUnitTestAbstract.html#constant_CFGDIR">CFGDIR</a></li>
+                                                    <li><a href="classes/chillerlan-OAuthTest-Providers-Unit-SteamTest.html#constant_ID_INVALID">ID_INVALID</a></li>
+                                                    <li><a href="classes/chillerlan-OAuthTest-Providers-Unit-SteamTest.html#constant_ID_VALID">ID_VALID</a></li>
+                                                    <li><a href="classes/chillerlan-OAuthTest-Providers-Unit-SteamTest.html#constant_OPENID_CALLBACK">OPENID_CALLBACK</a></li>
                                                     <li><a href="classes/chillerlan-OAuthTest-Providers-ProviderUnitTestAbstract.html#constant_PROJECT_ROOT">PROJECT_ROOT</a></li>
                                             </ul>
                 </li>
@@ -2326,6 +2653,9 @@
                                             <li><a href="classes/chillerlan-OAuthTest-Providers-Unit-OAuthProviderUnitTestAbstract.html#method_arrayBodyProvider">arrayBodyProvider()</a></li>
                                             <li><a href="classes/chillerlan-OAuthTest-Providers-Unit-OAuthProviderUnitTestAbstract.html#method_jsonErrorProvider">jsonErrorProvider()</a></li>
                                             <li><a href="classes/chillerlan-OAuthTest-Providers-Unit-OAuthProviderUnitTestAbstract.html#method_requestTargetProvider">requestTargetProvider()</a></li>
+                                            <li><a href="classes/chillerlan-OAuthTest-Providers-Unit-SteamTest.html#method_testGetAccessToken">testGetAccessToken()</a></li>
+                                            <li><a href="classes/chillerlan-OAuthTest-Providers-Unit-SteamTest.html#method_testGetAccessTokenRequestBodyParams">testGetAccessTokenRequestBodyParams()</a></li>
+                                            <li><a href="classes/chillerlan-OAuthTest-Providers-Unit-SteamTest.html#method_testGetAuthURL">testGetAuthURL()</a></li>
                                             <li><a href="classes/chillerlan-OAuthTest-Providers-Unit-OAuthProviderUnitTestAbstract.html#method_testGetMeResponseData">testGetMeResponseData()</a></li>
                                             <li><a href="classes/chillerlan-OAuthTest-Providers-Unit-SteamTest.html#method_testGetRequestAuthorizationInvalidTokenException">testGetRequestAuthorizationInvalidTokenException()</a></li>
                                             <li><a href="classes/chillerlan-OAuthTest-Providers-Unit-OAuthProviderUnitTestAbstract.html#method_testGetRequestBodyInvalidContentTypeForArrayException">testGetRequestBodyInvalidContentTypeForArrayException()</a></li>
@@ -2340,8 +2670,11 @@
                                             <li><a href="classes/chillerlan-OAuthTest-Providers-Unit-OAuthProviderUnitTestAbstract.html#method_testIdentifierIsNonEmpty">testIdentifierIsNonEmpty()</a></li>
                                             <li><a href="classes/chillerlan-OAuthTest-Providers-Unit-OAuthProviderUnitTestAbstract.html#method_testMagicGet">testMagicGet()</a></li>
                                             <li><a href="classes/chillerlan-OAuthTest-Providers-Unit-OAuthProviderUnitTestAbstract.html#method_testMeResponseInvalidContentTypeException">testMeResponseInvalidContentTypeException()</a></li>
-                                            <li><a href="classes/chillerlan-OAuthTest-Providers-Unit-SteamTest.html#method_testMeUnknownErrorException">testMeUnknownErrorException()</a></li>
+                                            <li><a href="classes/chillerlan-OAuthTest-Providers-Unit-OAuthProviderUnitTestAbstract.html#method_testMeUnknownErrorException">testMeUnknownErrorException()</a></li>
                                             <li><a href="classes/chillerlan-OAuthTest-Providers-Unit-OAuthProviderUnitTestAbstract.html#method_testOAuthInstance">testOAuthInstance()</a></li>
+                                            <li><a href="classes/chillerlan-OAuthTest-Providers-Unit-SteamTest.html#method_testParseAccessTokenResponse">testParseAccessTokenResponse()</a></li>
+                                            <li><a href="classes/chillerlan-OAuthTest-Providers-Unit-SteamTest.html#method_testParseTokenResponseInvalidIdException">testParseTokenResponseInvalidIdException()</a></li>
+                                            <li><a href="classes/chillerlan-OAuthTest-Providers-Unit-SteamTest.html#method_testParseTokenResponseNoDataException">testParseTokenResponseNoDataException()</a></li>
                                             <li><a href="classes/chillerlan-OAuthTest-Providers-Unit-OAuthProviderUnitTestAbstract.html#method_testProviderInstance">testProviderInstance()</a></li>
                                             <li><a href="classes/chillerlan-OAuthTest-Providers-Unit-SteamTest.html#method_testRequest">testRequest()</a></li>
                                             <li><a href="classes/chillerlan-OAuthTest-Providers-Unit-OAuthProviderUnitTestAbstract.html#method_testRequestUnauthorizedException">testRequestUnauthorizedException()</a></li>

@@ -4453,8 +4453,18 @@ Search.appendIndex(
         },                {
             "fqsen": "\\chillerlan\\OAuth\\Providers\\Steam\u003A\u003AgetAccessToken\u0028\u0029",
             "name": "getAccessToken",
-            "summary": "",
+            "summary": "Obtains\u0020an\u0020\u0022authentication\u0020token\u0022\u0020\u0028the\u0020steamID64\u0029",
             "url": "classes/chillerlan-OAuth-Providers-Steam.html#method_getAccessToken"
+        },                {
+            "fqsen": "\\chillerlan\\OAuth\\Providers\\Steam\u003A\u003AgetAccessTokenRequestBodyParams\u0028\u0029",
+            "name": "getAccessTokenRequestBodyParams",
+            "summary": "prepares\u0020the\u0020request\u0020body\u0020parameters\u0020for\u0020the\u0020access\u0020token\u0020request",
+            "url": "classes/chillerlan-OAuth-Providers-Steam.html#method_getAccessTokenRequestBodyParams"
+        },                {
+            "fqsen": "\\chillerlan\\OAuth\\Providers\\Steam\u003A\u003AsendAccessTokenRequest\u0028\u0029",
+            "name": "sendAccessTokenRequest",
+            "summary": "sends\u0020a\u0020request\u0020to\u0020the\u0020access\u0020token\u0020endpoint\u0020\u0024url\u0020with\u0020the\u0020given\u0020\u0024params\u0020as\u0020URL\u0020query",
+            "url": "classes/chillerlan-OAuth-Providers-Steam.html#method_sendAccessTokenRequest"
         },                {
             "fqsen": "\\chillerlan\\OAuth\\Providers\\Steam\u003A\u003AparseTokenResponse\u0028\u0029",
             "name": "parseTokenResponse",
@@ -7816,20 +7826,60 @@ Search.appendIndex(
             "summary": "",
             "url": "classes/chillerlan-OAuthTest-Providers-Unit-SteamTest.html#method_getProviderFQCN"
         },                {
+            "fqsen": "\\chillerlan\\OAuthTest\\Providers\\Unit\\SteamTest\u003A\u003AtestGetAuthURL\u0028\u0029",
+            "name": "testGetAuthURL",
+            "summary": "",
+            "url": "classes/chillerlan-OAuthTest-Providers-Unit-SteamTest.html#method_testGetAuthURL"
+        },                {
+            "fqsen": "\\chillerlan\\OAuthTest\\Providers\\Unit\\SteamTest\u003A\u003AtestParseAccessTokenResponse\u0028\u0029",
+            "name": "testParseAccessTokenResponse",
+            "summary": "",
+            "url": "classes/chillerlan-OAuthTest-Providers-Unit-SteamTest.html#method_testParseAccessTokenResponse"
+        },                {
+            "fqsen": "\\chillerlan\\OAuthTest\\Providers\\Unit\\SteamTest\u003A\u003AtestParseTokenResponseNoDataException\u0028\u0029",
+            "name": "testParseTokenResponseNoDataException",
+            "summary": "",
+            "url": "classes/chillerlan-OAuthTest-Providers-Unit-SteamTest.html#method_testParseTokenResponseNoDataException"
+        },                {
+            "fqsen": "\\chillerlan\\OAuthTest\\Providers\\Unit\\SteamTest\u003A\u003AtestParseTokenResponseInvalidIdException\u0028\u0029",
+            "name": "testParseTokenResponseInvalidIdException",
+            "summary": "",
+            "url": "classes/chillerlan-OAuthTest-Providers-Unit-SteamTest.html#method_testParseTokenResponseInvalidIdException"
+        },                {
+            "fqsen": "\\chillerlan\\OAuthTest\\Providers\\Unit\\SteamTest\u003A\u003AtestGetAccessToken\u0028\u0029",
+            "name": "testGetAccessToken",
+            "summary": "",
+            "url": "classes/chillerlan-OAuthTest-Providers-Unit-SteamTest.html#method_testGetAccessToken"
+        },                {
+            "fqsen": "\\chillerlan\\OAuthTest\\Providers\\Unit\\SteamTest\u003A\u003AtestGetAccessTokenRequestBodyParams\u0028\u0029",
+            "name": "testGetAccessTokenRequestBodyParams",
+            "summary": "",
+            "url": "classes/chillerlan-OAuthTest-Providers-Unit-SteamTest.html#method_testGetAccessTokenRequestBodyParams"
+        },                {
             "fqsen": "\\chillerlan\\OAuthTest\\Providers\\Unit\\SteamTest\u003A\u003AtestRequest\u0028\u0029",
             "name": "testRequest",
             "summary": "",
             "url": "classes/chillerlan-OAuthTest-Providers-Unit-SteamTest.html#method_testRequest"
         },                {
-            "fqsen": "\\chillerlan\\OAuthTest\\Providers\\Unit\\SteamTest\u003A\u003AtestMeUnknownErrorException\u0028\u0029",
-            "name": "testMeUnknownErrorException",
-            "summary": "",
-            "url": "classes/chillerlan-OAuthTest-Providers-Unit-SteamTest.html#method_testMeUnknownErrorException"
-        },                {
             "fqsen": "\\chillerlan\\OAuthTest\\Providers\\Unit\\SteamTest\u003A\u003AtestGetRequestAuthorizationInvalidTokenException\u0028\u0029",
             "name": "testGetRequestAuthorizationInvalidTokenException",
             "summary": "",
             "url": "classes/chillerlan-OAuthTest-Providers-Unit-SteamTest.html#method_testGetRequestAuthorizationInvalidTokenException"
+        },                {
+            "fqsen": "\\chillerlan\\OAuthTest\\Providers\\Unit\\SteamTest\u003A\u003AID_VALID",
+            "name": "ID_VALID",
+            "summary": "",
+            "url": "classes/chillerlan-OAuthTest-Providers-Unit-SteamTest.html#constant_ID_VALID"
+        },                {
+            "fqsen": "\\chillerlan\\OAuthTest\\Providers\\Unit\\SteamTest\u003A\u003AID_INVALID",
+            "name": "ID_INVALID",
+            "summary": "",
+            "url": "classes/chillerlan-OAuthTest-Providers-Unit-SteamTest.html#constant_ID_INVALID"
+        },                {
+            "fqsen": "\\chillerlan\\OAuthTest\\Providers\\Unit\\SteamTest\u003A\u003AOPENID_CALLBACK",
+            "name": "OPENID_CALLBACK",
+            "summary": "",
+            "url": "classes/chillerlan-OAuthTest-Providers-Unit-SteamTest.html#constant_OPENID_CALLBACK"
         },                {
             "fqsen": "\\chillerlan\\OAuthTest\\Providers\\Unit\\StripeTest",
             "name": "StripeTest",

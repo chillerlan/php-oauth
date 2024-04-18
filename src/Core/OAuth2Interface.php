@@ -46,20 +46,6 @@ interface OAuth2Interface extends OAuthInterface{
 	public const AUTH_PREFIX_QUERY = 'access_token';
 
 	/**
-	 * Default scopes to apply if none were provided via the $scopes parameter
-	 *
-	 * @var string[]
-	 */
-	public const DEFAULT_SCOPES = [];
-
-	/**
-	 * The delimiter string for scopes
-	 *
-	 * @var string
-	 */
-	public const SCOPES_DELIMITER = ' ';
-
-	/**
 	 * This indicates that the current provider requires an `Authorization: Basic <base64(key:secret)>` header
 	 * in the access token request, rather than the key and secret in the request body.
 	 *

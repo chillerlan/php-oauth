@@ -59,6 +59,20 @@ interface OAuthInterface extends ClientInterface{
 	public const HEADERS_API = [];
 
 	/**
+	 * Default scopes to apply if none were provided via the $scopes parameter
+	 *
+	 * @var string[]
+	 */
+	public const DEFAULT_SCOPES = [];
+
+	/**
+	 * The delimiter string for scopes
+	 *
+	 * @var string
+	 */
+	public const SCOPES_DELIMITER = ' ';
+
+	/**
 	 * Prepares the URL with optional $params which redirects to the provider's authorization prompt
 	 * and returns a PSR-7 UriInterface with all necessary parameters set
 	 *

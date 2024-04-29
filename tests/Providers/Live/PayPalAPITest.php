@@ -13,6 +13,7 @@ namespace chillerlan\OAuthTest\Providers\Live;
 
 use chillerlan\OAuth\Core\AuthenticatedUser;
 use chillerlan\OAuth\Providers\PayPal;
+use chillerlan\OAuthTest\Attributes\Provider;
 use PHPUnit\Framework\Attributes\Group;
 
 /**
@@ -20,11 +21,8 @@ use PHPUnit\Framework\Attributes\Group;
  */
 #[Group('shortTokenExpiry')]
 #[Group('providerLiveTest')]
+#[Provider(PayPal::class)]
 final class PayPalAPITest extends OAuth2ProviderLiveTestAbstract{
-
-	protected function getProviderFQCN():string{
-		return PayPal::class;
-	}
 
 	protected function assertMeResponse(AuthenticatedUser $user):void{
 		$this::assertSame($this->TEST_USER, $user->email);

@@ -13,15 +13,13 @@ namespace chillerlan\OAuthTest\Providers\Unit;
 
 use chillerlan\OAuth\Core\TokenRefresh;
 use chillerlan\OAuth\Providers\MusicBrainz;
+use chillerlan\OAuthTest\Attributes\Provider;
 
 /**
  * @property \chillerlan\OAuth\Providers\MusicBrainz $provider
  */
+#[Provider(MusicBrainz::class)]
 final class MusicBrainzTest extends OAuth2ProviderUnitTestAbstract{
-
-	protected function getProviderFQCN():string{
-		return MusicBrainz::class;
-	}
 
 	public function testGetRefreshAccessTokenRequestBodyParams():void{
 

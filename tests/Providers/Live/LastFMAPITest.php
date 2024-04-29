@@ -12,16 +12,14 @@ declare(strict_types=1);
 namespace chillerlan\OAuthTest\Providers\Live;
 
 use chillerlan\OAuth\Providers\LastFM;
+use chillerlan\OAuthTest\Attributes\Provider;
 use PHPUnit\Framework\Attributes\Group;
 
 /**
  * @property \chillerlan\OAuth\Providers\LastFM $provider
  */
 #[Group('providerLiveTest')]
+#[Provider(LastFM::class)]
 final class LastFMAPITest extends OAuthProviderLiveTestAbstract{
-
-	protected function getProviderFQCN():string{
-		return LastFM::class;
-	}
 
 }

@@ -12,6 +12,7 @@ declare(strict_types=1);
 namespace chillerlan\OAuthTest\Providers\Live;
 
 use chillerlan\OAuth\Providers\Patreon;
+use chillerlan\OAuthTest\Attributes\Provider;
 use PHPUnit\Framework\Attributes\Group;
 
 /**
@@ -19,10 +20,7 @@ use PHPUnit\Framework\Attributes\Group;
  */
 #[Group('shortTokenExpiry')]
 #[Group('providerLiveTest')]
+#[Provider(Patreon::class)]
 final class PatreonAPITest extends OAuth2ProviderLiveTestAbstract{
-
-	protected function getProviderFQCN():string{
-		return Patreon::class;
-	}
 
 }

@@ -12,15 +12,13 @@ declare(strict_types=1);
 namespace chillerlan\OAuthTest\Providers\Unit;
 
 use chillerlan\OAuth\Providers\Flickr;
+use chillerlan\OAuthTest\Attributes\Provider;
 
 /**
  * @property \chillerlan\OAuth\Providers\Flickr $provider
  */
+#[Provider(Flickr::class)]
 final class FlickrTest extends OAuth1ProviderUnitTestAbstract{
-
-	protected function getProviderFQCN():string{
-		return Flickr::class;
-	}
 
 	public function testRequest():void{
 		$this::markTestIncomplete();

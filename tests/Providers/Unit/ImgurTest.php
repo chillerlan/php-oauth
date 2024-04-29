@@ -12,14 +12,12 @@ declare(strict_types=1);
 namespace chillerlan\OAuthTest\Providers\Unit;
 
 use chillerlan\OAuth\Providers\Imgur;
+use chillerlan\OAuthTest\Attributes\Provider;
 
 /**
  * @property \chillerlan\OAuth\Providers\Imgur $provider
  */
+#[Provider(Imgur::class)]
 final class ImgurTest extends OAuth2ProviderUnitTestAbstract{
-
-	protected function getProviderFQCN():string{
-		return Imgur::class;
-	}
 
 }

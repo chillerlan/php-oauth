@@ -12,12 +12,14 @@ declare(strict_types=1);
 namespace chillerlan\OAuthTest\Providers\Unit;
 
 use chillerlan\HTTP\Utils\MessageUtil;
+use chillerlan\OAuthTest\Attributes\Provider;
 use chillerlan\OAuth\Providers\{LastFM, ProviderException};
 use InvalidArgumentException;
 
 /**
  * @property \chillerlan\OAuth\Providers\LastFM $provider
  */
+#[Provider(LastFM::class)]
 final class LastFMTest extends OAuthProviderUnitTestAbstract{
 
 	protected const TEST_TOKEN = '{"session":{"name":"lfm-user","key":"sk","subscriber":0}}';
@@ -35,11 +37,6 @@ final class LastFMTest extends OAuthProviderUnitTestAbstract{
 		'{"code":"0","#text":""},"albumArtist":{"corrected":"0","#text":""},"timestamp":"1712993092"}],'.
 		'"@attr":{"ignored":0,"accepted":2}}}';
 
-
-
-	protected function getProviderFQCN():string{
-		return LastFM::class;
-	}
 
 	/*
 	 * auth URL

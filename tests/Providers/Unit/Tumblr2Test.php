@@ -12,14 +12,12 @@ declare(strict_types=1);
 namespace chillerlan\OAuthTest\Providers\Unit;
 
 use chillerlan\OAuth\Providers\Tumblr2;
+use chillerlan\OAuthTest\Attributes\Provider;
 
 /**
  * @property \chillerlan\OAuth\Providers\Tumblr2 $provider
  */
+#[Provider(Tumblr2::class)]
 final class Tumblr2Test extends OAuth2ProviderUnitTestAbstract{
-
-	protected function getProviderFQCN():string{
-		return Tumblr2::class;
-	}
 
 }

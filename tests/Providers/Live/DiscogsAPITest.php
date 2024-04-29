@@ -12,16 +12,14 @@ declare(strict_types=1);
 namespace chillerlan\OAuthTest\Providers\Live;
 
 use chillerlan\OAuth\Providers\Discogs;
+use chillerlan\OAuthTest\Attributes\Provider;
 use PHPUnit\Framework\Attributes\Group;
 
 /**
  * @property \chillerlan\OAuth\Providers\Discogs $provider
  */
 #[Group('providerLiveTest')]
+#[Provider(Discogs::class)]
 final class DiscogsAPITest extends OAuth1ProviderLiveTestAbstract{
-
-	protected function getProviderFQCN():string{
-		return Discogs::class;
-	}
 
 }

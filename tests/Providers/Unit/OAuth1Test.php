@@ -11,6 +11,7 @@ declare(strict_types=1);
 
 namespace chillerlan\OAuthTest\Providers\Unit;
 
+use chillerlan\OAuthTest\Attributes\Provider;
 use chillerlan\OAuthTest\Providers\DummyOAuth1Provider;
 
 /**
@@ -18,11 +19,8 @@ use chillerlan\OAuthTest\Providers\DummyOAuth1Provider;
  *
  * @property \chillerlan\OAuthTest\Providers\DummyOAuth1Provider $provider
  */
+#[Provider(DummyOAuth1Provider::class)]
 final class OAuth1Test extends OAuth1ProviderUnitTestAbstract{
-
-	protected function getProviderFQCN():string{
-		return DummyOAuth1Provider::class;
-	}
 
 	public function testMeUnknownErrorException():void{
 		$this->markTestSkipped('N/A');

@@ -12,17 +12,15 @@ declare(strict_types=1);
 namespace chillerlan\OAuthTest\Providers\Live;
 
 use chillerlan\OAuth\Providers\TwitterCC;
+use chillerlan\OAuthTest\Attributes\Provider;
 use PHPUnit\Framework\Attributes\Group;
 
 /**
  * @property \chillerlan\OAuth\Providers\TwitterCC $provider
  */
 #[Group('providerLiveTest')]
+#[Provider(TwitterCC::class)]
 final class TwitterCCAPITest extends OAuth2ProviderLiveTestAbstract{
-
-	protected function getProviderFQCN():string{
-		return TwitterCC::class;
-	}
 
 	public function testMeUnauthorizedAccessException():void{
 		$this::markTestSkipped('N/A');

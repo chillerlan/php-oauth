@@ -12,14 +12,12 @@ declare(strict_types=1);
 namespace chillerlan\OAuthTest\Providers\Unit;
 
 use chillerlan\OAuth\Providers\MicrosoftGraph;
+use chillerlan\OAuthTest\Attributes\Provider;
 
 /**
  * @property \chillerlan\OAuth\Providers\MicrosoftGraph $provider
  */
+#[Provider(MicrosoftGraph::class)]
 final class MicrosoftGraphTest extends OAuth2ProviderUnitTestAbstract{
-
-	protected function getProviderFQCN():string{
-		return MicrosoftGraph::class;
-	}
 
 }

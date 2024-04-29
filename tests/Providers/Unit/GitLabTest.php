@@ -12,14 +12,12 @@ declare(strict_types=1);
 namespace chillerlan\OAuthTest\Providers\Unit;
 
 use chillerlan\OAuth\Providers\GitLab;
+use chillerlan\OAuthTest\Attributes\Provider;
 
 /**
  * @property \chillerlan\OAuth\Providers\GitLab $provider
  */
+#[Provider(GitLab::class)]
 final class GitLabTest extends OAuth2ProviderUnitTestAbstract{
-
-	protected function getProviderFQCN():string{
-		return GitLab::class;
-	}
 
 }

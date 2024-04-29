@@ -13,19 +13,17 @@ namespace chillerlan\OAuthTest\Providers\Live;
 
 use chillerlan\OAuth\Core\AuthenticatedUser;
 use chillerlan\OAuth\Providers\Steam;
+use chillerlan\OAuthTest\Attributes\Provider;
 use PHPUnit\Framework\Attributes\Group;
 
 /**
  * @property \chillerlan\OAuth\Providers\Steam $provider
  */
 #[Group('providerLiveTest')]
+#[Provider(Steam::class)]
 final class SteamAPITest extends OAuthProviderLiveTestAbstract{
 
 	protected int $id;
-
-	protected function getProviderFQCN():string{
-		return Steam::class;
-	}
 
 	protected function setUp():void{
 		parent::setUp();

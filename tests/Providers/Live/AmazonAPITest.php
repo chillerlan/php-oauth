@@ -14,17 +14,15 @@ namespace chillerlan\OAuthTest\Providers\Live;
 use chillerlan\OAuth\Core\{AccessToken, AuthenticatedUser, UnauthorizedAccessException};
 use chillerlan\OAuth\Providers\Amazon;
 use chillerlan\OAuth\Storage\MemoryStorage;
+use chillerlan\OAuthTest\Attributes\Provider;
 use PHPUnit\Framework\Attributes\Group;
 
 /**
  * @property \chillerlan\OAuth\Providers\Amazon $provider
  */
 #[Group('providerLiveTest')]
+#[Provider(Amazon::class)]
 final class AmazonAPITest extends OAuth2ProviderLiveTestAbstract{
-
-	protected function getProviderFQCN():string{
-		return Amazon::class;
-	}
 
 	protected function assertMeResponse(AuthenticatedUser $user):void{
 		$this::assertMatchesRegularExpression('/[a-z\d.]+/i', $user->id);

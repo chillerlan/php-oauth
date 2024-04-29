@@ -13,15 +13,13 @@ namespace chillerlan\OAuthTest\Providers\Unit;
 
 use chillerlan\OAuth\Core\{AccessToken, TokenInvalidate};
 use chillerlan\OAuth\Providers\Reddit;
+use chillerlan\OAuthTest\Attributes\Provider;
 
 /**
  * @property \chillerlan\OAuth\Providers\Reddit $provider
  */
+#[Provider(Reddit::class)]
 class RedditTest extends OAuth2ProviderUnitTestAbstract{
-
-	protected function getProviderFQCN():string{
-		return Reddit::class;
-	}
 
 	public function testTokenInvalidate():void{
 

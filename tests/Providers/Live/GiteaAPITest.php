@@ -12,16 +12,14 @@ declare(strict_types=1);
 namespace chillerlan\OAuthTest\Providers\Live;
 
 use chillerlan\OAuth\Providers\Gitea;
+use chillerlan\OAuthTest\Attributes\Provider;
 use PHPUnit\Framework\Attributes\Group;
 
 /**
  * @property \chillerlan\OAuth\Providers\Gitea $provider
  */
 #[Group('providerLiveTest')]
+#[Provider(Gitea::class)]
 class GiteaAPITest extends OAuth2ProviderLiveTestAbstract{
-
-	protected function getProviderFQCN():string{
-		return Gitea::class;
-	}
 
 }

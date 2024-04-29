@@ -15,19 +15,18 @@ use chillerlan\HTTP\Utils\QueryUtil;
 use chillerlan\OAuth\Core\UnauthorizedAccessException;
 use chillerlan\OAuth\Providers\Deezer;
 use chillerlan\OAuth\Providers\ProviderException;
+use chillerlan\OAuthTest\Attributes\Provider;
 use function implode;
 
 /**
  * @property \chillerlan\OAuth\Providers\Deezer $provider
  */
+#[Provider(Deezer::class)]
 final class DeezerTest extends OAuth2ProviderUnitTestAbstract{
 
 	protected const TEST_TOKEN = 'access_token=2YotnFZFEjr1zCsicMWpAA&token_type=example&expires=3600&'.
 	                             'refresh_token=tGzv3JOkF0XG5Qx2TlKWIA&example_parameter=example_value';
 
-	protected function getProviderFQCN():string{
-		return Deezer::class;
-	}
 
 	public function testParseTokenResponseWithScopes():void{
 		$this::markTestSkipped('N/A');

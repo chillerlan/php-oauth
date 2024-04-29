@@ -12,16 +12,14 @@ declare(strict_types=1);
 namespace chillerlan\OAuthTest\Providers\Live;
 
 use chillerlan\OAuth\Providers\Imgur;
+use chillerlan\OAuthTest\Attributes\Provider;
 use PHPUnit\Framework\Attributes\Group;
 
 /**
  * @property \chillerlan\OAuth\Providers\Imgur $provider
  */
 #[Group('providerLiveTest')]
+#[Provider(Imgur::class)]
 final class ImgurAPITest extends OAuth2ProviderLiveTestAbstract{
-
-	protected function getProviderFQCN():string{
-		return Imgur::class;
-	}
 
 }

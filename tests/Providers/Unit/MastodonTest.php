@@ -13,15 +13,13 @@ namespace chillerlan\OAuthTest\Providers\Unit;
 
 use chillerlan\OAuth\OAuthException;
 use chillerlan\OAuth\Providers\Mastodon;
+use chillerlan\OAuthTest\Attributes\Provider;
 
 /**
  * @property \chillerlan\OAuth\Providers\Mastodon $provider
  */
+#[Provider(Mastodon::class)]
 final class MastodonTest extends OAuth2ProviderUnitTestAbstract{
-
-	protected function getProviderFQCN():string{
-		return Mastodon::class;
-	}
 
 	public function testSetInvalidInstance():void{
 		$this->expectException(OAuthException::class);

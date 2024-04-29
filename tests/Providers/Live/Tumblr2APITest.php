@@ -12,16 +12,14 @@ declare(strict_types=1);
 namespace chillerlan\OAuthTest\Providers\Live;
 
 use chillerlan\OAuth\Providers\Tumblr2;
+use chillerlan\OAuthTest\Attributes\Provider;
 use PHPUnit\Framework\Attributes\Group;
 
 /**
  * @property \chillerlan\OAuth\Providers\Tumblr2 $provider
  */
 #[Group('providerLiveTest')]
+#[Provider(Tumblr2::class)]
 final class Tumblr2APITest extends OAuth2ProviderLiveTestAbstract{
-
-	protected function getProviderFQCN():string{
-		return Tumblr2::class;
-	}
 
 }

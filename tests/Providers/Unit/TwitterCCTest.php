@@ -12,15 +12,13 @@ declare(strict_types=1);
 namespace chillerlan\OAuthTest\Providers\Unit;
 
 use chillerlan\OAuth\Providers\TwitterCC;
+use chillerlan\OAuthTest\Attributes\Provider;
 
 /**
  * @property \chillerlan\OAuth\Providers\TwitterCC $provider
  */
+#[Provider(TwitterCC::class)]
 final class TwitterCCTest extends OAuth2ProviderUnitTestAbstract{
-
-	protected function getProviderFQCN():string{
-		return TwitterCC::class;
-	}
 
 	public function testGetAuthURL():void{
 		$this->markTestSkipped('N/A');

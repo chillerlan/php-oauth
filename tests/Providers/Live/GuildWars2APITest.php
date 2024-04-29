@@ -14,20 +14,18 @@ namespace chillerlan\OAuthTest\Providers\Live;
 use chillerlan\OAuth\Core\AccessToken;
 use chillerlan\OAuth\Core\AuthenticatedUser;
 use chillerlan\OAuth\Providers\GuildWars2;
+use chillerlan\OAuthTest\Attributes\Provider;
 use PHPUnit\Framework\Attributes\Group;
 
 /**
  * @property \chillerlan\OAuth\Providers\GuildWars2 $provider
  */
 #[Group('providerLiveTest')]
+#[Provider(GuildWars2::class)]
 final class GuildWars2APITest extends OAuth2ProviderLiveTestAbstract{
 
 	protected AccessToken $token;
 	protected string      $tokenname;
-
-	protected function getProviderFQCN():string{
-		return GuildWars2::class;
-	}
 
 	protected function setUp():void{
 		parent::setUp();

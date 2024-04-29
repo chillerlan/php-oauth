@@ -13,17 +13,15 @@ namespace chillerlan\OAuthTest\Providers\Live;
 
 use chillerlan\OAuth\Core\AccessToken;
 use chillerlan\OAuth\Providers\Discord;
+use chillerlan\OAuthTest\Attributes\Provider;
 use PHPUnit\Framework\Attributes\Group;
 
 /**
  * @property \chillerlan\OAuth\Providers\Discord $provider
  */
 #[Group('providerLiveTest')]
+#[Provider(Discord::class)]
 final class DiscordAPITest extends OAuth2ProviderLiveTestAbstract{
-
-	protected function getProviderFQCN():string{
-		return Discord::class;
-	}
 
 	public function testRequestCredentialsToken():void{
 		$token = $this->provider->getClientCredentialsToken([Discord::SCOPE_CONNECTIONS, Discord::SCOPE_IDENTIFY]);

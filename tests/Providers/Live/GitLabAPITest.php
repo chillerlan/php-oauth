@@ -12,6 +12,7 @@ declare(strict_types=1);
 namespace chillerlan\OAuthTest\Providers\Live;
 
 use chillerlan\OAuth\Providers\GitLab;
+use chillerlan\OAuthTest\Attributes\Provider;
 use PHPUnit\Framework\Attributes\Group;
 
 /**
@@ -19,10 +20,7 @@ use PHPUnit\Framework\Attributes\Group;
  */
 #[Group('shortTokenExpiry')]
 #[Group('providerLiveTest')]
+#[Provider(GitLab::class)]
 final class GitLabAPITest extends OAuth2ProviderLiveTestAbstract{
-
-	protected function getProviderFQCN():string{
-		return GitLab::class;
-	}
 
 }

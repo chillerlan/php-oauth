@@ -13,15 +13,13 @@ namespace chillerlan\OAuthTest\Providers\Unit;
 
 use chillerlan\OAuth\Core\{AccessToken, TokenInvalidate};
 use chillerlan\OAuth\Providers\BigCartel;
+use chillerlan\OAuthTest\Attributes\Provider;
 
 /**
  * @property \chillerlan\OAuth\Providers\BigCartel $provider
  */
+#[Provider(BigCartel::class)]
 final class BigCartelTest extends OAuth2ProviderUnitTestAbstract{
-
-	protected function getProviderFQCN():string{
-		return BigCartel::class;
-	}
 
 	public function testTokenInvalidate():void{
 

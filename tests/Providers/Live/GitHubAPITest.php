@@ -12,16 +12,14 @@ declare(strict_types=1);
 namespace chillerlan\OAuthTest\Providers\Live;
 
 use chillerlan\OAuth\Providers\GitHub;
+use chillerlan\OAuthTest\Attributes\Provider;
 use PHPUnit\Framework\Attributes\Group;
 
 /**
  * @property  \chillerlan\OAuth\Providers\GitHub $provider
  */
 #[Group('providerLiveTest')]
+#[Provider(GitHub::class)]
 final class GitHubAPITest extends OAuth2ProviderLiveTestAbstract{
-
-	protected function getProviderFQCN():string{
-		return GitHub::class;
-	}
 
 }

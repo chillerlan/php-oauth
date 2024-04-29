@@ -12,16 +12,14 @@ declare(strict_types=1);
 namespace chillerlan\OAuthTest\Providers\Live;
 
 use chillerlan\OAuth\Providers\Twitch;
+use chillerlan\OAuthTest\Attributes\Provider;
 use PHPUnit\Framework\Attributes\Group;
 
 /**
  * @property  \chillerlan\OAuth\Providers\Twitch $provider
  */
 #[Group('providerLiveTest')]
+#[Provider(Twitch::class)]
 final class TwitchAPITest extends OAuth2ProviderLiveTestAbstract{
-
-	protected function getProviderFQCN():string{
-		return Twitch::class;
-	}
 
 }

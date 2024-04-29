@@ -12,6 +12,7 @@ declare(strict_types=1);
 namespace chillerlan\OAuthTest\Providers\Live;
 
 use chillerlan\OAuth\Providers\Reddit;
+use chillerlan\OAuthTest\Attributes\Provider;
 use PHPUnit\Framework\Attributes\Group;
 
 /**
@@ -19,10 +20,7 @@ use PHPUnit\Framework\Attributes\Group;
  */
 #[Group('shortTokenExpiry')]
 #[Group('providerLiveTest')]
+#[Provider(Reddit::class)]
 class RedditAPITest extends OAuth2ProviderLiveTestAbstract{
-
-	protected function getProviderFQCN():string{
-		return Reddit::class;
-	}
 
 }

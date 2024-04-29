@@ -12,17 +12,15 @@ declare(strict_types=1);
 namespace chillerlan\OAuthTest\Providers\Live;
 
 use chillerlan\OAuth\Providers\Tumblr;
+use chillerlan\OAuthTest\Attributes\Provider;
 use PHPUnit\Framework\Attributes\Group;
 
 /**
  * @property  \chillerlan\OAuth\Providers\Tumblr $provider
  */
 #[Group('providerLiveTest')]
+#[Provider(Tumblr::class)]
 final class TumblrAPITest extends OAuth1ProviderLiveTestAbstract{
-
-	protected function getProviderFQCN():string{
-		return Tumblr::class;
-	}
 
 	public function testTokenExchange():void{
 		// only outcomment if wou want to deliberately invaildate your current token

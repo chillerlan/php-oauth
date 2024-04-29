@@ -13,15 +13,13 @@ namespace chillerlan\OAuthTest\Providers\Unit;
 
 use chillerlan\OAuth\Core\{AccessToken, TokenInvalidate};
 use chillerlan\OAuth\Providers\DeviantArt;
+use chillerlan\OAuthTest\Attributes\Provider;
 
 /**
  * @property \chillerlan\OAuth\Providers\DeviantArt $provider
  */
+#[Provider(DeviantArt::class)]
 final class DeviantArtTest extends OAuth2ProviderUnitTestAbstract{
-
-	protected function getProviderFQCN():string{
-		return DeviantArt::class;
-	}
 
 	public function testTokenInvalidate():void{
 

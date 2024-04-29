@@ -13,16 +13,14 @@ namespace chillerlan\OAuthTest\Providers\Unit;
 
 use chillerlan\OAuth\Providers\BattleNet;
 use chillerlan\OAuth\Providers\ProviderException;
+use chillerlan\OAuthTest\Attributes\Provider;
 use PHPUnit\Framework\Attributes\DataProvider;
 
 /**
  * @property \chillerlan\OAuth\Providers\BattleNet $provider
  */
+#[Provider(BattleNet::class)]
 final class BattleNetTest extends OAuth2ProviderUnitTestAbstract{
-
-	protected function getProviderFQCN():string{
-		return BattleNet::class;
-	}
 
 	public function testSetRegion():void{
 		$this->provider->setRegion('cn');

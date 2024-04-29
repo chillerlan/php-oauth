@@ -13,16 +13,14 @@ namespace chillerlan\OAuthTest\Providers\Unit;
 
 use chillerlan\HTTP\Utils\MessageUtil;
 use chillerlan\OAuth\Providers\Twitch;
+use chillerlan\OAuthTest\Attributes\Provider;
 use function implode;
 
 /**
  * @property \chillerlan\OAuth\Providers\Twitch $provider
  */
+#[Provider(Twitch::class)]
 final class TwitchTest extends OAuth2ProviderUnitTestAbstract{
-
-	protected function getProviderFQCN():string{
-		return Twitch::class;
-	}
 
 	public function testGetClientCredentialsTokenRequestBodyParams():void{
 		$scopes = ['scope1', 'scope2', 'scope3'];

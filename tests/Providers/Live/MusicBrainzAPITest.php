@@ -14,17 +14,15 @@ namespace chillerlan\OAuthTest\Providers\Live;
 use chillerlan\HTTP\Utils\MessageUtil;
 use chillerlan\OAuth\Providers\MusicBrainz;
 use chillerlan\OAuth\Providers\ProviderException;
+use chillerlan\OAuthTest\Attributes\Provider;
 use PHPUnit\Framework\Attributes\Group;
 
 /**
  * @property \chillerlan\OAuth\Providers\MusicBrainz $provider
  */
 #[Group('providerLiveTest')]
+#[Provider(MusicBrainz::class)]
 final class MusicBrainzAPITest extends OAuth2ProviderLiveTestAbstract{
-
-	protected function getProviderFQCN():string{
-		return MusicBrainz::class;
-	}
 
 	public function testArtistId():void{
 		try{

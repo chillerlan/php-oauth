@@ -12,15 +12,13 @@ declare(strict_types=1);
 namespace chillerlan\OAuthTest\Providers\Unit;
 
 use chillerlan\OAuth\Providers\NPROne;
+use chillerlan\OAuthTest\Attributes\Provider;
 
 /**
  * @property \chillerlan\OAuth\Providers\NPROne $provider
  */
+#[Provider(NPROne::class)]
 final class NPROneTest extends OAuth2ProviderUnitTestAbstract{
-
-	protected function getProviderFQCN():string{
-		return NPROne::class;
-	}
 
 	public function testSetAPI():void{
 		$this::assertSame('https://listening.api.npr.org', $this->getReflectionProperty('apiURL'));

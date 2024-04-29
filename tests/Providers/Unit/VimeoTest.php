@@ -13,15 +13,13 @@ namespace chillerlan\OAuthTest\Providers\Unit;
 
 use chillerlan\OAuth\Core\{AccessToken, TokenInvalidate};
 use chillerlan\OAuth\Providers\Vimeo;
+use chillerlan\OAuthTest\Attributes\Provider;
 
 /**
  * @property \chillerlan\OAuth\Providers\Vimeo $provider
  */
+#[Provider(Vimeo::class)]
 final class VimeoTest extends OAuth2ProviderUnitTestAbstract{
-
-	protected function getProviderFQCN():string{
-		return Vimeo::class;
-	}
 
 	public function testTokenInvalidate():void{
 

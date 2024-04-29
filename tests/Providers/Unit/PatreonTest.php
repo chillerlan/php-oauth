@@ -12,16 +12,14 @@ declare(strict_types=1);
 namespace chillerlan\OAuthTest\Providers\Unit;
 
 use chillerlan\OAuth\Core\AccessToken;
+use chillerlan\OAuthTest\Attributes\Provider;
 use chillerlan\OAuth\Providers\{Patreon, ProviderException};
 
 /**
  * @property \chillerlan\OAuth\Providers\Patreon $provider
  */
+#[Provider(Patreon::class)]
 final class PatreonTest extends OAuth2ProviderUnitTestAbstract{
-
-	protected function getProviderFQCN():string{
-		return Patreon::class;
-	}
 
 	public function testMeInvalidScopesException():void{
 		$this->expectException(ProviderException::class);

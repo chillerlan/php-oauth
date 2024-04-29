@@ -12,19 +12,17 @@ declare(strict_types=1);
 namespace chillerlan\OAuthTest\Providers\Live;
 
 use chillerlan\OAuth\Providers\Mastodon;
+use chillerlan\OAuthTest\Attributes\Provider;
 use PHPUnit\Framework\Attributes\Group;
 
 /**
  * @property \chillerlan\OAuth\Providers\Mastodon $provider
  */
 #[Group('providerLiveTest')]
+#[Provider(Mastodon::class)]
 final class MastodonAPITest extends OAuth2ProviderLiveTestAbstract{
 
 	protected string $testInstance;
-
-	protected function getProviderFQCN():string{
-		return Mastodon::class;
-	}
 
 	protected function setUp():void{
 		parent::setUp();

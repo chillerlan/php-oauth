@@ -17,6 +17,7 @@ use chillerlan\OAuth\OAuthOptions;
 use chillerlan\OAuth\OAuthProviderFactory;
 use chillerlan\OAuth\Storage\MemoryStorage;
 use chillerlan\OAuth\Storage\OAuthStorageInterface;
+use chillerlan\OAuthTest\Attributes\Provider;
 use chillerlan\PHPUnitHttp\HttpFactoryTrait;
 use InvalidArgumentException;
 use PHPUnit\Framework\TestCase;
@@ -25,7 +26,9 @@ use Psr\Http\Message\RequestInterface;
 use Psr\Http\Message\ResponseInterface;
 use Psr\Http\Message\StreamInterface;
 use Psr\Log\LoggerInterface;
-use ReflectionClass;
+use ReflectionAttribute;
+use ReflectionObject;
+use RuntimeException;
 use Throwable;
 use function constant;
 use function defined;
@@ -44,7 +47,7 @@ abstract class ProviderUnitTestAbstract extends TestCase{
 	protected OAuthOptions          $options;
 	protected OAuthStorageInterface $storage;
 	protected OAuthInterface        $provider;
-	protected ReflectionClass       $reflection; // reflection of the test subject
+	protected ReflectionObject      $reflection; // reflection of the test subject
 
 	protected string $HTTP_CLIENT_FACTORY = ProviderUnitTestHttpClientFactory::class;
 
@@ -77,23 +80,13 @@ abstract class ProviderUnitTestAbstract extends TestCase{
 			);
 
 			$this->provider   = $this->providerFactory->getProvider($this->getProviderFQCN(), $this->options, $this->storage);
-			$this->reflection = new ReflectionClass($this->provider);
+			$this->reflection = new ReflectionObject($this->provider);
 		}
 		catch(Throwable $e){
 			$this->markTestSkipped(sprintf("unable to init provider test: %s\n\n%s", $e->getMessage(), $e->getTraceAsString()));
 		}
 
 	}
-
-
-	/*
-	 * abstract methods
-	 */
-
-	/**
-	 * returns the fully qualified class name (FQCN) of the test subject
-	 */
-	abstract protected function getProviderFQCN():string;
 
 
 	/*
@@ -140,6 +133,21 @@ abstract class ProviderUnitTestAbstract extends TestCase{
 
 	final protected function invokeReflectionMethod(string $method, array $args = []):mixed{
 		return $this->reflection->getMethod($method)->invokeArgs($this->provider, $args);
+	}
+
+	/**
+	 * returns the fully qualified class name (FQCN) of the test subject
+	 *
+	 * @see \chillerlan\OAuthTest\Attributes\Provider
+	 */
+	final protected function getProviderFQCN():string{
+		$attributes = (new ReflectionObject($this))->getAttributes(Provider::class, ReflectionAttribute::IS_INSTANCEOF);
+
+		if(empty($attributes)){
+			throw new RuntimeException('attribute "Provider" not set');
+		}
+
+		return $attributes[0]->newInstance()->className();
 	}
 
 

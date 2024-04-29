@@ -14,11 +14,13 @@ namespace chillerlan\OAuthTest\Providers\Unit;
 use chillerlan\HTTP\Utils\MessageUtil;
 use chillerlan\OAuth\Providers\ProviderException;
 use chillerlan\OAuth\Providers\Steam;
+use chillerlan\OAuthTest\Attributes\Provider;
 use function rawurlencode, sprintf;
 
 /**
  * @property \chillerlan\OAuth\Providers\Steam $provider
  */
+#[Provider(Steam::class)]
 final class SteamTest extends OAuthProviderUnitTestAbstract{
 
 	protected const ID_VALID   = "ns:http://specs.openid.net/auth/2.0\x0ais_valid:true\x0a";
@@ -38,10 +40,6 @@ final class SteamTest extends OAuthProviderUnitTestAbstract{
 		'openid_sig'            => '7WEtj64YlaJLNqL6M0gZvVmOLFg=',
 	];
 
-
-	protected function getProviderFQCN():string{
-		return Steam::class;
-	}
 
 	/*
 	 * auth URL

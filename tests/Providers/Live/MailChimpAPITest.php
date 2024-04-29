@@ -12,17 +12,15 @@ declare(strict_types=1);
 namespace chillerlan\OAuthTest\Providers\Live;
 
 use chillerlan\OAuth\Providers\MailChimp;
+use chillerlan\OAuthTest\Attributes\Provider;
 use PHPUnit\Framework\Attributes\Group;
 
 /**
  * @property \chillerlan\OAuth\Providers\MailChimp $provider
  */
 #[Group('providerLiveTest')]
+#[Provider(MailChimp::class)]
 final class MailChimpAPITest extends OAuth2ProviderLiveTestAbstract{
-
-	protected function getProviderFQCN():string{
-		return MailChimp::class;
-	}
 
 	public function testGetTokenMetadata():void{
 		$token = $this->storage->getAccessToken($this->provider->name);

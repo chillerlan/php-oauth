@@ -12,17 +12,15 @@ declare(strict_types=1);
 namespace chillerlan\OAuthTest\Providers\Live;
 
 use chillerlan\OAuth\Providers\SoundCloud;
+use chillerlan\OAuthTest\Attributes\Provider;
 use PHPUnit\Framework\Attributes\Group;
 
 /**
  * @property  \chillerlan\OAuth\Providers\SoundCloud $provider
  */
 #[Group('providerLiveTest')]
+#[Provider(SoundCloud::class)]
 final class SoundcloudAPITest extends OAuth2ProviderLiveTestAbstract{
-
-	protected function getProviderFQCN():string{
-		return SoundCloud::class;
-	}
 
 	public function testRequestCredentialsToken():void{
 		$this::markTestSkipped('may fail because SoundCloud deleted older applications');

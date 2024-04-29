@@ -12,16 +12,14 @@ declare(strict_types=1);
 namespace chillerlan\OAuthTest\Providers\Live;
 
 use chillerlan\OAuth\Providers\OpenCaching;
+use chillerlan\OAuthTest\Attributes\Provider;
 use PHPUnit\Framework\Attributes\Group;
 
 /**
  * @property \chillerlan\OAuth\Providers\OpenCaching $provider
  */
 #[Group('providerLiveTest')]
+#[Provider(OpenCaching::class)]
 final class OpenCachingAPITest extends OAuth1ProviderLiveTestAbstract{
-
-	protected function getProviderFQCN():string{
-		return OpenCaching::class;
-	}
 
 }

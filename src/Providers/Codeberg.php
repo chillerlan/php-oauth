@@ -17,6 +17,8 @@ use chillerlan\OAuth\Core\{AuthenticatedUser, CSRFToken, OAuth2Provider, PKCE, T
 use function sprintf;
 
 /**
+ * Codeberg OAuth2
+ *
  * @see https://forgejo.org/docs/latest/user/oauth2-provider/
  * @see https://forgejo.org/docs/latest/user/token-scope/
  * @see https://codeberg.org/api/swagger

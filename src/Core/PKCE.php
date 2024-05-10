@@ -11,6 +11,8 @@
 namespace chillerlan\OAuth\Core;
 
 /**
+ * Specifies the methods required for the OAuth2 Proof Key for Code Exchange (PKCE)
+ *
  * @see https://datatracker.ietf.org/doc/html/rfc7636
  * @see https://github.com/AdrienGras/pkce-php
  */

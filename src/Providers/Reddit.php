@@ -20,6 +20,8 @@ use chillerlan\OAuth\Core\{
 use function sprintf;
 
 /**
+ * Reddit OAuth2
+ *
  * @see https://github.com/reddit-archive/reddit/wiki/OAuth2
  * @see https://github.com/reddit-archive/reddit/wiki/API
  * @see https://support.reddithelp.com/hc/en-us/articles/16160319875092-Reddit-Data-API-Wiki

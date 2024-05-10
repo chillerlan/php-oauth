@@ -17,6 +17,8 @@ use chillerlan\OAuth\Core\{AuthenticatedUser, CSRFToken, OAuth2Provider, PKCE, T
 use function sprintf;
 
 /**
+ * Gitea OAuth2
+ *
  * @see https://docs.gitea.com/development/oauth2-provider
  */
 class Gitea extends OAuth2Provider implements CSRFToken, PKCE, TokenRefresh, UserInfo{

@@ -21,7 +21,7 @@ use function dirname, file_exists, file_get_contents, file_put_contents, hash, i
 use const DIRECTORY_SEPARATOR;
 
 /**
- * Implements a memory storage adapter.
+ * Implements a filesystem storage adapter.
  *
  * Please note that the storage root directory needs permissions 0777 or `is_writable()` will fail.
  * Subfolders created by this class will have permissions set to 0755.

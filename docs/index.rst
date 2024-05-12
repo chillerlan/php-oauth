@@ -32,6 +32,7 @@ This work is licensed under the Creative Commons Attribution 4.0 International (
    :caption: Development
 
    Development/Create-provider.md
+   Development/Additional-functionality.md
    Development/Test-suite.md
    Development/Using-examples.md
 

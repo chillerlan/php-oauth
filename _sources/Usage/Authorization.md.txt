@@ -21,7 +21,7 @@ echo '<a href="?route=oauth-login">connect with GitHub!</a>';
 The method `OAuthInterface::getAuthorizationURL()` takes two (optional) parameters:
 
 - `$params`: this array contains additional query parameters that will be added to the URL query (provider dependent)
-- `$scopes`: this array contains all scopes that will be used for this authorization (unused in OAuth1)
+- `$scopes`: this array contains all scopes that will be used for this authorization
 
 When the user clicks the log-in link, just execute a `header()` to the provider's authorization URL.
 
@@ -47,7 +47,7 @@ while the similar `OAuth2Interface::getAccessToken()` takes two parameters `$cod
 
 ### OAuth2
 
-In our GitHub OAuth2 example we're now receiving the callback to `https://example.com/callback/?code=<code>&state=<state>`.
+In our GitHub OAuth2 example we're now receiving the incoming callback to `https://example.com/callback/?code=<code>&state=<state>`.
 The `getAccessToken()` method initiates a backend request to the provider's server to exchange the temporary credentials for an access token:
 
 ```php
@@ -62,9 +62,6 @@ if($route === 'oauth2-callback'){
 		}
 
 		$token = $provider->getAccessToken($_GET['code'], $state);
-
-		// some providers may send additional data with the callback query parameters,
-		// that you may want to save here along with the token
 
 		// when everything is done here, you should redirect the user to wherever
 		// they were headed, but also to clear the URL query parameters
@@ -91,10 +88,16 @@ if($route === 'oauth1-callback'){
 		);
 
 		// ...
+
+		header('Location: ...');
 	}
 
 }
 ```
+
+Some services may send additional data with the callback query parameters, that you might want to save along with the token after calling `getAccessToken()` -
+alternatively you can override this method to add functionality.
+
 
 ## Use the provider's API
 

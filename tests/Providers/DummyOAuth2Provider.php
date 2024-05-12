@@ -11,12 +11,13 @@ declare(strict_types=1);
 
 namespace chillerlan\OAuthTest\Providers;
 
-use chillerlan\OAuth\Core\{AccessToken, ClientCredentials, CSRFToken, OAuth2Provider, PKCE, TokenInvalidate, TokenRefresh};
+use chillerlan\OAuth\Core\{AccessToken, ClientCredentials, CSRFToken, OAuth2Provider, PAR, PKCE, TokenInvalidate, TokenRefresh};
 
 /**
  * An OAuth2 provider implementation that supports token refresh, csrf tokens and client credentials
  */
-final class DummyOAuth2Provider extends OAuth2Provider implements ClientCredentials, CSRFToken, PKCE, TokenRefresh, TokenInvalidate{
+final class DummyOAuth2Provider extends OAuth2Provider
+	implements ClientCredentials, CSRFToken, PAR, PKCE, TokenRefresh, TokenInvalidate{
 
 	public const IDENTIFIER = 'DUMMYOAUTH2PROVIDER';
 
@@ -24,11 +25,12 @@ final class DummyOAuth2Provider extends OAuth2Provider implements ClientCredenti
 	public const HEADERS_AUTH = ['foo' => 'bar'];
 	public const HEADERS_API  = ['foo' => 'bar'];
 
-	protected string      $authorizationURL = 'https://example.com/oauth2/authorize';
-	protected string      $accessTokenURL   = 'https://example.com/oauth2/token';
-	protected string      $revokeURL        = 'https://example.com/oauth2/revoke';
-	protected string      $apiURL           = 'https://api.example.com/';
-	protected string|null $userRevokeURL    = 'https://account.example.com/apps/';
+	protected string      $authorizationURL    = 'https://example.com/oauth2/authorize';
+	protected string      $accessTokenURL      = 'https://example.com/oauth2/token';
+	protected string      $revokeURL           = 'https://example.com/oauth2/revoke';
+	protected string      $apiURL              = 'https://api.example.com/';
+	protected string|null $userRevokeURL       = 'https://account.example.com/apps/';
+	protected string      $parAuthorizationURL = 'https://example.com/oauth2/par';
 
 	/**
 	 * @inheritDoc

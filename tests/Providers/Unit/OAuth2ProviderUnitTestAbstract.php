@@ -14,8 +14,8 @@ declare(strict_types=1);
 namespace chillerlan\OAuthTest\Providers\Unit;
 
 use chillerlan\OAuth\Core\{
-	ClientCredentials, CSRFStateMismatchException, CSRFToken,
-	OAuth2Interface, PKCE, TokenRefresh, UnauthorizedAccessException
+	ClientCredentials, CSRFStateMismatchException, CSRFToken, OAuth2Interface,
+	PAR, PKCE, TokenRefresh, UnauthorizedAccessException
 };
 use chillerlan\HTTP\Utils\{MessageUtil, QueryUtil};
 use chillerlan\OAuth\OAuthException;
@@ -48,6 +48,11 @@ abstract class OAuth2ProviderUnitTestAbstract extends OAuthProviderUnitTestAbstr
 	 */
 
 	public function testGetAuthURL():void{
+
+		if($this->provider instanceof PAR){
+			$this::markTestSkipped('PAR supported');
+		}
+
 		$uri    = $this->provider->getAuthorizationURL();
 		$params = QueryUtil::parse($uri->getQuery());
 
@@ -75,6 +80,46 @@ abstract class OAuth2ProviderUnitTestAbstract extends OAuthProviderUnitTestAbstr
 		$this::assertSame('web_server', $params['type']);
 		$this::assertSame(implode($this->provider::SCOPES_DELIMITER, $scopes), $params['scope']);
 		$this::assertSame('bar', $params['foo']);
+	}
+
+	public function testGetParAuthURL():void{
+
+		if(!$this->provider instanceof PAR){
+			$this::markTestSkipped('PAR N/A');
+		}
+
+		// @see https://datatracker.ietf.org/doc/html/rfc9126#name-successful-response
+		$json = '{"request_uri":"urn:ietf:params:oauth:request_uri:6esc_11ACC5bwc014ltc14eY22c","expires_in":60}';
+
+		$this->setMockResponse($this->streamFactory->createStream($json));
+
+		$uri    = $this->provider->getAuthorizationURL();
+		$params = QueryUtil::parse($uri->getQuery());
+
+		$this::assertSame($this->options->key, $params['client_id']);
+		$this::assertSame('urn:ietf:params:oauth:request_uri:6esc_11ACC5bwc014ltc14eY22c', $params['request_uri']);
+	}
+
+	public function testGetParAuthURLErrorException():void{
+
+		if(!$this->provider instanceof PAR){
+			$this::markTestSkipped('PAR N/A');
+		}
+
+		$this->expectException(ProviderException::class);
+		$this->expectExceptionMessage('invalid_request');
+
+		// @see https://datatracker.ietf.org/doc/html/rfc9126#name-error-response
+		$json = '{"error":"invalid_request","error_description":"The redirect_uri is not valid for the given client"}';
+
+		$response = $this->responseFactory
+			->createResponse(400)
+			->withBody($this->streamFactory->createStream($json))
+		;
+
+		$this->setMockResponse($response);
+
+		$this->provider->getAuthorizationURL();
 	}
 
 

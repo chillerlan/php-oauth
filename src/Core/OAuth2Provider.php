@@ -20,7 +20,7 @@ use const PHP_QUERY_RFC1738, PHP_VERSION_ID, SODIUM_BASE64_VARIANT_URLSAFE_NO_PA
 
 /**
  * Implements an abstract OAuth2 provider with all methods required by the OAuth2Interface.
- * It also implements the ClientCredentials, CSRFToken and TokenRefresh interfaces in favor over traits.
+ * It also implements the ClientCredentials, CSRFToken, TokenRefresh and [...] interfaces in favor over traits.
 
  * @see https://oauth.net/2/
  * @see https://datatracker.ietf.org/doc/html/rfc6749
@@ -36,6 +36,13 @@ abstract class OAuth2Provider extends OAuthProvider implements OAuth2Interface{
 	protected string $refreshTokenURL;
 
 	/**
+	 * An optional PAR (Pushed Authorization Request) endpoint URL
+	 *
+	 * @see \chillerlan\OAuth\Core\PAR
+	 */
+	protected string $parAuthorizationURL;
+
+	/**
 	 * An optional client credentials token endpoint in case the provider supports ClientCredentials.
 	 * If the provider supports client credentials and $clientCredentialsTokenURL is null, $accessTokenURL will be used instead.
 	 */
@@ -48,6 +55,10 @@ abstract class OAuth2Provider extends OAuthProvider implements OAuth2Interface{
 	 */
 	public function getAuthorizationURL(array|null $params = null, array|null $scopes = null):UriInterface{
 		$queryParams = $this->getAuthorizationURLRequestParams(($params ?? []), ($scopes ?? $this::DEFAULT_SCOPES));
+
+		if($this instanceof PAR){
+			return $this->getParRequestUri($queryParams);
+		}
 
 		return $this->uriFactory->createUri(QueryUtil::merge($this->authorizationURL, $queryParams));
 	}
@@ -493,6 +504,54 @@ abstract class OAuth2Provider extends OAuthProvider implements OAuth2Interface{
 		};
 
 		return sodium_bin2base64($verifier, SODIUM_BASE64_VARIANT_URLSAFE_NO_PADDING);
+	}
+
+	/**
+	 * @implements \chillerlan\OAuth\Core\PAR::getParRequestUri()
+	 * @internal
+	 */
+	public function getParRequestUri(array $body):UriInterface{
+
+		if(!$this instanceof PAR){
+			throw new ProviderException('PKCE challenge not supported');
+		}
+
+		// send the request with the same method and parameters as the token requests
+		// @see https://datatracker.ietf.org/doc/html/rfc9126#name-request
+		$response = $this->sendAccessTokenRequest($this->parAuthorizationURL, $body);
+		$status   = $response->getStatusCode();
+		$json     = MessageUtil::decodeJSON($response, true);
+
+		// something went horribly wrong
+		if($status !== 200){
+			// @see https://datatracker.ietf.org/doc/html/rfc9126#section-2.3
+			if(isset($json['error'], $json['error_description'])){
+				throw new ProviderException(sprintf('PAR error: "%s" (%s)', $json['error'], $json['error_description']));
+			}
+
+			throw new ProviderException(sprintf('PAR request error: (HTTP/%s)', $status)); // @codeCoverageIgnore
+		}
+
+		$url = QueryUtil::merge($this->authorizationURL, $this->getParAuthorizationURLRequestParams($json));
+
+		return $this->uriFactory->createUri($url);
+	}
+
+	/**
+	 * Parses the response from the PAR request and returns the query parameters for the authorization URL
+	 *
+	 * @codeCoverageIgnore
+	 */
+	protected function getParAuthorizationURLRequestParams(array $response):array{
+
+		if(!isset($response['request_uri'])){
+			throw new ProviderException('PAR response error: "request_uri" missing');
+		}
+
+		return [
+			'client_id'   => $this->options->key,
+			'request_uri' => $response['request_uri'],
+		];
 	}
 
 }

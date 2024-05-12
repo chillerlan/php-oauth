@@ -74,10 +74,15 @@ interface OAuthInterface extends ClientInterface{
 
 	/**
 	 * Prepares the URL with optional $params which redirects to the provider's authorization prompt
-	 * and returns a PSR-7 UriInterface with all necessary parameters set
+	 * and returns a PSR-7 UriInterface with all necessary parameters set.
+	 *
+	 * If the provider supports RFC-9126 "Pushed Authorization Requests (PAR)", a request to the PAR endpoint
+	 * shall be made within this method in order to send authorization data and obtain a temporary request URI.
 	 *
 	 * @see https://datatracker.ietf.org/doc/html/rfc5849#section-2.2
 	 * @see https://datatracker.ietf.org/doc/html/rfc6749#section-4.1.1
+	 * @see https://datatracker.ietf.org/doc/html/rfc9126
+	 * @see \chillerlan\OAuth\Core\PAR
 	 */
 	public function getAuthorizationURL(array|null $params = null, array|null $scopes = null):UriInterface;
 

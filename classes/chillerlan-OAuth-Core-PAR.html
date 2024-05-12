@@ -110,104 +110,162 @@
             <div class="phpdocumentor-column -nine phpdocumentor-content">
                                 <section>
                                         <ul class="phpdocumentor-breadcrumbs">
+            <li class="phpdocumentor-breadcrumb"><a href="namespaces/chillerlan.html">chillerlan</a></li>
+            <li class="phpdocumentor-breadcrumb"><a href="namespaces/chillerlan-oauth.html">OAuth</a></li>
+            <li class="phpdocumentor-breadcrumb"><a href="namespaces/chillerlan-oauth-core.html">Core</a></li>
     </ul>
 
-    <article class="phpdocumentor-element -file">
-        <h2 class="phpdocumentor-content__title">Gitea.php</h2>
+    <article class="phpdocumentor-element -interface">
+        <h2 class="phpdocumentor-content__title">
+    PAR
+                <div class="phpdocumentor-element__package">
+            in
+            <ul class="phpdocumentor-breadcrumbs">
+                                    <li><a href="packages/Application.html">Application</a></li>
+                            </ul>
+        </div>
+    </h2>
 
-            <p class="phpdocumentor-summary">Class Gitea</p>
+        <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/Core/PAR.php"><a href="files/src-core-par.html"><abbr title="src/Core/PAR.php">PAR.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">20</span>
+
+    </aside>
+
+            <p class="phpdocumentor-summary">Specifies the methods required for the OAuth2 Pushed Authorization Requests (PAR)</p>
 
 
 
     <h5 class="phpdocumentor-tag-list__heading" id="tags">
         Tags
-        <a href="files/src-providers-gitea.html#tags" class="headerlink"><i class="fas fa-link"></i></a>
+        <a href="classes/chillerlan-OAuth-Core-PAR.html#tags" class="headerlink"><i class="fas fa-link"></i></a>
 
     </h5>
     <dl class="phpdocumentor-tag-list">
                                     <dt class="phpdocumentor-tag-list__entry">
-                    <span class="phpdocumentor-tag__name">created</span>
+                    <span class="phpdocumentor-tag__name">see</span>
                 </dt>
                 <dd class="phpdocumentor-tag-list__definition">
-                                                                                
-                                                 <section class="phpdocumentor-description"><p>08.04.2024</p>
-</section>
-
+                                                                                    <span class="phpdocumentor-tag-link"><a href="https://datatracker.ietf.org/doc/html/rfc9126">https://datatracker.ietf.org/doc/html/rfc9126</a></span>
+                                        
+                                             
                                     </dd>
-                                                <dt class="phpdocumentor-tag-list__entry">
-                    <span class="phpdocumentor-tag__name">author</span>
-                </dt>
-                <dd class="phpdocumentor-tag-list__definition">
-                                                                                
-                                                 <section class="phpdocumentor-description"><p>smiley <a href="mailto:smiley@chillerlan.net">smiley@chillerlan.net</a></p>
-</section>
-
-                                    </dd>
-                                                <dt class="phpdocumentor-tag-list__entry">
-                    <span class="phpdocumentor-tag__name">copyright</span>
-                </dt>
-                <dd class="phpdocumentor-tag-list__definition">
-                                                                                
-                                                 <section class="phpdocumentor-description"><p>2024 smiley</p>
-</section>
-
-                                    </dd>
-                                                <dt class="phpdocumentor-tag-list__entry">
-                    <span class="phpdocumentor-tag__name">license</span>
-                </dt>
-                <dd class="phpdocumentor-tag-list__definition">
-                                                                                
-                                                 <section class="phpdocumentor-description"><p>MIT</p>
-</section>
-
-                                    </dd>
-                                                <dt class="phpdocumentor-tag-list__entry">
-                    <span class="phpdocumentor-tag__name">noinspection</span>
-                </dt>
-                <dd class="phpdocumentor-tag-list__definition">
-                                                                                
-                                                 <section class="phpdocumentor-description"><p>PhpUnused</p>
-</section>
-
-                                    </dd>
-                        </dl>
+                                            </dl>
 
 
 
 <h3 id="toc">
     Table of Contents
-    <a href="files/src-providers-gitea.html#toc" class="headerlink"><i class="fas fa-link"></i></a>
+    <a href="classes/chillerlan-OAuth-Core-PAR.html#toc" class="headerlink"><i class="fas fa-link"></i></a>
 
 </h3>
 
 
 
 
-    <h4 id="toc-classes">
-        Classes
-        <a href="files/src-providers-gitea.html#toc-classes" class="headerlink"><i class="fas fa-link"></i></a>
+
+
+
+
+
+
+<h4 id="toc-methods">
+    Methods
+    <a href="classes/chillerlan-OAuth-Core-PAR.html#toc-methods" class="headerlink"><i class="fas fa-link"></i></a>
+
+</h4>
+<dl class="phpdocumentor-table-of-contents">
+            <dt class="phpdocumentor-table-of-contents__entry -method -public">
+    <a href="classes/chillerlan-OAuth-Core-PAR.html#method_getParRequestUri">getParRequestUri()</a>
+    <span>
+                                &nbsp;: <abbr title="\Psr\Http\Message\UriInterface">UriInterface</abbr>    </span>
+</dt>
+<dd>Sends the given authorization request parameters to the PAR endpoint and returns
+the full authorization URL including the URN obtained from the PAR request</dd>
+
+    </dl>
+
+
+
+
+        
+
+            <section class="phpdocumentor-methods">
+        <h3 class="phpdocumentor-elements__header" id="methods">
+            Methods
+            <a href="classes/chillerlan-OAuth-Core-PAR.html#methods" class="headerlink"><i class="fas fa-link"></i></a>
+
+        </h3>
+                    <article
+        class="phpdocumentor-element
+            -method
+            -public
+                                                        "
+>
+    <h4 class="phpdocumentor-element__name" id="method_getParRequestUri">
+        getParRequestUri()
+        <a href="classes/chillerlan-OAuth-Core-PAR.html#method_getParRequestUri" class="headerlink"><i class="fas fa-link"></i></a>
 
     </h4>
-    <dl class="phpdocumentor-table-of-contents">
-                    <dt class="phpdocumentor-table-of-contents__entry -class"><a href="classes/chillerlan-OAuth-Providers-Gitea.html"><abbr title="\chillerlan\OAuth\Providers\Gitea">Gitea</abbr></a></dt><dd>Gitea OAuth2</dd>    </dl>
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/Core/PAR.php"><a href="files/src-core-par.html"><abbr title="src/Core/PAR.php">PAR.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">28</span>
 
+    </aside>
 
+        <p class="phpdocumentor-summary">Sends the given authorization request parameters to the PAR endpoint and returns
+the full authorization URL including the URN obtained from the PAR request</p>
 
+    <code class="phpdocumentor-code phpdocumentor-signature ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+                    <span class="phpdocumentor-signature__name">getParRequestUri</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">array&lt;string|int, mixed&gt;&nbsp;</span><span class="phpdocumentor-signature__argument__name">$body</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type"><abbr title="\Psr\Http\Message\UriInterface">UriInterface</abbr></span></code>
 
+    <div class="phpdocumentor-label-line">
+        </div>
+    
+        <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
+    <dl class="phpdocumentor-argument-list">
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-signature__argument__name">$body</span>
+                : <span class="phpdocumentor-signature__argument__return-type">array&lt;string|int, mixed&gt;</span>
+                            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                
+            </dd>
+            </dl>
 
+    
+    <h5 class="phpdocumentor-tag-list__heading" id="tags">
+        Tags
+        <a href="classes/chillerlan-OAuth-Core-PAR.html#method_getParRequestUri#tags" class="headerlink"><i class="fas fa-link"></i></a>
 
+    </h5>
+    <dl class="phpdocumentor-tag-list">
+                                    <dt class="phpdocumentor-tag-list__entry">
+                    <span class="phpdocumentor-tag__name">see</span>
+                </dt>
+                <dd class="phpdocumentor-tag-list__definition">
+                                                                                    <span class="phpdocumentor-tag-link"><a href="https://datatracker.ietf.org/doc/html/rfc9126#section-1.1">https://datatracker.ietf.org/doc/html/rfc9126#section-1.1</a></span>
+                                        
+                                             
+                                    </dd>
+                                            </dl>
 
+            <section>
+        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
+        <span class="phpdocumentor-signature__response_type"><abbr title="\Psr\Http\Message\UriInterface">UriInterface</abbr></span>
+            </section>
 
+</article>
+            </section>
 
-
-        
-
-        
         <div class="phpdocumentor-modal" id="source-view">
     <div class="phpdocumentor-modal-bg" data-exit-button></div>
     <div class="phpdocumentor-modal-container">
         <div class="phpdocumentor-modal-content">
-            <pre style="max-height: 500px; overflow-y: scroll" data-src="files/src/Providers/Gitea.php.txt" class="language-php line-numbers linkable-line-numbers"></pre>
+            <pre style="max-height: 500px; overflow-y: scroll" data-src="files/src/Core/PAR.php.txt" class="language-php line-numbers linkable-line-numbers"></pre>
         </div>
         <button data-exit-button class="phpdocumentor-modal__close">&times;</button>
     </div>
@@ -306,10 +364,16 @@
             <li class="phpdocumentor-on-this-page-section__title">Table Of Contents</li>
             <li>
                 <ul class="phpdocumentor-list -clean">
-                                                                                                        <li><a href="files/src-providers-gitea.html#toc-classes">Classes</a></li>
-                                                                                                                    </ul>
+                    <li><a href="classes/chillerlan-OAuth-Core-PAR.html#toc-constants">Constants</a></li>
+                    <li><a href="classes/chillerlan-OAuth-Core-PAR.html#toc-methods">Methods</a></li>
+                </ul>
             </li>
-
+                            <li class="phpdocumentor-on-this-page-section__title">Methods</li>
+                <li>
+                    <ul class="phpdocumentor-list -clean">
+                                                    <li><a href="classes/chillerlan-OAuth-Core-PAR.html#method_getParRequestUri">getParRequestUri()</a></li>
+                                            </ul>
+                </li>
             
                     </ul>
     </section>
@@ -328,7 +392,7 @@
     </section>
 </section>
         </div>
-        <a href="files/src-providers-gitea.html#top" class="phpdocumentor-back-to-top"><i class="fas fa-chevron-circle-up"></i></a>
+        <a href="classes/chillerlan-OAuth-Core-PAR.html#top" class="phpdocumentor-back-to-top"><i class="fas fa-chevron-circle-up"></i></a>
 
     </main>
 

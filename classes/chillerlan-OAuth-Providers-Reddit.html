@@ -144,11 +144,11 @@
         <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Providers/Reddit.php"><a href="files/src-providers-reddit.html"><abbr title="src/Providers/Reddit.php">Reddit.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">28</span>
+    <span class="phpdocumentor-element-found-in__line">30</span>
 
     </aside>
 
-            <p class="phpdocumentor-summary">Implements an abstract OAuth2 provider with all methods required by the OAuth2Interface.</p>
+            <p class="phpdocumentor-summary">Reddit OAuth2</p>
 
 
 
@@ -508,6 +508,13 @@ usually via a &quot;/me&quot;, &quot;/user&quot; or &quot;/tokeninfo&quot; endpo
 </dt>
 
             <dt class="phpdocumentor-table-of-contents__entry -property -protected">
+    <a href="classes/chillerlan-OAuth-Core-OAuth2Provider.html#property_parAuthorizationURL">$parAuthorizationURL</a>
+    <span>
+                        &nbsp;: string            </span>
+</dt>
+<dd>An optional PAR (Pushed Authorization Request) endpoint URL</dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -property -protected">
     <a href="classes/chillerlan-OAuth-Core-OAuth2Provider.html#property_refreshTokenURL">$refreshTokenURL</a>
     <span>
                         &nbsp;: string            </span>
@@ -759,6 +766,13 @@ so that you don&#039;t have to implement the monstrous original `__construct()`<
 <dd>fetches the provider&#039;s &quot;me&quot; endpoint and returns the JSON data as an array</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -protected">
+    <a href="classes/chillerlan-OAuth-Core-OAuth2Provider.html#method_getParAuthorizationURLRequestParams">getParAuthorizationURLRequestParams()</a>
+    <span>
+                                &nbsp;: array&lt;string|int, mixed&gt;    </span>
+</dt>
+<dd>Parses the response from the PAR request and returns the query parameters for the authorization URL</dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -method -protected">
     <a href="classes/chillerlan-OAuth-Core-OAuth2Provider.html#method_getRefreshAccessTokenRequestBodyParams">getRefreshAccessTokenRequestBodyParams()</a>
     <span>
                                 &nbsp;: array&lt;string|int, mixed&gt;    </span>
@@ -865,7 +879,7 @@ anything except host and path will be ignored, scheme will always be set to &quo
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Providers/Reddit.php"><a href="files/src-providers-reddit.html"><abbr title="src/Providers/Reddit.php">Reddit.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">62</span>
+    <span class="phpdocumentor-element-found-in__line">64</span>
 
     </aside>
 
@@ -893,7 +907,7 @@ anything except host and path will be ignored, scheme will always be set to &quo
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Providers/Reddit.php"><a href="files/src-providers-reddit.html"><abbr title="src/Providers/Reddit.php">Reddit.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">74</span>
+    <span class="phpdocumentor-element-found-in__line">76</span>
 
     </aside>
 
@@ -921,7 +935,7 @@ anything except host and path will be ignored, scheme will always be set to &quo
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Providers/Reddit.php"><a href="files/src-providers-reddit.html"><abbr title="src/Providers/Reddit.php">Reddit.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">70</span>
+    <span class="phpdocumentor-element-found-in__line">72</span>
 
     </aside>
 
@@ -949,7 +963,7 @@ anything except host and path will be ignored, scheme will always be set to &quo
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Providers/Reddit.php"><a href="files/src-providers-reddit.html"><abbr title="src/Providers/Reddit.php">Reddit.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">30</span>
+    <span class="phpdocumentor-element-found-in__line">32</span>
 
     </aside>
 
@@ -977,7 +991,7 @@ anything except host and path will be ignored, scheme will always be set to &quo
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Providers/Reddit.php"><a href="files/src-providers-reddit.html"><abbr title="src/Providers/Reddit.php">Reddit.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">32</span>
+    <span class="phpdocumentor-element-found-in__line">34</span>
 
     </aside>
 
@@ -1005,7 +1019,7 @@ anything except host and path will be ignored, scheme will always be set to &quo
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Providers/Reddit.php"><a href="files/src-providers-reddit.html"><abbr title="src/Providers/Reddit.php">Reddit.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">33</span>
+    <span class="phpdocumentor-element-found-in__line">35</span>
 
     </aside>
 
@@ -1033,7 +1047,7 @@ anything except host and path will be ignored, scheme will always be set to &quo
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Providers/Reddit.php"><a href="files/src-providers-reddit.html"><abbr title="src/Providers/Reddit.php">Reddit.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">34</span>
+    <span class="phpdocumentor-element-found-in__line">36</span>
 
     </aside>
 
@@ -1061,7 +1075,7 @@ anything except host and path will be ignored, scheme will always be set to &quo
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Providers/Reddit.php"><a href="files/src-providers-reddit.html"><abbr title="src/Providers/Reddit.php">Reddit.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">35</span>
+    <span class="phpdocumentor-element-found-in__line">37</span>
 
     </aside>
 
@@ -1089,7 +1103,7 @@ anything except host and path will be ignored, scheme will always be set to &quo
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Providers/Reddit.php"><a href="files/src-providers-reddit.html"><abbr title="src/Providers/Reddit.php">Reddit.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">36</span>
+    <span class="phpdocumentor-element-found-in__line">38</span>
 
     </aside>
 
@@ -1117,7 +1131,7 @@ anything except host and path will be ignored, scheme will always be set to &quo
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Providers/Reddit.php"><a href="files/src-providers-reddit.html"><abbr title="src/Providers/Reddit.php">Reddit.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">37</span>
+    <span class="phpdocumentor-element-found-in__line">39</span>
 
     </aside>
 
@@ -1145,7 +1159,7 @@ anything except host and path will be ignored, scheme will always be set to &quo
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Providers/Reddit.php"><a href="files/src-providers-reddit.html"><abbr title="src/Providers/Reddit.php">Reddit.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">38</span>
+    <span class="phpdocumentor-element-found-in__line">40</span>
 
     </aside>
 
@@ -1173,7 +1187,7 @@ anything except host and path will be ignored, scheme will always be set to &quo
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Providers/Reddit.php"><a href="files/src-providers-reddit.html"><abbr title="src/Providers/Reddit.php">Reddit.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">39</span>
+    <span class="phpdocumentor-element-found-in__line">41</span>
 
     </aside>
 
@@ -1201,7 +1215,7 @@ anything except host and path will be ignored, scheme will always be set to &quo
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Providers/Reddit.php"><a href="files/src-providers-reddit.html"><abbr title="src/Providers/Reddit.php">Reddit.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">40</span>
+    <span class="phpdocumentor-element-found-in__line">42</span>
 
     </aside>
 
@@ -1229,7 +1243,7 @@ anything except host and path will be ignored, scheme will always be set to &quo
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Providers/Reddit.php"><a href="files/src-providers-reddit.html"><abbr title="src/Providers/Reddit.php">Reddit.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">41</span>
+    <span class="phpdocumentor-element-found-in__line">43</span>
 
     </aside>
 
@@ -1257,7 +1271,7 @@ anything except host and path will be ignored, scheme will always be set to &quo
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Providers/Reddit.php"><a href="files/src-providers-reddit.html"><abbr title="src/Providers/Reddit.php">Reddit.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">42</span>
+    <span class="phpdocumentor-element-found-in__line">44</span>
 
     </aside>
 
@@ -1285,7 +1299,7 @@ anything except host and path will be ignored, scheme will always be set to &quo
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Providers/Reddit.php"><a href="files/src-providers-reddit.html"><abbr title="src/Providers/Reddit.php">Reddit.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">43</span>
+    <span class="phpdocumentor-element-found-in__line">45</span>
 
     </aside>
 
@@ -1313,7 +1327,7 @@ anything except host and path will be ignored, scheme will always be set to &quo
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Providers/Reddit.php"><a href="files/src-providers-reddit.html"><abbr title="src/Providers/Reddit.php">Reddit.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">44</span>
+    <span class="phpdocumentor-element-found-in__line">46</span>
 
     </aside>
 
@@ -1341,7 +1355,7 @@ anything except host and path will be ignored, scheme will always be set to &quo
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Providers/Reddit.php"><a href="files/src-providers-reddit.html"><abbr title="src/Providers/Reddit.php">Reddit.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">45</span>
+    <span class="phpdocumentor-element-found-in__line">47</span>
 
     </aside>
 
@@ -1369,7 +1383,7 @@ anything except host and path will be ignored, scheme will always be set to &quo
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Providers/Reddit.php"><a href="files/src-providers-reddit.html"><abbr title="src/Providers/Reddit.php">Reddit.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">46</span>
+    <span class="phpdocumentor-element-found-in__line">48</span>
 
     </aside>
 
@@ -1397,7 +1411,7 @@ anything except host and path will be ignored, scheme will always be set to &quo
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Providers/Reddit.php"><a href="files/src-providers-reddit.html"><abbr title="src/Providers/Reddit.php">Reddit.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">47</span>
+    <span class="phpdocumentor-element-found-in__line">49</span>
 
     </aside>
 
@@ -1425,7 +1439,7 @@ anything except host and path will be ignored, scheme will always be set to &quo
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Providers/Reddit.php"><a href="files/src-providers-reddit.html"><abbr title="src/Providers/Reddit.php">Reddit.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">48</span>
+    <span class="phpdocumentor-element-found-in__line">50</span>
 
     </aside>
 
@@ -1453,7 +1467,7 @@ anything except host and path will be ignored, scheme will always be set to &quo
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Providers/Reddit.php"><a href="files/src-providers-reddit.html"><abbr title="src/Providers/Reddit.php">Reddit.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">49</span>
+    <span class="phpdocumentor-element-found-in__line">51</span>
 
     </aside>
 
@@ -1481,7 +1495,7 @@ anything except host and path will be ignored, scheme will always be set to &quo
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Providers/Reddit.php"><a href="files/src-providers-reddit.html"><abbr title="src/Providers/Reddit.php">Reddit.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">50</span>
+    <span class="phpdocumentor-element-found-in__line">52</span>
 
     </aside>
 
@@ -1509,7 +1523,7 @@ anything except host and path will be ignored, scheme will always be set to &quo
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Providers/Reddit.php"><a href="files/src-providers-reddit.html"><abbr title="src/Providers/Reddit.php">Reddit.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">51</span>
+    <span class="phpdocumentor-element-found-in__line">53</span>
 
     </aside>
 
@@ -1537,7 +1551,7 @@ anything except host and path will be ignored, scheme will always be set to &quo
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Providers/Reddit.php"><a href="files/src-providers-reddit.html"><abbr title="src/Providers/Reddit.php">Reddit.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">52</span>
+    <span class="phpdocumentor-element-found-in__line">54</span>
 
     </aside>
 
@@ -1565,7 +1579,7 @@ anything except host and path will be ignored, scheme will always be set to &quo
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Providers/Reddit.php"><a href="files/src-providers-reddit.html"><abbr title="src/Providers/Reddit.php">Reddit.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">53</span>
+    <span class="phpdocumentor-element-found-in__line">55</span>
 
     </aside>
 
@@ -1593,7 +1607,7 @@ anything except host and path will be ignored, scheme will always be set to &quo
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Providers/Reddit.php"><a href="files/src-providers-reddit.html"><abbr title="src/Providers/Reddit.php">Reddit.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">54</span>
+    <span class="phpdocumentor-element-found-in__line">56</span>
 
     </aside>
 
@@ -1621,7 +1635,7 @@ anything except host and path will be ignored, scheme will always be set to &quo
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Providers/Reddit.php"><a href="files/src-providers-reddit.html"><abbr title="src/Providers/Reddit.php">Reddit.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">55</span>
+    <span class="phpdocumentor-element-found-in__line">57</span>
 
     </aside>
 
@@ -1649,7 +1663,7 @@ anything except host and path will be ignored, scheme will always be set to &quo
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Providers/Reddit.php"><a href="files/src-providers-reddit.html"><abbr title="src/Providers/Reddit.php">Reddit.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">56</span>
+    <span class="phpdocumentor-element-found-in__line">58</span>
 
     </aside>
 
@@ -1677,7 +1691,7 @@ anything except host and path will be ignored, scheme will always be set to &quo
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Providers/Reddit.php"><a href="files/src-providers-reddit.html"><abbr title="src/Providers/Reddit.php">Reddit.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">57</span>
+    <span class="phpdocumentor-element-found-in__line">59</span>
 
     </aside>
 
@@ -1705,7 +1719,7 @@ anything except host and path will be ignored, scheme will always be set to &quo
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Providers/Reddit.php"><a href="files/src-providers-reddit.html"><abbr title="src/Providers/Reddit.php">Reddit.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">58</span>
+    <span class="phpdocumentor-element-found-in__line">60</span>
 
     </aside>
 
@@ -1733,7 +1747,7 @@ anything except host and path will be ignored, scheme will always be set to &quo
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Providers/Reddit.php"><a href="files/src-providers-reddit.html"><abbr title="src/Providers/Reddit.php">Reddit.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">59</span>
+    <span class="phpdocumentor-element-found-in__line">61</span>
 
     </aside>
 
@@ -1761,7 +1775,7 @@ anything except host and path will be ignored, scheme will always be set to &quo
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Providers/Reddit.php"><a href="files/src-providers-reddit.html"><abbr title="src/Providers/Reddit.php">Reddit.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">60</span>
+    <span class="phpdocumentor-element-found-in__line">62</span>
 
     </aside>
 
@@ -1789,7 +1803,7 @@ anything except host and path will be ignored, scheme will always be set to &quo
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Providers/Reddit.php"><a href="files/src-providers-reddit.html"><abbr title="src/Providers/Reddit.php">Reddit.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">68</span>
+    <span class="phpdocumentor-element-found-in__line">70</span>
 
     </aside>
 
@@ -1817,7 +1831,7 @@ anything except host and path will be ignored, scheme will always be set to &quo
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Providers/Reddit.php"><a href="files/src-providers-reddit.html"><abbr title="src/Providers/Reddit.php">Reddit.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">78</span>
+    <span class="phpdocumentor-element-found-in__line">80</span>
 
     </aside>
 
@@ -1889,7 +1903,7 @@ anything except host and path will be ignored, scheme will always be set to &quo
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Providers/Reddit.php"><a href="files/src-providers-reddit.html"><abbr title="src/Providers/Reddit.php">Reddit.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">81</span>
+    <span class="phpdocumentor-element-found-in__line">83</span>
 
     </aside>
 
@@ -1922,7 +1936,7 @@ anything except host and path will be ignored, scheme will always be set to &quo
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Providers/Reddit.php"><a href="files/src-providers-reddit.html"><abbr title="src/Providers/Reddit.php">Reddit.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">84</span>
+    <span class="phpdocumentor-element-found-in__line">86</span>
 
     </aside>
 
@@ -1955,7 +1969,7 @@ anything except host and path will be ignored, scheme will always be set to &quo
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Providers/Reddit.php"><a href="files/src-providers-reddit.html"><abbr title="src/Providers/Reddit.php">Reddit.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">82</span>
+    <span class="phpdocumentor-element-found-in__line">84</span>
 
     </aside>
 
@@ -1988,7 +2002,7 @@ anything except host and path will be ignored, scheme will always be set to &quo
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Providers/Reddit.php"><a href="files/src-providers-reddit.html"><abbr title="src/Providers/Reddit.php">Reddit.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">85</span>
+    <span class="phpdocumentor-element-found-in__line">87</span>
 
     </aside>
 
@@ -2021,7 +2035,7 @@ anything except host and path will be ignored, scheme will always be set to &quo
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Providers/Reddit.php"><a href="files/src-providers-reddit.html"><abbr title="src/Providers/Reddit.php">Reddit.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">80</span>
+    <span class="phpdocumentor-element-found-in__line">82</span>
 
     </aside>
 
@@ -2054,7 +2068,7 @@ anything except host and path will be ignored, scheme will always be set to &quo
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Core/OAuth2Provider.php"><a href="files/src-core-oauth2provider.html"><abbr title="src/Core/OAuth2Provider.php">OAuth2Provider.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">42</span>
+    <span class="phpdocumentor-element-found-in__line">49</span>
 
     </aside>
 
@@ -2213,6 +2227,55 @@ anything except host and path will be ignored, scheme will always be set to &quo
             -protected
                                                         "
 >
+    <h4 class="phpdocumentor-element__name" id="property_parAuthorizationURL">
+        $parAuthorizationURL
+        <a href="classes/chillerlan-OAuth-Core-OAuth2Provider.html#property_parAuthorizationURL" class="headerlink"><i class="fas fa-link"></i></a>
+
+        <span class="phpdocumentor-element__modifiers">
+                                </span>
+    </h4>
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/Core/OAuth2Provider.php"><a href="files/src-core-oauth2provider.html"><abbr title="src/Core/OAuth2Provider.php">OAuth2Provider.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">43</span>
+
+    </aside>
+
+        <p class="phpdocumentor-summary">An optional PAR (Pushed Authorization Request) endpoint URL</p>
+
+    <code class="phpdocumentor-code phpdocumentor-signature ">
+    <span class="phpdocumentor-signature__visibility">protected</span>
+        <span class="phpdocumentor-signature__type">string</span>
+    <span class="phpdocumentor-signature__name">$parAuthorizationURL</span>
+    </code>
+
+    
+    
+    
+    <h5 class="phpdocumentor-tag-list__heading" id="tags">
+        Tags
+        <a href="classes/chillerlan-OAuth-Core-OAuth2Provider.html#property_parAuthorizationURL#tags" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h5>
+    <dl class="phpdocumentor-tag-list">
+                                    <dt class="phpdocumentor-tag-list__entry">
+                    <span class="phpdocumentor-tag__name">see</span>
+                </dt>
+                <dd class="phpdocumentor-tag-list__definition">
+                                                                                    <span class="phpdocumentor-tag-link"><a href="classes/chillerlan-OAuth-Core-PAR.html"><abbr title="\chillerlan\OAuth\Core\PAR">PAR</abbr></a></span>
+                                        
+                                             
+                                    </dd>
+                                            </dl>
+
+</article>
+                    <article
+        class="
+            phpdocumentor-element
+            -property
+            -protected
+                                                        "
+>
     <h4 class="phpdocumentor-element__name" id="property_refreshTokenURL">
         $refreshTokenURL
         <a href="classes/chillerlan-OAuth-Core-OAuth2Provider.html#property_refreshTokenURL" class="headerlink"><i class="fas fa-link"></i></a>
@@ -2307,7 +2370,7 @@ anything except host and path will be ignored, scheme will always be set to &quo
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Providers/Reddit.php"><a href="files/src-providers-reddit.html"><abbr title="src/Providers/Reddit.php">Reddit.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">83</span>
+    <span class="phpdocumentor-element-found-in__line">85</span>
 
     </aside>
 
@@ -2439,7 +2502,7 @@ anything except host and path will be ignored, scheme will always be set to &quo
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Providers/Reddit.php"><a href="files/src-providers-reddit.html"><abbr title="src/Providers/Reddit.php">Reddit.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">86</span>
+    <span class="phpdocumentor-element-found-in__line">88</span>
 
     </aside>
 
@@ -2607,7 +2670,7 @@ anything except host and path will be ignored, scheme will always be set to &quo
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Core/OAuth2Provider.php"><a href="files/src-core-oauth2provider.html"><abbr title="src/Core/OAuth2Provider.php">OAuth2Provider.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">167</span>
+    <span class="phpdocumentor-element-found-in__line">178</span>
 
     </aside>
 
@@ -2732,7 +2795,7 @@ if the provider implements the CSRFToken interface, and returns an AccessToken o
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Core/OAuth2Provider.php"><a href="files/src-core-oauth2provider.html"><abbr title="src/Core/OAuth2Provider.php">OAuth2Provider.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">49</span>
+    <span class="phpdocumentor-element-found-in__line">56</span>
 
     </aside>
 
@@ -2798,7 +2861,7 @@ if the provider implements the CSRFToken interface, and returns an AccessToken o
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Core/OAuth2Provider.php"><a href="files/src-core-oauth2provider.html"><abbr title="src/Core/OAuth2Provider.php">OAuth2Provider.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">263</span>
+    <span class="phpdocumentor-element-found-in__line">274</span>
 
     </aside>
 
@@ -2867,7 +2930,7 @@ if the provider implements the CSRFToken interface, and returns an AccessToken o
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Core/OAuth2Provider.php"><a href="files/src-core-oauth2provider.html"><abbr title="src/Core/OAuth2Provider.php">OAuth2Provider.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">232</span>
+    <span class="phpdocumentor-element-found-in__line">243</span>
 
     </aside>
 
@@ -3066,7 +3129,7 @@ if the provider implements the CSRFToken interface, and returns an AccessToken o
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Providers/Reddit.php"><a href="files/src-providers-reddit.html"><abbr title="src/Providers/Reddit.php">Reddit.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">111</span>
+    <span class="phpdocumentor-element-found-in__line">113</span>
 
     </aside>
 
@@ -3134,7 +3197,7 @@ if the provider implements the CSRFToken interface, and returns an AccessToken o
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Providers/Reddit.php"><a href="files/src-providers-reddit.html"><abbr title="src/Providers/Reddit.php">Reddit.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">92</span>
+    <span class="phpdocumentor-element-found-in__line">94</span>
 
     </aside>
 
@@ -3191,7 +3254,7 @@ if the provider implements the CSRFToken interface, and returns an AccessToken o
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Core/OAuth2Provider.php"><a href="files/src-core-oauth2provider.html"><abbr title="src/Core/OAuth2Provider.php">OAuth2Provider.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">324</span>
+    <span class="phpdocumentor-element-found-in__line">335</span>
 
     </aside>
 
@@ -4054,7 +4117,7 @@ so that you don&#039;t have to implement the monstrous original `__construct()`<
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Core/OAuth2Provider.php"><a href="files/src-core-oauth2provider.html"><abbr title="src/Core/OAuth2Provider.php">OAuth2Provider.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">185</span>
+    <span class="phpdocumentor-element-found-in__line">196</span>
 
     </aside>
 
@@ -4100,7 +4163,7 @@ so that you don&#039;t have to implement the monstrous original `__construct()`<
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Core/OAuth2Provider.php"><a href="files/src-core-oauth2provider.html"><abbr title="src/Core/OAuth2Provider.php">OAuth2Provider.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">58</span>
+    <span class="phpdocumentor-element-found-in__line">69</span>
 
     </aside>
 
@@ -4153,7 +4216,7 @@ so that you don&#039;t have to implement the monstrous original `__construct()`<
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Core/OAuth2Provider.php"><a href="files/src-core-oauth2provider.html"><abbr title="src/Core/OAuth2Provider.php">OAuth2Provider.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">288</span>
+    <span class="phpdocumentor-element-found-in__line">299</span>
 
     </aside>
 
@@ -4283,6 +4346,66 @@ so that you don&#039;t have to implement the monstrous original `__construct()`<
             -protected
                                                         "
 >
+    <h4 class="phpdocumentor-element__name" id="method_getParAuthorizationURLRequestParams">
+        getParAuthorizationURLRequestParams()
+        <a href="classes/chillerlan-OAuth-Core-OAuth2Provider.html#method_getParAuthorizationURLRequestParams" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h4>
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/Core/OAuth2Provider.php"><a href="files/src-core-oauth2provider.html"><abbr title="src/Core/OAuth2Provider.php">OAuth2Provider.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">545</span>
+
+    </aside>
+
+        <p class="phpdocumentor-summary">Parses the response from the PAR request and returns the query parameters for the authorization URL</p>
+
+    <code class="phpdocumentor-code phpdocumentor-signature ">
+    <span class="phpdocumentor-signature__visibility">protected</span>
+                    <span class="phpdocumentor-signature__name">getParAuthorizationURLRequestParams</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">array&lt;string|int, mixed&gt;&nbsp;</span><span class="phpdocumentor-signature__argument__name">$response</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">array&lt;string|int, mixed&gt;</span></code>
+
+    <div class="phpdocumentor-label-line">
+        </div>
+    
+        <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
+    <dl class="phpdocumentor-argument-list">
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-signature__argument__name">$response</span>
+                : <span class="phpdocumentor-signature__argument__return-type">array&lt;string|int, mixed&gt;</span>
+                            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                
+            </dd>
+            </dl>
+
+    
+    <h5 class="phpdocumentor-tag-list__heading" id="tags">
+        Tags
+        <a href="classes/chillerlan-OAuth-Core-OAuth2Provider.html#method_getParAuthorizationURLRequestParams#tags" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h5>
+    <dl class="phpdocumentor-tag-list">
+                                    <dt class="phpdocumentor-tag-list__entry">
+                    <span class="phpdocumentor-tag__name">codeCoverageIgnore</span>
+                </dt>
+                <dd class="phpdocumentor-tag-list__definition">
+                                                                                
+                                             
+                                    </dd>
+                                            </dl>
+
+            <section>
+        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
+        <span class="phpdocumentor-signature__response_type">array&lt;string|int, mixed&gt;</span>
+            </section>
+
+</article>
+                    <article
+        class="phpdocumentor-element
+            -method
+            -protected
+                                                        "
+>
     <h4 class="phpdocumentor-element__name" id="method_getRefreshAccessTokenRequestBodyParams">
         getRefreshAccessTokenRequestBodyParams()
         <a href="classes/chillerlan-OAuth-Core-OAuth2Provider.html#method_getRefreshAccessTokenRequestBodyParams" class="headerlink"><i class="fas fa-link"></i></a>
@@ -4291,7 +4414,7 @@ so that you don&#039;t have to implement the monstrous original `__construct()`<
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Core/OAuth2Provider.php"><a href="files/src-core-oauth2provider.html"><abbr title="src/Core/OAuth2Provider.php">OAuth2Provider.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">355</span>
+    <span class="phpdocumentor-element-found-in__line">366</span>
 
     </aside>
 
@@ -4508,7 +4631,7 @@ anything except host and path will be ignored, scheme will always be set to &quo
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Core/OAuth2Provider.php"><a href="files/src-core-oauth2provider.html"><abbr title="src/Core/OAuth2Provider.php">OAuth2Provider.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">153</span>
+    <span class="phpdocumentor-element-found-in__line">164</span>
 
     </aside>
 
@@ -4705,7 +4828,7 @@ the spec mandates a JSON body which is what almost all providers send - weird ex
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Core/OAuth2Provider.php"><a href="files/src-core-oauth2provider.html"><abbr title="src/Core/OAuth2Provider.php">OAuth2Provider.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">93</span>
+    <span class="phpdocumentor-element-found-in__line">104</span>
 
     </aside>
 
@@ -4782,7 +4905,7 @@ the spec mandates a JSON body which is what almost all providers send - weird ex
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Core/OAuth2Provider.php"><a href="files/src-core-oauth2provider.html"><abbr title="src/Core/OAuth2Provider.php">OAuth2Provider.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">208</span>
+    <span class="phpdocumentor-element-found-in__line">219</span>
 
     </aside>
 
@@ -4835,7 +4958,7 @@ the spec mandates a JSON body which is what almost all providers send - weird ex
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Core/OAuth2Provider.php"><a href="files/src-core-oauth2provider.html"><abbr title="src/Core/OAuth2Provider.php">OAuth2Provider.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">301</span>
+    <span class="phpdocumentor-element-found-in__line">312</span>
 
     </aside>
 
@@ -5160,6 +5283,7 @@ the spec mandates a JSON body which is what almost all providers send - weird ex
                                                     <li><a href="classes/chillerlan-OAuth-Core-OAuthProvider.html#property_logger">$logger<a href="classes/chillerlan-OAuth-Providers-Reddit.html"></li>
                                                     <li><a href="classes/chillerlan-OAuth-Core-OAuthProvider.html#property_name">$name<a href="classes/chillerlan-OAuth-Providers-Reddit.html"></li>
                                                     <li><a href="classes/chillerlan-OAuth-Core-OAuthProvider.html#property_options">$options<a href="classes/chillerlan-OAuth-Providers-Reddit.html"></li>
+                                                    <li><a href="classes/chillerlan-OAuth-Core-OAuth2Provider.html#property_parAuthorizationURL">$parAuthorizationURL<a href="classes/chillerlan-OAuth-Providers-Reddit.html"></li>
                                                     <li><a href="classes/chillerlan-OAuth-Core-OAuth2Provider.html#property_refreshTokenURL">$refreshTokenURL<a href="classes/chillerlan-OAuth-Providers-Reddit.html"></li>
                                                     <li><a href="classes/chillerlan-OAuth-Core-OAuthProvider.html#property_requestFactory">$requestFactory<a href="classes/chillerlan-OAuth-Providers-Reddit.html"></li>
                                                     <li><a href="classes/chillerlan-OAuth-Providers-Reddit.html#property_revokeURL">$revokeURL<a href="classes/chillerlan-OAuth-Providers-Reddit.html"></li>
@@ -5202,6 +5326,7 @@ the spec mandates a JSON body which is what almost all providers send - weird ex
                                             <li><a href="classes/chillerlan-OAuth-Core-OAuth2Provider.html#method_getAuthorizationURLRequestParams">getAuthorizationURLRequestParams()</a></li>
                                             <li><a href="classes/chillerlan-OAuth-Core-OAuth2Provider.html#method_getClientCredentialsTokenRequestBodyParams">getClientCredentialsTokenRequestBodyParams()</a></li>
                                             <li><a href="classes/chillerlan-OAuth-Core-OAuthProvider.html#method_getMeResponseData">getMeResponseData()</a></li>
+                                            <li><a href="classes/chillerlan-OAuth-Core-OAuth2Provider.html#method_getParAuthorizationURLRequestParams">getParAuthorizationURLRequestParams()</a></li>
                                             <li><a href="classes/chillerlan-OAuth-Core-OAuth2Provider.html#method_getRefreshAccessTokenRequestBodyParams">getRefreshAccessTokenRequestBodyParams()</a></li>
                                             <li><a href="classes/chillerlan-OAuth-Core-OAuthProvider.html#method_getRequestHeaders">getRequestHeaders()</a></li>
                                             <li><a href="classes/chillerlan-OAuth-Core-OAuthProvider.html#method_getRequestTarget">getRequestTarget()</a></li>

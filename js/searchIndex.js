@@ -336,10 +336,20 @@ Search.appendIndex(
             "summary": "prepares\u0020the\u0020request\u0020body\u0020parameters\u0020for\u0020the\u0020token\u0020refresh",
             "url": "classes/chillerlan-OAuth-Core-OAuth2Provider.html#method_getRefreshAccessTokenRequestBodyParams"
         },                {
+            "fqsen": "\\chillerlan\\OAuth\\Core\\OAuth2Provider\u003A\u003AgetParAuthorizationURLRequestParams\u0028\u0029",
+            "name": "getParAuthorizationURLRequestParams",
+            "summary": "Parses\u0020the\u0020response\u0020from\u0020the\u0020PAR\u0020request\u0020and\u0020returns\u0020the\u0020query\u0020parameters\u0020for\u0020the\u0020authorization\u0020URL",
+            "url": "classes/chillerlan-OAuth-Core-OAuth2Provider.html#method_getParAuthorizationURLRequestParams"
+        },                {
             "fqsen": "\\chillerlan\\OAuth\\Core\\OAuth2Provider\u003A\u003A\u0024refreshTokenURL",
             "name": "refreshTokenURL",
             "summary": "An\u0020optional\u0020refresh\u0020token\u0020endpoint\u0020in\u0020case\u0020the\u0020provider\u0020supports\u0020TokenRefresh.",
             "url": "classes/chillerlan-OAuth-Core-OAuth2Provider.html#property_refreshTokenURL"
+        },                {
+            "fqsen": "\\chillerlan\\OAuth\\Core\\OAuth2Provider\u003A\u003A\u0024parAuthorizationURL",
+            "name": "parAuthorizationURL",
+            "summary": "An\u0020optional\u0020PAR\u0020\u0028Pushed\u0020Authorization\u0020Request\u0029\u0020endpoint\u0020URL",
+            "url": "classes/chillerlan-OAuth-Core-OAuth2Provider.html#property_parAuthorizationURL"
         },                {
             "fqsen": "\\chillerlan\\OAuth\\Core\\OAuth2Provider\u003A\u003A\u0024clientCredentialsTokenURL",
             "name": "clientCredentialsTokenURL",
@@ -353,7 +363,7 @@ Search.appendIndex(
         },                {
             "fqsen": "\\chillerlan\\OAuth\\Core\\OAuthInterface\u003A\u003AgetAuthorizationURL\u0028\u0029",
             "name": "getAuthorizationURL",
-            "summary": "Prepares\u0020the\u0020URL\u0020with\u0020optional\u0020\u0024params\u0020which\u0020redirects\u0020to\u0020the\u0020provider\u0027s\u0020authorization\u0020prompt\nand\u0020returns\u0020a\u0020PSR\u002D7\u0020UriInterface\u0020with\u0020all\u0020necessary\u0020parameters\u0020set",
+            "summary": "Prepares\u0020the\u0020URL\u0020with\u0020optional\u0020\u0024params\u0020which\u0020redirects\u0020to\u0020the\u0020provider\u0027s\u0020authorization\u0020prompt\nand\u0020returns\u0020a\u0020PSR\u002D7\u0020UriInterface\u0020with\u0020all\u0020necessary\u0020parameters\u0020set.",
             "url": "classes/chillerlan-OAuth-Core-OAuthInterface.html#method_getAuthorizationURL"
         },                {
             "fqsen": "\\chillerlan\\OAuth\\Core\\OAuthInterface\u003A\u003Arequest\u0028\u0029",
@@ -646,9 +656,19 @@ Search.appendIndex(
             "summary": "",
             "url": "classes/chillerlan-OAuth-Core-OAuthProvider.html#property_logger"
         },                {
+            "fqsen": "\\chillerlan\\OAuth\\Core\\PAR",
+            "name": "PAR",
+            "summary": "Specifies\u0020the\u0020methods\u0020required\u0020for\u0020the\u0020OAuth2\u0020Pushed\u0020Authorization\u0020Requests\u0020\u0028PAR\u0029",
+            "url": "classes/chillerlan-OAuth-Core-PAR.html"
+        },                {
+            "fqsen": "\\chillerlan\\OAuth\\Core\\PAR\u003A\u003AgetParRequestUri\u0028\u0029",
+            "name": "getParRequestUri",
+            "summary": "Sends\u0020the\u0020given\u0020authorization\u0020request\u0020parameters\u0020to\u0020the\u0020PAR\u0020endpoint\u0020and\u0020returns\nthe\u0020full\u0020authorization\u0020URL\u0020including\u0020the\u0020URN\u0020obtained\u0020from\u0020the\u0020PAR\u0020request",
+            "url": "classes/chillerlan-OAuth-Core-PAR.html#method_getParRequestUri"
+        },                {
             "fqsen": "\\chillerlan\\OAuth\\Core\\PKCE",
             "name": "PKCE",
-            "summary": "",
+            "summary": "Specifies\u0020the\u0020methods\u0020required\u0020for\u0020the\u0020OAuth2\u0020Proof\u0020Key\u0020for\u0020Code\u0020Exchange\u0020\u0028PKCE\u0029",
             "url": "classes/chillerlan-OAuth-Core-PKCE.html"
         },                {
             "fqsen": "\\chillerlan\\OAuth\\Core\\PKCE\u003A\u003AgenerateVerifier\u0028\u0029",
@@ -1213,7 +1233,7 @@ Search.appendIndex(
         },                {
             "fqsen": "\\chillerlan\\OAuth\\Providers\\Codeberg",
             "name": "Codeberg",
-            "summary": "Implements\u0020an\u0020abstract\u0020OAuth2\u0020provider\u0020with\u0020all\u0020methods\u0020required\u0020by\u0020the\u0020OAuth2Interface.",
+            "summary": "Codeberg\u0020OAuth2",
             "url": "classes/chillerlan-OAuth-Providers-Codeberg.html"
         },                {
             "fqsen": "\\chillerlan\\OAuth\\Providers\\Codeberg\u003A\u003Ame\u0028\u0029",
@@ -1968,7 +1988,7 @@ Search.appendIndex(
         },                {
             "fqsen": "\\chillerlan\\OAuth\\Providers\\Gitea",
             "name": "Gitea",
-            "summary": "Implements\u0020an\u0020abstract\u0020OAuth2\u0020provider\u0020with\u0020all\u0020methods\u0020required\u0020by\u0020the\u0020OAuth2Interface.",
+            "summary": "Gitea\u0020OAuth2",
             "url": "classes/chillerlan-OAuth-Providers-Gitea.html"
         },                {
             "fqsen": "\\chillerlan\\OAuth\\Providers\\Gitea\u003A\u003Ame\u0028\u0029",
@@ -3568,7 +3588,7 @@ Search.appendIndex(
         },                {
             "fqsen": "\\chillerlan\\OAuth\\Providers\\Pinterest",
             "name": "Pinterest",
-            "summary": "Implements\u0020an\u0020abstract\u0020OAuth2\u0020provider\u0020with\u0020all\u0020methods\u0020required\u0020by\u0020the\u0020OAuth2Interface.",
+            "summary": "Pinterest\u0020OAuth2",
             "url": "classes/chillerlan-OAuth-Providers-Pinterest.html"
         },                {
             "fqsen": "\\chillerlan\\OAuth\\Providers\\Pinterest\u003A\u003Ame\u0028\u0029",
@@ -3693,7 +3713,7 @@ Search.appendIndex(
         },                {
             "fqsen": "\\chillerlan\\OAuth\\Providers\\Reddit",
             "name": "Reddit",
-            "summary": "Implements\u0020an\u0020abstract\u0020OAuth2\u0020provider\u0020with\u0020all\u0020methods\u0020required\u0020by\u0020the\u0020OAuth2Interface.",
+            "summary": "Reddit\u0020OAuth2",
             "url": "classes/chillerlan-OAuth-Providers-Reddit.html"
         },                {
             "fqsen": "\\chillerlan\\OAuth\\Providers\\Reddit\u003A\u003Ame\u0028\u0029",
@@ -5218,7 +5238,7 @@ Search.appendIndex(
         },                {
             "fqsen": "\\chillerlan\\OAuth\\Storage\\FileStorage",
             "name": "FileStorage",
-            "summary": "Implements\u0020a\u0020memory\u0020storage\u0020adapter.",
+            "summary": "Implements\u0020a\u0020filesystem\u0020storage\u0020adapter.",
             "url": "classes/chillerlan-OAuth-Storage-FileStorage.html"
         },                {
             "fqsen": "\\chillerlan\\OAuth\\Storage\\FileStorage\u003A\u003A__construct\u0028\u0029",
@@ -6015,6 +6035,11 @@ Search.appendIndex(
             "name": "userRevokeURL",
             "summary": "",
             "url": "classes/chillerlan-OAuthTest-Providers-DummyOAuth2Provider.html#property_userRevokeURL"
+        },                {
+            "fqsen": "\\chillerlan\\OAuthTest\\Providers\\DummyOAuth2Provider\u003A\u003A\u0024parAuthorizationURL",
+            "name": "parAuthorizationURL",
+            "summary": "An\u0020optional\u0020PAR\u0020\u0028Pushed\u0020Authorization\u0020Request\u0029\u0020endpoint\u0020URL",
+            "url": "classes/chillerlan-OAuthTest-Providers-DummyOAuth2Provider.html#property_parAuthorizationURL"
         },                {
             "fqsen": "\\chillerlan\\OAuthTest\\Providers\\Live\\AmazonAPITest",
             "name": "AmazonAPITest",
@@ -7070,6 +7095,16 @@ Search.appendIndex(
             "name": "testGetAuthURLRequestParams",
             "summary": "",
             "url": "classes/chillerlan-OAuthTest-Providers-Unit-OAuth2ProviderUnitTestAbstract.html#method_testGetAuthURLRequestParams"
+        },                {
+            "fqsen": "\\chillerlan\\OAuthTest\\Providers\\Unit\\OAuth2ProviderUnitTestAbstract\u003A\u003AtestGetParAuthURL\u0028\u0029",
+            "name": "testGetParAuthURL",
+            "summary": "",
+            "url": "classes/chillerlan-OAuthTest-Providers-Unit-OAuth2ProviderUnitTestAbstract.html#method_testGetParAuthURL"
+        },                {
+            "fqsen": "\\chillerlan\\OAuthTest\\Providers\\Unit\\OAuth2ProviderUnitTestAbstract\u003A\u003AtestGetParAuthURLErrorException\u0028\u0029",
+            "name": "testGetParAuthURLErrorException",
+            "summary": "",
+            "url": "classes/chillerlan-OAuthTest-Providers-Unit-OAuth2ProviderUnitTestAbstract.html#method_testGetParAuthURLErrorException"
         },                {
             "fqsen": "\\chillerlan\\OAuthTest\\Providers\\Unit\\OAuth2ProviderUnitTestAbstract\u003A\u003AtestParseTokenResponse\u0028\u0029",
             "name": "testParseTokenResponse",

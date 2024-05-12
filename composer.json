@@ -15,6 +15,12 @@
 			"homepage": "https://github.com/codemasher"
 		}
 	],
+	"funding": [
+		{
+			"type": "Ko-Fi",
+			"url": "https://ko-fi.com/codemasher"
+		}
+	],
 	"support": {
 		"issues": "https://github.com/chillerlan/php-oauth/issues",
 		"source": "https://github.com/chillerlan/php-oauth"
@@ -38,7 +44,7 @@
 		"chillerlan/php-dotenv": "^3.0",
 		"chillerlan/phpunit-http": "^1.0",
 		"guzzlehttp/guzzle": "^7.8",
-		"monolog/monolog": "^3.5",
+		"monolog/monolog": "^3.6",
 		"phan/phan": "^5.4",
 		"phpmd/phpmd": "^2.15",
 		"phpunit/phpunit": "^10.5",
@@ -58,8 +64,9 @@
 		}
 	},
 	"scripts": {
-		"phpunit": "@php vendor/bin/phpunit",
-		"phan": "@php vendor/bin/phan"
+		"phan": "@php vendor/bin/phan",
+		"phpcs": "@php vendor/bin/phpcs",
+		"phpunit": "@php vendor/bin/phpunit"
 	},
 	"config": {
 		"lock": false,

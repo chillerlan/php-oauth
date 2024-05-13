@@ -266,6 +266,11 @@ abstract class OAuth2Provider extends OAuthProvider implements OAuth2Interface{
 		throw new ProviderException('invalid auth AUTH_METHOD'); // @codeCoverageIgnore
 	}
 
+
+	/*
+	 * ClientCredentials
+	 */
+
 	/**
 	 * @param string[]|null $scopes
 	 * @implements \chillerlan\OAuth\Core\ClientCredentials
@@ -328,6 +333,11 @@ abstract class OAuth2Provider extends OAuthProvider implements OAuth2Interface{
 		return $this->http->sendRequest($request);
 	}
 
+
+	/*
+	 * TokenRefresh
+	 */
+
 	/**
 	 * @implements \chillerlan\OAuth\Core\TokenRefresh
 	 * @throws \chillerlan\OAuth\Providers\ProviderException
@@ -372,6 +382,11 @@ abstract class OAuth2Provider extends OAuthProvider implements OAuth2Interface{
 			'type'          => 'web_server',
 		];
 	}
+
+
+	/*
+	 * CSRFToken
+	 */
 
 	/**
 	 * @implements \chillerlan\OAuth\Core\CSRFToken::checkState()
@@ -418,6 +433,11 @@ abstract class OAuth2Provider extends OAuthProvider implements OAuth2Interface{
 
 		return $params;
 	}
+
+
+	/*
+	 * PKCE
+	 */
 
 	/**
 	 * @implements \chillerlan\OAuth\Core\PKCE::setCodeChallenge()
@@ -505,6 +525,11 @@ abstract class OAuth2Provider extends OAuthProvider implements OAuth2Interface{
 
 		return sodium_bin2base64($verifier, SODIUM_BASE64_VARIANT_URLSAFE_NO_PADDING);
 	}
+
+
+	/*
+	 * PAR
+	 */
 
 	/**
 	 * @implements \chillerlan\OAuth\Core\PAR::getParRequestUri()

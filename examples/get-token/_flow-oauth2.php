@@ -55,5 +55,5 @@ elseif(isset($_GET['granted']) && $_GET['granted'] === $name){
 }
 // step 1 (optional): display a login link
 else{
-	echo '<a href="?login='.$name.'">connect with '.$name.'!</a>';
+	echo '<a href="?login='.$name.'">Connect with '.$name.'!</a>';
 }

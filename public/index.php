@@ -19,12 +19,9 @@ $AUTOLOADER = __DIR__.'/../vendor/autoload.php';
 $CFGDIR     = __DIR__.'/../.config/';
 // the name of the .env file
 $ENVFILE    = '.env';
-// an optional prefix for the provider variables in the .env
-$ENVVAR     = null;
-// optional scopes for OAuth2 providers
+// additional params to pass to getAuthorizationURL()
+$PARAMS     = null;
+// optional scopes
 $SCOPES     = null;
 
 require_once __DIR__.'/../examples/get-token/GitHub.php';
-
-
-

@@ -44,7 +44,7 @@ class OAuthProviderFactory{
 	public function getProvider(
 		string                                  $providerFQN,
 		SettingsContainerInterface|OAuthOptions $options = new OAuthOptions,
-		OAuthStorageInterface|null              $storage = new MemoryStorage,
+		OAuthStorageInterface                   $storage = new MemoryStorage,
 	):OAuthInterface|OAuth1Interface|OAuth2Interface{
 
 		if(!class_exists($providerFQN)){

@@ -28,7 +28,6 @@ use Psr\Http\Message\RequestFactoryInterface;
 use Psr\Http\Message\StreamFactoryInterface;
 use Psr\Http\Message\UriFactoryInterface;
 use Psr\Log\LoggerInterface;
-use Psr\Log\LogLevel;
 
 /**
  *
@@ -46,9 +45,9 @@ class OAuthExampleProviderFactory{
 
 	public function __construct(
 		protected OAuthProviderFactory $factory,
-		protected string               $cfgDir = __DIR__.'/../.config',
-		string                         $envFile = '.env',
-		string                         $logLevel = LogLevel::INFO,
+		protected string               $cfgDir,
+		string                         $envFile,
+		string                         $logLevel,
 	){
 		ini_set('date.timezone', 'UTC');
 
@@ -77,7 +76,7 @@ class OAuthExampleProviderFactory{
 	protected function initFileStorage():OAuthStorageInterface{
 		$options = new OAuthOptions;
 
-		$options->fileStoragePath = $this->cfgDir.'/.filestorage';
+		$options->fileStoragePath = rtrim($this->cfgDir, '/\\').'/.filestorage';
 
 		return new FileStorage('oauth-example', $options, $this->logger);
 	}

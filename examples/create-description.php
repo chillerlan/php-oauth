@@ -18,6 +18,8 @@ use chillerlan\OAuth\Core\{
  * @var \Psr\Log\LoggerInterface                        $logger
  */
 
+$ENVFILE = '.env_example';
+
 require_once __DIR__.'/provider-example-common.php';
 
 const FILES         = [__DIR__.'/../README.md', __DIR__.'/../docs/Basics/Overview.md'];

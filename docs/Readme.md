@@ -34,8 +34,8 @@ Follow these steps to create the user manual:
 [![pages-build-deployment](https://github.com/chillerlan/php-oauth/actions/workflows/pages/pages-build-deployment/badge.svg?branch=gh-pages)](https://github.com/chillerlan/php-oauth/actions/workflows/pages/pages-build-deployment)
 
 The API documentation can be auto generated with [phpDocumentor](https://www.phpdoc.org/).
-There is an [online version available](https://chillerlan.github.io/php-qrcode/) via the [`gh-pages` branch](https://github.com/chillerlan/php-qrcode/tree/gh-pages)
-that is [automatically deployed](https://github.com/chillerlan/php-qrcode/deployments) on each push to main.
+There is an [online version available](https://chillerlan.github.io/php-oauth/) via the [`gh-pages` branch](https://github.com/chillerlan/php-oauth/tree/gh-pages)
+that is [automatically deployed](https://github.com/chillerlan/php-oauth/deployments) on each push to main.
 
 
 #### Run phpDocumentor locally

@@ -26,6 +26,7 @@ This work is licensed under the Creative Commons Attribution 4.0 International (
 
    Usage/Quickstart.md
    Usage/Authorization.md
+   Usage/Using-examples.md
 
 .. toctree::
    :maxdepth: 3
@@ -34,7 +35,6 @@ This work is licensed under the Creative Commons Attribution 4.0 International (
    Development/Create-provider.md
    Development/Additional-functionality.md
    Development/Test-suite.md
-   Development/Using-examples.md
 
 .. toctree::
    :maxdepth: 3

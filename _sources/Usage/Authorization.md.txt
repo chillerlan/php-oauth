@@ -20,7 +20,7 @@ echo '<a href="?route=oauth-login">connect with GitHub!</a>';
 
 The method `OAuthInterface::getAuthorizationURL()` takes two (optional) parameters:
 
-- `$params`: this array contains additional query parameters that will be added to the URL query (provider dependent)
+- `$params`: this array contains additional query parameters that will be added to the URL query (service dependent)
 - `$scopes`: this array contains all scopes that will be used for this authorization
 
 When the user clicks the log-in link, just execute a `header()` to the provider's authorization URL.
@@ -30,7 +30,7 @@ if($route === 'oauth-login'){
 	header('Location: '.$provider->getAuthorizationURL($params, $scopes));
 
 	// -> https://github.com/login/oauth/authorize?client_id=<client_id>
-	//       &redirect_uri=https%3A%2F%2Fexample.com%2Fcallback%2F&response_type=code
+	//       &redirect_uri=https%3A%2F%2Fexample.com%2Foauth%2F&response_type=code
 	//       &scope=<scopes>&state=<state>&type=web_server
 }
 ```
@@ -47,7 +47,7 @@ while the similar `OAuth2Interface::getAccessToken()` takes two parameters `$cod
 
 ### OAuth2
 
-In our GitHub OAuth2 example we're now receiving the incoming callback to `https://example.com/callback/?code=<code>&state=<state>`.
+In our GitHub OAuth2 example we're now receiving the incoming callback to `https://example.com/oauth/?code=<code>&state=<state>`.
 The `getAccessToken()` method initiates a backend request to the provider's server to exchange the temporary credentials for an access token:
 
 ```php

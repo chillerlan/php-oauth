@@ -40,6 +40,7 @@ $options->sessionStart = true;
 $storage = new SessionStorage($options);
 ```
 
+
 ### Using existing tokens
 
 Most of the time you'll probably just want to use/import an existing access token to use an API on the user's behalf.
@@ -79,11 +80,36 @@ $provider->storeAccessToken($token);
 To invoke an OAuth provider, you'll need a `OAuthOptions` instance, a [PSR-18](https://www.php-fig.org/psr/psr-18/) `ClientInterface` (such as [`guzzlehttp/guzzle`](https://github.com/guzzle/guzzle) or [`chillerlan/php-httpinterface`](https://github.com/chillerlan/php-httpinterface)),
 along with the [PSR-17](https://www.php-fig.org/psr/psr-17/) factories `RequestFactoryInterface`, `StreamFactoryInterface` and `UriFactoryInterface`. An `OAuthStorageInterface` and a PSR-3 logger instance are optional.
 
+First you'll need a PSR-18 compatible HTTP client, it should (at least) support [CURLOPT_SSL_VERIFYPEER](https://curl.se/libcurl/c/CURLOPT_SSL_VERIFYPEER.html) and have it enabled,
+for which it needs a valid certificate (or [certificate bundle](https://curl.se/docs/caextract.html)).
 
-Let's invoke a `GitHub` provider:
+**chillerlan/HTTP**
 
 ```php
+$httpOptions = new \chillerlan\HTTP\HTTPOptions([
+	'ca_info'    => '/path/to/cacert.pem',
+	'user_agent' => OAuthInterface::USER_AGENT,
+]);
 
+$http = new \chillerlan\HTTP\CurlClient(new ResponseFactory, $httpOptions);
+```
+
+**GuzzleHttp**
+
+```php
+$httpOptions = [
+	'verify'  => '/path/to/cacert.pem',
+	'headers' => [
+		'User-Agent' => OAuthInterface::USER_AGENT,
+	],
+];
+
+$http = new \GuzzleHttp\Client($httpOptions);
+```
+
+Now let's invoke a `GitHub` provider:
+
+```php
 // now we can invoke the provider
 $provider = new GitHub(
 	$options,
@@ -95,3 +121,31 @@ $provider = new GitHub(
 );
 ```
 
+
+### Provider factory
+
+Invoking a provider can be a bit chunky and perhaps gets messy as soon as you're using more than one OAuth service in your project.
+In that case you can use the `OAuthProviderFactory` for convenience:
+
+```php
+// invoke the provider factory with the common PSR instances
+$providerFactory = new OAuthProviderFactory(
+	$http,
+	new RequestFactory,
+	new StreamFactory,
+	new UriFactory,
+	$logger, // optional
+);
+
+// invoke the provider instance - the $options and $storage params are optional
+$provider = $providerFactory->getProvider(GitHub::class, $options, $storage);
+```
+
+Additionally, the provider factory offers convenience methods to set a different logger instance and to get each of the PSR-17 factories:
+
+```php
+$providerFactory->setLogger(new NullLogger);
+$providerFactory->getRequestFactory();
+$providerFactory->getStreamFactory();
+$providerFactory->getUriFactory();
+```

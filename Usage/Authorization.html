@@ -22,7 +22,7 @@
     <script src="../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Create your own Provider class" href="../Development/Create-provider.html" />
+    <link rel="next" title="Using the examples" href="Using-examples.html" />
     <link rel="prev" title="Quickstart" href="Quickstart.html" /> 
 </head>
 
@@ -89,7 +89,10 @@
 <li class="toctree-l3"><a class="reference internal" href="Quickstart.html#using-existing-tokens">Using existing tokens</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="Quickstart.html#provider-invocation">Provider invocation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Quickstart.html#provider-invocation">Provider invocation</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="Quickstart.html#provider-factory">Provider factory</a></li>
+</ul>
+</li>
 </ul>
 </li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Authorization flow</a><ul>
@@ -104,6 +107,19 @@
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="#use-the-provider-s-api">Use the provider’s API</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="Using-examples.html">Using the examples</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="Using-examples.html#requirements">Requirements</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="Using-examples.html#server">Server</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Using-examples.html#dependencies">Dependencies</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Using-examples.html#configuration">Configuration</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="Using-examples.html#run-the-authorization-flow">Run the authorization flow</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="Using-examples.html#call-chain">Call chain</a></li>
+</ul>
+</li>
 </ul>
 </li>
 </ul>
@@ -136,7 +152,6 @@
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../Development/Test-suite.html">Running tests</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../Development/Using-examples.html">Using the examples</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Appendix</span></p>
 <ul>
@@ -192,7 +207,7 @@ as provider instances may call the service internally (OAuth1 request tokens). T
 <h3>Redirect<a class="headerlink" href="#redirect" title="Link to this heading"></a></h3>
 <p>The method <code class="docutils literal notranslate"><span class="pre">OAuthInterface::getAuthorizationURL()</span></code> takes two (optional) parameters:</p>
 <ul class="simple">
-<li><p><code class="docutils literal notranslate"><span class="pre">$params</span></code>: this array contains additional query parameters that will be added to the URL query (provider dependent)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">$params</span></code>: this array contains additional query parameters that will be added to the URL query (service dependent)</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">$scopes</span></code>: this array contains all scopes that will be used for this authorization</p></li>
 </ul>
 <p>When the user clicks the log-in link, just execute a <code class="docutils literal notranslate"><span class="pre">header()</span></code> to the provider’s authorization URL.</p>
@@ -200,7 +215,7 @@ as provider instances may call the service internally (OAuth1 request tokens). T
 	<span class="nb">header</span><span class="p">(</span><span class="s1">&#39;Location: &#39;</span><span class="o">.</span><span class="nv">$provider</span><span class="o">-&gt;</span><span class="na">getAuthorizationURL</span><span class="p">(</span><span class="nv">$params</span><span class="p">,</span> <span class="nv">$scopes</span><span class="p">));</span>
 
 	<span class="c1">// -&gt; https://github.com/login/oauth/authorize?client_id=&lt;client_id&gt;</span>
-	<span class="c1">//       &amp;redirect_uri=https%3A%2F%2Fexample.com%2Fcallback%2F&amp;response_type=code</span>
+	<span class="c1">//       &amp;redirect_uri=https%3A%2F%2Fexample.com%2Foauth%2F&amp;response_type=code</span>
 	<span class="c1">//       &amp;scope=&lt;scopes&gt;&amp;state=&lt;state&gt;&amp;type=web_server</span>
 <span class="p">}</span>
 </pre></div>
@@ -215,7 +230,7 @@ along with the query parameters <code class="docutils literal notranslate"><span
 while the similar <code class="docutils literal notranslate"><span class="pre">OAuth2Interface::getAccessToken()</span></code> takes two parameters <code class="docutils literal notranslate"><span class="pre">$code</span></code> and the (optional) <code class="docutils literal notranslate"><span class="pre">$state</span></code>.</p>
 <section id="oauth2">
 <h3>OAuth2<a class="headerlink" href="#oauth2" title="Link to this heading"></a></h3>
-<p>In our GitHub OAuth2 example we’re now receiving the incoming callback to <code class="docutils literal notranslate"><span class="pre">https://example.com/callback/?code=&lt;code&gt;&amp;state=&lt;state&gt;</span></code>.
+<p>In our GitHub OAuth2 example we’re now receiving the incoming callback to <code class="docutils literal notranslate"><span class="pre">https://example.com/oauth/?code=&lt;code&gt;&amp;state=&lt;state&gt;</span></code>.
 The <code class="docutils literal notranslate"><span class="pre">getAccessToken()</span></code> method initiates a backend request to the provider’s server to exchange the temporary credentials for an access token:</p>
 <div class="highlight-php notranslate"><div class="highlight"><pre><span></span><span class="k">if</span><span class="p">(</span><span class="nv">$route</span> <span class="o">===</span> <span class="s1">&#39;oauth2-callback&#39;</span><span class="p">){</span>
 
@@ -285,7 +300,7 @@ calls to other hosts will be rerouted directly to the http client.</p>
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
         <a href="Quickstart.html" class="btn btn-neutral float-left" title="Quickstart" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
-        <a href="../Development/Create-provider.html" class="btn btn-neutral float-right" title="Create your own Provider class" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="Using-examples.html" class="btn btn-neutral float-right" title="Using the examples" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
   <hr/>

@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Using the examples &mdash; PHP-QRCode main
+ Manual</title>
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=fa44fd50" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=19f00094" />
+
+  
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="../_static/documentation_options.js?v=a8da1a53"></script>
+        <script src="../_static/doctools.js?v=9a2dae69"></script>
+        <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Create your own Provider class" href="../Development/Create-provider.html" />
+    <link rel="prev" title="Authorization flow" href="Authorization.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            PHP-OAuth
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Basics</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../Basics/Overview.html">Overview</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../Basics/Overview.html#features">Features</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Basics/Overview.html#requirements">Requirements</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Basics/Overview.html#supported-providers">Supported Providers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Basics/Overview.html#shameless-advertising">Shameless advertising</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../Basics/Installation.html">Installation</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../Basics/Installation.html#installation-with-composer">Installation with Composer</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../Basics/Installation.html#composer-json">composer.json</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../Basics/Installation.html#terminal">Terminal</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../Basics/Installation.html#manual-installation">Manual installation</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../Basics/Installation.html#can-i-use-this-library-without-using-composer">Can i use this library without using composer?</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../Basics/Configuration-settings.html">Configuration settings</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../Basics/Configuration-settings.html#key">key</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Basics/Configuration-settings.html#secret">secret</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Basics/Configuration-settings.html#callbackurl">callbackURL</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Basics/Configuration-settings.html#usestorageencryption">useStorageEncryption</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Basics/Configuration-settings.html#storageencryptionkey">storageEncryptionKey</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Basics/Configuration-settings.html#tokenautorefresh">tokenAutoRefresh</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Basics/Configuration-settings.html#sessionstart">sessionStart</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Basics/Configuration-settings.html#sessionstop">sessionStop</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Basics/Configuration-settings.html#sessionstoragevar">sessionStorageVar</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Basics/Configuration-settings.html#filestoragepath">fileStoragePath</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Basics/Configuration-settings.html#pkceverifierlength">pkceVerifierLength</a></li>
+</ul>
+</li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Usage</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="Quickstart.html">Quickstart</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="Quickstart.html#the-oauthoptions-container">The <code class="docutils literal notranslate"><span class="pre">OAuthOptions</span></code> container</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Quickstart.html#the-oauthstorageinterface">The <code class="docutils literal notranslate"><span class="pre">OAuthStorageInterface</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="Quickstart.html#using-existing-tokens">Using existing tokens</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="Quickstart.html#provider-invocation">Provider invocation</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="Quickstart.html#provider-factory">Provider factory</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="Authorization.html">Authorization flow</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="Authorization.html#redirect-the-user-to-the-provider">Redirect the user to the provider</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="Authorization.html#present-a-log-in-link">Present a log-in link</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Authorization.html#redirect">Redirect</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="Authorization.html#receive-the-incoming-callback">Receive the incoming callback</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="Authorization.html#oauth2">OAuth2</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Authorization.html#oauth1">OAuth1</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="Authorization.html#use-the-provider-s-api">Use the provider’s API</a></li>
+</ul>
+</li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Using the examples</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#requirements">Requirements</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#server">Server</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#dependencies">Dependencies</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#configuration">Configuration</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#run-the-authorization-flow">Run the authorization flow</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#call-chain">Call chain</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Development</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../Development/Create-provider.html">Create your own Provider class</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../Development/Create-provider.html#minimal-implementation">Minimal implementation</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../Development/Create-provider.html#dynamic-urls">Dynamic URLs</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../Development/Create-provider.html#informational-values">Informational values</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Development/Create-provider.html#additional-headers">Additional headers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Development/Create-provider.html#scopes">Scopes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Development/Create-provider.html#request-authorization-method-oauth2">Request authorization method (OAuth2)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Development/Create-provider.html#overriding-methods">Overriding methods</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../Development/Create-provider.html#oauth1">OAuth1</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../Development/Create-provider.html#oauth2">OAuth2</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../Development/Additional-functionality.html">Additional functionality</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../Development/Additional-functionality.html#userinfo"><code class="docutils literal notranslate"><span class="pre">UserInfo</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Development/Additional-functionality.html#clientcredentials-oauth2"><code class="docutils literal notranslate"><span class="pre">ClientCredentials</span></code> (OAuth2)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Development/Additional-functionality.html#csrftoken-oauth2"><code class="docutils literal notranslate"><span class="pre">CSRFToken</span></code> (OAuth2)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Development/Additional-functionality.html#tokenrefresh-oauth2"><code class="docutils literal notranslate"><span class="pre">TokenRefresh</span></code> (OAuth2)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Development/Additional-functionality.html#pkce-oauth2"><code class="docutils literal notranslate"><span class="pre">PKCE</span></code> (OAuth2)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Development/Additional-functionality.html#par-oauth2"><code class="docutils literal notranslate"><span class="pre">PAR</span></code> (OAuth2)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Development/Additional-functionality.html#tokeninvalidate"><code class="docutils literal notranslate"><span class="pre">TokenInvalidate</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../Development/Test-suite.html">Running tests</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Appendix</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../Appendix/Contribute.html">How to contribute</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../Appendix/Contribute.html#questions-and-issues">Questions and issues</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Appendix/Contribute.html#bug-reports">Bug reports</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Appendix/Contribute.html#pull-requests-and-bug-fixes">Pull requests and bug fixes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Appendix/Contribute.html#documentation">Documentation</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../Appendix/License.html">License</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">PHP-OAuth</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Using the examples</li>
+      <li class="wy-breadcrumbs-aside">
+              <a href="https://github.com/chillerlan/php-oauth/blob/main/docs/Usage/Using-examples.md" class="fa fa-github"> Edit on GitHub</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="using-the-examples">
+<h1>Using the examples<a class="headerlink" href="#using-the-examples" title="Link to this heading"></a></h1>
+<p>OAuth is not exactly trivial and so is live testing an OAuth flow to make sure the implementation and all its details work as expected.
+The examples - specifically <a class="reference external" href="https://github.com/chillerlan/php-oauth/tree/main/examples/get-token">the get-token examples</a> -
+are abstracted and condensed as far as possible to make using them as convenient as it can get.</p>
+<section id="requirements">
+<h2>Requirements<a class="headerlink" href="#requirements" title="Link to this heading"></a></h2>
+<section id="server">
+<h3>Server<a class="headerlink" href="#server" title="Link to this heading"></a></h3>
+<p>Due to the nature of OAuth callbacks, you will need a webserver with public access, or rather, that is accepted as callback URL
+by the service you’re about to test, so <code class="docutils literal notranslate"><span class="pre">http://127.0.0.1/oauth/</span></code> will <em>definitely not</em> work - we’ll assume
+<code class="docutils literal notranslate"><span class="pre">https://example.com/oauth/</span></code> as the public callback URL throughout the examples.</p>
+<p>Further we’ll assume that <code class="docutils literal notranslate"><span class="pre">/var/www/</span></code> (with an associated user <code class="docutils literal notranslate"><span class="pre">webmaster</span></code>) is the directory that holds all web related files and dependencies,
+and <code class="docutils literal notranslate"><span class="pre">/var/www/htdocs/</span></code> is the root of the public website, which translates to <code class="docutils literal notranslate"><span class="pre">https://example.com/</span></code>, hence <code class="docutils literal notranslate"><span class="pre">/var/www/htdocs/oauth/</span></code> becomes the OAuth callback entrypoint at <code class="docutils literal notranslate"><span class="pre">https://example.com/oauth/</span></code>.
+A web framework would probably just have <code class="docutils literal notranslate"><span class="pre">/var/www/htdocs/index.php</span></code> as its entry point and route all requests through it,
+but that is not focus of this example.</p>
+</section>
+<section id="dependencies">
+<h3>Dependencies<a class="headerlink" href="#dependencies" title="Link to this heading"></a></h3>
+<p>To install the required dependencies, create a <code class="docutils literal notranslate"><span class="pre">composer.json</span></code> in <code class="docutils literal notranslate"><span class="pre">/var/www/</span></code> with the following content and run <code class="docutils literal notranslate"><span class="pre">composer</span> <span class="pre">install</span></code> (as user <code class="docutils literal notranslate"><span class="pre">webmaster</span></code>):</p>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+<span class="w">	</span><span class="nt">&quot;require&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">		</span><span class="nt">&quot;php&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;^8.1&quot;</span><span class="p">,</span>
+<span class="w">		</span><span class="nt">&quot;chillerlan/php-dotenv&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;^3.0&quot;</span><span class="p">,</span>
+<span class="w">		</span><span class="nt">&quot;chillerlan/php-oauth&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;^1.0&quot;</span><span class="p">,</span>
+<span class="w">		</span><span class="nt">&quot;guzzlehttp/guzzle&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;^7.8&quot;</span><span class="p">,</span>
+<span class="w">		</span><span class="nt">&quot;monolog/monolog&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;^3.5&quot;</span>
+<span class="w">	</span><span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>After that, copy the <code class="docutils literal notranslate"><span class="pre">examples</span></code> directory in the library root to <code class="docutils literal notranslate"><span class="pre">/var/www/oauth-examples/</span></code>.</p>
+</section>
+<section id="configuration">
+<h3>Configuration<a class="headerlink" href="#configuration" title="Link to this heading"></a></h3>
+<p>We’ll store the configuration files in the user directory under <code class="docutils literal notranslate"><span class="pre">/home/webmaster/oauth-config/</span></code>.
+The <code class="docutils literal notranslate"><span class="pre">FileStorage</span></code> in the  <code class="docutils literal notranslate"><span class="pre">OAuthExampleProviderFactory</span></code> expects a <code class="docutils literal notranslate"><span class="pre">.filestorage</span></code> directory in the configuration directory
+with permissions set to at least <code class="docutils literal notranslate"><span class="pre">0755</span></code>, otherwise PHP’s <code class="docutils literal notranslate"><span class="pre">is_writable()</span></code> will fail.</p>
+<p>The cacert is also expected in the configuration, so we’ll fetch a fresh one directly into it:</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>curl<span class="w"> </span>-o<span class="w"> </span>/home/webmaster/oauth-config/cacert.pem<span class="w"> </span>https://curl.se/ca/cacert.pem
+</pre></div>
+</div>
+<p>Finally, we need a <code class="docutils literal notranslate"><span class="pre">.env</span></code> file that contains the provider configuration. We’ll <a class="reference external" href="https://github.com/settings/developers">create an application on GitHub</a>
+and save the credentials - the naming convention is <code class="docutils literal notranslate"><span class="pre">&lt;prefix&gt;_&lt;KEY|SECRET|CALLBACK_URL&gt;</span></code> where the prefix is <code class="docutils literal notranslate"><span class="pre">OAuthInterface::IDENTIFIER</span></code>.</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>GITHUB_KEY=&lt;Client ID&gt;
+GITHUB_SECRET=&lt;Client secret&gt;
+GITHUB_CALLBACK_URL=https://example.com/oauth/
+</pre></div>
+</div>
+</section>
+</section>
+<section id="run-the-authorization-flow">
+<h2>Run the authorization flow<a class="headerlink" href="#run-the-authorization-flow" title="Link to this heading"></a></h2>
+<p>The call chain starts with the <a class="reference external" href="https://github.com/chillerlan/php-oauth/blob/main/public/index.php"><code class="docutils literal notranslate"><span class="pre">index.php</span></code></a> in <code class="docutils literal notranslate"><span class="pre">/var/www/htdocs/oauth/</span></code>.
+We’ll need to adjust it to our example configuration from before:</p>
+<div class="highlight-php notranslate"><div class="highlight"><pre><span></span><span class="nv">$AUTOLOADER</span> <span class="o">=</span> <span class="s1">&#39;/var/www/vendor/autoload.php&#39;</span><span class="p">;</span>
+<span class="nv">$CFGDIR</span>     <span class="o">=</span> <span class="s1">&#39;/home/webmaster/oauth-config/&#39;</span><span class="p">;</span>
+<span class="nv">$ENVFILE</span>    <span class="o">=</span> <span class="s1">&#39;.env&#39;</span><span class="p">;</span>
+
+<span class="c1">// additional parameters</span>
+<span class="nv">$PARAMS</span>     <span class="o">=</span> <span class="p">[];</span>
+<span class="c1">// scopes to use with the given provider</span>
+<span class="nv">$SCOPES</span>     <span class="o">=</span> <span class="p">[</span>
+	<span class="nx">GitHub</span><span class="o">::</span><span class="na">SCOPE_USER</span><span class="p">,</span>
+	<span class="nx">GitHub</span><span class="o">::</span><span class="na">SCOPE_PUBLIC_REPO</span><span class="p">,</span>
+	<span class="nx">GitHub</span><span class="o">::</span><span class="na">SCOPE_GIST</span><span class="p">,</span>
+<span class="p">];</span>
+
+<span class="c1">// uncomment in case something goes wrong</span>
+<span class="c1">#error_reporting(E_ALL);</span>
+<span class="c1">#ini_set(&#39;display_errors&#39;, 1);</span>
+
+<span class="k">require_once</span> <span class="s1">&#39;/var/www/oauth-examples/get-token/GitHub.php&#39;</span><span class="p">;</span>
+</pre></div>
+</div>
+<p>You can now navigate to <code class="docutils literal notranslate"><span class="pre">https://example.com/oauth/</span></code> where you will be greeted with a link “Connect with GitHub!”.</p>
+<section id="call-chain">
+<h3>Call chain<a class="headerlink" href="#call-chain" title="Link to this heading"></a></h3>
+<p>Let’s break down what happens behind the scenes:</p>
+<ol class="arabic simple">
+<li><p>the <code class="docutils literal notranslate"><span class="pre">index.php</span></code> initializes a set of variables and includes an example from <code class="docutils literal notranslate"><span class="pre">/var/www/oauth-examples/get-token/</span></code>, here <code class="docutils literal notranslate"><span class="pre">GitHub.php</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">&lt;provider&gt;.php</span></code> includes <a class="reference external" href="https://github.com/chillerlan/php-oauth/blob/main/examples/provider-example-common.php"><code class="docutils literal notranslate"><span class="pre">/var/www/oauth-examples/provider-example-common.php</span></code></a>, which:</p>
+<ul class="simple">
+<li><p>includes the composer autoloader given through <code class="docutils literal notranslate"><span class="pre">$AUTOLOADER</span></code></p></li>
+<li><p>invokes the PSR-18 HTTP client, which is available as <code class="docutils literal notranslate"><span class="pre">$http</span></code></p></li>
+<li><p>invokes the <a class="reference external" href="https://github.com/chillerlan/php-oauth/blob/main/examples/OAuthExampleProviderFactory.php"><code class="docutils literal notranslate"><span class="pre">OAuthExampleProviderFactory</span></code></a>, which is available as <code class="docutils literal notranslate"><span class="pre">$factory</span></code></p></li>
+</ul>
+</li>
+<li><p>the OAuth provider is invoked via <code class="docutils literal notranslate"><span class="pre">$factory-&gt;getProvider(&lt;provider&gt;::class)</span></code> in <code class="docutils literal notranslate"><span class="pre">&lt;provider&gt;.php</span></code> and becomes available as <code class="docutils literal notranslate"><span class="pre">$provider</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">&lt;provider&gt;.php</span></code> includes either <code class="docutils literal notranslate"><span class="pre">_flow-oauth1.php</span></code> or <code class="docutils literal notranslate"><span class="pre">_flow-oauth2.php</span></code> from <code class="docutils literal notranslate"><span class="pre">/var/www/oauth-examples/get-token/</span></code></p></li>
+<li><p>the <a class="reference internal" href="Authorization.html"><span class="std std-doc">authorization flow</span></a> is executed:</p>
+<ul class="simple">
+<li><p>redirect to the URL received from <code class="docutils literal notranslate"><span class="pre">$provider-&gt;getAuthorizationURL($PARAMS,</span> <span class="pre">$SCOPES)</span></code></p></li>
+<li><p>the token request is called with the data from the incoming callback via <code class="docutils literal notranslate"><span class="pre">$provider-&gt;getAccessToken(...)</span></code></p></li>
+<li><p>the access token is stored under <code class="docutils literal notranslate"><span class="pre">/home/webmaster/oauth-config/.filestorage</span></code> and is displayed in the output once access is granted</p></li>
+</ul>
+</li>
+</ol>
+<p>Profit!</p>
+</section>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="Authorization.html" class="btn btn-neutral float-left" title="Authorization flow" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="../Development/Create-provider.html" class="btn btn-neutral float-right" title="Create your own Provider class" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2024, smiley.</p>
+  </div>
+
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

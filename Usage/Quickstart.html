@@ -89,7 +89,10 @@
 <li class="toctree-l3"><a class="reference internal" href="#using-existing-tokens">Using existing tokens</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="#provider-invocation">Provider invocation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#provider-invocation">Provider invocation</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#provider-factory">Provider factory</a></li>
+</ul>
+</li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="Authorization.html">Authorization flow</a><ul>
@@ -104,6 +107,19 @@
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="Authorization.html#use-the-provider-s-api">Use the provider’s API</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="Using-examples.html">Using the examples</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="Using-examples.html#requirements">Requirements</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="Using-examples.html#server">Server</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Using-examples.html#dependencies">Dependencies</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Using-examples.html#configuration">Configuration</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="Using-examples.html#run-the-authorization-flow">Run the authorization flow</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="Using-examples.html#call-chain">Call chain</a></li>
+</ul>
+</li>
 </ul>
 </li>
 </ul>
@@ -136,7 +152,6 @@
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../Development/Test-suite.html">Running tests</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../Development/Using-examples.html">Using the examples</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Appendix</span></p>
 <ul>
@@ -243,7 +258,29 @@ the token and a provider name this token is associated with, is usually the shor
 <h2>Provider invocation<a class="headerlink" href="#provider-invocation" title="Link to this heading"></a></h2>
 <p>To invoke an OAuth provider, you’ll need a <code class="docutils literal notranslate"><span class="pre">OAuthOptions</span></code> instance, a <a class="reference external" href="https://www.php-fig.org/psr/psr-18/">PSR-18</a> <code class="docutils literal notranslate"><span class="pre">ClientInterface</span></code> (such as <a class="reference external" href="https://github.com/guzzle/guzzle"><code class="docutils literal notranslate"><span class="pre">guzzlehttp/guzzle</span></code></a> or <a class="reference external" href="https://github.com/chillerlan/php-httpinterface"><code class="docutils literal notranslate"><span class="pre">chillerlan/php-httpinterface</span></code></a>),
 along with the <a class="reference external" href="https://www.php-fig.org/psr/psr-17/">PSR-17</a> factories <code class="docutils literal notranslate"><span class="pre">RequestFactoryInterface</span></code>, <code class="docutils literal notranslate"><span class="pre">StreamFactoryInterface</span></code> and <code class="docutils literal notranslate"><span class="pre">UriFactoryInterface</span></code>. An <code class="docutils literal notranslate"><span class="pre">OAuthStorageInterface</span></code> and a PSR-3 logger instance are optional.</p>
-<p>Let’s invoke a <code class="docutils literal notranslate"><span class="pre">GitHub</span></code> provider:</p>
+<p>First you’ll need a PSR-18 compatible HTTP client, it should (at least) support <a class="reference external" href="https://curl.se/libcurl/c/CURLOPT_SSL_VERIFYPEER.html">CURLOPT_SSL_VERIFYPEER</a> and have it enabled,
+for which it needs a valid certificate (or <a class="reference external" href="https://curl.se/docs/caextract.html">certificate bundle</a>).</p>
+<p><strong>chillerlan/HTTP</strong></p>
+<div class="highlight-php notranslate"><div class="highlight"><pre><span></span><span class="nv">$httpOptions</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">\chillerlan\HTTP\HTTPOptions</span><span class="p">([</span>
+	<span class="s1">&#39;ca_info&#39;</span>    <span class="o">=&gt;</span> <span class="s1">&#39;/path/to/cacert.pem&#39;</span><span class="p">,</span>
+	<span class="s1">&#39;user_agent&#39;</span> <span class="o">=&gt;</span> <span class="nx">OAuthInterface</span><span class="o">::</span><span class="na">USER_AGENT</span><span class="p">,</span>
+<span class="p">]);</span>
+
+<span class="nv">$http</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">\chillerlan\HTTP\CurlClient</span><span class="p">(</span><span class="k">new</span> <span class="nx">ResponseFactory</span><span class="p">,</span> <span class="nv">$httpOptions</span><span class="p">);</span>
+</pre></div>
+</div>
+<p><strong>GuzzleHttp</strong></p>
+<div class="highlight-php notranslate"><div class="highlight"><pre><span></span><span class="nv">$httpOptions</span> <span class="o">=</span> <span class="p">[</span>
+	<span class="s1">&#39;verify&#39;</span>  <span class="o">=&gt;</span> <span class="s1">&#39;/path/to/cacert.pem&#39;</span><span class="p">,</span>
+	<span class="s1">&#39;headers&#39;</span> <span class="o">=&gt;</span> <span class="p">[</span>
+		<span class="s1">&#39;User-Agent&#39;</span> <span class="o">=&gt;</span> <span class="nx">OAuthInterface</span><span class="o">::</span><span class="na">USER_AGENT</span><span class="p">,</span>
+	<span class="p">],</span>
+<span class="p">];</span>
+
+<span class="nv">$http</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">\GuzzleHttp\Client</span><span class="p">(</span><span class="nv">$httpOptions</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>Now let’s invoke a <code class="docutils literal notranslate"><span class="pre">GitHub</span></code> provider:</p>
 <div class="highlight-php notranslate"><div class="highlight"><pre><span></span><span class="c1">// now we can invoke the provider</span>
 <span class="nv">$provider</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">GitHub</span><span class="p">(</span>
 	<span class="nv">$options</span><span class="p">,</span>
@@ -255,6 +292,31 @@ along with the <a class="reference external" href="https://www.php-fig.org/psr/p
 <span class="p">);</span>
 </pre></div>
 </div>
+<section id="provider-factory">
+<h3>Provider factory<a class="headerlink" href="#provider-factory" title="Link to this heading"></a></h3>
+<p>Invoking a provider can be a bit chunky and perhaps gets messy as soon as you’re using more than one OAuth service in your project.
+In that case you can use the <code class="docutils literal notranslate"><span class="pre">OAuthProviderFactory</span></code> for convenience:</p>
+<div class="highlight-php notranslate"><div class="highlight"><pre><span></span><span class="c1">// invoke the provider factory with the common PSR instances</span>
+<span class="nv">$providerFactory</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">OAuthProviderFactory</span><span class="p">(</span>
+	<span class="nv">$http</span><span class="p">,</span>
+	<span class="k">new</span> <span class="nx">RequestFactory</span><span class="p">,</span>
+	<span class="k">new</span> <span class="nx">StreamFactory</span><span class="p">,</span>
+	<span class="k">new</span> <span class="nx">UriFactory</span><span class="p">,</span>
+	<span class="nv">$logger</span><span class="p">,</span> <span class="c1">// optional</span>
+<span class="p">);</span>
+
+<span class="c1">// invoke the provider instance - the $options and $storage params are optional</span>
+<span class="nv">$provider</span> <span class="o">=</span> <span class="nv">$providerFactory</span><span class="o">-&gt;</span><span class="na">getProvider</span><span class="p">(</span><span class="nx">GitHub</span><span class="o">::</span><span class="na">class</span><span class="p">,</span> <span class="nv">$options</span><span class="p">,</span> <span class="nv">$storage</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>Additionally, the provider factory offers convenience methods to set a different logger instance and to get each of the PSR-17 factories:</p>
+<div class="highlight-php notranslate"><div class="highlight"><pre><span></span><span class="nv">$providerFactory</span><span class="o">-&gt;</span><span class="na">setLogger</span><span class="p">(</span><span class="k">new</span> <span class="nx">NullLogger</span><span class="p">);</span>
+<span class="nv">$providerFactory</span><span class="o">-&gt;</span><span class="na">getRequestFactory</span><span class="p">();</span>
+<span class="nv">$providerFactory</span><span class="o">-&gt;</span><span class="na">getStreamFactory</span><span class="p">();</span>
+<span class="nv">$providerFactory</span><span class="o">-&gt;</span><span class="na">getUriFactory</span><span class="p">();</span>
+</pre></div>
+</div>
+</section>
 </section>
 </section>
 

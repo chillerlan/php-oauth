@@ -26,6 +26,9 @@ class GitHub extends OAuth2Provider implements CSRFToken, TokenRefresh, UserInfo
 
 	public const IDENTIFIER = 'GITHUB';
 
+	// GitHub accepts both, comma and space, but the scopes in the token response are comma separated
+	public const SCOPES_DELIMITER = ',';
+
 	public const SCOPE_USER             = 'user';
 	public const SCOPE_USER_EMAIL       = 'user:email';
 	public const SCOPE_USER_FOLLOW      = 'user:follow';

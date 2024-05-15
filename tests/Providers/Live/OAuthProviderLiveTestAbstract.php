@@ -61,13 +61,6 @@ abstract class OAuthProviderLiveTestAbstract extends ProviderLiveTestAbstract{
 		}
 	}
 
-	protected function assertUnauthorizedAccessException(AccessToken $token):void{
-		$this->expectException(UnauthorizedAccessException::class);
-
-		/** @phan-suppress-next-line PhanUndeclaredMethod ($this->provider is, in fact, instance of UserInfo) */
-		$this->provider->me();
-	}
-
 	public function testMeUnauthorizedAccessException():void{
 
 		if(!$this->provider instanceof UserInfo){
@@ -87,7 +80,10 @@ abstract class OAuthProviderLiveTestAbstract extends ProviderLiveTestAbstract{
 
 		$this->provider->setStorage($tempStorage);
 
-		$this->assertUnauthorizedAccessException($token);
+		$this->expectException(UnauthorizedAccessException::class);
+
+		/** @phan-suppress-next-line PhanUndeclaredMethod ($this->provider is, in fact, instance of UserInfo) */
+		$this->provider->me();
 	}
 
 }

@@ -1,4 +1,4 @@
-# Additional functionality
+# Additional provider functionality
 
 Services may support additional features, such as token refresh or invalidation, among other things. You can add these features
 by implementing one or more of the feature interfaces. Some of the methods for these interfaces are already implemented in the

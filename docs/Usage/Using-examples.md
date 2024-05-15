@@ -1,6 +1,6 @@
 # Using the examples
 
-OAuth is not exactly trivial and so is live testing an OAuth flow to make sure the implementation and all its details work as expected.
+OAuth is not exactly trivial, and so is live testing an OAuth flow to make sure the implementation and all its details work as expected.
 The examples - specifically [the get-token examples](https://github.com/chillerlan/php-oauth/tree/main/examples/get-token) -
 are abstracted and condensed as far as possible to make using them as convenient as it can get.
 
@@ -9,14 +9,14 @@ are abstracted and condensed as far as possible to make using them as convenient
 
 ### Server
 
-Due to the nature of OAuth callbacks, you will need a webserver with public access, or rather, that is accepted as callback URL
+Due to the nature of OAuth callbacks, you will need a webserver with public access, or rather, one that is accepted as callback URL
 by the service you're about to test, so `http://127.0.0.1/oauth/` will *definitely not* work - we'll assume
 `https://example.com/oauth/` as the public callback URL throughout the examples.
 
 Further we'll assume that `/var/www/` (with an associated user `webmaster`) is the directory that holds all web related files and dependencies,
-and `/var/www/htdocs/` is the root of the public website, which translates to `https://example.com/`, hence `/var/www/htdocs/oauth/` becomes the OAuth callback entrypoint at `https://example.com/oauth/`.
-A web framework would probably just have `/var/www/htdocs/index.php` as its entry point and route all requests through it,
-but that is not focus of this example.
+and `/var/www/htdocs/` is the root of the public website, which translates to `https://example.com/`, hence `/var/www/htdocs/oauth/`
+becomes the OAuth callback entrypoint at `https://example.com/oauth/`. A web framework would probably just have `/var/www/htdocs/index.php`
+as its sole entry point and route all requests through it, but that is not focus of this example.
 
 
 ### Dependencies
@@ -88,20 +88,22 @@ require_once '/var/www/oauth-examples/get-token/GitHub.php';
 
 You can now navigate to `https://example.com/oauth/` where you will be greeted with a link "Connect with GitHub!".
 
+
 ### Call chain
 
 Let's break down what happens behind the scenes:
 
-1. the `index.php` initializes a set of variables and includes an example from `/var/www/oauth-examples/get-token/`, here `GitHub.php`
+1. the `index.php` initializes a set of variables and includes an example `<provider>.php` from [`/var/www/oauth-examples/get-token/`](https://github.com/chillerlan/php-oauth/blob/main/examples/get-token), here `GitHub.php`
 2. `<provider>.php` includes [`/var/www/oauth-examples/provider-example-common.php`](https://github.com/chillerlan/php-oauth/blob/main/examples/provider-example-common.php), which:
     - includes the composer autoloader given through `$AUTOLOADER`
     - invokes the PSR-18 HTTP client, which is available as `$http`
     - invokes the [`OAuthExampleProviderFactory`](https://github.com/chillerlan/php-oauth/blob/main/examples/OAuthExampleProviderFactory.php), which is available as `$factory`
 3. the OAuth provider is invoked via `$factory->getProvider(<provider>::class)` in `<provider>.php` and becomes available as `$provider`
-4. `<provider>.php` includes either `_flow-oauth1.php` or `_flow-oauth2.php` from `/var/www/oauth-examples/get-token/`
+4. `<provider>.php` includes either [`_flow-oauth1.php`](https://github.com/chillerlan/php-oauth/blob/main/examples/get-token/_flow-oauth1.php) or [`_flow-oauth2.php`](https://github.com/chillerlan/php-oauth/blob/main/examples/get-token/_flow-oauth2.php) from `/var/www/oauth-examples/get-token/`
 5. the [authorization flow](./Authorization.md) is executed:
     - redirect to the URL received from `$provider->getAuthorizationURL($PARAMS, $SCOPES)`
     - the token request is called with the data from the incoming callback via `$provider->getAccessToken(...)`
     - the access token is stored under `/home/webmaster/oauth-config/.filestorage` and is displayed in the output once access is granted
+6. subsequent requests to the API can now be made through the PSR-18 method `$provider->sendRequest()`, which will add all necessary authorization headers and parameters
 
 Profit!

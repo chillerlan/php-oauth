@@ -71,9 +71,10 @@ The markdown sources for the [Read the Docs online manual](https://php-oauth.rea
 
 ### Development
 
-- [Create a Provider](./Development/Create-provider.md)
-- [Additional functionality](./Development/Additional-functionality.md)
-- [Running tests](./Development/Test-suite.md)
+- [Create your own provider class](./Development/Create-provider.md)
+- [Additional provider functionality](./Development/Additional-functionality.md)
+- [Create your own tests](./Development/Create-tests.md)
+- [Running the test suite](./Development/Test-suite.md)
 
 
 ### Appendix

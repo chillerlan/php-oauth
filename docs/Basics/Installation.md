@@ -35,7 +35,7 @@ If you want to install the package from a specific tag or commit, do as follows:
 
 ```shell
 composer require chillerlan/php-oauth:1.0.0
-composer require chillerlan/php-oauth:dev-main#9860baf50f8962630cd1f9a32d82d8263c246c3b
+composer require chillerlan/php-oauth:dev-main#7d0acaed981363eff8b2a82d005e542909852c82
 ```
 
 
@@ -48,7 +48,7 @@ After that, run `composer install` in the package root directory to install the 
 Profit!
 
 
-### Can i use this library without using composer?
+### Can I use this library without using composer?
 
 You can, but it's absolutely not recommended, nor supported.
 

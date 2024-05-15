@@ -1,4 +1,4 @@
-# Create your own Provider class
+# Create your own provider class
 
 Thanks to clever abstraction, creating a new provider class is almost trivial; often it's only a few lines of code.
 You start by extending one of the abstract classes, depending on which OAuth version the service supports.

@@ -4,7 +4,7 @@
   <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Create your own Provider class &mdash; PHP-QRCode main
+  <title>Create your own provider class &mdash; PHP-QRCode main
  Manual</title>
       <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=fa44fd50" />
       <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=19f00094" />
@@ -22,7 +22,7 @@
     <script src="../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Additional functionality" href="Additional-functionality.html" />
+    <link rel="next" title="Additional provider functionality" href="Additional-functionality.html" />
     <link rel="prev" title="Using the examples" href="../Usage/Using-examples.html" /> 
 </head>
 
@@ -61,7 +61,7 @@
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="../Basics/Installation.html#manual-installation">Manual installation</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="../Basics/Installation.html#can-i-use-this-library-without-using-composer">Can i use this library without using composer?</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../Basics/Installation.html#can-i-use-this-library-without-using-composer">Can I use this library without using composer?</a></li>
 </ul>
 </li>
 </ul>
@@ -125,7 +125,7 @@
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Development</span></p>
 <ul class="current">
-<li class="toctree-l1 current"><a class="current reference internal" href="#">Create your own Provider class</a><ul>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Create your own provider class</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#minimal-implementation">Minimal implementation</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#dynamic-urls">Dynamic URLs</a></li>
 </ul>
@@ -141,7 +141,7 @@
 </li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="Additional-functionality.html">Additional functionality</a><ul>
+<li class="toctree-l1"><a class="reference internal" href="Additional-functionality.html">Additional provider functionality</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="Additional-functionality.html#userinfo"><code class="docutils literal notranslate"><span class="pre">UserInfo</span></code></a></li>
 <li class="toctree-l2"><a class="reference internal" href="Additional-functionality.html#clientcredentials-oauth2"><code class="docutils literal notranslate"><span class="pre">ClientCredentials</span></code> (OAuth2)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="Additional-functionality.html#csrftoken-oauth2"><code class="docutils literal notranslate"><span class="pre">CSRFToken</span></code> (OAuth2)</a></li>
@@ -151,7 +151,19 @@
 <li class="toctree-l2"><a class="reference internal" href="Additional-functionality.html#tokeninvalidate"><code class="docutils literal notranslate"><span class="pre">TokenInvalidate</span></code></a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="Test-suite.html">Running tests</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Create-tests.html">Create your own tests</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="Create-tests.html#unit-test">Unit test</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Create-tests.html#live-test">Live test</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="Create-tests.html#import-existing-tokens">Import existing tokens</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="Test-suite.html">Running the test suite</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="Test-suite.html#control-test-behaviour">Control test behaviour</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Test-suite.html#using-custom-psr-17-psr-18-factories">Using custom PSR-17/PSR-18 factories</a></li>
+</ul>
+</li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Appendix</span></p>
 <ul>
@@ -179,7 +191,7 @@
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
       <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
-      <li class="breadcrumb-item active">Create your own Provider class</li>
+      <li class="breadcrumb-item active">Create your own provider class</li>
       <li class="wy-breadcrumbs-aside">
               <a href="https://github.com/chillerlan/php-oauth/blob/main/docs/Development/Create-provider.md" class="fa fa-github"> Edit on GitHub</a>
       </li>
@@ -190,7 +202,7 @@
            <div itemprop="articleBody">
              
   <section id="create-your-own-provider-class">
-<h1>Create your own Provider class<a class="headerlink" href="#create-your-own-provider-class" title="Link to this heading"></a></h1>
+<h1>Create your own provider class<a class="headerlink" href="#create-your-own-provider-class" title="Link to this heading"></a></h1>
 <p>Thanks to clever abstraction, creating a new provider class is almost trivial; often it’s only a few lines of code.
 You start by extending one of the abstract classes, depending on which OAuth version the service supports.
 It’s even possible to implement a provider class for services that use proprietary OAuth-like protocols,
@@ -407,7 +419,7 @@ so you may need to adjust your class. The respective methods are chopped up into
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
         <a href="../Usage/Using-examples.html" class="btn btn-neutral float-left" title="Using the examples" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
-        <a href="Additional-functionality.html" class="btn btn-neutral float-right" title="Additional functionality" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="Additional-functionality.html" class="btn btn-neutral float-right" title="Additional provider functionality" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
   <hr/>

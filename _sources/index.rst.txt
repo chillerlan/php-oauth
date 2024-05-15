@@ -34,6 +34,7 @@ This work is licensed under the Creative Commons Attribution 4.0 International (
 
    Development/Create-provider.md
    Development/Additional-functionality.md
+   Development/Create-tests.md
    Development/Test-suite.md
 
 .. toctree::

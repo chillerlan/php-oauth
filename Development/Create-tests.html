@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Create your own tests &mdash; PHP-QRCode main
+ Manual</title>
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=fa44fd50" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=19f00094" />
+
+  
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="../_static/documentation_options.js?v=a8da1a53"></script>
+        <script src="../_static/doctools.js?v=9a2dae69"></script>
+        <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Running the test suite" href="Test-suite.html" />
+    <link rel="prev" title="Additional provider functionality" href="Additional-functionality.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            PHP-OAuth
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Basics</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../Basics/Overview.html">Overview</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../Basics/Overview.html#features">Features</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Basics/Overview.html#requirements">Requirements</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Basics/Overview.html#supported-providers">Supported Providers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Basics/Overview.html#shameless-advertising">Shameless advertising</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../Basics/Installation.html">Installation</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../Basics/Installation.html#installation-with-composer">Installation with Composer</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../Basics/Installation.html#composer-json">composer.json</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../Basics/Installation.html#terminal">Terminal</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../Basics/Installation.html#manual-installation">Manual installation</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../Basics/Installation.html#can-i-use-this-library-without-using-composer">Can I use this library without using composer?</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../Basics/Configuration-settings.html">Configuration settings</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../Basics/Configuration-settings.html#key">key</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Basics/Configuration-settings.html#secret">secret</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Basics/Configuration-settings.html#callbackurl">callbackURL</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Basics/Configuration-settings.html#usestorageencryption">useStorageEncryption</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Basics/Configuration-settings.html#storageencryptionkey">storageEncryptionKey</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Basics/Configuration-settings.html#tokenautorefresh">tokenAutoRefresh</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Basics/Configuration-settings.html#sessionstart">sessionStart</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Basics/Configuration-settings.html#sessionstop">sessionStop</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Basics/Configuration-settings.html#sessionstoragevar">sessionStorageVar</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Basics/Configuration-settings.html#filestoragepath">fileStoragePath</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Basics/Configuration-settings.html#pkceverifierlength">pkceVerifierLength</a></li>
+</ul>
+</li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Usage</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../Usage/Quickstart.html">Quickstart</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../Usage/Quickstart.html#the-oauthoptions-container">The <code class="docutils literal notranslate"><span class="pre">OAuthOptions</span></code> container</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Usage/Quickstart.html#the-oauthstorageinterface">The <code class="docutils literal notranslate"><span class="pre">OAuthStorageInterface</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../Usage/Quickstart.html#using-existing-tokens">Using existing tokens</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../Usage/Quickstart.html#provider-invocation">Provider invocation</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../Usage/Quickstart.html#provider-factory">Provider factory</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../Usage/Authorization.html">Authorization flow</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../Usage/Authorization.html#redirect-the-user-to-the-provider">Redirect the user to the provider</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../Usage/Authorization.html#present-a-log-in-link">Present a log-in link</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../Usage/Authorization.html#redirect">Redirect</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../Usage/Authorization.html#receive-the-incoming-callback">Receive the incoming callback</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../Usage/Authorization.html#oauth2">OAuth2</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../Usage/Authorization.html#oauth1">OAuth1</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../Usage/Authorization.html#use-the-provider-s-api">Use the provider’s API</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../Usage/Using-examples.html">Using the examples</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../Usage/Using-examples.html#requirements">Requirements</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../Usage/Using-examples.html#server">Server</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../Usage/Using-examples.html#dependencies">Dependencies</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../Usage/Using-examples.html#configuration">Configuration</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../Usage/Using-examples.html#run-the-authorization-flow">Run the authorization flow</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../Usage/Using-examples.html#call-chain">Call chain</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Development</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="Create-provider.html">Create your own provider class</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="Create-provider.html#minimal-implementation">Minimal implementation</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="Create-provider.html#dynamic-urls">Dynamic URLs</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="Create-provider.html#informational-values">Informational values</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Create-provider.html#additional-headers">Additional headers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Create-provider.html#scopes">Scopes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Create-provider.html#request-authorization-method-oauth2">Request authorization method (OAuth2)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Create-provider.html#overriding-methods">Overriding methods</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="Create-provider.html#oauth1">OAuth1</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Create-provider.html#oauth2">OAuth2</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="Additional-functionality.html">Additional provider functionality</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="Additional-functionality.html#userinfo"><code class="docutils literal notranslate"><span class="pre">UserInfo</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="Additional-functionality.html#clientcredentials-oauth2"><code class="docutils literal notranslate"><span class="pre">ClientCredentials</span></code> (OAuth2)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Additional-functionality.html#csrftoken-oauth2"><code class="docutils literal notranslate"><span class="pre">CSRFToken</span></code> (OAuth2)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Additional-functionality.html#tokenrefresh-oauth2"><code class="docutils literal notranslate"><span class="pre">TokenRefresh</span></code> (OAuth2)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Additional-functionality.html#pkce-oauth2"><code class="docutils literal notranslate"><span class="pre">PKCE</span></code> (OAuth2)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Additional-functionality.html#par-oauth2"><code class="docutils literal notranslate"><span class="pre">PAR</span></code> (OAuth2)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Additional-functionality.html#tokeninvalidate"><code class="docutils literal notranslate"><span class="pre">TokenInvalidate</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Create your own tests</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#unit-test">Unit test</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#live-test">Live test</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#import-existing-tokens">Import existing tokens</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="Test-suite.html">Running the test suite</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="Test-suite.html#control-test-behaviour">Control test behaviour</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Test-suite.html#using-custom-psr-17-psr-18-factories">Using custom PSR-17/PSR-18 factories</a></li>
+</ul>
+</li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Appendix</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../Appendix/Contribute.html">How to contribute</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../Appendix/Contribute.html#questions-and-issues">Questions and issues</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Appendix/Contribute.html#bug-reports">Bug reports</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Appendix/Contribute.html#pull-requests-and-bug-fixes">Pull requests and bug fixes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Appendix/Contribute.html#documentation">Documentation</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../Appendix/License.html">License</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">PHP-OAuth</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Create your own tests</li>
+      <li class="wy-breadcrumbs-aside">
+              <a href="https://github.com/chillerlan/php-oauth/blob/main/docs/Development/Create-tests.md" class="fa fa-github"> Edit on GitHub</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="create-your-own-tests">
+<h1>Create your own tests<a class="headerlink" href="#create-your-own-tests" title="Link to this heading"></a></h1>
+<p>Creating a test for a provider class is pretty straightforward: add a class to either the <code class="docutils literal notranslate"><span class="pre">Unit</span></code> or <code class="docutils literal notranslate"><span class="pre">Live</span></code> directory in <code class="docutils literal notranslate"><span class="pre">tests/Providers</span></code>,
+extend one of the abstract test classes, add the attribute <code class="docutils literal notranslate"><span class="pre">chillerlan\OAuthTest\Attributes\Provider</span></code> with the FQCN of the test subject
+as parameter to the test class, and you’re ready!</p>
+<section id="unit-test">
+<h2>Unit test<a class="headerlink" href="#unit-test" title="Link to this heading"></a></h2>
+<p>The unit tests extend one of the abstract classes <code class="docutils literal notranslate"><span class="pre">OAuth1ProviderUnitTestAbstract</span></code>, <code class="docutils literal notranslate"><span class="pre">OAuth2ProviderUnitTestAbstract</span></code>
+or in rare proprietary cases <code class="docutils literal notranslate"><span class="pre">OAuthProviderUnitTestAbstract</span></code>. There is no need to add extra tests for the several feature interfaces,
+as these are already implemented in the abstract classes with <code class="docutils literal notranslate"><span class="pre">instanceof</span></code> checks. However, you may add tests for any custom functionality
+of your provider class.</p>
+<div class="highlight-php notranslate"><div class="highlight"><pre><span></span><span class="k">namespace</span> <span class="nx">chillerlan\OAuthTest\Providers\Unit</span><span class="p">;</span>
+
+<span class="k">use</span> <span class="nx">chillerlan\OAuth\Providers\MyOAuth2Provider</span><span class="p">;</span>
+<span class="k">use</span> <span class="nx">chillerlan\OAuthTest\Attributes\Provider</span><span class="p">;</span>
+
+<span class="sd">/**</span>
+<span class="sd"> * @property \chillerlan\OAuth\Providers\MyOAuth2Provider $provider</span>
+<span class="sd"> */</span>
+<span class="p">#[</span><span class="nd">Provider</span><span class="p">(</span><span class="nx">MyOAuth2Provider</span><span class="o">::</span><span class="na">class</span><span class="p">)]</span>
+<span class="k">final</span> <span class="k">class</span> <span class="nc">MyOAuth2ProviderTest</span> <span class="k">extends</span> <span class="nx">OAuth2ProviderUnitTestAbstract</span><span class="p">{</span>
+
+<span class="p">}</span>
+</pre></div>
+</div>
+</section>
+<section id="live-test">
+<h2>Live test<a class="headerlink" href="#live-test" title="Link to this heading"></a></h2>
+<p>The live tests are not only supposed to verify functionality against a live API, but also as a playground to try and figure out
+API resources etc.</p>
+<p>A live test class extends one of <code class="docutils literal notranslate"><span class="pre">OAuth1ProviderLiveTestAbstract</span></code>,  <code class="docutils literal notranslate"><span class="pre">OAuth2ProviderLiveTestAbstract</span></code> or <code class="docutils literal notranslate"><span class="pre">OAuthProviderLiveTestAbstract</span></code>.
+In addition to the <code class="docutils literal notranslate"><span class="pre">Provider</span></code> attribute, it should also have PHPUnit’s <code class="docutils literal notranslate"><span class="pre">Group</span></code> attribute set with the value <code class="docutils literal notranslate"><span class="pre">providerLiveTest</span></code>.</p>
+<p>In order to verify the functionality of the <code class="docutils literal notranslate"><span class="pre">UserInfo::me()</span></code> method, the test method <code class="docutils literal notranslate"><span class="pre">OAuthProviderLiveTestAbstract::testMe()</span></code>
+calls an environment variable <code class="docutils literal notranslate"><span class="pre">&lt;prefix&gt;_TESTUSER</span></code>, which is set in the (local) <code class="docutils literal notranslate"><span class="pre">.env</span></code> file. This variable is supposed to hold a
+testable value (e.g. user handle, id, email…) returned by the API’s user info endpoint, and that is accessible through a
+<code class="docutils literal notranslate"><span class="pre">AuthenticatedUser</span></code> instance. The method <code class="docutils literal notranslate"><span class="pre">OAuthProviderLiveTestAbstract::assertMeResponse()</span></code> can be overridden to adjust the
+asserted property (by default <code class="docutils literal notranslate"><span class="pre">AuthenticatedUser::$handle</span></code>).</p>
+<div class="highlight-php notranslate"><div class="highlight"><pre><span></span><span class="k">namespace</span> <span class="nx">chillerlan\OAuthTest\Providers\Live</span><span class="p">;</span>
+
+<span class="k">use</span> <span class="nx">chillerlan\OAuth\Providers\MyOAuth2Provider</span><span class="p">;</span>
+<span class="k">use</span> <span class="nx">chillerlan\OAuthTest\Attributes\Provider</span><span class="p">;</span>
+<span class="k">use</span> <span class="nx">PHPUnit\Framework\Attributes\Group</span><span class="p">;</span>
+
+<span class="sd">/**</span>
+<span class="sd"> * @property  \chillerlan\OAuth\Providers\MyOAuth2Provider $provider</span>
+<span class="sd"> */</span>
+<span class="p">#[</span><span class="nd">Group</span><span class="p">(</span><span class="s1">&#39;providerLiveTest&#39;</span><span class="p">)]</span>
+<span class="p">#[</span><span class="nd">Provider</span><span class="p">(</span><span class="nx">MyOAuth2Provider</span><span class="o">::</span><span class="na">class</span><span class="p">)]</span>
+<span class="k">final</span> <span class="k">class</span> <span class="nc">MyOAuth2ProviderAPITest</span> <span class="k">extends</span> <span class="nx">OAuth2ProviderLiveTestAbstract</span><span class="p">{</span>
+
+	<span class="k">protected</span> <span class="k">function</span> <span class="nf">assertMeResponse</span><span class="p">(</span><span class="nx">AuthenticatedUser</span> <span class="nv">$user</span><span class="p">)</span><span class="o">:</span><span class="nx">void</span><span class="p">{</span>
+		<span class="c1">// testing against the email</span>
+		<span class="c1">// in .env:</span>
+		<span class="c1">// MYOAUTH2PROVIDER_TESTUSER=me@example.com</span>
+		<span class="nv">$this</span><span class="o">::</span><span class="na">assertSame</span><span class="p">(</span><span class="nv">$this</span><span class="o">-&gt;</span><span class="na">TEST_USER</span><span class="p">,</span> <span class="nv">$user</span><span class="o">-&gt;</span><span class="na">email</span><span class="p">);</span>
+	<span class="p">}</span>
+
+	<span class="c1">// or simply just skip it...</span>
+	<span class="k">public</span> <span class="k">function</span> <span class="nf">testMe</span><span class="p">()</span><span class="o">:</span><span class="nx">void</span><span class="p">{</span>
+		<span class="nv">$this</span><span class="o">::</span><span class="na">markTestSkipped</span><span class="p">(</span><span class="s2">&quot;i don&#39;t care&quot;</span><span class="p">);</span>
+	<span class="p">}</span>
+
+<span class="p">}</span>
+</pre></div>
+</div>
+<section id="import-existing-tokens">
+<h3>Import existing tokens<a class="headerlink" href="#import-existing-tokens" title="Link to this heading"></a></h3>
+<p>Ok, I’m being honest here: I’ve never bothered to think about a convenient way to import access tokens, because I use PHPStorm and
+just drag the <code class="docutils literal notranslate"><span class="pre">.filestorage</span></code> directory from the <em>“Remote Host”</em> (where I run <a class="reference internal" href="../Usage/Using-examples.html"><span class="std std-doc">the <code class="docutils literal notranslate"><span class="pre">get-token</span></code> examples</span></a>)
+to the <em>“Project”</em> panel - done.</p>
+<p>Anyway, as that’s not feasible for everyone, here’s a somewhat convenient solution: after access was granted in the <code class="docutils literal notranslate"><span class="pre">get-token</span></code> example,
+there’s a textarea input that holds the JSON representation of the <code class="docutils literal notranslate"><span class="pre">AccessToken</span></code> class, which you can use to import it back.
+The JSON looks similar to the following:</p>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+<span class="w">	</span><span class="nt">&quot;accessTokenSecret&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span>
+<span class="w">	</span><span class="nt">&quot;accessToken&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;&lt;access_token&gt;&quot;</span><span class="p">,</span>
+<span class="w">	</span><span class="nt">&quot;refreshToken&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span>
+<span class="w">	</span><span class="nt">&quot;expires&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">-9002</span><span class="p">,</span>
+<span class="w">	</span><span class="nt">&quot;extraParams&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">		</span><span class="nt">&quot;token_type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;bearer&quot;</span>
+<span class="w">	</span><span class="p">},</span>
+<span class="w">	</span><span class="nt">&quot;scopes&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">		</span><span class="s2">&quot;gist&quot;</span><span class="p">,</span>
+<span class="w">		</span><span class="s2">&quot;public_repo&quot;</span><span class="p">,</span>
+<span class="w">		</span><span class="s2">&quot;user&quot;</span>
+<span class="w">	</span><span class="p">],</span>
+<span class="w">	</span><span class="nt">&quot;provider&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;GitHub&quot;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>Copy the JSON from the textarea and save it in a file <code class="docutils literal notranslate"><span class="pre">&lt;provider&gt;.token.json</span></code>, here <code class="docutils literal notranslate"><span class="pre">GitHub.token.json</span></code>, the following script uses
+the directory <code class="docutils literal notranslate"><span class="pre">&lt;library</span> <span class="pre">root&gt;/.config/tokens</span></code> to store the JSON tokens. Now create a <code class="docutils literal notranslate"><span class="pre">import-tokens.php</span></code> with the script below and run it:</p>
+<div class="highlight-php notranslate"><div class="highlight"><pre><span></span><span class="k">use</span> <span class="nx">chillerlan\OAuth\Core\AccessToken</span><span class="p">;</span>
+<span class="k">use</span> <span class="nx">chillerlan\OAuth\OAuthOptions</span><span class="p">;</span>
+<span class="k">use</span> <span class="nx">chillerlan\OAuth\Storage\FileStorage</span><span class="p">;</span>
+
+<span class="c1">// we&#39;re assuming the library root as location of this script</span>
+<span class="k">require_once</span> <span class="no">__DIR__</span><span class="o">.</span><span class="s1">&#39;/vendor/autoload.php&#39;</span><span class="p">;</span>
+
+<span class="nv">$options</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">OAuthOptions</span><span class="p">;</span>
+<span class="c1">// the storage path used in the testsuite</span>
+<span class="nv">$options</span><span class="o">-&gt;</span><span class="na">fileStoragePath</span> <span class="o">=</span> <span class="no">__DIR__</span><span class="o">.</span><span class="s1">&#39;/.config/.filestorage&#39;</span><span class="p">;</span>
+
+<span class="c1">// important: the $oauthUser parameter needs to be the same as in the testsuite</span>
+<span class="nv">$storage</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">FileStorage</span><span class="p">(</span><span class="s1">&#39;oauth-example&#39;</span><span class="p">,</span> <span class="nv">$options</span><span class="p">);</span>
+
+<span class="c1">// the directory wherever your JSON tokens are stored</span>
+<span class="k">foreach</span><span class="p">(</span><span class="k">new</span> <span class="nx">DirectoryIterator</span><span class="p">(</span><span class="no">__DIR__</span><span class="o">.</span><span class="s1">&#39;/.config/tokens&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="nv">$finfo</span><span class="p">){</span>
+
+	<span class="k">if</span><span class="p">(</span><span class="o">!</span><span class="nb">str_contains</span><span class="p">(</span><span class="nv">$finfo</span><span class="o">-&gt;</span><span class="na">getFilename</span><span class="p">(),</span> <span class="s1">&#39;.token.json&#39;</span><span class="p">)){</span>
+		<span class="k">continue</span><span class="p">;</span>
+	<span class="p">}</span>
+
+	<span class="nv">$token</span> <span class="o">=</span> <span class="p">(</span><span class="k">new</span> <span class="nx">AccessToken</span><span class="p">)</span><span class="o">-&gt;</span><span class="na">fromJSON</span><span class="p">(</span><span class="nb">file_get_contents</span><span class="p">(</span><span class="nv">$finfo</span><span class="o">-&gt;</span><span class="na">getLinkTarget</span><span class="p">()));</span>
+
+	<span class="nv">$storage</span><span class="o">-&gt;</span><span class="na">storeAccessToken</span><span class="p">(</span><span class="nv">$token</span><span class="p">,</span> <span class="nv">$token</span><span class="o">-&gt;</span><span class="na">provider</span><span class="p">);</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</section>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="Additional-functionality.html" class="btn btn-neutral float-left" title="Additional provider functionality" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="Test-suite.html" class="btn btn-neutral float-right" title="Running the test suite" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2024, smiley.</p>
+  </div>
+
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

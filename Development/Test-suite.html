@@ -4,7 +4,7 @@
   <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Running tests &mdash; PHP-QRCode main
+  <title>Running the test suite &mdash; PHP-QRCode main
  Manual</title>
       <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=fa44fd50" />
       <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=19f00094" />
@@ -23,7 +23,7 @@
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="How to contribute" href="../Appendix/Contribute.html" />
-    <link rel="prev" title="Additional functionality" href="Additional-functionality.html" /> 
+    <link rel="prev" title="Create your own tests" href="Create-tests.html" /> 
 </head>
 
 <body class="wy-body-for-nav"> 
@@ -61,7 +61,7 @@
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="../Basics/Installation.html#manual-installation">Manual installation</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="../Basics/Installation.html#can-i-use-this-library-without-using-composer">Can i use this library without using composer?</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../Basics/Installation.html#can-i-use-this-library-without-using-composer">Can I use this library without using composer?</a></li>
 </ul>
 </li>
 </ul>
@@ -125,7 +125,7 @@
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Development</span></p>
 <ul class="current">
-<li class="toctree-l1"><a class="reference internal" href="Create-provider.html">Create your own Provider class</a><ul>
+<li class="toctree-l1"><a class="reference internal" href="Create-provider.html">Create your own provider class</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="Create-provider.html#minimal-implementation">Minimal implementation</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="Create-provider.html#dynamic-urls">Dynamic URLs</a></li>
 </ul>
@@ -141,7 +141,7 @@
 </li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="Additional-functionality.html">Additional functionality</a><ul>
+<li class="toctree-l1"><a class="reference internal" href="Additional-functionality.html">Additional provider functionality</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="Additional-functionality.html#userinfo"><code class="docutils literal notranslate"><span class="pre">UserInfo</span></code></a></li>
 <li class="toctree-l2"><a class="reference internal" href="Additional-functionality.html#clientcredentials-oauth2"><code class="docutils literal notranslate"><span class="pre">ClientCredentials</span></code> (OAuth2)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="Additional-functionality.html#csrftoken-oauth2"><code class="docutils literal notranslate"><span class="pre">CSRFToken</span></code> (OAuth2)</a></li>
@@ -151,7 +151,19 @@
 <li class="toctree-l2"><a class="reference internal" href="Additional-functionality.html#tokeninvalidate"><code class="docutils literal notranslate"><span class="pre">TokenInvalidate</span></code></a></li>
 </ul>
 </li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">Running tests</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Create-tests.html">Create your own tests</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="Create-tests.html#unit-test">Unit test</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Create-tests.html#live-test">Live test</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="Create-tests.html#import-existing-tokens">Import existing tokens</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Running the test suite</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#control-test-behaviour">Control test behaviour</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#using-custom-psr-17-psr-18-factories">Using custom PSR-17/PSR-18 factories</a></li>
+</ul>
+</li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Appendix</span></p>
 <ul>
@@ -179,7 +191,7 @@
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
       <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
-      <li class="breadcrumb-item active">Running tests</li>
+      <li class="breadcrumb-item active">Running the test suite</li>
       <li class="wy-breadcrumbs-aside">
               <a href="https://github.com/chillerlan/php-oauth/blob/main/docs/Development/Test-suite.md" class="fa fa-github"> Edit on GitHub</a>
       </li>
@@ -189,15 +201,71 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
              
-  <section id="running-tests">
-<h1>Running tests<a class="headerlink" href="#running-tests" title="Link to this heading"></a></h1>
+  <section id="running-the-test-suite">
+<h1>Running the test suite<a class="headerlink" href="#running-the-test-suite" title="Link to this heading"></a></h1>
+<p>The <a class="reference external" href="https://docs.phpunit.de/en/10.5/">PHPUnit tests</a> as defined in the <a class="reference external" href="https://github.com/chillerlan/php-oauth/blob/main/phpunit.xml.dist"><code class="docutils literal notranslate"><span class="pre">phpunit.xml</span></code></a> offer the following suites:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">tests/Core</span></code> - core functionalities, such as tests for the <code class="docutils literal notranslate"><span class="pre">OAuthOptions</span></code> and <code class="docutils literal notranslate"><span class="pre">AccessToken</span></code> classes etc.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">tests/Storage</span></code> - tests the <code class="docutils literal notranslate"><span class="pre">OAuthStorageInterface</span></code> implementors</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">tests/Providers/Unit</span></code> - unit tests for the <code class="docutils literal notranslate"><span class="pre">OAuthInterface</span></code> descendants</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">tests/Providers/Live</span></code> - tests the provider classes against the live APIs</p></li>
+</ul>
+<p>Anything in the <code class="docutils literal notranslate"><span class="pre">tests</span></code> directory outside of these directories are abstract classes, helpers, attribute definitions and other files used in the tests.</p>
+<section id="control-test-behaviour">
+<h2>Control test behaviour<a class="headerlink" href="#control-test-behaviour" title="Link to this heading"></a></h2>
+<p>There are several groups you can use to exclude specific tests: <code class="docutils literal notranslate"><span class="pre">slow</span></code>, <code class="docutils literal notranslate"><span class="pre">shortTokenExpiry</span></code> and <code class="docutils literal notranslate"><span class="pre">providerLiveTest</span></code>, where the latter is excluded by default, as valid access tokens are required.
+The group <code class="docutils literal notranslate"><span class="pre">shortTokenExpiry</span></code> is a subgroup of <code class="docutils literal notranslate"><span class="pre">providerLiveTest</span></code> for providers that issue access tokens with a very short expiry (e.g. 1 hour).</p>
+<p>The PHPUnit constant <code class="docutils literal notranslate"><span class="pre">TEST_IS_CI</span></code> (defined in the <code class="docutils literal notranslate"><span class="pre">php</span></code> section of <code class="docutils literal notranslate"><span class="pre">phpunit.xml</span></code>) specifies whether the test suite is running in a CI environment such as GitHub Actions etc. -
+it overrides the aforementioned group settings and automatically skips live tests.</p>
+<div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="nt">&lt;phpunit&gt;</span>
+<span class="w">	</span><span class="cm">&lt;!-- ... --&gt;</span>
+<span class="w">	</span><span class="nt">&lt;php&gt;</span>
+<span class="w">		</span><span class="nt">&lt;const</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;TEST_IS_CI&quot;</span><span class="w"> </span><span class="na">value=</span><span class="s">&quot;true&quot;</span><span class="nt">/&gt;</span>
+<span class="w">	</span><span class="nt">&lt;/php&gt;</span>
+<span class="nt">&lt;/phpunit&gt;</span>
+</pre></div>
+</div>
+<p>In order to run the live API tests locally, a <code class="docutils literal notranslate"><span class="pre">.env</span></code> file in <code class="docutils literal notranslate"><span class="pre">&lt;project</span> <span class="pre">root&gt;/.config</span></code> is required, which you can define in the <code class="docutils literal notranslate"><span class="pre">TEST_ENVFILE</span></code> directive.</p>
+<div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="nt">&lt;const</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;TEST_ENVFILE&quot;</span><span class="w"> </span><span class="na">value=</span><span class="s">&quot;.env_example&quot;</span><span class="nt">/&gt;</span>
+</pre></div>
+</div>
+</section>
+<section id="using-custom-psr-17-psr-18-factories">
+<h2>Using custom PSR-17/PSR-18 factories<a class="headerlink" href="#using-custom-psr-17-psr-18-factories" title="Link to this heading"></a></h2>
+<p>The HTTP factories are managed by the helper library <a class="reference external" href="https://github.com/chillerlan/phpunit-http">chillerlan/phpunit-http</a>.
+By default, the test suite uses <code class="docutils literal notranslate"><span class="pre">guzzlehttp/guzzle</span></code> and its PSR-7/17 implementation(s) <code class="docutils literal notranslate"><span class="pre">GuzzleHttp\Psr7\HttpFactory</span></code>.
+If you want to run the tests against a different PSR-7 implementation, you can easily switch to other factories via the following constants:</p>
+<div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="nt">&lt;const</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;REQUEST_FACTORY&quot;</span><span class="w"> </span><span class="na">value=</span><span class="s">&quot;My\Custom\PSR7\RequestFactory&quot;</span><span class="nt">/&gt;</span>
+<span class="nt">&lt;const</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;RESPONSE_FACTORY&quot;</span><span class="w"> </span><span class="na">value=</span><span class="s">&quot;My\Custom\PSR7\ResponseFactory&quot;</span><span class="nt">/&gt;</span>
+<span class="nt">&lt;const</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;STREAM_FACTORY&quot;</span><span class="w"> </span><span class="na">value=</span><span class="s">&quot;My\Custom\PSR7\StreamFactory&quot;</span><span class="nt">/&gt;</span>
+<span class="nt">&lt;const</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;URI_FACTORY&quot;</span><span class="w"> </span><span class="na">value=</span><span class="s">&quot;My\Custom\PSR7\UriFactory&quot;</span><span class="nt">/&gt;</span>
+</pre></div>
+</div>
+<p>To use a different PSR-18 HTTP client, you’ll need to wrap it in a <code class="docutils literal notranslate"><span class="pre">HttpClientFactoryInterface</span></code></p>
+<div class="highlight-php notranslate"><div class="highlight"><pre><span></span><span class="k">final</span> <span class="k">class</span> <span class="nc">HttpClientFactory</span> <span class="k">implements</span> <span class="nx">HttpClientFactoryInterface</span><span class="p">{</span>
+
+	<span class="k">public</span> <span class="k">function</span> <span class="nf">getClient</span><span class="p">(</span>
+		<span class="nx">string</span>                   <span class="nv">$cacert</span><span class="p">,</span>
+		<span class="nx">ResponseFactoryInterface</span> <span class="nv">$responseFactory</span><span class="p">,</span>
+	<span class="p">)</span><span class="o">:</span><span class="nx">ClientInterface</span><span class="p">{</span>
+		<span class="k">return</span> <span class="k">new</span> <span class="nx">MyHttpClient</span><span class="p">([</span><span class="s1">&#39;cacert&#39;</span> <span class="o">=&gt;</span> <span class="nv">$cacert</span><span class="p">,</span> <span class="cm">/* ... */</span><span class="p">]);</span>
+	<span class="p">}</span>
+
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>You can then specify it in the <code class="docutils literal notranslate"><span class="pre">phpunit.xml</span></code>:</p>
+<div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="nt">&lt;const</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;HTTP_CLIENT_FACTORY&quot;</span><span class="w"> </span><span class="na">value=</span><span class="s">&quot;My\Custom\\HttpClientFactory&quot;</span><span class="nt">/&gt;</span>
+</pre></div>
+</div>
+</section>
 </section>
 
 
            </div>
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
-        <a href="Additional-functionality.html" class="btn btn-neutral float-left" title="Additional functionality" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="Create-tests.html" class="btn btn-neutral float-left" title="Create your own tests" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
         <a href="../Appendix/Contribute.html" class="btn btn-neutral float-right" title="How to contribute" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 

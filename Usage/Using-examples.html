@@ -22,7 +22,7 @@
     <script src="../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Create your own Provider class" href="../Development/Create-provider.html" />
+    <link rel="next" title="Create your own provider class" href="../Development/Create-provider.html" />
     <link rel="prev" title="Authorization flow" href="Authorization.html" /> 
 </head>
 
@@ -61,7 +61,7 @@
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="../Basics/Installation.html#manual-installation">Manual installation</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="../Basics/Installation.html#can-i-use-this-library-without-using-composer">Can i use this library without using composer?</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../Basics/Installation.html#can-i-use-this-library-without-using-composer">Can I use this library without using composer?</a></li>
 </ul>
 </li>
 </ul>
@@ -125,7 +125,7 @@
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Development</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="../Development/Create-provider.html">Create your own Provider class</a><ul>
+<li class="toctree-l1"><a class="reference internal" href="../Development/Create-provider.html">Create your own provider class</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="../Development/Create-provider.html#minimal-implementation">Minimal implementation</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="../Development/Create-provider.html#dynamic-urls">Dynamic URLs</a></li>
 </ul>
@@ -141,7 +141,7 @@
 </li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="../Development/Additional-functionality.html">Additional functionality</a><ul>
+<li class="toctree-l1"><a class="reference internal" href="../Development/Additional-functionality.html">Additional provider functionality</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="../Development/Additional-functionality.html#userinfo"><code class="docutils literal notranslate"><span class="pre">UserInfo</span></code></a></li>
 <li class="toctree-l2"><a class="reference internal" href="../Development/Additional-functionality.html#clientcredentials-oauth2"><code class="docutils literal notranslate"><span class="pre">ClientCredentials</span></code> (OAuth2)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../Development/Additional-functionality.html#csrftoken-oauth2"><code class="docutils literal notranslate"><span class="pre">CSRFToken</span></code> (OAuth2)</a></li>
@@ -151,7 +151,19 @@
 <li class="toctree-l2"><a class="reference internal" href="../Development/Additional-functionality.html#tokeninvalidate"><code class="docutils literal notranslate"><span class="pre">TokenInvalidate</span></code></a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="../Development/Test-suite.html">Running tests</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Development/Create-tests.html">Create your own tests</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../Development/Create-tests.html#unit-test">Unit test</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Development/Create-tests.html#live-test">Live test</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../Development/Create-tests.html#import-existing-tokens">Import existing tokens</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../Development/Test-suite.html">Running the test suite</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../Development/Test-suite.html#control-test-behaviour">Control test behaviour</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Development/Test-suite.html#using-custom-psr-17-psr-18-factories">Using custom PSR-17/PSR-18 factories</a></li>
+</ul>
+</li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Appendix</span></p>
 <ul>
@@ -191,20 +203,20 @@
              
   <section id="using-the-examples">
 <h1>Using the examples<a class="headerlink" href="#using-the-examples" title="Link to this heading"></a></h1>
-<p>OAuth is not exactly trivial and so is live testing an OAuth flow to make sure the implementation and all its details work as expected.
+<p>OAuth is not exactly trivial, and so is live testing an OAuth flow to make sure the implementation and all its details work as expected.
 The examples - specifically <a class="reference external" href="https://github.com/chillerlan/php-oauth/tree/main/examples/get-token">the get-token examples</a> -
 are abstracted and condensed as far as possible to make using them as convenient as it can get.</p>
 <section id="requirements">
 <h2>Requirements<a class="headerlink" href="#requirements" title="Link to this heading"></a></h2>
 <section id="server">
 <h3>Server<a class="headerlink" href="#server" title="Link to this heading"></a></h3>
-<p>Due to the nature of OAuth callbacks, you will need a webserver with public access, or rather, that is accepted as callback URL
+<p>Due to the nature of OAuth callbacks, you will need a webserver with public access, or rather, one that is accepted as callback URL
 by the service you’re about to test, so <code class="docutils literal notranslate"><span class="pre">http://127.0.0.1/oauth/</span></code> will <em>definitely not</em> work - we’ll assume
 <code class="docutils literal notranslate"><span class="pre">https://example.com/oauth/</span></code> as the public callback URL throughout the examples.</p>
 <p>Further we’ll assume that <code class="docutils literal notranslate"><span class="pre">/var/www/</span></code> (with an associated user <code class="docutils literal notranslate"><span class="pre">webmaster</span></code>) is the directory that holds all web related files and dependencies,
-and <code class="docutils literal notranslate"><span class="pre">/var/www/htdocs/</span></code> is the root of the public website, which translates to <code class="docutils literal notranslate"><span class="pre">https://example.com/</span></code>, hence <code class="docutils literal notranslate"><span class="pre">/var/www/htdocs/oauth/</span></code> becomes the OAuth callback entrypoint at <code class="docutils literal notranslate"><span class="pre">https://example.com/oauth/</span></code>.
-A web framework would probably just have <code class="docutils literal notranslate"><span class="pre">/var/www/htdocs/index.php</span></code> as its entry point and route all requests through it,
-but that is not focus of this example.</p>
+and <code class="docutils literal notranslate"><span class="pre">/var/www/htdocs/</span></code> is the root of the public website, which translates to <code class="docutils literal notranslate"><span class="pre">https://example.com/</span></code>, hence <code class="docutils literal notranslate"><span class="pre">/var/www/htdocs/oauth/</span></code>
+becomes the OAuth callback entrypoint at <code class="docutils literal notranslate"><span class="pre">https://example.com/oauth/</span></code>. A web framework would probably just have <code class="docutils literal notranslate"><span class="pre">/var/www/htdocs/index.php</span></code>
+as its sole entry point and route all requests through it, but that is not focus of this example.</p>
 </section>
 <section id="dependencies">
 <h3>Dependencies<a class="headerlink" href="#dependencies" title="Link to this heading"></a></h3>
@@ -269,7 +281,7 @@ We’ll need to adjust it to our example configuration from before:</p>
 <h3>Call chain<a class="headerlink" href="#call-chain" title="Link to this heading"></a></h3>
 <p>Let’s break down what happens behind the scenes:</p>
 <ol class="arabic simple">
-<li><p>the <code class="docutils literal notranslate"><span class="pre">index.php</span></code> initializes a set of variables and includes an example from <code class="docutils literal notranslate"><span class="pre">/var/www/oauth-examples/get-token/</span></code>, here <code class="docutils literal notranslate"><span class="pre">GitHub.php</span></code></p></li>
+<li><p>the <code class="docutils literal notranslate"><span class="pre">index.php</span></code> initializes a set of variables and includes an example <code class="docutils literal notranslate"><span class="pre">&lt;provider&gt;.php</span></code> from <a class="reference external" href="https://github.com/chillerlan/php-oauth/blob/main/examples/get-token"><code class="docutils literal notranslate"><span class="pre">/var/www/oauth-examples/get-token/</span></code></a>, here <code class="docutils literal notranslate"><span class="pre">GitHub.php</span></code></p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">&lt;provider&gt;.php</span></code> includes <a class="reference external" href="https://github.com/chillerlan/php-oauth/blob/main/examples/provider-example-common.php"><code class="docutils literal notranslate"><span class="pre">/var/www/oauth-examples/provider-example-common.php</span></code></a>, which:</p>
 <ul class="simple">
 <li><p>includes the composer autoloader given through <code class="docutils literal notranslate"><span class="pre">$AUTOLOADER</span></code></p></li>
@@ -278,7 +290,7 @@ We’ll need to adjust it to our example configuration from before:</p>
 </ul>
 </li>
 <li><p>the OAuth provider is invoked via <code class="docutils literal notranslate"><span class="pre">$factory-&gt;getProvider(&lt;provider&gt;::class)</span></code> in <code class="docutils literal notranslate"><span class="pre">&lt;provider&gt;.php</span></code> and becomes available as <code class="docutils literal notranslate"><span class="pre">$provider</span></code></p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">&lt;provider&gt;.php</span></code> includes either <code class="docutils literal notranslate"><span class="pre">_flow-oauth1.php</span></code> or <code class="docutils literal notranslate"><span class="pre">_flow-oauth2.php</span></code> from <code class="docutils literal notranslate"><span class="pre">/var/www/oauth-examples/get-token/</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">&lt;provider&gt;.php</span></code> includes either <a class="reference external" href="https://github.com/chillerlan/php-oauth/blob/main/examples/get-token/_flow-oauth1.php"><code class="docutils literal notranslate"><span class="pre">_flow-oauth1.php</span></code></a> or <a class="reference external" href="https://github.com/chillerlan/php-oauth/blob/main/examples/get-token/_flow-oauth2.php"><code class="docutils literal notranslate"><span class="pre">_flow-oauth2.php</span></code></a> from <code class="docutils literal notranslate"><span class="pre">/var/www/oauth-examples/get-token/</span></code></p></li>
 <li><p>the <a class="reference internal" href="Authorization.html"><span class="std std-doc">authorization flow</span></a> is executed:</p>
 <ul class="simple">
 <li><p>redirect to the URL received from <code class="docutils literal notranslate"><span class="pre">$provider-&gt;getAuthorizationURL($PARAMS,</span> <span class="pre">$SCOPES)</span></code></p></li>
@@ -286,6 +298,7 @@ We’ll need to adjust it to our example configuration from before:</p>
 <li><p>the access token is stored under <code class="docutils literal notranslate"><span class="pre">/home/webmaster/oauth-config/.filestorage</span></code> and is displayed in the output once access is granted</p></li>
 </ul>
 </li>
+<li><p>subsequent requests to the API can now be made through the PSR-18 method <code class="docutils literal notranslate"><span class="pre">$provider-&gt;sendRequest()</span></code>, which will add all necessary authorization headers and parameters</p></li>
 </ol>
 <p>Profit!</p>
 </section>
@@ -297,7 +310,7 @@ We’ll need to adjust it to our example configuration from before:</p>
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
         <a href="Authorization.html" class="btn btn-neutral float-left" title="Authorization flow" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
-        <a href="../Development/Create-provider.html" class="btn btn-neutral float-right" title="Create your own Provider class" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="../Development/Create-provider.html" class="btn btn-neutral float-right" title="Create your own provider class" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
   <hr/>

@@ -2171,6 +2171,11 @@ Search.appendIndex(
             "summary": "",
             "url": "classes/chillerlan-OAuth-Providers-GitHub.html#constant_IDENTIFIER"
         },                {
+            "fqsen": "\\chillerlan\\OAuth\\Providers\\GitHub\u003A\u003ASCOPES_DELIMITER",
+            "name": "SCOPES_DELIMITER",
+            "summary": "",
+            "url": "classes/chillerlan-OAuth-Providers-GitHub.html#constant_SCOPES_DELIMITER"
+        },                {
             "fqsen": "\\chillerlan\\OAuth\\Providers\\GitHub\u003A\u003ASCOPE_USER",
             "name": "SCOPE_USER",
             "summary": "",
@@ -6280,11 +6285,6 @@ Search.appendIndex(
             "name": "testMe",
             "summary": "",
             "url": "classes/chillerlan-OAuthTest-Providers-Live-OAuthProviderLiveTestAbstract.html#method_testMe"
-        },                {
-            "fqsen": "\\chillerlan\\OAuthTest\\Providers\\Live\\OAuthProviderLiveTestAbstract\u003A\u003AassertUnauthorizedAccessException\u0028\u0029",
-            "name": "assertUnauthorizedAccessException",
-            "summary": "",
-            "url": "classes/chillerlan-OAuthTest-Providers-Live-OAuthProviderLiveTestAbstract.html#method_assertUnauthorizedAccessException"
         },                {
             "fqsen": "\\chillerlan\\OAuthTest\\Providers\\Live\\OAuthProviderLiveTestAbstract\u003A\u003AtestMeUnauthorizedAccessException\u0028\u0029",
             "name": "testMeUnauthorizedAccessException",

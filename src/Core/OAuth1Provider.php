@@ -212,9 +212,6 @@ abstract class OAuth1Provider extends OAuthProvider implements OAuth1Interface{
 			throw new InvalidAccessTokenException;
 		}
 
-		$uri   = $request->getUri();
-		$query = QueryUtil::parse($uri->getQuery());
-
 		$params = [
 			'oauth_consumer_key'     => $this->options->key,
 			'oauth_nonce'            => $this->nonce(),
@@ -224,11 +221,12 @@ abstract class OAuth1Provider extends OAuthProvider implements OAuth1Interface{
 			'oauth_version'          => '1.0',
 		];
 
-		$params['oauth_signature'] = $this->getSignature($uri, $params, $request->getMethod(), $token->accessTokenSecret);
-
-		if(isset($query['oauth_session_handle'])){
-			$params['oauth_session_handle'] = $query['oauth_session_handle']; // @codeCoverageIgnore
-		}
+		$params['oauth_signature'] = $this->getSignature(
+			$request->getUri(),
+			$params,
+			$request->getMethod(),
+			$token->accessTokenSecret,
+		);
 
 		return $request->withHeader('Authorization', sprintf('OAuth %s', QueryUtil::build($params, null, ', ', '"')));
 	}

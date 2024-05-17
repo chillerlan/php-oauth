@@ -87,16 +87,9 @@ final class AccessToken extends SettingsContainerAbstract{
 	protected string|null $provider = null;
 
 	/**
-	 * Expiry setter
-	 */
-	protected function set_expires(DateTime|DateInterval|int|null $expires = null):void{
-		$this->setExpiry($expires);
-	}
-
-	/**
 	 * Sets the expiration for this token, clamps the expiry to EXPIRY_MAX
 	 */
-	public function setExpiry(DateTime|DateInterval|int|null $expires = null):AccessToken{
+	protected function set_expires(DateTime|DateInterval|int|null $expires = null):void{
 		$now = time();
 		$max = ($now + $this::EXPIRY_MAX);
 
@@ -114,7 +107,6 @@ final class AccessToken extends SettingsContainerAbstract{
 			$this->expires = $max;
 		}
 
-		return $this;
 	}
 
 	/**

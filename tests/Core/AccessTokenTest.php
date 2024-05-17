@@ -91,31 +91,31 @@ final class AccessTokenTest extends TestCase{
 	}
 
 	#[DataProvider('isExpiredDataProvider')]
-	public function testIsExpired(int $expires, bool $isExpired):void{
-		$this->token->setExpiry($expires);
+	public function testIsExpired(int $expiry, bool $isExpired):void{
+		$this->token->expires = $expiry;
 		$this::assertSame($isExpired, $this->token->isExpired());
 	}
 
 	#[Group('slow')]
 	public function testIsExpiredVariable():void{
 		$expiry = (time() + 3600);
-		$this->token->setExpiry($expiry);
+		$this->token->expires = $expiry;
 		$this::assertSame($expiry, $this->token->expires);
 		$this::assertFalse($this->token->isExpired());
 
 		$expiry = 3600;
-		$this->token->setExpiry($expiry);
+		$this->token->expires = $expiry;
 		$this::assertSame((time() + $expiry), $this->token->expires);
 		$this::assertFalse($this->token->isExpired());
 
 		$expiry = 2;
-		$this->token->setExpiry($expiry);
+		$this->token->expires = $expiry;
 		$this::assertSame((time() + $expiry), $this->token->expires);
 		sleep(3);
 		$this::assertTrue($this->token->isExpired());
 
 		$expiry = (time() + 2);
-		$this->token->setExpiry($expiry);
+		$this->token->expires = $expiry;
 		$this::assertSame($expiry, $this->token->expires);
 		sleep(3);
 		$this::assertTrue($this->token->isExpired());

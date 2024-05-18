@@ -56,6 +56,8 @@ interface OAuth2Interface extends OAuthInterface{
 	 *
 	 * I'm not sure where to put this: here or a feature interface (it's not exactly a feature).
 	 * I'll leave it here for now, subject to change.
+	 *
+	 * @var bool
 	 */
 	public const USES_BASIC_AUTH_IN_ACCESS_TOKEN_REQUEST = false;
 
@@ -63,8 +65,8 @@ interface OAuth2Interface extends OAuthInterface{
 	 * Obtains an OAuth2 access token with the given $code, verifies the $state
 	 * if the provider implements the CSRFToken interface, and returns an AccessToken object
 	 *
-	 * @see https://datatracker.ietf.org/doc/html/rfc6749#section-4.1.1
-	 * @see https://datatracker.ietf.org/doc/html/rfc6749#section-4.1.3
+	 * @link https://datatracker.ietf.org/doc/html/rfc6749#section-4.1.1
+	 * @link https://datatracker.ietf.org/doc/html/rfc6749#section-4.1.3
 	 */
 	public function getAccessToken(string $code, string|null $state = null):AccessToken;
 

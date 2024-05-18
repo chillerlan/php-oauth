@@ -19,9 +19,9 @@ use function in_array;
 /**
  * Patreon v2 OAuth2
  *
- * @see https://docs.patreon.com/
- * @see https://docs.patreon.com/#oauth
- * @see https://docs.patreon.com/#apiv2-oauth
+ * @link https://docs.patreon.com/
+ * @link https://docs.patreon.com/#oauth
+ * @link https://docs.patreon.com/#apiv2-oauth
  */
 class Patreon extends OAuth2Provider implements CSRFToken, TokenRefresh, UserInfo{
 

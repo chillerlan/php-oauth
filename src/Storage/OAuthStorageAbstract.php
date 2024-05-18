@@ -32,7 +32,9 @@ abstract class OAuthStorageAbstract implements OAuthStorageInterface{
 	 * OAuthStorageAbstract constructor.
 	 */
 	public function __construct(
+		/** The options instance */
 		protected OAuthOptions|SettingsContainerInterface $options = new OAuthOptions,
+		/** A PSR-3 logger */
 		protected LoggerInterface                         $logger = new NullLogger
 	){
 

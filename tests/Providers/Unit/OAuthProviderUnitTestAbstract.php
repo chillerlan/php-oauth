@@ -7,7 +7,7 @@
  * @copyright    2024 smiley
  * @license      MIT
  *
- * @phan-file-suppress PhanUndeclaredMethod, PhanAccessMethodInternal
+ * @phan-file-suppress PhanUndeclaredMethod
  */
 declare(strict_types=1);
 
@@ -105,7 +105,7 @@ abstract class OAuthProviderUnitTestAbstract extends ProviderUnitTestAbstract{
 
 	public function testGetRequestBodyInvalidContentTypeForArrayException():void{
 		$this->expectException(ProviderException::class);
-		$this->expectExceptionMessage('invalid content-type for the given array body');
+		$this->expectExceptionMessage('invalid content-type "" for the given array body');
 
 		$request = $this->requestFactory->createRequest('GET', '');
 

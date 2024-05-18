@@ -35,12 +35,13 @@ class FileStorage extends OAuthStorageAbstract{
 
 	/**
 	 * OAuthStorageAbstract constructor.
-	 *
-	 * @param string|int $oauthUser  a *unique* ID to identify the user within your application, e.g. database row id or UUID
 	 */
 	public function __construct(
+		/** A *unique* ID to identify the user within your application, e.g. database row id or UUID */
 		protected string|int $oauthUser,
+		/** The options instance */
 		protected OAuthOptions|SettingsContainerInterface $options = new OAuthOptions,
+		/** A PSR-3 logger */
 		protected LoggerInterface                         $logger = new NullLogger
 	){
 		parent::__construct($options, $logger);
@@ -60,6 +61,11 @@ class FileStorage extends OAuthStorageAbstract{
 			throw new OAuthStorageException('no storage path given');
 		}
 	}
+
+
+	/*
+	 * Access token
+	 */
 
 	/**
 	 * @inheritDoc
@@ -107,6 +113,11 @@ class FileStorage extends OAuthStorageAbstract{
 
 		return $this;
 	}
+
+
+	/*
+	 * CSRF state
+	 */
 
 	/**
 	 * @inheritDoc
@@ -164,6 +175,11 @@ class FileStorage extends OAuthStorageAbstract{
 		return $this;
 	}
 
+
+	/*
+	 * PKCE verifier
+	 */
+
 	/**
 	 * @inheritDoc
 	 */
@@ -219,6 +235,11 @@ class FileStorage extends OAuthStorageAbstract{
 
 		return $this;
 	}
+
+
+	/*
+	 * Common
+	 */
 
 	/**
 	 * fetched the content from a file

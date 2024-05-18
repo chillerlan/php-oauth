@@ -21,7 +21,7 @@ interface OAuth1Interface extends OAuthInterface{
 	 *
 	 * The $token (request token) supplied via `$_GET['oauth_token']` should be in the storage at this point.
 	 *
-	 * @see https://datatracker.ietf.org/doc/html/rfc5849#section-2.3
+	 * @link https://datatracker.ietf.org/doc/html/rfc5849#section-2.3
 	 */
 	public function getAccessToken(string $requestToken, string $verifier):AccessToken;
 

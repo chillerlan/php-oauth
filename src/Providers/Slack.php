@@ -19,9 +19,9 @@ use function sprintf;
 /**
  * Slack v2 OAuth2
  *
- * @see https://api.slack.com/authentication/oauth-v2
- * @see https://api.slack.com/authentication/sign-in-with-slack
- * @see https://api.slack.com/authentication/token-types
+ * @link https://api.slack.com/authentication/oauth-v2
+ * @link https://api.slack.com/authentication/sign-in-with-slack
+ * @link https://api.slack.com/authentication/token-types
  */
 class Slack extends OAuth2Provider implements CSRFToken, UserInfo{
 

@@ -14,7 +14,7 @@ namespace chillerlan\OAuth\Providers;
 /**
  * YouTube OAuth2
  *
- * @see https://developers.google.com/youtube
+ * @link https://developers.google.com/youtube
  */
 class YouTube extends Google{
 

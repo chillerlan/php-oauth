@@ -18,8 +18,8 @@ use chillerlan\OAuth\Core\{AuthenticatedUser, CSRFToken, OAuth2Provider, TokenRe
 /**
  * Login with Amazon for Websites (OAuth2)
  *
- * @see https://developer.amazon.com/docs/login-with-amazon/web-docs.html
- * @see https://developer.amazon.com/docs/login-with-amazon/conceptual-overview.html
+ * @link https://developer.amazon.com/docs/login-with-amazon/web-docs.html
+ * @link https://developer.amazon.com/docs/login-with-amazon/conceptual-overview.html
  */
 class Amazon extends OAuth2Provider implements CSRFToken, TokenRefresh, UserInfo{
 

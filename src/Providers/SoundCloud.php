@@ -16,9 +16,9 @@ use chillerlan\OAuth\Core\{AuthenticatedUser, ClientCredentials, OAuth2Provider,
 /**
  * SoundCloud OAuth2
  *
- * @see https://developers.soundcloud.com/
- * @see https://developers.soundcloud.com/docs/api/guide#authentication
- * @see https://developers.soundcloud.com/blog/security-updates-api
+ * @link https://developers.soundcloud.com/
+ * @link https://developers.soundcloud.com/docs/api/guide#authentication
+ * @link https://developers.soundcloud.com/blog/security-updates-api
  */
 class SoundCloud extends OAuth2Provider implements ClientCredentials, TokenRefresh, UserInfo{
 

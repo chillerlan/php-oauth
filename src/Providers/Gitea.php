@@ -19,7 +19,7 @@ use function sprintf;
 /**
  * Gitea OAuth2
  *
- * @see https://docs.gitea.com/development/oauth2-provider
+ * @link https://docs.gitea.com/development/oauth2-provider
  */
 class Gitea extends OAuth2Provider implements CSRFToken, PKCE, TokenRefresh, UserInfo{
 

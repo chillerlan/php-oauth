@@ -23,7 +23,7 @@ use function array_chunk, array_filter, array_merge, in_array, is_array, ksort, 
 /**
  * Last.fm
  *
- * @see https://www.last.fm/api/authentication
+ * @link https://www.last.fm/api/authentication
  */
 class LastFM extends OAuthProvider implements UserInfo{
 
@@ -281,7 +281,7 @@ class LastFM extends OAuthProvider implements UserInfo{
 	 *   - albumArtist : [optional] The album artist - if this differs from the track artist.
 	 *   - duration    : [optional] The length of the track in seconds.
 	 *
-	 * @see https://www.last.fm/api/show/track.scrobble
+	 * @link https://www.last.fm/api/show/track.scrobble
 	 */
 	public function scrobble(array $tracks):array{
 

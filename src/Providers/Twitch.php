@@ -25,9 +25,9 @@ use const PHP_QUERY_RFC1738;
 /**
  * Twitch OAuth2
  *
- * @see https://dev.twitch.tv/docs/api/reference/
- * @see https://dev.twitch.tv/docs/authentication/
- * @see https://dev.twitch.tv/docs/authentication#oauth-client-credentials-flow-app-access-tokens
+ * @link https://dev.twitch.tv/docs/api/reference/
+ * @link https://dev.twitch.tv/docs/authentication/
+ * @link https://dev.twitch.tv/docs/authentication#oauth-client-credentials-flow-app-access-tokens
  */
 class Twitch extends OAuth2Provider implements ClientCredentials, CSRFToken, TokenInvalidate, TokenRefresh, UserInfo{
 

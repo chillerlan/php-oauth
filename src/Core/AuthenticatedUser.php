@@ -6,6 +6,8 @@
  * @author       smiley <smiley@chillerlan.net>
  * @copyright    2024 smiley
  * @license      MIT
+ *
+ * @filesource
  */
 declare(strict_types=1);
 
@@ -15,50 +17,44 @@ use chillerlan\Settings\SettingsContainerAbstract;
 use function intval, is_int, is_numeric, trim;
 
 /**
- * A simple read-only container for user data responses from `OAuthInterface::me()`
+ * A simple read-only container for user data responses
  *
- * @property string|null     $handle
- * @property string|null     $displayName
- * @property string|null     $email
- * @property string|int|null $id
- * @property string|null     $avatar
- * @property string|null     $url
- * @property array           $data
+ * @see \chillerlan\OAuth\Core\UserInfo::me()
  */
 final class AuthenticatedUser extends SettingsContainerAbstract{
 
 	/**
-	 * The user handle, account or tag name
+	 * (magic) The user handle, account or tag name
 	 */
 	protected string|null $handle = null;
 
 	/**
-	 * The user's display name
+	 * (magic) The user's display name
 	 */
 	protected string|null $displayName = null;
 
 	/**
-	 * The (main) email address
+	 * (magic) The (main) email address
 	 */
 	protected string|null $email = null;
 
 	/**
-	 * A user ID, may be string or integer
+	 * (magic) A user ID, may be string or integer
 	 */
 	protected string|int|null $id = null;
 
 	/**
-	 * An avatar URL
+	 * (magic) An avatar URL
 	 */
 	protected string|null $avatar = null;
 
 	/**
-	 * URL to the user profile
+	 * (magic) URL to the user profile
 	 */
 	protected string|null $url = null;
 
 	/**
-	 * The full user endpoint response
+	 * (magic) The full user endpoint response
 	 */
 	protected array $data = [];
 

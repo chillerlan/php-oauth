@@ -16,8 +16,8 @@ use chillerlan\OAuth\Core\{AuthenticatedUser, OAuth1Provider, UserInfo};
 /**
  * OpenStreetmap OAuth1 (deprecated)
  *
- * @see https://wiki.openstreetmap.org/wiki/API
- * @see https://wiki.openstreetmap.org/wiki/OAuth
+ * @link https://wiki.openstreetmap.org/wiki/API
+ * @link https://wiki.openstreetmap.org/wiki/OAuth
  *
  * @deprecated https://github.com/openstreetmap/operations/issues/867
  */

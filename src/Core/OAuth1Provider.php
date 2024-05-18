@@ -6,6 +6,8 @@
  * @author       Smiley <smiley@chillerlan.net>
  * @copyright    2017 Smiley
  * @license      MIT
+ *
+ * @filesource
  */
 declare(strict_types=1);
 
@@ -20,15 +22,15 @@ use const SODIUM_BASE64_VARIANT_ORIGINAL;
 /**
  * Implements an abstract OAuth1 (1.0a) provider with all methods required by the OAuth1Interface.
  *
- * @see https://oauth.net/core/1.0a/
- * @see https://datatracker.ietf.org/doc/html/rfc5849
+ * @link https://oauth.net/core/1.0a/
+ * @link https://datatracker.ietf.org/doc/html/rfc5849
  */
 abstract class OAuth1Provider extends OAuthProvider implements OAuth1Interface{
 
 	/**
-	 * The request OAuth1 token URL
+	 * The request token URL
 	 */
-	protected string $requestTokenURL;
+	protected string $requestTokenURL = '';
 
 	/**
 	 * @inheritDoc
@@ -42,28 +44,9 @@ abstract class OAuth1Provider extends OAuthProvider implements OAuth1Interface{
 	}
 
 	/**
-	 * prepares the parameters for the request token request header
-	 *
-	 * @see https://datatracker.ietf.org/doc/html/rfc5849#section-2.1
-	 */
-	protected function getRequestTokenRequestParams():array{
-
-		$params = [
-			'oauth_callback'         => $this->options->callbackURL,
-			'oauth_consumer_key'     => $this->options->key,
-			'oauth_nonce'            => $this->nonce(),
-			'oauth_signature_method' => 'HMAC-SHA1',
-			'oauth_timestamp'        => time(),
-			'oauth_version'          => '1.0',
-		];
-
-		$params['oauth_signature'] = $this->getSignature($this->requestTokenURL, $params, 'POST');
-
-		return $params;
-	}
-
-	/**
 	 * Sends a request to the request token endpoint
+	 *
+	 * @see \chillerlan\OAuth\Core\OAuth1Provider::getAuthorizationURL()
 	 */
 	protected function sendRequestTokenRequest(string $url):ResponseInterface{
 		$params  = $this->getRequestTokenRequestParams();
@@ -85,16 +68,40 @@ abstract class OAuth1Provider extends OAuthProvider implements OAuth1Interface{
 	}
 
 	/**
+	 * prepares the parameters for the request token request header
+	 *
+	 * @see \chillerlan\OAuth\Core\OAuth1Provider::sendRequestTokenRequest()
+	 * @link https://datatracker.ietf.org/doc/html/rfc5849#section-2.1
+	 */
+	protected function getRequestTokenRequestParams():array{
+
+		$params = [
+			'oauth_callback'         => $this->options->callbackURL,
+			'oauth_consumer_key'     => $this->options->key,
+			'oauth_nonce'            => $this->nonce(),
+			'oauth_signature_method' => 'HMAC-SHA1',
+			'oauth_timestamp'        => time(),
+			'oauth_version'          => '1.0',
+		];
+
+		$params['oauth_signature'] = $this->getSignature($this->requestTokenURL, $params, 'POST');
+
+		return $params;
+	}
+
+	/**
 	 * Parses the response from a request to the token endpoint
 	 *
-	 * Note: "oauth_callback_confirmed" is only sent in request token response
+	 * Note: "oauth_callback_confirmed" is only sent in the request token response
 	 *
-	 * @see https://datatracker.ietf.org/doc/html/rfc5849#section-2.1
-	 * @see https://datatracker.ietf.org/doc/html/rfc5849#section-2.3
+	 * @link https://datatracker.ietf.org/doc/html/rfc5849#section-2.1
+	 * @link https://datatracker.ietf.org/doc/html/rfc5849#section-2.3
+	 * @see \chillerlan\OAuth\Core\OAuth1Provider::getAuthorizationURL()
+	 * @see \chillerlan\OAuth\Core\OAuth1Provider::getAccessToken()
 	 *
 	 * @throws \chillerlan\OAuth\Providers\ProviderException
 	 */
-	protected function parseTokenResponse(ResponseInterface $response, bool $confirmCallback = false):AccessToken{
+	protected function parseTokenResponse(ResponseInterface $response, bool $checkCallbackConfirmed = false):AccessToken{
 		$data = QueryUtil::parse(MessageUtil::decompress($response));
 
 		if(empty($data)){
@@ -114,8 +121,9 @@ abstract class OAuth1Provider extends OAuthProvider implements OAuth1Interface{
 			throw new ProviderException('invalid token');
 		}
 
-		if($confirmCallback && (!isset($data['oauth_callback_confirmed']) || $data['oauth_callback_confirmed'] !== 'true')){
-			throw new ProviderException('oauth callback unconfirmed');
+		// MUST be present and set to "true". The parameter is used to differentiate from previous versions of the protocol
+		if($checkCallbackConfirmed && (!isset($data['oauth_callback_confirmed']) || $data['oauth_callback_confirmed'] !== 'true')){
+			throw new ProviderException('invalid OAuth 1.0a response');
 		}
 
 		$token                    = $this->createAccessToken();
@@ -135,7 +143,9 @@ abstract class OAuth1Provider extends OAuthProvider implements OAuth1Interface{
 	/**
 	 * Generates a request signature
 	 *
-	 * @see https://datatracker.ietf.org/doc/html/rfc5849#section-3.4
+	 * @link https://datatracker.ietf.org/doc/html/rfc5849#section-3.4
+	 * @see \chillerlan\OAuth\Core\OAuth1Provider::getRequestTokenRequestParams()
+	 * @see \chillerlan\OAuth\Core\OAuth1Provider::getRequestAuthorization()
 	 *
 	 * @throws \chillerlan\OAuth\Providers\ProviderException
 	 */
@@ -157,12 +167,13 @@ abstract class OAuth1Provider extends OAuthProvider implements OAuth1Interface{
 		$signatureParams = array_merge(QueryUtil::parse($url->getQuery()), $params);
 		$url             = $url->withQuery('')->withFragment('');
 
+		// make sure we have no unwanted params in the array
 		unset($signatureParams['oauth_signature']);
 
-		// https://datatracker.ietf.org/doc/html/rfc5849#section-3.4.1.1
+		// @link https://datatracker.ietf.org/doc/html/rfc5849#section-3.4.1.1
 		$data = QueryUtil::recursiveRawurlencode([strtoupper($method), (string)$url, QueryUtil::build($signatureParams)]);
 
-		// https://datatracker.ietf.org/doc/html/rfc5849#section-3.4.2
+		// @link https://datatracker.ietf.org/doc/html/rfc5849#section-3.4.2
 		$key  = QueryUtil::recursiveRawurlencode([$this->options->secret, ($accessTokenSecret ?? '')]);
 
 		$hash = hash_hmac('sha1', implode('&', $data), implode('&', $key), true);
@@ -188,6 +199,8 @@ abstract class OAuth1Provider extends OAuthProvider implements OAuth1Interface{
 
 	/**
 	 * Sends the access token request
+	 *
+	 * @see \chillerlan\OAuth\Core\OAuth1Provider::getAccessToken()
 	 */
 	protected function sendAccessTokenRequest(string $verifier):ResponseInterface{
 
@@ -204,6 +217,7 @@ abstract class OAuth1Provider extends OAuthProvider implements OAuth1Interface{
 
 	/**
 	 * @inheritDoc
+	 * @see \chillerlan\OAuth\Core\OAuth1Provider::sendAccessTokenRequest()
 	 */
 	public function getRequestAuthorization(RequestInterface $request, AccessToken|null $token = null):RequestInterface{
 		$token ??= $this->storage->getAccessToken($this->name);

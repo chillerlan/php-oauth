@@ -19,8 +19,8 @@ use function in_array, sprintf, strtolower;
 /**
  * NPR API services (OAuth2)
  *
- * @see https://dev.npr.org
- * @see https://github.com/npr/npr-one-backend-proxy-php
+ * @link https://dev.npr.org
+ * @link https://github.com/npr/npr-one-backend-proxy-php
  */
 class NPROne extends OAuth2Provider implements CSRFToken, TokenRefresh, TokenInvalidate, UserInfo{
 

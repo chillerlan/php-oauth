@@ -21,8 +21,8 @@ use function array_merge, sprintf;
 /**
  * Flickr OAuth1
  *
- * @see https://www.flickr.com/services/api/auth.oauth.html
- * @see https://www.flickr.com/services/api/
+ * @link https://www.flickr.com/services/api/auth.oauth.html
+ * @link https://www.flickr.com/services/api/
  */
 class Flickr extends OAuth1Provider implements UserInfo{
 

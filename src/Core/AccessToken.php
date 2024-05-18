@@ -6,6 +6,8 @@
  * @author       Smiley <smiley@chillerlan.net>
  * @copyright    2017 Smiley
  * @license      MIT
+ *
+ * @filesource
  */
 declare(strict_types=1);
 
@@ -18,71 +20,66 @@ use function time;
 /**
  * Access token implementation for any OAuth version.
  *
- * @see https://datatracker.ietf.org/doc/html/rfc5849#section-2.3
- * @see https://datatracker.ietf.org/doc/html/rfc6749#section-1.4
- *
- * // Oauth1
- * @property string|null                    $accessTokenSecret
- *
- * // Oauth2
- * @property array                          $scopes
- * @property string|null                    $refreshToken
- *
- * // common
- * @property string|null                    $accessToken
- * @property DateTime|DateInterval|int|null $expires
- * @property array                          $extraParams
- * @property string                         $provider
+ * @link https://datatracker.ietf.org/doc/html/rfc5849#section-2.3
+ * @link https://datatracker.ietf.org/doc/html/rfc6749#section-1.4
  */
 final class AccessToken extends SettingsContainerAbstract{
 
 	/**
 	 * Denotes an unknown end of lifetime, such a token should be considered as expired.
+	 *
+	 * @var int
 	 */
 	public const EXPIRY_UNKNOWN = -9001;
 
 	/**
 	 * Denotes a token which never expires
+	 *
+	 * @var int
 	 */
 	public const NEVER_EXPIRES = -9002;
 
 	/**
 	 * Defines a maximum expiry period (1 year)
+	 *
+	 * @var int
 	 */
 	public const EXPIRY_MAX = (86400 * 365);
 
 	/**
-	 * The access token secret (OAuth1)
-	 */
-	protected string|null $accessTokenSecret = null;
-
-	/**
-	 * The oauth access token
+	 * (magic) The oauth access token
 	 */
 	protected string|null $accessToken = null;
 
 	/**
-	 * An optional refresh token (OAuth2)
+	 * (magic) The access token secret (OAuth1)
+	 */
+	protected string|null $accessTokenSecret = null;
+
+	/**
+	 * (magic) An optional refresh token (OAuth2)
 	 */
 	protected string|null $refreshToken = null;
 
 	/**
-	 * The token expiration date/time
+	 * (magic) The token expiration time
+	 *
+	 * The getter accepts: `DateTime|DateInterval|int|null`
 	 */
 	protected int $expires = self::EXPIRY_UNKNOWN;
 
 	/**
-	 * Additional token parameters supplied by the provider
-	 */
-	protected array $extraParams = [];
-
-	/**
-	 * The scopes that are attached to this token (OAuth2)
+	 * (magic) The scopes that are attached to this token
 	 */
 	protected array $scopes = [];
 
 	/**
-	 * The provider who issued this token
+	 * (magic) Additional token parameters supplied by the provider
+	 */
+	protected array $extraParams = [];
+
+	/**
+	 * (magic) The provider that issued the token
 	 */
 	protected string|null $provider = null;
 

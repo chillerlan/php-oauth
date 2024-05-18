@@ -17,8 +17,8 @@ use function sprintf;
 /**
  * Discogs OAuth1
  *
- * @see https://www.discogs.com/developers/
- * @see https://www.discogs.com/developers/#page:authentication,header:authentication-oauth-flow
+ * @link https://www.discogs.com/developers/
+ * @link https://www.discogs.com/developers/#page:authentication,header:authentication-oauth-flow
  */
 class Discogs extends OAuth1Provider implements UserInfo{
 

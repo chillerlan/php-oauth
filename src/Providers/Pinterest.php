@@ -19,7 +19,7 @@ use function sprintf;
 /**
  * Pinterest OAuth2
  *
- * @see https://developers.pinterest.com/docs/getting-started/authentication/
+ * @link https://developers.pinterest.com/docs/getting-started/authentication/
  */
 class Pinterest extends OAuth2Provider implements CSRFToken, TokenRefresh, UserInfo{
 

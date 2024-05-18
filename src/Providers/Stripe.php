@@ -18,11 +18,11 @@ use chillerlan\OAuth\Core\{AccessToken, AuthenticatedUser, CSRFToken, OAuth2Prov
 /**
  * Stripe OAuth2
  *
- * @see https://stripe.com/docs/api
- * @see https://stripe.com/docs/connect/authentication
- * @see https://stripe.com/docs/connect/oauth-reference
- * @see https://stripe.com/docs/connect/standard-accounts
- * @see https://gist.github.com/amfeng/3507366
+ * @link https://stripe.com/docs/api
+ * @link https://stripe.com/docs/connect/authentication
+ * @link https://stripe.com/docs/connect/oauth-reference
+ * @link https://stripe.com/docs/connect/standard-accounts
+ * @link https://gist.github.com/amfeng/3507366
  */
 class Stripe extends OAuth2Provider implements CSRFToken, TokenRefresh, TokenInvalidate, UserInfo{
 

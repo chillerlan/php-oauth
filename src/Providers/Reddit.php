@@ -22,10 +22,10 @@ use function sprintf;
 /**
  * Reddit OAuth2
  *
- * @see https://github.com/reddit-archive/reddit/wiki/OAuth2
- * @see https://github.com/reddit-archive/reddit/wiki/API
- * @see https://support.reddithelp.com/hc/en-us/articles/16160319875092-Reddit-Data-API-Wiki
- * @see https://www.reddit.com/dev/api
+ * @link https://github.com/reddit-archive/reddit/wiki/OAuth2
+ * @link https://github.com/reddit-archive/reddit/wiki/API
+ * @link https://support.reddithelp.com/hc/en-us/articles/16160319875092-Reddit-Data-API-Wiki
+ * @link https://www.reddit.com/dev/api
  */
 class Reddit extends OAuth2Provider implements ClientCredentials, CSRFToken, TokenRefresh, TokenInvalidate, UserInfo{
 
@@ -107,7 +107,7 @@ class Reddit extends OAuth2Provider implements ClientCredentials, CSRFToken, Tok
 	}
 
 	/**
-	 * @see https://github.com/reddit-archive/reddit/wiki/OAuth2#manually-revoking-a-token
+	 * @link https://github.com/reddit-archive/reddit/wiki/OAuth2#manually-revoking-a-token
 	 * @inheritDoc
 	 */
 	public function invalidateAccessToken(AccessToken $token = null):bool{

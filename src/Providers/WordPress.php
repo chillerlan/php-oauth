@@ -18,7 +18,7 @@ use chillerlan\OAuth\Core\{AuthenticatedUser, CSRFToken, OAuth2Provider, UserInf
 /**
  * WordPress OAuth2
  *
- * @see https://developer.wordpress.com/docs/oauth2/
+ * @link https://developer.wordpress.com/docs/oauth2/
  */
 class WordPress extends OAuth2Provider implements CSRFToken, UserInfo{
 

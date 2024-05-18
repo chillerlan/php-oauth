@@ -14,7 +14,9 @@ namespace chillerlan\OAuth\Core;
 use chillerlan\OAuth\OAuthException;
 
 /**
+ * Thrown on mismatching CSRF ("state") token
  *
+ * @see \chillerlan\OAuth\Core\CSRFToken
  */
 class CSRFStateMismatchException extends OAuthException{
 

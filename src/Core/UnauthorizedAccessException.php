@@ -14,7 +14,7 @@ namespace chillerlan\OAuth\Core;
 use chillerlan\OAuth\OAuthException;
 
 /**
- *
+ * Thrown on generic "Unauthorized" HTTP errors: 400, 401, 403
  */
 class UnauthorizedAccessException extends OAuthException{
 

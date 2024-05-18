@@ -61,6 +61,11 @@ class SessionStorage extends OAuthStorageAbstract{
 		}
 	}
 
+
+	/*
+	 * Access token
+	 */
+
 	/**
 	 * @inheritDoc
 	 */
@@ -106,6 +111,11 @@ class SessionStorage extends OAuthStorageAbstract{
 
 		return $this;
 	}
+
+
+	/*
+	 * CSRF state
+	 */
 
 	/**
 	 * @inheritDoc
@@ -163,6 +173,11 @@ class SessionStorage extends OAuthStorageAbstract{
 
 		return $this;
 	}
+
+
+	/*
+	 * PKCE verifier
+	 */
 
 	/**
 	 * @inheritDoc

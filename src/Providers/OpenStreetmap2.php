@@ -18,9 +18,9 @@ use chillerlan\OAuth\Core\{AuthenticatedUser, CSRFToken, OAuth2Provider, UserInf
 /**
  * OpenStreetmap OAuth2
  *
- * @see https://wiki.openstreetmap.org/wiki/API
- * @see https://wiki.openstreetmap.org/wiki/OAuth
- * @see https://www.openstreetmap.org/.well-known/oauth-authorization-server
+ * @link https://wiki.openstreetmap.org/wiki/API
+ * @link https://wiki.openstreetmap.org/wiki/OAuth
+ * @link https://www.openstreetmap.org/.well-known/oauth-authorization-server
  */
 class OpenStreetmap2 extends OAuth2Provider implements CSRFToken, UserInfo{
 

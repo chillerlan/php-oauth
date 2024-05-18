@@ -19,10 +19,10 @@ use function explode, intval, str_replace;
 /**
  * Steam OpenID
  *
- * @see https://steamcommunity.com/dev
- * @see https://partner.steamgames.com/doc/webapi_overview
- * @see https://partner.steamgames.com/doc/features/auth
- * @see https://steamwebapi.azurewebsites.net/
+ * @link https://steamcommunity.com/dev
+ * @link https://partner.steamgames.com/doc/webapi_overview
+ * @link https://partner.steamgames.com/doc/features/auth
+ * @link https://steamwebapi.azurewebsites.net/
  */
 class Steam extends OAuthProvider implements UserInfo{
 

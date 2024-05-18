@@ -7,7 +7,7 @@
  * @copyright    2018 smiley
  * @license      MIT
  *
- * @phan-file-suppress PhanUndeclaredMethod, PhanAccessMethodInternal
+ * @phan-file-suppress PhanUndeclaredMethod
  */
 declare(strict_types=1);
 
@@ -88,7 +88,7 @@ abstract class OAuth2ProviderUnitTestAbstract extends OAuthProviderUnitTestAbstr
 			$this::markTestSkipped('PAR N/A');
 		}
 
-		// @see https://datatracker.ietf.org/doc/html/rfc9126#name-successful-response
+		// @link https://datatracker.ietf.org/doc/html/rfc9126#name-successful-response
 		$json = '{"request_uri":"urn:ietf:params:oauth:request_uri:6esc_11ACC5bwc014ltc14eY22c","expires_in":60}';
 
 		$this->setMockResponse($this->streamFactory->createStream($json));
@@ -109,7 +109,7 @@ abstract class OAuth2ProviderUnitTestAbstract extends OAuthProviderUnitTestAbstr
 		$this->expectException(ProviderException::class);
 		$this->expectExceptionMessage('invalid_request');
 
-		// @see https://datatracker.ietf.org/doc/html/rfc9126#name-error-response
+		// @link https://datatracker.ietf.org/doc/html/rfc9126#name-error-response
 		$json = '{"error":"invalid_request","error_description":"The redirect_uri is not valid for the given client"}';
 
 		$response = $this->responseFactory
@@ -550,7 +550,7 @@ abstract class OAuth2ProviderUnitTestAbstract extends OAuthProviderUnitTestAbstr
 	/**
 	 * test values from RFC-7636, Appendix B
 	 *
-	 * @see https://datatracker.ietf.org/doc/html/rfc7636#appendix-B
+	 * @link https://datatracker.ietf.org/doc/html/rfc7636#appendix-B
 	 */
 	public static function challengeProvider():array{
 		$verifier = 'dBjftJeZ4CVP-mB92K27uhbUJU1p1r_wW1gFWFOEjXk';

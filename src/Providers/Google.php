@@ -18,9 +18,9 @@ use chillerlan\OAuth\Core\{AuthenticatedUser, CSRFToken, OAuth2Provider, UserInf
 /**
  * Google OAuth2
  *
- * @see https://developers.google.com/identity/protocols/oauth2/web-server
- * @see https://developers.google.com/identity/protocols/oauth2/service-account
- * @see https://developers.google.com/oauthplayground/
+ * @link https://developers.google.com/identity/protocols/oauth2/web-server
+ * @link https://developers.google.com/identity/protocols/oauth2/service-account
+ * @link https://developers.google.com/oauthplayground/
  */
 class Google extends OAuth2Provider implements CSRFToken, UserInfo{
 

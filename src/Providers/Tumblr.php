@@ -20,7 +20,7 @@ use function sprintf;
 /**
  * Tumblr OAuth1
  *
- * @see https://www.tumblr.com/docs/en/api/v2#oauth1-authorization
+ * @link https://www.tumblr.com/docs/en/api/v2#oauth1-authorization
  */
 class Tumblr extends OAuth1Provider implements UserInfo{
 
@@ -53,7 +53,7 @@ class Tumblr extends OAuth1Provider implements UserInfo{
 	/**
 	 * Exchange the current token for an OAuth2 token - this will invalidate the OAuth1 token.
 	 *
-	 * @see https://www.tumblr.com/docs/en/api/v2#v2oauth2exchange---oauth1-to-oauth2-token-exchange
+	 * @link https://www.tumblr.com/docs/en/api/v2#v2oauth2exchange---oauth1-to-oauth2-token-exchange
 	 *
 	 * @throws \chillerlan\OAuth\Providers\ProviderException
 	 */

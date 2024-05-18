@@ -21,8 +21,8 @@ use function array_merge;
 /**
  * Mastodon OAuth2 (v4.x instances)
  *
- * @see https://docs.joinmastodon.org/client/intro/
- * @see https://docs.joinmastodon.org/methods/apps/oauth/
+ * @link https://docs.joinmastodon.org/client/intro/
+ * @link https://docs.joinmastodon.org/methods/apps/oauth/
  */
 class Mastodon extends OAuth2Provider implements CSRFToken, TokenRefresh, UserInfo{
 

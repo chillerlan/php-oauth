@@ -140,7 +140,7 @@ abstract class OAuth1ProviderUnitTestAbstract extends OAuthProviderUnitTestAbstr
 
 	public function testParseTokenResponseConfirmCallbackException():void{
 		$this->expectException(ProviderException::class);
-		$this->expectExceptionMessage('oauth callback unconfirmed');
+		$this->expectExceptionMessage('invalid OAuth 1.0a response');
 
 		$body     = $this->streamFactory->createStream($this::TEST_ACCESS_TOKEN);
 		$response = $this->responseFactory->createResponse()->withBody($body);

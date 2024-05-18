@@ -19,8 +19,8 @@ use Psr\Http\Message\UriInterface;
  *
  * @todo: twitter is dead. fuck elon musk.
  *
- * @see https://dev.twitter.com/overview/api
- * @see https://developer.twitter.com/en/docs/basics/authentication/overview/application-only
+ * @link https://dev.twitter.com/overview/api
+ * @link https://developer.twitter.com/en/docs/basics/authentication/overview/application-only
  *
  * @todo: https://developer.twitter.com/en/docs/basics/authentication/api-reference/invalidate_token
  */

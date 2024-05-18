@@ -17,7 +17,7 @@ use function sprintf;
 /**
  * Tumblr OAuth2
  *
- * @see https://www.tumblr.com/docs/en/api/v2#oauth2-authorization
+ * @link https://www.tumblr.com/docs/en/api/v2#oauth2-authorization
  */
 class Tumblr2 extends OAuth2Provider implements CSRFToken, TokenRefresh, ClientCredentials, UserInfo{
 

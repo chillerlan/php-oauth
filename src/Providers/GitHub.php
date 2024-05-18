@@ -18,15 +18,15 @@ use chillerlan\OAuth\Core\{AuthenticatedUser, CSRFToken, OAuth2Provider, TokenRe
 /**
  * GitHub OAuth2
  *
- * @see https://docs.github.com/en/apps/oauth-apps/building-oauth-apps
- * @see https://docs.github.com/rest
- * @see https://docs.github.com/en/apps/creating-github-apps/authenticating-with-a-github-app/refreshing-user-access-tokens
+ * @link https://docs.github.com/en/apps/oauth-apps/building-oauth-apps
+ * @link https://docs.github.com/rest
+ * @link https://docs.github.com/en/apps/creating-github-apps/authenticating-with-a-github-app/refreshing-user-access-tokens
  */
 class GitHub extends OAuth2Provider implements CSRFToken, TokenRefresh, UserInfo{
 
 	public const IDENTIFIER = 'GITHUB';
 
-	// GitHub accepts both, comma and space, but the scopes in the token response are comma separated
+	// GitHub accepts both, comma and space, but the scopes in the token response are only comma separated
 	public const SCOPES_DELIMITER = ',';
 
 	public const SCOPE_USER             = 'user';

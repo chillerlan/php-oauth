@@ -24,10 +24,34 @@ use Psr\Log\LoggerInterface;
  */
 interface OAuthStorageInterface{
 
+	/*
+	 * Common
+	 */
+
 	/**
 	 * Sets a logger. (LoggerAwareInterface is stupid)
 	 */
 	public function setLogger(LoggerInterface $logger):static;
+
+	/**
+	 * Prepares an AccessToken for storage (serialize, encrypt etc.)
+	 * and returns a value that is suited for the underlying storage engine
+	 *
+	 * @throws \chillerlan\OAuth\Storage\OAuthStorageException
+	 */
+	public function toStorage(AccessToken $token):mixed;
+
+	/**
+	 * Retrieves token JOSN from the underlying storage engine and returns an AccessToken
+	 *
+	 * @throws \chillerlan\OAuth\Storage\OAuthStorageException
+	 */
+	public function fromStorage(mixed $data):AccessToken;
+
+
+	/*
+	 * Access token
+	 */
 
 	/**
 	 * Stores an AccessToken for the given $provider
@@ -63,6 +87,11 @@ interface OAuthStorageInterface{
 	 * @throws \chillerlan\OAuth\Storage\OAuthStorageException
 	 */
 	public function clearAllAccessTokens():static;
+
+
+	/*
+	 * CSRF state
+	 */
 
 	/**
 	 * Stores a CSRF <state> value for the given $provider
@@ -100,6 +129,10 @@ interface OAuthStorageInterface{
 	public function clearAllCSRFStates():static;
 
 
+	/*
+	 * PKCE verifier
+	 */
+
 	/**
 	 * Stores a PKCE verifier
 	 */
@@ -124,20 +157,5 @@ interface OAuthStorageInterface{
 	 * Deletes all PKCE verifiers for this user
 	 */
 	public function clearAllCodeVerifiers():static;
-
-	/**
-	 * Prepares an AccessToken for storage (serialize, encrypt etc.)
-	 * and returns a value that is suited for the underlying storage engine
-	 *
-	 * @throws \chillerlan\OAuth\Storage\OAuthStorageException
-	 */
-	public function toStorage(AccessToken $token):mixed;
-
-	/**
-	 * Retrieves token JOSN from the underlying storage engine and returns an AccessToken
-	 *
-	 * @throws \chillerlan\OAuth\Storage\OAuthStorageException
-	 */
-	public function fromStorage(mixed $data):AccessToken;
 
 }

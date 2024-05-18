@@ -19,9 +19,9 @@ use function sprintf;
 /**
  * Codeberg OAuth2
  *
- * @see https://forgejo.org/docs/latest/user/oauth2-provider/
- * @see https://forgejo.org/docs/latest/user/token-scope/
- * @see https://codeberg.org/api/swagger
+ * @link https://forgejo.org/docs/latest/user/oauth2-provider/
+ * @link https://forgejo.org/docs/latest/user/token-scope/
+ * @link https://codeberg.org/api/swagger
  */
 class Codeberg extends OAuth2Provider implements CSRFToken, PKCE, TokenRefresh, UserInfo{
 

@@ -20,8 +20,8 @@ use function array_merge, sprintf;
 /**
  * MailChimp OAuth2
  *
- * @see https://mailchimp.com/developer/
- * @see https://mailchimp.com/developer/marketing/guides/access-user-data-oauth-2/
+ * @link https://mailchimp.com/developer/
+ * @link https://mailchimp.com/developer/marketing/guides/access-user-data-oauth-2/
  */
 class MailChimp extends OAuth2Provider implements CSRFToken, UserInfo{
 
@@ -109,7 +109,7 @@ class MailChimp extends OAuth2Provider implements CSRFToken, UserInfo{
 	}
 
 	/**
-	 * @see https://mailchimp.com/developer/marketing/api/root/list-api-root-resources/
+	 * @link https://mailchimp.com/developer/marketing/api/root/list-api-root-resources/
 	 *
 	 * @inheritDoc
 	 * @codeCoverageIgnore

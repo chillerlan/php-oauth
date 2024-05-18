@@ -18,7 +18,7 @@ use function array_merge, sprintf;
 /**
  * Foursquare OAuth2
  *
- * @see https://location.foursquare.com/developer/reference/personalization-apis-authentication
+ * @link https://location.foursquare.com/developer/reference/personalization-apis-authentication
  */
 class Foursquare extends OAuth2Provider implements UserInfo{
 

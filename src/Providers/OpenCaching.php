@@ -17,7 +17,7 @@ use function implode;
 /**
  * Opencaching OAuth1
  *
- * @see https://www.opencaching.de/okapi/
+ * @link https://www.opencaching.de/okapi/
  */
 class OpenCaching extends OAuth1Provider implements UserInfo{
 

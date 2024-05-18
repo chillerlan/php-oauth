@@ -22,8 +22,8 @@ use function in_array, strtoupper;
 /**
  * MusicBrainz OAuth2
  *
- * @see https://musicbrainz.org/doc/Development
- * @see https://musicbrainz.org/doc/Development/OAuth2
+ * @link https://musicbrainz.org/doc/Development
+ * @link https://musicbrainz.org/doc/Development/OAuth2
  */
 class MusicBrainz extends OAuth2Provider implements CSRFToken, TokenInvalidate, TokenRefresh, UserInfo{
 

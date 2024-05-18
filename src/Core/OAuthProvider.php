@@ -6,6 +6,8 @@
  * @author       Smiley <smiley@chillerlan.net>
  * @copyright    2017 Smiley
  * @license      MIT
+ *
+ * @filesource
  */
 declare(strict_types=1);
 
@@ -37,64 +39,56 @@ abstract class OAuthProvider implements OAuthInterface{
 	/**
 	 * the authorization URL
 	 */
-	protected string $authorizationURL;
+	protected string $authorizationURL = '';
+
+	/**
+	 * the provider's access token exchange URL
+	 */
+	protected string $accessTokenURL = '';
 
 	/**
 	 * an optional URL for application side token revocation
 	 *
 	 * @see \chillerlan\OAuth\Core\TokenInvalidate
 	 */
-	protected string $revokeURL;
+	protected string $revokeURL = '';
 
 	/**
-	 * the provider's access token exchange URL
+	 * magic properties
+	 *
+	 * @var string[]
 	 */
-	protected string $accessTokenURL;
-
-	/*
-	 * magic properties (public readonly would be cool if the implementation wasn't fucking stupid)
-	 */
-
-	/** @var string[] */
 	protected const MAGIC_PROPERTIES = [
 		'apiDocs', 'apiURL', 'applicationURL', 'name', 'userRevokeURL',
 	];
 
-	/**
-	 * the name of the provider/class (magic)
+	/*
+	 * magic properties (doc in interface docblock)
 	 */
-	protected string $name;
 
-	/**
-	 * the API base URL (magic)
-	 */
-	protected string $apiURL;
-
-	/**
-	 * an optional link to the provider's API docs (magic)
-	 */
-	protected string|null $apiDocs = null;
-
-	/**
-	 * an optional URL to the provider's credential registration/application page (magic)
-	 */
+	protected string      $name           = '';
+	protected string      $apiURL         = '';
+	protected string|null $apiDocs        = null;
 	protected string|null $applicationURL = null;
-
-	/**
-	 * an optional link to the page where a user can revoke access tokens (magic)
-	 */
-	protected string|null $userRevokeURL = null;
+	protected string|null $userRevokeURL  = null;
 
 	/**
 	 * OAuthProvider constructor.
 	 */
 	final public function __construct(
+		/** The options instance */
 		protected OAuthOptions|SettingsContainerInterface $options,
+		/** The PSR-18 HTTP client */
 		protected ClientInterface                         $http,
+		/** A PSR-17 request factory */
 		protected RequestFactoryInterface                 $requestFactory,
+		/** A PSR-17 stream factory */
 		protected StreamFactoryInterface                  $streamFactory,
+		/** A PSR-17 URI factory */
 		protected UriFactoryInterface                     $uriFactory,
+		/** A storage instance */
 		protected OAuthStorageInterface                   $storage = new MemoryStorage,
+		/** A PSR-3 logger */
 		protected LoggerInterface                         $logger = new NullLogger,
 	){
 		$this->name = (new ReflectionClass($this))->getShortName();
@@ -248,8 +242,8 @@ abstract class OAuthProvider implements OAuthInterface{
 	/**
 	 * returns a 32 byte random string (in hexadecimal representation) for use as a nonce
 	 *
-	 * @see https://datatracker.ietf.org/doc/html/rfc5849#section-3.3
-	 * @see https://datatracker.ietf.org/doc/html/rfc6749#section-10.12
+	 * @link https://datatracker.ietf.org/doc/html/rfc5849#section-3.3
+	 * @link https://datatracker.ietf.org/doc/html/rfc6749#section-10.12
 	 */
 	protected function nonce(int $bytes = 32):string{
 		return sodium_bin2hex(random_bytes($bytes));
@@ -336,7 +330,7 @@ abstract class OAuthProvider implements OAuthInterface{
 				};
 			}
 			catch(UnhandledMatchError){
-				throw new ProviderException('invalid content-type for the given array body');
+				throw new ProviderException(sprintf('invalid content-type "%s" for the given array body', $contentType));
 			}
 
 		}

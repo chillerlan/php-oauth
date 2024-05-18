@@ -22,21 +22,25 @@ use Psr\Http\Message\{
 /**
  * Specifies the basic methods for an OAuth provider.
  *
- * @property string      $name
- * @property string      $apiURL
- * @property string|null $apiDocs
- * @property string|null $applicationURL
- * @property string|null $userRevokeURL
+ * @property string      $name           (magic) The name of the provider/class
+ * @property string      $apiURL         (magic) The API base URL
+ * @property string|null $apiDocs        (magic) An optional link to the provider's API docs
+ * @property string|null $applicationURL (magic) An optional URL to the provider's credential registration/application page
+ * @property string|null $userRevokeURL  (magic) An optional link to the page where a user can revoke access tokens
  */
 interface OAuthInterface extends ClientInterface{
 
 	/**
 	 * A common user agent string that can be used in requests
+	 *
+	 * @var string
 	 */
 	public const USER_AGENT = 'chillerlanPhpOAuth/1.0.0 +https://github.com/chillerlan/php-oauth';
 
 	/**
 	 * An identifier for the provider, usually the class name in ALLCAPS (required)
+	 *
+	 * @var string
 	 */
 	public const IDENTIFIER = '';
 
@@ -79,10 +83,13 @@ interface OAuthInterface extends ClientInterface{
 	 * If the provider supports RFC-9126 "Pushed Authorization Requests (PAR)", a request to the PAR endpoint
 	 * shall be made within this method in order to send authorization data and obtain a temporary request URI.
 	 *
-	 * @see https://datatracker.ietf.org/doc/html/rfc5849#section-2.2
-	 * @see https://datatracker.ietf.org/doc/html/rfc6749#section-4.1.1
-	 * @see https://datatracker.ietf.org/doc/html/rfc9126
+	 * @link https://datatracker.ietf.org/doc/html/rfc5849#section-2.2
+	 * @link https://datatracker.ietf.org/doc/html/rfc6749#section-4.1.1
+	 * @link https://datatracker.ietf.org/doc/html/rfc9126
 	 * @see \chillerlan\OAuth\Core\PAR
+	 *
+	 * @param string[]|null $params
+	 * @param string[]|null $scopes
 	 */
 	public function getAuthorizationURL(array|null $params = null, array|null $scopes = null):UriInterface;
 
@@ -90,7 +97,7 @@ interface OAuthInterface extends ClientInterface{
 	 * Authorizes the $request with the credentials from the given $token
 	 * and returns a PSR-7 RequestInterface with all necessary headers and/or parameters set
 	 *
-	 * @internal
+	 * @see \chillerlan\OAuth\Core\OAuthProvider::sendRequest()
 	 */
 	public function getRequestAuthorization(RequestInterface $request, AccessToken|null $token = null):RequestInterface;
 

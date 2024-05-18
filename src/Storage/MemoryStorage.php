@@ -29,6 +29,11 @@ class MemoryStorage extends OAuthStorageAbstract{
 		self::KEY_VERIFIER => [],
 	];
 
+
+	/*
+	 * Access token
+	 */
+
 	/**
 	 * @inheritDoc
 	 */
@@ -75,6 +80,11 @@ class MemoryStorage extends OAuthStorageAbstract{
 		return $this;
 	}
 
+
+	/*
+	 * CSRF state
+	 */
+
 	/**
 	 * @inheritDoc
 	 */
@@ -120,6 +130,11 @@ class MemoryStorage extends OAuthStorageAbstract{
 
 		return $this;
 	}
+
+
+	/*
+	 * PKCE verifier
+	 */
 
 	/**
 	 * @inheritDoc

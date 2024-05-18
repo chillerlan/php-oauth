@@ -13,6 +13,9 @@ namespace chillerlan\OAuth;
 
 use RuntimeException;
 
+/**
+ * Generic exception container
+ */
 class OAuthException extends RuntimeException{
 
 }

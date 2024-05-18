@@ -17,7 +17,7 @@ use function in_array, ltrim, rtrim, sprintf, strtolower;
 /**
  * Battle.net OAuth2
  *
- * @see https://develop.battle.net/documentation/guides/using-oauth
+ * @link https://develop.battle.net/documentation/guides/using-oauth
  */
 class BattleNet extends OAuth2Provider implements ClientCredentials, CSRFToken, UserInfo{
 
@@ -40,7 +40,7 @@ class BattleNet extends OAuth2Provider implements ClientCredentials, CSRFToken, 
 	protected string|null $userRevokeURL  = 'https://account.blizzard.com/connections';
 
 	// the URL for the "OAuth" endpoints
-	// @see https://develop.battle.net/documentation/battle-net/oauth-apis
+	// @link https://develop.battle.net/documentation/battle-net/oauth-apis
 	protected string $battleNetOauth      = 'https://oauth.battle.net';
 	protected string $region              = 'eu';
 	// these URLs will be set dynamically, depending on the chose datacenter

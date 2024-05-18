@@ -23,8 +23,8 @@ use function implode, preg_match, str_starts_with, substr;
  *
  * Note: GW2 does not support authentication (anymore) but the API still works like a regular OAUth API, so...
  *
- * @see https://api.guildwars2.com/v2
- * @see https://wiki.guildwars2.com/wiki/API:Main
+ * @link https://api.guildwars2.com/v2
+ * @link https://wiki.guildwars2.com/wiki/API:Main
  */
 class GuildWars2 extends OAuth2Provider implements UserInfo{
 

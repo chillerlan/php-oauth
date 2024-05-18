@@ -16,7 +16,7 @@ use chillerlan\OAuth\Core\{AuthenticatedUser, UserInfo};
 /**
  * Microsoft Graph OAuth2
  *
- * @see https://learn.microsoft.com/en-us/graph/permissions-reference
+ * @link https://learn.microsoft.com/en-us/graph/permissions-reference
  */
 class MicrosoftGraph extends AzureActiveDirectory implements UserInfo{
 

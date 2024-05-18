@@ -18,7 +18,7 @@ use chillerlan\OAuth\Core\{AuthenticatedUser, OAuth2Provider, UserInfo};
  *
  * note: a missing slash at the end of the path will end up in a HTTP/301
  *
- * @see https://www.mixcloud.com/developers/
+ * @link https://www.mixcloud.com/developers/
  */
 class Mixcloud extends OAuth2Provider implements UserInfo{
 

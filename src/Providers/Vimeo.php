@@ -22,15 +22,15 @@ use function str_replace;
 /**
  * Vimeo OAuth2
  *
- * @see https://developer.vimeo.com/
- * @see https://developer.vimeo.com/api/authentication
+ * @link https://developer.vimeo.com/
+ * @link https://developer.vimeo.com/api/authentication
  */
 class Vimeo extends OAuth2Provider implements ClientCredentials, CSRFToken, TokenInvalidate, UserInfo{
 
 	public const IDENTIFIER = 'VIMEO';
 
 	/**
-	 * @see https://developer.vimeo.com/api/authentication#understanding-the-auth-process
+	 * @link https://developer.vimeo.com/api/authentication#understanding-the-auth-process
 	 */
 	public const SCOPE_PUBLIC      = 'public';
 	public const SCOPE_PRIVATE     = 'private';
@@ -51,7 +51,7 @@ class Vimeo extends OAuth2Provider implements ClientCredentials, CSRFToken, Toke
 		self::SCOPE_STATS,
 	];
 
-	// @see https://developer.vimeo.com/api/changelog
+	// @link https://developer.vimeo.com/api/changelog
 	protected const API_VERSION    = '3.4';
 
 	public const HEADERS_AUTH = [

@@ -18,7 +18,7 @@ use chillerlan\OAuth\Core\{AuthenticatedUser, ClientCredentials, CSRFToken, OAut
 /**
  * PayPal OAuth2
  *
- * @see https://developer.paypal.com/api/rest/
+ * @link https://developer.paypal.com/api/rest/
  */
 class PayPal extends OAuth2Provider implements ClientCredentials, CSRFToken, TokenRefresh, UserInfo{
 

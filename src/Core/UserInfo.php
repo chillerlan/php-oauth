@@ -11,7 +11,7 @@
 namespace chillerlan\OAuth\Core;
 
 /**
- * This nterface indicates whether the service can provide information about the currently authenticated user,
+ * Indicates whether the service can provide information about the currently authenticated user,
  * usually via a "/me", "/user" or "/tokeninfo" endpoint.
  */
 interface UserInfo{

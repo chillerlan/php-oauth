@@ -16,7 +16,7 @@ use chillerlan\OAuth\Core\{AuthenticatedUser, ClientCredentials, CSRFToken, OAut
 /**
  * GitLab OAuth2
  *
- * @see https://docs.gitlab.com/ee/api/oauth2.html
+ * @link https://docs.gitlab.com/ee/api/oauth2.html
  */
 class GitLab extends OAuth2Provider implements ClientCredentials, CSRFToken, TokenRefresh, UserInfo{
 

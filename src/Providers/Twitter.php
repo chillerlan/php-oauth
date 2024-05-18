@@ -19,16 +19,16 @@ use function sprintf, str_replace;
  *
  * @todo: twitter is dead. fuck elon musk.
  *
- * @see https://developer.twitter.com/en/docs/basics/authentication/overview/oauth
+ * @link https://developer.twitter.com/en/docs/basics/authentication/overview/oauth
  */
 class Twitter extends OAuth1Provider implements UserInfo{
 
 	public const IDENTIFIER = 'TWITTER';
 
 	// choose your fighter
-	/** @see https://developer.twitter.com/en/docs/basics/authentication/api-reference/authorize */
+	/** @link https://developer.twitter.com/en/docs/basics/authentication/api-reference/authorize */
 	protected string $authorizationURL     = 'https://api.twitter.com/oauth/authorize';
-	/** @see https://developer.twitter.com/en/docs/basics/authentication/api-reference/authenticate */
+	/** @link https://developer.twitter.com/en/docs/basics/authentication/api-reference/authenticate */
 #	protected string $authorizationURL     = 'https://api.twitter.com/oauth/authenticate';
 
 	protected string      $requestTokenURL = 'https://api.twitter.com/oauth/request_token';

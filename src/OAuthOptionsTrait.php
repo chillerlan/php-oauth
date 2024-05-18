@@ -12,7 +12,7 @@ declare(strict_types=1);
 namespace chillerlan\OAuth;
 
 use chillerlan\OAuth\Storage\OAuthStorageException;
-use function is_dir, is_writable, max, min, preg_match, realpath, sprintf, strtolower, trim;
+use function is_dir, is_writable, max, min, preg_match, realpath, sprintf, trim;
 
 /**
  * The settings for the OAuth provider
@@ -94,7 +94,7 @@ trait OAuthOptionsTrait{
 	/**
 	 * The length of the PKCE challenge verifier (43-128 characters)
 	 *
-	 * @see https://datatracker.ietf.org/doc/html/rfc7636#section-4.1
+	 * @link https://datatracker.ietf.org/doc/html/rfc7636#section-4.1
 	 */
 	protected int $pkceVerifierLength = 128;
 
@@ -102,9 +102,8 @@ trait OAuthOptionsTrait{
 	 * sets an encryption key
 	 */
 	protected function set_storageEncryptionKey(string $storageEncryptionKey):void{
-		$storageEncryptionKey = strtolower($storageEncryptionKey);
 
-		if(!preg_match('/^[a-f0-9]{64}$/', $storageEncryptionKey)){
+		if(!preg_match('/^[a-f\d]{64}$/i', $storageEncryptionKey)){
 			throw new OAuthStorageException('invalid encryption key');
 		}
 

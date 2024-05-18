@@ -6,6 +6,8 @@
  * @author       smiley <smiley@chillerlan.net>
  * @copyright    2024 smiley
  * @license      MIT
+ *
+ * @filesource
  */
 declare(strict_types=1);
 

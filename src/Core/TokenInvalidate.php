@@ -25,6 +25,8 @@ interface TokenInvalidate{
 	 * Returns true if the operation was successful, false otherwise.
 	 * May throw a ProviderException if an error occurred.
 	 *
+	 * @see \chillerlan\OAuth\Core\OAuthProvider::$revokeURL
+	 *
 	 * @throws \chillerlan\OAuth\Providers\ProviderException
 	 */
 	public function invalidateAccessToken(AccessToken|null $token = null):bool;

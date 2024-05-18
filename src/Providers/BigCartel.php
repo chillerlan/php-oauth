@@ -17,8 +17,8 @@ use function sprintf;
 /**
  * BigCartel OAuth2
  *
- * @see https://developers.bigcartel.com/api/v1
- * @see https://bigcartel.wufoo.com/confirm/big-cartel-api-application/
+ * @link https://developers.bigcartel.com/api/v1
+ * @link https://bigcartel.wufoo.com/confirm/big-cartel-api-application/
  */
 class BigCartel extends OAuth2Provider implements CSRFToken, TokenInvalidate, UserInfo{
 

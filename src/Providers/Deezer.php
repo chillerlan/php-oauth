@@ -21,7 +21,7 @@ use function array_merge, implode, trim;
 /**
  * Deezer OAuth2
  *
- * @see https://developers.deezer.com/api/oauth
+ * @link https://developers.deezer.com/api/oauth
  */
 class Deezer extends OAuth2Provider implements CSRFToken, UserInfo{
 

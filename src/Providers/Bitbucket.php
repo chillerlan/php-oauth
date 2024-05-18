@@ -16,7 +16,7 @@ use chillerlan\OAuth\Core\{AuthenticatedUser, ClientCredentials, CSRFToken, OAut
 /**
  * Bitbucket OAuth2 (Atlassian)
  *
- * @see https://developer.atlassian.com/cloud/bitbucket/oauth-2/
+ * @link https://developer.atlassian.com/cloud/bitbucket/oauth-2/
  */
 class Bitbucket extends OAuth2Provider implements ClientCredentials, CSRFToken, TokenRefresh, UserInfo{
 

@@ -12,7 +12,11 @@ declare(strict_types=1);
 namespace chillerlan\OAuth\Core;
 
 /**
+ * Thrown when an access token is expired and cannot be refreshed
  *
+ * @see \chillerlan\OAuth\Core\TokenRefresh
+ * @see \chillerlan\OAuth\Core\OAuth1Provider::getRequestAuthorization()
+ * @see \chillerlan\OAuth\Core\OAuth2Provider::getRequestAuthorization()
  */
 class InvalidAccessTokenException extends UnauthorizedAccessException{
 

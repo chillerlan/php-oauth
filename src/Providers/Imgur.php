@@ -20,7 +20,7 @@ use function sprintf, time;
  * Note: imgur sends an "expires_in" of 315360000 (10 years!) for access tokens,
  *       but states in the docs that tokens expire after one month.
  *
- * @see https://apidocs.imgur.com/
+ * @link https://apidocs.imgur.com/
  */
 class Imgur extends OAuth2Provider implements CSRFToken, TokenRefresh, UserInfo{
 

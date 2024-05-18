@@ -18,16 +18,16 @@ use chillerlan\OAuth\Core\{AuthenticatedUser, ClientCredentials, CSRFToken, OAut
 /**
  * Spotify OAuth2
  *
- * @see https://developer.spotify.com/documentation/web-api
- * @see https://developer.spotify.com/documentation/web-api/tutorials/code-flow
- * @see https://developer.spotify.com/documentation/web-api/tutorials/client-credentials-flow
+ * @link https://developer.spotify.com/documentation/web-api
+ * @link https://developer.spotify.com/documentation/web-api/tutorials/code-flow
+ * @link https://developer.spotify.com/documentation/web-api/tutorials/client-credentials-flow
  */
 class Spotify extends OAuth2Provider implements ClientCredentials, CSRFToken, TokenRefresh, UserInfo{
 
 	public const IDENTIFIER = 'SPOTIFY';
 
 	/**
-	 * @see https://developer.spotify.com/documentation/web-api/concepts/scopes
+	 * @link https://developer.spotify.com/documentation/web-api/concepts/scopes
 	 */
 	// images
 	public const SCOPE_UGC_IMAGE_UPLOAD            = 'ugc-image-upload';

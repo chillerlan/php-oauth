@@ -53,6 +53,5 @@ return [
 	],
 	'suppress_issue_types'            => [
 		'PhanUndeclaredGlobalVariable', // happens in get-token examples
-		'PhanAccessMethodInternal', // interface methods tagged as @internal
 	],
 ];

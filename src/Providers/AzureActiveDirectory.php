@@ -16,9 +16,9 @@ use chillerlan\OAuth\Core\{CSRFToken, OAuth2Provider};
 /**
  * Microsoft identity platform (OAuth2)
  *
- * @see https://learn.microsoft.com/en-us/entra/identity-platform/v2-app-types
- * @see https://learn.microsoft.com/en-us/entra/identity-platform/v2-oauth2-auth-code-flow
- * @see https://learn.microsoft.com/en-us/entra/identity-platform/v2-oauth2-client-creds-grant-flow
+ * @link https://learn.microsoft.com/en-us/entra/identity-platform/v2-app-types
+ * @link https://learn.microsoft.com/en-us/entra/identity-platform/v2-oauth2-auth-code-flow
+ * @link https://learn.microsoft.com/en-us/entra/identity-platform/v2-oauth2-client-creds-grant-flow
  */
 abstract class AzureActiveDirectory extends OAuth2Provider implements CSRFToken{
 

@@ -37,16 +37,16 @@ foreach(Utilities::getProviders() as $p){
 	/** @var \OAuthExampleProviderFactory $factory */
 	$provider = $factory->getProvider($p['fqcn'], OAuthExampleProviderFactory::STORAGE_MEMORY);
 
-	$oauth = match(true){
+	$oauthVersion = match(true){
 		$provider instanceof OAuth2Interface => '2',
 		$provider instanceof OAuth1Interface => '1',
 		default                              => '-',
 	};
 
-	$table[] = '| ['.$p['name'].']('.$provider->apiDocs.')'.
-		' | [link]('.$provider->applicationURL.')'.
-		' | '.($provider->userRevokeURL !== null ? '[link]('.$provider->userRevokeURL.')' : '').
-		' | '.$oauth.
+	$table[] = '| ['.$provider->getName().']('.$provider->getApiDocURL().')'.
+		' | [link]('.$provider->getApplicationURL().')'.
+		' | '.($provider->getUserRevokeURL() !== null ? '[link]('.$provider->getUserRevokeURL().')' : '').
+		' | '.$oauthVersion.
 		' | '.(($provider instanceof UserInfo) ? '✓' : '').
 		' | '.(($provider instanceof CSRFToken) ? '✓' : '').
 		' | '.(($provider instanceof PKCE) ? '✓' : '').

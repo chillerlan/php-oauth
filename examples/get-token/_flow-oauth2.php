@@ -18,7 +18,7 @@ use chillerlan\OAuth\Core\{CSRFToken, UserInfo};
  * @var array|null $SCOPES
  */
 
-$name = $provider->name;
+$name = $provider->getName();
 
 // step 2: redirect to the provider's login screen
 if(isset($_GET['login']) && $_GET['login'] === $name){

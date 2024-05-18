@@ -43,15 +43,6 @@ abstract class OAuthProviderUnitTestAbstract extends ProviderUnitTestAbstract{
 		$this::assertInstanceOf($this->getProviderFQCN(), $this->provider);
 	}
 
-	public function testMagicGet():void{
-		$this::assertSame($this->reflection->getShortName(), $this->provider->name);
-		/**
-		 * @noinspection PhpUndefinedFieldInspection
-		 * @phan-suppress-next-next-line PhanUndeclaredProperty
-		 */
-		$this::assertNull($this->provider->foo);
-	}
-
 	public function testIdentifierIsNonEmpty():void{
 		$this::assertNotEmpty($this->provider::IDENTIFIER);
 	}
@@ -213,9 +204,9 @@ abstract class OAuthProviderUnitTestAbstract extends ProviderUnitTestAbstract{
 
 		$this->provider->storeAccessToken($this->getTestToken());
 
-		$this::assertTrue($this->storage->hasAccessToken($this->provider->name));
+		$this::assertTrue($this->storage->hasAccessToken($this->provider->getName()));
 		$this::assertTrue($this->provider->invalidateAccessToken());
-		$this::assertFalse($this->storage->hasAccessToken($this->provider->name));
+		$this::assertFalse($this->storage->hasAccessToken($this->provider->getName()));
 
 		// token via param
 
@@ -226,7 +217,7 @@ abstract class OAuthProviderUnitTestAbstract extends ProviderUnitTestAbstract{
 		$this->provider->storeAccessToken($token2);
 
 		$this::assertTrue($this->provider->invalidateAccessToken($token));
-		$this::assertSame('still here', $this->provider->getStorage()->getAccessToken($this->provider->name)->accessToken);
+		$this::assertSame('still here', $this->provider->getStorage()->getAccessToken($this->provider->getName())->accessToken);
 	}
 
 	public function testTokenInvalidateNoTokenException():void{

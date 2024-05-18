@@ -32,9 +32,9 @@ final class BigCartelTest extends OAuth2ProviderUnitTestAbstract{
 
 		$this->provider->storeAccessToken(new AccessToken(['expires' => 42, 'extraParams' => ['account_id' => 69]]));
 
-		$this::assertTrue($this->storage->hasAccessToken($this->provider->name));
+		$this::assertTrue($this->storage->hasAccessToken($this->provider->getName()));
 		$this::assertTrue($this->provider->invalidateAccessToken());
-		$this::assertFalse($this->storage->hasAccessToken($this->provider->name));
+		$this::assertFalse($this->storage->hasAccessToken($this->provider->getName()));
 	}
 
 }

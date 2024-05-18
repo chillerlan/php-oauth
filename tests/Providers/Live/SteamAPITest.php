@@ -28,7 +28,7 @@ final class SteamAPITest extends OAuthProviderLiveTestAbstract{
 	protected function setUp():void{
 		parent::setUp();
 
-		$token = $this->storage->getAccessToken($this->provider->name);
+		$token = $this->storage->getAccessToken($this->provider->getName());
 
 		$this->id = $token->extraParams['id_int']; // SteamID64
 	}

@@ -34,9 +34,9 @@ class RedditTest extends OAuth2ProviderUnitTestAbstract{
 
 		$this->provider->storeAccessToken($token);
 
-		$this::assertTrue($this->storage->hasAccessToken($this->provider->name));
+		$this::assertTrue($this->storage->hasAccessToken($this->provider->getName()));
 		$this::assertTrue($this->provider->invalidateAccessToken());
-		$this::assertFalse($this->storage->hasAccessToken($this->provider->name));
+		$this::assertFalse($this->storage->hasAccessToken($this->provider->getName()));
 
 		// token via param
 
@@ -47,7 +47,7 @@ class RedditTest extends OAuth2ProviderUnitTestAbstract{
 		$this->provider->storeAccessToken($token2);
 
 		$this::assertTrue($this->provider->invalidateAccessToken($token));
-		$this::assertSame('still here', $this->provider->getStorage()->getAccessToken($this->provider->name)->accessToken);
+		$this::assertSame('still here', $this->provider->getStorage()->getAccessToken($this->provider->getName())->accessToken);
 	}
 
 }

@@ -199,7 +199,7 @@ abstract class ProviderUnitTestAbstract extends TestCase{
 			'expires'           => 42,
 			// patreon requires a scope set
 			'scopes'            => ['identity', 'scope1', 'scope2'],
-			'provider'          => $this->provider->name,
+			'provider'          => $this->provider->getName(),
 		];
 
 		return new AccessToken($params);

@@ -21,12 +21,6 @@ use Psr\Http\Message\{
 
 /**
  * Specifies the basic methods for an OAuth provider.
- *
- * @property string      $name           (magic) The name of the provider/class
- * @property string      $apiURL         (magic) The API base URL
- * @property string|null $apiDocs        (magic) An optional link to the provider's API docs
- * @property string|null $applicationURL (magic) An optional URL to the provider's credential registration/application page
- * @property string|null $userRevokeURL  (magic) An optional link to the page where a user can revoke access tokens
  */
 interface OAuthInterface extends ClientInterface{
 
@@ -75,6 +69,26 @@ interface OAuthInterface extends ClientInterface{
 	 * @var string
 	 */
 	public const SCOPES_DELIMITER = ' ';
+
+	/**
+	 * Returns the name of the provider/class
+	 */
+	public function getName():string;
+
+	/**
+	 * Returns the link to the provider's API docs, or null if the value is not set
+	 */
+	public function getApiDocURL():string|null;
+
+	/**
+	 * Returns the link to the provider's credential registration/application page, or null if the value is not set
+	 */
+	public function getApplicationURL():string|null;
+
+	/**
+	 * Returns the link to the page where a user can revoke access tokens, or null if the value is not set
+	 */
+	public function getUserRevokeURL():string|null;
 
 	/**
 	 * Prepares the URL with optional $params which redirects to the provider's authorization prompt

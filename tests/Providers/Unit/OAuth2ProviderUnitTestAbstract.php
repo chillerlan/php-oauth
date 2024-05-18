@@ -204,15 +204,15 @@ abstract class OAuth2ProviderUnitTestAbstract extends OAuthProviderUnitTestAbstr
 	public function testGetAccessToken():void{
 		$this->setMockResponse($this->streamFactory->createStream($this::TEST_TOKEN));
 
-		$this->storage->storeCSRFState('mock_test_state', $this->provider->name);
+		$this->storage->storeCSRFState('mock_test_state', $this->provider->getName());
 
 		if($this->provider instanceof PKCE){
 			// store a PKCE verifier that is used in this test
 			$verifier = $this->provider->generateVerifier($this->options->pkceVerifierLength);
 
-			$this->storage->storeCodeVerifier($verifier, $this->provider->name);
+			$this->storage->storeCodeVerifier($verifier, $this->provider->getName());
 
-			$this::assertTrue($this->storage->hasCodeVerifier($this->provider->name));
+			$this::assertTrue($this->storage->hasCodeVerifier($this->provider->getName()));
 		}
 
 		$token = $this->provider->getAccessToken('code', 'mock_test_state');
@@ -222,14 +222,14 @@ abstract class OAuth2ProviderUnitTestAbstract extends OAuthProviderUnitTestAbstr
 
 		if($this->provider instanceof PKCE){
 			// the verifier should have been deleted in the process
-			$this::assertFalse($this->storage->hasCodeVerifier($this->provider->name));
+			$this::assertFalse($this->storage->hasCodeVerifier($this->provider->getName()));
 		}
 	}
 
 	public function testGetAccessTokenRequestBodyParams():void{
 		$verifier = $this->provider->generateVerifier($this->options->pkceVerifierLength);
 
-		$this->storage->storeCodeVerifier($verifier, $this->provider->name);
+		$this->storage->storeCodeVerifier($verifier, $this->provider->getName());
 
 		$params = $this->invokeReflectionMethod('getAccessTokenRequestBodyParams', ['*test_code*']);
 
@@ -306,14 +306,14 @@ abstract class OAuth2ProviderUnitTestAbstract extends OAuthProviderUnitTestAbstr
 			// expiry unknown
 		]);
 
-		$this->storage->storeAccessToken($token, $this->provider->name);
+		$this->storage->storeAccessToken($token, $this->provider->getName());
 		$this->setMockResponse($this->streamFactory->createStream($this::TEST_TOKEN));
 
 		$request = $this->requestFactory->createRequest('GET', 'https://foo.bar');
 		$this->provider->getRequestAuthorization($request);
 
 		// token was refreshed
-		$token = $this->storage->getAccessToken($this->provider->name);
+		$token = $this->storage->getAccessToken($this->provider->getName());
 		$this->assertSame('2YotnFZFEjr1zCsicMWpAA', $token->accessToken);
 	}
 
@@ -394,8 +394,8 @@ abstract class OAuth2ProviderUnitTestAbstract extends OAuthProviderUnitTestAbstr
 		$params = $this->provider->setState(['foo' => 'bar']);
 
 		$this::assertArrayHasKey('state', $params);
-		$this::assertTrue($this->storage->hasCSRFState($this->provider->name));
-		$this::assertSame($params['state'], $this->storage->getCSRFState($this->provider->name));
+		$this::assertTrue($this->storage->hasCSRFState($this->provider->getName()));
+		$this::assertSame($params['state'], $this->storage->getCSRFState($this->provider->getName()));
 	}
 
 	public function testCheckCSRFState():void{
@@ -404,14 +404,14 @@ abstract class OAuth2ProviderUnitTestAbstract extends OAuthProviderUnitTestAbstr
 			$this->markTestSkipped('CSRFToken N/A');
 		}
 
-		$this->storage->storeCSRFState('test_state', $this->provider->name);
+		$this->storage->storeCSRFState('test_state', $this->provider->getName());
 
-		$this::assertTrue($this->storage->hasCSRFState($this->provider->name));
+		$this::assertTrue($this->storage->hasCSRFState($this->provider->getName()));
 
 		// will delete the state after a successful check
 		$this->provider->checkState('test_state');
 
-		$this::assertFalse($this->storage->hasCSRFState($this->provider->name));
+		$this::assertFalse($this->storage->hasCSRFState($this->provider->getName()));
 	}
 
 	public function testCheckCSRFStateEmptyException():void{
@@ -446,7 +446,7 @@ abstract class OAuth2ProviderUnitTestAbstract extends OAuthProviderUnitTestAbstr
 		$this->expectException(CSRFStateMismatchException::class);
 		$this->expectExceptionMessage('CSRF state mismatch');
 
-		$this->storage->storeCSRFState('known_state', $this->provider->name);
+		$this->storage->storeCSRFState('known_state', $this->provider->getName());
 
 		$this->provider->checkState('unknown_state');
 	}

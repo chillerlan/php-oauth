@@ -37,11 +37,6 @@ use const PHP_QUERY_RFC1738, SODIUM_BASE64_VARIANT_ORIGINAL;
 abstract class OAuthProvider implements OAuthInterface{
 
 	/**
-	 * The options instance
-	 */
-	protected OAuthOptions|SettingsContainerInterface $options;
-
-	/**
 	 * The PSR-18 HTTP client
 	 */
 	protected ClientInterface $http;
@@ -62,50 +57,61 @@ abstract class OAuthProvider implements OAuthInterface{
 	protected UriFactoryInterface $uriFactory;
 
 	/**
-	 * A storage instance
-	 */
-	protected OAuthStorageInterface $storage;
-
-	/**
 	 * A PSR-3 logger
 	 */
 	protected LoggerInterface $logger;
 
 	/**
-	 * the authorization URL
+	 * The options instance
+	 */
+	protected OAuthOptions|SettingsContainerInterface $options;
+
+	/**
+	 * A storage instance
+	 */
+	protected OAuthStorageInterface $storage;
+
+	/**
+	 * The authorization URL
 	 */
 	protected string $authorizationURL = '';
 
 	/**
-	 * the provider's access token exchange URL
+	 * The access token exchange URL
 	 */
 	protected string $accessTokenURL = '';
 
 	/**
-	 * an optional URL for application side token revocation
+	 * An optional URL for application side token revocation
 	 *
 	 * @see \chillerlan\OAuth\Core\TokenInvalidate
 	 */
 	protected string $revokeURL = '';
 
 	/**
-	 * magic properties
-	 *
-	 * @var string[]
+	 * The API base URL
 	 */
-	protected const MAGIC_PROPERTIES = [
-		'apiDocs', 'apiURL', 'applicationURL', 'name', 'userRevokeURL',
-	];
+	protected string $apiURL = '';
 
-	/*
-	 * magic properties (doc in interface docblock)
+	/**
+	 * The name of the provider/class
 	 */
+	protected string $name = '';
 
-	protected string      $name           = '';
-	protected string      $apiURL         = '';
-	protected string|null $apiDocs        = null;
+	/**
+	 * An optional link to the provider's API docs
+	 */
+	protected string|null $apiDocs = null;
+
+	/**
+	 * An optional URL to the provider's credential registration/application page
+	 */
 	protected string|null $applicationURL = null;
-	protected string|null $userRevokeURL  = null;
+
+	/**
+	 * An optional link to the page where a user can revoke access tokens
+	 */
+	protected string|null $userRevokeURL = null;
 
 	/**
 	 * OAuthProvider constructor.
@@ -141,15 +147,35 @@ abstract class OAuthProvider implements OAuthInterface{
 	}
 
 	/**
-	 * Magic getter for the properties specified in self::ALLOWED_PROPERTIES
+	 * @inheritDoc
+	 * @codeCoverageIgnore
 	 */
-	final public function __get(string $name):string|null{
+	final public function getName():string{
+		return $this->name;
+	}
 
-		if(in_array($name, $this::MAGIC_PROPERTIES, true)){
-			return $this->{$name};
-		}
+	/**
+	 * @inheritDoc
+	 * @codeCoverageIgnore
+	 */
+	final public function getApiDocURL():string|null{
+		return $this->apiDocs;
+	}
 
-		return null;
+	/**
+	 * @inheritDoc
+	 * @codeCoverageIgnore
+	 */
+	final public function getApplicationURL():string|null{
+		return $this->applicationURL;
+	}
+
+	/**
+	 * @inheritDoc
+	 * @codeCoverageIgnore
+	 */
+	final public function getUserRevokeURL():string|null{
+		return $this->userRevokeURL;
 	}
 
 	/**

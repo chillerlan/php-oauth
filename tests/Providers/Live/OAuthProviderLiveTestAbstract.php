@@ -67,7 +67,7 @@ abstract class OAuthProviderLiveTestAbstract extends ProviderLiveTestAbstract{
 			$this::markTestSkipped('AuthenticatedUser N/A');
 		}
 
-		$token                    = $this->storage->getAccessToken($this->provider->name);
+		$token                    = $this->storage->getAccessToken($this->provider->getName());
 		// avoid refresh
 		$token->expires           = AccessToken::NEVER_EXPIRES;
 		$token->refreshToken      = null;
@@ -76,7 +76,7 @@ abstract class OAuthProviderLiveTestAbstract extends ProviderLiveTestAbstract{
 		$token->accessTokenSecret = 'what';
 
 		// using a temp storage here so that the local tokens won't be overwritten
-		$tempStorage = (new MemoryStorage)->storeAccessToken($token, $this->provider->name);
+		$tempStorage = (new MemoryStorage)->storeAccessToken($token, $this->provider->getName());
 
 		$this->provider->setStorage($tempStorage);
 

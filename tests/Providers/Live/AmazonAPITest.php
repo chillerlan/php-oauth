@@ -29,7 +29,7 @@ final class AmazonAPITest extends OAuth2ProviderLiveTestAbstract{
 	}
 
 	public function testMeUnauthorizedAccessException():void{
-		$token                    = $this->storage->getAccessToken($this->provider->name);
+		$token                    = $this->storage->getAccessToken($this->provider->getName());
 		// avoid refresh
 		$token->expires           = AccessToken::NEVER_EXPIRES;
 		$token->refreshToken      = null;
@@ -37,7 +37,7 @@ final class AmazonAPITest extends OAuth2ProviderLiveTestAbstract{
 		$token->accessToken       = 'Atza|nope'; // amazon tokens are prefixed
 
 		// using a temp storage here so that the local tokens won't be overwritten
-		$tempStorage = (new MemoryStorage)->storeAccessToken($token, $this->provider->name);
+		$tempStorage = (new MemoryStorage)->storeAccessToken($token, $this->provider->getName());
 
 		$this->provider->setStorage($tempStorage);
 

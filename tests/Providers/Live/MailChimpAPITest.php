@@ -23,7 +23,7 @@ use PHPUnit\Framework\Attributes\Group;
 final class MailChimpAPITest extends OAuth2ProviderLiveTestAbstract{
 
 	public function testGetTokenMetadata():void{
-		$token = $this->storage->getAccessToken($this->provider->name);
+		$token = $this->storage->getAccessToken($this->provider->getName());
 		$token = $this->provider->getTokenMetadata($token);
 
 		$this::assertSame($this->TEST_USER, $token->extraParams['accountname']);

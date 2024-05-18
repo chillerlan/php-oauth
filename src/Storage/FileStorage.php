@@ -46,16 +46,9 @@ class FileStorage extends OAuthStorageAbstract{
 		OAuthOptions|SettingsContainerInterface $options = new OAuthOptions,
 		LoggerInterface                         $logger = new NullLogger
 	){
-		$this->oauthUser = $oauthUser;
-
 		parent::__construct($options, $logger);
-	}
 
-	/**
-	 * @inheritDoc
-	 */
-	protected function construct():void{
-		$this->oauthUser = trim((string)$this->oauthUser);
+		$this->oauthUser = trim((string)$oauthUser);
 
 		if($this->oauthUser === ''){
 			throw new OAuthStorageException('invalid OAuth user');

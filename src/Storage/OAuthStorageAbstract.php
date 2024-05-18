@@ -50,23 +50,13 @@ abstract class OAuthStorageAbstract implements OAuthStorageInterface{
 		OAuthOptions|SettingsContainerInterface $options = new OAuthOptions,
 		LoggerInterface                         $logger = new NullLogger
 	){
+		$this->options = $options;
+		$this->logger  = $logger;
 
 		if($this->options->useStorageEncryption === true && empty($this->options->storageEncryptionKey)){
 			throw new OAuthStorageException('no encryption key given');
 		}
 
-		$this->options = $options;
-		$this->logger  = $logger;
-
-		$this->construct();
-	}
-
-	/**
-	 * A replacement constructor that you can call in extended classes,
-	 * so that you don't have to implement the monstrous original `__construct()`
-	 */
-	protected function construct():void{
-		// noop
 	}
 
 	/**

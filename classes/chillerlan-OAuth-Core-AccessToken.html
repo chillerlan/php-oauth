@@ -58,6 +58,14 @@
                     </span>
                 </a>
             </li>
+                    <li class="phpdocumentor-topnav__menu-item -social">
+                <a href="https://github.com/chillerlan/php-oauth/discussions">
+                    <span>
+                                                                        <i class="fas fa-envelope-open-text"></i>
+                                                
+                    </span>
+                </a>
+            </li>
                 </ul>
 </nav>
 </header>
@@ -143,8 +151,9 @@
         <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Core/AccessToken.php"><a href="files/src-core-accesstoken.html"><abbr title="src/Core/AccessToken.php">AccessToken.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">37</span>
+    <span class="phpdocumentor-element-found-in__line">26</span>
 
+            <a href="classes/chillerlan-OAuth-Core-AccessToken.html#source-view.26" class="phpdocumentor-element-found-in__source" data-line="26" data-modal="source-view" data-src="files/src/Core/AccessToken.php.txt"></a>
     </aside>
 
             <p class="phpdocumentor-summary">Access token implementation for any OAuth version.</p>
@@ -158,22 +167,18 @@
     </h5>
     <dl class="phpdocumentor-tag-list">
                                     <dt class="phpdocumentor-tag-list__entry">
-                    <span class="phpdocumentor-tag__name">see</span>
+                    <span class="phpdocumentor-tag__name">link</span>
                 </dt>
                 <dd class="phpdocumentor-tag-list__definition">
-                                                                                    <span class="phpdocumentor-tag-link"><a href="https://datatracker.ietf.org/doc/html/rfc5849#section-2.3">https://datatracker.ietf.org/doc/html/rfc5849#section-2.3</a></span>
-                                        
-                                             
+                                                                                                        <a class="phpdocumentor-tag-link" href="https://datatracker.ietf.org/doc/html/rfc5849#section-2.3"> https://datatracker.ietf.org/doc/html/rfc5849#section-2.3 </a>
+                    
                                     </dd>
                             <dt class="phpdocumentor-tag-list__entry">
-                    <span class="phpdocumentor-tag__name">see</span>
+                    <span class="phpdocumentor-tag__name">link</span>
                 </dt>
                 <dd class="phpdocumentor-tag-list__definition">
-                                                                                    <span class="phpdocumentor-tag-link"><a href="https://datatracker.ietf.org/doc/html/rfc6749#section-1.4">https://datatracker.ietf.org/doc/html/rfc6749#section-1.4</a></span>
-                                        
-                                                 <section class="phpdocumentor-description"><p>// Oauth1</p>
-</section>
-
+                                                                                                        <a class="phpdocumentor-tag-link" href="https://datatracker.ietf.org/doc/html/rfc6749#section-1.4"> https://datatracker.ietf.org/doc/html/rfc6749#section-1.4 </a>
+                    
                                     </dd>
                                             </dl>
 
@@ -227,96 +232,54 @@
 
 </h4>
 <dl class="phpdocumentor-table-of-contents">
-            <dt class="phpdocumentor-table-of-contents__entry -property -public">
-    <a href="classes/chillerlan-OAuth-Core-AccessToken.html#property_accessToken">$accessToken</a>
-    <span>
-                        &nbsp;: string|null            </span>
-</dt>
-
-            <dt class="phpdocumentor-table-of-contents__entry -property -public">
-    <a href="classes/chillerlan-OAuth-Core-AccessToken.html#property_accessTokenSecret">$accessTokenSecret</a>
-    <span>
-                        &nbsp;: string|null            </span>
-</dt>
-
-            <dt class="phpdocumentor-table-of-contents__entry -property -public">
-    <a href="classes/chillerlan-OAuth-Core-AccessToken.html#property_expires">$expires</a>
-    <span>
-                        &nbsp;: <abbr title="\DateTime">DateTime</abbr>|<abbr title="\DateInterval">DateInterval</abbr>|int|null            </span>
-</dt>
-
-            <dt class="phpdocumentor-table-of-contents__entry -property -public">
-    <a href="classes/chillerlan-OAuth-Core-AccessToken.html#property_extraParams">$extraParams</a>
-    <span>
-                        &nbsp;: array&lt;string|int, mixed&gt;            </span>
-</dt>
-
-            <dt class="phpdocumentor-table-of-contents__entry -property -public">
-    <a href="classes/chillerlan-OAuth-Core-AccessToken.html#property_provider">$provider</a>
-    <span>
-                        &nbsp;: string            </span>
-</dt>
-
-            <dt class="phpdocumentor-table-of-contents__entry -property -public">
-    <a href="classes/chillerlan-OAuth-Core-AccessToken.html#property_refreshToken">$refreshToken</a>
-    <span>
-                        &nbsp;: string|null            </span>
-</dt>
-
-            <dt class="phpdocumentor-table-of-contents__entry -property -public">
-    <a href="classes/chillerlan-OAuth-Core-AccessToken.html#property_scopes">$scopes</a>
-    <span>
-                        &nbsp;: array&lt;string|int, mixed&gt;            </span>
-</dt>
-
             <dt class="phpdocumentor-table-of-contents__entry -property -protected">
     <a href="classes/chillerlan-OAuth-Core-AccessToken.html#property_accessToken">$accessToken</a>
     <span>
                         &nbsp;: string|null            </span>
 </dt>
-<dd>The oauth access token</dd>
+<dd>(magic) The oauth access token</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -property -protected">
     <a href="classes/chillerlan-OAuth-Core-AccessToken.html#property_accessTokenSecret">$accessTokenSecret</a>
     <span>
                         &nbsp;: string|null            </span>
 </dt>
-<dd>The access token secret (OAuth1)</dd>
+<dd>(magic) The access token secret (OAuth1)</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -property -protected">
     <a href="classes/chillerlan-OAuth-Core-AccessToken.html#property_expires">$expires</a>
     <span>
                         &nbsp;: int            </span>
 </dt>
-<dd>The token expiration date/time</dd>
+<dd>(magic) The token expiration time</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -property -protected">
     <a href="classes/chillerlan-OAuth-Core-AccessToken.html#property_extraParams">$extraParams</a>
     <span>
                         &nbsp;: array&lt;string|int, mixed&gt;            </span>
 </dt>
-<dd>Additional token parameters supplied by the provider</dd>
+<dd>(magic) Additional token parameters supplied by the provider</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -property -protected">
     <a href="classes/chillerlan-OAuth-Core-AccessToken.html#property_provider">$provider</a>
     <span>
                         &nbsp;: string|null            </span>
 </dt>
-<dd>The provider who issued this token</dd>
+<dd>(magic) The provider that issued the token</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -property -protected">
     <a href="classes/chillerlan-OAuth-Core-AccessToken.html#property_refreshToken">$refreshToken</a>
     <span>
                         &nbsp;: string|null            </span>
 </dt>
-<dd>An optional refresh token (OAuth2)</dd>
+<dd>(magic) An optional refresh token (OAuth2)</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -property -protected">
     <a href="classes/chillerlan-OAuth-Core-AccessToken.html#property_scopes">$scopes</a>
     <span>
                         &nbsp;: array&lt;string|int, mixed&gt;            </span>
 </dt>
-<dd>The scopes that are attached to this token (OAuth2)</dd>
+<dd>(magic) The scopes that are attached to this token</dd>
 
     </dl>
 
@@ -333,19 +296,12 @@
 </dt>
 <dd>Checks whether this token is expired</dd>
 
-            <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a href="classes/chillerlan-OAuth-Core-AccessToken.html#method_setExpiry">setExpiry()</a>
-    <span>
-                                &nbsp;: <a href="classes/chillerlan-OAuth-Core-AccessToken.html"><abbr title="\chillerlan\OAuth\Core\AccessToken">AccessToken</abbr></a>    </span>
-</dt>
-<dd>Sets the expiration for this token, clamps the expiry to EXPIRY_MAX</dd>
-
             <dt class="phpdocumentor-table-of-contents__entry -method -protected">
     <a href="classes/chillerlan-OAuth-Core-AccessToken.html#method_set_expires">set_expires()</a>
     <span>
                                 &nbsp;: void    </span>
 </dt>
-<dd>Expiry setter</dd>
+<dd>Sets the expiration for this token, clamps the expiry to EXPIRY_MAX</dd>
 
     </dl>
 
@@ -369,15 +325,16 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Core/AccessToken.php"><a href="files/src-core-accesstoken.html"><abbr title="src/Core/AccessToken.php">AccessToken.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">52</span>
+    <span class="phpdocumentor-element-found-in__line">47</span>
 
+            <a href="classes/chillerlan-OAuth-Core-AccessToken.html#source-view.47" class="phpdocumentor-element-found-in__source" data-line="47" data-modal="source-view" data-src="files/src/Core/AccessToken.php.txt"></a>
     </aside>
 
         <p class="phpdocumentor-summary">Defines a maximum expiry period (1 year)</p>
 
     <code class="phpdocumentor-signature phpdocumentor-code ">
     <span class="phpdocumentor-signature__visibility">public</span>
-        <span class="phpdocumentor-signature__type">mixed</span>
+        <span class="phpdocumentor-signature__type">int</span>
     <span class="phpdocumentor-signature__name">EXPIRY_MAX</span>
     = <span class="phpdocumentor-signature__default-value">86400 * 365</span>
 </code>
@@ -398,15 +355,16 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Core/AccessToken.php"><a href="files/src-core-accesstoken.html"><abbr title="src/Core/AccessToken.php">AccessToken.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">42</span>
+    <span class="phpdocumentor-element-found-in__line">33</span>
 
+            <a href="classes/chillerlan-OAuth-Core-AccessToken.html#source-view.33" class="phpdocumentor-element-found-in__source" data-line="33" data-modal="source-view" data-src="files/src/Core/AccessToken.php.txt"></a>
     </aside>
 
         <p class="phpdocumentor-summary">Denotes an unknown end of lifetime, such a token should be considered as expired.</p>
 
     <code class="phpdocumentor-signature phpdocumentor-code ">
     <span class="phpdocumentor-signature__visibility">public</span>
-        <span class="phpdocumentor-signature__type">mixed</span>
+        <span class="phpdocumentor-signature__type">int</span>
     <span class="phpdocumentor-signature__name">EXPIRY_UNKNOWN</span>
     = <span class="phpdocumentor-signature__default-value">-9001</span>
 </code>
@@ -427,15 +385,16 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Core/AccessToken.php"><a href="files/src-core-accesstoken.html"><abbr title="src/Core/AccessToken.php">AccessToken.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">47</span>
+    <span class="phpdocumentor-element-found-in__line">40</span>
 
+            <a href="classes/chillerlan-OAuth-Core-AccessToken.html#source-view.40" class="phpdocumentor-element-found-in__source" data-line="40" data-modal="source-view" data-src="files/src/Core/AccessToken.php.txt"></a>
     </aside>
 
         <p class="phpdocumentor-summary">Denotes a token which never expires</p>
 
     <code class="phpdocumentor-signature phpdocumentor-code ">
     <span class="phpdocumentor-signature__visibility">public</span>
-        <span class="phpdocumentor-signature__type">mixed</span>
+        <span class="phpdocumentor-signature__type">int</span>
     <span class="phpdocumentor-signature__name">NEVER_EXPIRES</span>
     = <span class="phpdocumentor-signature__default-value">-9002</span>
 </code>
@@ -459,241 +418,6 @@
         class="
             phpdocumentor-element
             -property
-            -public
-                                                        "
->
-    <h4 class="phpdocumentor-element__name" id="property_accessToken">
-        $accessToken
-        <a href="classes/chillerlan-OAuth-Core-AccessToken.html#property_accessToken" class="headerlink"><i class="fas fa-link"></i></a>
-
-        <span class="phpdocumentor-element__modifiers">
-                                </span>
-    </h4>
-    <aside class="phpdocumentor-element-found-in">
-    <abbr class="phpdocumentor-element-found-in__file" title="src/Core/AccessToken.php"><a href="files/src-core-accesstoken.html"><abbr title="src/Core/AccessToken.php">AccessToken.php</abbr></a></abbr>
-    :
-    <span class="phpdocumentor-element-found-in__line">0</span>
-
-    </aside>
-
-    
-    <code class="phpdocumentor-code phpdocumentor-signature ">
-    <span class="phpdocumentor-signature__visibility">public</span>
-        <span class="phpdocumentor-signature__type">string|null</span>
-    <span class="phpdocumentor-signature__name">$accessToken</span>
-    </code>
-
-    
-    
-    
-
-</article>
-                    <article
-        class="
-            phpdocumentor-element
-            -property
-            -public
-                                                        "
->
-    <h4 class="phpdocumentor-element__name" id="property_accessTokenSecret">
-        $accessTokenSecret
-        <a href="classes/chillerlan-OAuth-Core-AccessToken.html#property_accessTokenSecret" class="headerlink"><i class="fas fa-link"></i></a>
-
-        <span class="phpdocumentor-element__modifiers">
-                                </span>
-    </h4>
-    <aside class="phpdocumentor-element-found-in">
-    <abbr class="phpdocumentor-element-found-in__file" title="src/Core/AccessToken.php"><a href="files/src-core-accesstoken.html"><abbr title="src/Core/AccessToken.php">AccessToken.php</abbr></a></abbr>
-    :
-    <span class="phpdocumentor-element-found-in__line">0</span>
-
-    </aside>
-
-    
-    <code class="phpdocumentor-code phpdocumentor-signature ">
-    <span class="phpdocumentor-signature__visibility">public</span>
-        <span class="phpdocumentor-signature__type">string|null</span>
-    <span class="phpdocumentor-signature__name">$accessTokenSecret</span>
-    </code>
-
-        <section class="phpdocumentor-description"><p>// Oauth2</p>
-</section>
-
-    
-    
-
-</article>
-                    <article
-        class="
-            phpdocumentor-element
-            -property
-            -public
-                                                        "
->
-    <h4 class="phpdocumentor-element__name" id="property_expires">
-        $expires
-        <a href="classes/chillerlan-OAuth-Core-AccessToken.html#property_expires" class="headerlink"><i class="fas fa-link"></i></a>
-
-        <span class="phpdocumentor-element__modifiers">
-                                </span>
-    </h4>
-    <aside class="phpdocumentor-element-found-in">
-    <abbr class="phpdocumentor-element-found-in__file" title="src/Core/AccessToken.php"><a href="files/src-core-accesstoken.html"><abbr title="src/Core/AccessToken.php">AccessToken.php</abbr></a></abbr>
-    :
-    <span class="phpdocumentor-element-found-in__line">0</span>
-
-    </aside>
-
-    
-    <code class="phpdocumentor-code phpdocumentor-signature ">
-    <span class="phpdocumentor-signature__visibility">public</span>
-        <span class="phpdocumentor-signature__type"><abbr title="\DateTime">DateTime</abbr>|<abbr title="\DateInterval">DateInterval</abbr>|int|null</span>
-    <span class="phpdocumentor-signature__name">$expires</span>
-    </code>
-
-    
-    
-    
-
-</article>
-                    <article
-        class="
-            phpdocumentor-element
-            -property
-            -public
-                                                        "
->
-    <h4 class="phpdocumentor-element__name" id="property_extraParams">
-        $extraParams
-        <a href="classes/chillerlan-OAuth-Core-AccessToken.html#property_extraParams" class="headerlink"><i class="fas fa-link"></i></a>
-
-        <span class="phpdocumentor-element__modifiers">
-                                </span>
-    </h4>
-    <aside class="phpdocumentor-element-found-in">
-    <abbr class="phpdocumentor-element-found-in__file" title="src/Core/AccessToken.php"><a href="files/src-core-accesstoken.html"><abbr title="src/Core/AccessToken.php">AccessToken.php</abbr></a></abbr>
-    :
-    <span class="phpdocumentor-element-found-in__line">0</span>
-
-    </aside>
-
-    
-    <code class="phpdocumentor-code phpdocumentor-signature ">
-    <span class="phpdocumentor-signature__visibility">public</span>
-        <span class="phpdocumentor-signature__type">array&lt;string|int, mixed&gt;</span>
-    <span class="phpdocumentor-signature__name">$extraParams</span>
-    </code>
-
-    
-    
-    
-
-</article>
-                    <article
-        class="
-            phpdocumentor-element
-            -property
-            -public
-                                                        "
->
-    <h4 class="phpdocumentor-element__name" id="property_provider">
-        $provider
-        <a href="classes/chillerlan-OAuth-Core-AccessToken.html#property_provider" class="headerlink"><i class="fas fa-link"></i></a>
-
-        <span class="phpdocumentor-element__modifiers">
-                                </span>
-    </h4>
-    <aside class="phpdocumentor-element-found-in">
-    <abbr class="phpdocumentor-element-found-in__file" title="src/Core/AccessToken.php"><a href="files/src-core-accesstoken.html"><abbr title="src/Core/AccessToken.php">AccessToken.php</abbr></a></abbr>
-    :
-    <span class="phpdocumentor-element-found-in__line">0</span>
-
-    </aside>
-
-    
-    <code class="phpdocumentor-code phpdocumentor-signature ">
-    <span class="phpdocumentor-signature__visibility">public</span>
-        <span class="phpdocumentor-signature__type">string</span>
-    <span class="phpdocumentor-signature__name">$provider</span>
-    </code>
-
-    
-    
-    
-
-</article>
-                    <article
-        class="
-            phpdocumentor-element
-            -property
-            -public
-                                                        "
->
-    <h4 class="phpdocumentor-element__name" id="property_refreshToken">
-        $refreshToken
-        <a href="classes/chillerlan-OAuth-Core-AccessToken.html#property_refreshToken" class="headerlink"><i class="fas fa-link"></i></a>
-
-        <span class="phpdocumentor-element__modifiers">
-                                </span>
-    </h4>
-    <aside class="phpdocumentor-element-found-in">
-    <abbr class="phpdocumentor-element-found-in__file" title="src/Core/AccessToken.php"><a href="files/src-core-accesstoken.html"><abbr title="src/Core/AccessToken.php">AccessToken.php</abbr></a></abbr>
-    :
-    <span class="phpdocumentor-element-found-in__line">0</span>
-
-    </aside>
-
-    
-    <code class="phpdocumentor-code phpdocumentor-signature ">
-    <span class="phpdocumentor-signature__visibility">public</span>
-        <span class="phpdocumentor-signature__type">string|null</span>
-    <span class="phpdocumentor-signature__name">$refreshToken</span>
-    </code>
-
-        <section class="phpdocumentor-description"><p>// common</p>
-</section>
-
-    
-    
-
-</article>
-                    <article
-        class="
-            phpdocumentor-element
-            -property
-            -public
-                                                        "
->
-    <h4 class="phpdocumentor-element__name" id="property_scopes">
-        $scopes
-        <a href="classes/chillerlan-OAuth-Core-AccessToken.html#property_scopes" class="headerlink"><i class="fas fa-link"></i></a>
-
-        <span class="phpdocumentor-element__modifiers">
-                                </span>
-    </h4>
-    <aside class="phpdocumentor-element-found-in">
-    <abbr class="phpdocumentor-element-found-in__file" title="src/Core/AccessToken.php"><a href="files/src-core-accesstoken.html"><abbr title="src/Core/AccessToken.php">AccessToken.php</abbr></a></abbr>
-    :
-    <span class="phpdocumentor-element-found-in__line">0</span>
-
-    </aside>
-
-    
-    <code class="phpdocumentor-code phpdocumentor-signature ">
-    <span class="phpdocumentor-signature__visibility">public</span>
-        <span class="phpdocumentor-signature__type">array&lt;string|int, mixed&gt;</span>
-    <span class="phpdocumentor-signature__name">$scopes</span>
-    </code>
-
-    
-    
-    
-
-</article>
-                    <article
-        class="
-            phpdocumentor-element
-            -property
             -protected
                                                         "
 >
@@ -707,11 +431,12 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Core/AccessToken.php"><a href="files/src-core-accesstoken.html"><abbr title="src/Core/AccessToken.php">AccessToken.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">62</span>
+    <span class="phpdocumentor-element-found-in__line">52</span>
 
+            <a href="classes/chillerlan-OAuth-Core-AccessToken.html#source-view.52" class="phpdocumentor-element-found-in__source" data-line="52" data-modal="source-view" data-src="files/src/Core/AccessToken.php.txt"></a>
     </aside>
 
-        <p class="phpdocumentor-summary">The oauth access token</p>
+        <p class="phpdocumentor-summary">(magic) The oauth access token</p>
 
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">protected</span>
@@ -743,9 +468,10 @@
     :
     <span class="phpdocumentor-element-found-in__line">57</span>
 
+            <a href="classes/chillerlan-OAuth-Core-AccessToken.html#source-view.57" class="phpdocumentor-element-found-in__source" data-line="57" data-modal="source-view" data-src="files/src/Core/AccessToken.php.txt"></a>
     </aside>
 
-        <p class="phpdocumentor-summary">The access token secret (OAuth1)</p>
+        <p class="phpdocumentor-summary">(magic) The access token secret (OAuth1)</p>
 
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">protected</span>
@@ -775,11 +501,12 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Core/AccessToken.php"><a href="files/src-core-accesstoken.html"><abbr title="src/Core/AccessToken.php">AccessToken.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">72</span>
+    <span class="phpdocumentor-element-found-in__line">69</span>
 
+            <a href="classes/chillerlan-OAuth-Core-AccessToken.html#source-view.69" class="phpdocumentor-element-found-in__source" data-line="69" data-modal="source-view" data-src="files/src/Core/AccessToken.php.txt"></a>
     </aside>
 
-        <p class="phpdocumentor-summary">The token expiration date/time</p>
+        <p class="phpdocumentor-summary">(magic) The token expiration time</p>
 
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">protected</span>
@@ -787,7 +514,9 @@
     <span class="phpdocumentor-signature__name">$expires</span>
      = <span class="phpdocumentor-signature__default-value">self::EXPIRY_UNKNOWN</span></code>
 
-    
+        <section class="phpdocumentor-description"><p>The getter accepts: <code class="prettyprint">DateTime|DateInterval|int|null</code></p>
+</section>
+
     
     
 
@@ -809,11 +538,12 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Core/AccessToken.php"><a href="files/src-core-accesstoken.html"><abbr title="src/Core/AccessToken.php">AccessToken.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">77</span>
+    <span class="phpdocumentor-element-found-in__line">79</span>
 
+            <a href="classes/chillerlan-OAuth-Core-AccessToken.html#source-view.79" class="phpdocumentor-element-found-in__source" data-line="79" data-modal="source-view" data-src="files/src/Core/AccessToken.php.txt"></a>
     </aside>
 
-        <p class="phpdocumentor-summary">Additional token parameters supplied by the provider</p>
+        <p class="phpdocumentor-summary">(magic) Additional token parameters supplied by the provider</p>
 
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">protected</span>
@@ -843,11 +573,12 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Core/AccessToken.php"><a href="files/src-core-accesstoken.html"><abbr title="src/Core/AccessToken.php">AccessToken.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">87</span>
+    <span class="phpdocumentor-element-found-in__line">84</span>
 
+            <a href="classes/chillerlan-OAuth-Core-AccessToken.html#source-view.84" class="phpdocumentor-element-found-in__source" data-line="84" data-modal="source-view" data-src="files/src/Core/AccessToken.php.txt"></a>
     </aside>
 
-        <p class="phpdocumentor-summary">The provider who issued this token</p>
+        <p class="phpdocumentor-summary">(magic) The provider that issued the token</p>
 
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">protected</span>
@@ -877,11 +608,12 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Core/AccessToken.php"><a href="files/src-core-accesstoken.html"><abbr title="src/Core/AccessToken.php">AccessToken.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">67</span>
+    <span class="phpdocumentor-element-found-in__line">62</span>
 
+            <a href="classes/chillerlan-OAuth-Core-AccessToken.html#source-view.62" class="phpdocumentor-element-found-in__source" data-line="62" data-modal="source-view" data-src="files/src/Core/AccessToken.php.txt"></a>
     </aside>
 
-        <p class="phpdocumentor-summary">An optional refresh token (OAuth2)</p>
+        <p class="phpdocumentor-summary">(magic) An optional refresh token (OAuth2)</p>
 
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">protected</span>
@@ -911,11 +643,12 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Core/AccessToken.php"><a href="files/src-core-accesstoken.html"><abbr title="src/Core/AccessToken.php">AccessToken.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">82</span>
+    <span class="phpdocumentor-element-found-in__line">74</span>
 
+            <a href="classes/chillerlan-OAuth-Core-AccessToken.html#source-view.74" class="phpdocumentor-element-found-in__source" data-line="74" data-modal="source-view" data-src="files/src/Core/AccessToken.php.txt"></a>
     </aside>
 
-        <p class="phpdocumentor-summary">The scopes that are attached to this token (OAuth2)</p>
+        <p class="phpdocumentor-summary">(magic) The scopes that are attached to this token</p>
 
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">protected</span>
@@ -950,8 +683,9 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Core/AccessToken.php"><a href="files/src-core-accesstoken.html"><abbr title="src/Core/AccessToken.php">AccessToken.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">123</span>
+    <span class="phpdocumentor-element-found-in__line">112</span>
 
+            <a href="classes/chillerlan-OAuth-Core-AccessToken.html#source-view.112" class="phpdocumentor-element-found-in__source" data-line="112" data-modal="source-view" data-src="files/src/Core/AccessToken.php.txt"></a>
     </aside>
 
         <p class="phpdocumentor-summary">Checks whether this token is expired</p>
@@ -975,52 +709,6 @@
                     <article
         class="phpdocumentor-element
             -method
-            -public
-                                                        "
->
-    <h4 class="phpdocumentor-element__name" id="method_setExpiry">
-        setExpiry()
-        <a href="classes/chillerlan-OAuth-Core-AccessToken.html#method_setExpiry" class="headerlink"><i class="fas fa-link"></i></a>
-
-    </h4>
-    <aside class="phpdocumentor-element-found-in">
-    <abbr class="phpdocumentor-element-found-in__file" title="src/Core/AccessToken.php"><a href="files/src-core-accesstoken.html"><abbr title="src/Core/AccessToken.php">AccessToken.php</abbr></a></abbr>
-    :
-    <span class="phpdocumentor-element-found-in__line">99</span>
-
-    </aside>
-
-        <p class="phpdocumentor-summary">Sets the expiration for this token, clamps the expiry to EXPIRY_MAX</p>
-
-    <code class="phpdocumentor-code phpdocumentor-signature ">
-    <span class="phpdocumentor-signature__visibility">public</span>
-                    <span class="phpdocumentor-signature__name">setExpiry</span><span>(</span><span class="phpdocumentor-signature__argument"><span>[</span><span class="phpdocumentor-signature__argument__return-type"><abbr title="\DateTime">DateTime</abbr>|<abbr title="\DateInterval">DateInterval</abbr>|int|null&nbsp;</span><span class="phpdocumentor-signature__argument__name">$expires</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">null</span><span> ]</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type"><a href="classes/chillerlan-OAuth-Core-AccessToken.html"><abbr title="\chillerlan\OAuth\Core\AccessToken">AccessToken</abbr></a></span></code>
-
-    <div class="phpdocumentor-label-line">
-        </div>
-    
-        <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
-    <dl class="phpdocumentor-argument-list">
-                    <dt class="phpdocumentor-argument-list__entry">
-                <span class="phpdocumentor-signature__argument__name">$expires</span>
-                : <span class="phpdocumentor-signature__argument__return-type"><abbr title="\DateTime">DateTime</abbr>|<abbr title="\DateInterval">DateInterval</abbr>|int|null</span>
-                 = <span class="phpdocumentor-signature__argument__default-value">null</span>            </dt>
-            <dd class="phpdocumentor-argument-list__definition">
-                
-            </dd>
-            </dl>
-
-    
-
-            <section>
-        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
-        <span class="phpdocumentor-signature__response_type"><a href="classes/chillerlan-OAuth-Core-AccessToken.html"><abbr title="\chillerlan\OAuth\Core\AccessToken">AccessToken</abbr></a></span>
-            </section>
-
-</article>
-                    <article
-        class="phpdocumentor-element
-            -method
             -protected
                                                         "
 >
@@ -1032,11 +720,12 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Core/AccessToken.php"><a href="files/src-core-accesstoken.html"><abbr title="src/Core/AccessToken.php">AccessToken.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">92</span>
+    <span class="phpdocumentor-element-found-in__line">89</span>
 
+            <a href="classes/chillerlan-OAuth-Core-AccessToken.html#source-view.89" class="phpdocumentor-element-found-in__source" data-line="89" data-modal="source-view" data-src="files/src/Core/AccessToken.php.txt"></a>
     </aside>
 
-        <p class="phpdocumentor-summary">Expiry setter</p>
+        <p class="phpdocumentor-summary">Sets the expiration for this token, clamps the expiry to EXPIRY_MAX</p>
 
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">protected</span>
@@ -1189,13 +878,6 @@
                                                     <li><a href="classes/chillerlan-OAuth-Core-AccessToken.html#property_provider">$provider<a href="classes/chillerlan-OAuth-Core-AccessToken.html"></li>
                                                     <li><a href="classes/chillerlan-OAuth-Core-AccessToken.html#property_refreshToken">$refreshToken<a href="classes/chillerlan-OAuth-Core-AccessToken.html"></li>
                                                     <li><a href="classes/chillerlan-OAuth-Core-AccessToken.html#property_scopes">$scopes<a href="classes/chillerlan-OAuth-Core-AccessToken.html"></li>
-                                                    <li><a href="classes/chillerlan-OAuth-Core-AccessToken.html#property_accessToken">$accessToken<a href="classes/chillerlan-OAuth-Core-AccessToken.html"></li>
-                                                    <li><a href="classes/chillerlan-OAuth-Core-AccessToken.html#property_accessTokenSecret">$accessTokenSecret<a href="classes/chillerlan-OAuth-Core-AccessToken.html"></li>
-                                                    <li><a href="classes/chillerlan-OAuth-Core-AccessToken.html#property_expires">$expires<a href="classes/chillerlan-OAuth-Core-AccessToken.html"></li>
-                                                    <li><a href="classes/chillerlan-OAuth-Core-AccessToken.html#property_extraParams">$extraParams<a href="classes/chillerlan-OAuth-Core-AccessToken.html"></li>
-                                                    <li><a href="classes/chillerlan-OAuth-Core-AccessToken.html#property_provider">$provider<a href="classes/chillerlan-OAuth-Core-AccessToken.html"></li>
-                                                    <li><a href="classes/chillerlan-OAuth-Core-AccessToken.html#property_refreshToken">$refreshToken<a href="classes/chillerlan-OAuth-Core-AccessToken.html"></li>
-                                                    <li><a href="classes/chillerlan-OAuth-Core-AccessToken.html#property_scopes">$scopes<a href="classes/chillerlan-OAuth-Core-AccessToken.html"></li>
                                             </ul>
                 </li>
             
@@ -1203,7 +885,6 @@
             <li>
                 <ul class="phpdocumentor-list -clean">
                                             <li><a href="classes/chillerlan-OAuth-Core-AccessToken.html#method_isExpired">isExpired()</a></li>
-                                            <li><a href="classes/chillerlan-OAuth-Core-AccessToken.html#method_setExpiry">setExpiry()</a></li>
                                             <li><a href="classes/chillerlan-OAuth-Core-AccessToken.html#method_set_expires">set_expires()</a></li>
                                     </ul>
             </li>

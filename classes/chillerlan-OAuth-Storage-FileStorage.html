@@ -58,6 +58,14 @@
                     </span>
                 </a>
             </li>
+                    <li class="phpdocumentor-topnav__menu-item -social">
+                <a href="https://github.com/chillerlan/php-oauth/discussions">
+                    <span>
+                                                                        <i class="fas fa-envelope-open-text"></i>
+                                                
+                    </span>
+                </a>
+            </li>
                 </ul>
 </nav>
 </header>
@@ -201,6 +209,7 @@ Subfolders created by this class will have permissions set to 0755.</p>
     <span>
         &nbsp;= \chillerlan\OAuth\Core\Utilities::ENCRYPT_FORMAT_BINARY                            </span>
 </dt>
+<dd>Output format for encrypted data</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -constant -protected">
     <a href="classes/chillerlan-OAuth-Storage-OAuthStorageAbstract.html#constant_KEY_STATE">KEY_STATE</a>
@@ -230,22 +239,25 @@ Subfolders created by this class will have permissions set to 0755.</p>
 </h4>
 <dl class="phpdocumentor-table-of-contents">
             <dt class="phpdocumentor-table-of-contents__entry -property -protected">
-    <a href="classes/chillerlan-OAuth-Storage-FileStorage.html#property_logger">$logger</a>
+    <a href="classes/chillerlan-OAuth-Storage-OAuthStorageAbstract.html#property_logger">$logger</a>
     <span>
                         &nbsp;: <abbr title="\Psr\Log\LoggerInterface">LoggerInterface</abbr>            </span>
 </dt>
+<dd>A PSR-3 logger</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -property -protected">
     <a href="classes/chillerlan-OAuth-Storage-FileStorage.html#property_oauthUser">$oauthUser</a>
     <span>
                         &nbsp;: string|int            </span>
 </dt>
+<dd>A *unique* ID to identify the user within your application, e.g. database row id or UUID</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -property -protected">
-    <a href="classes/chillerlan-OAuth-Storage-FileStorage.html#property_options">$options</a>
+    <a href="classes/chillerlan-OAuth-Storage-OAuthStorageAbstract.html#property_options">$options</a>
     <span>
                         &nbsp;: <a href="classes/chillerlan-OAuth-OAuthOptions.html"><abbr title="\chillerlan\OAuth\OAuthOptions">OAuthOptions</abbr></a>|<abbr title="\chillerlan\Settings\SettingsContainerInterface">SettingsContainerInterface</abbr>            </span>
 </dt>
+<dd>The options instance</dd>
 
     </dl>
 
@@ -375,14 +387,6 @@ Subfolders created by this class will have permissions set to 0755.</p>
 and returns a value that is suited for the underlying storage engine</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -protected">
-    <a href="classes/chillerlan-OAuth-Storage-FileStorage.html#method_construct">construct()</a>
-    <span>
-                                &nbsp;: void    </span>
-</dt>
-<dd>A replacement constructor that you can call in extended classes,
-so that you don&#039;t have to implement the monstrous original `__construct()`</dd>
-
-            <dt class="phpdocumentor-table-of-contents__entry -method -protected">
     <a href="classes/chillerlan-OAuth-Storage-OAuthStorageAbstract.html#method_decrypt">decrypt()</a>
     <span>
                                 &nbsp;: string    </span>
@@ -464,10 +468,11 @@ so that you don&#039;t have to implement the monstrous original `__construct()`<
 
     </aside>
 
-    
+        <p class="phpdocumentor-summary">Output format for encrypted data</p>
+
     <code class="phpdocumentor-signature phpdocumentor-code ">
     <span class="phpdocumentor-signature__visibility">protected</span>
-    <span class="phpdocumentor-signature__final">final</span>    <span class="phpdocumentor-signature__type">mixed</span>
+    <span class="phpdocumentor-signature__final">final</span>    <span class="phpdocumentor-signature__type">int</span>
     <span class="phpdocumentor-signature__name">ENCRYPT_FORMAT</span>
     = <span class="phpdocumentor-signature__default-value">\chillerlan\OAuth\Core\Utilities::ENCRYPT_FORMAT_BINARY</span>
 </code>
@@ -580,24 +585,25 @@ so that you don&#039;t have to implement the monstrous original `__construct()`<
 >
     <h4 class="phpdocumentor-element__name" id="property_logger">
         $logger
-        <a href="classes/chillerlan-OAuth-Storage-FileStorage.html#property_logger" class="headerlink"><i class="fas fa-link"></i></a>
+        <a href="classes/chillerlan-OAuth-Storage-OAuthStorageAbstract.html#property_logger" class="headerlink"><i class="fas fa-link"></i></a>
 
         <span class="phpdocumentor-element__modifiers">
                                 </span>
     </h4>
     <aside class="phpdocumentor-element-found-in">
-    <abbr class="phpdocumentor-element-found-in__file" title="src/Storage/FileStorage.php"><a href="files/src-storage-filestorage.html"><abbr title="src/Storage/FileStorage.php">FileStorage.php</abbr></a></abbr>
+    <abbr class="phpdocumentor-element-found-in__file" title="src/Storage/OAuthStorageAbstract.php"><a href="files/src-storage-oauthstorageabstract.html"><abbr title="src/Storage/OAuthStorageAbstract.php">OAuthStorageAbstract.php</abbr></a></abbr>
     :
     <span class="phpdocumentor-element-found-in__line">44</span>
 
     </aside>
 
-    
+        <p class="phpdocumentor-summary">A PSR-3 logger</p>
+
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">protected</span>
         <span class="phpdocumentor-signature__type"><abbr title="\Psr\Log\LoggerInterface">LoggerInterface</abbr></span>
     <span class="phpdocumentor-signature__name">$logger</span>
-     = <span class="phpdocumentor-signature__default-value">new NullLogger()</span></code>
+    </code>
 
     
     
@@ -621,11 +627,12 @@ so that you don&#039;t have to implement the monstrous original `__construct()`<
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Storage/FileStorage.php"><a href="files/src-storage-filestorage.html"><abbr title="src/Storage/FileStorage.php">FileStorage.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">42</span>
+    <span class="phpdocumentor-element-found-in__line">39</span>
 
     </aside>
 
-    
+        <p class="phpdocumentor-summary">A *unique* ID to identify the user within your application, e.g. database row id or UUID</p>
+
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">protected</span>
         <span class="phpdocumentor-signature__type">string|int</span>
@@ -646,24 +653,25 @@ so that you don&#039;t have to implement the monstrous original `__construct()`<
 >
     <h4 class="phpdocumentor-element__name" id="property_options">
         $options
-        <a href="classes/chillerlan-OAuth-Storage-FileStorage.html#property_options" class="headerlink"><i class="fas fa-link"></i></a>
+        <a href="classes/chillerlan-OAuth-Storage-OAuthStorageAbstract.html#property_options" class="headerlink"><i class="fas fa-link"></i></a>
 
         <span class="phpdocumentor-element__modifiers">
                                 </span>
     </h4>
     <aside class="phpdocumentor-element-found-in">
-    <abbr class="phpdocumentor-element-found-in__file" title="src/Storage/FileStorage.php"><a href="files/src-storage-filestorage.html"><abbr title="src/Storage/FileStorage.php">FileStorage.php</abbr></a></abbr>
+    <abbr class="phpdocumentor-element-found-in__file" title="src/Storage/OAuthStorageAbstract.php"><a href="files/src-storage-oauthstorageabstract.html"><abbr title="src/Storage/OAuthStorageAbstract.php">OAuthStorageAbstract.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">43</span>
+    <span class="phpdocumentor-element-found-in__line">39</span>
 
     </aside>
 
-    
+        <p class="phpdocumentor-summary">The options instance</p>
+
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">protected</span>
         <span class="phpdocumentor-signature__type"><a href="classes/chillerlan-OAuth-OAuthOptions.html"><abbr title="\chillerlan\OAuth\OAuthOptions">OAuthOptions</abbr></a>|<abbr title="\chillerlan\Settings\SettingsContainerInterface">SettingsContainerInterface</abbr></span>
     <span class="phpdocumentor-signature__name">$options</span>
-     = <span class="phpdocumentor-signature__default-value">new OAuthOptions()</span></code>
+    </code>
 
     
     
@@ -692,7 +700,7 @@ so that you don&#039;t have to implement the monstrous original `__construct()`<
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Storage/FileStorage.php"><a href="files/src-storage-filestorage.html"><abbr title="src/Storage/FileStorage.php">FileStorage.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">41</span>
+    <span class="phpdocumentor-element-found-in__line">44</span>
 
     </aside>
 
@@ -712,9 +720,7 @@ so that you don&#039;t have to implement the monstrous original `__construct()`<
                 : <span class="phpdocumentor-signature__argument__return-type">string|int</span>
                             </dt>
             <dd class="phpdocumentor-argument-list__definition">
-                    <section class="phpdocumentor-description"><p>a <em>unique</em> ID to identify the user within your application, e.g. database row id or UUID</p>
-</section>
-
+                
             </dd>
                     <dt class="phpdocumentor-argument-list__entry">
                 <span class="phpdocumentor-signature__argument__name">$options</span>
@@ -750,7 +756,7 @@ so that you don&#039;t have to implement the monstrous original `__construct()`<
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Storage/FileStorage.php"><a href="files/src-storage-filestorage.html"><abbr title="src/Storage/FileStorage.php">FileStorage.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">96</span>
+    <span class="phpdocumentor-element-found-in__line">99</span>
 
     </aside>
 
@@ -809,7 +815,7 @@ so that you don&#039;t have to implement the monstrous original `__construct()`<
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Storage/FileStorage.php"><a href="files/src-storage-filestorage.html"><abbr title="src/Storage/FileStorage.php">FileStorage.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">105</span>
+    <span class="phpdocumentor-element-found-in__line">108</span>
 
     </aside>
 
@@ -858,7 +864,7 @@ so that you don&#039;t have to implement the monstrous original `__construct()`<
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Storage/FileStorage.php"><a href="files/src-storage-filestorage.html"><abbr title="src/Storage/FileStorage.php">FileStorage.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">217</span>
+    <span class="phpdocumentor-element-found-in__line">230</span>
 
     </aside>
 
@@ -907,7 +913,7 @@ so that you don&#039;t have to implement the monstrous original `__construct()`<
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Storage/FileStorage.php"><a href="files/src-storage-filestorage.html"><abbr title="src/Storage/FileStorage.php">FileStorage.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">161</span>
+    <span class="phpdocumentor-element-found-in__line">169</span>
 
     </aside>
 
@@ -956,7 +962,7 @@ so that you don&#039;t have to implement the monstrous original `__construct()`<
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Storage/FileStorage.php"><a href="files/src-storage-filestorage.html"><abbr title="src/Storage/FileStorage.php">FileStorage.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">208</span>
+    <span class="phpdocumentor-element-found-in__line">221</span>
 
     </aside>
 
@@ -1015,7 +1021,7 @@ so that you don&#039;t have to implement the monstrous original `__construct()`<
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Storage/FileStorage.php"><a href="files/src-storage-filestorage.html"><abbr title="src/Storage/FileStorage.php">FileStorage.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">152</span>
+    <span class="phpdocumentor-element-found-in__line">160</span>
 
     </aside>
 
@@ -1074,7 +1080,7 @@ so that you don&#039;t have to implement the monstrous original `__construct()`<
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Storage/OAuthStorageAbstract.php"><a href="files/src-storage-oauthstorageabstract.html"><abbr title="src/Storage/OAuthStorageAbstract.php">OAuthStorageAbstract.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">95</span>
+    <span class="phpdocumentor-element-found-in__line">103</span>
 
     </aside>
 
@@ -1134,7 +1140,7 @@ so that you don&#039;t have to implement the monstrous original `__construct()`<
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Storage/FileStorage.php"><a href="files/src-storage-filestorage.html"><abbr title="src/Storage/FileStorage.php">FileStorage.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">76</span>
+    <span class="phpdocumentor-element-found-in__line">79</span>
 
     </aside>
 
@@ -1193,7 +1199,7 @@ so that you don&#039;t have to implement the monstrous original `__construct()`<
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Storage/FileStorage.php"><a href="files/src-storage-filestorage.html"><abbr title="src/Storage/FileStorage.php">FileStorage.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">184</span>
+    <span class="phpdocumentor-element-found-in__line">197</span>
 
     </aside>
 
@@ -1252,7 +1258,7 @@ so that you don&#039;t have to implement the monstrous original `__construct()`<
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Storage/FileStorage.php"><a href="files/src-storage-filestorage.html"><abbr title="src/Storage/FileStorage.php">FileStorage.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">128</span>
+    <span class="phpdocumentor-element-found-in__line">136</span>
 
     </aside>
 
@@ -1311,7 +1317,7 @@ so that you don&#039;t have to implement the monstrous original `__construct()`<
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Storage/FileStorage.php"><a href="files/src-storage-filestorage.html"><abbr title="src/Storage/FileStorage.php">FileStorage.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">89</span>
+    <span class="phpdocumentor-element-found-in__line">92</span>
 
     </aside>
 
@@ -1370,7 +1376,7 @@ so that you don&#039;t have to implement the monstrous original `__construct()`<
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Storage/FileStorage.php"><a href="files/src-storage-filestorage.html"><abbr title="src/Storage/FileStorage.php">FileStorage.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">201</span>
+    <span class="phpdocumentor-element-found-in__line">214</span>
 
     </aside>
 
@@ -1429,7 +1435,7 @@ so that you don&#039;t have to implement the monstrous original `__construct()`<
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Storage/FileStorage.php"><a href="files/src-storage-filestorage.html"><abbr title="src/Storage/FileStorage.php">FileStorage.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">145</span>
+    <span class="phpdocumentor-element-found-in__line">153</span>
 
     </aside>
 
@@ -1488,7 +1494,7 @@ so that you don&#039;t have to implement the monstrous original `__construct()`<
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Storage/OAuthStorageAbstract.php"><a href="files/src-storage-oauthstorageabstract.html"><abbr title="src/Storage/OAuthStorageAbstract.php">OAuthStorageAbstract.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">58</span>
+    <span class="phpdocumentor-element-found-in__line">66</span>
 
     </aside>
 
@@ -1555,7 +1561,7 @@ so that you don&#039;t have to implement the monstrous original `__construct()`<
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Storage/FileStorage.php"><a href="files/src-storage-filestorage.html"><abbr title="src/Storage/FileStorage.php">FileStorage.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">67</span>
+    <span class="phpdocumentor-element-found-in__line">70</span>
 
     </aside>
 
@@ -1621,7 +1627,7 @@ so that you don&#039;t have to implement the monstrous original `__construct()`<
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Storage/FileStorage.php"><a href="files/src-storage-filestorage.html"><abbr title="src/Storage/FileStorage.php">FileStorage.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">170</span>
+    <span class="phpdocumentor-element-found-in__line">183</span>
 
     </aside>
 
@@ -1687,7 +1693,7 @@ so that you don&#039;t have to implement the monstrous original `__construct()`<
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Storage/FileStorage.php"><a href="files/src-storage-filestorage.html"><abbr title="src/Storage/FileStorage.php">FileStorage.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">114</span>
+    <span class="phpdocumentor-element-found-in__line">122</span>
 
     </aside>
 
@@ -1753,7 +1759,7 @@ so that you don&#039;t have to implement the monstrous original `__construct()`<
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Storage/OAuthStorageAbstract.php"><a href="files/src-storage-oauthstorageabstract.html"><abbr title="src/Storage/OAuthStorageAbstract.php">OAuthStorageAbstract.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">82</span>
+    <span class="phpdocumentor-element-found-in__line">90</span>
 
     </aside>
 
@@ -1802,53 +1808,6 @@ and returns a value that is suited for the underlying storage engine</p>
             -protected
                                                         "
 >
-    <h4 class="phpdocumentor-element__name" id="method_construct">
-        construct()
-        <a href="classes/chillerlan-OAuth-Storage-FileStorage.html#method_construct" class="headerlink"><i class="fas fa-link"></i></a>
-
-    </h4>
-    <aside class="phpdocumentor-element-found-in">
-    <abbr class="phpdocumentor-element-found-in__file" title="src/Storage/FileStorage.php"><a href="files/src-storage-filestorage.html"><abbr title="src/Storage/FileStorage.php">FileStorage.php</abbr></a></abbr>
-    :
-    <span class="phpdocumentor-element-found-in__line">52</span>
-
-    </aside>
-
-        <p class="phpdocumentor-summary">A replacement constructor that you can call in extended classes,
-so that you don&#039;t have to implement the monstrous original `__construct()`</p>
-
-    <code class="phpdocumentor-code phpdocumentor-signature ">
-    <span class="phpdocumentor-signature__visibility">protected</span>
-                    <span class="phpdocumentor-signature__name">construct</span><span>(</span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">void</span></code>
-
-    <div class="phpdocumentor-label-line">
-        </div>
-    
-    
-    
-    <h5 class="phpdocumentor-tag-list__heading" id="tags">
-        Tags
-        <a href="classes/chillerlan-OAuth-Storage-FileStorage.html#method_construct#tags" class="headerlink"><i class="fas fa-link"></i></a>
-
-    </h5>
-    <dl class="phpdocumentor-tag-list">
-                                    <dt class="phpdocumentor-tag-list__entry">
-                    <span class="phpdocumentor-tag__name">inheritDoc</span>
-                </dt>
-                <dd class="phpdocumentor-tag-list__definition">
-                                                                                
-                                             
-                                    </dd>
-                                            </dl>
-
-    
-</article>
-                    <article
-        class="phpdocumentor-element
-            -method
-            -protected
-                                                        "
->
     <h4 class="phpdocumentor-element__name" id="method_decrypt">
         decrypt()
         <a href="classes/chillerlan-OAuth-Storage-OAuthStorageAbstract.html#method_decrypt" class="headerlink"><i class="fas fa-link"></i></a>
@@ -1857,7 +1816,7 @@ so that you don&#039;t have to implement the monstrous original `__construct()`<
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Storage/OAuthStorageAbstract.php"><a href="files/src-storage-oauthstorageabstract.html"><abbr title="src/Storage/OAuthStorageAbstract.php">OAuthStorageAbstract.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">114</span>
+    <span class="phpdocumentor-element-found-in__line">122</span>
 
     </aside>
 
@@ -1903,7 +1862,7 @@ so that you don&#039;t have to implement the monstrous original `__construct()`<
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Storage/FileStorage.php"><a href="files/src-storage-filestorage.html"><abbr title="src/Storage/FileStorage.php">FileStorage.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">268</span>
+    <span class="phpdocumentor-element-found-in__line">286</span>
 
     </aside>
 
@@ -1945,7 +1904,7 @@ so that you don&#039;t have to implement the monstrous original `__construct()`<
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Storage/FileStorage.php"><a href="files/src-storage-filestorage.html"><abbr title="src/Storage/FileStorage.php">FileStorage.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">256</span>
+    <span class="phpdocumentor-element-found-in__line">274</span>
 
     </aside>
 
@@ -1994,7 +1953,7 @@ so that you don&#039;t have to implement the monstrous original `__construct()`<
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Storage/OAuthStorageAbstract.php"><a href="files/src-storage-oauthstorageabstract.html"><abbr title="src/Storage/OAuthStorageAbstract.php">OAuthStorageAbstract.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">107</span>
+    <span class="phpdocumentor-element-found-in__line">115</span>
 
     </aside>
 
@@ -2040,7 +1999,7 @@ so that you don&#039;t have to implement the monstrous original `__construct()`<
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Storage/FileStorage.php"><a href="files/src-storage-filestorage.html"><abbr title="src/Storage/FileStorage.php">FileStorage.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">284</span>
+    <span class="phpdocumentor-element-found-in__line">302</span>
 
     </aside>
 
@@ -2093,7 +2052,7 @@ so that you don&#039;t have to implement the monstrous original `__construct()`<
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Storage/OAuthStorageAbstract.php"><a href="files/src-storage-oauthstorageabstract.html"><abbr title="src/Storage/OAuthStorageAbstract.php">OAuthStorageAbstract.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">69</span>
+    <span class="phpdocumentor-element-found-in__line">77</span>
 
     </aside>
 
@@ -2154,7 +2113,7 @@ so that you don&#039;t have to implement the monstrous original `__construct()`<
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Storage/FileStorage.php"><a href="files/src-storage-filestorage.html"><abbr title="src/Storage/FileStorage.php">FileStorage.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">226</span>
+    <span class="phpdocumentor-element-found-in__line">244</span>
 
     </aside>
 
@@ -2207,7 +2166,7 @@ so that you don&#039;t have to implement the monstrous original `__construct()`<
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Storage/FileStorage.php"><a href="files/src-storage-filestorage.html"><abbr title="src/Storage/FileStorage.php">FileStorage.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">239</span>
+    <span class="phpdocumentor-element-found-in__line">257</span>
 
     </aside>
 
@@ -2372,9 +2331,9 @@ so that you don&#039;t have to implement the monstrous original `__construct()`<
                             <li class="phpdocumentor-on-this-page-section__title">Properties</li>
                 <li>
                     <ul class="phpdocumentor-list -clean">
-                                                    <li><a href="classes/chillerlan-OAuth-Storage-FileStorage.html#property_logger">$logger<a href="classes/chillerlan-OAuth-Storage-FileStorage.html"></li>
+                                                    <li><a href="classes/chillerlan-OAuth-Storage-OAuthStorageAbstract.html#property_logger">$logger<a href="classes/chillerlan-OAuth-Storage-FileStorage.html"></li>
                                                     <li><a href="classes/chillerlan-OAuth-Storage-FileStorage.html#property_oauthUser">$oauthUser<a href="classes/chillerlan-OAuth-Storage-FileStorage.html"></li>
-                                                    <li><a href="classes/chillerlan-OAuth-Storage-FileStorage.html#property_options">$options<a href="classes/chillerlan-OAuth-Storage-FileStorage.html"></li>
+                                                    <li><a href="classes/chillerlan-OAuth-Storage-OAuthStorageAbstract.html#property_options">$options<a href="classes/chillerlan-OAuth-Storage-FileStorage.html"></li>
                                             </ul>
                 </li>
             
@@ -2400,7 +2359,6 @@ so that you don&#039;t have to implement the monstrous original `__construct()`<
                                             <li><a href="classes/chillerlan-OAuth-Storage-FileStorage.html#method_storeCodeVerifier">storeCodeVerifier()</a></li>
                                             <li><a href="classes/chillerlan-OAuth-Storage-FileStorage.html#method_storeCSRFState">storeCSRFState()</a></li>
                                             <li><a href="classes/chillerlan-OAuth-Storage-OAuthStorageAbstract.html#method_toStorage">toStorage()</a></li>
-                                            <li><a href="classes/chillerlan-OAuth-Storage-FileStorage.html#method_construct">construct()</a></li>
                                             <li><a href="classes/chillerlan-OAuth-Storage-OAuthStorageAbstract.html#method_decrypt">decrypt()</a></li>
                                             <li><a href="classes/chillerlan-OAuth-Storage-FileStorage.html#method_deleteAll">deleteAll()</a></li>
                                             <li><a href="classes/chillerlan-OAuth-Storage-FileStorage.html#method_deleteFile">deleteFile()</a></li>

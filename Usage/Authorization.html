@@ -304,6 +304,26 @@ calls to other hosts will be rerouted directly to the http client.</p>
 <span class="nv">$response</span> <span class="o">=</span> <span class="nv">$provider</span><span class="o">-&gt;</span><span class="na">sendRequest</span><span class="p">(</span><span class="nv">$request</span><span class="p">);</span> <span class="c1">// -&gt; ResponseInterface instance</span>
 </pre></div>
 </div>
+<p>You might want to wrap the API call in a try/catch block that catches the <code class="docutils literal notranslate"><span class="pre">InvalidAccessTokenException</span></code> (expired token, unable to refresh)
+or its parent <code class="docutils literal notranslate"><span class="pre">UnauthorizedAccessException</span></code> (general HTTP error: 400, 401, 403) and decide what to do in that case:</p>
+<div class="highlight-php notranslate"><div class="highlight"><pre><span></span><span class="k">try</span><span class="p">{</span>
+	<span class="nv">$response</span> <span class="o">=</span> <span class="nv">$provider</span><span class="o">-&gt;</span><span class="na">sendRequest</span><span class="p">(</span><span class="nv">$request</span><span class="p">);</span>
+<span class="p">}</span>
+<span class="k">catch</span><span class="p">(</span><span class="nx">Throwable</span> <span class="nv">$e</span><span class="p">){</span>
+
+	<span class="k">if</span><span class="p">(</span><span class="nv">$e</span> <span class="nx">instanceof</span> <span class="nx">InvalidAccessTokenException</span><span class="p">){</span>
+		<span class="c1">// redirect to (re-) authorization</span>
+		<span class="nb">header</span><span class="p">(</span><span class="s1">&#39;Location: &#39;</span><span class="o">.</span><span class="nv">$provider</span><span class="o">-&gt;</span><span class="na">getAuthorizationURL</span><span class="p">(</span><span class="nv">$params</span><span class="p">,</span> <span class="nv">$scopes</span><span class="p">));</span>
+	<span class="p">}</span>
+	<span class="k">elseif</span><span class="p">(</span><span class="nv">$e</span> <span class="nx">instanceof</span> <span class="nx">UnauthorizedAccessException</span><span class="p">){</span>
+		<span class="c1">// handle http error</span>
+	<span class="p">}</span>
+
+	<span class="c1">// something else went horribly wrong</span>
+	<span class="k">throw</span> <span class="nv">$e</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
 </section>
 </section>
 

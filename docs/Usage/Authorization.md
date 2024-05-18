@@ -116,3 +116,25 @@ $request  = $requestFactory->createRequest('GET', 'https://api.github.com/user')
 // authenticated request
 $response = $provider->sendRequest($request); // -> ResponseInterface instance
 ```
+
+You might want to wrap the API call in a try/catch block that catches the `InvalidAccessTokenException` (expired token, unable to refresh)
+or its parent `UnauthorizedAccessException` (general HTTP error: 400, 401, 403) and decide what to do in that case:
+
+```php
+try{
+	$response = $provider->sendRequest($request);
+}
+catch(Throwable $e){
+
+	if($e instanceof InvalidAccessTokenException){
+		// redirect to (re-) authorization
+		header('Location: '.$provider->getAuthorizationURL($params, $scopes));
+	}
+	elseif($e instanceof UnauthorizedAccessException){
+		// handle http error
+	}
+
+	// something else went horribly wrong
+	throw $e;
+}
+```

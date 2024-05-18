@@ -34,16 +34,20 @@ class FileStorage extends OAuthStorageAbstract{
 	final protected const ENCRYPT_FORMAT = Utilities::ENCRYPT_FORMAT_BINARY;
 
 	/**
+	 * A *unique* ID to identify the user within your application, e.g. database row id or UUID
+	 */
+	protected string|int $oauthUser;
+
+	/**
 	 * OAuthStorageAbstract constructor.
 	 */
 	public function __construct(
-		/** A *unique* ID to identify the user within your application, e.g. database row id or UUID */
-		protected string|int $oauthUser,
-		/** The options instance */
-		protected OAuthOptions|SettingsContainerInterface $options = new OAuthOptions,
-		/** A PSR-3 logger */
-		protected LoggerInterface                         $logger = new NullLogger
+		string|int                              $oauthUser,
+		OAuthOptions|SettingsContainerInterface $options = new OAuthOptions,
+		LoggerInterface                         $logger = new NullLogger
 	){
+		$this->oauthUser = $oauthUser;
+
 		parent::__construct($options, $logger);
 	}
 

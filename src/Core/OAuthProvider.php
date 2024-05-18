@@ -37,6 +37,41 @@ use const PHP_QUERY_RFC1738, SODIUM_BASE64_VARIANT_ORIGINAL;
 abstract class OAuthProvider implements OAuthInterface{
 
 	/**
+	 * The options instance
+	 */
+	protected OAuthOptions|SettingsContainerInterface $options;
+
+	/**
+	 * The PSR-18 HTTP client
+	 */
+	protected ClientInterface $http;
+
+	/**
+	 * A PSR-17 request factory
+	 */
+	protected RequestFactoryInterface $requestFactory;
+
+	/**
+	 * A PSR-17 stream factory
+	 */
+	protected StreamFactoryInterface $streamFactory;
+
+	/**
+	 * A PSR-17 URI factory
+	 */
+	protected UriFactoryInterface $uriFactory;
+
+	/**
+	 * A storage instance
+	 */
+	protected OAuthStorageInterface $storage;
+
+	/**
+	 * A PSR-3 logger
+	 */
+	protected LoggerInterface $logger;
+
+	/**
 	 * the authorization URL
 	 */
 	protected string $authorizationURL = '';
@@ -76,22 +111,23 @@ abstract class OAuthProvider implements OAuthInterface{
 	 * OAuthProvider constructor.
 	 */
 	final public function __construct(
-		/** The options instance */
-		protected OAuthOptions|SettingsContainerInterface $options,
-		/** The PSR-18 HTTP client */
-		protected ClientInterface                         $http,
-		/** A PSR-17 request factory */
-		protected RequestFactoryInterface                 $requestFactory,
-		/** A PSR-17 stream factory */
-		protected StreamFactoryInterface                  $streamFactory,
-		/** A PSR-17 URI factory */
-		protected UriFactoryInterface                     $uriFactory,
-		/** A storage instance */
-		protected OAuthStorageInterface                   $storage = new MemoryStorage,
-		/** A PSR-3 logger */
-		protected LoggerInterface                         $logger = new NullLogger,
+		OAuthOptions|SettingsContainerInterface $options,
+		ClientInterface                         $http,
+		RequestFactoryInterface                 $requestFactory,
+		StreamFactoryInterface                  $streamFactory,
+		UriFactoryInterface                     $uriFactory,
+		OAuthStorageInterface                   $storage = new MemoryStorage,
+		LoggerInterface                         $logger = new NullLogger,
 	){
-		$this->name = (new ReflectionClass($this))->getShortName();
+		$this->options        = $options;
+		$this->http           = $http;
+		$this->requestFactory = $requestFactory;
+		$this->streamFactory  = $streamFactory;
+		$this->uriFactory     = $uriFactory;
+		$this->storage        = $storage;
+		$this->logger         = $logger;
+
+		$this->name           = (new ReflectionClass($this))->getShortName();
 
 		$this->construct();
 	}

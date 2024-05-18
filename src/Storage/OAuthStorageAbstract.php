@@ -26,21 +26,37 @@ abstract class OAuthStorageAbstract implements OAuthStorageInterface{
 	final protected const KEY_STATE    = 'STATE';
 	final protected const KEY_VERIFIER = 'VERIFIER';
 
+	/**
+	 * Output format for encrypted data
+	 *
+	 * @var int
+	 */
 	protected const ENCRYPT_FORMAT = Utilities::ENCRYPT_FORMAT_HEX;
+
+	/**
+	 * The options instance
+	 */
+	protected OAuthOptions|SettingsContainerInterface $options;
+
+	/**
+	 * A PSR-3 logger
+	 */
+	protected LoggerInterface $logger;
 
 	/**
 	 * OAuthStorageAbstract constructor.
 	 */
 	public function __construct(
-		/** The options instance */
-		protected OAuthOptions|SettingsContainerInterface $options = new OAuthOptions,
-		/** A PSR-3 logger */
-		protected LoggerInterface                         $logger = new NullLogger
+		OAuthOptions|SettingsContainerInterface $options = new OAuthOptions,
+		LoggerInterface                         $logger = new NullLogger
 	){
 
 		if($this->options->useStorageEncryption === true && empty($this->options->storageEncryptionKey)){
 			throw new OAuthStorageException('no encryption key given');
 		}
+
+		$this->options = $options;
+		$this->logger  = $logger;
 
 		$this->construct();
 	}

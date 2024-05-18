@@ -92,7 +92,7 @@ class Mastodon extends OAuth2Provider{
 ## Informational values
 
 In order to automatically create the fancy table under [supported providers](../Basics/Overview.md#supported-providers),
-a provider class can implement the following informational properties (that can be accessed via magic `__get()`):
+a provider class can implement the following informational properties:
 
 - `$apiDocs` - a link to the API documentation for this service
 - `$applicationURL` - links to the OAuth application page, where a developer can obtain (or apply for) credentials

@@ -98,7 +98,7 @@ The file storage root path (requires permissions 0777)
 The length of the PKCE challenge verifier (43-128 characters)
 
 
-**See also:**
+**Links:**
 
 - [datatracker.ietf.org/doc/html/rfc7636#section-4.1](https://datatracker.ietf.org/doc/html/rfc7636#section-4.1)
 

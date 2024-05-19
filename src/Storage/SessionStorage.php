@@ -92,7 +92,7 @@ class SessionStorage extends OAuthStorageAbstract{
 			return $this->fromStorage($_SESSION[$this->storageVar][$this::KEY_TOKEN][$this->getProviderName($provider)]);
 		}
 
-		throw new TokenNotFoundException;
+		throw new ItemNotFoundException($this::KEY_TOKEN);
 	}
 
 	/**
@@ -145,7 +145,7 @@ class SessionStorage extends OAuthStorageAbstract{
 	public function getCSRFState(string $provider):string{
 
 		if(!$this->hasCSRFState($provider)){
-			throw new StateNotFoundException;
+			throw new ItemNotFoundException($this::KEY_STATE);
 		}
 
 		$state = $_SESSION[$this->storageVar][$this::KEY_STATE][$this->getProviderName($provider)];
@@ -207,7 +207,7 @@ class SessionStorage extends OAuthStorageAbstract{
 	public function getCodeVerifier(string $provider):string{
 
 		if(!$this->hasCodeVerifier($provider)){
-			throw new VerifierNotFoundException;
+			throw new ItemNotFoundException($this::KEY_VERIFIER);
 		}
 
 		$verifier = $_SESSION[$this->storageVar][$this::KEY_VERIFIER][$this->getProviderName($provider)];

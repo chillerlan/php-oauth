@@ -1,6 +1,6 @@
 <?php
 /**
- * Class StateNotFoundException
+ * Class ItemNotFoundException
  *
  * @created      04.04.2024
  * @author       smiley <smiley@chillerlan.net>
@@ -11,8 +11,8 @@
 namespace chillerlan\OAuth\Storage;
 
 /**
- *
+ * Thrown when an item cannot be found in the storage
  */
-final class StateNotFoundException extends OAuthStorageException{
+final class ItemNotFoundException extends OAuthStorageException{
 
 }

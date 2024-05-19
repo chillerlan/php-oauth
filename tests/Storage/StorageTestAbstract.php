@@ -14,7 +14,7 @@ namespace chillerlan\OAuthTest\Storage;
 use chillerlan\OAuth\OAuthOptions;
 use chillerlan\OAuth\Core\AccessToken;
 use chillerlan\OAuth\Storage\{
-	OAuthStorageException, OAuthStorageInterface, StateNotFoundException, TokenNotFoundException, VerifierNotFoundException
+	OAuthStorageException, OAuthStorageInterface, ItemNotFoundException
 };
 use PHPUnit\Framework\TestCase;
 use ReflectionMethod;
@@ -68,7 +68,7 @@ abstract class StorageTestAbstract extends TestCase{
 	}
 
 	public function testGetAccessTokenNotFoundException():void{
-		$this->expectException(TokenNotFoundException::class);
+		$this->expectException(ItemNotFoundException::class);
 
 		$this->storage->getAccessToken('LOLNOPE');
 	}
@@ -103,7 +103,7 @@ abstract class StorageTestAbstract extends TestCase{
 	}
 
 	public function testGetCSRFStateNotFoundException():void{
-		$this->expectException(StateNotFoundException::class);
+		$this->expectException(ItemNotFoundException::class);
 
 		$this->storage->getCSRFState('LOLNOPE');
 	}
@@ -138,7 +138,7 @@ abstract class StorageTestAbstract extends TestCase{
 	}
 
 	public function testGetPKCEVerifierNotFoundException():void{
-		$this->expectException(VerifierNotFoundException::class);
+		$this->expectException(ItemNotFoundException::class);
 
 		$this->storage->getCodeVerifier('LOLNOPE');
 	}

@@ -63,9 +63,9 @@ interface OAuthStorageInterface{
 	/**
 	 * Retrieves an AccessToken for the given $provider
 	 *
-	 * This method *must* throw a TokenNotFoundException if a token is not found
+	 * This method *must* throw a ItemNotFoundException if a token is not found
 	 *
-	 * @throws \chillerlan\OAuth\Storage\TokenNotFoundException
+	 * @throws \chillerlan\OAuth\Storage\ItemNotFoundException
 	 */
 	public function getAccessToken(string $provider):AccessToken;
 
@@ -103,9 +103,9 @@ interface OAuthStorageInterface{
 	/**
 	 * Retrieves a CSRF <state> value for the given $provider
 	 *
-	 * This method *must* throw a StateNotFoundException if a state is not found
+	 * This method *must* throw a ItemNotFoundException if a state is not found
 	 *
-	 * @throws \chillerlan\OAuth\Storage\StateNotFoundException
+	 * @throws \chillerlan\OAuth\Storage\ItemNotFoundException
 	 */
 	public function getCSRFState(string $provider):string;
 
@@ -140,6 +140,10 @@ interface OAuthStorageInterface{
 
 	/**
 	 * Retrieves a PKCE verifier
+	 *
+	 * This method *must* throw a ItemNotFoundException if a verifier is not found
+	 *
+	 * @throws \chillerlan\OAuth\Storage\ItemNotFoundException
 	 */
 	public function getCodeVerifier(string $provider):string;
 

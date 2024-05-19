@@ -20,7 +20,7 @@ use chillerlan\OAuth\Core\{
 use chillerlan\HTTP\Utils\{MessageUtil, QueryUtil};
 use chillerlan\OAuth\OAuthException;
 use chillerlan\OAuth\Providers\ProviderException;
-use chillerlan\OAuth\Storage\StateNotFoundException;
+use chillerlan\OAuth\Storage\ItemNotFoundException;
 use PHPUnit\Framework\Attributes\DataProvider;
 use function base64_encode, implode, json_decode, json_encode;
 
@@ -432,7 +432,7 @@ abstract class OAuth2ProviderUnitTestAbstract extends OAuthProviderUnitTestAbstr
 			$this->markTestSkipped('CSRFToken N/A');
 		}
 
-		$this->expectException(StateNotFoundException::class);
+		$this->expectException(ItemNotFoundException::class);
 
 		$this->provider->checkState('invalid_test_state');
 	}

@@ -52,7 +52,7 @@ class MemoryStorage extends OAuthStorageAbstract{
 			return $this->storage[$this::KEY_TOKEN][$this->getProviderName($provider)];
 		}
 
-		throw new TokenNotFoundException;
+		throw new ItemNotFoundException($this::KEY_TOKEN);
 	}
 
 	/**
@@ -103,7 +103,7 @@ class MemoryStorage extends OAuthStorageAbstract{
 			return $this->storage[$this::KEY_STATE][$this->getProviderName($provider)];
 		}
 
-		throw new StateNotFoundException;
+		throw new ItemNotFoundException($this::KEY_STATE);
 	}
 
 	/**
@@ -154,7 +154,7 @@ class MemoryStorage extends OAuthStorageAbstract{
 			return $this->storage[$this::KEY_VERIFIER][$this->getProviderName($provider)];
 		}
 
-		throw new VerifierNotFoundException;
+		throw new ItemNotFoundException($this::KEY_VERIFIER);
 	}
 
 	/**

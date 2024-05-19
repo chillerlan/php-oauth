@@ -80,7 +80,7 @@ class FileStorage extends OAuthStorageAbstract{
 		$tokenData = $this->loadFile($this::KEY_TOKEN, $provider);
 
 		if($tokenData === null){
-			throw new TokenNotFoundException;
+			throw new ItemNotFoundException($this::KEY_TOKEN);
 		}
 
 		return $this->fromStorage($tokenData);
@@ -137,7 +137,7 @@ class FileStorage extends OAuthStorageAbstract{
 		$state = $this->loadFile($this::KEY_STATE, $provider);
 
 		if($state === null){
-			throw new StateNotFoundException;
+			throw new ItemNotFoundException($this::KEY_STATE);
 		}
 
 		if($this->options->useStorageEncryption === true){
@@ -198,7 +198,7 @@ class FileStorage extends OAuthStorageAbstract{
 		$verifier = $this->loadFile($this::KEY_VERIFIER, $provider);
 
 		if($verifier === null){
-			throw new VerifierNotFoundException;
+			throw new ItemNotFoundException($this::KEY_VERIFIER);
 		}
 
 		if($this->options->useStorageEncryption === true){

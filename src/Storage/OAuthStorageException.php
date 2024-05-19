@@ -13,6 +13,9 @@ namespace chillerlan\OAuth\Storage;
 
 use chillerlan\OAuth\OAuthException;
 
+/**
+ * Thrown on general storage errors
+ */
 class OAuthStorageException extends OAuthException{
 
 }

@@ -448,49 +448,42 @@ to the PAR endpoint of the service and gets a temporary request URI in return, w
 </section>
 <section id="tokeninvalidate">
 <h2><code class="docutils literal notranslate"><span class="pre">TokenInvalidate</span></code><a class="headerlink" href="#tokeninvalidate" title="Link to this heading"></a></h2>
-<p>This is interface is <em>not</em> implemented in the abstract providers, as it may differ drastically between services or is not supported at all.
+<p>The <code class="docutils literal notranslate"><span class="pre">TokenInvalidate</span></code> adds support for <em>“Token Revocation””</em> as described in <a class="reference external" href="https://datatracker.ietf.org/doc/html/rfc7009">RFC-7009</a>.
 The method <code class="docutils literal notranslate"><span class="pre">TokenInvalidate::invalidateAccessToken()</span></code> takes an <code class="docutils literal notranslate"><span class="pre">AccessToken</span></code> as optional parameter, in which case this token should be invalidated,
-otherwise the token for the current user should be fetched from the storage and be used in the invalidation request.</p>
-<p>The more common implementation looks as follows: the access token along with client-id is sent with a <code class="docutils literal notranslate"><span class="pre">POST</span></code> request as url-encoded
-form-data in the body, and the server responds with either a HTTP 200 and (often) an empty body or a HTTP 204.
-On a successful response, the token should be deleted from the storage.</p>
+otherwise the token for the current user should be fetched from the storage and be used in the invalidation request.
+An optional <a class="reference external" href="https://datatracker.ietf.org/doc/html/rfc7009#section-2.1">“token type hint”</a> can be given with the <code class="docutils literal notranslate"><span class="pre">$type</span></code> parameter (defaults to <code class="docutils literal notranslate"><span class="pre">access_token</span></code>).</p>
+<p>The more common implementation looks as follows: the access token along with type hint (and sometimes other parameters) is sent
+with a <code class="docutils literal notranslate"><span class="pre">POST</span></code> request as url-encoded form-data in the body, and the server responds with either an HTTP 200 and (often) an empty
+body or an HTTP 204. On a successful response, the token should be deleted from the storage.</p>
+<p>The implementation in <code class="docutils literal notranslate"><span class="pre">OAuth2Provider</span></code> is divided in parts that can be overridden separately:</p>
 <div class="highlight-php notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">MyOAuth2Provider</span> <span class="k">extends</span> <span class="nx">OAuth2Provider</span> <span class="k">implements</span> <span class="nx">TokenInvalidate</span><span class="p">{</span>
 
 	<span class="cm">/*</span>
 <span class="cm">	 * ...</span>
 <span class="cm">	 */</span>
 
-	<span class="k">public</span> <span class="k">function</span> <span class="nf">invalidateAccessToken</span><span class="p">(</span><span class="nx">AccessToken</span><span class="o">|</span><span class="k">null</span> <span class="nv">$token</span> <span class="o">=</span> <span class="k">null</span><span class="p">)</span><span class="o">:</span><span class="nx">bool</span><span class="p">{</span>
-		<span class="nv">$tokenToInvalidate</span> <span class="o">=</span> <span class="p">(</span><span class="nv">$token</span> <span class="o">??</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">storage</span><span class="o">-&gt;</span><span class="na">getAccessToken</span><span class="p">(</span><span class="nv">$this</span><span class="o">-&gt;</span><span class="na">name</span><span class="p">));</span>
+	<span class="k">protected</span> <span class="k">function</span> <span class="nf">sendTokenInvalidateRequest</span><span class="p">(</span><span class="nx">string</span> <span class="nv">$url</span><span class="p">,</span> <span class="k">array</span> <span class="nv">$body</span><span class="p">){</span>
 
-		<span class="c1">// the body may vary between services</span>
-		<span class="nv">$bodyParams</span> <span class="o">=</span> <span class="p">[</span>
-			<span class="s1">&#39;client_id&#39;</span> <span class="o">=&gt;</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">options</span><span class="o">-&gt;</span><span class="na">key</span><span class="p">,</span>
-			<span class="s1">&#39;token&#39;</span>     <span class="o">=&gt;</span> <span class="nv">$tokenToInvalidate</span><span class="o">-&gt;</span><span class="na">accessToken</span><span class="p">,</span>
-		<span class="p">];</span>
-
-		<span class="c1">// prepare the request</span>
 		<span class="nv">$request</span> <span class="o">=</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">requestFactory</span>
-			<span class="o">-&gt;</span><span class="na">createRequest</span><span class="p">(</span><span class="s1">&#39;POST&#39;</span><span class="p">,</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">revokeURL</span><span class="p">)</span>
+			<span class="o">-&gt;</span><span class="na">createRequest</span><span class="p">(</span><span class="s1">&#39;POST&#39;</span><span class="p">,</span> <span class="nv">$url</span><span class="p">)</span>
 			<span class="o">-&gt;</span><span class="na">withHeader</span><span class="p">(</span><span class="s1">&#39;Content-Type&#39;</span><span class="p">,</span> <span class="s1">&#39;application/x-www-form-urlencoded&#39;</span><span class="p">)</span>
 		<span class="p">;</span>
 
-		<span class="c1">// encode the body according to the content-type given in the request header</span>
-		<span class="nv">$request</span> <span class="o">=</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">setRequestBody</span><span class="p">(</span><span class="nv">$bodyParams</span><span class="p">,</span> <span class="nv">$request</span><span class="p">);</span>
+		<span class="c1">// an additional basic auth header is set</span>
+		<span class="nv">$request</span>  <span class="o">=</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">addBasicAuthHeader</span><span class="p">(</span><span class="nv">$request</span><span class="p">);</span>
+		<span class="nv">$request</span>  <span class="o">=</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">setRequestBody</span><span class="p">(</span><span class="nv">$body</span><span class="p">,</span> <span class="nv">$request</span><span class="p">);</span>
 
-		<span class="c1">// bypass the host check and request authorization</span>
-		<span class="nv">$response</span> <span class="o">=</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">http</span><span class="o">-&gt;</span><span class="na">sendRequest</span><span class="p">(</span><span class="nv">$request</span><span class="p">);</span>
+		<span class="k">return</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">http</span><span class="o">-&gt;</span><span class="na">sendRequest</span><span class="p">(</span><span class="nv">$request</span><span class="p">);</span>
+	<span class="p">}</span>
 
-		<span class="k">if</span><span class="p">(</span><span class="nv">$response</span><span class="o">-&gt;</span><span class="na">getStatusCode</span><span class="p">()</span> <span class="o">===</span> <span class="mi">200</span><span class="p">){</span>
-			<span class="c1">// delete the token on success (only if it wasn&#39;t given via param)</span>
-			<span class="k">if</span><span class="p">(</span><span class="nv">$token</span> <span class="o">===</span> <span class="k">null</span><span class="p">){</span>
-				<span class="nv">$this</span><span class="o">-&gt;</span><span class="na">storage</span><span class="o">-&gt;</span><span class="na">clearAccessToken</span><span class="p">(</span><span class="nv">$this</span><span class="o">-&gt;</span><span class="na">name</span><span class="p">);</span>
-			<span class="p">}</span>
-
-			<span class="k">return</span> <span class="k">true</span><span class="p">;</span>
-		<span class="p">}</span>
-
-		<span class="k">return</span> <span class="k">false</span><span class="p">;</span>
+	<span class="k">protected</span> <span class="k">function</span> <span class="nf">getInvalidateAccessTokenBodyParams</span><span class="p">(</span><span class="nx">AccessToken</span> <span class="nv">$token</span><span class="p">,</span> <span class="nx">string</span> <span class="nv">$type</span><span class="p">)</span><span class="o">:</span><span class="k">array</span><span class="p">{</span>
+		<span class="k">return</span> <span class="p">[</span>
+			<span class="c1">// here, client_id and client_secret are set additionally</span>
+			<span class="s1">&#39;client_id&#39;</span>       <span class="o">=&gt;</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">options</span><span class="o">-&gt;</span><span class="na">key</span><span class="p">,</span>
+			<span class="s1">&#39;client_secret&#39;</span>   <span class="o">=&gt;</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">options</span><span class="o">-&gt;</span><span class="na">secret</span><span class="p">,</span>
+			<span class="s1">&#39;token&#39;</span>           <span class="o">=&gt;</span> <span class="nv">$token</span><span class="o">-&gt;</span><span class="na">accessToken</span><span class="p">,</span>
+			<span class="s1">&#39;token_type_hint&#39;</span> <span class="o">=&gt;</span> <span class="nv">$type</span><span class="p">,</span>
+		<span class="p">];</span>
 	<span class="p">}</span>
 
 <span class="p">}</span>
@@ -505,7 +498,7 @@ This can be solved by simply cloning the current provider instance, feed the giv
 <span class="cm">	 * ...</span>
 <span class="cm">	 */</span>
 
-	<span class="k">public</span> <span class="k">function</span> <span class="nf">invalidateAccessToken</span><span class="p">(</span><span class="nx">AccessToken</span><span class="o">|</span><span class="k">null</span> <span class="nv">$token</span> <span class="o">=</span> <span class="k">null</span><span class="p">)</span><span class="o">:</span><span class="nx">bool</span><span class="p">{</span>
+	<span class="k">public</span> <span class="k">function</span> <span class="nf">invalidateAccessToken</span><span class="p">(</span><span class="nx">AccessToken</span><span class="o">|</span><span class="k">null</span> <span class="nv">$token</span> <span class="o">=</span> <span class="k">null</span><span class="p">,</span> <span class="nx">string</span><span class="o">|</span><span class="k">null</span> <span class="nv">$type</span> <span class="o">=</span> <span class="k">null</span><span class="p">)</span><span class="o">:</span><span class="nx">bool</span><span class="p">{</span>
 
 		<span class="c1">// a token was given</span>
 		<span class="k">if</span><span class="p">(</span><span class="nv">$token</span> <span class="o">!==</span> <span class="k">null</span><span class="p">){</span>

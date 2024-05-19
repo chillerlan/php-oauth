@@ -266,13 +266,16 @@ class MyOAuth2Provider extends OAuth2Provider implements PAR{
 
 ## `TokenInvalidate`
 
-This is interface is *not* implemented in the abstract providers, as it may differ drastically between services or is not supported at all.
+The `TokenInvalidate` adds support for *"Token Revocation""* as described in [RFC-7009](https://datatracker.ietf.org/doc/html/rfc7009).
 The method `TokenInvalidate::invalidateAccessToken()` takes an `AccessToken` as optional parameter, in which case this token should be invalidated,
 otherwise the token for the current user should be fetched from the storage and be used in the invalidation request.
+An optional ["token type hint"](https://datatracker.ietf.org/doc/html/rfc7009#section-2.1) can be given with the `$type` parameter (defaults to `access_token`).
 
-The more common implementation looks as follows: the access token along with client-id is sent with a `POST` request as url-encoded
-form-data in the body, and the server responds with either a HTTP 200 and (often) an empty body or a HTTP 204.
-On a successful response, the token should be deleted from the storage.
+The more common implementation looks as follows: the access token along with type hint (and sometimes other parameters) is sent
+with a `POST` request as url-encoded form-data in the body, and the server responds with either an HTTP 200 and (often) an empty
+body or an HTTP 204. On a successful response, the token should be deleted from the storage.
+
+The implementation in `OAuth2Provider` is divided in parts that can be overridden separately:
 
 ```php
 class MyOAuth2Provider extends OAuth2Provider implements TokenInvalidate{
@@ -281,37 +284,28 @@ class MyOAuth2Provider extends OAuth2Provider implements TokenInvalidate{
 	 * ...
 	 */
 
-	public function invalidateAccessToken(AccessToken|null $token = null):bool{
-		$tokenToInvalidate = ($token ?? $this->storage->getAccessToken($this->name));
+	protected function sendTokenInvalidateRequest(string $url, array $body){
 
-		// the body may vary between services
-		$bodyParams = [
-			'client_id' => $this->options->key,
-			'token'     => $tokenToInvalidate->accessToken,
-		];
-
-		// prepare the request
 		$request = $this->requestFactory
-			->createRequest('POST', $this->revokeURL)
+			->createRequest('POST', $url)
 			->withHeader('Content-Type', 'application/x-www-form-urlencoded')
 		;
 
-		// encode the body according to the content-type given in the request header
-		$request = $this->setRequestBody($bodyParams, $request);
+		// an additional basic auth header is set
+		$request  = $this->addBasicAuthHeader($request);
+		$request  = $this->setRequestBody($body, $request);
 
-		// bypass the host check and request authorization
-		$response = $this->http->sendRequest($request);
+		return $this->http->sendRequest($request);
+	}
 
-		if($response->getStatusCode() === 200){
-			// delete the token on success (only if it wasn't given via param)
-			if($token === null){
-				$this->storage->clearAccessToken($this->name);
-			}
-
-			return true;
-		}
-
-		return false;
+	protected function getInvalidateAccessTokenBodyParams(AccessToken $token, string $type):array{
+		return [
+			// here, client_id and client_secret are set additionally
+			'client_id'       => $this->options->key,
+			'client_secret'   => $this->options->secret,
+			'token'           => $token->accessToken,
+			'token_type_hint' => $type,
+		];
 	}
 
 }
@@ -328,7 +322,7 @@ class MyOAuth2Provider extends OAuth2Provider implements TokenInvalidate{
 	 * ...
 	 */
 
-	public function invalidateAccessToken(AccessToken|null $token = null):bool{
+	public function invalidateAccessToken(AccessToken|null $token = null, string|null $type = null):bool{
 
 		// a token was given
 		if($token !== null){

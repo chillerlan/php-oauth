@@ -130,7 +130,7 @@ final class AuthenticatedUser extends SettingsContainerAbstract{
 
 		$displayName = trim($displayName);
 
-		if(!empty($displayName)){
+		if($displayName !== ''){
 			$this->displayName = $displayName;
 		}
 

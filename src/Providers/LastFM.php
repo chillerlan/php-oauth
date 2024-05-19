@@ -294,7 +294,7 @@ class LastFM extends OAuthProvider implements UserInfo{
 			$this->addScrobble($track);
 		}
 
-		if(empty($this->scrobbles)){
+		if($this->scrobbles === []){
 			throw new InvalidArgumentException('no tracks to scrobble'); // @codeCoverageIgnore
 		}
 
@@ -368,7 +368,7 @@ class LastFM extends OAuthProvider implements UserInfo{
 
 					$this->{$var} = trim($this->{$var});
 
-					if(empty($this->{$var})){
+					if($this->{$var} === ''){
 						throw new InvalidArgumentException(sprintf('variable "%s" must not be empty', $var));
 					}
 				}

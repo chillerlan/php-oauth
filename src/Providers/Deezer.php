@@ -89,7 +89,7 @@ class Deezer extends OAuth2Provider implements CSRFToken, UserInfo{
 	protected function getTokenResponseData(ResponseInterface $response):array{
 		$data = trim(MessageUtil::getContents($response));
 
-		if(empty($data)){
+		if($data === ''){
 			throw new ProviderException('invalid response');
 		}
 

@@ -77,7 +77,7 @@ abstract class OAuthStorageAbstract implements OAuthStorageInterface{
 	protected function getProviderName(string $provider):string{
 		$name = trim($provider);
 
-		if(empty($name)){
+		if($name === ''){
 			throw new OAuthStorageException('provider name must not be empty');
 		}
 

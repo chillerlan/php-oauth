@@ -85,7 +85,7 @@ abstract class OAuth2Provider extends OAuthProvider implements OAuth2Interface{
 			'type'          => 'web_server',
 		]);
 
-		if(!empty($scopes)){
+		if($scopes !== []){
 			$params['scope'] = implode($this::SCOPES_DELIMITER, $scopes);
 		}
 

@@ -104,7 +104,7 @@ abstract class OAuth1Provider extends OAuthProvider implements OAuth1Interface{
 	protected function parseTokenResponse(ResponseInterface $response, bool|null $checkCallbackConfirmed = null):AccessToken{
 		$data = QueryUtil::parse(MessageUtil::decompress($response));
 
-		if(empty($data)){
+		if($data === []){
 			throw new ProviderException('unable to parse token response');
 		}
 

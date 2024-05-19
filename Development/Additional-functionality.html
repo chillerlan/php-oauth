@@ -462,7 +462,10 @@ body or an HTTP 204. On a successful response, the token should be deleted from 
 <span class="cm">	 * ...</span>
 <span class="cm">	 */</span>
 
-	<span class="k">protected</span> <span class="k">function</span> <span class="nf">sendTokenInvalidateRequest</span><span class="p">(</span><span class="nx">string</span> <span class="nv">$url</span><span class="p">,</span> <span class="k">array</span> <span class="nv">$body</span><span class="p">){</span>
+	<span class="k">protected</span> <span class="k">function</span> <span class="nf">sendTokenInvalidateRequest</span><span class="p">(</span>
+		<span class="nx">string</span> <span class="nv">$url</span><span class="p">,</span>
+		<span class="k">array</span>  <span class="nv">$body</span><span class="p">,</span>
+	<span class="p">)</span><span class="o">:</span><span class="nx">ResponseInterface</span><span class="p">{</span>
 
 		<span class="nv">$request</span> <span class="o">=</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">requestFactory</span>
 			<span class="o">-&gt;</span><span class="na">createRequest</span><span class="p">(</span><span class="s1">&#39;POST&#39;</span><span class="p">,</span> <span class="nv">$url</span><span class="p">)</span>
@@ -476,7 +479,10 @@ body or an HTTP 204. On a successful response, the token should be deleted from 
 		<span class="k">return</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">http</span><span class="o">-&gt;</span><span class="na">sendRequest</span><span class="p">(</span><span class="nv">$request</span><span class="p">);</span>
 	<span class="p">}</span>
 
-	<span class="k">protected</span> <span class="k">function</span> <span class="nf">getInvalidateAccessTokenBodyParams</span><span class="p">(</span><span class="nx">AccessToken</span> <span class="nv">$token</span><span class="p">,</span> <span class="nx">string</span> <span class="nv">$type</span><span class="p">)</span><span class="o">:</span><span class="k">array</span><span class="p">{</span>
+	<span class="k">protected</span> <span class="k">function</span> <span class="nf">getInvalidateAccessTokenBodyParams</span><span class="p">(</span>
+		<span class="nx">AccessToken</span> <span class="nv">$token</span><span class="p">,</span>
+		<span class="nx">string</span>      <span class="nv">$type</span><span class="p">,</span>
+	<span class="p">)</span><span class="o">:</span><span class="k">array</span><span class="p">{</span>
 		<span class="k">return</span> <span class="p">[</span>
 			<span class="c1">// here, client_id and client_secret are set additionally</span>
 			<span class="s1">&#39;client_id&#39;</span>       <span class="o">=&gt;</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">options</span><span class="o">-&gt;</span><span class="na">key</span><span class="p">,</span>
@@ -498,7 +504,10 @@ This can be solved by simply cloning the current provider instance, feed the giv
 <span class="cm">	 * ...</span>
 <span class="cm">	 */</span>
 
-	<span class="k">public</span> <span class="k">function</span> <span class="nf">invalidateAccessToken</span><span class="p">(</span><span class="nx">AccessToken</span><span class="o">|</span><span class="k">null</span> <span class="nv">$token</span> <span class="o">=</span> <span class="k">null</span><span class="p">,</span> <span class="nx">string</span><span class="o">|</span><span class="k">null</span> <span class="nv">$type</span> <span class="o">=</span> <span class="k">null</span><span class="p">)</span><span class="o">:</span><span class="nx">bool</span><span class="p">{</span>
+	<span class="k">public</span> <span class="k">function</span> <span class="nf">invalidateAccessToken</span><span class="p">(</span>
+		<span class="nx">AccessToken</span><span class="o">|</span><span class="k">null</span> <span class="nv">$token</span> <span class="o">=</span> <span class="k">null</span><span class="p">,</span>
+		<span class="nx">string</span><span class="o">|</span><span class="k">null</span>      <span class="nv">$type</span> <span class="o">=</span> <span class="k">null</span><span class="p">,</span>
+	<span class="p">)</span><span class="o">:</span><span class="nx">bool</span><span class="p">{</span>
 
 		<span class="c1">// a token was given</span>
 		<span class="k">if</span><span class="p">(</span><span class="nv">$token</span> <span class="o">!==</span> <span class="k">null</span><span class="p">){</span>

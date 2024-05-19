@@ -7,8 +7,8 @@ fully [PSR-7](https://www.php-fig.org/psr/psr-7/)/[PSR-17](https://www.php-fig.o
 ## Features
 
 - OAuth client capabilities
-	- [OAuth 1.0a](https://oauth.net/core/1.0a/)
-	- [OAuth 2.0](https://oauth.net/2/)
+	- [OAuth 1.0a](https://oauth.net/core/1.0a/) ([RFC-5849](https://datatracker.ietf.org/doc/html/rfc5849))
+	- [OAuth 2.0](https://oauth.net/2/) ([RFC-6749](https://datatracker.ietf.org/doc/html/rfc6749))
 		- [Authorization Code Grant](https://datatracker.ietf.org/doc/html/rfc6749#section-4.1)
 		- [Client Credentials Grant](https://datatracker.ietf.org/doc/html/rfc6749#section-4.4)
 		- [Token refresh](https://datatracker.ietf.org/doc/html/rfc6749#section-1.5)

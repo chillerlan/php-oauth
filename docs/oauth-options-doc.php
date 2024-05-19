@@ -8,17 +8,17 @@
  * @license      MIT
  */
 
-use chillerlan\OAuth\OAuthOptionsTrait;
+use chillerlan\OAuth\OAuthOptions;
 
 require_once __DIR__.'/../vendor/autoload.php';
 
 $file    = 'Basics/Configuration-settings.md';
 $content = [
 	'# Configuration settings',
-	'<!-- This file is auto generated from the source of OAuthOptionsTrait.php -->',
+	'<!-- This file is auto generated from the source of OAuthOptions.php -->',
 ];
 
-$reflectionClass = new ReflectionClass(OAuthOptionsTrait::class);
+$reflectionClass = new ReflectionClass(OAuthOptions::class);
 
 foreach($reflectionClass->getProperties(ReflectionProperty::IS_PROTECTED) as $reflectionProperty){
 	$docblock = $reflectionProperty->getDocComment();
@@ -51,14 +51,14 @@ foreach($reflectionClass->getProperties(ReflectionProperty::IS_PROTECTED) as $re
 
 		// collect links for "see also"
 		if(str_starts_with($line, '@see')){
-			$see[] = $line;
+			$see[] = substr($line, 5); // cut off the "@see "
 
 			continue;
 		}
 
 		// collect links for "links"
 		if(str_starts_with($line, '@link')){
-			$link[] = $line;
+			$link[] = substr($line, 6); // cut off the "@link "
 
 			continue;
 		}
@@ -71,7 +71,6 @@ foreach($reflectionClass->getProperties(ReflectionProperty::IS_PROTECTED) as $re
 		$content[] = "\n**See also:**\n";
 
 		foreach($see as $line){
-			$line = substr($line, 5); // cut off the "@see "
 
 			// normal links
 			if(str_starts_with($line, 'http')){
@@ -100,7 +99,6 @@ foreach($reflectionClass->getProperties(ReflectionProperty::IS_PROTECTED) as $re
 		$content[] = "\n**Links:**\n";
 
 		foreach($link as $line){
-			$line = substr($line, 6); // cut off the "@link "
 
 			// skip non-url
 			if(!str_starts_with($line, 'http')){
@@ -123,6 +121,6 @@ foreach($reflectionClass->getProperties(ReflectionProperty::IS_PROTECTED) as $re
 
 file_put_contents(__DIR__.'/'.$file, implode("\n", $content));
 
-printf('Built "%s" from "%s"', $file, OAuthOptionsTrait::class);
+printf('Built "%s" from "%s"', $file, OAuthOptions::class);
 
 exit(0);

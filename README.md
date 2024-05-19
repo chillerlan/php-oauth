@@ -1,6 +1,6 @@
 # chillerlan/php-oauth
 
-A transparent, framework-agnostic, easily extensible PHP [PSR-18](https://www.php-fig.org/psr/psr-18/) OAuth 1/2 client with a user-friendly API, fully [PSR-7](https://www.php-fig.org/psr/psr-7/)/[PSR-17](https://www.php-fig.org/psr/psr-17/) compatible.
+A transparent, framework-agnostic, easily extensible PHP [PSR-18](https://www.php-fig.org/psr/psr-18/) OAuth client with a user-friendly API, fully [PSR-7](https://www.php-fig.org/psr/psr-7/)/[PSR-17](https://www.php-fig.org/psr/psr-17/) compatible.
 
 
 [![PHP Version Support][php-badge]][php]
@@ -35,20 +35,20 @@ A transparent, framework-agnostic, easily extensible PHP [PSR-18](https://www.ph
 ## Features
 
 - OAuth client capabilities
-  - [OAuth 1.0a](https://oauth.net/core/1.0a/)
-  - [OAuth 2.0](https://oauth.net/2/)
-    - [Authorization Code Grant](https://datatracker.ietf.org/doc/html/rfc6749#section-4.1)
-    - [Client Credentials Grant](https://datatracker.ietf.org/doc/html/rfc6749#section-4.4)
-    - [Token refresh](https://datatracker.ietf.org/doc/html/rfc6749#section-1.5)
-    - [CSRF Token](https://datatracker.ietf.org/doc/html/rfc6749#section-10.12) ("state" parameter)
-    - [RFC-7009: Token Revocation](https://datatracker.ietf.org/doc/html/rfc7009)
-    - [RFC-7636: PKCE](https://datatracker.ietf.org/doc/html/rfc7636) (Proof Key for Code Exchange)
-    - [RFC-9126: PAR](https://datatracker.ietf.org/doc/html/rfc9126) (Pushed Authorization Requests)
-  - Proprietary, OAuth-like authorization flows (e.g. [Last.fm](https://www.last.fm/api/authentication))
-  - Invalidation of access tokens (if supported by the provider)
+	- [OAuth 1.0a](https://oauth.net/core/1.0a/) ([RFC-5849](https://datatracker.ietf.org/doc/html/rfc5849))
+	- [OAuth 2.0](https://oauth.net/2/) ([RFC-6749](https://datatracker.ietf.org/doc/html/rfc6749))
+		- [Authorization Code Grant](https://datatracker.ietf.org/doc/html/rfc6749#section-4.1)
+		- [Client Credentials Grant](https://datatracker.ietf.org/doc/html/rfc6749#section-4.4)
+		- [Token refresh](https://datatracker.ietf.org/doc/html/rfc6749#section-1.5)
+		- [CSRF Token](https://datatracker.ietf.org/doc/html/rfc6749#section-10.12) ("state" parameter)
+		- [RFC-7009: Token Revocation](https://datatracker.ietf.org/doc/html/rfc7009)
+		- [RFC-7636: PKCE](https://datatracker.ietf.org/doc/html/rfc7636) (Proof Key for Code Exchange)
+		- [RFC-9126: PAR](https://datatracker.ietf.org/doc/html/rfc9126) (Pushed Authorization Requests)
+	- Proprietary, OAuth-like authorization flows (e.g. [Last.fm](https://www.last.fm/api/authentication))
+	- Invalidation of access tokens (if supported by the provider)
 - Several built-in provider implementations ([see below](#implemented-providers))
-  - Provider instances act as [PSR-18](https://www.php-fig.org/psr/psr-18/) HTTP client, wrapping the given PSR-18 HTTP instance
-  - Requests to the provider API will have required OAuth headers and tokens added automatically
+	- Provider instances act as [PSR-18](https://www.php-fig.org/psr/psr-18/) HTTP client, wrapping the given PSR-18 HTTP instance
+	- Requests to the provider API will have required OAuth headers and tokens added automatically
 - Optional token encryption via [`sodium_crypto_secretbox()`](https://www.php.net/manual/en/function.sodium-crypto-secretbox) for the internal storage engines
 - A unified user data object `AuthenticatedUser` via the `OAuthInterface::me()` method
 
@@ -57,7 +57,7 @@ A transparent, framework-agnostic, easily extensible PHP [PSR-18](https://www.ph
 
 - PHP 8.1+
 	- extensions: `json`, `sodium`
-      - from dependencies: `curl`, `fileinfo`, `intl`, `mbstring`, `simplexml`, `zlib`
+		- from dependencies: `curl`, `fileinfo`, `intl`, `mbstring`, `simplexml`, `zlib`
 - a [PSR-18](https://www.php-fig.org/psr/psr-18/) compatible HTTP client library of your choice
 - [PSR-17](https://www.php-fig.org/psr/psr-17/) compatible `RequestFactory`, `StreamFactory` and `UriFactory`
 

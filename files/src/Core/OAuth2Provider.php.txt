@@ -17,7 +17,8 @@ use chillerlan\HTTP\Utils\{MessageUtil, QueryUtil, UriUtil};
 use chillerlan\OAuth\Providers\ProviderException;
 use Psr\Http\Message\{RequestInterface, ResponseInterface, UriInterface};
 use Throwable;
-use function array_merge, date, explode, hash, hash_equals, implode, in_array, is_array, random_int, sodium_bin2base64, sprintf;
+use function array_merge, date, explode, hash, hash_equals, implode, in_array, is_array, random_int,
+	sodium_bin2base64, sprintf, str_contains, strtolower, trim;
 use const PHP_QUERY_RFC1738, PHP_VERSION_ID, SODIUM_BASE64_VARIANT_URLSAFE_NO_PADDING;
 
 /**
@@ -403,6 +404,81 @@ abstract class OAuth2Provider extends OAuthProvider implements OAuth2Interface{
 			'grant_type'    => 'refresh_token',
 			'refresh_token' => $refreshToken,
 			'type'          => 'web_server',
+		];
+	}
+
+
+	/*
+	 * TokenInvalidate
+	 */
+
+	/**
+	 * @implements \chillerlan\OAuth\Core\TokenInvalidate::invalidateAccessToken()
+	 * @throws \chillerlan\OAuth\Providers\ProviderException
+	 */
+	public function invalidateAccessToken(AccessToken $token = null, string|null $type = null):bool{
+		$type = strtolower(trim($type ?? 'access_token'));
+
+		// @link https://datatracker.ietf.org/doc/html/rfc7009#section-2.1
+		if(!in_array($type, ['access_token', 'refresh_token'])){
+			throw new ProviderException(sprintf('invalid token type "%s"', $type));
+		}
+
+		$tokenToInvalidate = ($token ?? $this->storage->getAccessToken($this->name));
+		$body              = $this->getInvalidateAccessTokenBodyParams($tokenToInvalidate, $type);
+		$response          = $this->sendTokenInvalidateRequest($this->revokeURL, $body);
+
+		// some endpoints may return 204, others 200 with empty body
+		if(in_array($response->getStatusCode(), [200, 204], true)){
+
+			// if the token was given via parameter it cannot be deleted from storage
+			if($token === null){
+				$this->storage->clearAccessToken($this->name);
+			}
+
+			return true;
+		}
+
+		// ok, let's see if we got a response body
+		// @link https://datatracker.ietf.org/doc/html/rfc7009#section-2.2.1
+		if(str_contains($response->getHeaderLine('content-type'), 'json')){
+			$json = MessageUtil::decodeJSON($response);
+
+			if(isset($json['error'])){
+				throw new ProviderException($json['error']);
+			}
+		}
+
+		return false;
+	}
+
+	/**
+	 * Prepares and sends a request to the token invalidation endpoint
+	 *
+	 * @see \chillerlan\OAuth\Core\OAuth2Provider::invalidateAccessToken()
+	 */
+	protected function sendTokenInvalidateRequest(string $url, array $body):ResponseInterface{
+
+		$request = $this->requestFactory
+			->createRequest('POST', $url)
+			->withHeader('Content-Type', 'application/x-www-form-urlencoded')
+		;
+
+		// some enpoints may require a basic auth header here
+		$request  = $this->setRequestBody($body, $request);
+
+		return $this->http->sendRequest($request);
+	}
+
+	/**
+	 * Prepares the body for a token revocation request
+	 *
+	 * @see \chillerlan\OAuth\Core\OAuth2Provider::invalidateAccessToken()
+	 */
+	protected function getInvalidateAccessTokenBodyParams(AccessToken $token, string $type):array{
+		return [
+			'token'           => $token->accessToken,
+			'token_type_hint' => $type,
 		];
 	}
 

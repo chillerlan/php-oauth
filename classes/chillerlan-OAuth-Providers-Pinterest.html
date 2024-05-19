@@ -536,6 +536,12 @@ if the provider implements the CSRFToken interface, and returns an AccessToken o
 <dd>Returns the link to the page where a user can revoke access tokens, or null if the value is not set</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
+    <a href="classes/chillerlan-OAuth-Core-OAuth2Provider.html#method_invalidateAccessToken">invalidateAccessToken()</a>
+    <span>
+                                &nbsp;: bool    </span>
+</dt>
+
+            <dt class="phpdocumentor-table-of-contents__entry -method -public">
     <a href="classes/chillerlan-OAuth-Core-OAuthProvider.html#method_InvalidateAccessToken">InvalidateAccessToken()</a>
     <span>
                                 &nbsp;: bool    </span>
@@ -686,6 +692,13 @@ so that you don&#039;t have to implement the monstrous original `__construct()`<
 <dd>prepares the request body parameters for the client credentials token request</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -protected">
+    <a href="classes/chillerlan-OAuth-Core-OAuth2Provider.html#method_getInvalidateAccessTokenBodyParams">getInvalidateAccessTokenBodyParams()</a>
+    <span>
+                                &nbsp;: array&lt;string|int, mixed&gt;    </span>
+</dt>
+<dd>Prepares the body for a token revocation request</dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -method -protected">
     <a href="classes/chillerlan-OAuth-Core-OAuthProvider.html#method_getMeResponseData">getMeResponseData()</a>
     <span>
                                 &nbsp;: array&lt;string|int, mixed&gt;    </span>
@@ -776,6 +789,13 @@ anything except host and path will be ignored, scheme will always be set to &quo
                                 &nbsp;: <abbr title="\Psr\Http\Message\ResponseInterface">ResponseInterface</abbr>    </span>
 </dt>
 <dd>prepares and sends the request to the provider&#039;s &quot;me&quot; endpoint and returns a ResponseInterface</dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -method -protected">
+    <a href="classes/chillerlan-OAuth-Core-OAuth2Provider.html#method_sendTokenInvalidateRequest">sendTokenInvalidateRequest()</a>
+    <span>
+                                &nbsp;: <abbr title="\Psr\Http\Message\ResponseInterface">ResponseInterface</abbr>    </span>
+</dt>
+<dd>Prepares and sends a request to the token invalidation endpoint</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -protected">
     <a href="classes/chillerlan-OAuth-Core-OAuthProvider.html#method_setRequestBody">setRequestBody()</a>
@@ -1435,9 +1455,9 @@ anything except host and path will be ignored, scheme will always be set to &quo
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Core/OAuth2Provider.php"><a href="files/src-core-oauth2provider.html"><abbr title="src/Core/OAuth2Provider.php">OAuth2Provider.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">48</span>
+    <span class="phpdocumentor-element-found-in__line">49</span>
 
-            <a href="classes/chillerlan-OAuth-Providers-Pinterest.html#source-view.48" class="phpdocumentor-element-found-in__source" data-line="48" data-modal="source-view" data-src="files/src/Core/OAuth2Provider.php.txt"></a>
+            <a href="classes/chillerlan-OAuth-Providers-Pinterest.html#source-view.49" class="phpdocumentor-element-found-in__source" data-line="49" data-modal="source-view" data-src="files/src/Core/OAuth2Provider.php.txt"></a>
     </aside>
 
         <p class="phpdocumentor-summary">An optional client credentials token endpoint in case the provider supports ClientCredentials.</p>
@@ -1627,9 +1647,9 @@ anything except host and path will be ignored, scheme will always be set to &quo
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Core/OAuth2Provider.php"><a href="files/src-core-oauth2provider.html"><abbr title="src/Core/OAuth2Provider.php">OAuth2Provider.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">55</span>
+    <span class="phpdocumentor-element-found-in__line">56</span>
 
-            <a href="classes/chillerlan-OAuth-Providers-Pinterest.html#source-view.55" class="phpdocumentor-element-found-in__source" data-line="55" data-modal="source-view" data-src="files/src/Core/OAuth2Provider.php.txt"></a>
+            <a href="classes/chillerlan-OAuth-Providers-Pinterest.html#source-view.56" class="phpdocumentor-element-found-in__source" data-line="56" data-modal="source-view" data-src="files/src/Core/OAuth2Provider.php.txt"></a>
     </aside>
 
         <p class="phpdocumentor-summary">An optional PAR (Pushed Authorization Request) endpoint URL</p>
@@ -1677,9 +1697,9 @@ anything except host and path will be ignored, scheme will always be set to &quo
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Core/OAuth2Provider.php"><a href="files/src-core-oauth2provider.html"><abbr title="src/Core/OAuth2Provider.php">OAuth2Provider.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">40</span>
+    <span class="phpdocumentor-element-found-in__line">41</span>
 
-            <a href="classes/chillerlan-OAuth-Providers-Pinterest.html#source-view.40" class="phpdocumentor-element-found-in__source" data-line="40" data-modal="source-view" data-src="files/src/Core/OAuth2Provider.php.txt"></a>
+            <a href="classes/chillerlan-OAuth-Providers-Pinterest.html#source-view.41" class="phpdocumentor-element-found-in__source" data-line="41" data-modal="source-view" data-src="files/src/Core/OAuth2Provider.php.txt"></a>
     </aside>
 
         <p class="phpdocumentor-summary">An optional refresh token endpoint in case the provider supports TokenRefresh.</p>
@@ -2042,9 +2062,9 @@ anything except host and path will be ignored, scheme will always be set to &quo
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Core/OAuth2Provider.php"><a href="files/src-core-oauth2provider.html"><abbr title="src/Core/OAuth2Provider.php">OAuth2Provider.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">440</span>
+    <span class="phpdocumentor-element-found-in__line">516</span>
 
-            <a href="classes/chillerlan-OAuth-Providers-Pinterest.html#source-view.440" class="phpdocumentor-element-found-in__source" data-line="440" data-modal="source-view" data-src="files/src/Core/OAuth2Provider.php.txt"></a>
+            <a href="classes/chillerlan-OAuth-Providers-Pinterest.html#source-view.516" class="phpdocumentor-element-found-in__source" data-line="516" data-modal="source-view" data-src="files/src/Core/OAuth2Provider.php.txt"></a>
     </aside>
 
     
@@ -2116,9 +2136,9 @@ anything except host and path will be ignored, scheme will always be set to &quo
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Core/OAuth2Provider.php"><a href="files/src-core-oauth2provider.html"><abbr title="src/Core/OAuth2Provider.php">OAuth2Provider.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">538</span>
+    <span class="phpdocumentor-element-found-in__line">614</span>
 
-            <a href="classes/chillerlan-OAuth-Providers-Pinterest.html#source-view.538" class="phpdocumentor-element-found-in__source" data-line="538" data-modal="source-view" data-src="files/src/Core/OAuth2Provider.php.txt"></a>
+            <a href="classes/chillerlan-OAuth-Providers-Pinterest.html#source-view.614" class="phpdocumentor-element-found-in__source" data-line="614" data-modal="source-view" data-src="files/src/Core/OAuth2Provider.php.txt"></a>
     </aside>
 
     
@@ -2193,9 +2213,9 @@ anything except host and path will be ignored, scheme will always be set to &quo
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Core/OAuth2Provider.php"><a href="files/src-core-oauth2provider.html"><abbr title="src/Core/OAuth2Provider.php">OAuth2Provider.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">516</span>
+    <span class="phpdocumentor-element-found-in__line">592</span>
 
-            <a href="classes/chillerlan-OAuth-Providers-Pinterest.html#source-view.516" class="phpdocumentor-element-found-in__source" data-line="516" data-modal="source-view" data-src="files/src/Core/OAuth2Provider.php.txt"></a>
+            <a href="classes/chillerlan-OAuth-Providers-Pinterest.html#source-view.592" class="phpdocumentor-element-found-in__source" data-line="592" data-modal="source-view" data-src="files/src/Core/OAuth2Provider.php.txt"></a>
     </aside>
 
     
@@ -2272,9 +2292,9 @@ anything except host and path will be ignored, scheme will always be set to &quo
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Core/OAuth2Provider.php"><a href="files/src-core-oauth2provider.html"><abbr title="src/Core/OAuth2Provider.php">OAuth2Provider.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">190</span>
+    <span class="phpdocumentor-element-found-in__line">191</span>
 
-            <a href="classes/chillerlan-OAuth-Providers-Pinterest.html#source-view.190" class="phpdocumentor-element-found-in__source" data-line="190" data-modal="source-view" data-src="files/src/Core/OAuth2Provider.php.txt"></a>
+            <a href="classes/chillerlan-OAuth-Providers-Pinterest.html#source-view.191" class="phpdocumentor-element-found-in__source" data-line="191" data-modal="source-view" data-src="files/src/Core/OAuth2Provider.php.txt"></a>
     </aside>
 
         <p class="phpdocumentor-summary">Obtains an OAuth2 access token with the given $code, verifies the $state
@@ -2515,9 +2535,9 @@ if the provider implements the CSRFToken interface, and returns an AccessToken o
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Core/OAuth2Provider.php"><a href="files/src-core-oauth2provider.html"><abbr title="src/Core/OAuth2Provider.php">OAuth2Provider.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">60</span>
+    <span class="phpdocumentor-element-found-in__line">61</span>
 
-            <a href="classes/chillerlan-OAuth-Providers-Pinterest.html#source-view.60" class="phpdocumentor-element-found-in__source" data-line="60" data-modal="source-view" data-src="files/src/Core/OAuth2Provider.php.txt"></a>
+            <a href="classes/chillerlan-OAuth-Providers-Pinterest.html#source-view.61" class="phpdocumentor-element-found-in__source" data-line="61" data-modal="source-view" data-src="files/src/Core/OAuth2Provider.php.txt"></a>
     </aside>
 
     
@@ -2582,9 +2602,9 @@ if the provider implements the CSRFToken interface, and returns an AccessToken o
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Core/OAuth2Provider.php"><a href="files/src-core-oauth2provider.html"><abbr title="src/Core/OAuth2Provider.php">OAuth2Provider.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">296</span>
+    <span class="phpdocumentor-element-found-in__line">297</span>
 
-            <a href="classes/chillerlan-OAuth-Providers-Pinterest.html#source-view.296" class="phpdocumentor-element-found-in__source" data-line="296" data-modal="source-view" data-src="files/src/Core/OAuth2Provider.php.txt"></a>
+            <a href="classes/chillerlan-OAuth-Providers-Pinterest.html#source-view.297" class="phpdocumentor-element-found-in__source" data-line="297" data-modal="source-view" data-src="files/src/Core/OAuth2Provider.php.txt"></a>
     </aside>
 
     
@@ -2710,9 +2730,9 @@ if the provider implements the CSRFToken interface, and returns an AccessToken o
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Core/OAuth2Provider.php"><a href="files/src-core-oauth2provider.html"><abbr title="src/Core/OAuth2Provider.php">OAuth2Provider.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">561</span>
+    <span class="phpdocumentor-element-found-in__line">637</span>
 
-            <a href="classes/chillerlan-OAuth-Providers-Pinterest.html#source-view.561" class="phpdocumentor-element-found-in__source" data-line="561" data-modal="source-view" data-src="files/src/Core/OAuth2Provider.php.txt"></a>
+            <a href="classes/chillerlan-OAuth-Providers-Pinterest.html#source-view.637" class="phpdocumentor-element-found-in__source" data-line="637" data-modal="source-view" data-src="files/src/Core/OAuth2Provider.php.txt"></a>
     </aside>
 
     
@@ -2780,9 +2800,9 @@ if the provider implements the CSRFToken interface, and returns an AccessToken o
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Core/OAuth2Provider.php"><a href="files/src-core-oauth2provider.html"><abbr title="src/Core/OAuth2Provider.php">OAuth2Provider.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">261</span>
+    <span class="phpdocumentor-element-found-in__line">262</span>
 
-            <a href="classes/chillerlan-OAuth-Providers-Pinterest.html#source-view.261" class="phpdocumentor-element-found-in__source" data-line="261" data-modal="source-view" data-src="files/src/Core/OAuth2Provider.php.txt"></a>
+            <a href="classes/chillerlan-OAuth-Providers-Pinterest.html#source-view.262" class="phpdocumentor-element-found-in__source" data-line="262" data-modal="source-view" data-src="files/src/Core/OAuth2Provider.php.txt"></a>
     </aside>
 
     
@@ -2955,6 +2975,83 @@ if the provider implements the CSRFToken interface, and returns an AccessToken o
             -public
                                                         "
 >
+    <h4 class="phpdocumentor-element__name" id="method_invalidateAccessToken">
+        invalidateAccessToken()
+        <a href="classes/chillerlan-OAuth-Core-OAuth2Provider.html#method_invalidateAccessToken" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h4>
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/Core/OAuth2Provider.php"><a href="files/src-core-oauth2provider.html"><abbr title="src/Core/OAuth2Provider.php">OAuth2Provider.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">419</span>
+
+            <a href="classes/chillerlan-OAuth-Providers-Pinterest.html#source-view.419" class="phpdocumentor-element-found-in__source" data-line="419" data-modal="source-view" data-src="files/src/Core/OAuth2Provider.php.txt"></a>
+    </aside>
+
+    
+    <code class="phpdocumentor-code phpdocumentor-signature ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+                    <span class="phpdocumentor-signature__name">invalidateAccessToken</span><span>(</span><span class="phpdocumentor-signature__argument"><span>[</span><span class="phpdocumentor-signature__argument__return-type"><a href="classes/chillerlan-OAuth-Core-AccessToken.html"><abbr title="\chillerlan\OAuth\Core\AccessToken">AccessToken</abbr></a>&nbsp;</span><span class="phpdocumentor-signature__argument__name">$token</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">null</span><span> ]</span></span><span class="phpdocumentor-signature__argument"><span>[</span><span>, </span><span class="phpdocumentor-signature__argument__return-type">string|null&nbsp;</span><span class="phpdocumentor-signature__argument__name">$type</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">null</span><span> ]</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">bool</span></code>
+
+    <div class="phpdocumentor-label-line">
+        </div>
+    
+        <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
+    <dl class="phpdocumentor-argument-list">
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-signature__argument__name">$token</span>
+                : <span class="phpdocumentor-signature__argument__return-type"><a href="classes/chillerlan-OAuth-Core-AccessToken.html"><abbr title="\chillerlan\OAuth\Core\AccessToken">AccessToken</abbr></a></span>
+                 = <span class="phpdocumentor-signature__argument__default-value">null</span>            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                
+            </dd>
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-signature__argument__name">$type</span>
+                : <span class="phpdocumentor-signature__argument__return-type">string|null</span>
+                 = <span class="phpdocumentor-signature__argument__default-value">null</span>            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                
+            </dd>
+            </dl>
+
+    
+    <h5 class="phpdocumentor-tag-list__heading" id="tags">
+        Tags
+        <a href="classes/chillerlan-OAuth-Core-OAuth2Provider.html#method_invalidateAccessToken#tags" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h5>
+    <dl class="phpdocumentor-tag-list">
+                                    <dt class="phpdocumentor-tag-list__entry">
+                    <span class="phpdocumentor-tag__name">implements</span>
+                </dt>
+                <dd class="phpdocumentor-tag-list__definition">
+                                                                                
+                                                 <section class="phpdocumentor-description"><p>\chillerlan\OAuth\Core\TokenInvalidate::invalidateAccessToken()</p>
+</section>
+
+                                    </dd>
+                                                <dt class="phpdocumentor-tag-list__entry">
+                    <span class="phpdocumentor-tag__name">throws</span>
+                </dt>
+                <dd class="phpdocumentor-tag-list__definition">
+                                                                <span class="phpdocumentor-tag-link"><a href="classes/chillerlan-OAuth-Providers-ProviderException.html"><abbr title="\chillerlan\OAuth\Providers\ProviderException">ProviderException</abbr></a></span>
+                                                            
+                                             
+                                    </dd>
+                                            </dl>
+
+            <section>
+        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
+        <span class="phpdocumentor-signature__response_type">bool</span>
+            </section>
+
+</article>
+                    <article
+        class="phpdocumentor-element
+            -method
+            -public
+                                                        "
+>
     <h4 class="phpdocumentor-element__name" id="method_InvalidateAccessToken">
         InvalidateAccessToken()
         <a href="classes/chillerlan-OAuth-Core-OAuthProvider.html#method_InvalidateAccessToken" class="headerlink"><i class="fas fa-link"></i></a>
@@ -3097,9 +3194,9 @@ if the provider implements the CSRFToken interface, and returns an AccessToken o
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Core/OAuth2Provider.php"><a href="files/src-core-oauth2provider.html"><abbr title="src/Core/OAuth2Provider.php">OAuth2Provider.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">366</span>
+    <span class="phpdocumentor-element-found-in__line">367</span>
 
-            <a href="classes/chillerlan-OAuth-Providers-Pinterest.html#source-view.366" class="phpdocumentor-element-found-in__source" data-line="366" data-modal="source-view" data-src="files/src/Core/OAuth2Provider.php.txt"></a>
+            <a href="classes/chillerlan-OAuth-Providers-Pinterest.html#source-view.367" class="phpdocumentor-element-found-in__source" data-line="367" data-modal="source-view" data-src="files/src/Core/OAuth2Provider.php.txt"></a>
     </aside>
 
     
@@ -3340,9 +3437,9 @@ and returns a PSR-7 ResponseInterface with the corresponding API response</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Core/OAuth2Provider.php"><a href="files/src-core-oauth2provider.html"><abbr title="src/Core/OAuth2Provider.php">OAuth2Provider.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">469</span>
+    <span class="phpdocumentor-element-found-in__line">545</span>
 
-            <a href="classes/chillerlan-OAuth-Providers-Pinterest.html#source-view.469" class="phpdocumentor-element-found-in__source" data-line="469" data-modal="source-view" data-src="files/src/Core/OAuth2Provider.php.txt"></a>
+            <a href="classes/chillerlan-OAuth-Providers-Pinterest.html#source-view.545" class="phpdocumentor-element-found-in__source" data-line="545" data-modal="source-view" data-src="files/src/Core/OAuth2Provider.php.txt"></a>
     </aside>
 
     
@@ -3417,9 +3514,9 @@ and returns a PSR-7 ResponseInterface with the corresponding API response</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Core/OAuth2Provider.php"><a href="files/src-core-oauth2provider.html"><abbr title="src/Core/OAuth2Provider.php">OAuth2Provider.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">493</span>
+    <span class="phpdocumentor-element-found-in__line">569</span>
 
-            <a href="classes/chillerlan-OAuth-Providers-Pinterest.html#source-view.493" class="phpdocumentor-element-found-in__source" data-line="493" data-modal="source-view" data-src="files/src/Core/OAuth2Provider.php.txt"></a>
+            <a href="classes/chillerlan-OAuth-Providers-Pinterest.html#source-view.569" class="phpdocumentor-element-found-in__source" data-line="569" data-modal="source-view" data-src="files/src/Core/OAuth2Provider.php.txt"></a>
     </aside>
 
     
@@ -3623,9 +3720,9 @@ and returns a PSR-7 ResponseInterface with the corresponding API response</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Core/OAuth2Provider.php"><a href="files/src-core-oauth2provider.html"><abbr title="src/Core/OAuth2Provider.php">OAuth2Provider.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">419</span>
+    <span class="phpdocumentor-element-found-in__line">495</span>
 
-            <a href="classes/chillerlan-OAuth-Providers-Pinterest.html#source-view.419" class="phpdocumentor-element-found-in__source" data-line="419" data-modal="source-view" data-src="files/src/Core/OAuth2Provider.php.txt"></a>
+            <a href="classes/chillerlan-OAuth-Providers-Pinterest.html#source-view.495" class="phpdocumentor-element-found-in__source" data-line="495" data-modal="source-view" data-src="files/src/Core/OAuth2Provider.php.txt"></a>
     </aside>
 
     
@@ -4199,9 +4296,9 @@ so that you don&#039;t have to implement the monstrous original `__construct()`<
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Core/OAuth2Provider.php"><a href="files/src-core-oauth2provider.html"><abbr title="src/Core/OAuth2Provider.php">OAuth2Provider.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">210</span>
+    <span class="phpdocumentor-element-found-in__line">211</span>
 
-            <a href="classes/chillerlan-OAuth-Providers-Pinterest.html#source-view.210" class="phpdocumentor-element-found-in__source" data-line="210" data-modal="source-view" data-src="files/src/Core/OAuth2Provider.php.txt"></a>
+            <a href="classes/chillerlan-OAuth-Providers-Pinterest.html#source-view.211" class="phpdocumentor-element-found-in__source" data-line="211" data-modal="source-view" data-src="files/src/Core/OAuth2Provider.php.txt"></a>
     </aside>
 
         <p class="phpdocumentor-summary">prepares the request body parameters for the access token request</p>
@@ -4261,9 +4358,9 @@ so that you don&#039;t have to implement the monstrous original `__construct()`<
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Core/OAuth2Provider.php"><a href="files/src-core-oauth2provider.html"><abbr title="src/Core/OAuth2Provider.php">OAuth2Provider.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">75</span>
+    <span class="phpdocumentor-element-found-in__line">76</span>
 
-            <a href="classes/chillerlan-OAuth-Providers-Pinterest.html#source-view.75" class="phpdocumentor-element-found-in__source" data-line="75" data-modal="source-view" data-src="files/src/Core/OAuth2Provider.php.txt"></a>
+            <a href="classes/chillerlan-OAuth-Providers-Pinterest.html#source-view.76" class="phpdocumentor-element-found-in__source" data-line="76" data-modal="source-view" data-src="files/src/Core/OAuth2Provider.php.txt"></a>
     </aside>
 
         <p class="phpdocumentor-summary">prepares the query parameters for the auth URL</p>
@@ -4330,9 +4427,9 @@ so that you don&#039;t have to implement the monstrous original `__construct()`<
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Core/OAuth2Provider.php"><a href="files/src-core-oauth2provider.html"><abbr title="src/Core/OAuth2Provider.php">OAuth2Provider.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">323</span>
+    <span class="phpdocumentor-element-found-in__line">324</span>
 
-            <a href="classes/chillerlan-OAuth-Providers-Pinterest.html#source-view.323" class="phpdocumentor-element-found-in__source" data-line="323" data-modal="source-view" data-src="files/src/Core/OAuth2Provider.php.txt"></a>
+            <a href="classes/chillerlan-OAuth-Providers-Pinterest.html#source-view.324" class="phpdocumentor-element-found-in__source" data-line="324" data-modal="source-view" data-src="files/src/Core/OAuth2Provider.php.txt"></a>
     </aside>
 
         <p class="phpdocumentor-summary">prepares the request body parameters for the client credentials token request</p>
@@ -4367,6 +4464,75 @@ so that you don&#039;t have to implement the monstrous original `__construct()`<
                 </dt>
                 <dd class="phpdocumentor-tag-list__definition">
                                                                                     <span class="phpdocumentor-tag-link"><a href="classes/chillerlan-OAuth-Core-OAuth2Provider.html#method_getClientCredentialsToken"><abbr title="\chillerlan\OAuth\Core\OAuth2Provider::getClientCredentialsToken()">OAuth2Provider::getClientCredentialsToken()</abbr></a></span>
+                                        
+                                             
+                                    </dd>
+                                            </dl>
+
+            <section>
+        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
+        <span class="phpdocumentor-signature__response_type">array&lt;string|int, mixed&gt;</span>
+            </section>
+
+</article>
+                    <article
+        class="phpdocumentor-element
+            -method
+            -protected
+                                                        "
+>
+    <h4 class="phpdocumentor-element__name" id="method_getInvalidateAccessTokenBodyParams">
+        getInvalidateAccessTokenBodyParams()
+        <a href="classes/chillerlan-OAuth-Core-OAuth2Provider.html#method_getInvalidateAccessTokenBodyParams" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h4>
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/Core/OAuth2Provider.php"><a href="files/src-core-oauth2provider.html"><abbr title="src/Core/OAuth2Provider.php">OAuth2Provider.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">478</span>
+
+            <a href="classes/chillerlan-OAuth-Providers-Pinterest.html#source-view.478" class="phpdocumentor-element-found-in__source" data-line="478" data-modal="source-view" data-src="files/src/Core/OAuth2Provider.php.txt"></a>
+    </aside>
+
+        <p class="phpdocumentor-summary">Prepares the body for a token revocation request</p>
+
+    <code class="phpdocumentor-code phpdocumentor-signature ">
+    <span class="phpdocumentor-signature__visibility">protected</span>
+                    <span class="phpdocumentor-signature__name">getInvalidateAccessTokenBodyParams</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type"><a href="classes/chillerlan-OAuth-Core-AccessToken.html"><abbr title="\chillerlan\OAuth\Core\AccessToken">AccessToken</abbr></a>&nbsp;</span><span class="phpdocumentor-signature__argument__name">$token</span></span><span class="phpdocumentor-signature__argument"><span>, </span><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$type</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">array&lt;string|int, mixed&gt;</span></code>
+
+    <div class="phpdocumentor-label-line">
+        </div>
+    
+        <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
+    <dl class="phpdocumentor-argument-list">
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-signature__argument__name">$token</span>
+                : <span class="phpdocumentor-signature__argument__return-type"><a href="classes/chillerlan-OAuth-Core-AccessToken.html"><abbr title="\chillerlan\OAuth\Core\AccessToken">AccessToken</abbr></a></span>
+                            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                
+            </dd>
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-signature__argument__name">$type</span>
+                : <span class="phpdocumentor-signature__argument__return-type">string</span>
+                            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                
+            </dd>
+            </dl>
+
+    
+    <h5 class="phpdocumentor-tag-list__heading" id="tags">
+        Tags
+        <a href="classes/chillerlan-OAuth-Core-OAuth2Provider.html#method_getInvalidateAccessTokenBodyParams#tags" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h5>
+    <dl class="phpdocumentor-tag-list">
+                                    <dt class="phpdocumentor-tag-list__entry">
+                    <span class="phpdocumentor-tag__name">see</span>
+                </dt>
+                <dd class="phpdocumentor-tag-list__definition">
+                                                                                    <span class="phpdocumentor-tag-link"><a href="classes/chillerlan-OAuth-Core-OAuth2Provider.html#method_invalidateAccessToken"><abbr title="\chillerlan\OAuth\Core\OAuth2Provider::invalidateAccessToken()">OAuth2Provider::invalidateAccessToken()</abbr></a></span>
                                         
                                              
                                     </dd>
@@ -4485,9 +4651,9 @@ so that you don&#039;t have to implement the monstrous original `__construct()`<
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Core/OAuth2Provider.php"><a href="files/src-core-oauth2provider.html"><abbr title="src/Core/OAuth2Provider.php">OAuth2Provider.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">595</span>
+    <span class="phpdocumentor-element-found-in__line">671</span>
 
-            <a href="classes/chillerlan-OAuth-Providers-Pinterest.html#source-view.595" class="phpdocumentor-element-found-in__source" data-line="595" data-modal="source-view" data-src="files/src/Core/OAuth2Provider.php.txt"></a>
+            <a href="classes/chillerlan-OAuth-Providers-Pinterest.html#source-view.671" class="phpdocumentor-element-found-in__source" data-line="671" data-modal="source-view" data-src="files/src/Core/OAuth2Provider.php.txt"></a>
     </aside>
 
         <p class="phpdocumentor-summary">Parses the response from the PAR request and returns the query parameters for the authorization URL</p>
@@ -4554,9 +4720,9 @@ so that you don&#039;t have to implement the monstrous original `__construct()`<
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Core/OAuth2Provider.php"><a href="files/src-core-oauth2provider.html"><abbr title="src/Core/OAuth2Provider.php">OAuth2Provider.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">399</span>
+    <span class="phpdocumentor-element-found-in__line">400</span>
 
-            <a href="classes/chillerlan-OAuth-Providers-Pinterest.html#source-view.399" class="phpdocumentor-element-found-in__source" data-line="399" data-modal="source-view" data-src="files/src/Core/OAuth2Provider.php.txt"></a>
+            <a href="classes/chillerlan-OAuth-Providers-Pinterest.html#source-view.400" class="phpdocumentor-element-found-in__source" data-line="400" data-modal="source-view" data-src="files/src/Core/OAuth2Provider.php.txt"></a>
     </aside>
 
         <p class="phpdocumentor-summary">prepares the request body parameters for the token refresh</p>
@@ -4790,9 +4956,9 @@ anything except host and path will be ignored, scheme will always be set to &quo
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Core/OAuth2Provider.php"><a href="files/src-core-oauth2provider.html"><abbr title="src/Core/OAuth2Provider.php">OAuth2Provider.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">176</span>
+    <span class="phpdocumentor-element-found-in__line">177</span>
 
-            <a href="classes/chillerlan-OAuth-Providers-Pinterest.html#source-view.176" class="phpdocumentor-element-found-in__source" data-line="176" data-modal="source-view" data-src="files/src/Core/OAuth2Provider.php.txt"></a>
+            <a href="classes/chillerlan-OAuth-Providers-Pinterest.html#source-view.177" class="phpdocumentor-element-found-in__source" data-line="177" data-modal="source-view" data-src="files/src/Core/OAuth2Provider.php.txt"></a>
     </aside>
 
         <p class="phpdocumentor-summary">extracts the data from the access token response and returns an array with the key-&gt;value pairs contained</p>
@@ -4996,9 +5162,9 @@ the spec mandates a JSON body which is what almost all providers send - weird ex
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Core/OAuth2Provider.php"><a href="files/src-core-oauth2provider.html"><abbr title="src/Core/OAuth2Provider.php">OAuth2Provider.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">114</span>
+    <span class="phpdocumentor-element-found-in__line">115</span>
 
-            <a href="classes/chillerlan-OAuth-Providers-Pinterest.html#source-view.114" class="phpdocumentor-element-found-in__source" data-line="114" data-modal="source-view" data-src="files/src/Core/OAuth2Provider.php.txt"></a>
+            <a href="classes/chillerlan-OAuth-Providers-Pinterest.html#source-view.115" class="phpdocumentor-element-found-in__source" data-line="115" data-modal="source-view" data-src="files/src/Core/OAuth2Provider.php.txt"></a>
     </aside>
 
         <p class="phpdocumentor-summary">Parses the response from a request to the token endpoint</p>
@@ -5096,9 +5262,9 @@ the spec mandates a JSON body which is what almost all providers send - weird ex
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Core/OAuth2Provider.php"><a href="files/src-core-oauth2provider.html"><abbr title="src/Core/OAuth2Provider.php">OAuth2Provider.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">237</span>
+    <span class="phpdocumentor-element-found-in__line">238</span>
 
-            <a href="classes/chillerlan-OAuth-Providers-Pinterest.html#source-view.237" class="phpdocumentor-element-found-in__source" data-line="237" data-modal="source-view" data-src="files/src/Core/OAuth2Provider.php.txt"></a>
+            <a href="classes/chillerlan-OAuth-Providers-Pinterest.html#source-view.238" class="phpdocumentor-element-found-in__source" data-line="238" data-modal="source-view" data-src="files/src/Core/OAuth2Provider.php.txt"></a>
     </aside>
 
         <p class="phpdocumentor-summary">sends a request to the access/refresh token endpoint $url with the given $body as form data</p>
@@ -5181,9 +5347,9 @@ the spec mandates a JSON body which is what almost all providers send - weird ex
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Core/OAuth2Provider.php"><a href="files/src-core-oauth2provider.html"><abbr title="src/Core/OAuth2Provider.php">OAuth2Provider.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">338</span>
+    <span class="phpdocumentor-element-found-in__line">339</span>
 
-            <a href="classes/chillerlan-OAuth-Providers-Pinterest.html#source-view.338" class="phpdocumentor-element-found-in__source" data-line="338" data-modal="source-view" data-src="files/src/Core/OAuth2Provider.php.txt"></a>
+            <a href="classes/chillerlan-OAuth-Providers-Pinterest.html#source-view.339" class="phpdocumentor-element-found-in__source" data-line="339" data-modal="source-view" data-src="files/src/Core/OAuth2Provider.php.txt"></a>
     </aside>
 
         <p class="phpdocumentor-summary">sends a request to the client credentials endpoint, using basic authentication</p>
@@ -5283,6 +5449,75 @@ the spec mandates a JSON body which is what almost all providers send - weird ex
             </dl>
 
     
+
+            <section>
+        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
+        <span class="phpdocumentor-signature__response_type"><abbr title="\Psr\Http\Message\ResponseInterface">ResponseInterface</abbr></span>
+            </section>
+
+</article>
+                    <article
+        class="phpdocumentor-element
+            -method
+            -protected
+                                                        "
+>
+    <h4 class="phpdocumentor-element__name" id="method_sendTokenInvalidateRequest">
+        sendTokenInvalidateRequest()
+        <a href="classes/chillerlan-OAuth-Core-OAuth2Provider.html#method_sendTokenInvalidateRequest" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h4>
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/Core/OAuth2Provider.php"><a href="files/src-core-oauth2provider.html"><abbr title="src/Core/OAuth2Provider.php">OAuth2Provider.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">460</span>
+
+            <a href="classes/chillerlan-OAuth-Providers-Pinterest.html#source-view.460" class="phpdocumentor-element-found-in__source" data-line="460" data-modal="source-view" data-src="files/src/Core/OAuth2Provider.php.txt"></a>
+    </aside>
+
+        <p class="phpdocumentor-summary">Prepares and sends a request to the token invalidation endpoint</p>
+
+    <code class="phpdocumentor-code phpdocumentor-signature ">
+    <span class="phpdocumentor-signature__visibility">protected</span>
+                    <span class="phpdocumentor-signature__name">sendTokenInvalidateRequest</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$url</span></span><span class="phpdocumentor-signature__argument"><span>, </span><span class="phpdocumentor-signature__argument__return-type">array&lt;string|int, mixed&gt;&nbsp;</span><span class="phpdocumentor-signature__argument__name">$body</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type"><abbr title="\Psr\Http\Message\ResponseInterface">ResponseInterface</abbr></span></code>
+
+    <div class="phpdocumentor-label-line">
+        </div>
+    
+        <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
+    <dl class="phpdocumentor-argument-list">
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-signature__argument__name">$url</span>
+                : <span class="phpdocumentor-signature__argument__return-type">string</span>
+                            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                
+            </dd>
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-signature__argument__name">$body</span>
+                : <span class="phpdocumentor-signature__argument__return-type">array&lt;string|int, mixed&gt;</span>
+                            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                
+            </dd>
+            </dl>
+
+    
+    <h5 class="phpdocumentor-tag-list__heading" id="tags">
+        Tags
+        <a href="classes/chillerlan-OAuth-Core-OAuth2Provider.html#method_sendTokenInvalidateRequest#tags" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h5>
+    <dl class="phpdocumentor-tag-list">
+                                    <dt class="phpdocumentor-tag-list__entry">
+                    <span class="phpdocumentor-tag__name">see</span>
+                </dt>
+                <dd class="phpdocumentor-tag-list__definition">
+                                                                                    <span class="phpdocumentor-tag-link"><a href="classes/chillerlan-OAuth-Core-OAuth2Provider.html#method_invalidateAccessToken"><abbr title="\chillerlan\OAuth\Core\OAuth2Provider::invalidateAccessToken()">OAuth2Provider::invalidateAccessToken()</abbr></a></span>
+                                        
+                                             
+                                    </dd>
+                                            </dl>
 
             <section>
         <h5 class="phpdocumentor-return-value__heading">Return values</h5>
@@ -5533,6 +5768,7 @@ the spec mandates a JSON body which is what almost all providers send - weird ex
                                             <li><a href="classes/chillerlan-OAuth-Core-OAuth2Provider.html#method_getRequestAuthorization">getRequestAuthorization()</a></li>
                                             <li><a href="classes/chillerlan-OAuth-Core-OAuthProvider.html#method_getStorage">getStorage()</a></li>
                                             <li><a href="classes/chillerlan-OAuth-Core-OAuthProvider.html#method_getUserRevokeURL">getUserRevokeURL()</a></li>
+                                            <li><a href="classes/chillerlan-OAuth-Core-OAuth2Provider.html#method_invalidateAccessToken">invalidateAccessToken()</a></li>
                                             <li><a href="classes/chillerlan-OAuth-Core-OAuthProvider.html#method_InvalidateAccessToken">InvalidateAccessToken()</a></li>
                                             <li><a href="classes/chillerlan-OAuth-Providers-Pinterest.html#method_me">me()</a></li>
                                             <li><a href="classes/chillerlan-OAuth-Core-OAuth2Provider.html#method_refreshAccessToken">refreshAccessToken()</a></li>
@@ -5555,6 +5791,7 @@ the spec mandates a JSON body which is what almost all providers send - weird ex
                                             <li><a href="classes/chillerlan-OAuth-Core-OAuth2Provider.html#method_getAccessTokenRequestBodyParams">getAccessTokenRequestBodyParams()</a></li>
                                             <li><a href="classes/chillerlan-OAuth-Core-OAuth2Provider.html#method_getAuthorizationURLRequestParams">getAuthorizationURLRequestParams()</a></li>
                                             <li><a href="classes/chillerlan-OAuth-Core-OAuth2Provider.html#method_getClientCredentialsTokenRequestBodyParams">getClientCredentialsTokenRequestBodyParams()</a></li>
+                                            <li><a href="classes/chillerlan-OAuth-Core-OAuth2Provider.html#method_getInvalidateAccessTokenBodyParams">getInvalidateAccessTokenBodyParams()</a></li>
                                             <li><a href="classes/chillerlan-OAuth-Core-OAuthProvider.html#method_getMeResponseData">getMeResponseData()</a></li>
                                             <li><a href="classes/chillerlan-OAuth-Core-OAuth2Provider.html#method_getParAuthorizationURLRequestParams">getParAuthorizationURLRequestParams()</a></li>
                                             <li><a href="classes/chillerlan-OAuth-Core-OAuth2Provider.html#method_getRefreshAccessTokenRequestBodyParams">getRefreshAccessTokenRequestBodyParams()</a></li>
@@ -5568,6 +5805,7 @@ the spec mandates a JSON body which is what almost all providers send - weird ex
                                             <li><a href="classes/chillerlan-OAuth-Core-OAuth2Provider.html#method_sendAccessTokenRequest">sendAccessTokenRequest()</a></li>
                                             <li><a href="classes/chillerlan-OAuth-Core-OAuth2Provider.html#method_sendClientCredentialsTokenRequest">sendClientCredentialsTokenRequest()</a></li>
                                             <li><a href="classes/chillerlan-OAuth-Core-OAuthProvider.html#method_sendMeRequest">sendMeRequest()</a></li>
+                                            <li><a href="classes/chillerlan-OAuth-Core-OAuth2Provider.html#method_sendTokenInvalidateRequest">sendTokenInvalidateRequest()</a></li>
                                             <li><a href="classes/chillerlan-OAuth-Core-OAuthProvider.html#method_setRequestBody">setRequestBody()</a></li>
                                     </ul>
             </li>

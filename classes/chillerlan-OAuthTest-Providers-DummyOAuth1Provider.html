@@ -179,7 +179,7 @@
 
     </h4>
     <dl class="phpdocumentor-table-of-contents">
-                    <dt class="phpdocumentor-table-of-contents__entry -interface"><a href="classes/chillerlan-OAuth-Core-TokenInvalidate.html"><abbr title="\chillerlan\OAuth\Core\TokenInvalidate">TokenInvalidate</abbr></a></dt><dd>Indicates whether the provider is capable of invalidating access tokens</dd>    </dl>
+                    <dt class="phpdocumentor-table-of-contents__entry -interface"><a href="classes/chillerlan-OAuth-Core-TokenInvalidate.html"><abbr title="\chillerlan\OAuth\Core\TokenInvalidate">TokenInvalidate</abbr></a></dt><dd>Indicates whether the provider is capable of invalidating access tokens (RFC-7009 or proprietary)</dd>    </dl>
 
 
 
@@ -2009,7 +2009,7 @@ anything except host and path will be ignored, scheme will always be set to &quo
 
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
-                    <span class="phpdocumentor-signature__name">invalidateAccessToken</span><span>(</span><span class="phpdocumentor-signature__argument"><span>[</span><span class="phpdocumentor-signature__argument__return-type"><a href="classes/chillerlan-OAuth-Core-AccessToken.html"><abbr title="\chillerlan\OAuth\Core\AccessToken">AccessToken</abbr></a>&nbsp;</span><span class="phpdocumentor-signature__argument__name">$token</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">null</span><span> ]</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">bool</span></code>
+                    <span class="phpdocumentor-signature__name">invalidateAccessToken</span><span>(</span><span class="phpdocumentor-signature__argument"><span>[</span><span class="phpdocumentor-signature__argument__return-type"><a href="classes/chillerlan-OAuth-Core-AccessToken.html"><abbr title="\chillerlan\OAuth\Core\AccessToken">AccessToken</abbr></a>&nbsp;</span><span class="phpdocumentor-signature__argument__name">$token</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">null</span><span> ]</span></span><span class="phpdocumentor-signature__argument"><span>[</span><span>, </span><span class="phpdocumentor-signature__argument__return-type">string|null&nbsp;</span><span class="phpdocumentor-signature__argument__name">$type</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">null</span><span> ]</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">bool</span></code>
 
     <div class="phpdocumentor-label-line">
         </div>
@@ -2019,6 +2019,13 @@ anything except host and path will be ignored, scheme will always be set to &quo
                     <dt class="phpdocumentor-argument-list__entry">
                 <span class="phpdocumentor-signature__argument__name">$token</span>
                 : <span class="phpdocumentor-signature__argument__return-type"><a href="classes/chillerlan-OAuth-Core-AccessToken.html"><abbr title="\chillerlan\OAuth\Core\AccessToken">AccessToken</abbr></a></span>
+                 = <span class="phpdocumentor-signature__argument__default-value">null</span>            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                
+            </dd>
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-signature__argument__name">$type</span>
+                : <span class="phpdocumentor-signature__argument__return-type">string|null</span>
                  = <span class="phpdocumentor-signature__argument__default-value">null</span>            </dt>
             <dd class="phpdocumentor-argument-list__definition">
                 

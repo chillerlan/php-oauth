@@ -137,14 +137,28 @@
         <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Core/TokenInvalidate.php"><a href="files/src-core-tokeninvalidate.html"><abbr title="src/Core/TokenInvalidate.php">TokenInvalidate.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">17</span>
+    <span class="phpdocumentor-element-found-in__line">19</span>
 
     </aside>
 
-            <p class="phpdocumentor-summary">Indicates whether the provider is capable of invalidating access tokens</p>
+            <p class="phpdocumentor-summary">Indicates whether the provider is capable of invalidating access tokens (RFC-7009 or proprietary)</p>
 
 
 
+    <h5 class="phpdocumentor-tag-list__heading" id="tags">
+        Tags
+        <a href="classes/chillerlan-OAuth-Core-TokenInvalidate.html#tags" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h5>
+    <dl class="phpdocumentor-tag-list">
+                                    <dt class="phpdocumentor-tag-list__entry">
+                    <span class="phpdocumentor-tag__name">link</span>
+                </dt>
+                <dd class="phpdocumentor-tag-list__definition">
+                                                                                                        <a class="phpdocumentor-tag-link" href="https://datatracker.ietf.org/doc/html/rfc7009"> https://datatracker.ietf.org/doc/html/rfc7009 </a>
+                    
+                                    </dd>
+                                            </dl>
 
 
 
@@ -203,7 +217,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Core/TokenInvalidate.php"><a href="files/src-core-tokeninvalidate.html"><abbr title="src/Core/TokenInvalidate.php">TokenInvalidate.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">32</span>
+    <span class="phpdocumentor-element-found-in__line">34</span>
 
     </aside>
 
@@ -211,7 +225,7 @@
 
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
-                    <span class="phpdocumentor-signature__name">invalidateAccessToken</span><span>(</span><span class="phpdocumentor-signature__argument"><span>[</span><span class="phpdocumentor-signature__argument__return-type"><a href="classes/chillerlan-OAuth-Core-AccessToken.html"><abbr title="\chillerlan\OAuth\Core\AccessToken">AccessToken</abbr></a>|null&nbsp;</span><span class="phpdocumentor-signature__argument__name">$token</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">null</span><span> ]</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">bool</span></code>
+                    <span class="phpdocumentor-signature__name">invalidateAccessToken</span><span>(</span><span class="phpdocumentor-signature__argument"><span>[</span><span class="phpdocumentor-signature__argument__return-type"><a href="classes/chillerlan-OAuth-Core-AccessToken.html"><abbr title="\chillerlan\OAuth\Core\AccessToken">AccessToken</abbr></a>|null&nbsp;</span><span class="phpdocumentor-signature__argument__name">$token</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">null</span><span> ]</span></span><span class="phpdocumentor-signature__argument"><span>[</span><span>, </span><span class="phpdocumentor-signature__argument__return-type">string|null&nbsp;</span><span class="phpdocumentor-signature__argument__name">$type</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">null</span><span> ]</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">bool</span></code>
 
     <div class="phpdocumentor-label-line">
         </div>
@@ -227,6 +241,13 @@ May throw a ProviderException if an error occurred.</p>
                     <dt class="phpdocumentor-argument-list__entry">
                 <span class="phpdocumentor-signature__argument__name">$token</span>
                 : <span class="phpdocumentor-signature__argument__return-type"><a href="classes/chillerlan-OAuth-Core-AccessToken.html"><abbr title="\chillerlan\OAuth\Core\AccessToken">AccessToken</abbr></a>|null</span>
+                 = <span class="phpdocumentor-signature__argument__default-value">null</span>            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                
+            </dd>
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-signature__argument__name">$type</span>
+                : <span class="phpdocumentor-signature__argument__return-type">string|null</span>
                  = <span class="phpdocumentor-signature__argument__default-value">null</span>            </dt>
             <dd class="phpdocumentor-argument-list__definition">
                 

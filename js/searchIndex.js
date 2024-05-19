@@ -341,6 +341,21 @@ Search.appendIndex(
             "summary": "prepares\u0020the\u0020request\u0020body\u0020parameters\u0020for\u0020the\u0020token\u0020refresh",
             "url": "classes/chillerlan-OAuth-Core-OAuth2Provider.html#method_getRefreshAccessTokenRequestBodyParams"
         },                {
+            "fqsen": "\\chillerlan\\OAuth\\Core\\OAuth2Provider\u003A\u003AinvalidateAccessToken\u0028\u0029",
+            "name": "invalidateAccessToken",
+            "summary": "",
+            "url": "classes/chillerlan-OAuth-Core-OAuth2Provider.html#method_invalidateAccessToken"
+        },                {
+            "fqsen": "\\chillerlan\\OAuth\\Core\\OAuth2Provider\u003A\u003AsendTokenInvalidateRequest\u0028\u0029",
+            "name": "sendTokenInvalidateRequest",
+            "summary": "Prepares\u0020and\u0020sends\u0020a\u0020request\u0020to\u0020the\u0020token\u0020invalidation\u0020endpoint",
+            "url": "classes/chillerlan-OAuth-Core-OAuth2Provider.html#method_sendTokenInvalidateRequest"
+        },                {
+            "fqsen": "\\chillerlan\\OAuth\\Core\\OAuth2Provider\u003A\u003AgetInvalidateAccessTokenBodyParams\u0028\u0029",
+            "name": "getInvalidateAccessTokenBodyParams",
+            "summary": "Prepares\u0020the\u0020body\u0020for\u0020a\u0020token\u0020revocation\u0020request",
+            "url": "classes/chillerlan-OAuth-Core-OAuth2Provider.html#method_getInvalidateAccessTokenBodyParams"
+        },                {
             "fqsen": "\\chillerlan\\OAuth\\Core\\OAuth2Provider\u003A\u003AsetState\u0028\u0029",
             "name": "setState",
             "summary": "",
@@ -783,7 +798,7 @@ Search.appendIndex(
         },                {
             "fqsen": "\\chillerlan\\OAuth\\Core\\TokenInvalidate",
             "name": "TokenInvalidate",
-            "summary": "Indicates\u0020whether\u0020the\u0020provider\u0020is\u0020capable\u0020of\u0020invalidating\u0020access\u0020tokens",
+            "summary": "Indicates\u0020whether\u0020the\u0020provider\u0020is\u0020capable\u0020of\u0020invalidating\u0020access\u0020tokens\u0020\u0028RFC\u002D7009\u0020or\u0020proprietary\u0029",
             "url": "classes/chillerlan-OAuth-Core-TokenInvalidate.html"
         },                {
             "fqsen": "\\chillerlan\\OAuth\\Core\\TokenInvalidate\u003A\u003AinvalidateAccessToken\u0028\u0029",
@@ -1213,7 +1228,7 @@ Search.appendIndex(
         },                {
             "fqsen": "\\chillerlan\\OAuth\\Providers\\BigCartel\u003A\u003AinvalidateAccessToken\u0028\u0029",
             "name": "invalidateAccessToken",
-            "summary": "Allows\u0020to\u0020invalidate\u0020an\u0020access\u0020token",
+            "summary": "",
             "url": "classes/chillerlan-OAuth-Providers-BigCartel.html#method_invalidateAccessToken"
         },                {
             "fqsen": "\\chillerlan\\OAuth\\Providers\\BigCartel\u003A\u003AgetAccountID\u0028\u0029",
@@ -1608,7 +1623,7 @@ Search.appendIndex(
         },                {
             "fqsen": "\\chillerlan\\OAuth\\Providers\\DeviantArt\u003A\u003AinvalidateAccessToken\u0028\u0029",
             "name": "invalidateAccessToken",
-            "summary": "Allows\u0020to\u0020invalidate\u0020an\u0020access\u0020token",
+            "summary": "",
             "url": "classes/chillerlan-OAuth-Providers-DeviantArt.html#method_invalidateAccessToken"
         },                {
             "fqsen": "\\chillerlan\\OAuth\\Providers\\DeviantArt\u003A\u003AIDENTIFIER",
@@ -1776,15 +1791,15 @@ Search.appendIndex(
             "summary": "Discord\u0020OAuth2",
             "url": "classes/chillerlan-OAuth-Providers-Discord.html"
         },                {
+            "fqsen": "\\chillerlan\\OAuth\\Providers\\Discord\u003A\u003AgetInvalidateAccessTokenBodyParams\u0028\u0029",
+            "name": "getInvalidateAccessTokenBodyParams",
+            "summary": "Prepares\u0020the\u0020body\u0020for\u0020a\u0020token\u0020revocation\u0020request",
+            "url": "classes/chillerlan-OAuth-Providers-Discord.html#method_getInvalidateAccessTokenBodyParams"
+        },                {
             "fqsen": "\\chillerlan\\OAuth\\Providers\\Discord\u003A\u003Ame\u0028\u0029",
             "name": "me",
             "summary": "Returns\u0020information\u0020about\u0020the\u0020currently\u0020authenticated\u0020user\u0020\u0028usually\u0020a\u0020\/me\u0020or\u0020\/user\u0020endpoint\u0029.",
             "url": "classes/chillerlan-OAuth-Providers-Discord.html#method_me"
-        },                {
-            "fqsen": "\\chillerlan\\OAuth\\Providers\\Discord\u003A\u003AinvalidateAccessToken\u0028\u0029",
-            "name": "invalidateAccessToken",
-            "summary": "Allows\u0020to\u0020invalidate\u0020an\u0020access\u0020token",
-            "url": "classes/chillerlan-OAuth-Providers-Discord.html#method_invalidateAccessToken"
         },                {
             "fqsen": "\\chillerlan\\OAuth\\Providers\\Discord\u003A\u003AIDENTIFIER",
             "name": "IDENTIFIER",
@@ -3096,6 +3111,11 @@ Search.appendIndex(
             "summary": "prepares\u0020the\u0020request\u0020body\u0020parameters\u0020for\u0020the\u0020token\u0020refresh",
             "url": "classes/chillerlan-OAuth-Providers-MusicBrainz.html#method_getRefreshAccessTokenRequestBodyParams"
         },                {
+            "fqsen": "\\chillerlan\\OAuth\\Providers\\MusicBrainz\u003A\u003AgetInvalidateAccessTokenBodyParams\u0028\u0029",
+            "name": "getInvalidateAccessTokenBodyParams",
+            "summary": "Prepares\u0020the\u0020body\u0020for\u0020a\u0020token\u0020revocation\u0020request",
+            "url": "classes/chillerlan-OAuth-Providers-MusicBrainz.html#method_getInvalidateAccessTokenBodyParams"
+        },                {
             "fqsen": "\\chillerlan\\OAuth\\Providers\\MusicBrainz\u003A\u003Arequest\u0028\u0029",
             "name": "request",
             "summary": "",
@@ -3105,11 +3125,6 @@ Search.appendIndex(
             "name": "me",
             "summary": "Returns\u0020information\u0020about\u0020the\u0020currently\u0020authenticated\u0020user\u0020\u0028usually\u0020a\u0020\/me\u0020or\u0020\/user\u0020endpoint\u0029.",
             "url": "classes/chillerlan-OAuth-Providers-MusicBrainz.html#method_me"
-        },                {
-            "fqsen": "\\chillerlan\\OAuth\\Providers\\MusicBrainz\u003A\u003AinvalidateAccessToken\u0028\u0029",
-            "name": "invalidateAccessToken",
-            "summary": "Allows\u0020to\u0020invalidate\u0020an\u0020access\u0020token",
-            "url": "classes/chillerlan-OAuth-Providers-MusicBrainz.html#method_invalidateAccessToken"
         },                {
             "fqsen": "\\chillerlan\\OAuth\\Providers\\MusicBrainz\u003A\u003AIDENTIFIER",
             "name": "IDENTIFIER",
@@ -3205,11 +3220,6 @@ Search.appendIndex(
             "name": "me",
             "summary": "Returns\u0020information\u0020about\u0020the\u0020currently\u0020authenticated\u0020user\u0020\u0028usually\u0020a\u0020\/me\u0020or\u0020\/user\u0020endpoint\u0029.",
             "url": "classes/chillerlan-OAuth-Providers-NPROne.html#method_me"
-        },                {
-            "fqsen": "\\chillerlan\\OAuth\\Providers\\NPROne\u003A\u003AinvalidateAccessToken\u0028\u0029",
-            "name": "invalidateAccessToken",
-            "summary": "Allows\u0020to\u0020invalidate\u0020an\u0020access\u0020token",
-            "url": "classes/chillerlan-OAuth-Providers-NPROne.html#method_invalidateAccessToken"
         },                {
             "fqsen": "\\chillerlan\\OAuth\\Providers\\NPROne\u003A\u003AIDENTIFIER",
             "name": "IDENTIFIER",
@@ -3796,15 +3806,15 @@ Search.appendIndex(
             "summary": "Reddit\u0020OAuth2",
             "url": "classes/chillerlan-OAuth-Providers-Reddit.html"
         },                {
+            "fqsen": "\\chillerlan\\OAuth\\Providers\\Reddit\u003A\u003AsendTokenInvalidateRequest\u0028\u0029",
+            "name": "sendTokenInvalidateRequest",
+            "summary": "Prepares\u0020and\u0020sends\u0020a\u0020request\u0020to\u0020the\u0020token\u0020invalidation\u0020endpoint",
+            "url": "classes/chillerlan-OAuth-Providers-Reddit.html#method_sendTokenInvalidateRequest"
+        },                {
             "fqsen": "\\chillerlan\\OAuth\\Providers\\Reddit\u003A\u003Ame\u0028\u0029",
             "name": "me",
             "summary": "Returns\u0020information\u0020about\u0020the\u0020currently\u0020authenticated\u0020user\u0020\u0028usually\u0020a\u0020\/me\u0020or\u0020\/user\u0020endpoint\u0029.",
             "url": "classes/chillerlan-OAuth-Providers-Reddit.html#method_me"
-        },                {
-            "fqsen": "\\chillerlan\\OAuth\\Providers\\Reddit\u003A\u003AinvalidateAccessToken\u0028\u0029",
-            "name": "invalidateAccessToken",
-            "summary": "Allows\u0020to\u0020invalidate\u0020an\u0020access\u0020token",
-            "url": "classes/chillerlan-OAuth-Providers-Reddit.html#method_invalidateAccessToken"
         },                {
             "fqsen": "\\chillerlan\\OAuth\\Providers\\Reddit\u003A\u003AIDENTIFIER",
             "name": "IDENTIFIER",
@@ -4621,10 +4631,10 @@ Search.appendIndex(
             "summary": "Returns\u0020information\u0020about\u0020the\u0020currently\u0020authenticated\u0020user\u0020\u0028usually\u0020a\u0020\/me\u0020or\u0020\/user\u0020endpoint\u0029.",
             "url": "classes/chillerlan-OAuth-Providers-Stripe.html#method_me"
         },                {
-            "fqsen": "\\chillerlan\\OAuth\\Providers\\Stripe\u003A\u003AinvalidateAccessToken\u0028\u0029",
-            "name": "invalidateAccessToken",
-            "summary": "Allows\u0020to\u0020invalidate\u0020an\u0020access\u0020token",
-            "url": "classes/chillerlan-OAuth-Providers-Stripe.html#method_invalidateAccessToken"
+            "fqsen": "\\chillerlan\\OAuth\\Providers\\Stripe\u003A\u003AgetInvalidateAccessTokenBodyParams\u0028\u0029",
+            "name": "getInvalidateAccessTokenBodyParams",
+            "summary": "Prepares\u0020the\u0020body\u0020for\u0020a\u0020token\u0020revocation\u0020request",
+            "url": "classes/chillerlan-OAuth-Providers-Stripe.html#method_getInvalidateAccessTokenBodyParams"
         },                {
             "fqsen": "\\chillerlan\\OAuth\\Providers\\Stripe\u003A\u003AIDENTIFIER",
             "name": "IDENTIFIER",
@@ -4816,6 +4826,11 @@ Search.appendIndex(
             "summary": "sends\u0020a\u0020request\u0020to\u0020the\u0020client\u0020credentials\u0020endpoint,\u0020using\u0020basic\u0020authentication",
             "url": "classes/chillerlan-OAuth-Providers-Twitch.html#method_sendClientCredentialsTokenRequest"
         },                {
+            "fqsen": "\\chillerlan\\OAuth\\Providers\\Twitch\u003A\u003AgetInvalidateAccessTokenBodyParams\u0028\u0029",
+            "name": "getInvalidateAccessTokenBodyParams",
+            "summary": "Prepares\u0020the\u0020body\u0020for\u0020a\u0020token\u0020revocation\u0020request",
+            "url": "classes/chillerlan-OAuth-Providers-Twitch.html#method_getInvalidateAccessTokenBodyParams"
+        },                {
             "fqsen": "\\chillerlan\\OAuth\\Providers\\Twitch\u003A\u003AgetRequestAuthorization\u0028\u0029",
             "name": "getRequestAuthorization",
             "summary": "",
@@ -4825,11 +4840,6 @@ Search.appendIndex(
             "name": "me",
             "summary": "Returns\u0020information\u0020about\u0020the\u0020currently\u0020authenticated\u0020user\u0020\u0028usually\u0020a\u0020\/me\u0020or\u0020\/user\u0020endpoint\u0029.",
             "url": "classes/chillerlan-OAuth-Providers-Twitch.html#method_me"
-        },                {
-            "fqsen": "\\chillerlan\\OAuth\\Providers\\Twitch\u003A\u003AinvalidateAccessToken\u0028\u0029",
-            "name": "invalidateAccessToken",
-            "summary": "Allows\u0020to\u0020invalidate\u0020an\u0020access\u0020token",
-            "url": "classes/chillerlan-OAuth-Providers-Twitch.html#method_invalidateAccessToken"
         },                {
             "fqsen": "\\chillerlan\\OAuth\\Providers\\Twitch\u003A\u003AIDENTIFIER",
             "name": "IDENTIFIER",
@@ -5108,7 +5118,7 @@ Search.appendIndex(
         },                {
             "fqsen": "\\chillerlan\\OAuth\\Providers\\Vimeo\u003A\u003AinvalidateAccessToken\u0028\u0029",
             "name": "invalidateAccessToken",
-            "summary": "Allows\u0020to\u0020invalidate\u0020an\u0020access\u0020token",
+            "summary": "",
             "url": "classes/chillerlan-OAuth-Providers-Vimeo.html#method_invalidateAccessToken"
         },                {
             "fqsen": "\\chillerlan\\OAuth\\Providers\\Vimeo\u003A\u003AIDENTIFIER",
@@ -6048,7 +6058,7 @@ Search.appendIndex(
         },                {
             "fqsen": "\\chillerlan\\OAuthTest\\Providers\\DummyOAuth2Provider\u003A\u003AinvalidateAccessToken\u0028\u0029",
             "name": "invalidateAccessToken",
-            "summary": "Allows\u0020to\u0020invalidate\u0020an\u0020access\u0020token",
+            "summary": "",
             "url": "classes/chillerlan-OAuthTest-Providers-DummyOAuth2Provider.html#method_invalidateAccessToken"
         },                {
             "fqsen": "\\chillerlan\\OAuthTest\\Providers\\DummyOAuth2Provider\u003A\u003AIDENTIFIER",
@@ -7580,6 +7590,11 @@ Search.appendIndex(
             "name": "StripeTest",
             "summary": "",
             "url": "classes/chillerlan-OAuthTest-Providers-Unit-StripeTest.html"
+        },                {
+            "fqsen": "\\chillerlan\\OAuthTest\\Providers\\Unit\\StripeTest\u003A\u003AtestTokenInvalidate\u0028\u0029",
+            "name": "testTokenInvalidate",
+            "summary": "",
+            "url": "classes/chillerlan-OAuthTest-Providers-Unit-StripeTest.html#method_testTokenInvalidate"
         },                {
             "fqsen": "\\chillerlan\\OAuthTest\\Providers\\Unit\\Tumblr2Test",
             "name": "Tumblr2Test",

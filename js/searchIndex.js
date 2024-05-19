@@ -878,7 +878,7 @@ Search.appendIndex(
         },                {
             "fqsen": "\\chillerlan\\OAuth\\OAuthOptions",
             "name": "OAuthOptions",
-            "summary": "This\u0020class\u0020holds\u0020all\u0020settings\u0020related\u0020to\u0020the\u0020OAuth\u0020provider\u0020as\u0020well\u0020as\u0020the\u0020default\u0020HTTP\u0020client.",
+            "summary": "This\u0020class\u0020holds\u0020all\u0020settings\u0020related\u0020to\u0020the\u0020OAuth\u0020provider",
             "url": "classes/chillerlan-OAuth-OAuthOptions.html"
         },                {
             "fqsen": "\\chillerlan\\OAuth\\OAuthOptionsTrait",
@@ -2266,75 +2266,40 @@ Search.appendIndex(
             "summary": "",
             "url": "classes/chillerlan-OAuth-Providers-GitHub.html#constant_SCOPES_DELIMITER"
         },                {
-            "fqsen": "\\chillerlan\\OAuth\\Providers\\GitHub\u003A\u003ASCOPE_USER",
-            "name": "SCOPE_USER",
+            "fqsen": "\\chillerlan\\OAuth\\Providers\\GitHub\u003A\u003ASCOPE_CODESPACE",
+            "name": "SCOPE_CODESPACE",
             "summary": "",
-            "url": "classes/chillerlan-OAuth-Providers-GitHub.html#constant_SCOPE_USER"
-        },                {
-            "fqsen": "\\chillerlan\\OAuth\\Providers\\GitHub\u003A\u003ASCOPE_USER_EMAIL",
-            "name": "SCOPE_USER_EMAIL",
-            "summary": "",
-            "url": "classes/chillerlan-OAuth-Providers-GitHub.html#constant_SCOPE_USER_EMAIL"
-        },                {
-            "fqsen": "\\chillerlan\\OAuth\\Providers\\GitHub\u003A\u003ASCOPE_USER_FOLLOW",
-            "name": "SCOPE_USER_FOLLOW",
-            "summary": "",
-            "url": "classes/chillerlan-OAuth-Providers-GitHub.html#constant_SCOPE_USER_FOLLOW"
-        },                {
-            "fqsen": "\\chillerlan\\OAuth\\Providers\\GitHub\u003A\u003ASCOPE_PUBLIC_REPO",
-            "name": "SCOPE_PUBLIC_REPO",
-            "summary": "",
-            "url": "classes/chillerlan-OAuth-Providers-GitHub.html#constant_SCOPE_PUBLIC_REPO"
-        },                {
-            "fqsen": "\\chillerlan\\OAuth\\Providers\\GitHub\u003A\u003ASCOPE_REPO",
-            "name": "SCOPE_REPO",
-            "summary": "",
-            "url": "classes/chillerlan-OAuth-Providers-GitHub.html#constant_SCOPE_REPO"
-        },                {
-            "fqsen": "\\chillerlan\\OAuth\\Providers\\GitHub\u003A\u003ASCOPE_REPO_DEPLOYMENT",
-            "name": "SCOPE_REPO_DEPLOYMENT",
-            "summary": "",
-            "url": "classes/chillerlan-OAuth-Providers-GitHub.html#constant_SCOPE_REPO_DEPLOYMENT"
-        },                {
-            "fqsen": "\\chillerlan\\OAuth\\Providers\\GitHub\u003A\u003ASCOPE_REPO_STATUS",
-            "name": "SCOPE_REPO_STATUS",
-            "summary": "",
-            "url": "classes/chillerlan-OAuth-Providers-GitHub.html#constant_SCOPE_REPO_STATUS"
-        },                {
-            "fqsen": "\\chillerlan\\OAuth\\Providers\\GitHub\u003A\u003ASCOPE_REPO_INVITE",
-            "name": "SCOPE_REPO_INVITE",
-            "summary": "",
-            "url": "classes/chillerlan-OAuth-Providers-GitHub.html#constant_SCOPE_REPO_INVITE"
-        },                {
-            "fqsen": "\\chillerlan\\OAuth\\Providers\\GitHub\u003A\u003ASCOPE_REPO_DELETE",
-            "name": "SCOPE_REPO_DELETE",
-            "summary": "",
-            "url": "classes/chillerlan-OAuth-Providers-GitHub.html#constant_SCOPE_REPO_DELETE"
-        },                {
-            "fqsen": "\\chillerlan\\OAuth\\Providers\\GitHub\u003A\u003ASCOPE_NOTIFICATIONS",
-            "name": "SCOPE_NOTIFICATIONS",
-            "summary": "",
-            "url": "classes/chillerlan-OAuth-Providers-GitHub.html#constant_SCOPE_NOTIFICATIONS"
+            "url": "classes/chillerlan-OAuth-Providers-GitHub.html#constant_SCOPE_CODESPACE"
         },                {
             "fqsen": "\\chillerlan\\OAuth\\Providers\\GitHub\u003A\u003ASCOPE_GIST",
             "name": "SCOPE_GIST",
             "summary": "",
             "url": "classes/chillerlan-OAuth-Providers-GitHub.html#constant_SCOPE_GIST"
         },                {
-            "fqsen": "\\chillerlan\\OAuth\\Providers\\GitHub\u003A\u003ASCOPE_REPO_HOOK_READ",
-            "name": "SCOPE_REPO_HOOK_READ",
+            "fqsen": "\\chillerlan\\OAuth\\Providers\\GitHub\u003A\u003ASCOPE_GPG_KEY_ADMIN",
+            "name": "SCOPE_GPG_KEY_ADMIN",
             "summary": "",
-            "url": "classes/chillerlan-OAuth-Providers-GitHub.html#constant_SCOPE_REPO_HOOK_READ"
+            "url": "classes/chillerlan-OAuth-Providers-GitHub.html#constant_SCOPE_GPG_KEY_ADMIN"
         },                {
-            "fqsen": "\\chillerlan\\OAuth\\Providers\\GitHub\u003A\u003ASCOPE_REPO_HOOK_WRITE",
-            "name": "SCOPE_REPO_HOOK_WRITE",
+            "fqsen": "\\chillerlan\\OAuth\\Providers\\GitHub\u003A\u003ASCOPE_GPG_KEY_READ",
+            "name": "SCOPE_GPG_KEY_READ",
             "summary": "",
-            "url": "classes/chillerlan-OAuth-Providers-GitHub.html#constant_SCOPE_REPO_HOOK_WRITE"
+            "url": "classes/chillerlan-OAuth-Providers-GitHub.html#constant_SCOPE_GPG_KEY_READ"
         },                {
-            "fqsen": "\\chillerlan\\OAuth\\Providers\\GitHub\u003A\u003ASCOPE_REPO_HOOK_ADMIN",
-            "name": "SCOPE_REPO_HOOK_ADMIN",
+            "fqsen": "\\chillerlan\\OAuth\\Providers\\GitHub\u003A\u003ASCOPE_GPG_KEY_WRITE",
+            "name": "SCOPE_GPG_KEY_WRITE",
             "summary": "",
-            "url": "classes/chillerlan-OAuth-Providers-GitHub.html#constant_SCOPE_REPO_HOOK_ADMIN"
+            "url": "classes/chillerlan-OAuth-Providers-GitHub.html#constant_SCOPE_GPG_KEY_WRITE"
+        },                {
+            "fqsen": "\\chillerlan\\OAuth\\Providers\\GitHub\u003A\u003ASCOPE_NOTIFICATIONS",
+            "name": "SCOPE_NOTIFICATIONS",
+            "summary": "",
+            "url": "classes/chillerlan-OAuth-Providers-GitHub.html#constant_SCOPE_NOTIFICATIONS"
+        },                {
+            "fqsen": "\\chillerlan\\OAuth\\Providers\\GitHub\u003A\u003ASCOPE_ORG_ADMIN",
+            "name": "SCOPE_ORG_ADMIN",
+            "summary": "",
+            "url": "classes/chillerlan-OAuth-Providers-GitHub.html#constant_SCOPE_ORG_ADMIN"
         },                {
             "fqsen": "\\chillerlan\\OAuth\\Providers\\GitHub\u003A\u003ASCOPE_ORG_HOOK_ADMIN",
             "name": "SCOPE_ORG_HOOK_ADMIN",
@@ -2351,10 +2316,35 @@ Search.appendIndex(
             "summary": "",
             "url": "classes/chillerlan-OAuth-Providers-GitHub.html#constant_SCOPE_ORG_WRITE"
         },                {
-            "fqsen": "\\chillerlan\\OAuth\\Providers\\GitHub\u003A\u003ASCOPE_ORG_ADMIN",
-            "name": "SCOPE_ORG_ADMIN",
+            "fqsen": "\\chillerlan\\OAuth\\Providers\\GitHub\u003A\u003ASCOPE_PACKAGES_DELETE",
+            "name": "SCOPE_PACKAGES_DELETE",
             "summary": "",
-            "url": "classes/chillerlan-OAuth-Providers-GitHub.html#constant_SCOPE_ORG_ADMIN"
+            "url": "classes/chillerlan-OAuth-Providers-GitHub.html#constant_SCOPE_PACKAGES_DELETE"
+        },                {
+            "fqsen": "\\chillerlan\\OAuth\\Providers\\GitHub\u003A\u003ASCOPE_PACKAGES_READ",
+            "name": "SCOPE_PACKAGES_READ",
+            "summary": "",
+            "url": "classes/chillerlan-OAuth-Providers-GitHub.html#constant_SCOPE_PACKAGES_READ"
+        },                {
+            "fqsen": "\\chillerlan\\OAuth\\Providers\\GitHub\u003A\u003ASCOPE_PACKAGES_WRITE",
+            "name": "SCOPE_PACKAGES_WRITE",
+            "summary": "",
+            "url": "classes/chillerlan-OAuth-Providers-GitHub.html#constant_SCOPE_PACKAGES_WRITE"
+        },                {
+            "fqsen": "\\chillerlan\\OAuth\\Providers\\GitHub\u003A\u003ASCOPE_PROJECT",
+            "name": "SCOPE_PROJECT",
+            "summary": "",
+            "url": "classes/chillerlan-OAuth-Providers-GitHub.html#constant_SCOPE_PROJECT"
+        },                {
+            "fqsen": "\\chillerlan\\OAuth\\Providers\\GitHub\u003A\u003ASCOPE_PROJECT_READ",
+            "name": "SCOPE_PROJECT_READ",
+            "summary": "",
+            "url": "classes/chillerlan-OAuth-Providers-GitHub.html#constant_SCOPE_PROJECT_READ"
+        },                {
+            "fqsen": "\\chillerlan\\OAuth\\Providers\\GitHub\u003A\u003ASCOPE_PUBLIC_KEY_ADMIN",
+            "name": "SCOPE_PUBLIC_KEY_ADMIN",
+            "summary": "",
+            "url": "classes/chillerlan-OAuth-Providers-GitHub.html#constant_SCOPE_PUBLIC_KEY_ADMIN"
         },                {
             "fqsen": "\\chillerlan\\OAuth\\Providers\\GitHub\u003A\u003ASCOPE_PUBLIC_KEY_READ",
             "name": "SCOPE_PUBLIC_KEY_READ",
@@ -2366,25 +2356,80 @@ Search.appendIndex(
             "summary": "",
             "url": "classes/chillerlan-OAuth-Providers-GitHub.html#constant_SCOPE_PUBLIC_KEY_WRITE"
         },                {
-            "fqsen": "\\chillerlan\\OAuth\\Providers\\GitHub\u003A\u003ASCOPE_PUBLIC_KEY_ADMIN",
-            "name": "SCOPE_PUBLIC_KEY_ADMIN",
+            "fqsen": "\\chillerlan\\OAuth\\Providers\\GitHub\u003A\u003ASCOPE_PUBLIC_REPO",
+            "name": "SCOPE_PUBLIC_REPO",
             "summary": "",
-            "url": "classes/chillerlan-OAuth-Providers-GitHub.html#constant_SCOPE_PUBLIC_KEY_ADMIN"
+            "url": "classes/chillerlan-OAuth-Providers-GitHub.html#constant_SCOPE_PUBLIC_REPO"
         },                {
-            "fqsen": "\\chillerlan\\OAuth\\Providers\\GitHub\u003A\u003ASCOPE_GPG_KEY_READ",
-            "name": "SCOPE_GPG_KEY_READ",
+            "fqsen": "\\chillerlan\\OAuth\\Providers\\GitHub\u003A\u003ASCOPE_REPO",
+            "name": "SCOPE_REPO",
             "summary": "",
-            "url": "classes/chillerlan-OAuth-Providers-GitHub.html#constant_SCOPE_GPG_KEY_READ"
+            "url": "classes/chillerlan-OAuth-Providers-GitHub.html#constant_SCOPE_REPO"
         },                {
-            "fqsen": "\\chillerlan\\OAuth\\Providers\\GitHub\u003A\u003ASCOPE_GPG_KEY_WRITE",
-            "name": "SCOPE_GPG_KEY_WRITE",
+            "fqsen": "\\chillerlan\\OAuth\\Providers\\GitHub\u003A\u003ASCOPE_REPO_DELETE",
+            "name": "SCOPE_REPO_DELETE",
             "summary": "",
-            "url": "classes/chillerlan-OAuth-Providers-GitHub.html#constant_SCOPE_GPG_KEY_WRITE"
+            "url": "classes/chillerlan-OAuth-Providers-GitHub.html#constant_SCOPE_REPO_DELETE"
         },                {
-            "fqsen": "\\chillerlan\\OAuth\\Providers\\GitHub\u003A\u003ASCOPE_GPG_KEY_ADMIN",
-            "name": "SCOPE_GPG_KEY_ADMIN",
+            "fqsen": "\\chillerlan\\OAuth\\Providers\\GitHub\u003A\u003ASCOPE_REPO_DEPLOYMENT",
+            "name": "SCOPE_REPO_DEPLOYMENT",
             "summary": "",
-            "url": "classes/chillerlan-OAuth-Providers-GitHub.html#constant_SCOPE_GPG_KEY_ADMIN"
+            "url": "classes/chillerlan-OAuth-Providers-GitHub.html#constant_SCOPE_REPO_DEPLOYMENT"
+        },                {
+            "fqsen": "\\chillerlan\\OAuth\\Providers\\GitHub\u003A\u003ASCOPE_REPO_HOOK_ADMIN",
+            "name": "SCOPE_REPO_HOOK_ADMIN",
+            "summary": "",
+            "url": "classes/chillerlan-OAuth-Providers-GitHub.html#constant_SCOPE_REPO_HOOK_ADMIN"
+        },                {
+            "fqsen": "\\chillerlan\\OAuth\\Providers\\GitHub\u003A\u003ASCOPE_REPO_HOOK_READ",
+            "name": "SCOPE_REPO_HOOK_READ",
+            "summary": "",
+            "url": "classes/chillerlan-OAuth-Providers-GitHub.html#constant_SCOPE_REPO_HOOK_READ"
+        },                {
+            "fqsen": "\\chillerlan\\OAuth\\Providers\\GitHub\u003A\u003ASCOPE_REPO_HOOK_WRITE",
+            "name": "SCOPE_REPO_HOOK_WRITE",
+            "summary": "",
+            "url": "classes/chillerlan-OAuth-Providers-GitHub.html#constant_SCOPE_REPO_HOOK_WRITE"
+        },                {
+            "fqsen": "\\chillerlan\\OAuth\\Providers\\GitHub\u003A\u003ASCOPE_REPO_INVITE",
+            "name": "SCOPE_REPO_INVITE",
+            "summary": "",
+            "url": "classes/chillerlan-OAuth-Providers-GitHub.html#constant_SCOPE_REPO_INVITE"
+        },                {
+            "fqsen": "\\chillerlan\\OAuth\\Providers\\GitHub\u003A\u003ASCOPE_REPO_STATUS",
+            "name": "SCOPE_REPO_STATUS",
+            "summary": "",
+            "url": "classes/chillerlan-OAuth-Providers-GitHub.html#constant_SCOPE_REPO_STATUS"
+        },                {
+            "fqsen": "\\chillerlan\\OAuth\\Providers\\GitHub\u003A\u003ASCOPE_SECURITY_EVENTS",
+            "name": "SCOPE_SECURITY_EVENTS",
+            "summary": "",
+            "url": "classes/chillerlan-OAuth-Providers-GitHub.html#constant_SCOPE_SECURITY_EVENTS"
+        },                {
+            "fqsen": "\\chillerlan\\OAuth\\Providers\\GitHub\u003A\u003ASCOPE_USER",
+            "name": "SCOPE_USER",
+            "summary": "",
+            "url": "classes/chillerlan-OAuth-Providers-GitHub.html#constant_SCOPE_USER"
+        },                {
+            "fqsen": "\\chillerlan\\OAuth\\Providers\\GitHub\u003A\u003ASCOPE_USER_EMAIL",
+            "name": "SCOPE_USER_EMAIL",
+            "summary": "",
+            "url": "classes/chillerlan-OAuth-Providers-GitHub.html#constant_SCOPE_USER_EMAIL"
+        },                {
+            "fqsen": "\\chillerlan\\OAuth\\Providers\\GitHub\u003A\u003ASCOPE_USER_FOLLOW",
+            "name": "SCOPE_USER_FOLLOW",
+            "summary": "",
+            "url": "classes/chillerlan-OAuth-Providers-GitHub.html#constant_SCOPE_USER_FOLLOW"
+        },                {
+            "fqsen": "\\chillerlan\\OAuth\\Providers\\GitHub\u003A\u003ASCOPE_USER_READ",
+            "name": "SCOPE_USER_READ",
+            "summary": "",
+            "url": "classes/chillerlan-OAuth-Providers-GitHub.html#constant_SCOPE_USER_READ"
+        },                {
+            "fqsen": "\\chillerlan\\OAuth\\Providers\\GitHub\u003A\u003ASCOPE_WORKFLOW",
+            "name": "SCOPE_WORKFLOW",
+            "summary": "",
+            "url": "classes/chillerlan-OAuth-Providers-GitHub.html#constant_SCOPE_WORKFLOW"
         },                {
             "fqsen": "\\chillerlan\\OAuth\\Providers\\GitHub\u003A\u003ADEFAULT_SCOPES",
             "name": "DEFAULT_SCOPES",
@@ -5446,6 +5491,11 @@ Search.appendIndex(
             "summary": "A\u0020\u002Aunique\u002A\u0020ID\u0020to\u0020identify\u0020the\u0020user\u0020within\u0020your\u0020application,\u0020e.g.\u0020database\u0020row\u0020id\u0020or\u0020UUID",
             "url": "classes/chillerlan-OAuth-Storage-FileStorage.html#property_oauthUser"
         },                {
+            "fqsen": "\\chillerlan\\OAuth\\Storage\\ItemNotFoundException",
+            "name": "ItemNotFoundException",
+            "summary": "Thrown\u0020when\u0020an\u0020item\u0020cannot\u0020be\u0020found\u0020in\u0020the\u0020storage",
+            "url": "classes/chillerlan-OAuth-Storage-ItemNotFoundException.html"
+        },                {
             "fqsen": "\\chillerlan\\OAuth\\Storage\\MemoryStorage",
             "name": "MemoryStorage",
             "summary": "Implements\u0020a\u0020memory\u0020storage\u0020adapter.",
@@ -5603,7 +5653,7 @@ Search.appendIndex(
         },                {
             "fqsen": "\\chillerlan\\OAuth\\Storage\\OAuthStorageException",
             "name": "OAuthStorageException",
-            "summary": "Generic\u0020exception\u0020container",
+            "summary": "Thrown\u0020on\u0020general\u0020storage\u0020errors",
             "url": "classes/chillerlan-OAuth-Storage-OAuthStorageException.html"
         },                {
             "fqsen": "\\chillerlan\\OAuth\\Storage\\OAuthStorageInterface",
@@ -5795,21 +5845,6 @@ Search.appendIndex(
             "name": "storageVar",
             "summary": "the\u0020key\u0020name\u0020for\u0020the\u0020storage\u0020array\u0020in\u0020\u0024_SESSION",
             "url": "classes/chillerlan-OAuth-Storage-SessionStorage.html#property_storageVar"
-        },                {
-            "fqsen": "\\chillerlan\\OAuth\\Storage\\StateNotFoundException",
-            "name": "StateNotFoundException",
-            "summary": "Generic\u0020exception\u0020container",
-            "url": "classes/chillerlan-OAuth-Storage-StateNotFoundException.html"
-        },                {
-            "fqsen": "\\chillerlan\\OAuth\\Storage\\TokenNotFoundException",
-            "name": "TokenNotFoundException",
-            "summary": "Generic\u0020exception\u0020container",
-            "url": "classes/chillerlan-OAuth-Storage-TokenNotFoundException.html"
-        },                {
-            "fqsen": "\\chillerlan\\OAuth\\Storage\\VerifierNotFoundException",
-            "name": "VerifierNotFoundException",
-            "summary": "Generic\u0020exception\u0020container",
-            "url": "classes/chillerlan-OAuth-Storage-VerifierNotFoundException.html"
         },                {
             "fqsen": "\\chillerlan\\OAuthTest\\Attributes\\Provider",
             "name": "Provider",

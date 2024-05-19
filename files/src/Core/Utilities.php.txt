@@ -46,7 +46,7 @@ class Utilities{
 	 * Fetches a list of provider classes in the given directory
 	 */
 	public static function getProviders(string|null $providerDir = null, string|null $namespace = null):array{
-		$providerDir = realpath($providerDir ?? __DIR__.'/../Providers');
+		$providerDir = realpath(($providerDir ?? __DIR__.'/../Providers'));
 		$namespace   = trim(($namespace ?? 'chillerlan\\OAuth\\Providers'), '\\');
 		$providers   = [];
 

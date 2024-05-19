@@ -30,14 +30,14 @@ final class AccessToken extends SettingsContainerAbstract{
 	 *
 	 * @var int
 	 */
-	public const EXPIRY_UNKNOWN = -9001;
+	public const EXPIRY_UNKNOWN = -0xDEAD;
 
 	/**
 	 * Denotes a token which never expires
 	 *
 	 * @var int
 	 */
-	public const NEVER_EXPIRES = -9002;
+	public const NEVER_EXPIRES = -0xCAFE;
 
 	/**
 	 * Defines a maximum expiry period (1 year)
@@ -85,6 +85,10 @@ final class AccessToken extends SettingsContainerAbstract{
 
 	/**
 	 * Sets the expiration for this token, clamps the expiry to EXPIRY_MAX
+	 *
+	 *   - `0` sets the expiry to `NEVER_EXPIRES`
+	 *   - `null`, negative integer values or timestamps from `DateTime` and `DateInterval`
+	 *      that are in the past set the expiry to `EXPIRY_UNKNOWN`
 	 */
 	protected function set_expires(DateTime|DateInterval|int|null $expires = null):void{
 		$now = time();
@@ -98,6 +102,11 @@ final class AccessToken extends SettingsContainerAbstract{
 			$expires > 0 && $expires <= $this::EXPIRY_MAX       => ($now + $expires),
 			default                                             => $this::EXPIRY_UNKNOWN,
 		};
+
+		// clamp possibly expired values
+		if(($expires instanceof DateTime || $expires instanceof DateInterval) && $this->expires < $now){
+			$this->expires = $this::EXPIRY_UNKNOWN;
+		}
 
 		// clamp max expiry
 		if($this->expires > $max){

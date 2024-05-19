@@ -212,14 +212,14 @@
             <dt class="phpdocumentor-table-of-contents__entry -constant -public">
     <a href="classes/chillerlan-OAuth-Core-AccessToken.html#constant_EXPIRY_UNKNOWN">EXPIRY_UNKNOWN</a>
     <span>
-        &nbsp;= -9001                            </span>
+        &nbsp;= -0xdead                            </span>
 </dt>
 <dd>Denotes an unknown end of lifetime, such a token should be considered as expired.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -constant -public">
     <a href="classes/chillerlan-OAuth-Core-AccessToken.html#constant_NEVER_EXPIRES">NEVER_EXPIRES</a>
     <span>
-        &nbsp;= -9002                            </span>
+        &nbsp;= -0xcafe                            </span>
 </dt>
 <dd>Denotes a token which never expires</dd>
 
@@ -366,7 +366,7 @@
     <span class="phpdocumentor-signature__visibility">public</span>
         <span class="phpdocumentor-signature__type">int</span>
     <span class="phpdocumentor-signature__name">EXPIRY_UNKNOWN</span>
-    = <span class="phpdocumentor-signature__default-value">-9001</span>
+    = <span class="phpdocumentor-signature__default-value">-0xdead</span>
 </code>
 
 
@@ -396,7 +396,7 @@
     <span class="phpdocumentor-signature__visibility">public</span>
         <span class="phpdocumentor-signature__type">int</span>
     <span class="phpdocumentor-signature__name">NEVER_EXPIRES</span>
-    = <span class="phpdocumentor-signature__default-value">-9002</span>
+    = <span class="phpdocumentor-signature__default-value">-0xcafe</span>
 </code>
 
 
@@ -683,9 +683,9 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Core/AccessToken.php"><a href="files/src-core-accesstoken.html"><abbr title="src/Core/AccessToken.php">AccessToken.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">112</span>
+    <span class="phpdocumentor-element-found-in__line">121</span>
 
-            <a href="classes/chillerlan-OAuth-Core-AccessToken.html#source-view.112" class="phpdocumentor-element-found-in__source" data-line="112" data-modal="source-view" data-src="files/src/Core/AccessToken.php.txt"></a>
+            <a href="classes/chillerlan-OAuth-Core-AccessToken.html#source-view.121" class="phpdocumentor-element-found-in__source" data-line="121" data-modal="source-view" data-src="files/src/Core/AccessToken.php.txt"></a>
     </aside>
 
         <p class="phpdocumentor-summary">Checks whether this token is expired</p>
@@ -720,9 +720,9 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Core/AccessToken.php"><a href="files/src-core-accesstoken.html"><abbr title="src/Core/AccessToken.php">AccessToken.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">89</span>
+    <span class="phpdocumentor-element-found-in__line">93</span>
 
-            <a href="classes/chillerlan-OAuth-Core-AccessToken.html#source-view.89" class="phpdocumentor-element-found-in__source" data-line="89" data-modal="source-view" data-src="files/src/Core/AccessToken.php.txt"></a>
+            <a href="classes/chillerlan-OAuth-Core-AccessToken.html#source-view.93" class="phpdocumentor-element-found-in__source" data-line="93" data-modal="source-view" data-src="files/src/Core/AccessToken.php.txt"></a>
     </aside>
 
         <p class="phpdocumentor-summary">Sets the expiration for this token, clamps the expiry to EXPIRY_MAX</p>
@@ -733,7 +733,17 @@
 
     <div class="phpdocumentor-label-line">
         </div>
-    
+        <section class="phpdocumentor-description"><ul>
+<li>
+<code class="prettyprint">0</code> sets the expiry to <code class="prettyprint">NEVER_EXPIRES</code>
+</li>
+<li>
+<code class="prettyprint">null</code>, negative integer values or timestamps from <code class="prettyprint">DateTime</code> and <code class="prettyprint">DateInterval</code>
+that are in the past set the expiry to <code class="prettyprint">EXPIRY_UNKNOWN</code>
+</li>
+</ul>
+</section>
+
         <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
     <dl class="phpdocumentor-argument-list">
                     <dt class="phpdocumentor-argument-list__entry">

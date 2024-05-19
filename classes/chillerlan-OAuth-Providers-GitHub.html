@@ -220,13 +220,13 @@ usually via a &quot;/me&quot;, &quot;/user&quot; or &quot;/tokeninfo&quot; endpo
             <dt class="phpdocumentor-table-of-contents__entry -constant -public">
     <a href="classes/chillerlan-OAuth-Providers-GitHub.html#constant_DEFAULT_SCOPES">DEFAULT_SCOPES</a>
     <span>
-        &nbsp;= [self::SCOPE_USER, self::SCOPE_USER_EMAIL, self::SCOPE_PUBLIC_REPO, self::SCOPE_GIST]                            </span>
+        &nbsp;= [self::SCOPE_USER, self::SCOPE_PUBLIC_REPO, self::SCOPE_GIST]                            </span>
 </dt>
 
             <dt class="phpdocumentor-table-of-contents__entry -constant -public">
     <a href="classes/chillerlan-OAuth-Providers-GitHub.html#constant_HEADERS_API">HEADERS_API</a>
     <span>
-        &nbsp;= [&#039;Accept&#039; =&gt; &#039;application/vnd.github.beta+json&#039;]                            </span>
+        &nbsp;= [&#039;Accept&#039; =&gt; &#039;application/vnd.github+json&#039;, &#039;X-GitHub-Api-Version&#039; =&gt; &#039;2022-11-28&#039;]                            </span>
 </dt>
 
             <dt class="phpdocumentor-table-of-contents__entry -constant -public">
@@ -239,6 +239,12 @@ usually via a &quot;/me&quot;, &quot;/user&quot; or &quot;/tokeninfo&quot; endpo
     <a href="classes/chillerlan-OAuth-Providers-GitHub.html#constant_IDENTIFIER">IDENTIFIER</a>
     <span>
         &nbsp;= &#039;GITHUB&#039;                            </span>
+</dt>
+
+            <dt class="phpdocumentor-table-of-contents__entry -constant -public">
+    <a href="classes/chillerlan-OAuth-Providers-GitHub.html#constant_SCOPE_CODESPACE">SCOPE_CODESPACE</a>
+    <span>
+        &nbsp;= &#039;codespace&#039;                            </span>
 </dt>
 
             <dt class="phpdocumentor-table-of-contents__entry -constant -public">
@@ -293,6 +299,36 @@ usually via a &quot;/me&quot;, &quot;/user&quot; or &quot;/tokeninfo&quot; endpo
     <a href="classes/chillerlan-OAuth-Providers-GitHub.html#constant_SCOPE_ORG_WRITE">SCOPE_ORG_WRITE</a>
     <span>
         &nbsp;= &#039;write:org&#039;                            </span>
+</dt>
+
+            <dt class="phpdocumentor-table-of-contents__entry -constant -public">
+    <a href="classes/chillerlan-OAuth-Providers-GitHub.html#constant_SCOPE_PACKAGES_DELETE">SCOPE_PACKAGES_DELETE</a>
+    <span>
+        &nbsp;= &#039;delete:packages&#039;                            </span>
+</dt>
+
+            <dt class="phpdocumentor-table-of-contents__entry -constant -public">
+    <a href="classes/chillerlan-OAuth-Providers-GitHub.html#constant_SCOPE_PACKAGES_READ">SCOPE_PACKAGES_READ</a>
+    <span>
+        &nbsp;= &#039;read:packages&#039;                            </span>
+</dt>
+
+            <dt class="phpdocumentor-table-of-contents__entry -constant -public">
+    <a href="classes/chillerlan-OAuth-Providers-GitHub.html#constant_SCOPE_PACKAGES_WRITE">SCOPE_PACKAGES_WRITE</a>
+    <span>
+        &nbsp;= &#039;write:packages&#039;                            </span>
+</dt>
+
+            <dt class="phpdocumentor-table-of-contents__entry -constant -public">
+    <a href="classes/chillerlan-OAuth-Providers-GitHub.html#constant_SCOPE_PROJECT">SCOPE_PROJECT</a>
+    <span>
+        &nbsp;= &#039;project&#039;                            </span>
+</dt>
+
+            <dt class="phpdocumentor-table-of-contents__entry -constant -public">
+    <a href="classes/chillerlan-OAuth-Providers-GitHub.html#constant_SCOPE_PROJECT_READ">SCOPE_PROJECT_READ</a>
+    <span>
+        &nbsp;= &#039;read:project&#039;                            </span>
 </dt>
 
             <dt class="phpdocumentor-table-of-contents__entry -constant -public">
@@ -368,6 +404,12 @@ usually via a &quot;/me&quot;, &quot;/user&quot; or &quot;/tokeninfo&quot; endpo
 </dt>
 
             <dt class="phpdocumentor-table-of-contents__entry -constant -public">
+    <a href="classes/chillerlan-OAuth-Providers-GitHub.html#constant_SCOPE_SECURITY_EVENTS">SCOPE_SECURITY_EVENTS</a>
+    <span>
+        &nbsp;= &#039;security_events&#039;                            </span>
+</dt>
+
+            <dt class="phpdocumentor-table-of-contents__entry -constant -public">
     <a href="classes/chillerlan-OAuth-Providers-GitHub.html#constant_SCOPE_USER">SCOPE_USER</a>
     <span>
         &nbsp;= &#039;user&#039;                            </span>
@@ -383,6 +425,18 @@ usually via a &quot;/me&quot;, &quot;/user&quot; or &quot;/tokeninfo&quot; endpo
     <a href="classes/chillerlan-OAuth-Providers-GitHub.html#constant_SCOPE_USER_FOLLOW">SCOPE_USER_FOLLOW</a>
     <span>
         &nbsp;= &#039;user:follow&#039;                            </span>
+</dt>
+
+            <dt class="phpdocumentor-table-of-contents__entry -constant -public">
+    <a href="classes/chillerlan-OAuth-Providers-GitHub.html#constant_SCOPE_USER_READ">SCOPE_USER_READ</a>
+    <span>
+        &nbsp;= &#039;read:user&#039;                            </span>
+</dt>
+
+            <dt class="phpdocumentor-table-of-contents__entry -constant -public">
+    <a href="classes/chillerlan-OAuth-Providers-GitHub.html#constant_SCOPE_WORKFLOW">SCOPE_WORKFLOW</a>
+    <span>
+        &nbsp;= &#039;workflow&#039;                            </span>
 </dt>
 
             <dt class="phpdocumentor-table-of-contents__entry -constant -public">
@@ -918,7 +972,7 @@ anything except host and path will be ignored, scheme will always be set to &quo
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Providers/GitHub.php"><a href="files/src-providers-github.html"><abbr title="src/Providers/GitHub.php">GitHub.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">57</span>
+    <span class="phpdocumentor-element-found-in__line">67</span>
 
     </aside>
 
@@ -927,7 +981,7 @@ anything except host and path will be ignored, scheme will always be set to &quo
     <span class="phpdocumentor-signature__visibility">public</span>
         <span class="phpdocumentor-signature__type">mixed</span>
     <span class="phpdocumentor-signature__name">DEFAULT_SCOPES</span>
-    = <span class="phpdocumentor-signature__default-value">[self::SCOPE_USER, self::SCOPE_USER_EMAIL, self::SCOPE_PUBLIC_REPO, self::SCOPE_GIST]</span>
+    = <span class="phpdocumentor-signature__default-value">[self::SCOPE_USER, self::SCOPE_PUBLIC_REPO, self::SCOPE_GIST]</span>
 </code>
 
 
@@ -946,7 +1000,7 @@ anything except host and path will be ignored, scheme will always be set to &quo
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Providers/GitHub.php"><a href="files/src-providers-github.html"><abbr title="src/Providers/GitHub.php">GitHub.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">68</span>
+    <span class="phpdocumentor-element-found-in__line">77</span>
 
     </aside>
 
@@ -955,7 +1009,7 @@ anything except host and path will be ignored, scheme will always be set to &quo
     <span class="phpdocumentor-signature__visibility">public</span>
         <span class="phpdocumentor-signature__type">mixed</span>
     <span class="phpdocumentor-signature__name">HEADERS_API</span>
-    = <span class="phpdocumentor-signature__default-value">[&#039;Accept&#039; =&gt; &#039;application/vnd.github.beta+json&#039;]</span>
+    = <span class="phpdocumentor-signature__default-value">[&#039;Accept&#039; =&gt; &#039;application/vnd.github+json&#039;, &#039;X-GitHub-Api-Version&#039; =&gt; &#039;2022-11-28&#039;]</span>
 </code>
 
 
@@ -974,7 +1028,7 @@ anything except host and path will be ignored, scheme will always be set to &quo
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Providers/GitHub.php"><a href="files/src-providers-github.html"><abbr title="src/Providers/GitHub.php">GitHub.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">64</span>
+    <span class="phpdocumentor-element-found-in__line">73</span>
 
     </aside>
 
@@ -1021,6 +1075,34 @@ anything except host and path will be ignored, scheme will always be set to &quo
 
 </article>
                     <article class="phpdocumentor-element -constant -public ">
+    <h4 class="phpdocumentor-element__name" id="constant_SCOPE_CODESPACE">
+        SCOPE_CODESPACE
+        <a href="classes/chillerlan-OAuth-Providers-GitHub.html#constant_SCOPE_CODESPACE" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h4>
+
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/Providers/GitHub.php"><a href="files/src-providers-github.html"><abbr title="src/Providers/GitHub.php">GitHub.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">33</span>
+
+    </aside>
+
+    
+    <code class="phpdocumentor-signature phpdocumentor-code ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+        <span class="phpdocumentor-signature__type">mixed</span>
+    <span class="phpdocumentor-signature__name">SCOPE_CODESPACE</span>
+    = <span class="phpdocumentor-signature__default-value">&#039;codespace&#039;</span>
+</code>
+
+
+    
+    
+    
+
+</article>
+                    <article class="phpdocumentor-element -constant -public ">
     <h4 class="phpdocumentor-element__name" id="constant_SCOPE_GIST">
         SCOPE_GIST
         <a href="classes/chillerlan-OAuth-Providers-GitHub.html#constant_SCOPE_GIST" class="headerlink"><i class="fas fa-link"></i></a>
@@ -1030,7 +1112,7 @@ anything except host and path will be ignored, scheme will always be set to &quo
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Providers/GitHub.php"><a href="files/src-providers-github.html"><abbr title="src/Providers/GitHub.php">GitHub.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">42</span>
+    <span class="phpdocumentor-element-found-in__line">34</span>
 
     </aside>
 
@@ -1058,7 +1140,7 @@ anything except host and path will be ignored, scheme will always be set to &quo
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Providers/GitHub.php"><a href="files/src-providers-github.html"><abbr title="src/Providers/GitHub.php">GitHub.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">55</span>
+    <span class="phpdocumentor-element-found-in__line">35</span>
 
     </aside>
 
@@ -1086,7 +1168,7 @@ anything except host and path will be ignored, scheme will always be set to &quo
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Providers/GitHub.php"><a href="files/src-providers-github.html"><abbr title="src/Providers/GitHub.php">GitHub.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">53</span>
+    <span class="phpdocumentor-element-found-in__line">36</span>
 
     </aside>
 
@@ -1114,7 +1196,7 @@ anything except host and path will be ignored, scheme will always be set to &quo
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Providers/GitHub.php"><a href="files/src-providers-github.html"><abbr title="src/Providers/GitHub.php">GitHub.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">54</span>
+    <span class="phpdocumentor-element-found-in__line">37</span>
 
     </aside>
 
@@ -1142,7 +1224,7 @@ anything except host and path will be ignored, scheme will always be set to &quo
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Providers/GitHub.php"><a href="files/src-providers-github.html"><abbr title="src/Providers/GitHub.php">GitHub.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">41</span>
+    <span class="phpdocumentor-element-found-in__line">38</span>
 
     </aside>
 
@@ -1170,7 +1252,7 @@ anything except host and path will be ignored, scheme will always be set to &quo
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Providers/GitHub.php"><a href="files/src-providers-github.html"><abbr title="src/Providers/GitHub.php">GitHub.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">49</span>
+    <span class="phpdocumentor-element-found-in__line">39</span>
 
     </aside>
 
@@ -1198,7 +1280,7 @@ anything except host and path will be ignored, scheme will always be set to &quo
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Providers/GitHub.php"><a href="files/src-providers-github.html"><abbr title="src/Providers/GitHub.php">GitHub.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">46</span>
+    <span class="phpdocumentor-element-found-in__line">40</span>
 
     </aside>
 
@@ -1226,7 +1308,7 @@ anything except host and path will be ignored, scheme will always be set to &quo
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Providers/GitHub.php"><a href="files/src-providers-github.html"><abbr title="src/Providers/GitHub.php">GitHub.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">47</span>
+    <span class="phpdocumentor-element-found-in__line">41</span>
 
     </aside>
 
@@ -1254,7 +1336,7 @@ anything except host and path will be ignored, scheme will always be set to &quo
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Providers/GitHub.php"><a href="files/src-providers-github.html"><abbr title="src/Providers/GitHub.php">GitHub.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">48</span>
+    <span class="phpdocumentor-element-found-in__line">42</span>
 
     </aside>
 
@@ -1273,6 +1355,146 @@ anything except host and path will be ignored, scheme will always be set to &quo
 
 </article>
                     <article class="phpdocumentor-element -constant -public ">
+    <h4 class="phpdocumentor-element__name" id="constant_SCOPE_PACKAGES_DELETE">
+        SCOPE_PACKAGES_DELETE
+        <a href="classes/chillerlan-OAuth-Providers-GitHub.html#constant_SCOPE_PACKAGES_DELETE" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h4>
+
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/Providers/GitHub.php"><a href="files/src-providers-github.html"><abbr title="src/Providers/GitHub.php">GitHub.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">43</span>
+
+    </aside>
+
+    
+    <code class="phpdocumentor-signature phpdocumentor-code ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+        <span class="phpdocumentor-signature__type">mixed</span>
+    <span class="phpdocumentor-signature__name">SCOPE_PACKAGES_DELETE</span>
+    = <span class="phpdocumentor-signature__default-value">&#039;delete:packages&#039;</span>
+</code>
+
+
+    
+    
+    
+
+</article>
+                    <article class="phpdocumentor-element -constant -public ">
+    <h4 class="phpdocumentor-element__name" id="constant_SCOPE_PACKAGES_READ">
+        SCOPE_PACKAGES_READ
+        <a href="classes/chillerlan-OAuth-Providers-GitHub.html#constant_SCOPE_PACKAGES_READ" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h4>
+
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/Providers/GitHub.php"><a href="files/src-providers-github.html"><abbr title="src/Providers/GitHub.php">GitHub.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">44</span>
+
+    </aside>
+
+    
+    <code class="phpdocumentor-signature phpdocumentor-code ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+        <span class="phpdocumentor-signature__type">mixed</span>
+    <span class="phpdocumentor-signature__name">SCOPE_PACKAGES_READ</span>
+    = <span class="phpdocumentor-signature__default-value">&#039;read:packages&#039;</span>
+</code>
+
+
+    
+    
+    
+
+</article>
+                    <article class="phpdocumentor-element -constant -public ">
+    <h4 class="phpdocumentor-element__name" id="constant_SCOPE_PACKAGES_WRITE">
+        SCOPE_PACKAGES_WRITE
+        <a href="classes/chillerlan-OAuth-Providers-GitHub.html#constant_SCOPE_PACKAGES_WRITE" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h4>
+
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/Providers/GitHub.php"><a href="files/src-providers-github.html"><abbr title="src/Providers/GitHub.php">GitHub.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">45</span>
+
+    </aside>
+
+    
+    <code class="phpdocumentor-signature phpdocumentor-code ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+        <span class="phpdocumentor-signature__type">mixed</span>
+    <span class="phpdocumentor-signature__name">SCOPE_PACKAGES_WRITE</span>
+    = <span class="phpdocumentor-signature__default-value">&#039;write:packages&#039;</span>
+</code>
+
+
+    
+    
+    
+
+</article>
+                    <article class="phpdocumentor-element -constant -public ">
+    <h4 class="phpdocumentor-element__name" id="constant_SCOPE_PROJECT">
+        SCOPE_PROJECT
+        <a href="classes/chillerlan-OAuth-Providers-GitHub.html#constant_SCOPE_PROJECT" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h4>
+
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/Providers/GitHub.php"><a href="files/src-providers-github.html"><abbr title="src/Providers/GitHub.php">GitHub.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">46</span>
+
+    </aside>
+
+    
+    <code class="phpdocumentor-signature phpdocumentor-code ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+        <span class="phpdocumentor-signature__type">mixed</span>
+    <span class="phpdocumentor-signature__name">SCOPE_PROJECT</span>
+    = <span class="phpdocumentor-signature__default-value">&#039;project&#039;</span>
+</code>
+
+
+    
+    
+    
+
+</article>
+                    <article class="phpdocumentor-element -constant -public ">
+    <h4 class="phpdocumentor-element__name" id="constant_SCOPE_PROJECT_READ">
+        SCOPE_PROJECT_READ
+        <a href="classes/chillerlan-OAuth-Providers-GitHub.html#constant_SCOPE_PROJECT_READ" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h4>
+
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/Providers/GitHub.php"><a href="files/src-providers-github.html"><abbr title="src/Providers/GitHub.php">GitHub.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">47</span>
+
+    </aside>
+
+    
+    <code class="phpdocumentor-signature phpdocumentor-code ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+        <span class="phpdocumentor-signature__type">mixed</span>
+    <span class="phpdocumentor-signature__name">SCOPE_PROJECT_READ</span>
+    = <span class="phpdocumentor-signature__default-value">&#039;read:project&#039;</span>
+</code>
+
+
+    
+    
+    
+
+</article>
+                    <article class="phpdocumentor-element -constant -public ">
     <h4 class="phpdocumentor-element__name" id="constant_SCOPE_PUBLIC_KEY_ADMIN">
         SCOPE_PUBLIC_KEY_ADMIN
         <a href="classes/chillerlan-OAuth-Providers-GitHub.html#constant_SCOPE_PUBLIC_KEY_ADMIN" class="headerlink"><i class="fas fa-link"></i></a>
@@ -1282,7 +1504,7 @@ anything except host and path will be ignored, scheme will always be set to &quo
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Providers/GitHub.php"><a href="files/src-providers-github.html"><abbr title="src/Providers/GitHub.php">GitHub.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">52</span>
+    <span class="phpdocumentor-element-found-in__line">48</span>
 
     </aside>
 
@@ -1310,7 +1532,7 @@ anything except host and path will be ignored, scheme will always be set to &quo
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Providers/GitHub.php"><a href="files/src-providers-github.html"><abbr title="src/Providers/GitHub.php">GitHub.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">50</span>
+    <span class="phpdocumentor-element-found-in__line">49</span>
 
     </aside>
 
@@ -1338,7 +1560,7 @@ anything except host and path will be ignored, scheme will always be set to &quo
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Providers/GitHub.php"><a href="files/src-providers-github.html"><abbr title="src/Providers/GitHub.php">GitHub.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">51</span>
+    <span class="phpdocumentor-element-found-in__line">50</span>
 
     </aside>
 
@@ -1366,7 +1588,7 @@ anything except host and path will be ignored, scheme will always be set to &quo
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Providers/GitHub.php"><a href="files/src-providers-github.html"><abbr title="src/Providers/GitHub.php">GitHub.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">35</span>
+    <span class="phpdocumentor-element-found-in__line">51</span>
 
     </aside>
 
@@ -1394,7 +1616,7 @@ anything except host and path will be ignored, scheme will always be set to &quo
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Providers/GitHub.php"><a href="files/src-providers-github.html"><abbr title="src/Providers/GitHub.php">GitHub.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">36</span>
+    <span class="phpdocumentor-element-found-in__line">52</span>
 
     </aside>
 
@@ -1422,7 +1644,7 @@ anything except host and path will be ignored, scheme will always be set to &quo
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Providers/GitHub.php"><a href="files/src-providers-github.html"><abbr title="src/Providers/GitHub.php">GitHub.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">40</span>
+    <span class="phpdocumentor-element-found-in__line">53</span>
 
     </aside>
 
@@ -1450,7 +1672,7 @@ anything except host and path will be ignored, scheme will always be set to &quo
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Providers/GitHub.php"><a href="files/src-providers-github.html"><abbr title="src/Providers/GitHub.php">GitHub.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">37</span>
+    <span class="phpdocumentor-element-found-in__line">54</span>
 
     </aside>
 
@@ -1478,7 +1700,7 @@ anything except host and path will be ignored, scheme will always be set to &quo
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Providers/GitHub.php"><a href="files/src-providers-github.html"><abbr title="src/Providers/GitHub.php">GitHub.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">45</span>
+    <span class="phpdocumentor-element-found-in__line">55</span>
 
     </aside>
 
@@ -1506,7 +1728,7 @@ anything except host and path will be ignored, scheme will always be set to &quo
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Providers/GitHub.php"><a href="files/src-providers-github.html"><abbr title="src/Providers/GitHub.php">GitHub.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">43</span>
+    <span class="phpdocumentor-element-found-in__line">56</span>
 
     </aside>
 
@@ -1534,7 +1756,7 @@ anything except host and path will be ignored, scheme will always be set to &quo
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Providers/GitHub.php"><a href="files/src-providers-github.html"><abbr title="src/Providers/GitHub.php">GitHub.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">44</span>
+    <span class="phpdocumentor-element-found-in__line">57</span>
 
     </aside>
 
@@ -1562,7 +1784,7 @@ anything except host and path will be ignored, scheme will always be set to &quo
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Providers/GitHub.php"><a href="files/src-providers-github.html"><abbr title="src/Providers/GitHub.php">GitHub.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">39</span>
+    <span class="phpdocumentor-element-found-in__line">58</span>
 
     </aside>
 
@@ -1590,7 +1812,7 @@ anything except host and path will be ignored, scheme will always be set to &quo
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Providers/GitHub.php"><a href="files/src-providers-github.html"><abbr title="src/Providers/GitHub.php">GitHub.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">38</span>
+    <span class="phpdocumentor-element-found-in__line">59</span>
 
     </aside>
 
@@ -1609,6 +1831,34 @@ anything except host and path will be ignored, scheme will always be set to &quo
 
 </article>
                     <article class="phpdocumentor-element -constant -public ">
+    <h4 class="phpdocumentor-element__name" id="constant_SCOPE_SECURITY_EVENTS">
+        SCOPE_SECURITY_EVENTS
+        <a href="classes/chillerlan-OAuth-Providers-GitHub.html#constant_SCOPE_SECURITY_EVENTS" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h4>
+
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/Providers/GitHub.php"><a href="files/src-providers-github.html"><abbr title="src/Providers/GitHub.php">GitHub.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">60</span>
+
+    </aside>
+
+    
+    <code class="phpdocumentor-signature phpdocumentor-code ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+        <span class="phpdocumentor-signature__type">mixed</span>
+    <span class="phpdocumentor-signature__name">SCOPE_SECURITY_EVENTS</span>
+    = <span class="phpdocumentor-signature__default-value">&#039;security_events&#039;</span>
+</code>
+
+
+    
+    
+    
+
+</article>
+                    <article class="phpdocumentor-element -constant -public ">
     <h4 class="phpdocumentor-element__name" id="constant_SCOPE_USER">
         SCOPE_USER
         <a href="classes/chillerlan-OAuth-Providers-GitHub.html#constant_SCOPE_USER" class="headerlink"><i class="fas fa-link"></i></a>
@@ -1618,7 +1868,7 @@ anything except host and path will be ignored, scheme will always be set to &quo
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Providers/GitHub.php"><a href="files/src-providers-github.html"><abbr title="src/Providers/GitHub.php">GitHub.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">32</span>
+    <span class="phpdocumentor-element-found-in__line">61</span>
 
     </aside>
 
@@ -1646,7 +1896,7 @@ anything except host and path will be ignored, scheme will always be set to &quo
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Providers/GitHub.php"><a href="files/src-providers-github.html"><abbr title="src/Providers/GitHub.php">GitHub.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">33</span>
+    <span class="phpdocumentor-element-found-in__line">62</span>
 
     </aside>
 
@@ -1674,7 +1924,7 @@ anything except host and path will be ignored, scheme will always be set to &quo
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Providers/GitHub.php"><a href="files/src-providers-github.html"><abbr title="src/Providers/GitHub.php">GitHub.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">34</span>
+    <span class="phpdocumentor-element-found-in__line">63</span>
 
     </aside>
 
@@ -1684,6 +1934,62 @@ anything except host and path will be ignored, scheme will always be set to &quo
         <span class="phpdocumentor-signature__type">mixed</span>
     <span class="phpdocumentor-signature__name">SCOPE_USER_FOLLOW</span>
     = <span class="phpdocumentor-signature__default-value">&#039;user:follow&#039;</span>
+</code>
+
+
+    
+    
+    
+
+</article>
+                    <article class="phpdocumentor-element -constant -public ">
+    <h4 class="phpdocumentor-element__name" id="constant_SCOPE_USER_READ">
+        SCOPE_USER_READ
+        <a href="classes/chillerlan-OAuth-Providers-GitHub.html#constant_SCOPE_USER_READ" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h4>
+
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/Providers/GitHub.php"><a href="files/src-providers-github.html"><abbr title="src/Providers/GitHub.php">GitHub.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">64</span>
+
+    </aside>
+
+    
+    <code class="phpdocumentor-signature phpdocumentor-code ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+        <span class="phpdocumentor-signature__type">mixed</span>
+    <span class="phpdocumentor-signature__name">SCOPE_USER_READ</span>
+    = <span class="phpdocumentor-signature__default-value">&#039;read:user&#039;</span>
+</code>
+
+
+    
+    
+    
+
+</article>
+                    <article class="phpdocumentor-element -constant -public ">
+    <h4 class="phpdocumentor-element__name" id="constant_SCOPE_WORKFLOW">
+        SCOPE_WORKFLOW
+        <a href="classes/chillerlan-OAuth-Providers-GitHub.html#constant_SCOPE_WORKFLOW" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h4>
+
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/Providers/GitHub.php"><a href="files/src-providers-github.html"><abbr title="src/Providers/GitHub.php">GitHub.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">65</span>
+
+    </aside>
+
+    
+    <code class="phpdocumentor-signature phpdocumentor-code ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+        <span class="phpdocumentor-signature__type">mixed</span>
+    <span class="phpdocumentor-signature__name">SCOPE_WORKFLOW</span>
+    = <span class="phpdocumentor-signature__default-value">&#039;workflow&#039;</span>
 </code>
 
 
@@ -1746,7 +2052,7 @@ anything except host and path will be ignored, scheme will always be set to &quo
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Providers/GitHub.php"><a href="files/src-providers-github.html"><abbr title="src/Providers/GitHub.php">GitHub.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">73</span>
+    <span class="phpdocumentor-element-found-in__line">83</span>
 
     </aside>
 
@@ -1779,7 +2085,7 @@ anything except host and path will be ignored, scheme will always be set to &quo
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Providers/GitHub.php"><a href="files/src-providers-github.html"><abbr title="src/Providers/GitHub.php">GitHub.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">76</span>
+    <span class="phpdocumentor-element-found-in__line">86</span>
 
     </aside>
 
@@ -1812,7 +2118,7 @@ anything except host and path will be ignored, scheme will always be set to &quo
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Providers/GitHub.php"><a href="files/src-providers-github.html"><abbr title="src/Providers/GitHub.php">GitHub.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">74</span>
+    <span class="phpdocumentor-element-found-in__line">84</span>
 
     </aside>
 
@@ -1845,7 +2151,7 @@ anything except host and path will be ignored, scheme will always be set to &quo
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Providers/GitHub.php"><a href="files/src-providers-github.html"><abbr title="src/Providers/GitHub.php">GitHub.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">77</span>
+    <span class="phpdocumentor-element-found-in__line">87</span>
 
     </aside>
 
@@ -1878,7 +2184,7 @@ anything except host and path will be ignored, scheme will always be set to &quo
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Providers/GitHub.php"><a href="files/src-providers-github.html"><abbr title="src/Providers/GitHub.php">GitHub.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">72</span>
+    <span class="phpdocumentor-element-found-in__line">82</span>
 
     </aside>
 
@@ -2395,7 +2701,7 @@ anything except host and path will be ignored, scheme will always be set to &quo
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Providers/GitHub.php"><a href="files/src-providers-github.html"><abbr title="src/Providers/GitHub.php">GitHub.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">75</span>
+    <span class="phpdocumentor-element-found-in__line">85</span>
 
     </aside>
 
@@ -2592,9 +2898,9 @@ anything except host and path will be ignored, scheme will always be set to &quo
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Core/OAuth2Provider.php"><a href="files/src-core-oauth2provider.html"><abbr title="src/Core/OAuth2Provider.php">OAuth2Provider.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">614</span>
+    <span class="phpdocumentor-element-found-in__line">617</span>
 
-            <a href="classes/chillerlan-OAuth-Providers-GitHub.html#source-view.614" class="phpdocumentor-element-found-in__source" data-line="614" data-modal="source-view" data-src="files/src/Core/OAuth2Provider.php.txt"></a>
+            <a href="classes/chillerlan-OAuth-Providers-GitHub.html#source-view.617" class="phpdocumentor-element-found-in__source" data-line="617" data-modal="source-view" data-src="files/src/Core/OAuth2Provider.php.txt"></a>
     </aside>
 
     
@@ -2669,9 +2975,9 @@ anything except host and path will be ignored, scheme will always be set to &quo
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Core/OAuth2Provider.php"><a href="files/src-core-oauth2provider.html"><abbr title="src/Core/OAuth2Provider.php">OAuth2Provider.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">592</span>
+    <span class="phpdocumentor-element-found-in__line">595</span>
 
-            <a href="classes/chillerlan-OAuth-Providers-GitHub.html#source-view.592" class="phpdocumentor-element-found-in__source" data-line="592" data-modal="source-view" data-src="files/src/Core/OAuth2Provider.php.txt"></a>
+            <a href="classes/chillerlan-OAuth-Providers-GitHub.html#source-view.595" class="phpdocumentor-element-found-in__source" data-line="595" data-modal="source-view" data-src="files/src/Core/OAuth2Provider.php.txt"></a>
     </aside>
 
     
@@ -2723,6 +3029,24 @@ anything except host and path will be ignored, scheme will always be set to &quo
                 <dd class="phpdocumentor-tag-list__definition">
                                                                                 
                                                  <section class="phpdocumentor-description"><p>PhanUndeclaredClassMethod, PhanUndeclaredMethod</p>
+</section>
+
+                                    </dd>
+                                                <dt class="phpdocumentor-tag-list__entry">
+                    <span class="phpdocumentor-tag__name">noinspection</span>
+                </dt>
+                <dd class="phpdocumentor-tag-list__definition">
+                                                                                
+                                                 <section class="phpdocumentor-description"><p>PhpFullyQualifiedNameUsageInspection</p>
+</section>
+
+                                    </dd>
+                                                <dt class="phpdocumentor-tag-list__entry">
+                    <span class="phpdocumentor-tag__name">SuppressWarnings</span>
+                </dt>
+                <dd class="phpdocumentor-tag-list__definition">
+                                                                                
+                                                 <section class="phpdocumentor-description"><p>(PHPMD.MissingImport)</p>
 </section>
 
                                     </dd>
@@ -3186,9 +3510,9 @@ if the provider implements the CSRFToken interface, and returns an AccessToken o
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Core/OAuth2Provider.php"><a href="files/src-core-oauth2provider.html"><abbr title="src/Core/OAuth2Provider.php">OAuth2Provider.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">637</span>
+    <span class="phpdocumentor-element-found-in__line">640</span>
 
-            <a href="classes/chillerlan-OAuth-Providers-GitHub.html#source-view.637" class="phpdocumentor-element-found-in__source" data-line="637" data-modal="source-view" data-src="files/src/Core/OAuth2Provider.php.txt"></a>
+            <a href="classes/chillerlan-OAuth-Providers-GitHub.html#source-view.640" class="phpdocumentor-element-found-in__source" data-line="640" data-modal="source-view" data-src="files/src/Core/OAuth2Provider.php.txt"></a>
     </aside>
 
     
@@ -3593,7 +3917,7 @@ if the provider implements the CSRFToken interface, and returns an AccessToken o
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Providers/GitHub.php"><a href="files/src-providers-github.html"><abbr title="src/Providers/GitHub.php">GitHub.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">83</span>
+    <span class="phpdocumentor-element-found-in__line">93</span>
 
     </aside>
 
@@ -5107,9 +5431,9 @@ so that you don&#039;t have to implement the monstrous original `__construct()`<
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Core/OAuth2Provider.php"><a href="files/src-core-oauth2provider.html"><abbr title="src/Core/OAuth2Provider.php">OAuth2Provider.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">671</span>
+    <span class="phpdocumentor-element-found-in__line">674</span>
 
-            <a href="classes/chillerlan-OAuth-Providers-GitHub.html#source-view.671" class="phpdocumentor-element-found-in__source" data-line="671" data-modal="source-view" data-src="files/src/Core/OAuth2Provider.php.txt"></a>
+            <a href="classes/chillerlan-OAuth-Providers-GitHub.html#source-view.674" class="phpdocumentor-element-found-in__source" data-line="674" data-modal="source-view" data-src="files/src/Core/OAuth2Provider.php.txt"></a>
     </aside>
 
         <p class="phpdocumentor-summary">Parses the response from the PAR request and returns the query parameters for the authorization URL</p>
@@ -6167,6 +6491,7 @@ the spec mandates a JSON body which is what almost all providers send - weird ex
                                                     <li><a href="classes/chillerlan-OAuth-Providers-GitHub.html#constant_HEADERS_API">HEADERS_API</a></li>
                                                     <li><a href="classes/chillerlan-OAuth-Providers-GitHub.html#constant_HEADERS_AUTH">HEADERS_AUTH</a></li>
                                                     <li><a href="classes/chillerlan-OAuth-Providers-GitHub.html#constant_IDENTIFIER">IDENTIFIER</a></li>
+                                                    <li><a href="classes/chillerlan-OAuth-Providers-GitHub.html#constant_SCOPE_CODESPACE">SCOPE_CODESPACE</a></li>
                                                     <li><a href="classes/chillerlan-OAuth-Providers-GitHub.html#constant_SCOPE_GIST">SCOPE_GIST</a></li>
                                                     <li><a href="classes/chillerlan-OAuth-Providers-GitHub.html#constant_SCOPE_GPG_KEY_ADMIN">SCOPE_GPG_KEY_ADMIN</a></li>
                                                     <li><a href="classes/chillerlan-OAuth-Providers-GitHub.html#constant_SCOPE_GPG_KEY_READ">SCOPE_GPG_KEY_READ</a></li>
@@ -6176,6 +6501,11 @@ the spec mandates a JSON body which is what almost all providers send - weird ex
                                                     <li><a href="classes/chillerlan-OAuth-Providers-GitHub.html#constant_SCOPE_ORG_HOOK_ADMIN">SCOPE_ORG_HOOK_ADMIN</a></li>
                                                     <li><a href="classes/chillerlan-OAuth-Providers-GitHub.html#constant_SCOPE_ORG_READ">SCOPE_ORG_READ</a></li>
                                                     <li><a href="classes/chillerlan-OAuth-Providers-GitHub.html#constant_SCOPE_ORG_WRITE">SCOPE_ORG_WRITE</a></li>
+                                                    <li><a href="classes/chillerlan-OAuth-Providers-GitHub.html#constant_SCOPE_PACKAGES_DELETE">SCOPE_PACKAGES_DELETE</a></li>
+                                                    <li><a href="classes/chillerlan-OAuth-Providers-GitHub.html#constant_SCOPE_PACKAGES_READ">SCOPE_PACKAGES_READ</a></li>
+                                                    <li><a href="classes/chillerlan-OAuth-Providers-GitHub.html#constant_SCOPE_PACKAGES_WRITE">SCOPE_PACKAGES_WRITE</a></li>
+                                                    <li><a href="classes/chillerlan-OAuth-Providers-GitHub.html#constant_SCOPE_PROJECT">SCOPE_PROJECT</a></li>
+                                                    <li><a href="classes/chillerlan-OAuth-Providers-GitHub.html#constant_SCOPE_PROJECT_READ">SCOPE_PROJECT_READ</a></li>
                                                     <li><a href="classes/chillerlan-OAuth-Providers-GitHub.html#constant_SCOPE_PUBLIC_KEY_ADMIN">SCOPE_PUBLIC_KEY_ADMIN</a></li>
                                                     <li><a href="classes/chillerlan-OAuth-Providers-GitHub.html#constant_SCOPE_PUBLIC_KEY_READ">SCOPE_PUBLIC_KEY_READ</a></li>
                                                     <li><a href="classes/chillerlan-OAuth-Providers-GitHub.html#constant_SCOPE_PUBLIC_KEY_WRITE">SCOPE_PUBLIC_KEY_WRITE</a></li>
@@ -6188,9 +6518,12 @@ the spec mandates a JSON body which is what almost all providers send - weird ex
                                                     <li><a href="classes/chillerlan-OAuth-Providers-GitHub.html#constant_SCOPE_REPO_HOOK_WRITE">SCOPE_REPO_HOOK_WRITE</a></li>
                                                     <li><a href="classes/chillerlan-OAuth-Providers-GitHub.html#constant_SCOPE_REPO_INVITE">SCOPE_REPO_INVITE</a></li>
                                                     <li><a href="classes/chillerlan-OAuth-Providers-GitHub.html#constant_SCOPE_REPO_STATUS">SCOPE_REPO_STATUS</a></li>
+                                                    <li><a href="classes/chillerlan-OAuth-Providers-GitHub.html#constant_SCOPE_SECURITY_EVENTS">SCOPE_SECURITY_EVENTS</a></li>
                                                     <li><a href="classes/chillerlan-OAuth-Providers-GitHub.html#constant_SCOPE_USER">SCOPE_USER</a></li>
                                                     <li><a href="classes/chillerlan-OAuth-Providers-GitHub.html#constant_SCOPE_USER_EMAIL">SCOPE_USER_EMAIL</a></li>
                                                     <li><a href="classes/chillerlan-OAuth-Providers-GitHub.html#constant_SCOPE_USER_FOLLOW">SCOPE_USER_FOLLOW</a></li>
+                                                    <li><a href="classes/chillerlan-OAuth-Providers-GitHub.html#constant_SCOPE_USER_READ">SCOPE_USER_READ</a></li>
+                                                    <li><a href="classes/chillerlan-OAuth-Providers-GitHub.html#constant_SCOPE_WORKFLOW">SCOPE_WORKFLOW</a></li>
                                                     <li><a href="classes/chillerlan-OAuth-Providers-GitHub.html#constant_SCOPES_DELIMITER">SCOPES_DELIMITER</a></li>
                                             </ul>
                 </li>

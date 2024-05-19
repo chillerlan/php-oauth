@@ -417,7 +417,7 @@ abstract class OAuth2Provider extends OAuthProvider implements OAuth2Interface{
 	 * @throws \chillerlan\OAuth\Providers\ProviderException
 	 */
 	public function invalidateAccessToken(AccessToken $token = null, string|null $type = null):bool{
-		$type = strtolower(trim($type ?? 'access_token'));
+		$type = strtolower(trim(($type ?? 'access_token')));
 
 		// @link https://datatracker.ietf.org/doc/html/rfc7009#section-2.1
 		if(!in_array($type, ['access_token', 'refresh_token'])){
@@ -587,7 +587,10 @@ abstract class OAuth2Provider extends OAuthProvider implements OAuth2Interface{
 	/**
 	 * @implements \chillerlan\OAuth\Core\PKCE::generateVerifier()
 	 * @see \chillerlan\OAuth\Core\OAuth2Provider::setCodeChallenge()
+	 *
 	 * @phan-suppress PhanUndeclaredClassMethod, PhanUndeclaredMethod
+	 * @noinspection PhpFullyQualifiedNameUsageInspection
+	 * @SuppressWarnings(PHPMD.MissingImport)
 	 */
 	final public function generateVerifier(int $length):string{
 

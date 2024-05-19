@@ -16,6 +16,7 @@ use Psr\Log\LogLevel;
  *
  * @var string $AUTOLOADER - path to an alternate autoloader
  */
+// PHPCS:ignore
 require_once ($AUTOLOADER ?? __DIR__.'/../vendor/autoload.php');
 require_once __DIR__.'/OAuthExampleProviderFactory.php';
 

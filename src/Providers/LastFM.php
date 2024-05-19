@@ -156,7 +156,7 @@ class LastFM extends OAuthProvider implements UserInfo{
 		array|null                        $headers = null,
 		string|null                       $protocolVersion = null
 	):ResponseInterface{
-		$method    = strtoupper($method ?? 'GET');
+		$method    = strtoupper(($method ?? 'GET'));
 		$headers ??= [];
 
 		if($body !== null && !is_array($body)){
@@ -345,7 +345,7 @@ class LastFM extends OAuthProvider implements UserInfo{
 	 */
 	protected function parseTrack(array $track):array{
 		// we're using the settings container and its setters to enforce variables and types etc.
-		return (new class($track) extends SettingsContainerAbstract{
+		$parser = new class ($track) extends SettingsContainerAbstract{
 
 			protected string      $artist;
 			protected string      $track;
@@ -410,7 +410,9 @@ class LastFM extends OAuthProvider implements UserInfo{
 				$this->duration = $duration;
 			}
 
-		})->toArray();
+		};
+
+		return $parser->toArray();
 	}
 
 	/**

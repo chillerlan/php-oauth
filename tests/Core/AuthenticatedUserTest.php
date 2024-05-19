@@ -42,7 +42,7 @@ final class AuthenticatedUserTest extends TestCase{
 
 		// cannot overwrite via fromIterable()
 		$userdata = [
-			'id'   => 456,
+			'id'       => 456,
 			'userName' => 'nope',
 			'email'    => 'me@nowhere.com',
 		];

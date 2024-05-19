@@ -101,7 +101,7 @@ abstract class OAuth1Provider extends OAuthProvider implements OAuth1Interface{
 	 *
 	 * @throws \chillerlan\OAuth\Providers\ProviderException
 	 */
-	protected function parseTokenResponse(ResponseInterface $response, bool $checkCallbackConfirmed = false):AccessToken{
+	protected function parseTokenResponse(ResponseInterface $response, bool|null $checkCallbackConfirmed = null):AccessToken{
 		$data = QueryUtil::parse(MessageUtil::decompress($response));
 
 		if(empty($data)){
@@ -122,7 +122,10 @@ abstract class OAuth1Provider extends OAuthProvider implements OAuth1Interface{
 		}
 
 		// MUST be present and set to "true". The parameter is used to differentiate from previous versions of the protocol
-		if($checkCallbackConfirmed && (!isset($data['oauth_callback_confirmed']) || $data['oauth_callback_confirmed'] !== 'true')){
+		if(
+			$checkCallbackConfirmed === true
+			&& (!isset($data['oauth_callback_confirmed']) || $data['oauth_callback_confirmed'] !== 'true')
+		){
 			throw new ProviderException('invalid OAuth 1.0a response');
 		}
 

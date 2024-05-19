@@ -45,7 +45,7 @@ foreach(Utilities::getProviders() as $p){
 
 	$table[] = '| ['.$provider->getName().']('.$provider->getApiDocURL().')'.
 		' | [link]('.$provider->getApplicationURL().')'.
-		' | '.($provider->getUserRevokeURL() !== null ? '[link]('.$provider->getUserRevokeURL().')' : '').
+		' | '.(($provider->getUserRevokeURL() !== null) ? '[link]('.$provider->getUserRevokeURL().')' : '').
 		' | '.$oauthVersion.
 		' | '.(($provider instanceof UserInfo) ? '✓' : '').
 		' | '.(($provider instanceof CSRFToken) ? '✓' : '').

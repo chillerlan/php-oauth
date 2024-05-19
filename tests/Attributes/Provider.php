@@ -7,7 +7,7 @@
  * @copyright    2024 smiley
  * @license      MIT
  */
-declare(strict_types = 1);
+declare(strict_types=1);
 
 namespace chillerlan\OAuthTest\Attributes;
 

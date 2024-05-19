@@ -14,7 +14,7 @@ namespace chillerlan\OAuth;
 use chillerlan\Settings\SettingsContainerAbstract;
 
 /**
- * This class holds all settings related to the OAuth provider as well as the default HTTP client.
+ * This class holds all settings related to the OAuth provider
  */
 class OAuthOptions extends SettingsContainerAbstract{
 	use OAuthOptionsTrait;

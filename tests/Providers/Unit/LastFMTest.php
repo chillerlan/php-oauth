@@ -24,11 +24,13 @@ final class LastFMTest extends OAuthProviderUnitTestAbstract{
 
 	protected const TEST_TOKEN = '{"session":{"name":"lfm-user","key":"sk","subscriber":0}}';
 
+	// PHPCS:ignore
 	protected const SCROBBLE_RESPONSE_SINGLE =
 		'{"scrobbles":{"scrobble":{"artist":{"corrected":"0","#text":"Helium"},"album":{"corrected":"0"},'.
 		'"track":{"corrected":"0","#text":"Vibrations"},"ignoredMessage":{"code":"0","#text":""},'.
 		'"albumArtist":{"corrected":"0","#text":""},"timestamp":"1712992925"},"@attr":{"ignored":0,"accepted":1}}}';
 
+	// PHPCS:ignore
 	protected const SCROBBLE_RESPONSE_MULTI =
 		'{"scrobbles":{"scrobble":[{"artist":{"corrected":"0","#text":"Helium"},"album":{"corrected":"0"},'.
 		'"track":{"corrected":"0","#text":"Vibrations"},"ignoredMessage":{"code":"0","#text":""},'.

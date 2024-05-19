@@ -29,7 +29,7 @@ class PlaylistDiff extends SpotifyClient{
 		return $diff;
 	}
 
-};
+}
 
 /**
  * @var \OAuthExampleProviderFactory $factory

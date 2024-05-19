@@ -26,6 +26,7 @@
 		<exclude name="ExitExpression"/>
 	</rule>
 	<rule ref="rulesets/naming.xml">
+		<exclude name="ShortMethodName"/>
 		<exclude name="LongVariable"/>
 		<exclude name="ShortVariable"/>
 		<exclude name="ConstantNamingConventions"/>

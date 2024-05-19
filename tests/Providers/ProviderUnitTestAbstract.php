@@ -163,12 +163,13 @@ abstract class ProviderUnitTestAbstract extends TestCase{
 
 			public function __construct(
 				private readonly ResponseInterface $mockedResponse
-			){}
+			){
+				// noop
+			}
 
 			public function sendRequest(RequestInterface $request):ResponseInterface{
 				 return $this->mockedResponse;
 			}
-
 		};
 	}
 

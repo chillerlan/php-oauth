@@ -53,10 +53,10 @@ final class AccessTokenTest extends TestCase{
 
 		return [
 			'EXPIRY_UNKNOWN (null)'       => [null,       AccessToken::EXPIRY_UNKNOWN],
-			'EXPIRY_UNKNOWN (-9001)'      => [-9001,      AccessToken::EXPIRY_UNKNOWN],
+			'EXPIRY_UNKNOWN (-0xDEAD)'    => [-0xDEAD,    AccessToken::EXPIRY_UNKNOWN],
 			'EXPIRY_UNKNOWN (-1)'         => [-1,         AccessToken::EXPIRY_UNKNOWN],
 			'EXPIRY_UNKNOWN (1514309386)' => [1514309386, AccessToken::EXPIRY_UNKNOWN],
-			'NEVER_EXPIRES  (-9002)'      => [-9002,      AccessToken::NEVER_EXPIRES],
+			'NEVER_EXPIRES  (-0xCAFE)'    => [-0xCAFE,    AccessToken::NEVER_EXPIRES],
 			'NEVER_EXPIRES  (0)'          => [0,          AccessToken::NEVER_EXPIRES],
 			'timestamp (now + 42)'        => [($now + 42),                             ($now + 42)],
 			'int (42)'                    => [42,                                      ($now + 42)],
@@ -86,6 +86,7 @@ final class AccessTokenTest extends TestCase{
 		return [
 			'0 (f)'              => [0,                           false],
 			'NEVER_EXPIRES (f)'  => [AccessToken::NEVER_EXPIRES,  false],
+			'-1 (t)'             => [-1,                          true],
 			'EXPIRY_UNKNOWN (t)' => [AccessToken::EXPIRY_UNKNOWN, true],
 		];
 	}

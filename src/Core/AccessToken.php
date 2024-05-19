@@ -30,14 +30,14 @@ final class AccessToken extends SettingsContainerAbstract{
 	 *
 	 * @var int
 	 */
-	public const EXPIRY_UNKNOWN = -9001;
+	public const EXPIRY_UNKNOWN = -0xDEAD;
 
 	/**
 	 * Denotes a token which never expires
 	 *
 	 * @var int
 	 */
-	public const NEVER_EXPIRES = -9002;
+	public const NEVER_EXPIRES = -0xCAFE;
 
 	/**
 	 * Defines a maximum expiry period (1 year)

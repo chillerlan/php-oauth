@@ -86,7 +86,7 @@ The JSON looks similar to the following:
 	"accessTokenSecret": null,
 	"accessToken": "<access_token>",
 	"refreshToken": null,
-	"expires": -9002,
+	"expires": -51966,
 	"extraParams": {
 		"token_type": "bearer"
 	},

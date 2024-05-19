@@ -1,5 +1,5 @@
 # Configuration settings
-<!-- This file is auto generated from the source of OAuthOptionsTrait.php -->
+<!-- This file is auto generated from the source of OAuthOptions.php -->
 ## key
 
 The application key (or client-id) given by your provider

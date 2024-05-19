@@ -14,9 +14,10 @@ declare(strict_types=1);
 namespace chillerlan\OAuth\Providers;
 
 use chillerlan\OAuth\Core\{
-	AccessToken, AuthenticatedUser, ClientCredentials, CSRFToken, OAuth2Interface,
+	AuthenticatedUser, ClientCredentials, CSRFToken, OAuth2Interface,
 	OAuth2Provider, TokenInvalidate, TokenRefresh, UserInfo
 };
+use Psr\Http\Message\ResponseInterface;
 use function sprintf;
 
 /**
@@ -25,6 +26,7 @@ use function sprintf;
  * @link https://github.com/reddit-archive/reddit/wiki/OAuth2
  * @link https://github.com/reddit-archive/reddit/wiki/API
  * @link https://support.reddithelp.com/hc/en-us/articles/16160319875092-Reddit-Data-API-Wiki
+ * @link https://github.com/reddit-archive/reddit/wiki/OAuth2#manually-revoking-a-token
  * @link https://www.reddit.com/dev/api
  */
 class Reddit extends OAuth2Provider implements ClientCredentials, CSRFToken, TokenRefresh, TokenInvalidate, UserInfo{
@@ -89,6 +91,22 @@ class Reddit extends OAuth2Provider implements ClientCredentials, CSRFToken, Tok
 
 	/**
 	 * @inheritDoc
+	 */
+	protected function sendTokenInvalidateRequest(string $url, array $body):ResponseInterface{
+
+		$request = $this->requestFactory
+			->createRequest('POST', $url)
+			->withHeader('Content-Type', 'application/x-www-form-urlencoded')
+		;
+
+		$request  = $this->addBasicAuthHeader($request);
+		$request  = $this->setRequestBody($body, $request);
+
+		return $this->http->sendRequest($request);
+	}
+
+	/**
+	 * @inheritDoc
 	 * @codeCoverageIgnore
 	 */
 	public function me():AuthenticatedUser{
@@ -104,39 +122,6 @@ class Reddit extends OAuth2Provider implements ClientCredentials, CSRFToken, Tok
 		];
 
 		return new AuthenticatedUser($userdata);
-	}
-
-	/**
-	 * @link https://github.com/reddit-archive/reddit/wiki/OAuth2#manually-revoking-a-token
-	 * @inheritDoc
-	 */
-	public function invalidateAccessToken(AccessToken $token = null):bool{
-		$tokenToInvalidate = ($token ?? $this->storage->getAccessToken($this->name));
-
-		$bodyParams = [
-			'token'           => $tokenToInvalidate->accessToken,
-			'token_type_hint' => 'access_token',
-		];
-
-		$request = $this->requestFactory
-			->createRequest('POST', $this->revokeURL)
-			->withHeader('Content-Type', 'application/x-www-form-urlencoded')
-		;
-
-		$request  = $this->addBasicAuthHeader($request);
-		$request  = $this->setRequestBody($bodyParams, $request);
-		$response = $this->http->sendRequest($request);
-
-		if($response->getStatusCode() === 204){
-
-			if($token === null){
-				$this->storage->clearAccessToken($this->name);
-			}
-
-			return true;
-		}
-
-		return false;
 	}
 
 }

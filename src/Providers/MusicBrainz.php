@@ -68,6 +68,18 @@ class MusicBrainz extends OAuth2Provider implements CSRFToken, TokenInvalidate, 
 	/**
 	 * @inheritDoc
 	 */
+	protected function getInvalidateAccessTokenBodyParams(AccessToken $token, string $type):array{
+		return [
+			'client_id'       => $this->options->key,
+			'client_secret'   => $this->options->secret,
+			'token'           => $token->accessToken,
+			'token_type_hint' => $type,
+		];
+	}
+
+	/**
+	 * @inheritDoc
+	 */
 	public function request(
 		string                            $path,
 		array|null                        $params = null,
@@ -106,38 +118,6 @@ class MusicBrainz extends OAuth2Provider implements CSRFToken, TokenInvalidate, 
 		];
 
 		return new AuthenticatedUser($userdata);
-	}
-
-	/**
-	 * @inheritDoc
-	 */
-	public function invalidateAccessToken(AccessToken|null $token = null):bool{
-		$tokenToInvalidate = ($token ?? $this->storage->getAccessToken($this->name));
-
-		$request = $this->requestFactory
-			->createRequest('POST', $this->revokeURL)
-			->withHeader('Content-Type', 'application/x-www-form-urlencoded')
-		;
-
-		$bodyParams = [
-			'client_id'     => $this->options->key,
-			'client_secret' => $this->options->secret,
-			'token'         => $tokenToInvalidate->accessToken,
-		];
-
-		$request  = $this->setRequestBody($bodyParams, $request);
-		$response = $this->http->sendRequest($request);
-
-		if($response->getStatusCode() === 200){
-
-			if($token === null){
-				$this->storage->clearAccessToken($this->name);
-			}
-
-			return true;
-		}
-
-		return false;
 	}
 
 }

@@ -20,4 +20,8 @@ use chillerlan\OAuthTest\Attributes\Provider;
 #[Provider(Stripe::class)]
 final class StripeTest extends OAuth2ProviderUnitTestAbstract{
 
+	public function testTokenInvalidate():void{
+		$this::markTestIncomplete();
+	}
+
 }

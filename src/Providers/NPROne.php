@@ -13,7 +13,7 @@ declare(strict_types=1);
 
 namespace chillerlan\OAuth\Providers;
 
-use chillerlan\OAuth\Core\{AccessToken, AuthenticatedUser, CSRFToken, OAuth2Provider, TokenInvalidate, TokenRefresh, UserInfo};
+use chillerlan\OAuth\Core\{AuthenticatedUser, CSRFToken, OAuth2Provider, TokenInvalidate, TokenRefresh, UserInfo};
 use function in_array, sprintf, strtolower;
 
 /**
@@ -74,37 +74,6 @@ class NPROne extends OAuth2Provider implements CSRFToken, TokenRefresh, TokenInv
 		];
 
 		return new AuthenticatedUser($userdata);
-	}
-
-	/**
-	 * @inheritDoc
-	 */
-	public function invalidateAccessToken(AccessToken|null $token = null):bool{
-		$tokenToInvalidate = ($token ?? $this->storage->getAccessToken($this->name));
-
-		$bodyParams = [
-			'token'           => $tokenToInvalidate->accessToken,
-			'token_type_hint' => 'access_token',
-		];
-
-		$request = $this->requestFactory
-			->createRequest('POST', $this->revokeURL)
-			->withHeader('Content-Type', 'application/x-www-form-urlencoded')
-		;
-
-		$request  = $this->setRequestBody($bodyParams, $request);
-		$response = $this->http->sendRequest($request);
-
-		if($response->getStatusCode() === 200){
-
-			if($token === null){
-				$this->storage->clearAccessToken($this->name);
-			}
-
-			return true;
-		}
-
-		return false;
 	}
 
 }

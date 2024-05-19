@@ -33,7 +33,7 @@ final class DummyOAuth1Provider extends OAuth1Provider implements TokenInvalidat
 	/**
 	 * @inheritDoc
 	 */
-	public function invalidateAccessToken(AccessToken $token = null):bool{
+	public function invalidateAccessToken(AccessToken $token = null, string|null $type = null):bool{
 
 		if($token === null){
 			$tokenToInvalidate = $this->storage->getAccessToken($this->name);

@@ -56,7 +56,7 @@ class BigCartel extends OAuth2Provider implements CSRFToken, TokenInvalidate, Us
 	/**
 	 * @inheritDoc
 	 */
-	public function invalidateAccessToken(AccessToken|null $token = null):bool{
+	public function invalidateAccessToken(AccessToken|null $token = null, string|null $type = null):bool{
 		$tokenToInvalidate = ($token ?? $this->storage->getAccessToken($this->name));
 
 		$request = $this->requestFactory

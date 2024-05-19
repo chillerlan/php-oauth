@@ -35,7 +35,7 @@ final class DummyOAuth2Provider extends OAuth2Provider
 	/**
 	 * @inheritDoc
 	 */
-	public function invalidateAccessToken(AccessToken $token = null):bool{
+	public function invalidateAccessToken(AccessToken $token = null, string|null $type = null):bool{
 
 		if($token === null){
 			$tokenToInvalidate = $this->storage->getAccessToken($this->name);

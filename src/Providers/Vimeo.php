@@ -93,7 +93,7 @@ class Vimeo extends OAuth2Provider implements ClientCredentials, CSRFToken, Toke
 	/**
 	 * @inheritDoc
 	 */
-	public function invalidateAccessToken(AccessToken|null $token = null):bool{
+	public function invalidateAccessToken(AccessToken|null $token = null, string|null $type = null):bool{
 
 		if($token !== null){
 			// to revoke a token different from the one of the currently authenticated user,

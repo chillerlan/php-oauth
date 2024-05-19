@@ -41,6 +41,7 @@ A transparent, framework-agnostic, easily extensible PHP [PSR-18](https://www.ph
     - [Client Credentials Grant](https://datatracker.ietf.org/doc/html/rfc6749#section-4.4)
     - [Token refresh](https://datatracker.ietf.org/doc/html/rfc6749#section-1.5)
     - [CSRF Token](https://datatracker.ietf.org/doc/html/rfc6749#section-10.12) ("state" parameter)
+    - [RFC-7009: Token Revocation](https://datatracker.ietf.org/doc/html/rfc7009)
     - [RFC-7636: PKCE](https://datatracker.ietf.org/doc/html/rfc7636) (Proof Key for Code Exchange)
     - [RFC-9126: PAR](https://datatracker.ietf.org/doc/html/rfc9126) (Pushed Authorization Requests)
   - Proprietary, OAuth-like authorization flows (e.g. [Last.fm](https://www.last.fm/api/authentication))

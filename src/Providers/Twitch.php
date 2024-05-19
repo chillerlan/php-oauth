@@ -116,6 +116,17 @@ class Twitch extends OAuth2Provider implements ClientCredentials, CSRFToken, Tok
 	/**
 	 * @inheritDoc
 	 */
+	protected function getInvalidateAccessTokenBodyParams(AccessToken $token, string $type):array{
+		return [
+			'client_id'       => $this->options->key,
+			'token'           => $token->accessToken,
+			'token_type_hint' => $type,
+		];
+	}
+
+	/**
+	 * @inheritDoc
+	 */
 	public function getRequestAuthorization(RequestInterface $request, AccessToken|null $token = null):RequestInterface{
 		$token ??= $this->storage->getAccessToken($this->name);
 
@@ -152,37 +163,6 @@ class Twitch extends OAuth2Provider implements ClientCredentials, CSRFToken, Tok
 		];
 
 		return new AuthenticatedUser($userdata);
-	}
-
-	/**
-	 * @inheritDoc
-	 */
-	public function invalidateAccessToken(AccessToken|null $token = null):bool{
-		$tokenToInvalidate = ($token ?? $this->storage->getAccessToken($this->name));
-
-		$bodyParams = [
-			'client_id' => $this->options->key,
-			'token'     => $tokenToInvalidate->accessToken,
-		];
-
-		$request = $this->requestFactory
-			->createRequest('POST', $this->revokeURL)
-			->withHeader('Content-Type', 'application/x-www-form-urlencoded')
-		;
-
-		$request  = $this->setRequestBody($bodyParams, $request);
-		$response = $this->http->sendRequest($request);
-
-		if($response->getStatusCode() === 200){
-
-			if($token === null){
-				$this->storage->clearAccessToken($this->name);
-			}
-
-			return true;
-		}
-
-		return false;
 	}
 
 }

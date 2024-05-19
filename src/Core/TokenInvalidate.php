@@ -12,7 +12,9 @@ declare(strict_types=1);
 namespace chillerlan\OAuth\Core;
 
 /**
- * Indicates whether the provider is capable of invalidating access tokens
+ * Indicates whether the provider is capable of invalidating access tokens (RFC-7009 or proprietary)
+ *
+ * @link https://datatracker.ietf.org/doc/html/rfc7009
  */
 interface TokenInvalidate{
 
@@ -29,6 +31,6 @@ interface TokenInvalidate{
 	 *
 	 * @throws \chillerlan\OAuth\Providers\ProviderException
 	 */
-	public function invalidateAccessToken(AccessToken|null $token = null):bool;
+	public function invalidateAccessToken(AccessToken|null $token = null, string|null $type = null):bool;
 
 }

@@ -1,9 +1,9 @@
 .. php-qrcode documentation master file, created by sphinx-quickstart on Sun Jul  9 21:45:56 2023.
    markdown-rst converter: https://pandoc.org/try/
 
-================
-PHP-OAuth Manual
-================
+===========================
+chillerlan PHP-OAuth Manual
+===========================
 
 User manual for `chillerlan/php-oauth <https://github.com/chillerlan/php-oauth/>`__  [|version|]. Updated on |today|.
 

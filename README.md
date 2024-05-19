@@ -95,6 +95,16 @@ composer require chillerlan/php-oauth
 Note: replace `dev-main` with a [version constraint](https://getcomposer.org/doc/articles/versions.md#writing-version-constraints), e.g. `^1.0` - see [releases](https://github.com/chillerlan/php-oauth/releases) for valid versions.
 
 
+## Examples
+
+There is [the suite of get-token examples](https://php-oauth.readthedocs.io/en/main/Usage/Using-examples.html),
+which is mostly intended for development, and there are self-contained examples for a quickstart:
+
+- [OAuth1 example](https://github.com/chillerlan/php-oauth/tree/main/examples/example-oauth1.php)
+- [OAuth2 example](https://github.com/chillerlan/php-oauth/tree/main/examples/example-oauth2.php)
+
+
+
 # Implemented Providers
 
 <!-- TABLE-START -->

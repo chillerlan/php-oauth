@@ -284,7 +284,10 @@ class MyOAuth2Provider extends OAuth2Provider implements TokenInvalidate{
 	 * ...
 	 */
 
-	protected function sendTokenInvalidateRequest(string $url, array $body){
+	protected function sendTokenInvalidateRequest(
+		string $url,
+		array  $body,
+	):ResponseInterface{
 
 		$request = $this->requestFactory
 			->createRequest('POST', $url)
@@ -298,7 +301,10 @@ class MyOAuth2Provider extends OAuth2Provider implements TokenInvalidate{
 		return $this->http->sendRequest($request);
 	}
 
-	protected function getInvalidateAccessTokenBodyParams(AccessToken $token, string $type):array{
+	protected function getInvalidateAccessTokenBodyParams(
+		AccessToken $token,
+		string      $type,
+	):array{
 		return [
 			// here, client_id and client_secret are set additionally
 			'client_id'       => $this->options->key,
@@ -322,7 +328,10 @@ class MyOAuth2Provider extends OAuth2Provider implements TokenInvalidate{
 	 * ...
 	 */
 
-	public function invalidateAccessToken(AccessToken|null $token = null, string|null $type = null):bool{
+	public function invalidateAccessToken(
+		AccessToken|null $token = null,
+		string|null      $type = null,
+	):bool{
 
 		// a token was given
 		if($token !== null){

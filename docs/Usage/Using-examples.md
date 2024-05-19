@@ -2,7 +2,12 @@
 
 OAuth is not exactly trivial, and so is live testing an OAuth flow to make sure the implementation and all its details work as expected.
 The examples - specifically [the get-token examples](https://github.com/chillerlan/php-oauth/tree/main/examples/get-token) -
-are abstracted and condensed as far as possible to make using them as convenient as it can get.
+are abstracted and condensed to make using them as convenient as possible.
+
+There are also 2 self-contained, fully working examples to illustrate the whole implementation without any overhead:
+
+- [OAuth1 example](https://github.com/chillerlan/php-oauth/tree/main/examples/example-oauth1.php)
+- [OAuth2 example](https://github.com/chillerlan/php-oauth/tree/main/examples/example-oauth2.php)
 
 
 ## Requirements

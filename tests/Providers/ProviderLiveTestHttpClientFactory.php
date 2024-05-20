@@ -23,7 +23,12 @@ use function defined;
 use function sprintf;
 
 /**
+ * A PSR-18 HTTP client factory for clients used in live API tests
  *
+ * The phpunit constant `HTTP_CLIENT_FACTORY` should be set with a valid FQCN for a `HttpClientFactoryInterface`
+ *
+ * @see  \chillerlan\PHPUnitHttp\HttpClientFactoryInterface
+ * @link https://github.com/chillerlan/phpunit-http
  */
 final class ProviderLiveTestHttpClientFactory implements HttpClientFactoryInterface{
 

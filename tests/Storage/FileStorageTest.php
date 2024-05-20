@@ -18,7 +18,7 @@ use function implode;
 use const DIRECTORY_SEPARATOR;
 
 /**
- * Tests the file storage
+ * Tests the `FileStorage` class
  */
 class FileStorageTest extends StorageTestAbstract{
 

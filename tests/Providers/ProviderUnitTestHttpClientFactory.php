@@ -17,7 +17,12 @@ use Psr\Http\Client\ClientInterface;
 use Psr\Http\Message\ResponseFactoryInterface;
 
 /**
+ * A PSR-18 HTTP client factory for provider unit tests
  *
+ * This factory just returns an echo client, that returns the given request
+ *
+ * @see  \chillerlan\PHPUnitHttp\HttpClientFactoryInterface
+ * @link https://github.com/chillerlan/phpunit-http
  */
 final class ProviderUnitTestHttpClientFactory implements HttpClientFactoryInterface{
 

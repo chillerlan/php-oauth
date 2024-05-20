@@ -14,7 +14,7 @@ namespace chillerlan\OAuthTest\Storage;
 use chillerlan\OAuth\OAuthOptions;
 
 /**
- * Tests the session storage (encrypted)
+ * Tests the `SessionStorage` class (encrypted)
  */
 final class SessionStorageEncryptedTest extends SessionStorageTest{
 

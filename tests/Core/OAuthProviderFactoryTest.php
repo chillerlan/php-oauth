@@ -23,7 +23,7 @@ use PHPUnit\Framework\TestCase;
 use function realpath;
 
 /**
- *
+ * Tests the OAuthProviderFactory class
  */
 class OAuthProviderFactoryTest extends TestCase{
 	use HttpFactoryTrait;

@@ -19,7 +19,7 @@ use function constant;
 use function defined;
 
 /**
- *
+ * The abstract base class for all live API tests
  */
 abstract class ProviderLiveTestAbstract extends ProviderUnitTestAbstract{
 
@@ -28,7 +28,9 @@ abstract class ProviderLiveTestAbstract extends ProviderUnitTestAbstract{
 	protected DotEnv $dotEnv;
 	protected string $ENV_PREFIX;
 
-	/** a test username for live API tests, defined in .env as {ENV-PREFIX}_TESTUSER*/
+	/**
+	 * a test username for live API tests, defined in `.env` as `<$provider::IDENTIFIER>_TESTUSER`
+	 */
 	protected string $TEST_USER = '';
 
 	/**

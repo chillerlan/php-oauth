@@ -15,7 +15,7 @@ use chillerlan\OAuth\OAuthOptions;
 use chillerlan\OAuth\Storage\{OAuthStorageInterface, SessionStorage};
 
 /**
- * Tests the session storage
+ * Tests the `SessionStorage` class
  */
 class SessionStorageTest extends StorageTestAbstract{
 

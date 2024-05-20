@@ -37,7 +37,7 @@ use function realpath;
 use function sprintf;
 
 /**
- *
+ * The abstract base class for all provider tests
  */
 abstract class ProviderUnitTestAbstract extends TestCase{
 	use HttpFactoryTrait;
@@ -57,6 +57,9 @@ abstract class ProviderUnitTestAbstract extends TestCase{
 	protected const CFGDIR       = self::PROJECT_ROOT.'/.config';
 	protected const CACERT       = self::PROJECT_ROOT.'/tests/cacert.pem';
 
+	/**
+	 * Initializes the unit test
+	 */
 	protected function setUp():void{
 		ini_set('date.timezone', 'UTC');
 
@@ -93,6 +96,9 @@ abstract class ProviderUnitTestAbstract extends TestCase{
 	 * init dependencies
 	 */
 
+	/**
+	 * Initializes the environment config (from `phpunit.xml`)
+	 */
 	protected function initConfig():void{
 
 		foreach(['TEST_ENVFILE'] as $constant){
@@ -103,6 +109,9 @@ abstract class ProviderUnitTestAbstract extends TestCase{
 
 	}
 
+	/**
+	 * Initializes an `OAuthOptions` instance
+	 */
 	protected function initOptions():OAuthOptions{
 		$options = new OAuthOptions;
 
@@ -114,6 +123,9 @@ abstract class ProviderUnitTestAbstract extends TestCase{
 		return $options;
 	}
 
+	/**
+	 * Initializes an `OAuthStorageInterface` instance
+	 */
 	protected function initStorage(OAuthOptions $options):OAuthStorageInterface{
 		return new MemoryStorage($options);
 	}
@@ -123,20 +135,29 @@ abstract class ProviderUnitTestAbstract extends TestCase{
 	 * Reflection utilities
 	 */
 
+	/**
+	 * Sets a property in the current provider instance with the given value
+	 */
 	final protected function setReflectionProperty(string $property, mixed $value):void{
 		$this->reflection->getProperty($property)->setValue($this->provider, $value);
 	}
 
+	/**
+	 * Returns the current value of the given propertyin the current provider instance
+	 */
 	final protected function getReflectionProperty(string $property):mixed{
 		return $this->reflection->getProperty($property)->getValue($this->provider);
 	}
 
+	/**
+	 * Invokes a method vith the given arguments in the current provider instance
+	 */
 	final protected function invokeReflectionMethod(string $method, array $args = []):mixed{
 		return $this->reflection->getMethod($method)->invokeArgs($this->provider, $args);
 	}
 
 	/**
-	 * returns the fully qualified class name (FQCN) of the test subject
+	 * Returns the fully qualified class name (FQCN) of the test subject
 	 *
 	 * @see \chillerlan\OAuthTest\Attributes\Provider
 	 */
@@ -156,7 +177,7 @@ abstract class ProviderUnitTestAbstract extends TestCase{
 	 */
 
 	/**
-	 * creates a stupid simple ClientInterface that returns the given response instance
+	 * Creates a stupid simple `ClientInterface` that returns the given response instance
 	 */
 	protected function getMockHttpClient(ResponseInterface $response):ClientInterface{
 		return new class ($response) implements ClientInterface{
@@ -174,7 +195,7 @@ abstract class ProviderUnitTestAbstract extends TestCase{
 	}
 
 	/**
-	 * sets a custom response in the mock http client and sets the client in the current provider
+	 * Sets a custom response in the mock http client and sets the client in the current provider
 	 */
 	protected function setMockResponse(ResponseInterface|StreamInterface $response):void{
 

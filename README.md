@@ -44,6 +44,7 @@ A transparent, framework-agnostic, easily extensible PHP [PSR-18](https://www.ph
 		- [RFC-7009: Token Revocation](https://datatracker.ietf.org/doc/html/rfc7009)
 		- [RFC-7636: PKCE](https://datatracker.ietf.org/doc/html/rfc7636) (Proof Key for Code Exchange)
 		- [RFC-9126: PAR](https://datatracker.ietf.org/doc/html/rfc9126) (Pushed Authorization Requests)
+        - ~~[RFC-9449: DPoP](https://datatracker.ietf.org/doc/html/rfc9449) (Demonstrating Proof of Possession)~~ ([planned](https://github.com/chillerlan/php-oauth/issues/3))
 	- Proprietary, OAuth-like authorization flows (e.g. [Last.fm](https://www.last.fm/api/authentication))
 	- Invalidation of access tokens (if supported by the provider)
 - Several built-in provider implementations ([see below](#implemented-providers))
@@ -67,6 +68,9 @@ A transparent, framework-agnostic, easily extensible PHP [PSR-18](https://www.ph
 - The user manual is at https://php-oauth.readthedocs.io/ ([sources](https://github.com/chillerlan/php-oauth/tree/main/docs))
 - An API documentation created with [phpDocumentor](https://www.phpdoc.org/) can be found at https://chillerlan.github.io/php-oauth/
 - The documentation for the `AccessToken`, `AuthenticatedUser` and `OAuthOptions` containers can be found here: [chillerlan/php-settings-container](https://github.com/chillerlan/php-settings-container#readme)
+- There is [the suite of get-token examples](https://php-oauth.readthedocs.io/en/main/Usage/Using-examples.html), which is mostly intended for development, and there are self-contained examples for a quickstart:
+	- [OAuth1 example](https://github.com/chillerlan/php-oauth/tree/main/examples/example-oauth1.php)
+	- [OAuth2 example](https://github.com/chillerlan/php-oauth/tree/main/examples/example-oauth2.php)
 
 
 ## Installation with [composer](https://getcomposer.org)
@@ -93,16 +97,6 @@ composer require chillerlan/php-oauth
 ```
 
 Note: replace `dev-main` with a [version constraint](https://getcomposer.org/doc/articles/versions.md#writing-version-constraints), e.g. `^1.0` - see [releases](https://github.com/chillerlan/php-oauth/releases) for valid versions.
-
-
-## Examples
-
-There is [the suite of get-token examples](https://php-oauth.readthedocs.io/en/main/Usage/Using-examples.html),
-which is mostly intended for development, and there are self-contained examples for a quickstart:
-
-- [OAuth1 example](https://github.com/chillerlan/php-oauth/tree/main/examples/example-oauth1.php)
-- [OAuth2 example](https://github.com/chillerlan/php-oauth/tree/main/examples/example-oauth2.php)
-
 
 
 # Implemented Providers

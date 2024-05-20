@@ -27,6 +27,8 @@ use PHPUnit\Framework\Attributes\DataProvider;
 use function sprintf;
 
 /**
+ * abstract OAuth unit test
+ *
  * @property \chillerlan\OAuth\Core\OAuthInterface $provider
  */
 abstract class OAuthProviderUnitTestAbstract extends ProviderUnitTestAbstract{

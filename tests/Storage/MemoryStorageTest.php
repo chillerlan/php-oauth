@@ -14,6 +14,9 @@ namespace chillerlan\OAuthTest\Storage;
 use chillerlan\OAuth\OAuthOptions;
 use chillerlan\OAuth\Storage\{MemoryStorage, OAuthStorageInterface};
 
+/**
+ * Tests the `MemoryStorage` class
+ */
 final class MemoryStorageTest extends StorageTestAbstract{
 
 	protected function initStorage(OAuthOptions $options):OAuthStorageInterface{

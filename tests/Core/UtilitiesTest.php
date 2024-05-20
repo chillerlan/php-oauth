@@ -17,7 +17,7 @@ use PHPUnit\Framework\TestCase;
 use InvalidArgumentException, ReflectionClass;
 
 /**
- *
+ * Tests the Utilities class
  */
 class UtilitiesTest extends TestCase{
 

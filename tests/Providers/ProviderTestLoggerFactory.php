@@ -19,7 +19,7 @@ use Psr\Log\LoggerInterface;
 use const JSON_UNESCAPED_SLASHES;
 
 /**
- *
+ * A simple PSR-3 logger factory used in provider tests
  */
 final class ProviderTestLoggerFactory{
 

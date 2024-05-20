@@ -16,7 +16,7 @@ use PHPUnit\Framework\Attributes\DataProvider;
 use PHPUnit\Framework\TestCase;
 
 /**
- *
+ * Tests the AuthenticatedUser class
  */
 final class AuthenticatedUserTest extends TestCase{
 
@@ -80,10 +80,10 @@ final class AuthenticatedUserTest extends TestCase{
 	}
 
 	#[DataProvider('displayNameProvider')]
-	public function testSetDisplayName(string|null $displayName, string|null $expexted):void{
+	public function testSetDisplayName(string|null $displayName, string|null $expected):void{
 		$user = new AuthenticatedUser(['displayName' => $displayName]);
 
-		$this::assertSame($expexted, $user->displayName);
+		$this::assertSame($expected, $user->displayName);
 	}
 
 }

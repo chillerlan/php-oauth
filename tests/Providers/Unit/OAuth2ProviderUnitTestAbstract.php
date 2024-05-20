@@ -25,6 +25,8 @@ use PHPUnit\Framework\Attributes\DataProvider;
 use function base64_encode, implode, json_decode, json_encode;
 
 /**
+ * OAuth2 unit test
+ *
  * @property \chillerlan\OAuth\Core\OAuth2Interface $provider
  */
 abstract class OAuth2ProviderUnitTestAbstract extends OAuthProviderUnitTestAbstract{

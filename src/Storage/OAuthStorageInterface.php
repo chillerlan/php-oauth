@@ -15,10 +15,10 @@ use chillerlan\OAuth\Core\AccessToken;
 use Psr\Log\LoggerInterface;
 
 /**
- * Specifies the methods required for an OAuth token storage adapter
+ * Specifies the methods required for an OAuth storage adapter
  *
- * The token storage is intended to be invoked per-user,
- * for whom it can store tokens for any of the implemented providers.
+ * The storage is intended to be invoked per-user, for whom it can
+ * store tokens, state etc. for any of the implemented providers.
  *
  * The implementer must ensure that the same storage instance is not used for multiple users.
  */

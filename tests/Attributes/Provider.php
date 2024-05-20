@@ -15,6 +15,8 @@ use Attribute;
 
 /**
  * Supplies the provider class name
+ *
+ * example: `#[Provider(GitHub::class)]`
  */
 #[Attribute(Attribute::TARGET_CLASS)]
 final class Provider{

@@ -17,6 +17,8 @@ use chillerlan\OAuth\Storage\MemoryStorage;
 use function time;
 
 /**
+ * OAuth2 live API test
+ *
  * @property \chillerlan\OAuth\Core\OAuth2Interface $provider
  */
 abstract class OAuth2ProviderLiveTestAbstract extends OAuthProviderLiveTestAbstract{

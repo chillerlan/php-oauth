@@ -20,6 +20,8 @@ use PHPUnit\Framework\ExpectationFailedException;
 use function constant, sprintf;
 
 /**
+ * abstract OAuth live API test
+ *
  * @property \chillerlan\OAuth\Core\OAuthInterface $provider
  */
 abstract class OAuthProviderLiveTestAbstract extends ProviderLiveTestAbstract{

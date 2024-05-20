@@ -14,7 +14,7 @@ namespace chillerlan\OAuthTest\Storage;
 use chillerlan\OAuth\OAuthOptions;
 
 /**
- * Tests the file storage (encrypted)
+ * Tests the `FileStorage` class (encrypted)
  */
 final class FileStorageEncryptedTest extends FileStorageTest{
 

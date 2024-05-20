@@ -16,7 +16,7 @@ use chillerlan\OAuth\Storage\OAuthStorageException;
 use PHPUnit\Framework\TestCase;
 
 /**
- *
+ * Tests the OAuthOptions class
  */
 class OAuthOptionsTest extends TestCase{
 

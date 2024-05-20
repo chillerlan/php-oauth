@@ -19,6 +19,8 @@ use chillerlan\OAuth\Providers\ProviderException;
 use function str_starts_with;
 
 /**
+ * OAuth1 unit test
+ *
  * @property \chillerlan\OAuth\Core\OAuth1Interface $provider
  */
 abstract class OAuth1ProviderUnitTestAbstract extends OAuthProviderUnitTestAbstract{

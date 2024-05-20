@@ -42,6 +42,22 @@ To install the required dependencies, create a `composer.json` in `/var/www/` wi
 
 After that, copy the `examples` directory in the library root to `/var/www/oauth-examples/`.
 
+**Alternative: run the examples from a clone of the library**
+
+Clone the library into a directory outside a public webroot - e.g. `/var/www/php-oauth/` and run `composer install` in the library root.
+Now add an alias to your webserver configuration that points to `[library root]/public`, here an example for [Apache](https://httpd.apache.org/docs/2.4/mod/core.html#directory):
+
+```apacheconf
+# create an alias "public" -> https://example.com/oauth/
+Alias /oauth "/var/www/php-oauth/public/"
+
+<Directory "/var/www/php-oauth/public/">
+	# ...additional configuration...
+</Directory>
+```
+
+(please **do not** expose the whole library to a public URL)
+
 
 ### Configuration
 

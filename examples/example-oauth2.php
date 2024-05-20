@@ -72,7 +72,7 @@ elseif(isset($_GET['code'], $_GET['state'])){
 }
 // step 4: verify the token and use the API
 elseif(isset($_GET['granted']) && $_GET['granted'] === $name){
-	// use the file storage from now on
+	// use the permanent storage from now on
 	// [...]
 
 	// dump the AuthenticatedUser instance

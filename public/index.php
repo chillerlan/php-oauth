@@ -1,6 +1,8 @@
 <?php
 /**
- * OAuth test entry point
+ * OAuth test/example entry point
+ *
+ * @link https://php-oauth.readthedocs.io/en/main/Usage/Using-examples.html
  *
  * @created      22.03.2024
  * @author       smiley <smiley@chillerlan.net>

@@ -238,6 +238,18 @@ as its sole entry point and route all requests through it, but that is not focus
 </pre></div>
 </div>
 <p>After that, copy the <code class="docutils literal notranslate"><span class="pre">examples</span></code> directory in the library root to <code class="docutils literal notranslate"><span class="pre">/var/www/oauth-examples/</span></code>.</p>
+<p><strong>Alternative: run the examples from a clone of the library</strong></p>
+<p>Clone the library into a directory outside a public webroot - e.g. <code class="docutils literal notranslate"><span class="pre">/var/www/php-oauth/</span></code> and run <code class="docutils literal notranslate"><span class="pre">composer</span> <span class="pre">install</span></code> in the library root.
+Now add an alias to your webserver configuration that points to <code class="docutils literal notranslate"><span class="pre">[library</span> <span class="pre">root]/public</span></code>, here an example for <a class="reference external" href="https://httpd.apache.org/docs/2.4/mod/core.html#directory">Apache</a>:</p>
+<div class="highlight-apacheconf notranslate"><div class="highlight"><pre><span></span><span class="c"># create an alias &quot;public&quot; -&gt; https://example.com/oauth/</span>
+<span class="nb">Alias</span><span class="w"> </span><span class="sx">/oauth</span><span class="w"> </span><span class="s2">&quot;/var/www/php-oauth/public/&quot;</span>
+
+<span class="nt">&lt;Directory</span><span class="w"> </span><span class="s">&quot;/var/www/php-oauth/public/&quot;</span><span class="nt">&gt;</span>
+<span class="w">	</span><span class="c"># ...additional configuration...</span>
+<span class="nt">&lt;/Directory&gt;</span>
+</pre></div>
+</div>
+<p>(please <strong>do not</strong> expose the whole library to a public URL)</p>
 </section>
 <section id="configuration">
 <h3>Configuration<a class="headerlink" href="#configuration" title="Link to this heading"></a></h3>

@@ -91,12 +91,12 @@ composer require chillerlan/php-oauth
 {
 	"require": {
 		"php": "^8.1",
-		"chillerlan/php-oauth": "dev-main#<commit_hash>"
+		"chillerlan/php-oauth": "^1.0"
 	}
 }
 ```
 
-Note: replace `dev-main` with a [version constraint](https://getcomposer.org/doc/articles/versions.md#writing-version-constraints), e.g. `^1.0` - see [releases](https://github.com/chillerlan/php-oauth/releases) for valid versions.
+Note: check the [releases](https://github.com/chillerlan/php-oauth/releases) for valid versions.
 
 
 # Implemented Providers

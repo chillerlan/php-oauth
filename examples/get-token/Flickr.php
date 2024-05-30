@@ -11,7 +11,7 @@ declare(strict_types=1);
 
 use chillerlan\OAuth\Providers\Flickr;
 
-$PARAMS ??= ['perms' => Flickr::PERM_DELETE];
+$PARAMS ??= ['perms' => 'read']; // hen-egg issue: can't use the Flickr class before it's loaded
 
 require_once __DIR__.'/../provider-example-common.php';
 

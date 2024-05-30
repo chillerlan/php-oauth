@@ -195,9 +195,42 @@ abstract class OAuth1Provider extends OAuthProvider implements OAuth1Interface{
 			throw new ProviderException('request token mismatch');
 		}
 
-		$response = $this->sendAccessTokenRequest($verifier);
+		$params   = $this->getAccessTokenRequestHeaderParams($token, $verifier);
+		$response = $this->sendAccessTokenRequest($params);
 
 		return $this->parseTokenResponse($response);
+	}
+
+	/**
+	 * Prepares the header params for the access token request
+	 */
+	protected function getAccessTokenRequestHeaderParams(AccessToken $requestToken, string $verifier):array{
+
+		$params = [
+			'oauth_consumer_key'     => $this->options->key,
+			'oauth_nonce'            => $this->nonce(),
+			'oauth_signature_method' => 'HMAC-SHA1',
+			'oauth_timestamp'        => time(),
+			'oauth_token'            => $requestToken->accessToken,
+			'oauth_version'          => '1.0',
+			'oauth_verifier'         => $verifier,
+		];
+
+		$params['oauth_signature'] = $this->getSignature(
+			$this->accessTokenURL,
+			$params,
+			'POST',
+			$requestToken->accessTokenSecret,
+		);
+
+		return $params;
+	}
+
+	/**
+	 * Adds the "Authorization" header to the given `RequestInterface` using the given array or parameters
+	 */
+	protected function setAuthorizationHeader(RequestInterface $request, array $params):RequestInterface{
+		return $request->withHeader('Authorization', sprintf('OAuth %s', QueryUtil::build($params, null, ', ', '"')));
 	}
 
 	/**
@@ -205,15 +238,15 @@ abstract class OAuth1Provider extends OAuthProvider implements OAuth1Interface{
 	 *
 	 * @see \chillerlan\OAuth\Core\OAuth1Provider::getAccessToken()
 	 */
-	protected function sendAccessTokenRequest(string $verifier):ResponseInterface{
+	protected function sendAccessTokenRequest(array $headerParams):ResponseInterface{
 
 		$request = $this->requestFactory
-			->createRequest('POST', QueryUtil::merge($this->accessTokenURL, ['oauth_verifier' => $verifier]))
+			->createRequest('POST', $this->accessTokenURL)
 			->withHeader('Accept-Encoding', 'identity')
 			->withHeader('Content-Length', '0')
 		;
 
-		$request = $this->getRequestAuthorization($request);
+		$request = $this->setAuthorizationHeader($request, $headerParams);
 
 		return $this->http->sendRequest($request);
 	}
@@ -245,7 +278,7 @@ abstract class OAuth1Provider extends OAuthProvider implements OAuth1Interface{
 			$token->accessTokenSecret,
 		);
 
-		return $request->withHeader('Authorization', sprintf('OAuth %s', QueryUtil::build($params, null, ', ', '"')));
+		return $this->setAuthorizationHeader($request, $params);
 	}
 
 }

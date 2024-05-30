@@ -77,7 +77,7 @@
     Menu
 </label>
 <aside class="phpdocumentor-column -three phpdocumentor-sidebar">
-                    <section class="phpdocumentor-sidebar__category">
+                    <section class="phpdocumentor-sidebar__category -namespaces">
             <h2 class="phpdocumentor-sidebar__category-header">Namespaces</h2>
                                     <h4 class="phpdocumentor-sidebar__root-namespace">
     <a href="namespaces/chillerlan.html" class="">chillerlan</a>
@@ -94,7 +94,7 @@
             </ul>
 
                         </section>
-                <section class="phpdocumentor-sidebar__category">
+                <section class="phpdocumentor-sidebar__category -packages">
             <h2 class="phpdocumentor-sidebar__category-header">Packages</h2>
                                     <h4 class="phpdocumentor-sidebar__root-namespace">
     <a href="packages/Application.html" class="">Application</a>
@@ -102,14 +102,14 @@
 
                         </section>
             
-    <section class="phpdocumentor-sidebar__category">
+    <section class="phpdocumentor-sidebar__category -reports">
         <h2 class="phpdocumentor-sidebar__category-header">Reports</h2>
                 <h3 class="phpdocumentor-sidebar__root-package"><a href="reports/deprecated.html">Deprecated</a></h3>
         <h3 class="phpdocumentor-sidebar__root-package"><a href="reports/errors.html">Errors</a></h3>
         <h3 class="phpdocumentor-sidebar__root-package"><a href="reports/markers.html">Markers</a></h3>
     </section>
 
-    <section class="phpdocumentor-sidebar__category">
+    <section class="phpdocumentor-sidebar__category -indices">
         <h2 class="phpdocumentor-sidebar__category-header">Indices</h2>
         <h3 class="phpdocumentor-sidebar__root-package"><a href="indices/files.html">Files</a></h3>
     </section>
@@ -162,6 +162,30 @@
 
 
 
+    <section class="phpdocumentor-attributes">
+        <h5 class="phpdocumentor-elements__header" id="attributes">
+            Attributes <a href="classes/chillerlan-OAuthTest-Providers-Live-AmazonAPITest.html#attributes" class="headerlink"><i class="fas fa-link"></i></a>
+
+        </h5>
+                    <dl class="phpdocumentor-argument-list">
+    <dt class="phpdocumentor-argument-list__entry">
+        #[<abbr title="\PHPUnit\Framework\Attributes\Group">Group</abbr>]
+    </dt>
+        <dd class="phpdocumentor-argument-list__entry">
+        &#039;providerLiveTest&#039;
+    </dd>
+    </dl>
+                    <dl class="phpdocumentor-argument-list">
+    <dt class="phpdocumentor-argument-list__entry">
+        #[<a href="classes/chillerlan-OAuthTest-Attributes-Provider.html"><abbr title="\chillerlan\OAuthTest\Attributes\Provider">Provider</abbr></a>]
+    </dt>
+        <dd class="phpdocumentor-argument-list__entry">
+        \chillerlan\OAuth\Providers\Amazon::class
+    </dd>
+    </dl>
+            </section>
+
+
 
 <h3 id="toc">
     Table of Contents
@@ -209,9 +233,9 @@
 </h4>
 <dl class="phpdocumentor-table-of-contents">
             <dt class="phpdocumentor-table-of-contents__entry -property -public">
-    <a href="classes/chillerlan-OAuthTest-Providers-Live-AmazonAPITest.html#property_provider">$provider</a>
+    <a href="classes/chillerlan-OAuthTest-Providers-Live-OAuthProviderLiveTestAbstract.html#property_provider">$provider</a>
     <span>
-                        &nbsp;: <a href="classes/chillerlan-OAuth-Providers-Amazon.html"><abbr title="\chillerlan\OAuth\Providers\Amazon">Amazon</abbr></a>            </span>
+                        &nbsp;: <a href="classes/chillerlan-OAuth-Core-OAuthInterface.html"><abbr title="\chillerlan\OAuth\Core\OAuthInterface">OAuthInterface</abbr></a>            </span>
 </dt>
 
             <dt class="phpdocumentor-table-of-contents__entry -property -public">
@@ -221,9 +245,9 @@
 </dt>
 
             <dt class="phpdocumentor-table-of-contents__entry -property -public">
-    <a href="classes/chillerlan-OAuthTest-Providers-Live-OAuthProviderLiveTestAbstract.html#property_provider">$provider</a>
+    <a href="classes/chillerlan-OAuthTest-Providers-Live-AmazonAPITest.html#property_provider">$provider</a>
     <span>
-                        &nbsp;: <a href="classes/chillerlan-OAuth-Core-OAuthInterface.html"><abbr title="\chillerlan\OAuth\Core\OAuthInterface">OAuthInterface</abbr></a>            </span>
+                        &nbsp;: <a href="classes/chillerlan-OAuth-Providers-Amazon.html"><abbr title="\chillerlan\OAuth\Providers\Amazon">Amazon</abbr></a>            </span>
 </dt>
 
             <dt class="phpdocumentor-table-of-contents__entry -property -protected">
@@ -251,7 +275,7 @@
 </dt>
 
             <dt class="phpdocumentor-table-of-contents__entry -property -protected">
-    <a href="classes/chillerlan-OAuthTest-Providers-ProviderUnitTestAbstract.html#property_HTTP_CLIENT_FACTORY">$HTTP_CLIENT_FACTORY</a>
+    <a href="classes/chillerlan-OAuthTest-Providers-ProviderLiveTestAbstract.html#property_HTTP_CLIENT_FACTORY">$HTTP_CLIENT_FACTORY</a>
     <span>
                         &nbsp;: string            </span>
 </dt>
@@ -360,21 +384,21 @@
 <dd>Creates a test access token with the given parameters or a set of defaults</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -protected">
-    <a href="classes/chillerlan-OAuthTest-Providers-ProviderUnitTestAbstract.html#method_initConfig">initConfig()</a>
+    <a href="classes/chillerlan-OAuthTest-Providers-ProviderLiveTestAbstract.html#method_initConfig">initConfig()</a>
     <span>
                                 &nbsp;: void    </span>
 </dt>
 <dd>Initializes the environment config (from `phpunit.xml`)</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -protected">
-    <a href="classes/chillerlan-OAuthTest-Providers-ProviderUnitTestAbstract.html#method_initOptions">initOptions()</a>
+    <a href="classes/chillerlan-OAuthTest-Providers-ProviderLiveTestAbstract.html#method_initOptions">initOptions()</a>
     <span>
                                 &nbsp;: <a href="classes/chillerlan-OAuth-OAuthOptions.html"><abbr title="\chillerlan\OAuth\OAuthOptions">OAuthOptions</abbr></a>    </span>
 </dt>
 <dd>Initializes an `OAuthOptions` instance</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -protected">
-    <a href="classes/chillerlan-OAuthTest-Providers-ProviderUnitTestAbstract.html#method_initStorage">initStorage()</a>
+    <a href="classes/chillerlan-OAuthTest-Providers-ProviderLiveTestAbstract.html#method_initStorage">initStorage()</a>
     <span>
                                 &nbsp;: <a href="classes/chillerlan-OAuth-Storage-OAuthStorageInterface.html"><abbr title="\chillerlan\OAuth\Storage\OAuthStorageInterface">OAuthStorageInterface</abbr></a>    </span>
 </dt>
@@ -402,14 +426,13 @@
 <dd>Sets a property in the current provider instance with the given value</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -protected">
-    <a href="classes/chillerlan-OAuthTest-Providers-ProviderUnitTestAbstract.html#method_setUp">setUp()</a>
+    <a href="classes/chillerlan-OAuthTest-Providers-ProviderLiveTestAbstract.html#method_setUp">setUp()</a>
     <span>
                                 &nbsp;: void    </span>
 </dt>
 <dd>Initializes the unit test</dd>
 
     </dl>
-
 
 
 
@@ -447,6 +470,8 @@
     
     
 
+    
+
 </article>
                     <article class="phpdocumentor-element -constant -protected ">
     <h4 class="phpdocumentor-element__name" id="constant_CFGDIR">
@@ -473,6 +498,8 @@
 
     
     
+    
+
     
 
 </article>
@@ -503,6 +530,8 @@
     
     
 
+    
+
 </article>
             </section>
 
@@ -522,13 +551,13 @@
 >
     <h4 class="phpdocumentor-element__name" id="property_provider">
         $provider
-        <a href="classes/chillerlan-OAuthTest-Providers-Live-AmazonAPITest.html#property_provider" class="headerlink"><i class="fas fa-link"></i></a>
+        <a href="classes/chillerlan-OAuthTest-Providers-Live-OAuthProviderLiveTestAbstract.html#property_provider" class="headerlink"><i class="fas fa-link"></i></a>
 
         <span class="phpdocumentor-element__modifiers">
                                 </span>
     </h4>
     <aside class="phpdocumentor-element-found-in">
-    <abbr class="phpdocumentor-element-found-in__file" title="tests/Providers/Live/AmazonAPITest.php"><a href="files/tests-providers-live-amazonapitest.html"><abbr title="tests/Providers/Live/AmazonAPITest.php">AmazonAPITest.php</abbr></a></abbr>
+    <abbr class="phpdocumentor-element-found-in__file" title="tests/Providers/Live/OAuthProviderLiveTestAbstract.php"><a href="files/tests-providers-live-oauthproviderlivetestabstract.html"><abbr title="tests/Providers/Live/OAuthProviderLiveTestAbstract.php">OAuthProviderLiveTestAbstract.php</abbr></a></abbr>
     :
     <span class="phpdocumentor-element-found-in__line">0</span>
 
@@ -537,12 +566,14 @@
     
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
-        <span class="phpdocumentor-signature__type"><a href="classes/chillerlan-OAuth-Providers-Amazon.html"><abbr title="\chillerlan\OAuth\Providers\Amazon">Amazon</abbr></a></span>
+        <span class="phpdocumentor-signature__type"><a href="classes/chillerlan-OAuth-Core-OAuthInterface.html"><abbr title="\chillerlan\OAuth\Core\OAuthInterface">OAuthInterface</abbr></a></span>
     <span class="phpdocumentor-signature__name">$provider</span>
     </code>
 
     
     
+    
+
     
 
 </article>
@@ -578,6 +609,8 @@
     
     
 
+    
+
 </article>
                     <article
         class="
@@ -588,13 +621,13 @@
 >
     <h4 class="phpdocumentor-element__name" id="property_provider">
         $provider
-        <a href="classes/chillerlan-OAuthTest-Providers-Live-OAuthProviderLiveTestAbstract.html#property_provider" class="headerlink"><i class="fas fa-link"></i></a>
+        <a href="classes/chillerlan-OAuthTest-Providers-Live-AmazonAPITest.html#property_provider" class="headerlink"><i class="fas fa-link"></i></a>
 
         <span class="phpdocumentor-element__modifiers">
                                 </span>
     </h4>
     <aside class="phpdocumentor-element-found-in">
-    <abbr class="phpdocumentor-element-found-in__file" title="tests/Providers/Live/OAuthProviderLiveTestAbstract.php"><a href="files/tests-providers-live-oauthproviderlivetestabstract.html"><abbr title="tests/Providers/Live/OAuthProviderLiveTestAbstract.php">OAuthProviderLiveTestAbstract.php</abbr></a></abbr>
+    <abbr class="phpdocumentor-element-found-in__file" title="tests/Providers/Live/AmazonAPITest.php"><a href="files/tests-providers-live-amazonapitest.html"><abbr title="tests/Providers/Live/AmazonAPITest.php">AmazonAPITest.php</abbr></a></abbr>
     :
     <span class="phpdocumentor-element-found-in__line">0</span>
 
@@ -603,12 +636,14 @@
     
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
-        <span class="phpdocumentor-signature__type"><a href="classes/chillerlan-OAuth-Core-OAuthInterface.html"><abbr title="\chillerlan\OAuth\Core\OAuthInterface">OAuthInterface</abbr></a></span>
+        <span class="phpdocumentor-signature__type"><a href="classes/chillerlan-OAuth-Providers-Amazon.html"><abbr title="\chillerlan\OAuth\Providers\Amazon">Amazon</abbr></a></span>
     <span class="phpdocumentor-signature__name">$provider</span>
     </code>
 
     
     
+    
+
     
 
 </article>
@@ -644,6 +679,8 @@
     
     
 
+    
+
 </article>
                     <article
         class="
@@ -675,6 +712,8 @@
 
     
     
+    
+
     
 
 </article>
@@ -710,6 +749,8 @@
     
     
 
+    
+
 </article>
                     <article
         class="
@@ -743,6 +784,8 @@
     
     
 
+    
+
 </article>
                     <article
         class="
@@ -753,15 +796,15 @@
 >
     <h4 class="phpdocumentor-element__name" id="property_HTTP_CLIENT_FACTORY">
         $HTTP_CLIENT_FACTORY
-        <a href="classes/chillerlan-OAuthTest-Providers-ProviderUnitTestAbstract.html#property_HTTP_CLIENT_FACTORY" class="headerlink"><i class="fas fa-link"></i></a>
+        <a href="classes/chillerlan-OAuthTest-Providers-ProviderLiveTestAbstract.html#property_HTTP_CLIENT_FACTORY" class="headerlink"><i class="fas fa-link"></i></a>
 
         <span class="phpdocumentor-element__modifiers">
                                 </span>
     </h4>
     <aside class="phpdocumentor-element-found-in">
-    <abbr class="phpdocumentor-element-found-in__file" title="tests/Providers/ProviderUnitTestAbstract.php"><a href="files/tests-providers-providerunittestabstract.html"><abbr title="tests/Providers/ProviderUnitTestAbstract.php">ProviderUnitTestAbstract.php</abbr></a></abbr>
+    <abbr class="phpdocumentor-element-found-in__file" title="tests/Providers/ProviderLiveTestAbstract.php"><a href="files/tests-providers-providerlivetestabstract.html"><abbr title="tests/Providers/ProviderLiveTestAbstract.php">ProviderLiveTestAbstract.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">52</span>
+    <span class="phpdocumentor-element-found-in__line">26</span>
 
     </aside>
 
@@ -770,10 +813,12 @@
     <span class="phpdocumentor-signature__visibility">protected</span>
         <span class="phpdocumentor-signature__type">string</span>
     <span class="phpdocumentor-signature__name">$HTTP_CLIENT_FACTORY</span>
-     = <span class="phpdocumentor-signature__default-value">\chillerlan\OAuthTest\Providers\ProviderUnitTestHttpClientFactory::class</span></code>
+     = <span class="phpdocumentor-signature__default-value">\chillerlan\OAuthTest\Providers\ProviderLiveTestHttpClientFactory::class</span></code>
 
     
     
+    
+
     
 
 </article>
@@ -809,6 +854,8 @@
     
     
 
+    
+
 </article>
                     <article
         class="
@@ -840,6 +887,8 @@
 
     
     
+    
+
     
 
 </article>
@@ -875,6 +924,8 @@
     
     
 
+    
+
 </article>
                     <article
         class="
@@ -906,6 +957,8 @@
 
     
     
+    
+
     
 
 </article>
@@ -941,6 +994,8 @@
     
     
 
+    
+
 </article>
                     <article
         class="
@@ -972,6 +1027,8 @@
 
     
     
+    
+
     
 
 </article>
@@ -1006,6 +1063,8 @@
 
     
     
+    
+
     
 
 </article>
@@ -1047,6 +1106,8 @@
     
 
     
+
+    
 </article>
                     <article
         class="phpdocumentor-element
@@ -1078,6 +1139,8 @@
     
 
     
+
+    
 </article>
                     <article
         class="phpdocumentor-element
@@ -1106,6 +1169,8 @@
         </div>
     
     
+    
+
     
 
     
@@ -1150,6 +1215,8 @@
     
 
     
+
+    
 </article>
                     <article
         class="phpdocumentor-element
@@ -1188,6 +1255,8 @@
                 
             </dd>
             </dl>
+
+    
 
     
 
@@ -1242,6 +1311,8 @@
                                     </dd>
                                             </dl>
 
+    
+
             <section>
         <h5 class="phpdocumentor-return-value__heading">Return values</h5>
         <span class="phpdocumentor-signature__response_type">string</span>
@@ -1289,6 +1360,8 @@
     
 
     
+
+    
 </article>
                     <article
         class="phpdocumentor-element
@@ -1330,6 +1403,8 @@
 
     
 
+    
+
             <section>
         <h5 class="phpdocumentor-return-value__heading">Return values</h5>
         <span class="phpdocumentor-signature__response_type"><a href="classes/chillerlan-OAuth-Core-AccessToken.html"><abbr title="\chillerlan\OAuth\Core\AccessToken">AccessToken</abbr></a></span>
@@ -1344,13 +1419,13 @@
 >
     <h4 class="phpdocumentor-element__name" id="method_initConfig">
         initConfig()
-        <a href="classes/chillerlan-OAuthTest-Providers-ProviderUnitTestAbstract.html#method_initConfig" class="headerlink"><i class="fas fa-link"></i></a>
+        <a href="classes/chillerlan-OAuthTest-Providers-ProviderLiveTestAbstract.html#method_initConfig" class="headerlink"><i class="fas fa-link"></i></a>
 
     </h4>
     <aside class="phpdocumentor-element-found-in">
-    <abbr class="phpdocumentor-element-found-in__file" title="tests/Providers/ProviderUnitTestAbstract.php"><a href="files/tests-providers-providerunittestabstract.html"><abbr title="tests/Providers/ProviderUnitTestAbstract.php">ProviderUnitTestAbstract.php</abbr></a></abbr>
+    <abbr class="phpdocumentor-element-found-in__file" title="tests/Providers/ProviderLiveTestAbstract.php"><a href="files/tests-providers-providerlivetestabstract.html"><abbr title="tests/Providers/ProviderLiveTestAbstract.php">ProviderLiveTestAbstract.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">102</span>
+    <span class="phpdocumentor-element-found-in__line">50</span>
 
     </aside>
 
@@ -1367,6 +1442,8 @@
     
 
     
+
+    
 </article>
                     <article
         class="phpdocumentor-element
@@ -1376,13 +1453,13 @@
 >
     <h4 class="phpdocumentor-element__name" id="method_initOptions">
         initOptions()
-        <a href="classes/chillerlan-OAuthTest-Providers-ProviderUnitTestAbstract.html#method_initOptions" class="headerlink"><i class="fas fa-link"></i></a>
+        <a href="classes/chillerlan-OAuthTest-Providers-ProviderLiveTestAbstract.html#method_initOptions" class="headerlink"><i class="fas fa-link"></i></a>
 
     </h4>
     <aside class="phpdocumentor-element-found-in">
-    <abbr class="phpdocumentor-element-found-in__file" title="tests/Providers/ProviderUnitTestAbstract.php"><a href="files/tests-providers-providerunittestabstract.html"><abbr title="tests/Providers/ProviderUnitTestAbstract.php">ProviderUnitTestAbstract.php</abbr></a></abbr>
+    <abbr class="phpdocumentor-element-found-in__file" title="tests/Providers/ProviderLiveTestAbstract.php"><a href="files/tests-providers-providerlivetestabstract.html"><abbr title="tests/Providers/ProviderLiveTestAbstract.php">ProviderLiveTestAbstract.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">115</span>
+    <span class="phpdocumentor-element-found-in__line">61</span>
 
     </aside>
 
@@ -1396,6 +1473,8 @@
         </div>
     
     
+    
+
     
 
             <section>
@@ -1412,13 +1491,13 @@
 >
     <h4 class="phpdocumentor-element__name" id="method_initStorage">
         initStorage()
-        <a href="classes/chillerlan-OAuthTest-Providers-ProviderUnitTestAbstract.html#method_initStorage" class="headerlink"><i class="fas fa-link"></i></a>
+        <a href="classes/chillerlan-OAuthTest-Providers-ProviderLiveTestAbstract.html#method_initStorage" class="headerlink"><i class="fas fa-link"></i></a>
 
     </h4>
     <aside class="phpdocumentor-element-found-in">
-    <abbr class="phpdocumentor-element-found-in__file" title="tests/Providers/ProviderUnitTestAbstract.php"><a href="files/tests-providers-providerunittestabstract.html"><abbr title="tests/Providers/ProviderUnitTestAbstract.php">ProviderUnitTestAbstract.php</abbr></a></abbr>
+    <abbr class="phpdocumentor-element-found-in__file" title="tests/Providers/ProviderLiveTestAbstract.php"><a href="files/tests-providers-providerlivetestabstract.html"><abbr title="tests/Providers/ProviderLiveTestAbstract.php">ProviderLiveTestAbstract.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">129</span>
+    <span class="phpdocumentor-element-found-in__line">74</span>
 
     </aside>
 
@@ -1441,6 +1520,8 @@
                 
             </dd>
             </dl>
+
+    
 
     
 
@@ -1498,6 +1579,8 @@
     
 
     
+
+    
 </article>
                     <article
         class="phpdocumentor-element
@@ -1536,6 +1619,8 @@
                 
             </dd>
             </dl>
+
+    
 
     
 
@@ -1589,6 +1674,8 @@
     
 
     
+
+    
 </article>
                     <article
         class="phpdocumentor-element
@@ -1598,13 +1685,13 @@
 >
     <h4 class="phpdocumentor-element__name" id="method_setUp">
         setUp()
-        <a href="classes/chillerlan-OAuthTest-Providers-ProviderUnitTestAbstract.html#method_setUp" class="headerlink"><i class="fas fa-link"></i></a>
+        <a href="classes/chillerlan-OAuthTest-Providers-ProviderLiveTestAbstract.html#method_setUp" class="headerlink"><i class="fas fa-link"></i></a>
 
     </h4>
     <aside class="phpdocumentor-element-found-in">
-    <abbr class="phpdocumentor-element-found-in__file" title="tests/Providers/ProviderUnitTestAbstract.php"><a href="files/tests-providers-providerunittestabstract.html"><abbr title="tests/Providers/ProviderUnitTestAbstract.php">ProviderUnitTestAbstract.php</abbr></a></abbr>
+    <abbr class="phpdocumentor-element-found-in__file" title="tests/Providers/ProviderLiveTestAbstract.php"><a href="files/tests-providers-providerlivetestabstract.html"><abbr title="tests/Providers/ProviderLiveTestAbstract.php">ProviderLiveTestAbstract.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">63</span>
+    <span class="phpdocumentor-element-found-in__line">39</span>
 
     </aside>
 
@@ -1618,6 +1705,23 @@
         </div>
     
     
+    
+    <h5 class="phpdocumentor-tag-list__heading" id="tags">
+        Tags
+        <a href="classes/chillerlan-OAuthTest-Providers-ProviderLiveTestAbstract.html#method_setUp#tags" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h5>
+    <dl class="phpdocumentor-tag-list">
+                                    <dt class="phpdocumentor-tag-list__entry">
+                    <span class="phpdocumentor-tag__name">throws</span>
+                </dt>
+                <dd class="phpdocumentor-tag-list__definition">
+                                                                <span class="phpdocumentor-tag-link"><abbr title="\InvalidArgumentException">InvalidArgumentException</abbr></span>
+                                                            
+                                             
+                                    </dd>
+                                            </dl>
+
     
 
     
@@ -1744,14 +1848,14 @@
                             <li class="phpdocumentor-on-this-page-section__title">Properties</li>
                 <li>
                     <ul class="phpdocumentor-list -clean">
-                                                    <li><a href="classes/chillerlan-OAuthTest-Providers-Live-AmazonAPITest.html#property_provider">$provider<a href="classes/chillerlan-OAuthTest-Providers-Live-AmazonAPITest.html"></li>
-                                                    <li><a href="classes/chillerlan-OAuthTest-Providers-Live-OAuth2ProviderLiveTestAbstract.html#property_provider">$provider<a href="classes/chillerlan-OAuthTest-Providers-Live-AmazonAPITest.html"></li>
                                                     <li><a href="classes/chillerlan-OAuthTest-Providers-Live-OAuthProviderLiveTestAbstract.html#property_provider">$provider<a href="classes/chillerlan-OAuthTest-Providers-Live-AmazonAPITest.html"></li>
+                                                    <li><a href="classes/chillerlan-OAuthTest-Providers-Live-OAuth2ProviderLiveTestAbstract.html#property_provider">$provider<a href="classes/chillerlan-OAuthTest-Providers-Live-AmazonAPITest.html"></li>
+                                                    <li><a href="classes/chillerlan-OAuthTest-Providers-Live-AmazonAPITest.html#property_provider">$provider<a href="classes/chillerlan-OAuthTest-Providers-Live-AmazonAPITest.html"></li>
                                                     <li><a href="classes/chillerlan-OAuthTest-Providers-Live-OAuth2ProviderLiveTestAbstract.html#property_clientCredentialsScopes">$clientCredentialsScopes<a href="classes/chillerlan-OAuthTest-Providers-Live-AmazonAPITest.html"></li>
                                                     <li><a href="classes/chillerlan-OAuthTest-Providers-ProviderLiveTestAbstract.html#property_dotEnv">$dotEnv<a href="classes/chillerlan-OAuthTest-Providers-Live-AmazonAPITest.html"></li>
                                                     <li><a href="classes/chillerlan-OAuthTest-Providers-ProviderUnitTestAbstract.html#property_ENV_IS_CI">$ENV_IS_CI<a href="classes/chillerlan-OAuthTest-Providers-Live-AmazonAPITest.html"></li>
                                                     <li><a href="classes/chillerlan-OAuthTest-Providers-ProviderLiveTestAbstract.html#property_ENV_PREFIX">$ENV_PREFIX<a href="classes/chillerlan-OAuthTest-Providers-Live-AmazonAPITest.html"></li>
-                                                    <li><a href="classes/chillerlan-OAuthTest-Providers-ProviderUnitTestAbstract.html#property_HTTP_CLIENT_FACTORY">$HTTP_CLIENT_FACTORY<a href="classes/chillerlan-OAuthTest-Providers-Live-AmazonAPITest.html"></li>
+                                                    <li><a href="classes/chillerlan-OAuthTest-Providers-ProviderLiveTestAbstract.html#property_HTTP_CLIENT_FACTORY">$HTTP_CLIENT_FACTORY<a href="classes/chillerlan-OAuthTest-Providers-Live-AmazonAPITest.html"></li>
                                                     <li><a href="classes/chillerlan-OAuthTest-Providers-ProviderUnitTestAbstract.html#property_logger">$logger<a href="classes/chillerlan-OAuthTest-Providers-Live-AmazonAPITest.html"></li>
                                                     <li><a href="classes/chillerlan-OAuthTest-Providers-ProviderUnitTestAbstract.html#property_options">$options<a href="classes/chillerlan-OAuthTest-Providers-Live-AmazonAPITest.html"></li>
                                                     <li><a href="classes/chillerlan-OAuthTest-Providers-ProviderUnitTestAbstract.html#property_provider">$provider<a href="classes/chillerlan-OAuthTest-Providers-Live-AmazonAPITest.html"></li>
@@ -1773,13 +1877,13 @@
                                             <li><a href="classes/chillerlan-OAuthTest-Providers-ProviderUnitTestAbstract.html#method_getProviderFQCN">getProviderFQCN()</a></li>
                                             <li><a href="classes/chillerlan-OAuthTest-Providers-ProviderUnitTestAbstract.html#method_getReflectionProperty">getReflectionProperty()</a></li>
                                             <li><a href="classes/chillerlan-OAuthTest-Providers-ProviderUnitTestAbstract.html#method_getTestToken">getTestToken()</a></li>
-                                            <li><a href="classes/chillerlan-OAuthTest-Providers-ProviderUnitTestAbstract.html#method_initConfig">initConfig()</a></li>
-                                            <li><a href="classes/chillerlan-OAuthTest-Providers-ProviderUnitTestAbstract.html#method_initOptions">initOptions()</a></li>
-                                            <li><a href="classes/chillerlan-OAuthTest-Providers-ProviderUnitTestAbstract.html#method_initStorage">initStorage()</a></li>
+                                            <li><a href="classes/chillerlan-OAuthTest-Providers-ProviderLiveTestAbstract.html#method_initConfig">initConfig()</a></li>
+                                            <li><a href="classes/chillerlan-OAuthTest-Providers-ProviderLiveTestAbstract.html#method_initOptions">initOptions()</a></li>
+                                            <li><a href="classes/chillerlan-OAuthTest-Providers-ProviderLiveTestAbstract.html#method_initStorage">initStorage()</a></li>
                                             <li><a href="classes/chillerlan-OAuthTest-Providers-ProviderUnitTestAbstract.html#method_invokeReflectionMethod">invokeReflectionMethod()</a></li>
                                             <li><a href="classes/chillerlan-OAuthTest-Providers-ProviderUnitTestAbstract.html#method_setMockResponse">setMockResponse()</a></li>
                                             <li><a href="classes/chillerlan-OAuthTest-Providers-ProviderUnitTestAbstract.html#method_setReflectionProperty">setReflectionProperty()</a></li>
-                                            <li><a href="classes/chillerlan-OAuthTest-Providers-ProviderUnitTestAbstract.html#method_setUp">setUp()</a></li>
+                                            <li><a href="classes/chillerlan-OAuthTest-Providers-ProviderLiveTestAbstract.html#method_setUp">setUp()</a></li>
                                     </ul>
             </li>
                     </ul>

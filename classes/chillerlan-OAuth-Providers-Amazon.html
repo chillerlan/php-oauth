@@ -77,7 +77,7 @@
     Menu
 </label>
 <aside class="phpdocumentor-column -three phpdocumentor-sidebar">
-                    <section class="phpdocumentor-sidebar__category">
+                    <section class="phpdocumentor-sidebar__category -namespaces">
             <h2 class="phpdocumentor-sidebar__category-header">Namespaces</h2>
                                     <h4 class="phpdocumentor-sidebar__root-namespace">
     <a href="namespaces/chillerlan.html" class="">chillerlan</a>
@@ -94,7 +94,7 @@
             </ul>
 
                         </section>
-                <section class="phpdocumentor-sidebar__category">
+                <section class="phpdocumentor-sidebar__category -packages">
             <h2 class="phpdocumentor-sidebar__category-header">Packages</h2>
                                     <h4 class="phpdocumentor-sidebar__root-namespace">
     <a href="packages/Application.html" class="">Application</a>
@@ -102,14 +102,14 @@
 
                         </section>
             
-    <section class="phpdocumentor-sidebar__category">
+    <section class="phpdocumentor-sidebar__category -reports">
         <h2 class="phpdocumentor-sidebar__category-header">Reports</h2>
                 <h3 class="phpdocumentor-sidebar__root-package"><a href="reports/deprecated.html">Deprecated</a></h3>
         <h3 class="phpdocumentor-sidebar__root-package"><a href="reports/errors.html">Errors</a></h3>
         <h3 class="phpdocumentor-sidebar__root-package"><a href="reports/markers.html">Markers</a></h3>
     </section>
 
-    <section class="phpdocumentor-sidebar__category">
+    <section class="phpdocumentor-sidebar__category -indices">
         <h2 class="phpdocumentor-sidebar__category-header">Indices</h2>
         <h3 class="phpdocumentor-sidebar__root-package"><a href="indices/files.html">Files</a></h3>
     </section>
@@ -181,6 +181,8 @@
                     
                                     </dd>
                                             </dl>
+
+
 
 
 
@@ -437,6 +439,8 @@ if the provider implements the CSRFToken interface, and returns an AccessToken o
     <span>
                                 &nbsp;: <abbr title="\Psr\Http\Message\UriInterface">UriInterface</abbr>    </span>
 </dt>
+<dd>Prepares the URL with optional $params which redirects to the provider&#039;s authorization prompt
+and returns a PSR-7 UriInterface with all necessary parameters set.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
     <a href="classes/chillerlan-OAuth-Core-OAuth2Provider.html#method_getClientCredentialsToken">getClientCredentialsToken()</a>
@@ -462,6 +466,8 @@ if the provider implements the CSRFToken interface, and returns an AccessToken o
     <span>
                                 &nbsp;: <abbr title="\Psr\Http\Message\RequestInterface">RequestInterface</abbr>    </span>
 </dt>
+<dd>Authorizes the $request with the credentials from the given $token
+and returns a PSR-7 RequestInterface with all necessary headers and/or parameters set</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
     <a href="classes/chillerlan-OAuth-Core-OAuthProvider.html#method_getStorage">getStorage()</a>
@@ -478,13 +484,13 @@ if the provider implements the CSRFToken interface, and returns an AccessToken o
 <dd>Returns the link to the page where a user can revoke access tokens, or null if the value is not set</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a href="classes/chillerlan-OAuth-Core-OAuth2Provider.html#method_invalidateAccessToken">invalidateAccessToken()</a>
+    <a href="classes/chillerlan-OAuth-Core-OAuthProvider.html#method_InvalidateAccessToken">InvalidateAccessToken()</a>
     <span>
                                 &nbsp;: bool    </span>
 </dt>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a href="classes/chillerlan-OAuth-Core-OAuthProvider.html#method_InvalidateAccessToken">InvalidateAccessToken()</a>
+    <a href="classes/chillerlan-OAuth-Core-OAuth2Provider.html#method_invalidateAccessToken">invalidateAccessToken()</a>
     <span>
                                 &nbsp;: bool    </span>
 </dt>
@@ -750,7 +756,6 @@ anything except host and path will be ignored, scheme will always be set to &quo
 
 
 
-
         
     <section class="phpdocumentor-constants">
         <h3 class="phpdocumentor-elements__header" id="constants">
@@ -785,6 +790,8 @@ anything except host and path will be ignored, scheme will always be set to &quo
     
     
 
+    
+
 </article>
                     <article class="phpdocumentor-element -constant -public ">
     <h4 class="phpdocumentor-element__name" id="constant_IDENTIFIER">
@@ -811,6 +818,8 @@ anything except host and path will be ignored, scheme will always be set to &quo
 
     
     
+    
+
     
 
 </article>
@@ -841,6 +850,8 @@ anything except host and path will be ignored, scheme will always be set to &quo
     
     
 
+    
+
 </article>
                     <article class="phpdocumentor-element -constant -public ">
     <h4 class="phpdocumentor-element__name" id="constant_SCOPE_PROFILE">
@@ -869,6 +880,8 @@ anything except host and path will be ignored, scheme will always be set to &quo
     
     
 
+    
+
 </article>
                     <article class="phpdocumentor-element -constant -public ">
     <h4 class="phpdocumentor-element__name" id="constant_SCOPE_PROFILE_USER_ID">
@@ -895,6 +908,8 @@ anything except host and path will be ignored, scheme will always be set to &quo
 
     
     
+    
+
     
 
 </article>
@@ -939,6 +954,8 @@ anything except host and path will be ignored, scheme will always be set to &quo
     
     
 
+    
+
 </article>
                     <article
         class="
@@ -970,6 +987,8 @@ anything except host and path will be ignored, scheme will always be set to &quo
 
     
     
+    
+
     
 
 </article>
@@ -1005,6 +1024,8 @@ anything except host and path will be ignored, scheme will always be set to &quo
     
     
 
+    
+
 </article>
                     <article
         class="
@@ -1038,6 +1059,8 @@ anything except host and path will be ignored, scheme will always be set to &quo
     
     
 
+    
+
 </article>
                     <article
         class="
@@ -1069,6 +1092,8 @@ anything except host and path will be ignored, scheme will always be set to &quo
 
     
     
+    
+
     
 
 </article>
@@ -1123,6 +1148,8 @@ anything except host and path will be ignored, scheme will always be set to &quo
                                     </dd>
                                             </dl>
 
+    
+
 </article>
                     <article
         class="
@@ -1156,6 +1183,8 @@ anything except host and path will be ignored, scheme will always be set to &quo
 
     
     
+    
+
     
 
 </article>
@@ -1193,6 +1222,8 @@ anything except host and path will be ignored, scheme will always be set to &quo
     
     
 
+    
+
 </article>
                     <article
         class="
@@ -1228,6 +1259,8 @@ anything except host and path will be ignored, scheme will always be set to &quo
     
     
 
+    
+
 </article>
                     <article
         class="
@@ -1261,6 +1294,8 @@ anything except host and path will be ignored, scheme will always be set to &quo
 
     
     
+    
+
     
 
 </article>
@@ -1312,6 +1347,8 @@ anything except host and path will be ignored, scheme will always be set to &quo
                                              
                                     </dd>
                                             </dl>
+
+    
 
 </article>
                     <article
@@ -1365,6 +1402,8 @@ anything except host and path will be ignored, scheme will always be set to &quo
                                     </dd>
                                             </dl>
 
+    
+
 </article>
                     <article
         class="
@@ -1398,6 +1437,8 @@ anything except host and path will be ignored, scheme will always be set to &quo
 
     
     
+    
+
     
 
 </article>
@@ -1450,6 +1491,8 @@ anything except host and path will be ignored, scheme will always be set to &quo
                                     </dd>
                                             </dl>
 
+    
+
 </article>
                     <article
         class="
@@ -1483,6 +1526,8 @@ anything except host and path will be ignored, scheme will always be set to &quo
 
     
     
+    
+
     
 
 </article>
@@ -1520,6 +1565,8 @@ anything except host and path will be ignored, scheme will always be set to &quo
     
     
 
+    
+
 </article>
                     <article
         class="
@@ -1555,6 +1602,8 @@ anything except host and path will be ignored, scheme will always be set to &quo
     
     
 
+    
+
 </article>
                     <article
         class="
@@ -1588,6 +1637,8 @@ anything except host and path will be ignored, scheme will always be set to &quo
 
     
     
+    
+
     
 
 </article>
@@ -1683,6 +1734,8 @@ anything except host and path will be ignored, scheme will always be set to &quo
     
 
     
+
+    
 </article>
                     <article
         class="phpdocumentor-element
@@ -1757,6 +1810,8 @@ anything except host and path will be ignored, scheme will always be set to &quo
                                             </dl>
 
     
+
+    
 </article>
                     <article
         class="phpdocumentor-element
@@ -1828,6 +1883,8 @@ anything except host and path will be ignored, scheme will always be set to &quo
                                              
                                     </dd>
                                             </dl>
+
+    
 
             <section>
         <h5 class="phpdocumentor-return-value__heading">Return values</h5>
@@ -1926,6 +1983,8 @@ anything except host and path will be ignored, scheme will always be set to &quo
                                     </dd>
                                             </dl>
 
+    
+
             <section>
         <h5 class="phpdocumentor-return-value__heading">Return values</h5>
         <span class="phpdocumentor-signature__response_type">string</span>
@@ -1995,6 +2054,8 @@ if the provider implements the CSRFToken interface, and returns an AccessToken o
                                     </dd>
                                             </dl>
 
+    
+
             <section>
         <h5 class="phpdocumentor-return-value__heading">Return values</h5>
         <span class="phpdocumentor-signature__response_type"><a href="classes/chillerlan-OAuth-Core-AccessToken.html"><abbr title="\chillerlan\OAuth\Core\AccessToken">AccessToken</abbr></a></span>
@@ -2052,6 +2113,8 @@ if the provider implements the CSRFToken interface, and returns an AccessToken o
                                              
                                     </dd>
                                             </dl>
+
+    
 
             <section>
         <h5 class="phpdocumentor-return-value__heading">Return values</h5>
@@ -2111,6 +2174,8 @@ if the provider implements the CSRFToken interface, and returns an AccessToken o
                                     </dd>
                                             </dl>
 
+    
+
             <section>
         <h5 class="phpdocumentor-return-value__heading">Return values</h5>
         <span class="phpdocumentor-signature__response_type">string|null</span>
@@ -2169,6 +2234,8 @@ if the provider implements the CSRFToken interface, and returns an AccessToken o
                                     </dd>
                                             </dl>
 
+    
+
             <section>
         <h5 class="phpdocumentor-return-value__heading">Return values</h5>
         <span class="phpdocumentor-signature__response_type">string|null</span>
@@ -2194,7 +2261,9 @@ if the provider implements the CSRFToken interface, and returns an AccessToken o
             <a href="classes/chillerlan-OAuth-Providers-Amazon.html#source-view.61" class="phpdocumentor-element-found-in__source" data-line="61" data-modal="source-view" data-src="files/src/Core/OAuth2Provider.php.txt"></a>
     </aside>
 
-    
+        <p class="phpdocumentor-summary">Prepares the URL with optional $params which redirects to the provider&#039;s authorization prompt
+and returns a PSR-7 UriInterface with all necessary parameters set.</p>
+
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
                     <span class="phpdocumentor-signature__name">getAuthorizationURL</span><span>(</span><span class="phpdocumentor-signature__argument"><span>[</span><span class="phpdocumentor-signature__argument__return-type">array&lt;string|int, mixed&gt;|null&nbsp;</span><span class="phpdocumentor-signature__argument__name">$params</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">null</span><span> ]</span></span><span class="phpdocumentor-signature__argument"><span>[</span><span>, </span><span class="phpdocumentor-signature__argument__return-type">array&lt;string|int, mixed&gt;|null&nbsp;</span><span class="phpdocumentor-signature__argument__name">$scopes</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">null</span><span> ]</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type"><abbr title="\Psr\Http\Message\UriInterface">UriInterface</abbr></span></code>
@@ -2235,6 +2304,8 @@ if the provider implements the CSRFToken interface, and returns an AccessToken o
                                              
                                     </dd>
                                             </dl>
+
+    
 
             <section>
         <h5 class="phpdocumentor-return-value__heading">Return values</h5>
@@ -2306,6 +2377,8 @@ if the provider implements the CSRFToken interface, and returns an AccessToken o
                                     </dd>
                                             </dl>
 
+    
+
             <section>
         <h5 class="phpdocumentor-return-value__heading">Return values</h5>
         <span class="phpdocumentor-signature__response_type"><a href="classes/chillerlan-OAuth-Core-AccessToken.html"><abbr title="\chillerlan\OAuth\Core\AccessToken">AccessToken</abbr></a></span>
@@ -2363,6 +2436,8 @@ if the provider implements the CSRFToken interface, and returns an AccessToken o
                                              
                                     </dd>
                                             </dl>
+
+    
 
             <section>
         <h5 class="phpdocumentor-return-value__heading">Return values</h5>
@@ -2434,6 +2509,8 @@ if the provider implements the CSRFToken interface, and returns an AccessToken o
                                     </dd>
                                             </dl>
 
+    
+
             <section>
         <h5 class="phpdocumentor-return-value__heading">Return values</h5>
         <span class="phpdocumentor-signature__response_type"><abbr title="\Psr\Http\Message\UriInterface">UriInterface</abbr></span>
@@ -2459,7 +2536,9 @@ if the provider implements the CSRFToken interface, and returns an AccessToken o
             <a href="classes/chillerlan-OAuth-Providers-Amazon.html#source-view.262" class="phpdocumentor-element-found-in__source" data-line="262" data-modal="source-view" data-src="files/src/Core/OAuth2Provider.php.txt"></a>
     </aside>
 
-    
+        <p class="phpdocumentor-summary">Authorizes the $request with the credentials from the given $token
+and returns a PSR-7 RequestInterface with all necessary headers and/or parameters set</p>
+
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
                     <span class="phpdocumentor-signature__name">getRequestAuthorization</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type"><abbr title="\Psr\Http\Message\RequestInterface">RequestInterface</abbr>&nbsp;</span><span class="phpdocumentor-signature__argument__name">$request</span></span><span class="phpdocumentor-signature__argument"><span>[</span><span>, </span><span class="phpdocumentor-signature__argument__return-type"><a href="classes/chillerlan-OAuth-Core-AccessToken.html"><abbr title="\chillerlan\OAuth\Core\AccessToken">AccessToken</abbr></a>|null&nbsp;</span><span class="phpdocumentor-signature__argument__name">$token</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">null</span><span> ]</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type"><abbr title="\Psr\Http\Message\RequestInterface">RequestInterface</abbr></span></code>
@@ -2500,6 +2579,8 @@ if the provider implements the CSRFToken interface, and returns an AccessToken o
                                              
                                     </dd>
                                             </dl>
+
+    
 
             <section>
         <h5 class="phpdocumentor-return-value__heading">Return values</h5>
@@ -2559,6 +2640,8 @@ if the provider implements the CSRFToken interface, and returns an AccessToken o
                                     </dd>
                                             </dl>
 
+    
+
             <section>
         <h5 class="phpdocumentor-return-value__heading">Return values</h5>
         <span class="phpdocumentor-signature__response_type"><a href="classes/chillerlan-OAuth-Storage-OAuthStorageInterface.html"><abbr title="\chillerlan\OAuth\Storage\OAuthStorageInterface">OAuthStorageInterface</abbr></a></span>
@@ -2617,86 +2700,11 @@ if the provider implements the CSRFToken interface, and returns an AccessToken o
                                     </dd>
                                             </dl>
 
+    
+
             <section>
         <h5 class="phpdocumentor-return-value__heading">Return values</h5>
         <span class="phpdocumentor-signature__response_type">string|null</span>
-            </section>
-
-</article>
-                    <article
-        class="phpdocumentor-element
-            -method
-            -public
-                                                        "
->
-    <h4 class="phpdocumentor-element__name" id="method_invalidateAccessToken">
-        invalidateAccessToken()
-        <a href="classes/chillerlan-OAuth-Core-OAuth2Provider.html#method_invalidateAccessToken" class="headerlink"><i class="fas fa-link"></i></a>
-
-    </h4>
-    <aside class="phpdocumentor-element-found-in">
-    <abbr class="phpdocumentor-element-found-in__file" title="src/Core/OAuth2Provider.php"><a href="files/src-core-oauth2provider.html"><abbr title="src/Core/OAuth2Provider.php">OAuth2Provider.php</abbr></a></abbr>
-    :
-    <span class="phpdocumentor-element-found-in__line">419</span>
-
-            <a href="classes/chillerlan-OAuth-Providers-Amazon.html#source-view.419" class="phpdocumentor-element-found-in__source" data-line="419" data-modal="source-view" data-src="files/src/Core/OAuth2Provider.php.txt"></a>
-    </aside>
-
-    
-    <code class="phpdocumentor-code phpdocumentor-signature ">
-    <span class="phpdocumentor-signature__visibility">public</span>
-                    <span class="phpdocumentor-signature__name">invalidateAccessToken</span><span>(</span><span class="phpdocumentor-signature__argument"><span>[</span><span class="phpdocumentor-signature__argument__return-type"><a href="classes/chillerlan-OAuth-Core-AccessToken.html"><abbr title="\chillerlan\OAuth\Core\AccessToken">AccessToken</abbr></a>&nbsp;</span><span class="phpdocumentor-signature__argument__name">$token</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">null</span><span> ]</span></span><span class="phpdocumentor-signature__argument"><span>[</span><span>, </span><span class="phpdocumentor-signature__argument__return-type">string|null&nbsp;</span><span class="phpdocumentor-signature__argument__name">$type</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">null</span><span> ]</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">bool</span></code>
-
-    <div class="phpdocumentor-label-line">
-        </div>
-    
-        <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
-    <dl class="phpdocumentor-argument-list">
-                    <dt class="phpdocumentor-argument-list__entry">
-                <span class="phpdocumentor-signature__argument__name">$token</span>
-                : <span class="phpdocumentor-signature__argument__return-type"><a href="classes/chillerlan-OAuth-Core-AccessToken.html"><abbr title="\chillerlan\OAuth\Core\AccessToken">AccessToken</abbr></a></span>
-                 = <span class="phpdocumentor-signature__argument__default-value">null</span>            </dt>
-            <dd class="phpdocumentor-argument-list__definition">
-                
-            </dd>
-                    <dt class="phpdocumentor-argument-list__entry">
-                <span class="phpdocumentor-signature__argument__name">$type</span>
-                : <span class="phpdocumentor-signature__argument__return-type">string|null</span>
-                 = <span class="phpdocumentor-signature__argument__default-value">null</span>            </dt>
-            <dd class="phpdocumentor-argument-list__definition">
-                
-            </dd>
-            </dl>
-
-    
-    <h5 class="phpdocumentor-tag-list__heading" id="tags">
-        Tags
-        <a href="classes/chillerlan-OAuth-Core-OAuth2Provider.html#method_invalidateAccessToken#tags" class="headerlink"><i class="fas fa-link"></i></a>
-
-    </h5>
-    <dl class="phpdocumentor-tag-list">
-                                    <dt class="phpdocumentor-tag-list__entry">
-                    <span class="phpdocumentor-tag__name">implements</span>
-                </dt>
-                <dd class="phpdocumentor-tag-list__definition">
-                                                                                
-                                                 <section class="phpdocumentor-description"><p>\chillerlan\OAuth\Core\TokenInvalidate::invalidateAccessToken()</p>
-</section>
-
-                                    </dd>
-                                                <dt class="phpdocumentor-tag-list__entry">
-                    <span class="phpdocumentor-tag__name">throws</span>
-                </dt>
-                <dd class="phpdocumentor-tag-list__definition">
-                                                                <span class="phpdocumentor-tag-link"><a href="classes/chillerlan-OAuth-Providers-ProviderException.html"><abbr title="\chillerlan\OAuth\Providers\ProviderException">ProviderException</abbr></a></span>
-                                                            
-                                             
-                                    </dd>
-                                            </dl>
-
-            <section>
-        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
-        <span class="phpdocumentor-signature__response_type">bool</span>
             </section>
 
 </article>
@@ -2771,6 +2779,87 @@ if the provider implements the CSRFToken interface, and returns an AccessToken o
                                     </dd>
                                             </dl>
 
+    
+
+            <section>
+        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
+        <span class="phpdocumentor-signature__response_type">bool</span>
+            </section>
+
+</article>
+                    <article
+        class="phpdocumentor-element
+            -method
+            -public
+                                                        "
+>
+    <h4 class="phpdocumentor-element__name" id="method_invalidateAccessToken">
+        invalidateAccessToken()
+        <a href="classes/chillerlan-OAuth-Core-OAuth2Provider.html#method_invalidateAccessToken" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h4>
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/Core/OAuth2Provider.php"><a href="files/src-core-oauth2provider.html"><abbr title="src/Core/OAuth2Provider.php">OAuth2Provider.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">419</span>
+
+            <a href="classes/chillerlan-OAuth-Providers-Amazon.html#source-view.419" class="phpdocumentor-element-found-in__source" data-line="419" data-modal="source-view" data-src="files/src/Core/OAuth2Provider.php.txt"></a>
+    </aside>
+
+    
+    <code class="phpdocumentor-code phpdocumentor-signature ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+                    <span class="phpdocumentor-signature__name">invalidateAccessToken</span><span>(</span><span class="phpdocumentor-signature__argument"><span>[</span><span class="phpdocumentor-signature__argument__return-type"><a href="classes/chillerlan-OAuth-Core-AccessToken.html"><abbr title="\chillerlan\OAuth\Core\AccessToken">AccessToken</abbr></a>&nbsp;</span><span class="phpdocumentor-signature__argument__name">$token</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">null</span><span> ]</span></span><span class="phpdocumentor-signature__argument"><span>[</span><span>, </span><span class="phpdocumentor-signature__argument__return-type">string|null&nbsp;</span><span class="phpdocumentor-signature__argument__name">$type</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">null</span><span> ]</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">bool</span></code>
+
+    <div class="phpdocumentor-label-line">
+        </div>
+    
+        <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
+    <dl class="phpdocumentor-argument-list">
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-signature__argument__name">$token</span>
+                : <span class="phpdocumentor-signature__argument__return-type"><a href="classes/chillerlan-OAuth-Core-AccessToken.html"><abbr title="\chillerlan\OAuth\Core\AccessToken">AccessToken</abbr></a></span>
+                 = <span class="phpdocumentor-signature__argument__default-value">null</span>            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                
+            </dd>
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-signature__argument__name">$type</span>
+                : <span class="phpdocumentor-signature__argument__return-type">string|null</span>
+                 = <span class="phpdocumentor-signature__argument__default-value">null</span>            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                
+            </dd>
+            </dl>
+
+    
+    <h5 class="phpdocumentor-tag-list__heading" id="tags">
+        Tags
+        <a href="classes/chillerlan-OAuth-Core-OAuth2Provider.html#method_invalidateAccessToken#tags" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h5>
+    <dl class="phpdocumentor-tag-list">
+                                    <dt class="phpdocumentor-tag-list__entry">
+                    <span class="phpdocumentor-tag__name">implements</span>
+                </dt>
+                <dd class="phpdocumentor-tag-list__definition">
+                                                                                
+                                                 <section class="phpdocumentor-description"><p>\chillerlan\OAuth\Core\TokenInvalidate::invalidateAccessToken()</p>
+</section>
+
+                                    </dd>
+                                                <dt class="phpdocumentor-tag-list__entry">
+                    <span class="phpdocumentor-tag__name">throws</span>
+                </dt>
+                <dd class="phpdocumentor-tag-list__definition">
+                                                                <span class="phpdocumentor-tag-link"><a href="classes/chillerlan-OAuth-Providers-ProviderException.html"><abbr title="\chillerlan\OAuth\Providers\ProviderException">ProviderException</abbr></a></span>
+                                                            
+                                             
+                                    </dd>
+                                            </dl>
+
+    
+
             <section>
         <h5 class="phpdocumentor-return-value__heading">Return values</h5>
         <span class="phpdocumentor-signature__response_type">bool</span>
@@ -2827,6 +2916,8 @@ if the provider implements the CSRFToken interface, and returns an AccessToken o
                                              
                                     </dd>
                                             </dl>
+
+    
 
             <section>
         <h5 class="phpdocumentor-return-value__heading">Return values</h5>
@@ -2897,6 +2988,8 @@ if the provider implements the CSRFToken interface, and returns an AccessToken o
                                              
                                     </dd>
                                             </dl>
+
+    
 
             <section>
         <h5 class="phpdocumentor-return-value__heading">Return values</h5>
@@ -3003,6 +3096,8 @@ and returns a PSR-7 ResponseInterface with the corresponding API response</p>
                                     </dd>
                                             </dl>
 
+    
+
             <section>
         <h5 class="phpdocumentor-return-value__heading">Return values</h5>
         <span class="phpdocumentor-signature__response_type"><abbr title="\Psr\Http\Message\ResponseInterface">ResponseInterface</abbr></span>
@@ -3070,6 +3165,8 @@ and returns a PSR-7 ResponseInterface with the corresponding API response</p>
                                              
                                     </dd>
                                             </dl>
+
+    
 
             <section>
         <h5 class="phpdocumentor-return-value__heading">Return values</h5>
@@ -3148,6 +3245,8 @@ and returns a PSR-7 ResponseInterface with the corresponding API response</p>
                                     </dd>
                                             </dl>
 
+    
+
             <section>
         <h5 class="phpdocumentor-return-value__heading">Return values</h5>
         <span class="phpdocumentor-signature__response_type">array&lt;string|int, mixed&gt;</span>
@@ -3218,6 +3317,8 @@ and returns a PSR-7 ResponseInterface with the corresponding API response</p>
                                     </dd>
                                             </dl>
 
+    
+
             <section>
         <h5 class="phpdocumentor-return-value__heading">Return values</h5>
         <span class="phpdocumentor-signature__response_type">array&lt;string|int, mixed&gt;</span>
@@ -3286,6 +3387,8 @@ and returns a PSR-7 ResponseInterface with the corresponding API response</p>
                                     </dd>
                                             </dl>
 
+    
+
             <section>
         <h5 class="phpdocumentor-return-value__heading">Return values</h5>
         <span class="phpdocumentor-signature__response_type">static</span>
@@ -3353,6 +3456,8 @@ and returns a PSR-7 ResponseInterface with the corresponding API response</p>
                                              
                                     </dd>
                                             </dl>
+
+    
 
             <section>
         <h5 class="phpdocumentor-return-value__heading">Return values</h5>
@@ -3432,6 +3537,8 @@ and returns a PSR-7 ResponseInterface with the corresponding API response</p>
                                     </dd>
                                             </dl>
 
+    
+
             <section>
         <h5 class="phpdocumentor-return-value__heading">Return values</h5>
         <span class="phpdocumentor-signature__response_type">array&lt;string|int, mixed&gt;</span>
@@ -3499,6 +3606,8 @@ and returns a PSR-7 ResponseInterface with the corresponding API response</p>
                                              
                                     </dd>
                                             </dl>
+
+    
 
             <section>
         <h5 class="phpdocumentor-return-value__heading">Return values</h5>
@@ -3568,6 +3677,8 @@ and returns a PSR-7 ResponseInterface with the corresponding API response</p>
                                     </dd>
                                             </dl>
 
+    
+
             <section>
         <h5 class="phpdocumentor-return-value__heading">Return values</h5>
         <span class="phpdocumentor-signature__response_type">static</span>
@@ -3635,6 +3746,8 @@ and returns a PSR-7 ResponseInterface with the corresponding API response</p>
                                              
                                     </dd>
                                             </dl>
+
+    
 
             <section>
         <h5 class="phpdocumentor-return-value__heading">Return values</h5>
@@ -3704,6 +3817,8 @@ and returns a PSR-7 ResponseInterface with the corresponding API response</p>
                                     </dd>
                                             </dl>
 
+    
+
             <section>
         <h5 class="phpdocumentor-return-value__heading">Return values</h5>
         <span class="phpdocumentor-signature__response_type">static</span>
@@ -3748,6 +3863,8 @@ and returns a PSR-7 ResponseInterface with the corresponding API response</p>
                 
             </dd>
             </dl>
+
+    
 
     
 
@@ -3798,6 +3915,8 @@ and returns a PSR-7 ResponseInterface with the corresponding API response</p>
 
     
 
+    
+
             <section>
         <h5 class="phpdocumentor-return-value__heading">Return values</h5>
         <span class="phpdocumentor-signature__response_type">array&lt;string|int, mixed&gt;</span>
@@ -3845,6 +3964,8 @@ and returns a PSR-7 ResponseInterface with the corresponding API response</p>
 
     
 
+    
+
             <section>
         <h5 class="phpdocumentor-return-value__heading">Return values</h5>
         <span class="phpdocumentor-signature__response_type">array&lt;string|int, mixed&gt;</span>
@@ -3881,6 +4002,8 @@ so that you don&#039;t have to implement the monstrous original `__construct()`<
         </div>
     
     
+    
+
     
 
     
@@ -3929,6 +4052,8 @@ so that you don&#039;t have to implement the monstrous original `__construct()`<
                                              
                                     </dd>
                                             </dl>
+
+    
 
             <section>
         <h5 class="phpdocumentor-return-value__heading">Return values</h5>
@@ -3991,6 +4116,8 @@ so that you don&#039;t have to implement the monstrous original `__construct()`<
                                              
                                     </dd>
                                             </dl>
+
+    
 
             <section>
         <h5 class="phpdocumentor-return-value__heading">Return values</h5>
@@ -4061,6 +4188,8 @@ so that you don&#039;t have to implement the monstrous original `__construct()`<
                                     </dd>
                                             </dl>
 
+    
+
             <section>
         <h5 class="phpdocumentor-return-value__heading">Return values</h5>
         <span class="phpdocumentor-signature__response_type">array&lt;string|int, mixed&gt;</span>
@@ -4122,6 +4251,8 @@ so that you don&#039;t have to implement the monstrous original `__construct()`<
                                              
                                     </dd>
                                             </dl>
+
+    
 
             <section>
         <h5 class="phpdocumentor-return-value__heading">Return values</h5>
@@ -4191,6 +4322,8 @@ so that you don&#039;t have to implement the monstrous original `__construct()`<
                                              
                                     </dd>
                                             </dl>
+
+    
 
             <section>
         <h5 class="phpdocumentor-return-value__heading">Return values</h5>
@@ -4285,6 +4418,8 @@ so that you don&#039;t have to implement the monstrous original `__construct()`<
                                     </dd>
                                             </dl>
 
+    
+
             <section>
         <h5 class="phpdocumentor-return-value__heading">Return values</h5>
         <span class="phpdocumentor-signature__response_type">array&lt;string|int, mixed&gt;</span>
@@ -4354,6 +4489,8 @@ so that you don&#039;t have to implement the monstrous original `__construct()`<
                                     </dd>
                                             </dl>
 
+    
+
             <section>
         <h5 class="phpdocumentor-return-value__heading">Return values</h5>
         <span class="phpdocumentor-signature__response_type">array&lt;string|int, mixed&gt;</span>
@@ -4416,6 +4553,8 @@ so that you don&#039;t have to implement the monstrous original `__construct()`<
                                     </dd>
                                             </dl>
 
+    
+
             <section>
         <h5 class="phpdocumentor-return-value__heading">Return values</h5>
         <span class="phpdocumentor-signature__response_type">array&lt;string|int, mixed&gt;</span>
@@ -4460,6 +4599,8 @@ so that you don&#039;t have to implement the monstrous original `__construct()`<
                 
             </dd>
             </dl>
+
+    
 
     
 
@@ -4536,6 +4677,8 @@ anything except host and path will be ignored, scheme will always be set to &quo
                                     </dd>
                                             </dl>
 
+    
+
             <section>
         <h5 class="phpdocumentor-return-value__heading">Return values</h5>
         <span class="phpdocumentor-signature__response_type">string</span>
@@ -4587,6 +4730,8 @@ anything except host and path will be ignored, scheme will always be set to &quo
                 
             </dd>
             </dl>
+
+    
 
     
 
@@ -4668,6 +4813,8 @@ the spec mandates a JSON body which is what almost all providers send - weird ex
                                     </dd>
                                             </dl>
 
+    
+
             <section>
         <h5 class="phpdocumentor-return-value__heading">Return values</h5>
         <span class="phpdocumentor-signature__response_type">array&lt;string|int, mixed&gt;</span>
@@ -4733,6 +4880,8 @@ the spec mandates a JSON body which is what almost all providers send - weird ex
                                             </dl>
 
     
+
+    
 </article>
                     <article
         class="phpdocumentor-element
@@ -4795,6 +4944,8 @@ the spec mandates a JSON body which is what almost all providers send - weird ex
                     
                                     </dd>
                                             </dl>
+
+    
 
             <section>
         <h5 class="phpdocumentor-return-value__heading">Return values</h5>
@@ -4896,6 +5047,8 @@ the spec mandates a JSON body which is what almost all providers send - weird ex
                                     </dd>
                                             </dl>
 
+    
+
             <section>
         <h5 class="phpdocumentor-return-value__heading">Return values</h5>
         <span class="phpdocumentor-signature__response_type"><a href="classes/chillerlan-OAuth-Core-AccessToken.html"><abbr title="\chillerlan\OAuth\Core\AccessToken">AccessToken</abbr></a></span>
@@ -4981,6 +5134,8 @@ the spec mandates a JSON body which is what almost all providers send - weird ex
                                     </dd>
                                             </dl>
 
+    
+
             <section>
         <h5 class="phpdocumentor-return-value__heading">Return values</h5>
         <span class="phpdocumentor-signature__response_type"><abbr title="\Psr\Http\Message\ResponseInterface">ResponseInterface</abbr></span>
@@ -5050,6 +5205,8 @@ the spec mandates a JSON body which is what almost all providers send - weird ex
                                     </dd>
                                             </dl>
 
+    
+
             <section>
         <h5 class="phpdocumentor-return-value__heading">Return values</h5>
         <span class="phpdocumentor-signature__response_type"><abbr title="\Psr\Http\Message\ResponseInterface">ResponseInterface</abbr></span>
@@ -5101,6 +5258,8 @@ the spec mandates a JSON body which is what almost all providers send - weird ex
                 
             </dd>
             </dl>
+
+    
 
     
 
@@ -5173,6 +5332,8 @@ the spec mandates a JSON body which is what almost all providers send - weird ex
                                     </dd>
                                             </dl>
 
+    
+
             <section>
         <h5 class="phpdocumentor-return-value__heading">Return values</h5>
         <span class="phpdocumentor-signature__response_type"><abbr title="\Psr\Http\Message\ResponseInterface">ResponseInterface</abbr></span>
@@ -5241,6 +5402,8 @@ the spec mandates a JSON body which is what almost all providers send - weird ex
                                              
                                     </dd>
                                             </dl>
+
+    
 
             <section>
         <h5 class="phpdocumentor-return-value__heading">Return values</h5>
@@ -5411,8 +5574,8 @@ the spec mandates a JSON body which is what almost all providers send - weird ex
                                             <li><a href="classes/chillerlan-OAuth-Core-OAuth2Provider.html#method_getRequestAuthorization">getRequestAuthorization()</a></li>
                                             <li><a href="classes/chillerlan-OAuth-Core-OAuthProvider.html#method_getStorage">getStorage()</a></li>
                                             <li><a href="classes/chillerlan-OAuth-Core-OAuthProvider.html#method_getUserRevokeURL">getUserRevokeURL()</a></li>
-                                            <li><a href="classes/chillerlan-OAuth-Core-OAuth2Provider.html#method_invalidateAccessToken">invalidateAccessToken()</a></li>
                                             <li><a href="classes/chillerlan-OAuth-Core-OAuthProvider.html#method_InvalidateAccessToken">InvalidateAccessToken()</a></li>
+                                            <li><a href="classes/chillerlan-OAuth-Core-OAuth2Provider.html#method_invalidateAccessToken">invalidateAccessToken()</a></li>
                                             <li><a href="classes/chillerlan-OAuth-Providers-Amazon.html#method_me">me()</a></li>
                                             <li><a href="classes/chillerlan-OAuth-Core-OAuth2Provider.html#method_refreshAccessToken">refreshAccessToken()</a></li>
                                             <li><a href="classes/chillerlan-OAuth-Core-OAuthProvider.html#method_request">request()</a></li>

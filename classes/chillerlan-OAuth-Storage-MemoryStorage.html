@@ -77,7 +77,7 @@
     Menu
 </label>
 <aside class="phpdocumentor-column -three phpdocumentor-sidebar">
-                    <section class="phpdocumentor-sidebar__category">
+                    <section class="phpdocumentor-sidebar__category -namespaces">
             <h2 class="phpdocumentor-sidebar__category-header">Namespaces</h2>
                                     <h4 class="phpdocumentor-sidebar__root-namespace">
     <a href="namespaces/chillerlan.html" class="">chillerlan</a>
@@ -94,7 +94,7 @@
             </ul>
 
                         </section>
-                <section class="phpdocumentor-sidebar__category">
+                <section class="phpdocumentor-sidebar__category -packages">
             <h2 class="phpdocumentor-sidebar__category-header">Packages</h2>
                                     <h4 class="phpdocumentor-sidebar__root-namespace">
     <a href="packages/Application.html" class="">Application</a>
@@ -102,14 +102,14 @@
 
                         </section>
             
-    <section class="phpdocumentor-sidebar__category">
+    <section class="phpdocumentor-sidebar__category -reports">
         <h2 class="phpdocumentor-sidebar__category-header">Reports</h2>
                 <h3 class="phpdocumentor-sidebar__root-package"><a href="reports/deprecated.html">Deprecated</a></h3>
         <h3 class="phpdocumentor-sidebar__root-package"><a href="reports/errors.html">Errors</a></h3>
         <h3 class="phpdocumentor-sidebar__root-package"><a href="reports/markers.html">Markers</a></h3>
     </section>
 
-    <section class="phpdocumentor-sidebar__category">
+    <section class="phpdocumentor-sidebar__category -indices">
         <h2 class="phpdocumentor-sidebar__category-header">Indices</h2>
         <h3 class="phpdocumentor-sidebar__root-package"><a href="indices/files.html">Files</a></h3>
     </section>
@@ -157,6 +157,8 @@
 
     <section class="phpdocumentor-description"><p>Note: the memory storage is not persistent, as tokens are only stored during script runtime.</p>
 </section>
+
+
 
 
 
@@ -255,36 +257,42 @@
     <span>
                                 &nbsp;: static    </span>
 </dt>
+<dd>Deletes the access token for a given $provider (and current user)</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
     <a href="classes/chillerlan-OAuth-Storage-MemoryStorage.html#method_clearAllAccessTokens">clearAllAccessTokens()</a>
     <span>
                                 &nbsp;: static    </span>
 </dt>
+<dd>Deletes all access tokens (for the current user)</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
     <a href="classes/chillerlan-OAuth-Storage-MemoryStorage.html#method_clearAllCodeVerifiers">clearAllCodeVerifiers()</a>
     <span>
                                 &nbsp;: static    </span>
 </dt>
+<dd>Deletes all PKCE verifiers for this user</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
     <a href="classes/chillerlan-OAuth-Storage-MemoryStorage.html#method_clearAllCSRFStates">clearAllCSRFStates()</a>
     <span>
                                 &nbsp;: static    </span>
 </dt>
+<dd>Deletes all stored CSRF states (for the current user)</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
     <a href="classes/chillerlan-OAuth-Storage-MemoryStorage.html#method_clearCodeVerifier">clearCodeVerifier()</a>
     <span>
                                 &nbsp;: static    </span>
 </dt>
+<dd>Deletes a PKCE verifier</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
     <a href="classes/chillerlan-OAuth-Storage-MemoryStorage.html#method_clearCSRFState">clearCSRFState()</a>
     <span>
                                 &nbsp;: static    </span>
 </dt>
+<dd>Deletes a CSRF state for the given $provider (and current user)</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
     <a href="classes/chillerlan-OAuth-Storage-OAuthStorageAbstract.html#method_fromStorage">fromStorage()</a>
@@ -298,36 +306,42 @@
     <span>
                                 &nbsp;: <a href="classes/chillerlan-OAuth-Core-AccessToken.html"><abbr title="\chillerlan\OAuth\Core\AccessToken">AccessToken</abbr></a>    </span>
 </dt>
+<dd>Retrieves an AccessToken for the given $provider</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
     <a href="classes/chillerlan-OAuth-Storage-MemoryStorage.html#method_getCodeVerifier">getCodeVerifier()</a>
     <span>
                                 &nbsp;: string    </span>
 </dt>
+<dd>Retrieves a PKCE verifier</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
     <a href="classes/chillerlan-OAuth-Storage-MemoryStorage.html#method_getCSRFState">getCSRFState()</a>
     <span>
                                 &nbsp;: string    </span>
 </dt>
+<dd>Retrieves a CSRF &lt;state&gt; value for the given $provider</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
     <a href="classes/chillerlan-OAuth-Storage-MemoryStorage.html#method_hasAccessToken">hasAccessToken()</a>
     <span>
                                 &nbsp;: bool    </span>
 </dt>
+<dd>Checks if a token for $provider exists</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
     <a href="classes/chillerlan-OAuth-Storage-MemoryStorage.html#method_hasCodeVerifier">hasCodeVerifier()</a>
     <span>
                                 &nbsp;: bool    </span>
 </dt>
+<dd>Checks whether a PKCE verifier exists</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
     <a href="classes/chillerlan-OAuth-Storage-MemoryStorage.html#method_hasCSRFState">hasCSRFState()</a>
     <span>
                                 &nbsp;: bool    </span>
 </dt>
+<dd>Checks if a CSRF state for the given provider exists</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
     <a href="classes/chillerlan-OAuth-Storage-OAuthStorageAbstract.html#method_setLogger">setLogger()</a>
@@ -341,18 +355,21 @@
     <span>
                                 &nbsp;: static    </span>
 </dt>
+<dd>Stores an AccessToken for the given $provider</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
     <a href="classes/chillerlan-OAuth-Storage-MemoryStorage.html#method_storeCodeVerifier">storeCodeVerifier()</a>
     <span>
                                 &nbsp;: static    </span>
 </dt>
+<dd>Stores a PKCE verifier</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
     <a href="classes/chillerlan-OAuth-Storage-MemoryStorage.html#method_storeCSRFState">storeCSRFState()</a>
     <span>
                                 &nbsp;: static    </span>
 </dt>
+<dd>Stores a CSRF &lt;state&gt; value for the given $provider</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
     <a href="classes/chillerlan-OAuth-Storage-OAuthStorageAbstract.html#method_toStorage">toStorage()</a>
@@ -384,7 +401,6 @@ and returns a value that is suited for the underlying storage engine</dd>
 <dd>Gets the current provider name</dd>
 
     </dl>
-
 
 
 
@@ -423,6 +439,8 @@ and returns a value that is suited for the underlying storage engine</dd>
     
     
 
+    
+
 </article>
                     <article class="phpdocumentor-element -constant -protected ">
     <h4 class="phpdocumentor-element__name" id="constant_KEY_STATE">
@@ -449,6 +467,8 @@ and returns a value that is suited for the underlying storage engine</dd>
 
     
     
+    
+
     
 
 </article>
@@ -479,6 +499,8 @@ and returns a value that is suited for the underlying storage engine</dd>
     
     
 
+    
+
 </article>
                     <article class="phpdocumentor-element -constant -protected ">
     <h4 class="phpdocumentor-element__name" id="constant_KEY_VERIFIER">
@@ -505,6 +527,8 @@ and returns a value that is suited for the underlying storage engine</dd>
 
     
     
+    
+
     
 
 </article>
@@ -550,6 +574,8 @@ and returns a value that is suited for the underlying storage engine</dd>
     
     
 
+    
+
 </article>
                     <article
         class="
@@ -584,6 +610,8 @@ and returns a value that is suited for the underlying storage engine</dd>
     
     
 
+    
+
 </article>
                     <article
         class="
@@ -616,6 +644,8 @@ and returns a value that is suited for the underlying storage engine</dd>
 
     
     
+    
+
     
 
 </article>
@@ -675,6 +705,8 @@ and returns a value that is suited for the underlying storage engine</dd>
     
 
     
+
+    
 </article>
                     <article
         class="phpdocumentor-element
@@ -694,7 +726,8 @@ and returns a value that is suited for the underlying storage engine</dd>
 
     </aside>
 
-    
+        <p class="phpdocumentor-summary">Deletes the access token for a given $provider (and current user)</p>
+
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
                     <span class="phpdocumentor-signature__name">clearAccessToken</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$provider</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">static</span></code>
@@ -729,6 +762,8 @@ and returns a value that is suited for the underlying storage engine</dd>
                                     </dd>
                                             </dl>
 
+    
+
             <section>
         <h5 class="phpdocumentor-return-value__heading">Return values</h5>
         <span class="phpdocumentor-signature__response_type">static</span>
@@ -753,7 +788,8 @@ and returns a value that is suited for the underlying storage engine</dd>
 
     </aside>
 
-    
+        <p class="phpdocumentor-summary">Deletes all access tokens (for the current user)</p>
+
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
                     <span class="phpdocumentor-signature__name">clearAllAccessTokens</span><span>(</span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">static</span></code>
@@ -777,6 +813,8 @@ and returns a value that is suited for the underlying storage engine</dd>
                                              
                                     </dd>
                                             </dl>
+
+    
 
             <section>
         <h5 class="phpdocumentor-return-value__heading">Return values</h5>
@@ -802,7 +840,8 @@ and returns a value that is suited for the underlying storage engine</dd>
 
     </aside>
 
-    
+        <p class="phpdocumentor-summary">Deletes all PKCE verifiers for this user</p>
+
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
                     <span class="phpdocumentor-signature__name">clearAllCodeVerifiers</span><span>(</span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">static</span></code>
@@ -826,6 +865,8 @@ and returns a value that is suited for the underlying storage engine</dd>
                                              
                                     </dd>
                                             </dl>
+
+    
 
             <section>
         <h5 class="phpdocumentor-return-value__heading">Return values</h5>
@@ -851,7 +892,8 @@ and returns a value that is suited for the underlying storage engine</dd>
 
     </aside>
 
-    
+        <p class="phpdocumentor-summary">Deletes all stored CSRF states (for the current user)</p>
+
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
                     <span class="phpdocumentor-signature__name">clearAllCSRFStates</span><span>(</span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">static</span></code>
@@ -875,6 +917,8 @@ and returns a value that is suited for the underlying storage engine</dd>
                                              
                                     </dd>
                                             </dl>
+
+    
 
             <section>
         <h5 class="phpdocumentor-return-value__heading">Return values</h5>
@@ -900,7 +944,8 @@ and returns a value that is suited for the underlying storage engine</dd>
 
     </aside>
 
-    
+        <p class="phpdocumentor-summary">Deletes a PKCE verifier</p>
+
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
                     <span class="phpdocumentor-signature__name">clearCodeVerifier</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$provider</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">static</span></code>
@@ -935,6 +980,8 @@ and returns a value that is suited for the underlying storage engine</dd>
                                     </dd>
                                             </dl>
 
+    
+
             <section>
         <h5 class="phpdocumentor-return-value__heading">Return values</h5>
         <span class="phpdocumentor-signature__response_type">static</span>
@@ -959,7 +1006,8 @@ and returns a value that is suited for the underlying storage engine</dd>
 
     </aside>
 
-    
+        <p class="phpdocumentor-summary">Deletes a CSRF state for the given $provider (and current user)</p>
+
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
                     <span class="phpdocumentor-signature__name">clearCSRFState</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$provider</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">static</span></code>
@@ -993,6 +1041,8 @@ and returns a value that is suited for the underlying storage engine</dd>
                                              
                                     </dd>
                                             </dl>
+
+    
 
             <section>
         <h5 class="phpdocumentor-return-value__heading">Return values</h5>
@@ -1054,6 +1104,8 @@ and returns a value that is suited for the underlying storage engine</dd>
                                     </dd>
                                             </dl>
 
+    
+
             <section>
         <h5 class="phpdocumentor-return-value__heading">Return values</h5>
         <span class="phpdocumentor-signature__response_type"><a href="classes/chillerlan-OAuth-Core-AccessToken.html"><abbr title="\chillerlan\OAuth\Core\AccessToken">AccessToken</abbr></a></span>
@@ -1078,7 +1130,8 @@ and returns a value that is suited for the underlying storage engine</dd>
 
     </aside>
 
-    
+        <p class="phpdocumentor-summary">Retrieves an AccessToken for the given $provider</p>
+
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
                     <span class="phpdocumentor-signature__name">getAccessToken</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$provider</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type"><a href="classes/chillerlan-OAuth-Core-AccessToken.html"><abbr title="\chillerlan\OAuth\Core\AccessToken">AccessToken</abbr></a></span></code>
@@ -1113,6 +1166,8 @@ and returns a value that is suited for the underlying storage engine</dd>
                                     </dd>
                                             </dl>
 
+    
+
             <section>
         <h5 class="phpdocumentor-return-value__heading">Return values</h5>
         <span class="phpdocumentor-signature__response_type"><a href="classes/chillerlan-OAuth-Core-AccessToken.html"><abbr title="\chillerlan\OAuth\Core\AccessToken">AccessToken</abbr></a></span>
@@ -1137,7 +1192,8 @@ and returns a value that is suited for the underlying storage engine</dd>
 
     </aside>
 
-    
+        <p class="phpdocumentor-summary">Retrieves a PKCE verifier</p>
+
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
                     <span class="phpdocumentor-signature__name">getCodeVerifier</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$provider</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">string</span></code>
@@ -1172,6 +1228,8 @@ and returns a value that is suited for the underlying storage engine</dd>
                                     </dd>
                                             </dl>
 
+    
+
             <section>
         <h5 class="phpdocumentor-return-value__heading">Return values</h5>
         <span class="phpdocumentor-signature__response_type">string</span>
@@ -1196,7 +1254,8 @@ and returns a value that is suited for the underlying storage engine</dd>
 
     </aside>
 
-    
+        <p class="phpdocumentor-summary">Retrieves a CSRF &lt;state&gt; value for the given $provider</p>
+
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
                     <span class="phpdocumentor-signature__name">getCSRFState</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$provider</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">string</span></code>
@@ -1231,6 +1290,8 @@ and returns a value that is suited for the underlying storage engine</dd>
                                     </dd>
                                             </dl>
 
+    
+
             <section>
         <h5 class="phpdocumentor-return-value__heading">Return values</h5>
         <span class="phpdocumentor-signature__response_type">string</span>
@@ -1255,7 +1316,8 @@ and returns a value that is suited for the underlying storage engine</dd>
 
     </aside>
 
-    
+        <p class="phpdocumentor-summary">Checks if a token for $provider exists</p>
+
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
                     <span class="phpdocumentor-signature__name">hasAccessToken</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$provider</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">bool</span></code>
@@ -1290,6 +1352,8 @@ and returns a value that is suited for the underlying storage engine</dd>
                                     </dd>
                                             </dl>
 
+    
+
             <section>
         <h5 class="phpdocumentor-return-value__heading">Return values</h5>
         <span class="phpdocumentor-signature__response_type">bool</span>
@@ -1314,7 +1378,8 @@ and returns a value that is suited for the underlying storage engine</dd>
 
     </aside>
 
-    
+        <p class="phpdocumentor-summary">Checks whether a PKCE verifier exists</p>
+
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
                     <span class="phpdocumentor-signature__name">hasCodeVerifier</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$provider</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">bool</span></code>
@@ -1349,6 +1414,8 @@ and returns a value that is suited for the underlying storage engine</dd>
                                     </dd>
                                             </dl>
 
+    
+
             <section>
         <h5 class="phpdocumentor-return-value__heading">Return values</h5>
         <span class="phpdocumentor-signature__response_type">bool</span>
@@ -1373,7 +1440,8 @@ and returns a value that is suited for the underlying storage engine</dd>
 
     </aside>
 
-    
+        <p class="phpdocumentor-summary">Checks if a CSRF state for the given provider exists</p>
+
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
                     <span class="phpdocumentor-signature__name">hasCSRFState</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$provider</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">bool</span></code>
@@ -1407,6 +1475,8 @@ and returns a value that is suited for the underlying storage engine</dd>
                                              
                                     </dd>
                                             </dl>
+
+    
 
             <section>
         <h5 class="phpdocumentor-return-value__heading">Return values</h5>
@@ -1475,6 +1545,8 @@ and returns a value that is suited for the underlying storage engine</dd>
                                     </dd>
                                             </dl>
 
+    
+
             <section>
         <h5 class="phpdocumentor-return-value__heading">Return values</h5>
         <span class="phpdocumentor-signature__response_type">static</span>
@@ -1499,7 +1571,8 @@ and returns a value that is suited for the underlying storage engine</dd>
 
     </aside>
 
-    
+        <p class="phpdocumentor-summary">Stores an AccessToken for the given $provider</p>
+
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
                     <span class="phpdocumentor-signature__name">storeAccessToken</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type"><a href="classes/chillerlan-OAuth-Core-AccessToken.html"><abbr title="\chillerlan\OAuth\Core\AccessToken">AccessToken</abbr></a>&nbsp;</span><span class="phpdocumentor-signature__argument__name">$token</span></span><span class="phpdocumentor-signature__argument"><span>, </span><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$provider</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">static</span></code>
@@ -1541,6 +1614,8 @@ and returns a value that is suited for the underlying storage engine</dd>
                                     </dd>
                                             </dl>
 
+    
+
             <section>
         <h5 class="phpdocumentor-return-value__heading">Return values</h5>
         <span class="phpdocumentor-signature__response_type">static</span>
@@ -1565,7 +1640,8 @@ and returns a value that is suited for the underlying storage engine</dd>
 
     </aside>
 
-    
+        <p class="phpdocumentor-summary">Stores a PKCE verifier</p>
+
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
                     <span class="phpdocumentor-signature__name">storeCodeVerifier</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$verifier</span></span><span class="phpdocumentor-signature__argument"><span>, </span><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$provider</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">static</span></code>
@@ -1607,6 +1683,8 @@ and returns a value that is suited for the underlying storage engine</dd>
                                     </dd>
                                             </dl>
 
+    
+
             <section>
         <h5 class="phpdocumentor-return-value__heading">Return values</h5>
         <span class="phpdocumentor-signature__response_type">static</span>
@@ -1631,7 +1709,8 @@ and returns a value that is suited for the underlying storage engine</dd>
 
     </aside>
 
-    
+        <p class="phpdocumentor-summary">Stores a CSRF &lt;state&gt; value for the given $provider</p>
+
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
                     <span class="phpdocumentor-signature__name">storeCSRFState</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$state</span></span><span class="phpdocumentor-signature__argument"><span>, </span><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$provider</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">static</span></code>
@@ -1672,6 +1751,8 @@ and returns a value that is suited for the underlying storage engine</dd>
                                              
                                     </dd>
                                             </dl>
+
+    
 
             <section>
         <h5 class="phpdocumentor-return-value__heading">Return values</h5>
@@ -1735,6 +1816,8 @@ and returns a value that is suited for the underlying storage engine</p>
                                             </dl>
 
     
+
+    
 </article>
                     <article
         class="phpdocumentor-element
@@ -1773,6 +1856,8 @@ and returns a value that is suited for the underlying storage engine</p>
                 
             </dd>
             </dl>
+
+    
 
     
 
@@ -1819,6 +1904,8 @@ and returns a value that is suited for the underlying storage engine</p>
                 
             </dd>
             </dl>
+
+    
 
     
 
@@ -1882,6 +1969,8 @@ and returns a value that is suited for the underlying storage engine</p>
                                              
                                     </dd>
                                             </dl>
+
+    
 
             <section>
         <h5 class="phpdocumentor-return-value__heading">Return values</h5>

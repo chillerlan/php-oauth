@@ -188,7 +188,7 @@ Search.appendIndex(
         },                {
             "fqsen": "\\chillerlan\\OAuth\\Core\\OAuth1Provider\u003A\u003AgetAuthorizationURL\u0028\u0029",
             "name": "getAuthorizationURL",
-            "summary": "",
+            "summary": "Prepares\u0020the\u0020URL\u0020with\u0020optional\u0020\u0024params\u0020which\u0020redirects\u0020to\u0020the\u0020provider\u0027s\u0020authorization\u0020prompt\nand\u0020returns\u0020a\u0020PSR\u002D7\u0020UriInterface\u0020with\u0020all\u0020necessary\u0020parameters\u0020set.",
             "url": "classes/chillerlan-OAuth-Core-OAuth1Provider.html#method_getAuthorizationURL"
         },                {
             "fqsen": "\\chillerlan\\OAuth\\Core\\OAuth1Provider\u003A\u003AsendRequestTokenRequest\u0028\u0029",
@@ -216,6 +216,16 @@ Search.appendIndex(
             "summary": "Obtains\u0020an\u0020OAuth1\u0020access\u0020token\u0020with\u0020the\u0020given\u0020\u0024token\u0020and\u0020\u0024verifier\u0020and\u0020returns\u0020an\u0020AccessToken\u0020object.",
             "url": "classes/chillerlan-OAuth-Core-OAuth1Provider.html#method_getAccessToken"
         },                {
+            "fqsen": "\\chillerlan\\OAuth\\Core\\OAuth1Provider\u003A\u003AgetAccessTokenRequestHeaderParams\u0028\u0029",
+            "name": "getAccessTokenRequestHeaderParams",
+            "summary": "Prepares\u0020the\u0020header\u0020params\u0020for\u0020the\u0020access\u0020token\u0020request",
+            "url": "classes/chillerlan-OAuth-Core-OAuth1Provider.html#method_getAccessTokenRequestHeaderParams"
+        },                {
+            "fqsen": "\\chillerlan\\OAuth\\Core\\OAuth1Provider\u003A\u003AsetAuthorizationHeader\u0028\u0029",
+            "name": "setAuthorizationHeader",
+            "summary": "Adds\u0020the\u0020\u0022Authorization\u0022\u0020header\u0020to\u0020the\u0020given\u0020\u0060RequestInterface\u0060\u0020using\u0020the\u0020given\u0020array\u0020or\u0020parameters",
+            "url": "classes/chillerlan-OAuth-Core-OAuth1Provider.html#method_setAuthorizationHeader"
+        },                {
             "fqsen": "\\chillerlan\\OAuth\\Core\\OAuth1Provider\u003A\u003AsendAccessTokenRequest\u0028\u0029",
             "name": "sendAccessTokenRequest",
             "summary": "Sends\u0020the\u0020access\u0020token\u0020request",
@@ -223,7 +233,7 @@ Search.appendIndex(
         },                {
             "fqsen": "\\chillerlan\\OAuth\\Core\\OAuth1Provider\u003A\u003AgetRequestAuthorization\u0028\u0029",
             "name": "getRequestAuthorization",
-            "summary": "",
+            "summary": "Authorizes\u0020the\u0020\u0024request\u0020with\u0020the\u0020credentials\u0020from\u0020the\u0020given\u0020\u0024token\nand\u0020returns\u0020a\u0020PSR\u002D7\u0020RequestInterface\u0020with\u0020all\u0020necessary\u0020headers\u0020and\/or\u0020parameters\u0020set",
             "url": "classes/chillerlan-OAuth-Core-OAuth1Provider.html#method_getRequestAuthorization"
         },                {
             "fqsen": "\\chillerlan\\OAuth\\Core\\OAuth1Provider\u003A\u003A\u0024requestTokenURL",
@@ -278,7 +288,7 @@ Search.appendIndex(
         },                {
             "fqsen": "\\chillerlan\\OAuth\\Core\\OAuth2Provider\u003A\u003AgetAuthorizationURL\u0028\u0029",
             "name": "getAuthorizationURL",
-            "summary": "",
+            "summary": "Prepares\u0020the\u0020URL\u0020with\u0020optional\u0020\u0024params\u0020which\u0020redirects\u0020to\u0020the\u0020provider\u0027s\u0020authorization\u0020prompt\nand\u0020returns\u0020a\u0020PSR\u002D7\u0020UriInterface\u0020with\u0020all\u0020necessary\u0020parameters\u0020set.",
             "url": "classes/chillerlan-OAuth-Core-OAuth2Provider.html#method_getAuthorizationURL"
         },                {
             "fqsen": "\\chillerlan\\OAuth\\Core\\OAuth2Provider\u003A\u003AgetAuthorizationURLRequestParams\u0028\u0029",
@@ -313,7 +323,7 @@ Search.appendIndex(
         },                {
             "fqsen": "\\chillerlan\\OAuth\\Core\\OAuth2Provider\u003A\u003AgetRequestAuthorization\u0028\u0029",
             "name": "getRequestAuthorization",
-            "summary": "",
+            "summary": "Authorizes\u0020the\u0020\u0024request\u0020with\u0020the\u0020credentials\u0020from\u0020the\u0020given\u0020\u0024token\nand\u0020returns\u0020a\u0020PSR\u002D7\u0020RequestInterface\u0020with\u0020all\u0020necessary\u0020headers\u0020and\/or\u0020parameters\u0020set",
             "url": "classes/chillerlan-OAuth-Core-OAuth2Provider.html#method_getRequestAuthorization"
         },                {
             "fqsen": "\\chillerlan\\OAuth\\Core\\OAuth2Provider\u003A\u003AgetClientCredentialsToken\u0028\u0029",
@@ -1128,7 +1138,7 @@ Search.appendIndex(
         },                {
             "fqsen": "\\chillerlan\\OAuth\\Providers\\BattleNet\u003A\u003AgetRequestTarget\u0028\u0029",
             "name": "getRequestTarget",
-            "summary": "",
+            "summary": "Determine\u0020the\u0020request\u0020target\u0020from\u0020the\u0020given\u0020URI\u0020\u0028path\u0020segment\u0020or\u0020URL\u0029\u0020with\u0020respect\u0020to\u0020\u0024apiURL,\nanything\u0020except\u0020host\u0020and\u0020path\u0020will\u0020be\u0020ignored,\u0020scheme\u0020will\u0020always\u0020be\u0020set\u0020to\u0020\u0022https\u0022.",
             "url": "classes/chillerlan-OAuth-Providers-BattleNet.html#method_getRequestTarget"
         },                {
             "fqsen": "\\chillerlan\\OAuth\\Providers\\BattleNet\u003A\u003AsetRegion\u0028\u0029",
@@ -1943,7 +1953,7 @@ Search.appendIndex(
         },                {
             "fqsen": "\\chillerlan\\OAuth\\Providers\\Flickr\u003A\u003Arequest\u0028\u0029",
             "name": "request",
-            "summary": "",
+            "summary": "Prepares\u0020an\u0020API\u0020request\u0020to\u0020\u0024path\u0020with\u0020the\u0020given\u0020parameters,\u0020gets\u0020authorization,\u0020fires\u0020the\u0020request\nand\u0020returns\u0020a\u0020PSR\u002D7\u0020ResponseInterface\u0020with\u0020the\u0020corresponding\u0020API\u0020response",
             "url": "classes/chillerlan-OAuth-Providers-Flickr.html#method_request"
         },                {
             "fqsen": "\\chillerlan\\OAuth\\Providers\\Flickr\u003A\u003Ame\u0028\u0029",
@@ -2013,7 +2023,7 @@ Search.appendIndex(
         },                {
             "fqsen": "\\chillerlan\\OAuth\\Providers\\Foursquare\u003A\u003Arequest\u0028\u0029",
             "name": "request",
-            "summary": "",
+            "summary": "Prepares\u0020an\u0020API\u0020request\u0020to\u0020\u0024path\u0020with\u0020the\u0020given\u0020parameters,\u0020gets\u0020authorization,\u0020fires\u0020the\u0020request\nand\u0020returns\u0020a\u0020PSR\u002D7\u0020ResponseInterface\u0020with\u0020the\u0020corresponding\u0020API\u0020response",
             "url": "classes/chillerlan-OAuth-Providers-Foursquare.html#method_request"
         },                {
             "fqsen": "\\chillerlan\\OAuth\\Providers\\Foursquare\u003A\u003Ame\u0028\u0029",
@@ -2598,7 +2608,7 @@ Search.appendIndex(
         },                {
             "fqsen": "\\chillerlan\\OAuth\\Providers\\GuildWars2\u003A\u003AgetAuthorizationURL\u0028\u0029",
             "name": "getAuthorizationURL",
-            "summary": "",
+            "summary": "Prepares\u0020the\u0020URL\u0020with\u0020optional\u0020\u0024params\u0020which\u0020redirects\u0020to\u0020the\u0020provider\u0027s\u0020authorization\u0020prompt\nand\u0020returns\u0020a\u0020PSR\u002D7\u0020UriInterface\u0020with\u0020all\u0020necessary\u0020parameters\u0020set.",
             "url": "classes/chillerlan-OAuth-Providers-GuildWars2.html#method_getAuthorizationURL"
         },                {
             "fqsen": "\\chillerlan\\OAuth\\Providers\\GuildWars2\u003A\u003AgetAccessToken\u0028\u0029",
@@ -2748,7 +2758,7 @@ Search.appendIndex(
         },                {
             "fqsen": "\\chillerlan\\OAuth\\Providers\\LastFM\u003A\u003AgetAuthorizationURL\u0028\u0029",
             "name": "getAuthorizationURL",
-            "summary": "",
+            "summary": "Prepares\u0020the\u0020URL\u0020with\u0020optional\u0020\u0024params\u0020which\u0020redirects\u0020to\u0020the\u0020provider\u0027s\u0020authorization\u0020prompt\nand\u0020returns\u0020a\u0020PSR\u002D7\u0020UriInterface\u0020with\u0020all\u0020necessary\u0020parameters\u0020set.",
             "url": "classes/chillerlan-OAuth-Providers-LastFM.html#method_getAuthorizationURL"
         },                {
             "fqsen": "\\chillerlan\\OAuth\\Providers\\LastFM\u003A\u003AgetAccessToken\u0028\u0029",
@@ -2783,7 +2793,7 @@ Search.appendIndex(
         },                {
             "fqsen": "\\chillerlan\\OAuth\\Providers\\LastFM\u003A\u003AgetRequestAuthorization\u0028\u0029",
             "name": "getRequestAuthorization",
-            "summary": "",
+            "summary": "Authorizes\u0020the\u0020\u0024request\u0020with\u0020the\u0020credentials\u0020from\u0020the\u0020given\u0020\u0024token\nand\u0020returns\u0020a\u0020PSR\u002D7\u0020RequestInterface\u0020with\u0020all\u0020necessary\u0020headers\u0020and\/or\u0020parameters\u0020set",
             "url": "classes/chillerlan-OAuth-Providers-LastFM.html#method_getRequestAuthorization"
         },                {
             "fqsen": "\\chillerlan\\OAuth\\Providers\\LastFM\u003A\u003AaddSignature\u0028\u0029",
@@ -2918,12 +2928,12 @@ Search.appendIndex(
         },                {
             "fqsen": "\\chillerlan\\OAuth\\Providers\\MailChimp\u003A\u003Arequest\u0028\u0029",
             "name": "request",
-            "summary": "",
+            "summary": "Prepares\u0020an\u0020API\u0020request\u0020to\u0020\u0024path\u0020with\u0020the\u0020given\u0020parameters,\u0020gets\u0020authorization,\u0020fires\u0020the\u0020request\nand\u0020returns\u0020a\u0020PSR\u002D7\u0020ResponseInterface\u0020with\u0020the\u0020corresponding\u0020API\u0020response",
             "url": "classes/chillerlan-OAuth-Providers-MailChimp.html#method_request"
         },                {
             "fqsen": "\\chillerlan\\OAuth\\Providers\\MailChimp\u003A\u003AsendMeRequest\u0028\u0029",
             "name": "sendMeRequest",
-            "summary": "",
+            "summary": "prepares\u0020and\u0020sends\u0020the\u0020request\u0020to\u0020the\u0020provider\u0027s\u0020\u0022me\u0022\u0020endpoint\u0020and\u0020returns\u0020a\u0020ResponseInterface",
             "url": "classes/chillerlan-OAuth-Providers-MailChimp.html#method_sendMeRequest"
         },                {
             "fqsen": "\\chillerlan\\OAuth\\Providers\\MailChimp\u003A\u003Ame\u0028\u0029",
@@ -3163,7 +3173,7 @@ Search.appendIndex(
         },                {
             "fqsen": "\\chillerlan\\OAuth\\Providers\\MusicBrainz\u003A\u003Arequest\u0028\u0029",
             "name": "request",
-            "summary": "",
+            "summary": "Prepares\u0020an\u0020API\u0020request\u0020to\u0020\u0024path\u0020with\u0020the\u0020given\u0020parameters,\u0020gets\u0020authorization,\u0020fires\u0020the\u0020request\nand\u0020returns\u0020a\u0020PSR\u002D7\u0020ResponseInterface\u0020with\u0020the\u0020corresponding\u0020API\u0020response",
             "url": "classes/chillerlan-OAuth-Providers-MusicBrainz.html#method_request"
         },                {
             "fqsen": "\\chillerlan\\OAuth\\Providers\\MusicBrainz\u003A\u003Ame\u0028\u0029",
@@ -4628,7 +4638,7 @@ Search.appendIndex(
         },                {
             "fqsen": "\\chillerlan\\OAuth\\Providers\\Steam\u003A\u003AgetRequestAuthorization\u0028\u0029",
             "name": "getRequestAuthorization",
-            "summary": "",
+            "summary": "Authorizes\u0020the\u0020\u0024request\u0020with\u0020the\u0020credentials\u0020from\u0020the\u0020given\u0020\u0024token\nand\u0020returns\u0020a\u0020PSR\u002D7\u0020RequestInterface\u0020with\u0020all\u0020necessary\u0020headers\u0020and\/or\u0020parameters\u0020set",
             "url": "classes/chillerlan-OAuth-Providers-Steam.html#method_getRequestAuthorization"
         },                {
             "fqsen": "\\chillerlan\\OAuth\\Providers\\Steam\u003A\u003Ame\u0028\u0029",
@@ -4878,7 +4888,7 @@ Search.appendIndex(
         },                {
             "fqsen": "\\chillerlan\\OAuth\\Providers\\Twitch\u003A\u003AgetRequestAuthorization\u0028\u0029",
             "name": "getRequestAuthorization",
-            "summary": "",
+            "summary": "Authorizes\u0020the\u0020\u0024request\u0020with\u0020the\u0020credentials\u0020from\u0020the\u0020given\u0020\u0024token\nand\u0020returns\u0020a\u0020PSR\u002D7\u0020RequestInterface\u0020with\u0020all\u0020necessary\u0020headers\u0020and\/or\u0020parameters\u0020set",
             "url": "classes/chillerlan-OAuth-Providers-Twitch.html#method_getRequestAuthorization"
         },                {
             "fqsen": "\\chillerlan\\OAuth\\Providers\\Twitch\u003A\u003Ame\u0028\u0029",
@@ -5108,7 +5118,7 @@ Search.appendIndex(
         },                {
             "fqsen": "\\chillerlan\\OAuth\\Providers\\TwitterCC\u003A\u003AgetAuthorizationURL\u0028\u0029",
             "name": "getAuthorizationURL",
-            "summary": "",
+            "summary": "Prepares\u0020the\u0020URL\u0020with\u0020optional\u0020\u0024params\u0020which\u0020redirects\u0020to\u0020the\u0020provider\u0027s\u0020authorization\u0020prompt\nand\u0020returns\u0020a\u0020PSR\u002D7\u0020UriInterface\u0020with\u0020all\u0020necessary\u0020parameters\u0020set.",
             "url": "classes/chillerlan-OAuth-Providers-TwitterCC.html#method_getAuthorizationURL"
         },                {
             "fqsen": "\\chillerlan\\OAuth\\Providers\\TwitterCC\u003A\u003AgetAccessToken\u0028\u0029",
@@ -5383,77 +5393,77 @@ Search.appendIndex(
         },                {
             "fqsen": "\\chillerlan\\OAuth\\Storage\\FileStorage\u003A\u003AstoreAccessToken\u0028\u0029",
             "name": "storeAccessToken",
-            "summary": "",
+            "summary": "Stores\u0020an\u0020AccessToken\u0020for\u0020the\u0020given\u0020\u0024provider",
             "url": "classes/chillerlan-OAuth-Storage-FileStorage.html#method_storeAccessToken"
         },                {
             "fqsen": "\\chillerlan\\OAuth\\Storage\\FileStorage\u003A\u003AgetAccessToken\u0028\u0029",
             "name": "getAccessToken",
-            "summary": "",
+            "summary": "Retrieves\u0020an\u0020AccessToken\u0020for\u0020the\u0020given\u0020\u0024provider",
             "url": "classes/chillerlan-OAuth-Storage-FileStorage.html#method_getAccessToken"
         },                {
             "fqsen": "\\chillerlan\\OAuth\\Storage\\FileStorage\u003A\u003AhasAccessToken\u0028\u0029",
             "name": "hasAccessToken",
-            "summary": "",
+            "summary": "Checks\u0020if\u0020a\u0020token\u0020for\u0020\u0024provider\u0020exists",
             "url": "classes/chillerlan-OAuth-Storage-FileStorage.html#method_hasAccessToken"
         },                {
             "fqsen": "\\chillerlan\\OAuth\\Storage\\FileStorage\u003A\u003AclearAccessToken\u0028\u0029",
             "name": "clearAccessToken",
-            "summary": "",
+            "summary": "Deletes\u0020the\u0020access\u0020token\u0020for\u0020a\u0020given\u0020\u0024provider\u0020\u0028and\u0020current\u0020user\u0029",
             "url": "classes/chillerlan-OAuth-Storage-FileStorage.html#method_clearAccessToken"
         },                {
             "fqsen": "\\chillerlan\\OAuth\\Storage\\FileStorage\u003A\u003AclearAllAccessTokens\u0028\u0029",
             "name": "clearAllAccessTokens",
-            "summary": "",
+            "summary": "Deletes\u0020all\u0020access\u0020tokens\u0020\u0028for\u0020the\u0020current\u0020user\u0029",
             "url": "classes/chillerlan-OAuth-Storage-FileStorage.html#method_clearAllAccessTokens"
         },                {
             "fqsen": "\\chillerlan\\OAuth\\Storage\\FileStorage\u003A\u003AstoreCSRFState\u0028\u0029",
             "name": "storeCSRFState",
-            "summary": "",
+            "summary": "Stores\u0020a\u0020CSRF\u0020\u003Cstate\u003E\u0020value\u0020for\u0020the\u0020given\u0020\u0024provider",
             "url": "classes/chillerlan-OAuth-Storage-FileStorage.html#method_storeCSRFState"
         },                {
             "fqsen": "\\chillerlan\\OAuth\\Storage\\FileStorage\u003A\u003AgetCSRFState\u0028\u0029",
             "name": "getCSRFState",
-            "summary": "",
+            "summary": "Retrieves\u0020a\u0020CSRF\u0020\u003Cstate\u003E\u0020value\u0020for\u0020the\u0020given\u0020\u0024provider",
             "url": "classes/chillerlan-OAuth-Storage-FileStorage.html#method_getCSRFState"
         },                {
             "fqsen": "\\chillerlan\\OAuth\\Storage\\FileStorage\u003A\u003AhasCSRFState\u0028\u0029",
             "name": "hasCSRFState",
-            "summary": "",
+            "summary": "Checks\u0020if\u0020a\u0020CSRF\u0020state\u0020for\u0020the\u0020given\u0020provider\u0020exists",
             "url": "classes/chillerlan-OAuth-Storage-FileStorage.html#method_hasCSRFState"
         },                {
             "fqsen": "\\chillerlan\\OAuth\\Storage\\FileStorage\u003A\u003AclearCSRFState\u0028\u0029",
             "name": "clearCSRFState",
-            "summary": "",
+            "summary": "Deletes\u0020a\u0020CSRF\u0020state\u0020for\u0020the\u0020given\u0020\u0024provider\u0020\u0028and\u0020current\u0020user\u0029",
             "url": "classes/chillerlan-OAuth-Storage-FileStorage.html#method_clearCSRFState"
         },                {
             "fqsen": "\\chillerlan\\OAuth\\Storage\\FileStorage\u003A\u003AclearAllCSRFStates\u0028\u0029",
             "name": "clearAllCSRFStates",
-            "summary": "",
+            "summary": "Deletes\u0020all\u0020stored\u0020CSRF\u0020states\u0020\u0028for\u0020the\u0020current\u0020user\u0029",
             "url": "classes/chillerlan-OAuth-Storage-FileStorage.html#method_clearAllCSRFStates"
         },                {
             "fqsen": "\\chillerlan\\OAuth\\Storage\\FileStorage\u003A\u003AstoreCodeVerifier\u0028\u0029",
             "name": "storeCodeVerifier",
-            "summary": "",
+            "summary": "Stores\u0020a\u0020PKCE\u0020verifier",
             "url": "classes/chillerlan-OAuth-Storage-FileStorage.html#method_storeCodeVerifier"
         },                {
             "fqsen": "\\chillerlan\\OAuth\\Storage\\FileStorage\u003A\u003AgetCodeVerifier\u0028\u0029",
             "name": "getCodeVerifier",
-            "summary": "",
+            "summary": "Retrieves\u0020a\u0020PKCE\u0020verifier",
             "url": "classes/chillerlan-OAuth-Storage-FileStorage.html#method_getCodeVerifier"
         },                {
             "fqsen": "\\chillerlan\\OAuth\\Storage\\FileStorage\u003A\u003AhasCodeVerifier\u0028\u0029",
             "name": "hasCodeVerifier",
-            "summary": "",
+            "summary": "Checks\u0020whether\u0020a\u0020PKCE\u0020verifier\u0020exists",
             "url": "classes/chillerlan-OAuth-Storage-FileStorage.html#method_hasCodeVerifier"
         },                {
             "fqsen": "\\chillerlan\\OAuth\\Storage\\FileStorage\u003A\u003AclearCodeVerifier\u0028\u0029",
             "name": "clearCodeVerifier",
-            "summary": "",
+            "summary": "Deletes\u0020a\u0020PKCE\u0020verifier",
             "url": "classes/chillerlan-OAuth-Storage-FileStorage.html#method_clearCodeVerifier"
         },                {
             "fqsen": "\\chillerlan\\OAuth\\Storage\\FileStorage\u003A\u003AclearAllCodeVerifiers\u0028\u0029",
             "name": "clearAllCodeVerifiers",
-            "summary": "",
+            "summary": "Deletes\u0020all\u0020PKCE\u0020verifiers\u0020for\u0020this\u0020user",
             "url": "classes/chillerlan-OAuth-Storage-FileStorage.html#method_clearAllCodeVerifiers"
         },                {
             "fqsen": "\\chillerlan\\OAuth\\Storage\\FileStorage\u003A\u003AloadFile\u0028\u0029",
@@ -5503,77 +5513,77 @@ Search.appendIndex(
         },                {
             "fqsen": "\\chillerlan\\OAuth\\Storage\\MemoryStorage\u003A\u003AstoreAccessToken\u0028\u0029",
             "name": "storeAccessToken",
-            "summary": "",
+            "summary": "Stores\u0020an\u0020AccessToken\u0020for\u0020the\u0020given\u0020\u0024provider",
             "url": "classes/chillerlan-OAuth-Storage-MemoryStorage.html#method_storeAccessToken"
         },                {
             "fqsen": "\\chillerlan\\OAuth\\Storage\\MemoryStorage\u003A\u003AgetAccessToken\u0028\u0029",
             "name": "getAccessToken",
-            "summary": "",
+            "summary": "Retrieves\u0020an\u0020AccessToken\u0020for\u0020the\u0020given\u0020\u0024provider",
             "url": "classes/chillerlan-OAuth-Storage-MemoryStorage.html#method_getAccessToken"
         },                {
             "fqsen": "\\chillerlan\\OAuth\\Storage\\MemoryStorage\u003A\u003AhasAccessToken\u0028\u0029",
             "name": "hasAccessToken",
-            "summary": "",
+            "summary": "Checks\u0020if\u0020a\u0020token\u0020for\u0020\u0024provider\u0020exists",
             "url": "classes/chillerlan-OAuth-Storage-MemoryStorage.html#method_hasAccessToken"
         },                {
             "fqsen": "\\chillerlan\\OAuth\\Storage\\MemoryStorage\u003A\u003AclearAccessToken\u0028\u0029",
             "name": "clearAccessToken",
-            "summary": "",
+            "summary": "Deletes\u0020the\u0020access\u0020token\u0020for\u0020a\u0020given\u0020\u0024provider\u0020\u0028and\u0020current\u0020user\u0029",
             "url": "classes/chillerlan-OAuth-Storage-MemoryStorage.html#method_clearAccessToken"
         },                {
             "fqsen": "\\chillerlan\\OAuth\\Storage\\MemoryStorage\u003A\u003AclearAllAccessTokens\u0028\u0029",
             "name": "clearAllAccessTokens",
-            "summary": "",
+            "summary": "Deletes\u0020all\u0020access\u0020tokens\u0020\u0028for\u0020the\u0020current\u0020user\u0029",
             "url": "classes/chillerlan-OAuth-Storage-MemoryStorage.html#method_clearAllAccessTokens"
         },                {
             "fqsen": "\\chillerlan\\OAuth\\Storage\\MemoryStorage\u003A\u003AstoreCSRFState\u0028\u0029",
             "name": "storeCSRFState",
-            "summary": "",
+            "summary": "Stores\u0020a\u0020CSRF\u0020\u003Cstate\u003E\u0020value\u0020for\u0020the\u0020given\u0020\u0024provider",
             "url": "classes/chillerlan-OAuth-Storage-MemoryStorage.html#method_storeCSRFState"
         },                {
             "fqsen": "\\chillerlan\\OAuth\\Storage\\MemoryStorage\u003A\u003AgetCSRFState\u0028\u0029",
             "name": "getCSRFState",
-            "summary": "",
+            "summary": "Retrieves\u0020a\u0020CSRF\u0020\u003Cstate\u003E\u0020value\u0020for\u0020the\u0020given\u0020\u0024provider",
             "url": "classes/chillerlan-OAuth-Storage-MemoryStorage.html#method_getCSRFState"
         },                {
             "fqsen": "\\chillerlan\\OAuth\\Storage\\MemoryStorage\u003A\u003AhasCSRFState\u0028\u0029",
             "name": "hasCSRFState",
-            "summary": "",
+            "summary": "Checks\u0020if\u0020a\u0020CSRF\u0020state\u0020for\u0020the\u0020given\u0020provider\u0020exists",
             "url": "classes/chillerlan-OAuth-Storage-MemoryStorage.html#method_hasCSRFState"
         },                {
             "fqsen": "\\chillerlan\\OAuth\\Storage\\MemoryStorage\u003A\u003AclearCSRFState\u0028\u0029",
             "name": "clearCSRFState",
-            "summary": "",
+            "summary": "Deletes\u0020a\u0020CSRF\u0020state\u0020for\u0020the\u0020given\u0020\u0024provider\u0020\u0028and\u0020current\u0020user\u0029",
             "url": "classes/chillerlan-OAuth-Storage-MemoryStorage.html#method_clearCSRFState"
         },                {
             "fqsen": "\\chillerlan\\OAuth\\Storage\\MemoryStorage\u003A\u003AclearAllCSRFStates\u0028\u0029",
             "name": "clearAllCSRFStates",
-            "summary": "",
+            "summary": "Deletes\u0020all\u0020stored\u0020CSRF\u0020states\u0020\u0028for\u0020the\u0020current\u0020user\u0029",
             "url": "classes/chillerlan-OAuth-Storage-MemoryStorage.html#method_clearAllCSRFStates"
         },                {
             "fqsen": "\\chillerlan\\OAuth\\Storage\\MemoryStorage\u003A\u003AstoreCodeVerifier\u0028\u0029",
             "name": "storeCodeVerifier",
-            "summary": "",
+            "summary": "Stores\u0020a\u0020PKCE\u0020verifier",
             "url": "classes/chillerlan-OAuth-Storage-MemoryStorage.html#method_storeCodeVerifier"
         },                {
             "fqsen": "\\chillerlan\\OAuth\\Storage\\MemoryStorage\u003A\u003AgetCodeVerifier\u0028\u0029",
             "name": "getCodeVerifier",
-            "summary": "",
+            "summary": "Retrieves\u0020a\u0020PKCE\u0020verifier",
             "url": "classes/chillerlan-OAuth-Storage-MemoryStorage.html#method_getCodeVerifier"
         },                {
             "fqsen": "\\chillerlan\\OAuth\\Storage\\MemoryStorage\u003A\u003AhasCodeVerifier\u0028\u0029",
             "name": "hasCodeVerifier",
-            "summary": "",
+            "summary": "Checks\u0020whether\u0020a\u0020PKCE\u0020verifier\u0020exists",
             "url": "classes/chillerlan-OAuth-Storage-MemoryStorage.html#method_hasCodeVerifier"
         },                {
             "fqsen": "\\chillerlan\\OAuth\\Storage\\MemoryStorage\u003A\u003AclearCodeVerifier\u0028\u0029",
             "name": "clearCodeVerifier",
-            "summary": "",
+            "summary": "Deletes\u0020a\u0020PKCE\u0020verifier",
             "url": "classes/chillerlan-OAuth-Storage-MemoryStorage.html#method_clearCodeVerifier"
         },                {
             "fqsen": "\\chillerlan\\OAuth\\Storage\\MemoryStorage\u003A\u003AclearAllCodeVerifiers\u0028\u0029",
             "name": "clearAllCodeVerifiers",
-            "summary": "",
+            "summary": "Deletes\u0020all\u0020PKCE\u0020verifiers\u0020for\u0020this\u0020user",
             "url": "classes/chillerlan-OAuth-Storage-MemoryStorage.html#method_clearAllCodeVerifiers"
         },                {
             "fqsen": "\\chillerlan\\OAuth\\Storage\\MemoryStorage\u003A\u003A\u0024storage",
@@ -5768,77 +5778,77 @@ Search.appendIndex(
         },                {
             "fqsen": "\\chillerlan\\OAuth\\Storage\\SessionStorage\u003A\u003AstoreAccessToken\u0028\u0029",
             "name": "storeAccessToken",
-            "summary": "",
+            "summary": "Stores\u0020an\u0020AccessToken\u0020for\u0020the\u0020given\u0020\u0024provider",
             "url": "classes/chillerlan-OAuth-Storage-SessionStorage.html#method_storeAccessToken"
         },                {
             "fqsen": "\\chillerlan\\OAuth\\Storage\\SessionStorage\u003A\u003AgetAccessToken\u0028\u0029",
             "name": "getAccessToken",
-            "summary": "",
+            "summary": "Retrieves\u0020an\u0020AccessToken\u0020for\u0020the\u0020given\u0020\u0024provider",
             "url": "classes/chillerlan-OAuth-Storage-SessionStorage.html#method_getAccessToken"
         },                {
             "fqsen": "\\chillerlan\\OAuth\\Storage\\SessionStorage\u003A\u003AhasAccessToken\u0028\u0029",
             "name": "hasAccessToken",
-            "summary": "",
+            "summary": "Checks\u0020if\u0020a\u0020token\u0020for\u0020\u0024provider\u0020exists",
             "url": "classes/chillerlan-OAuth-Storage-SessionStorage.html#method_hasAccessToken"
         },                {
             "fqsen": "\\chillerlan\\OAuth\\Storage\\SessionStorage\u003A\u003AclearAccessToken\u0028\u0029",
             "name": "clearAccessToken",
-            "summary": "",
+            "summary": "Deletes\u0020the\u0020access\u0020token\u0020for\u0020a\u0020given\u0020\u0024provider\u0020\u0028and\u0020current\u0020user\u0029",
             "url": "classes/chillerlan-OAuth-Storage-SessionStorage.html#method_clearAccessToken"
         },                {
             "fqsen": "\\chillerlan\\OAuth\\Storage\\SessionStorage\u003A\u003AclearAllAccessTokens\u0028\u0029",
             "name": "clearAllAccessTokens",
-            "summary": "",
+            "summary": "Deletes\u0020all\u0020access\u0020tokens\u0020\u0028for\u0020the\u0020current\u0020user\u0029",
             "url": "classes/chillerlan-OAuth-Storage-SessionStorage.html#method_clearAllAccessTokens"
         },                {
             "fqsen": "\\chillerlan\\OAuth\\Storage\\SessionStorage\u003A\u003AstoreCSRFState\u0028\u0029",
             "name": "storeCSRFState",
-            "summary": "",
+            "summary": "Stores\u0020a\u0020CSRF\u0020\u003Cstate\u003E\u0020value\u0020for\u0020the\u0020given\u0020\u0024provider",
             "url": "classes/chillerlan-OAuth-Storage-SessionStorage.html#method_storeCSRFState"
         },                {
             "fqsen": "\\chillerlan\\OAuth\\Storage\\SessionStorage\u003A\u003AgetCSRFState\u0028\u0029",
             "name": "getCSRFState",
-            "summary": "",
+            "summary": "Retrieves\u0020a\u0020CSRF\u0020\u003Cstate\u003E\u0020value\u0020for\u0020the\u0020given\u0020\u0024provider",
             "url": "classes/chillerlan-OAuth-Storage-SessionStorage.html#method_getCSRFState"
         },                {
             "fqsen": "\\chillerlan\\OAuth\\Storage\\SessionStorage\u003A\u003AhasCSRFState\u0028\u0029",
             "name": "hasCSRFState",
-            "summary": "",
+            "summary": "Checks\u0020if\u0020a\u0020CSRF\u0020state\u0020for\u0020the\u0020given\u0020provider\u0020exists",
             "url": "classes/chillerlan-OAuth-Storage-SessionStorage.html#method_hasCSRFState"
         },                {
             "fqsen": "\\chillerlan\\OAuth\\Storage\\SessionStorage\u003A\u003AclearCSRFState\u0028\u0029",
             "name": "clearCSRFState",
-            "summary": "",
+            "summary": "Deletes\u0020a\u0020CSRF\u0020state\u0020for\u0020the\u0020given\u0020\u0024provider\u0020\u0028and\u0020current\u0020user\u0029",
             "url": "classes/chillerlan-OAuth-Storage-SessionStorage.html#method_clearCSRFState"
         },                {
             "fqsen": "\\chillerlan\\OAuth\\Storage\\SessionStorage\u003A\u003AclearAllCSRFStates\u0028\u0029",
             "name": "clearAllCSRFStates",
-            "summary": "",
+            "summary": "Deletes\u0020all\u0020stored\u0020CSRF\u0020states\u0020\u0028for\u0020the\u0020current\u0020user\u0029",
             "url": "classes/chillerlan-OAuth-Storage-SessionStorage.html#method_clearAllCSRFStates"
         },                {
             "fqsen": "\\chillerlan\\OAuth\\Storage\\SessionStorage\u003A\u003AstoreCodeVerifier\u0028\u0029",
             "name": "storeCodeVerifier",
-            "summary": "",
+            "summary": "Stores\u0020a\u0020PKCE\u0020verifier",
             "url": "classes/chillerlan-OAuth-Storage-SessionStorage.html#method_storeCodeVerifier"
         },                {
             "fqsen": "\\chillerlan\\OAuth\\Storage\\SessionStorage\u003A\u003AgetCodeVerifier\u0028\u0029",
             "name": "getCodeVerifier",
-            "summary": "",
+            "summary": "Retrieves\u0020a\u0020PKCE\u0020verifier",
             "url": "classes/chillerlan-OAuth-Storage-SessionStorage.html#method_getCodeVerifier"
         },                {
             "fqsen": "\\chillerlan\\OAuth\\Storage\\SessionStorage\u003A\u003AhasCodeVerifier\u0028\u0029",
             "name": "hasCodeVerifier",
-            "summary": "",
+            "summary": "Checks\u0020whether\u0020a\u0020PKCE\u0020verifier\u0020exists",
             "url": "classes/chillerlan-OAuth-Storage-SessionStorage.html#method_hasCodeVerifier"
         },                {
             "fqsen": "\\chillerlan\\OAuth\\Storage\\SessionStorage\u003A\u003AclearCodeVerifier\u0028\u0029",
             "name": "clearCodeVerifier",
-            "summary": "",
+            "summary": "Deletes\u0020a\u0020PKCE\u0020verifier",
             "url": "classes/chillerlan-OAuth-Storage-SessionStorage.html#method_clearCodeVerifier"
         },                {
             "fqsen": "\\chillerlan\\OAuth\\Storage\\SessionStorage\u003A\u003AclearAllCodeVerifiers\u0028\u0029",
             "name": "clearAllCodeVerifiers",
-            "summary": "",
+            "summary": "Deletes\u0020all\u0020PKCE\u0020verifiers\u0020for\u0020this\u0020user",
             "url": "classes/chillerlan-OAuth-Storage-SessionStorage.html#method_clearAllCodeVerifiers"
         },                {
             "fqsen": "\\chillerlan\\OAuth\\Storage\\SessionStorage\u003A\u003A\u0024storageVar",
@@ -6263,7 +6273,7 @@ Search.appendIndex(
         },                {
             "fqsen": "\\chillerlan\\OAuthTest\\Providers\\Live\\GuildWars2APITest\u003A\u003AsetUp\u0028\u0029",
             "name": "setUp",
-            "summary": "",
+            "summary": "Initializes\u0020the\u0020unit\u0020test",
             "url": "classes/chillerlan-OAuthTest-Providers-Live-GuildWars2APITest.html#method_setUp"
         },                {
             "fqsen": "\\chillerlan\\OAuthTest\\Providers\\Live\\GuildWars2APITest\u003A\u003AassertMeResponse\u0028\u0029",
@@ -6308,7 +6318,7 @@ Search.appendIndex(
         },                {
             "fqsen": "\\chillerlan\\OAuthTest\\Providers\\Live\\MastodonAPITest\u003A\u003AsetUp\u0028\u0029",
             "name": "setUp",
-            "summary": "",
+            "summary": "Initializes\u0020the\u0020unit\u0020test",
             "url": "classes/chillerlan-OAuthTest-Providers-Live-MastodonAPITest.html#method_setUp"
         },                {
             "fqsen": "\\chillerlan\\OAuthTest\\Providers\\Live\\MastodonAPITest\u003A\u003A\u0024testInstance",
@@ -6473,7 +6483,7 @@ Search.appendIndex(
         },                {
             "fqsen": "\\chillerlan\\OAuthTest\\Providers\\Live\\SteamAPITest\u003A\u003AsetUp\u0028\u0029",
             "name": "setUp",
-            "summary": "",
+            "summary": "Initializes\u0020the\u0020unit\u0020test",
             "url": "classes/chillerlan-OAuthTest-Providers-Live-SteamAPITest.html#method_setUp"
         },                {
             "fqsen": "\\chillerlan\\OAuthTest\\Providers\\Live\\SteamAPITest\u003A\u003AtestMeUnauthorizedAccessException\u0028\u0029",
@@ -7125,6 +7135,11 @@ Search.appendIndex(
             "name": "testParseTokenResponseConfirmCallbackException",
             "summary": "",
             "url": "classes/chillerlan-OAuthTest-Providers-Unit-OAuth1ProviderUnitTestAbstract.html#method_testParseTokenResponseConfirmCallbackException"
+        },                {
+            "fqsen": "\\chillerlan\\OAuthTest\\Providers\\Unit\\OAuth1ProviderUnitTestAbstract\u003A\u003AtestGetAccessTokenRequestHeaderParams\u0028\u0029",
+            "name": "testGetAccessTokenRequestHeaderParams",
+            "summary": "",
+            "url": "classes/chillerlan-OAuthTest-Providers-Unit-OAuth1ProviderUnitTestAbstract.html#method_testGetAccessTokenRequestHeaderParams"
         },                {
             "fqsen": "\\chillerlan\\OAuthTest\\Providers\\Unit\\OAuth1ProviderUnitTestAbstract\u003A\u003AtestGetAccessToken\u0028\u0029",
             "name": "testGetAccessToken",

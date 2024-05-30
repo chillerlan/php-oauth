@@ -155,6 +155,30 @@ abstract class OAuth1ProviderUnitTestAbstract extends OAuthProviderUnitTestAbstr
 	 * access token
 	 */
 
+	public function testGetAccessTokenRequestHeaderParams():void{
+
+		$testRequestToken = $this->getTestToken([
+			'accessToken'       => 'test_request_token',
+			'accessTokenSecret' => 'test_request_token_secret',
+		]);
+
+		$testVerifier = '*verifier*';
+
+		$headerParams = $this->invokeReflectionMethod('getAccessTokenRequestHeaderParams', [$testRequestToken, $testVerifier]);
+
+		$this::assertArrayHasKey('oauth_verifier', $headerParams);
+		$this::assertSame($testVerifier, $headerParams['oauth_verifier']);
+
+		$this::assertArrayHasKey('oauth_token', $headerParams);
+		$this::assertSame($testRequestToken->accessToken, $headerParams['oauth_token']);
+
+		$this::assertArrayHasKey('oauth_consumer_key', $headerParams);
+		$this::assertArrayHasKey('oauth_nonce', $headerParams);
+		$this::assertArrayHasKey('oauth_signature_method', $headerParams);
+		$this::assertArrayHasKey('oauth_timestamp', $headerParams);
+		$this::assertArrayHasKey('oauth_signature', $headerParams);
+	}
+
 	public function testGetAccessToken():void{
 		$this->setMockResponse($this->streamFactory->createStream($this::TEST_ACCESS_TOKEN));
 
@@ -179,16 +203,12 @@ abstract class OAuth1ProviderUnitTestAbstract extends OAuthProviderUnitTestAbstr
 			'expires'           => AccessToken::NEVER_EXPIRES,
 		]);
 
-
 		$this->provider->storeAccessToken($requestToken);
 
-		$response = $this->invokeReflectionMethod('sendAccessTokenRequest', ['*verifier*']);
+		$response = $this->invokeReflectionMethod('sendAccessTokenRequest', [['foo' => 'bar']]);
 		$json     = MessageUtil::decodeJSON($response);
 
-		// check if the verifier is set
-		$this::assertSame('*verifier*', $json->request->params->{'oauth_verifier'});
-
-		$this::assertTrue(str_starts_with($json->headers->{'Authorization'}, 'OAuth '));
+		$this::assertSame('OAuth foo="bar"', $json->headers->{'Authorization'});
 		$this::assertSame('identity', $json->headers->{'Accept-Encoding'});
 		$this::assertSame('0', $json->headers->{'Content-Length'});
 		$this::assertSame('POST', $json->request->method);

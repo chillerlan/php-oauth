@@ -283,7 +283,7 @@ class SpotifyClient extends Spotify{
 
 			usleep(self::sleepTimer);
 
-			if($playlistAddTracks->getStatusCode() === 201){
+			if(in_array($playlistAddTracks->getStatusCode(), [200, 201, 204])){
 				$json = MessageUtil::decodeJSON($playlistAddTracks);
 
 				$this->logger->info(sprintf('added tracks %s/%s [%s]', ++$i, count($uris), $json->snapshot_id));

@@ -39,7 +39,7 @@ class MixesDBTrackSearch extends SpotifyClient{
 
 			foreach($sets as $name => $set){
 				// skip by inclusion list
-				if($this->setContains($name, $find)){
+				if(!$this->setContains($name, $find)){
 					continue;
 				}
 
@@ -99,9 +99,14 @@ class MixesDBTrackSearch extends SpotifyClient{
 	 * check a string for the occurence of any in the given array of needles
 	 */
 	protected function setContains(string $haystack, array $needles):bool{
+
+		if(empty($needles)){
+			return true;
+		}
+
 		$haystack = mb_strtolower($haystack);
 
-		return !empty($needles) && str_replace(array_map('mb_strtolower', $needles), '', $haystack) === $haystack;
+		return str_replace(array_map('mb_strtolower', $needles), '', $haystack) !== $haystack;
 	}
 
 	/**

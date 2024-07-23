@@ -28,11 +28,13 @@ class TwitterCC extends OAuth2Provider implements ClientCredentials{
 
 	public const IDENTIFIER = 'TWITTERCC';
 
-	protected const AUTH_ERRMSG = 'TwitterCC only supports Client Credentials Grant, use the Twitter OAuth1 class for authentication instead.';
+	protected const AUTH_ERRMSG = 'TwitterCC only supports Client Credentials Grant,'.
+	                              'use the Twitter OAuth1 class for authentication instead.';
 
 	protected string      $apiURL                    = 'https://api.twitter.com';
 	protected string|null $clientCredentialsTokenURL = 'https://api.twitter.com/oauth2/token';
 	protected string|null $userRevokeURL             = 'https://twitter.com/settings/applications';
+	// phpcs:ignore
 	protected string|null $apiDocs                   = 'https://developer.twitter.com/en/docs/basics/authentication/overview/application-only';
 	protected string|null $applicationURL            = 'https://developer.twitter.com/apps';
 

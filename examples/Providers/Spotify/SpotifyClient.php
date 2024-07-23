@@ -39,7 +39,7 @@ class SpotifyClient extends Spotify{
 		foreach($vars as $var){
 			file_put_contents(
 				sprintf('%s/%s.json', rtrim($dir, '\\/'), $var),
-				json_encode($this->{$var}, (JSON_PRETTY_PRINT|JSON_UNESCAPED_SLASHES|JSON_UNESCAPED_UNICODE))
+				json_encode($this->{$var}, (JSON_PRETTY_PRINT | JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE))
 			);
 		}
 

@@ -30,6 +30,7 @@ abstract class AzureActiveDirectory extends OAuth2Provider implements CSRFToken{
 	protected string      $authorizationURL = 'https://login.microsoftonline.com/common/oauth2/v2.0/authorize';
 	protected string      $accessTokenURL   = 'https://login.microsoftonline.com/common/oauth2/v2.0/token';
 	protected string|null $userRevokeURL    = 'https://account.live.com/consent/Manage';
+	// phpcs:ignore
 	protected string|null $applicationURL   = 'https://aad.portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/RegisteredApps';
 
 }

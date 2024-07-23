@@ -63,7 +63,10 @@ class Patreon extends OAuth2Provider implements CSRFToken, TokenRefresh, UserInf
 
 		if(in_array($this::SCOPE_V2_IDENTITY, $token->scopes)){
 			$endpoint = '/v2/identity';
-			$params   = ['fields[user]' => 'about,created,email,first_name,full_name,image_url,last_name,social_connections,thumb_url,url,vanity'];
+			$params   = [
+				'fields[user]' => 'about,created,email,first_name,full_name,image_url,'.
+				                  'last_name,social_connections,thumb_url,url,vanity'
+			];
 		}
 		elseif(in_array($this::SCOPE_V1_USERS, $token->scopes)){
 			$endpoint = '/api/current_user';

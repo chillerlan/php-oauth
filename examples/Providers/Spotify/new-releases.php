@@ -27,7 +27,7 @@ $minTracks         = 1;                          // minimum number of tracks per
 $skipAppearsOn     = true;
 $skipVariousArtist = true;
 $fromCache         = false;
-$cacheDir          =  __DIR__.'/cache';
+$cacheDir          = __DIR__.'/cache';
 
 $spotify = $factory->getProvider(SpotifyNewReleases::class, OAuthExampleProviderFactory::STORAGE_FILE);
 $spotify->getNewReleases($since, $until, $minTracks, $skipVariousArtist, $skipAppearsOn, $fromCache, $cacheDir);

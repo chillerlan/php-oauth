@@ -114,4 +114,4 @@ do{
 }
 while(!empty($catPath));
 
-file_put_contents($file, json_encode($tracklist, (JSON_PRETTY_PRINT|JSON_UNESCAPED_SLASHES|JSON_UNESCAPED_UNICODE)));
+file_put_contents($file, json_encode($tracklist, (JSON_PRETTY_PRINT | JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE)));

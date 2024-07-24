@@ -82,6 +82,9 @@ abstract class OAuthProviderUnitTestAbstract extends ProviderUnitTestAbstract{
 		];
 	}
 
+	/**
+	 * @param array<string, string> $body
+	 */
 	#[DataProvider('arrayBodyProvider')]
 	public function testGetRequestBodyWithArray(array $body, string $contentType, string $expected):void{
 

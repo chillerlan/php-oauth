@@ -37,27 +37,21 @@ class Foursquare extends OAuth2Provider implements UserInfo{
 	protected string|null $apiDocs          = 'https://location.foursquare.com/developer/reference/foursquare-apis-overview';
 	protected string|null $applicationURL   = 'https://foursquare.com/developers/apps';
 
-	/**
-	 * @inheritDoc
-	 * @codeCoverageIgnore
-	 */
+	/** @codeCoverageIgnore */
 	public function request(
 		string                            $path,
 		array|null                        $params = null,
 		string|null                       $method = null,
 		StreamInterface|array|string|null $body = null,
 		array|null                        $headers = null,
-		string|null                       $protocolVersion = null
+		string|null                       $protocolVersion = null,
 	):ResponseInterface{
 		$params = array_merge(($params ?? []), $this::QUERY_PARAMS);
 
 		return parent::request($path, $params, $method, $body, $headers, $protocolVersion);
 	}
 
-	/**
-	 * @inheritDoc
-	 * @codeCoverageIgnore
-	 */
+	/** @codeCoverageIgnore */
 	public function me():AuthenticatedUser{
 		$json = $this->getMeResponseData('/v2/users/self', $this::QUERY_PARAMS);
 		$user = $json['response']['user'];

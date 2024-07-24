@@ -76,9 +76,6 @@ class Twitch extends OAuth2Provider implements ClientCredentials, CSRFToken, Tok
 	protected string|null $apiDocs          = 'https://dev.twitch.tv/docs/api/reference/';
 	protected string|null $applicationURL   = 'https://dev.twitch.tv/console/apps/create';
 
-	/**
-	 * @inheritDoc
-	 */
 	protected function getClientCredentialsTokenRequestBodyParams(array|null $scopes):array{
 
 		$params = [
@@ -95,7 +92,7 @@ class Twitch extends OAuth2Provider implements ClientCredentials, CSRFToken, Tok
 	}
 
 	/**
-	 * @inheritDoc
+	 * @param array<string, string> $body
 	 */
 	protected function sendClientCredentialsTokenRequest(string $url, array $body):ResponseInterface{
 
@@ -113,9 +110,6 @@ class Twitch extends OAuth2Provider implements ClientCredentials, CSRFToken, Tok
 		return $this->http->sendRequest($request);
 	}
 
-	/**
-	 * @inheritDoc
-	 */
 	protected function getInvalidateAccessTokenBodyParams(AccessToken $token, string $type):array{
 		return [
 			'client_id'       => $this->options->key,
@@ -124,9 +118,6 @@ class Twitch extends OAuth2Provider implements ClientCredentials, CSRFToken, Tok
 		];
 	}
 
-	/**
-	 * @inheritDoc
-	 */
 	public function getRequestAuthorization(RequestInterface $request, AccessToken|null $token = null):RequestInterface{
 		$token ??= $this->storage->getAccessToken($this->name);
 
@@ -144,10 +135,7 @@ class Twitch extends OAuth2Provider implements ClientCredentials, CSRFToken, Tok
 			->withHeader('Client-ID', $this->options->key);
 	}
 
-	/**
-	 * @inheritDoc
-	 * @codeCoverageIgnore
-	 */
+	/** @codeCoverageIgnore */
 	public function me():AuthenticatedUser{
 		$json = $this->getMeResponseData('/helix/users');
 		$user = $json['data'][0];

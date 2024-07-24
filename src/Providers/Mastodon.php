@@ -75,9 +75,6 @@ class Mastodon extends OAuth2Provider implements CSRFToken, TokenRefresh, UserIn
 		return $this;
 	}
 
-	/**
-	 * @inheritDoc
-	 */
 	public function getAccessToken(string $code, string|null $state = null):AccessToken{
 		$this->checkState($state);  // we're an instance of CSRFToken
 
@@ -93,10 +90,7 @@ class Mastodon extends OAuth2Provider implements CSRFToken, TokenRefresh, UserIn
 		return $token;
 	}
 
-	/**
-	 * @inheritDoc
-	 * @codeCoverageIgnore
-	 */
+	/** @codeCoverageIgnore */
 	public function me():AuthenticatedUser{
 		$json = $this->getMeResponseData('/v1/accounts/verify_credentials');
 

@@ -25,17 +25,27 @@ use function class_exists;
  */
 class OAuthProviderFactory{
 
+	protected ClientInterface         $http;
+	protected RequestFactoryInterface $requestFactory;
+	protected StreamFactoryInterface  $streamFactory;
+	protected UriFactoryInterface     $uriFactory;
+	protected LoggerInterface         $logger;
+
 	/**
 	 * thank you PHP-FIG for absolutely nothing
 	 */
 	public function __construct(
-		protected ClientInterface         $http,
-		protected RequestFactoryInterface $requestFactory,
-		protected StreamFactoryInterface  $streamFactory,
-		protected UriFactoryInterface     $uriFactory,
-		protected LoggerInterface         $logger = new NullLogger,
+		ClientInterface         $http,
+		RequestFactoryInterface $requestFactory,
+		StreamFactoryInterface  $streamFactory,
+		UriFactoryInterface     $uriFactory,
+		LoggerInterface         $logger = new NullLogger,
 	){
-		// noop
+		$this->http           = $http;
+		$this->requestFactory = $requestFactory;
+		$this->streamFactory  = $streamFactory;
+		$this->uriFactory     = $uriFactory;
+		$this->logger         = $logger;
 	}
 
 	/**

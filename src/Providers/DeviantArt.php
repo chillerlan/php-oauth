@@ -59,10 +59,7 @@ class DeviantArt extends OAuth2Provider implements ClientCredentials, CSRFToken,
 	protected string|null $apiDocs          = 'https://www.deviantart.com/developers/';
 	protected string|null $applicationURL   = 'https://www.deviantart.com/developers/apps';
 
-	/**
-	 * @inheritDoc
-	 * @codeCoverageIgnore
-	 */
+	/** @codeCoverageIgnore */
 	public function me():AuthenticatedUser{
 		$json = $this->getMeResponseData('/user/whoami');
 
@@ -77,9 +74,6 @@ class DeviantArt extends OAuth2Provider implements ClientCredentials, CSRFToken,
 		return new AuthenticatedUser($userdata);
 	}
 
-	/**
-	 * @inheritDoc
-	 */
 	public function invalidateAccessToken(AccessToken|null $token = null, string|null $type = null):bool{
 
 		if($token !== null){

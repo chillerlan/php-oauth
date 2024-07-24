@@ -21,9 +21,11 @@ use Attribute;
 #[Attribute(Attribute::TARGET_CLASS)]
 final class Provider{
 
-	public function __construct(
-		private readonly string $className,
-	){}
+	private readonly string $className;
+
+	public function __construct(string $className){
+		$this->className = $className;
+	}
 
 	public function className():string{
 		return $this->className;

@@ -52,7 +52,7 @@ class NPROne extends OAuth2Provider implements CSRFToken, TokenRefresh, TokenInv
 	public function setAPI(string $api):static{
 		$api = strtolower($api);
 
-		if(!in_array($api, ['identity', 'listening', 'station'])){
+		if(!in_array($api, ['identity', 'listening', 'station'], true)){
 			throw new ProviderException(sprintf('invalid API: "%s"', $api));
 		}
 
@@ -61,10 +61,7 @@ class NPROne extends OAuth2Provider implements CSRFToken, TokenRefresh, TokenInv
 		return $this;
 	}
 
-	/**
-	 * @inheritDoc
-	 * @codeCoverageIgnore
-	 */
+	/** @codeCoverageIgnore */
 	public function me():AuthenticatedUser{
 		$json = $this->getMeResponseData('https://identity.api.npr.org/v2/user');
 

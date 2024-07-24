@@ -40,16 +40,13 @@ class Flickr extends OAuth1Provider implements UserInfo{
 	protected string|null $apiDocs          = 'https://www.flickr.com/services/api/';
 	protected string|null $applicationURL   = 'https://www.flickr.com/services/apps/create/';
 
-	/**
-	 * @inheritDoc
-	 */
 	public function request(
 		string                            $path,
 		array|null                        $params = null,
 		string|null                       $method = null,
 		StreamInterface|array|string|null $body = null,
 		array|null                        $headers = null,
-		string|null                       $protocolVersion = null
+		string|null                       $protocolVersion = null,
 	):ResponseInterface{
 
 		$params = array_merge(($params ?? []), [

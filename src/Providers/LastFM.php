@@ -52,11 +52,9 @@ class LastFM extends OAuthProvider implements UserInfo{
 	protected string|null $apiDocs          = 'https://www.last.fm/api/';
 	protected string|null $applicationURL   = 'https://www.last.fm/api/account/create';
 
+	/** @var array<int, array<string, scalar>> */
 	protected array $scrobbles = [];
 
-	/**
-	 * @inheritdoc
-	 */
 	public function getAuthorizationURL(array|null $params = null, array|null $scopes = null):UriInterface{
 
 		$params = array_merge(($params ?? []), [
@@ -96,6 +94,8 @@ class LastFM extends OAuthProvider implements UserInfo{
 
 	/**
 	 * sends a request to the access token endpoint $url with the given $params as URL query
+	 *
+	 * @param array<string, string> $params
 	 */
 	protected function sendAccessTokenRequest(string $url, array $params):ResponseInterface{
 
@@ -145,16 +145,13 @@ class LastFM extends OAuthProvider implements UserInfo{
 		return $token;
 	}
 
-	/**
-	 * @inheritDoc
-	 */
 	public function request(
 		string                            $path,
 		array|null                        $params = null,
 		string|null                       $method = null,
 		StreamInterface|array|string|null $body = null,
 		array|null                        $headers = null,
-		string|null                       $protocolVersion = null
+		string|null                       $protocolVersion = null,
 	):ResponseInterface{
 		$method    = strtoupper(($method ?? 'GET'));
 		$headers ??= [];
@@ -186,6 +183,8 @@ class LastFM extends OAuthProvider implements UserInfo{
 
 	/**
 	 * adds the authorization parameters to the request parameters
+	 *
+	 * @param array<string, string> $params
 	 */
 	protected function getAuthorization(array $params, AccessToken|null $token = null):array{
 		$token ??= $this->storage->getAccessToken($this->name);
@@ -198,9 +197,6 @@ class LastFM extends OAuthProvider implements UserInfo{
 		return $this->addSignature($params);
 	}
 
-	/**
-	 * @inheritDoc
-	 */
 	public function getRequestAuthorization(RequestInterface $request, AccessToken|null $token = null):RequestInterface{
 		// noop - just return the request
 		return $request;
@@ -208,6 +204,9 @@ class LastFM extends OAuthProvider implements UserInfo{
 
 	/**
 	 * returns the signature for the set of parameters
+	 *
+	 * @param array<string, string> $params
+	 * @return array<string, string>
 	 */
 	protected function addSignature(array $params):array{
 
@@ -221,7 +220,7 @@ class LastFM extends OAuthProvider implements UserInfo{
 
 		foreach($params as $k => $v){
 
-			if(in_array($k, ['format', 'callback'])){
+			if(in_array($k, ['format', 'callback'], true)){
 				continue;
 			}
 
@@ -233,17 +232,11 @@ class LastFM extends OAuthProvider implements UserInfo{
 		return $params;
 	}
 
-	/**
-	 * @inheritDoc
-	 */
 	protected function sendMeRequest(string $endpoint, array|null $params = null):ResponseInterface{
 		return $this->request($endpoint, $params);
 	}
 
-	/**
-	 * @inheritDoc
-	 * @codeCoverageIgnore
-	 */
+	/** @codeCoverageIgnore */
 	public function me():AuthenticatedUser{
 		$json = $this->getMeResponseData('user.getInfo');
 
@@ -282,6 +275,9 @@ class LastFM extends OAuthProvider implements UserInfo{
 	 *   - duration    : [optional] The length of the track in seconds.
 	 *
 	 * @link https://www.last.fm/api/show/track.scrobble
+	 *
+	 * @param  array<string, scalar> $tracks
+	 * @return array<string, scalar>
 	 */
 	public function scrobble(array $tracks):array{
 
@@ -319,6 +315,8 @@ class LastFM extends OAuthProvider implements UserInfo{
 
 	/**
 	 * Adds a track to scrobble
+	 *
+	 * @param array<string, scalar> $track
 	 */
 	public function addScrobble(array $track):static{
 
@@ -341,6 +339,7 @@ class LastFM extends OAuthProvider implements UserInfo{
 	}
 
 	/**
+	 * @param array<string, scalar> $track
 	 * @codeCoverageIgnore
 	 */
 	protected function parseTrack(array $track):array{
@@ -416,6 +415,8 @@ class LastFM extends OAuthProvider implements UserInfo{
 	}
 
 	/**
+	 * @param array<string, string> $body
+	 * @return array<string, mixed>|null
 	 * @codeCoverageIgnore
 	 */
 	protected function sendScrobbles(array $body):array|null{

@@ -70,11 +70,15 @@ final class AccessToken extends SettingsContainerAbstract{
 
 	/**
 	 * (magic) The scopes that are attached to this token
+	 *
+	 * @var string[]
 	 */
 	protected array $scopes = [];
 
 	/**
 	 * (magic) Additional token parameters supplied by the provider
+	 *
+	 * @var array<string, mixed>
 	 */
 	protected array $extraParams = [];
 

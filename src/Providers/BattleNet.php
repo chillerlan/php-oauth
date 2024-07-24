@@ -58,9 +58,6 @@ class BattleNet extends OAuth2Provider implements ClientCredentials, CSRFToken, 
 		'oauth.battlenet.com.cn',
 	];
 
-	/**
-	 * @inheritDoc
-	 */
 	protected function getRequestTarget(string $uri):string{
 		$parsedURL  = $this->uriFactory->createUri($uri);
 		$parsedHost = $parsedURL->getHost();

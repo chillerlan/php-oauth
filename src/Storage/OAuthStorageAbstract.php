@@ -48,7 +48,7 @@ abstract class OAuthStorageAbstract implements OAuthStorageInterface{
 	 */
 	public function __construct(
 		OAuthOptions|SettingsContainerInterface $options = new OAuthOptions,
-		LoggerInterface                         $logger = new NullLogger
+		LoggerInterface                         $logger = new NullLogger,
 	){
 		$this->options = $options;
 		$this->logger  = $logger;
@@ -59,10 +59,7 @@ abstract class OAuthStorageAbstract implements OAuthStorageInterface{
 
 	}
 
-	/**
-	 * @inheritDoc
-	 * @codeCoverageIgnore
-	 */
+	/** @codeCoverageIgnore */
 	public function setLogger(LoggerInterface $logger):static{
 		$this->logger = $logger;
 
@@ -84,9 +81,6 @@ abstract class OAuthStorageAbstract implements OAuthStorageInterface{
 		return $name;
 	}
 
-	/**
-	 * @inheritDoc
-	 */
 	public function toStorage(AccessToken $token):mixed{
 		$tokenJSON = $token->toJSON();
 
@@ -97,9 +91,6 @@ abstract class OAuthStorageAbstract implements OAuthStorageInterface{
 		return $tokenJSON;
 	}
 
-	/**
-	 * @inheritDoc
-	 */
 	public function fromStorage(mixed $data):AccessToken{
 
 		if($this->options->useStorageEncryption === true){

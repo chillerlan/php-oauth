@@ -22,6 +22,8 @@ class MemoryStorage extends OAuthStorageAbstract{
 
 	/**
 	 * the storage array
+	 *
+	 * @var array<string, array<string, mixed>>
 	 */
 	protected array $storage = [
 		self::KEY_TOKEN    => [],
@@ -34,18 +36,12 @@ class MemoryStorage extends OAuthStorageAbstract{
 	 * Access token
 	 */
 
-	/**
-	 * @inheritDoc
-	 */
 	public function storeAccessToken(AccessToken $token, string $provider):static{
 		$this->storage[$this::KEY_TOKEN][$this->getProviderName($provider)] = $token;
 
 		return $this;
 	}
 
-	/**
-	 * @inheritDoc
-	 */
 	public function getAccessToken(string $provider):AccessToken{
 
 		if($this->hasAccessToken($provider)){
@@ -55,25 +51,16 @@ class MemoryStorage extends OAuthStorageAbstract{
 		throw new ItemNotFoundException($this::KEY_TOKEN);
 	}
 
-	/**
-	 * @inheritDoc
-	 */
 	public function hasAccessToken(string $provider):bool{
 		return !empty($this->storage[$this::KEY_TOKEN][$this->getProviderName($provider)]);
 	}
 
-	/**
-	 * @inheritDoc
-	 */
 	public function clearAccessToken(string $provider):static{
 		unset($this->storage[$this::KEY_TOKEN][$this->getProviderName($provider)]);
 
 		return $this;
 	}
 
-	/**
-	 * @inheritDoc
-	 */
 	public function clearAllAccessTokens():static{
 		$this->storage[$this::KEY_TOKEN] = [];
 
@@ -85,18 +72,12 @@ class MemoryStorage extends OAuthStorageAbstract{
 	 * CSRF state
 	 */
 
-	/**
-	 * @inheritDoc
-	 */
 	public function storeCSRFState(string $state, string $provider):static{
 		$this->storage[$this::KEY_STATE][$this->getProviderName($provider)] = $state;
 
 		return $this;
 	}
 
-	/**
-	 * @inheritDoc
-	 */
 	public function getCSRFState(string $provider):string{
 
 		if($this->hasCSRFState($provider)){
@@ -106,25 +87,16 @@ class MemoryStorage extends OAuthStorageAbstract{
 		throw new ItemNotFoundException($this::KEY_STATE);
 	}
 
-	/**
-	 * @inheritDoc
-	 */
 	public function hasCSRFState(string $provider):bool{
 		return !empty($this->storage[$this::KEY_STATE][$this->getProviderName($provider)]);
 	}
 
-	/**
-	 * @inheritDoc
-	 */
 	public function clearCSRFState(string $provider):static{
 		unset($this->storage[$this::KEY_STATE][$this->getProviderName($provider)]);
 
 		return $this;
 	}
 
-	/**
-	 * @inheritDoc
-	 */
 	public function clearAllCSRFStates():static{
 		$this->storage[$this::KEY_STATE] = [];
 
@@ -136,18 +108,12 @@ class MemoryStorage extends OAuthStorageAbstract{
 	 * PKCE verifier
 	 */
 
-	/**
-	 * @inheritDoc
-	 */
 	public function storeCodeVerifier(string $verifier, string $provider):static{
 		$this->storage[$this::KEY_VERIFIER][$this->getProviderName($provider)] = $verifier;
 
 		return $this;
 	}
 
-	/**
-	 * @inheritDoc
-	 */
 	public function getCodeVerifier(string $provider):string{
 
 		if($this->hasCodeVerifier($provider)){
@@ -157,25 +123,16 @@ class MemoryStorage extends OAuthStorageAbstract{
 		throw new ItemNotFoundException($this::KEY_VERIFIER);
 	}
 
-	/**
-	 * @inheritDoc
-	 */
 	public function hasCodeVerifier(string $provider):bool{
 		return !empty($this->storage[$this::KEY_VERIFIER][$this->getProviderName($provider)]);
 	}
 
-	/**
-	 * @inheritDoc
-	 */
 	public function clearCodeVerifier(string $provider):static{
 		unset($this->storage[$this::KEY_VERIFIER][$this->getProviderName($provider)]);
 
 		return $this;
 	}
 
-	/**
-	 * @inheritDoc
-	 */
 	public function clearAllCodeVerifiers():static{
 		$this->storage[$this::KEY_VERIFIER] = [];
 

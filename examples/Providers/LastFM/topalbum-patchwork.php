@@ -104,7 +104,20 @@ try{
 			}
 
 			$img = array_shift($res);
-			imagecopyresampled($patchwork, $img, ($x * $imageSize), ($y * $imageSize), 0, 0, $imageSize, $imageSize, imagesx($img), imagesy($img));
+
+			imagecopyresampled(
+				$patchwork,
+				$img,
+				($x * $imageSize),
+				($y * $imageSize),
+				0,
+				0,
+				$imageSize,
+				$imageSize,
+				imagesx($img),
+				imagesy($img),
+			);
+
 			imagedestroy($img);
 		}
 	}
@@ -146,7 +159,8 @@ function getImage(string $url, string $urlcache):string{
 	return $urlcache.$path;
 }
 
-function sendResponse(array $response):void{
+/** @param array<string, mixed> $response */
+function sendResponse(array $response):never{
 	header('Content-type: application/json;charset=utf-8;');
 
 	echo json_encode($response, JSON_PRETTY_PRINT);

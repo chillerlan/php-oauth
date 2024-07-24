@@ -30,13 +30,10 @@ final class DummyOAuth1Provider extends OAuth1Provider implements TokenInvalidat
 	protected string      $apiURL           = 'https://api.sub.example.com';
 	protected string|null $userRevokeURL    = 'https://account.example.com/apps/';
 
-	/**
-	 * @inheritDoc
-	 */
-	public function invalidateAccessToken(AccessToken $token = null, string|null $type = null):bool{
+	public function invalidateAccessToken(AccessToken|null $token = null, string|null $type = null):bool{
 
 		if($token === null){
-			$tokenToInvalidate = $this->storage->getAccessToken($this->name);
+			$tokenToInvalidate = $this->storage->getAccessToken($this->name); // phpcs:ignore
 		}
 
 		// ... prepare request with body etc

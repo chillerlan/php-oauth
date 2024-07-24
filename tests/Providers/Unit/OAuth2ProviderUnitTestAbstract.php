@@ -283,14 +283,14 @@ abstract class OAuth2ProviderUnitTestAbstract extends OAuthProviderUnitTestAbstr
 		if($this->provider::AUTH_METHOD === OAuth2Interface::AUTH_METHOD_HEADER){
 			$this::assertStringContainsString(
 				$this->provider::AUTH_PREFIX_HEADER.' test_access_token',
-				$this->provider->getRequestAuthorization($request)->getHeaderLine('Authorization')
+				$this->provider->getRequestAuthorization($request)->getHeaderLine('Authorization'),
 			);
 		}
 		// query
 		elseif($this->provider::AUTH_METHOD === OAuth2Interface::AUTH_METHOD_QUERY){
 			$this::assertStringContainsString(
 				$this->provider::AUTH_PREFIX_QUERY.'=test_access_token',
-				$this->provider->getRequestAuthorization($request)->getUri()->getQuery()
+				$this->provider->getRequestAuthorization($request)->getUri()->getQuery(),
 			);
 		}
 

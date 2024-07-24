@@ -12,10 +12,11 @@ declare(strict_types=1);
 use chillerlan\HTTP\Utils\MessageUtil;
 
 /**
- *
+ * New releases crawler
  */
 class SpotifyNewReleases extends SpotifyClient{
 
+	/** @var array<string, object> */
 	protected array $newAlbums = [];
 
 	/**
@@ -140,7 +141,7 @@ class SpotifyNewReleases extends SpotifyClient{
 
 		$playlistID = $this->createPlaylist(
 			sprintf('new releases %s - %s', date('d.m.Y', $since), date('d.m.Y', $until)),
-			sprintf('new releases by the artists i\'m following, %s - %s', date('d.m.Y', $since), date('d.m.Y', $until))
+			sprintf('new releases by the artists i\'m following, %s - %s', date('d.m.Y', $since), date('d.m.Y', $until)),
 		);
 
 		$this->addTracks($playlistID, $newtracks);

@@ -56,7 +56,8 @@ abstract class OAuth2Provider extends OAuthProvider implements OAuth2Interface{
 	protected string $parAuthorizationURL = '';
 
 	/**
-	 * @inheritDoc
+	 * @param array<string, string> $params
+	 * @param string[] $scopes
 	 */
 	public function getAuthorizationURL(array|null $params = null, array|null $scopes = null):UriInterface{
 		$queryParams = $this->getAuthorizationURLRequestParams(($params ?? []), ($scopes ?? $this::DEFAULT_SCOPES));
@@ -72,6 +73,9 @@ abstract class OAuth2Provider extends OAuthProvider implements OAuth2Interface{
 	 * prepares the query parameters for the auth URL
 	 *
 	 * @see \chillerlan\OAuth\Core\OAuth2Provider::getAuthorizationURL()
+	 *
+	 * @param array<string, string> $params
+	 * @param string[] $scopes
 	 */
 	protected function getAuthorizationURLRequestParams(array $params, array $scopes):array{
 
@@ -185,9 +189,6 @@ abstract class OAuth2Provider extends OAuthProvider implements OAuth2Interface{
 		return $data;
 	}
 
-	/**
-	 * @inheritDoc
-	 */
 	public function getAccessToken(string $code, string|null $state = null):AccessToken{
 
 		if($this instanceof CSRFToken){
@@ -234,6 +235,8 @@ abstract class OAuth2Provider extends OAuthProvider implements OAuth2Interface{
 	 * @see \chillerlan\OAuth\Core\OAuth2Provider::getAccessToken()
 	 * @see \chillerlan\OAuth\Core\OAuth2Provider::refreshAccessToken()
 	 * @see \chillerlan\OAuth\Core\OAuth2Provider::getParRequestUri()
+	 *
+	 * @param array<string, string> $body
 	 */
 	protected function sendAccessTokenRequest(string $url, array $body):ResponseInterface{
 
@@ -256,9 +259,6 @@ abstract class OAuth2Provider extends OAuthProvider implements OAuth2Interface{
 		return $this->http->sendRequest($request);
 	}
 
-	/**
-	 * @inheritDoc
-	 */
 	public function getRequestAuthorization(RequestInterface $request, AccessToken|null $token = null):RequestInterface{
 		$token ??= $this->storage->getAccessToken($this->name);
 
@@ -291,7 +291,11 @@ abstract class OAuth2Provider extends OAuthProvider implements OAuth2Interface{
 	 */
 
 	/**
-	 * @implements \chillerlan\OAuth\Core\ClientCredentials::getClientCredentialsToken()
+	 * implements ClientCredentials::getClientCredentialsToken()
+	 *
+	 * @see \chillerlan\OAuth\Core\ClientCredentials::getClientCredentialsToken()
+	 *
+	 * @param string[]|null $scopes
 	 * @throws \chillerlan\OAuth\Providers\ProviderException
 	 */
 	public function getClientCredentialsToken(array|null $scopes = null):AccessToken{
@@ -335,6 +339,8 @@ abstract class OAuth2Provider extends OAuthProvider implements OAuth2Interface{
 	 * sends a request to the client credentials endpoint, using basic authentication
 	 *
 	 * @see \chillerlan\OAuth\Core\OAuth2Provider::getClientCredentialsToken()
+	 *
+	 * @param array<string, string> $body
 	 */
 	protected function sendClientCredentialsTokenRequest(string $url, array $body):ResponseInterface{
 
@@ -361,7 +367,9 @@ abstract class OAuth2Provider extends OAuthProvider implements OAuth2Interface{
 	 */
 
 	/**
-	 * @implements \chillerlan\OAuth\Core\TokenRefresh::refreshAccessToken()
+	 * implements TokenRefresh::refreshAccessToken()
+	 *
+	 * @see \chillerlan\OAuth\Core\TokenRefresh::refreshAccessToken()
 	 * @throws \chillerlan\OAuth\Providers\ProviderException
 	 */
 	public function refreshAccessToken(AccessToken|null $token = null):AccessToken{
@@ -413,14 +421,16 @@ abstract class OAuth2Provider extends OAuthProvider implements OAuth2Interface{
 	 */
 
 	/**
-	 * @implements \chillerlan\OAuth\Core\TokenInvalidate::invalidateAccessToken()
+	 * implements TokenInvalidate::invalidateAccessToken()
+	 *
+	 * @see \chillerlan\OAuth\Core\TokenInvalidate::invalidateAccessToken()
 	 * @throws \chillerlan\OAuth\Providers\ProviderException
 	 */
-	public function invalidateAccessToken(AccessToken $token = null, string|null $type = null):bool{
+	public function invalidateAccessToken(AccessToken|null $token = null, string|null $type = null):bool{
 		$type = strtolower(trim(($type ?? 'access_token')));
 
 		// @link https://datatracker.ietf.org/doc/html/rfc7009#section-2.1
-		if(!in_array($type, ['access_token', 'refresh_token'])){
+		if(!in_array($type, ['access_token', 'refresh_token'], true)){
 			throw new ProviderException(sprintf('invalid token type "%s"', $type));
 		}
 
@@ -456,6 +466,8 @@ abstract class OAuth2Provider extends OAuthProvider implements OAuth2Interface{
 	 * Prepares and sends a request to the token invalidation endpoint
 	 *
 	 * @see \chillerlan\OAuth\Core\OAuth2Provider::invalidateAccessToken()
+	 *
+	 * @param array<string, string> $body
 	 */
 	protected function sendTokenInvalidateRequest(string $url, array $body):ResponseInterface{
 
@@ -488,8 +500,12 @@ abstract class OAuth2Provider extends OAuthProvider implements OAuth2Interface{
 	 */
 
 	/**
-	 * @implements \chillerlan\OAuth\Core\CSRFToken::setState()
+	 * implements CSRFToken::setState()
+	 *
+	 * @see \chillerlan\OAuth\Core\CSRFToken::setState()
 	 * @see \chillerlan\OAuth\Core\OAuth2Provider::getAuthorizationURLRequestParams()
+	 *
+	 * @param array<string, string> $params
 	 * @throws \chillerlan\OAuth\Providers\ProviderException
 	 */
 	final public function setState(array $params):array{
@@ -509,7 +525,9 @@ abstract class OAuth2Provider extends OAuthProvider implements OAuth2Interface{
 	}
 
 	/**
-	 * @implements \chillerlan\OAuth\Core\CSRFToken::checkState()
+	 * implements CSRFToken::checkState()
+	 *
+	 * @see \chillerlan\OAuth\Core\CSRFToken::checkState()
 	 * @see \chillerlan\OAuth\Core\OAuth2Provider::getAccessToken()
 	 * @throws \chillerlan\OAuth\Providers\ProviderException|\chillerlan\OAuth\Core\CSRFStateMismatchException
 	 */
@@ -539,8 +557,12 @@ abstract class OAuth2Provider extends OAuthProvider implements OAuth2Interface{
 	 */
 
 	/**
-	 * @implements \chillerlan\OAuth\Core\PKCE::setCodeChallenge()
+	 * implements PKCE::setCodeChallenge()
+	 *
+	 * @see \chillerlan\OAuth\Core\PKCE::setCodeChallenge()
 	 * @see \chillerlan\OAuth\Core\OAuth2Provider::getAuthorizationURLRequestParams()
+	 *
+	 * @param array<string, string> $params
 	 */
 	final public function setCodeChallenge(array $params, string $challengeMethod):array{
 
@@ -563,8 +585,12 @@ abstract class OAuth2Provider extends OAuthProvider implements OAuth2Interface{
 	}
 
 	/**
-	 * @implements \chillerlan\OAuth\Core\PKCE::setCodeVerifier()
+	 * implements PKCE::setCodeVerifier()
+	 *
+	 * @see \chillerlan\OAuth\Core\PKCE::setCodeVerifier()
 	 * @see \chillerlan\OAuth\Core\OAuth2Provider::getAccessTokenRequestBodyParams()
+	 *
+	 * @param array<string, string> $params
 	 */
 	final public function setCodeVerifier(array $params):array{
 
@@ -585,7 +611,9 @@ abstract class OAuth2Provider extends OAuthProvider implements OAuth2Interface{
 	}
 
 	/**
-	 * @implements \chillerlan\OAuth\Core\PKCE::generateVerifier()
+	 * implements PKCE::generateVerifier()
+	 *
+	 * @see \chillerlan\OAuth\Core\PKCE::generateVerifier()
 	 * @see \chillerlan\OAuth\Core\OAuth2Provider::setCodeChallenge()
 	 *
 	 * @phan-suppress PhanUndeclaredClassMethod, PhanUndeclaredMethod
@@ -611,7 +639,9 @@ abstract class OAuth2Provider extends OAuthProvider implements OAuth2Interface{
 	}
 
 	/**
-	 * @implements \chillerlan\OAuth\Core\PKCE::generateChallenge()
+	 * implements PKCE::generateChallenge()
+	 *
+	 * @see \chillerlan\OAuth\Core\PKCE::generateChallenge()
 	 * @see \chillerlan\OAuth\Core\OAuth2Provider::setCodeChallenge()
 	 */
 	final public function generateChallenge(string $verifier, string $challengeMethod):string{
@@ -634,8 +664,12 @@ abstract class OAuth2Provider extends OAuthProvider implements OAuth2Interface{
 	 */
 
 	/**
-	 * @implements \chillerlan\OAuth\Core\PAR::getParRequestUri()
+	 * implements PAR::getParRequestUri()
+	 *
+	 * @see \chillerlan\OAuth\Core\PAR::getParRequestUri()
 	 * @see \chillerlan\OAuth\Core\OAuth2Provider::getAuthorizationURL()
+	 *
+	 * @param array<string, string> $body
 	 */
 	public function getParRequestUri(array $body):UriInterface{
 
@@ -669,6 +703,9 @@ abstract class OAuth2Provider extends OAuthProvider implements OAuth2Interface{
 	 * Parses the response from the PAR request and returns the query parameters for the authorization URL
 	 *
 	 * @see \chillerlan\OAuth\Core\OAuth2Provider::getParRequestUri()
+	 *
+	 * @param array<string, string> $response
+	 *
 	 * @codeCoverageIgnore
 	 */
 	protected function getParAuthorizationURLRequestParams(array $response):array{

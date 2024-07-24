@@ -36,10 +36,7 @@ class BigCartel extends OAuth2Provider implements CSRFToken, TokenInvalidate, Us
 	protected string|null $apiDocs          = 'https://developers.bigcartel.com/api/v1';
 	protected string|null $applicationURL   = 'https://bigcartel.wufoo.com/forms/big-cartel-api-application/';
 
-	/**
-	 * @inheritDoc
-	 * @codeCoverageIgnore
-	 */
+	/** @codeCoverageIgnore */
 	public function me():AuthenticatedUser{
 		$json = $this->getMeResponseData('/accounts');
 
@@ -53,9 +50,6 @@ class BigCartel extends OAuth2Provider implements CSRFToken, TokenInvalidate, Us
 		return new AuthenticatedUser($userdata);
 	}
 
-	/**
-	 * @inheritDoc
-	 */
 	public function invalidateAccessToken(AccessToken|null $token = null, string|null $type = null):bool{
 		$tokenToInvalidate = ($token ?? $this->storage->getAccessToken($this->name));
 

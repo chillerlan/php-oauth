@@ -12,12 +12,16 @@ declare(strict_types=1);
 use chillerlan\HTTP\Utils\MessageUtil;
 
 /**
+ * Track search in a JSON file scraped from MixesDB (RIP)
  *
+ * @see https://gist.github.com/codemasher/8986089773f036a2d4c0f34eab439459
  */
 class MixesDBTrackSearch extends SpotifyClient{
 
 	/**
 	 * search tracks on spotify from the given mixesdb track lists
+	 *
+	 * @param string[] $find
 	 */
 	public function getTracks(
 		string $clubnightsJSON,
@@ -73,7 +77,15 @@ class MixesDBTrackSearch extends SpotifyClient{
 					foreach($data->tracks->items as $i => $item){
 						$setTracks[$item->id] = $item->id;
 
-						$this->logger->info(sprintf('found: [%s][%s] %s - %s', ++$i, $item->id, implode(', ', array_column($item->artists, 'name')), $item->name));
+						$this->logger->info(
+							sprintf(
+								'found: [%s][%s] %s - %s',
+								++$i,
+								$item->id,
+								implode(', ', array_column($item->artists, 'name')),
+								$item->name,
+							),
+						);
 					}
 
 				}
@@ -97,6 +109,8 @@ class MixesDBTrackSearch extends SpotifyClient{
 
 	/**
 	 * check a string for the occurence of any in the given array of needles
+	 *
+	 * @param string[] $needles
 	 */
 	protected function setContains(string $haystack, array $needles):bool{
 

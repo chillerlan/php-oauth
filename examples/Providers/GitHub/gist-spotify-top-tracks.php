@@ -68,7 +68,7 @@ foreach($json->items as $track){
 		($t->artists[0]->name ?? ''),
 		($t->artists[0]->external_urls->spotify ?? ''),
 		($t->name ?? ''),
-		($t->external_urls->spotify ?? '')
+		($t->external_urls->spotify ?? ''),
 	);
 }
 

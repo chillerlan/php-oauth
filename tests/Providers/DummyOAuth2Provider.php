@@ -32,13 +32,10 @@ final class DummyOAuth2Provider extends OAuth2Provider
 	protected string|null $userRevokeURL       = 'https://account.example.com/apps/';
 	protected string      $parAuthorizationURL = 'https://example.com/oauth2/par';
 
-	/**
-	 * @inheritDoc
-	 */
-	public function invalidateAccessToken(AccessToken $token = null, string|null $type = null):bool{
+	public function invalidateAccessToken(AccessToken|null $token = null, string|null $type = null):bool{
 
 		if($token === null){
-			$tokenToInvalidate = $this->storage->getAccessToken($this->name);
+			$tokenToInvalidate = $this->storage->getAccessToken($this->name); // phpcs:ignore
 		}
 
 		// ... prepare request with body etc

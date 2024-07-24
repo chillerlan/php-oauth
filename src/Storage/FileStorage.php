@@ -44,7 +44,7 @@ class FileStorage extends OAuthStorageAbstract{
 	public function __construct(
 		string|int                              $oauthUser,
 		OAuthOptions|SettingsContainerInterface $options = new OAuthOptions,
-		LoggerInterface                         $logger = new NullLogger
+		LoggerInterface                         $logger = new NullLogger,
 	){
 		parent::__construct($options, $logger);
 
@@ -64,18 +64,12 @@ class FileStorage extends OAuthStorageAbstract{
 	 * Access token
 	 */
 
-	/**
-	 * @inheritDoc
-	 */
 	public function storeAccessToken(AccessToken $token, string $provider):static{
 		$this->saveFile($this->toStorage($token), $this::KEY_TOKEN, $provider);
 
 		return $this;
 	}
 
-	/**
-	 * @inheritDoc
-	 */
 	public function getAccessToken(string $provider):AccessToken{
 		$tokenData = $this->loadFile($this::KEY_TOKEN, $provider);
 
@@ -86,25 +80,16 @@ class FileStorage extends OAuthStorageAbstract{
 		return $this->fromStorage($tokenData);
 	}
 
-	/**
-	 * @inheritDoc
-	 */
 	public function hasAccessToken(string $provider):bool{
 		return file_exists($this->getFilepath($this::KEY_TOKEN, $provider));
 	}
 
-	/**
-	 * @inheritDoc
-	 */
 	public function clearAccessToken(string $provider):static{
 		$this->deleteFile($this::KEY_TOKEN, $provider);
 
 		return $this;
 	}
 
-	/**
-	 * @inheritDoc
-	 */
 	public function clearAllAccessTokens():static{
 		$this->deleteAll($this::KEY_TOKEN);
 
@@ -116,9 +101,6 @@ class FileStorage extends OAuthStorageAbstract{
 	 * CSRF state
 	 */
 
-	/**
-	 * @inheritDoc
-	 */
 	public function storeCSRFState(string $state, string $provider):static{
 
 		if($this->options->useStorageEncryption === true){
@@ -130,9 +112,6 @@ class FileStorage extends OAuthStorageAbstract{
 		return $this;
 	}
 
-	/**
-	 * @inheritDoc
-	 */
 	public function getCSRFState(string $provider):string{
 		$state = $this->loadFile($this::KEY_STATE, $provider);
 
@@ -147,25 +126,16 @@ class FileStorage extends OAuthStorageAbstract{
 		return $state;
 	}
 
-	/**
-	 * @inheritDoc
-	 */
 	public function hasCSRFState(string $provider):bool{
 		return file_exists($this->getFilepath($this::KEY_STATE, $provider));
 	}
 
-	/**
-	 * @inheritDoc
-	 */
 	public function clearCSRFState(string $provider):static{
 		$this->deleteFile($this::KEY_STATE, $provider);
 
 		return $this;
 	}
 
-	/**
-	 * @inheritDoc
-	 */
 	public function clearAllCSRFStates():static{
 		$this->deleteAll($this::KEY_STATE);
 
@@ -177,9 +147,6 @@ class FileStorage extends OAuthStorageAbstract{
 	 * PKCE verifier
 	 */
 
-	/**
-	 * @inheritDoc
-	 */
 	public function storeCodeVerifier(string $verifier, string $provider):static{
 
 		if($this->options->useStorageEncryption === true){
@@ -191,9 +158,6 @@ class FileStorage extends OAuthStorageAbstract{
 		return $this;
 	}
 
-	/**
-	 * @inheritDoc
-	 */
 	public function getCodeVerifier(string $provider):string{
 		$verifier = $this->loadFile($this::KEY_VERIFIER, $provider);
 
@@ -208,25 +172,16 @@ class FileStorage extends OAuthStorageAbstract{
 		return $verifier;
 	}
 
-	/**
-	 * @inheritDoc
-	 */
 	public function hasCodeVerifier(string $provider):bool{
 		return file_exists($this->getFilepath($this::KEY_VERIFIER, $provider));
 	}
 
-	/**
-	 * @inheritDoc
-	 */
 	public function clearCodeVerifier(string $provider):static{
 		$this->deleteFile($this::KEY_VERIFIER, $provider);
 
 		return $this;
 	}
 
-	/**
-	 * @inheritDoc
-	 */
 	public function clearAllCodeVerifiers():static{
 		$this->deleteAll($this::KEY_VERIFIER);
 

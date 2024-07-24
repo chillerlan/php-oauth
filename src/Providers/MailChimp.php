@@ -37,9 +37,6 @@ class MailChimp extends OAuth2Provider implements CSRFToken, UserInfo{
 	// set to empty so that we don't run into "uninitialized" errors in mock tests, as the datacenter is in the token
 	protected string      $apiURL           = '';
 
-	/**
-	 * @inheritDoc
-	 */
 	public function getAccessToken(string $code, string|null $state = null):AccessToken{
 		$this->checkState($state);
 
@@ -83,9 +80,6 @@ class MailChimp extends OAuth2Provider implements CSRFToken, UserInfo{
 		return $token;
 	}
 
-	/**
-	 * @inheritdoc
-	 */
 	public function request(
 		string                            $path,
 		array|null                        $params = null,
@@ -101,9 +95,6 @@ class MailChimp extends OAuth2Provider implements CSRFToken, UserInfo{
 		return parent::request($path, $params, $method, $body, $headers, $protocolVersion);
 	}
 
-	/**
-	 * @inheritDoc
-	 */
 	protected function sendMeRequest(string $endpoint, array|null $params = null):ResponseInterface{
 		return $this->request(path: $endpoint, params: $params);
 	}

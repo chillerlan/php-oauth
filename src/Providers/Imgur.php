@@ -33,9 +33,6 @@ class Imgur extends OAuth2Provider implements CSRFToken, TokenRefresh, UserInfo{
 	protected string|null $apiDocs          = 'https://apidocs.imgur.com';
 	protected string|null $applicationURL   = 'https://api.imgur.com/oauth2/addclient';
 
-	/**
-	 * @inheritDoc
-	 */
 	public function getAccessToken(string $code, string|null $state = null):AccessToken{
 		$this->checkState($state);
 
@@ -51,10 +48,7 @@ class Imgur extends OAuth2Provider implements CSRFToken, TokenRefresh, UserInfo{
 		return $token;
 	}
 
-	/**
-	 * @inheritDoc
-	 * @codeCoverageIgnore
-	 */
+	/** @codeCoverageIgnore */
 	public function me():AuthenticatedUser{
 		$json = $this->getMeResponseData('/3/account/me');
 

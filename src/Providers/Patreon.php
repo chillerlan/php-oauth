@@ -55,20 +55,17 @@ class Patreon extends OAuth2Provider implements CSRFToken, TokenRefresh, UserInf
 	protected string|null $apiDocs          = 'https://docs.patreon.com/';
 	protected string|null $applicationURL   = 'https://www.patreon.com/portal/registration/register-clients';
 
-	/**
-	 * @inheritDoc
-	 */
 	public function me():AuthenticatedUser{
 		$token = $this->storage->getAccessToken($this->name);
 
-		if(in_array($this::SCOPE_V2_IDENTITY, $token->scopes)){
+		if(in_array($this::SCOPE_V2_IDENTITY, $token->scopes, true)){
 			$endpoint = '/v2/identity';
 			$params   = [
 				'fields[user]' => 'about,created,email,first_name,full_name,image_url,'.
-				                  'last_name,social_connections,thumb_url,url,vanity'
+				                  'last_name,social_connections,thumb_url,url,vanity',
 			];
 		}
-		elseif(in_array($this::SCOPE_V1_USERS, $token->scopes)){
+		elseif(in_array($this::SCOPE_V1_USERS, $token->scopes, true)){
 			$endpoint = '/api/current_user';
 			$params   = [];
 		}

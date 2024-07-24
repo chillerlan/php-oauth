@@ -30,7 +30,7 @@ use Psr\Http\Message\UriFactoryInterface;
 use Psr\Log\LoggerInterface;
 
 /**
- *
+ * An extended provider factory to simplify using the examples
  */
 class OAuthExampleProviderFactory{
 
@@ -38,19 +38,23 @@ class OAuthExampleProviderFactory{
 	public const STORAGE_SESSION = 0b010;
 	public const STORAGE_FILE    = 0b100;
 
-	protected DotEnv $dotEnv;
-	protected LoggerInterface $logger;
+	protected OAuthProviderFactory                    $factory;
+	protected string                                  $cfgDir;
+	protected DotEnv                                  $dotEnv;
+	protected LoggerInterface                         $logger;
 	protected OAuthOptions|SettingsContainerInterface $options;
-	protected OAuthStorageInterface $fileStorage;
+	protected OAuthStorageInterface                   $fileStorage;
 
 	public function __construct(
-		protected OAuthProviderFactory $factory,
-		protected string               $cfgDir,
-		string                         $envFile,
-		string                         $logLevel,
+		OAuthProviderFactory $factory,
+		string               $cfgDir,
+		string               $envFile,
+		string               $logLevel,
 	){
 		ini_set('date.timezone', 'UTC');
 
+		$this->factory     = $factory;
+		$this->cfgDir      = $cfgDir;
 		$this->dotEnv      = (new DotEnv($this->cfgDir, $envFile, false))->load();
 		$this->logger      = $this->initLogger($logLevel);
 		$this->fileStorage = $this->initFileStorage();

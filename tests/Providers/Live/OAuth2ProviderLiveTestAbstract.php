@@ -23,6 +23,7 @@ use function time;
  */
 abstract class OAuth2ProviderLiveTestAbstract extends OAuthProviderLiveTestAbstract{
 
+	/** @var string[]  */
 	protected array $clientCredentialsScopes = [];
 
 	public function testRequestCredentialsToken():void{

@@ -53,9 +53,6 @@ class MusicBrainz extends OAuth2Provider implements CSRFToken, TokenInvalidate, 
 	protected string|null $apiDocs          = 'https://musicbrainz.org/doc/Development';
 	protected string|null $applicationURL   = 'https://musicbrainz.org/account/applications';
 
-	/**
-	 * @inheritdoc
-	 */
 	protected function getRefreshAccessTokenRequestBodyParams(string $refreshToken):array{
 		return [
 			'client_id'     => $this->options->key,
@@ -65,9 +62,6 @@ class MusicBrainz extends OAuth2Provider implements CSRFToken, TokenInvalidate, 
 		];
 	}
 
-	/**
-	 * @inheritDoc
-	 */
 	protected function getInvalidateAccessTokenBodyParams(AccessToken $token, string $type):array{
 		return [
 			'client_id'       => $this->options->key,
@@ -77,9 +71,6 @@ class MusicBrainz extends OAuth2Provider implements CSRFToken, TokenInvalidate, 
 		];
 	}
 
-	/**
-	 * @inheritDoc
-	 */
 	public function request(
 		string                            $path,
 		array|null                        $params = null,
@@ -95,17 +86,14 @@ class MusicBrainz extends OAuth2Provider implements CSRFToken, TokenInvalidate, 
 			$params['fmt'] = 'json';
 		}
 
-		if(in_array($method, ['POST', 'PUT', 'DELETE']) && !isset($params['client'])){
+		if(in_array($method, ['POST', 'PUT', 'DELETE'], true) && !isset($params['client'])){
 			$params['client'] = $this::USER_AGENT; // @codeCoverageIgnore
 		}
 
 		return parent::request($path, $params, $method, $body, $headers, $protocolVersion);
 	}
 
-	/**
-	 * @inheritDoc
-	 * @codeCoverageIgnore
-	 */
+	/** @codeCoverageIgnore */
 	public function me():AuthenticatedUser{
 		$json = $this->getMeResponseData('https://musicbrainz.org/oauth2/userinfo', ['fmt' => 'json']);
 

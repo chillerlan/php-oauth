@@ -38,6 +38,9 @@ class Steam extends OAuthProvider implements UserInfo{
 	 * we ignore user supplied params here
 	 *
 	 * @inheritDoc
+	 *
+	 * @param array<string, string> $params
+	 * @param string[]              $scopes
 	 */
 	public function getAuthorizationURL(array|null $params = null, array|null $scopes = null):UriInterface{
 
@@ -55,6 +58,8 @@ class Steam extends OAuthProvider implements UserInfo{
 
 	/**
 	 * Obtains an "authentication token" (the steamID64)
+	 *
+	 * @param array<string, string> $urlQuery
 	 */
 	public function getAccessToken(array $urlQuery):AccessToken{
 		$body     = $this->getAccessTokenRequestBodyParams($urlQuery);
@@ -68,6 +73,8 @@ class Steam extends OAuthProvider implements UserInfo{
 
 	/**
 	 * prepares the request body parameters for the access token request
+	 *
+	 * @param array<string, string> $received
 	 */
 	protected function getAccessTokenRequestBodyParams(array $received):array{
 
@@ -86,6 +93,8 @@ class Steam extends OAuthProvider implements UserInfo{
 
 	/**
 	 * sends a request to the access token endpoint $url with the given $params as URL query
+	 *
+	 * @param array<string, string> $body
 	 */
 	protected function sendAccessTokenRequest(string $url, array $body):ResponseInterface{
 
@@ -127,19 +136,13 @@ class Steam extends OAuthProvider implements UserInfo{
 		return $token;
 	}
 
-	/**
-	 * @inheritDoc
-	 */
 	public function getRequestAuthorization(RequestInterface $request, AccessToken|null $token = null):RequestInterface{
 		$uri = UriUtil::withQueryValue($request->getUri(), 'key', $this->options->secret);
 
 		return $request->withUri($uri);
 	}
 
-	/**
-	 * @inheritDoc
-	 * @codeCoverageIgnore
-	 */
+	/** @codeCoverageIgnore */
 	public function me():AuthenticatedUser{
 		$token = $this->storage->getAccessToken($this->name);
 		$json  = $this->getMeResponseData('/ISteamUser/GetPlayerSummaries/v0002/', ['steamids' => $token->accessToken]);

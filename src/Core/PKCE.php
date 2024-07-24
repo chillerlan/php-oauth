@@ -47,6 +47,7 @@ interface PKCE{
 	 *
 	 * @link https://datatracker.ietf.org/doc/html/rfc7636#section-4.3
 	 *
+	 * @param array<string, string> $params
 	 * @throws \chillerlan\OAuth\Providers\ProviderException
 	 */
 	public function setCodeChallenge(array $params, string $challengeMethod):array;
@@ -57,6 +58,7 @@ interface PKCE{
 	 *
 	 * @link https://datatracker.ietf.org/doc/html/rfc7636#section-4.5
 	 *
+	 * @param array<string, string> $params
 	 * @throws \chillerlan\OAuth\Providers\ProviderException
 	 */
 	public function setCodeVerifier(array $params):array;

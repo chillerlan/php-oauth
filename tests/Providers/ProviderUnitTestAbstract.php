@@ -151,6 +151,8 @@ abstract class ProviderUnitTestAbstract extends TestCase{
 
 	/**
 	 * Invokes a method vith the given arguments in the current provider instance
+	 *
+	 * @param array<int, mixed> $args
 	 */
 	final protected function invokeReflectionMethod(string $method, array $args = []):mixed{
 		return $this->reflection->getMethod($method)->invokeArgs($this->provider, $args);
@@ -183,7 +185,7 @@ abstract class ProviderUnitTestAbstract extends TestCase{
 		return new class ($response) implements ClientInterface{
 
 			public function __construct(
-				private readonly ResponseInterface $mockedResponse
+				private readonly ResponseInterface $mockedResponse, // phpcs:ignore
 			){
 				// noop
 			}

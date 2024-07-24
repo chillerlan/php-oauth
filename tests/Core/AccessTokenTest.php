@@ -75,7 +75,7 @@ final class AccessTokenTest extends TestCase{
 		try{
 			$this::assertSame($expected, $this->token->expires);
 		}
-		catch(ExpectationFailedException $e){
+		catch(ExpectationFailedException){
 			$this::markTestSkipped('timing test');
 		}
 

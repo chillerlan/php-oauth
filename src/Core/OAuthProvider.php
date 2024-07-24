@@ -267,7 +267,6 @@ abstract class OAuthProvider implements OAuthInterface{
 	 * Prepare request headers
 	 */
 	final protected function getRequestHeaders(array|null $headers = null):array{
-		/** @noinspection PhpParamsInspection sup PHPStorm?? */
 		return array_merge($this::HEADERS_API, ($headers ?? []));
 	}
 
@@ -280,6 +279,8 @@ abstract class OAuthProvider implements OAuthInterface{
 
 	/**
 	 * Cleans an array of query parameters
+	 *
+	 * @param array<string, scalar> $params
 	 */
 	protected function cleanQueryParams(iterable $params):array{
 		return QueryUtil::cleanParams($params, QueryUtil::BOOLEANS_AS_INT_STRING, true);
@@ -287,6 +288,8 @@ abstract class OAuthProvider implements OAuthInterface{
 
 	/**
 	 * Cleans an array of body parameters
+	 *
+	 * @param array<string, scalar> $params
 	 */
 	protected function cleanBodyParams(iterable $params):array{
 		return QueryUtil::cleanParams($params, QueryUtil::BOOLEANS_AS_BOOL, true);

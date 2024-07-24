@@ -31,6 +31,8 @@ interface CSRFToken{
 	 * Sets the CSRF state parameter in a given array of query parameters and stores that value
 	 * in the local storage for later verification. Returns the updated array of parameters.
 	 *
+	 * @param array<string, string> $params
+	 * @return array<string, string>
 	 * @throws \chillerlan\OAuth\Providers\ProviderException
 	 */
 	public function setState(array $params):array;

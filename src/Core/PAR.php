@@ -25,8 +25,10 @@ interface PAR{
 	 * the full authorization URL including the URN obtained from the PAR request
 	 *
 	 * @see \chillerlan\OAuth\Core\OAuth2Provider::$parAuthorizationURL
-	 * *
+	 *
 	 * @link https://datatracker.ietf.org/doc/html/rfc9126#section-1.1
+	 *
+	 * @param array<string, string> $body
 	 */
 	public function getParRequestUri(array $body):UriInterface;
 

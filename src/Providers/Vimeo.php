@@ -71,10 +71,7 @@ class Vimeo extends OAuth2Provider implements ClientCredentials, CSRFToken, Toke
 	protected string|null $apiDocs                   = 'https://developer.vimeo.com';
 	protected string|null $applicationURL            = 'https://developer.vimeo.com/apps';
 
-	/**
-	 * @inheritDoc
-	 * @codeCoverageIgnore
-	 */
+	/** @codeCoverageIgnore */
 	public function me():AuthenticatedUser{
 		$json = $this->getMeResponseData('/me');
 
@@ -90,9 +87,6 @@ class Vimeo extends OAuth2Provider implements ClientCredentials, CSRFToken, Toke
 		return new AuthenticatedUser($userdata);
 	}
 
-	/**
-	 * @inheritDoc
-	 */
 	public function invalidateAccessToken(AccessToken|null $token = null, string|null $type = null):bool{
 
 		if($token !== null){

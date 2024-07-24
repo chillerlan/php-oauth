@@ -13,7 +13,7 @@ use chillerlan\HTTP\Utils\MessageUtil;
 use chillerlan\OAuth\Providers\Spotify;
 
 /**
- *
+ * Extended functionality for the Spotify client
  */
 class SpotifyClient extends Spotify{
 
@@ -22,7 +22,9 @@ class SpotifyClient extends Spotify{
 	protected object $me;
 	protected string $id;
 	protected string $market;
+	/** @var array<string, object> */
 	protected array  $artists = [];
+	/** @var array<string, object> */
 	protected array  $albums = [];
 
 	protected function construct():void{
@@ -39,7 +41,7 @@ class SpotifyClient extends Spotify{
 		foreach($vars as $var){
 			file_put_contents(
 				sprintf('%s/%s.json', rtrim($dir, '\\/'), $var),
-				json_encode($this->{$var}, (JSON_PRETTY_PRINT | JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE))
+				json_encode($this->{$var}, (JSON_PRETTY_PRINT | JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE)),
 			);
 		}
 
@@ -264,12 +266,14 @@ class SpotifyClient extends Spotify{
 
 	/**
 	 * add the tracks to the given playlist
+	 *
+	 * @param string[] $trackIDs
 	 */
 	public function addTracks(string $playlistID, array $trackIDs):static{
 
 		$uris = array_chunk(
 			array_map(fn(string $t):string => 'spotify:track:'.$t , array_values($trackIDs)), // why not just ids???
-			100 // API max = 100 track URIs
+			100, // API max = 100 track URIs
 		);
 
 		foreach($uris as $i => $chunk){
@@ -283,7 +287,7 @@ class SpotifyClient extends Spotify{
 
 			usleep(self::sleepTimer);
 
-			if(in_array($playlistAddTracks->getStatusCode(), [200, 201, 204])){
+			if(in_array($playlistAddTracks->getStatusCode(), [200, 201, 204], true)){
 				$json = MessageUtil::decodeJSON($playlistAddTracks);
 
 				$this->logger->info(sprintf('added tracks %s/%s [%s]', ++$i, count($uris), $json->snapshot_id));

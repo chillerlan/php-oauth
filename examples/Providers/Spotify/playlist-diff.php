@@ -20,7 +20,7 @@ class PlaylistDiff extends SpotifyClient{
 
 		$playlistID = $this->createPlaylist(
 			'playlist diff',
-			sprintf('diff between playlists "spotify:playlist:%s" and "spotify:playlist:%s"', $playlistID1, $playlistID2)
+			sprintf('diff between playlists "spotify:playlist:%s" and "spotify:playlist:%s"', $playlistID1, $playlistID2),
 		);
 
 		$this->addTracks($playlistID, $diff);
@@ -37,7 +37,7 @@ class PlaylistDiff extends SpotifyClient{
 
 		$playlistID = $this->createPlaylist(
 			'playlist merge',
-			sprintf('merged playlists "%s" into "spotify:playlist:%s"', implode('", "', $playlistIDs), $targetID)
+			sprintf('merged playlists "%s" into "spotify:playlist:%s"', implode('", "', $playlistIDs), $targetID),
 		);
 
 		$this->addTracks($playlistID, array_keys($merged));

@@ -48,9 +48,6 @@ class GuildWars2 extends OAuth2Provider implements UserInfo{
 	protected string|null $applicationURL   = 'https://account.arena.net/applications';
 
 	/**
-	 * @param string $access_token
-	 *
-	 * @return \chillerlan\OAuth\Core\AccessToken
 	 * @throws \chillerlan\OAuth\Providers\ProviderException
 	 */
 	public function storeGW2Token(string $access_token):AccessToken{
@@ -102,10 +99,7 @@ class GuildWars2 extends OAuth2Provider implements UserInfo{
 		throw new ProviderException('GuildWars2 does not support authentication anymore.');
 	}
 
-	/**
-	 * @inheritDoc
-	 * @codeCoverageIgnore
-	 */
+	/** @codeCoverageIgnore */
 	public function me():AuthenticatedUser{
 		$json = $this->getMeResponseData('/v2/tokeninfo');
 

@@ -55,6 +55,8 @@ final class AuthenticatedUser extends SettingsContainerAbstract{
 
 	/**
 	 * (magic) The full user endpoint response
+	 *
+	 * @var array<string, mixed>
 	 */
 	protected array $data = [];
 
@@ -78,12 +80,12 @@ final class AuthenticatedUser extends SettingsContainerAbstract{
 	 */
 
 	/** @codeCoverageIgnore */
-	public function __set(string $property, $value):void{
+	public function __set(string $property, mixed $value):void{
 		// noop
 	}
 
 	/** @codeCoverageIgnore */
-	public function fromIterable(iterable $properties):static{
+	public function fromIterable(iterable $properties):static{ // phpcs:ignore
 		// noop
 		return $this;
 	}

@@ -234,7 +234,7 @@
             <dt class="phpdocumentor-table-of-contents__entry -property -protected">
     <a class="" href="classes/chillerlan-OAuth-Storage-MemoryStorage.html#property_storage">$storage</a>
     <span>
-                        &nbsp;: array&lt;string|int, mixed&gt;            </span>
+                        &nbsp;: array&lt;string, array&lt;string, mixed&gt;&gt;            </span>
 </dt>
 <dd>the storage array</dd>
 
@@ -637,7 +637,7 @@ and returns a value that is suited for the underlying storage engine</dd>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Storage/MemoryStorage.php"><a href="files/src-storage-memorystorage.html"><abbr title="src/Storage/MemoryStorage.php">MemoryStorage.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">26</span>
+    <span class="phpdocumentor-element-found-in__line">28</span>
 
     </aside>
 
@@ -646,7 +646,7 @@ and returns a value that is suited for the underlying storage engine</dd>
     
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">protected</span>
-        <span class="phpdocumentor-signature__type">array&lt;string|int, mixed&gt;</span>
+        <span class="phpdocumentor-signature__type">array&lt;string, array&lt;string, mixed&gt;&gt;</span>
     <span class="phpdocumentor-signature__name">$storage</span>
      = <span class="phpdocumentor-signature__default-value">[self::KEY_TOKEN =&gt; [], self::KEY_STATE =&gt; [], self::KEY_VERIFIER =&gt; []]</span></code>
 
@@ -731,7 +731,7 @@ and returns a value that is suited for the underlying storage engine</dd>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Storage/MemoryStorage.php"><a href="files/src-storage-memorystorage.html"><abbr title="src/Storage/MemoryStorage.php">MemoryStorage.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">68</span>
+    <span class="phpdocumentor-element-found-in__line">58</span>
 
     </aside>
 
@@ -757,20 +757,6 @@ and returns a value that is suited for the underlying storage engine</dd>
             </dl>
 
     
-    <h5 class="phpdocumentor-tag-list__heading" id="tags">
-        Tags
-        <a href="classes/chillerlan-OAuth-Storage-MemoryStorage.html#method_clearAccessToken#tags" class="headerlink"><i class="fas fa-link"></i></a>
-
-    </h5>
-    <dl class="phpdocumentor-tag-list">
-                                    <dt class="phpdocumentor-tag-list__entry">
-                    <span class="phpdocumentor-tag__name">inheritDoc</span>
-                </dt>
-                <dd class="phpdocumentor-tag-list__definition">
-                                                                                
-                                             
-                                    </dd>
-                                            </dl>
 
     
 
@@ -794,7 +780,7 @@ and returns a value that is suited for the underlying storage engine</dd>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Storage/MemoryStorage.php"><a href="files/src-storage-memorystorage.html"><abbr title="src/Storage/MemoryStorage.php">MemoryStorage.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">77</span>
+    <span class="phpdocumentor-element-found-in__line">64</span>
 
     </aside>
 
@@ -810,20 +796,6 @@ and returns a value that is suited for the underlying storage engine</dd>
     
     
     
-    <h5 class="phpdocumentor-tag-list__heading" id="tags">
-        Tags
-        <a href="classes/chillerlan-OAuth-Storage-MemoryStorage.html#method_clearAllAccessTokens#tags" class="headerlink"><i class="fas fa-link"></i></a>
-
-    </h5>
-    <dl class="phpdocumentor-tag-list">
-                                    <dt class="phpdocumentor-tag-list__entry">
-                    <span class="phpdocumentor-tag__name">inheritDoc</span>
-                </dt>
-                <dd class="phpdocumentor-tag-list__definition">
-                                                                                
-                                             
-                                    </dd>
-                                            </dl>
 
     
 
@@ -847,7 +819,7 @@ and returns a value that is suited for the underlying storage engine</dd>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Storage/MemoryStorage.php"><a href="files/src-storage-memorystorage.html"><abbr title="src/Storage/MemoryStorage.php">MemoryStorage.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">179</span>
+    <span class="phpdocumentor-element-found-in__line">136</span>
 
     </aside>
 
@@ -863,20 +835,6 @@ and returns a value that is suited for the underlying storage engine</dd>
     
     
     
-    <h5 class="phpdocumentor-tag-list__heading" id="tags">
-        Tags
-        <a href="classes/chillerlan-OAuth-Storage-MemoryStorage.html#method_clearAllCodeVerifiers#tags" class="headerlink"><i class="fas fa-link"></i></a>
-
-    </h5>
-    <dl class="phpdocumentor-tag-list">
-                                    <dt class="phpdocumentor-tag-list__entry">
-                    <span class="phpdocumentor-tag__name">inheritDoc</span>
-                </dt>
-                <dd class="phpdocumentor-tag-list__definition">
-                                                                                
-                                             
-                                    </dd>
-                                            </dl>
 
     
 
@@ -900,7 +858,7 @@ and returns a value that is suited for the underlying storage engine</dd>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Storage/MemoryStorage.php"><a href="files/src-storage-memorystorage.html"><abbr title="src/Storage/MemoryStorage.php">MemoryStorage.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">128</span>
+    <span class="phpdocumentor-element-found-in__line">100</span>
 
     </aside>
 
@@ -916,20 +874,6 @@ and returns a value that is suited for the underlying storage engine</dd>
     
     
     
-    <h5 class="phpdocumentor-tag-list__heading" id="tags">
-        Tags
-        <a href="classes/chillerlan-OAuth-Storage-MemoryStorage.html#method_clearAllCSRFStates#tags" class="headerlink"><i class="fas fa-link"></i></a>
-
-    </h5>
-    <dl class="phpdocumentor-tag-list">
-                                    <dt class="phpdocumentor-tag-list__entry">
-                    <span class="phpdocumentor-tag__name">inheritDoc</span>
-                </dt>
-                <dd class="phpdocumentor-tag-list__definition">
-                                                                                
-                                             
-                                    </dd>
-                                            </dl>
 
     
 
@@ -953,7 +897,7 @@ and returns a value that is suited for the underlying storage engine</dd>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Storage/MemoryStorage.php"><a href="files/src-storage-memorystorage.html"><abbr title="src/Storage/MemoryStorage.php">MemoryStorage.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">170</span>
+    <span class="phpdocumentor-element-found-in__line">130</span>
 
     </aside>
 
@@ -979,20 +923,6 @@ and returns a value that is suited for the underlying storage engine</dd>
             </dl>
 
     
-    <h5 class="phpdocumentor-tag-list__heading" id="tags">
-        Tags
-        <a href="classes/chillerlan-OAuth-Storage-MemoryStorage.html#method_clearCodeVerifier#tags" class="headerlink"><i class="fas fa-link"></i></a>
-
-    </h5>
-    <dl class="phpdocumentor-tag-list">
-                                    <dt class="phpdocumentor-tag-list__entry">
-                    <span class="phpdocumentor-tag__name">inheritDoc</span>
-                </dt>
-                <dd class="phpdocumentor-tag-list__definition">
-                                                                                
-                                             
-                                    </dd>
-                                            </dl>
 
     
 
@@ -1016,7 +946,7 @@ and returns a value that is suited for the underlying storage engine</dd>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Storage/MemoryStorage.php"><a href="files/src-storage-memorystorage.html"><abbr title="src/Storage/MemoryStorage.php">MemoryStorage.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">119</span>
+    <span class="phpdocumentor-element-found-in__line">94</span>
 
     </aside>
 
@@ -1042,20 +972,6 @@ and returns a value that is suited for the underlying storage engine</dd>
             </dl>
 
     
-    <h5 class="phpdocumentor-tag-list__heading" id="tags">
-        Tags
-        <a href="classes/chillerlan-OAuth-Storage-MemoryStorage.html#method_clearCSRFState#tags" class="headerlink"><i class="fas fa-link"></i></a>
-
-    </h5>
-    <dl class="phpdocumentor-tag-list">
-                                    <dt class="phpdocumentor-tag-list__entry">
-                    <span class="phpdocumentor-tag__name">inheritDoc</span>
-                </dt>
-                <dd class="phpdocumentor-tag-list__definition">
-                                                                                
-                                             
-                                    </dd>
-                                            </dl>
 
     
 
@@ -1079,7 +995,7 @@ and returns a value that is suited for the underlying storage engine</dd>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Storage/OAuthStorageAbstract.php"><a href="files/src-storage-oauthstorageabstract.html"><abbr title="src/Storage/OAuthStorageAbstract.php">OAuthStorageAbstract.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">103</span>
+    <span class="phpdocumentor-element-found-in__line">94</span>
 
     </aside>
 
@@ -1105,20 +1021,6 @@ and returns a value that is suited for the underlying storage engine</dd>
             </dl>
 
     
-    <h5 class="phpdocumentor-tag-list__heading" id="tags">
-        Tags
-        <a href="classes/chillerlan-OAuth-Storage-OAuthStorageAbstract.html#method_fromStorage#tags" class="headerlink"><i class="fas fa-link"></i></a>
-
-    </h5>
-    <dl class="phpdocumentor-tag-list">
-                                    <dt class="phpdocumentor-tag-list__entry">
-                    <span class="phpdocumentor-tag__name">inheritDoc</span>
-                </dt>
-                <dd class="phpdocumentor-tag-list__definition">
-                                                                                
-                                             
-                                    </dd>
-                                            </dl>
 
     
 
@@ -1142,7 +1044,7 @@ and returns a value that is suited for the underlying storage engine</dd>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Storage/MemoryStorage.php"><a href="files/src-storage-memorystorage.html"><abbr title="src/Storage/MemoryStorage.php">MemoryStorage.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">49</span>
+    <span class="phpdocumentor-element-found-in__line">45</span>
 
     </aside>
 
@@ -1155,7 +1057,9 @@ and returns a value that is suited for the underlying storage engine</dd>
     <div class="phpdocumentor-label-line">
         </div>
     
-    
+        <section class="phpdocumentor-description"><p>This method <em>must</em> throw a ItemNotFoundException if a token is not found</p>
+</section>
+
         <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
     <dl class="phpdocumentor-argument-list">
                     <dt class="phpdocumentor-argument-list__entry">
@@ -1168,20 +1072,6 @@ and returns a value that is suited for the underlying storage engine</dd>
             </dl>
 
     
-    <h5 class="phpdocumentor-tag-list__heading" id="tags">
-        Tags
-        <a href="classes/chillerlan-OAuth-Storage-MemoryStorage.html#method_getAccessToken#tags" class="headerlink"><i class="fas fa-link"></i></a>
-
-    </h5>
-    <dl class="phpdocumentor-tag-list">
-                                    <dt class="phpdocumentor-tag-list__entry">
-                    <span class="phpdocumentor-tag__name">inheritDoc</span>
-                </dt>
-                <dd class="phpdocumentor-tag-list__definition">
-                                                                                
-                                             
-                                    </dd>
-                                            </dl>
 
     
 
@@ -1205,7 +1095,7 @@ and returns a value that is suited for the underlying storage engine</dd>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Storage/MemoryStorage.php"><a href="files/src-storage-memorystorage.html"><abbr title="src/Storage/MemoryStorage.php">MemoryStorage.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">151</span>
+    <span class="phpdocumentor-element-found-in__line">117</span>
 
     </aside>
 
@@ -1218,7 +1108,9 @@ and returns a value that is suited for the underlying storage engine</dd>
     <div class="phpdocumentor-label-line">
         </div>
     
-    
+        <section class="phpdocumentor-description"><p>This method <em>must</em> throw a ItemNotFoundException if a verifier is not found</p>
+</section>
+
         <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
     <dl class="phpdocumentor-argument-list">
                     <dt class="phpdocumentor-argument-list__entry">
@@ -1231,20 +1123,6 @@ and returns a value that is suited for the underlying storage engine</dd>
             </dl>
 
     
-    <h5 class="phpdocumentor-tag-list__heading" id="tags">
-        Tags
-        <a href="classes/chillerlan-OAuth-Storage-MemoryStorage.html#method_getCodeVerifier#tags" class="headerlink"><i class="fas fa-link"></i></a>
-
-    </h5>
-    <dl class="phpdocumentor-tag-list">
-                                    <dt class="phpdocumentor-tag-list__entry">
-                    <span class="phpdocumentor-tag__name">inheritDoc</span>
-                </dt>
-                <dd class="phpdocumentor-tag-list__definition">
-                                                                                
-                                             
-                                    </dd>
-                                            </dl>
 
     
 
@@ -1268,7 +1146,7 @@ and returns a value that is suited for the underlying storage engine</dd>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Storage/MemoryStorage.php"><a href="files/src-storage-memorystorage.html"><abbr title="src/Storage/MemoryStorage.php">MemoryStorage.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">100</span>
+    <span class="phpdocumentor-element-found-in__line">81</span>
 
     </aside>
 
@@ -1281,7 +1159,9 @@ and returns a value that is suited for the underlying storage engine</dd>
     <div class="phpdocumentor-label-line">
         </div>
     
-    
+        <section class="phpdocumentor-description"><p>This method <em>must</em> throw a ItemNotFoundException if a state is not found</p>
+</section>
+
         <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
     <dl class="phpdocumentor-argument-list">
                     <dt class="phpdocumentor-argument-list__entry">
@@ -1294,20 +1174,6 @@ and returns a value that is suited for the underlying storage engine</dd>
             </dl>
 
     
-    <h5 class="phpdocumentor-tag-list__heading" id="tags">
-        Tags
-        <a href="classes/chillerlan-OAuth-Storage-MemoryStorage.html#method_getCSRFState#tags" class="headerlink"><i class="fas fa-link"></i></a>
-
-    </h5>
-    <dl class="phpdocumentor-tag-list">
-                                    <dt class="phpdocumentor-tag-list__entry">
-                    <span class="phpdocumentor-tag__name">inheritDoc</span>
-                </dt>
-                <dd class="phpdocumentor-tag-list__definition">
-                                                                                
-                                             
-                                    </dd>
-                                            </dl>
 
     
 
@@ -1331,7 +1197,7 @@ and returns a value that is suited for the underlying storage engine</dd>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Storage/MemoryStorage.php"><a href="files/src-storage-memorystorage.html"><abbr title="src/Storage/MemoryStorage.php">MemoryStorage.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">61</span>
+    <span class="phpdocumentor-element-found-in__line">54</span>
 
     </aside>
 
@@ -1357,20 +1223,6 @@ and returns a value that is suited for the underlying storage engine</dd>
             </dl>
 
     
-    <h5 class="phpdocumentor-tag-list__heading" id="tags">
-        Tags
-        <a href="classes/chillerlan-OAuth-Storage-MemoryStorage.html#method_hasAccessToken#tags" class="headerlink"><i class="fas fa-link"></i></a>
-
-    </h5>
-    <dl class="phpdocumentor-tag-list">
-                                    <dt class="phpdocumentor-tag-list__entry">
-                    <span class="phpdocumentor-tag__name">inheritDoc</span>
-                </dt>
-                <dd class="phpdocumentor-tag-list__definition">
-                                                                                
-                                             
-                                    </dd>
-                                            </dl>
 
     
 
@@ -1394,7 +1246,7 @@ and returns a value that is suited for the underlying storage engine</dd>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Storage/MemoryStorage.php"><a href="files/src-storage-memorystorage.html"><abbr title="src/Storage/MemoryStorage.php">MemoryStorage.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">163</span>
+    <span class="phpdocumentor-element-found-in__line">126</span>
 
     </aside>
 
@@ -1420,20 +1272,6 @@ and returns a value that is suited for the underlying storage engine</dd>
             </dl>
 
     
-    <h5 class="phpdocumentor-tag-list__heading" id="tags">
-        Tags
-        <a href="classes/chillerlan-OAuth-Storage-MemoryStorage.html#method_hasCodeVerifier#tags" class="headerlink"><i class="fas fa-link"></i></a>
-
-    </h5>
-    <dl class="phpdocumentor-tag-list">
-                                    <dt class="phpdocumentor-tag-list__entry">
-                    <span class="phpdocumentor-tag__name">inheritDoc</span>
-                </dt>
-                <dd class="phpdocumentor-tag-list__definition">
-                                                                                
-                                             
-                                    </dd>
-                                            </dl>
 
     
 
@@ -1457,7 +1295,7 @@ and returns a value that is suited for the underlying storage engine</dd>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Storage/MemoryStorage.php"><a href="files/src-storage-memorystorage.html"><abbr title="src/Storage/MemoryStorage.php">MemoryStorage.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">112</span>
+    <span class="phpdocumentor-element-found-in__line">90</span>
 
     </aside>
 
@@ -1483,20 +1321,6 @@ and returns a value that is suited for the underlying storage engine</dd>
             </dl>
 
     
-    <h5 class="phpdocumentor-tag-list__heading" id="tags">
-        Tags
-        <a href="classes/chillerlan-OAuth-Storage-MemoryStorage.html#method_hasCSRFState#tags" class="headerlink"><i class="fas fa-link"></i></a>
-
-    </h5>
-    <dl class="phpdocumentor-tag-list">
-                                    <dt class="phpdocumentor-tag-list__entry">
-                    <span class="phpdocumentor-tag__name">inheritDoc</span>
-                </dt>
-                <dd class="phpdocumentor-tag-list__definition">
-                                                                                
-                                             
-                                    </dd>
-                                            </dl>
 
     
 
@@ -1520,7 +1344,7 @@ and returns a value that is suited for the underlying storage engine</dd>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Storage/OAuthStorageAbstract.php"><a href="files/src-storage-oauthstorageabstract.html"><abbr title="src/Storage/OAuthStorageAbstract.php">OAuthStorageAbstract.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">66</span>
+    <span class="phpdocumentor-element-found-in__line">63</span>
 
     </aside>
 
@@ -1553,13 +1377,6 @@ and returns a value that is suited for the underlying storage engine</dd>
     </h5>
     <dl class="phpdocumentor-tag-list">
                                     <dt class="phpdocumentor-tag-list__entry">
-                    <span class="phpdocumentor-tag__name">inheritDoc</span>
-                </dt>
-                <dd class="phpdocumentor-tag-list__definition">
-                                                                                
-                                             
-                                    </dd>
-                                                <dt class="phpdocumentor-tag-list__entry">
                     <span class="phpdocumentor-tag__name">codeCoverageIgnore</span>
                 </dt>
                 <dd class="phpdocumentor-tag-list__definition">
@@ -1590,7 +1407,7 @@ and returns a value that is suited for the underlying storage engine</dd>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Storage/MemoryStorage.php"><a href="files/src-storage-memorystorage.html"><abbr title="src/Storage/MemoryStorage.php">MemoryStorage.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">40</span>
+    <span class="phpdocumentor-element-found-in__line">39</span>
 
     </aside>
 
@@ -1623,20 +1440,6 @@ and returns a value that is suited for the underlying storage engine</dd>
             </dl>
 
     
-    <h5 class="phpdocumentor-tag-list__heading" id="tags">
-        Tags
-        <a href="classes/chillerlan-OAuth-Storage-MemoryStorage.html#method_storeAccessToken#tags" class="headerlink"><i class="fas fa-link"></i></a>
-
-    </h5>
-    <dl class="phpdocumentor-tag-list">
-                                    <dt class="phpdocumentor-tag-list__entry">
-                    <span class="phpdocumentor-tag__name">inheritDoc</span>
-                </dt>
-                <dd class="phpdocumentor-tag-list__definition">
-                                                                                
-                                             
-                                    </dd>
-                                            </dl>
 
     
 
@@ -1660,7 +1463,7 @@ and returns a value that is suited for the underlying storage engine</dd>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Storage/MemoryStorage.php"><a href="files/src-storage-memorystorage.html"><abbr title="src/Storage/MemoryStorage.php">MemoryStorage.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">142</span>
+    <span class="phpdocumentor-element-found-in__line">111</span>
 
     </aside>
 
@@ -1693,20 +1496,6 @@ and returns a value that is suited for the underlying storage engine</dd>
             </dl>
 
     
-    <h5 class="phpdocumentor-tag-list__heading" id="tags">
-        Tags
-        <a href="classes/chillerlan-OAuth-Storage-MemoryStorage.html#method_storeCodeVerifier#tags" class="headerlink"><i class="fas fa-link"></i></a>
-
-    </h5>
-    <dl class="phpdocumentor-tag-list">
-                                    <dt class="phpdocumentor-tag-list__entry">
-                    <span class="phpdocumentor-tag__name">inheritDoc</span>
-                </dt>
-                <dd class="phpdocumentor-tag-list__definition">
-                                                                                
-                                             
-                                    </dd>
-                                            </dl>
 
     
 
@@ -1730,7 +1519,7 @@ and returns a value that is suited for the underlying storage engine</dd>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Storage/MemoryStorage.php"><a href="files/src-storage-memorystorage.html"><abbr title="src/Storage/MemoryStorage.php">MemoryStorage.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">91</span>
+    <span class="phpdocumentor-element-found-in__line">75</span>
 
     </aside>
 
@@ -1763,20 +1552,6 @@ and returns a value that is suited for the underlying storage engine</dd>
             </dl>
 
     
-    <h5 class="phpdocumentor-tag-list__heading" id="tags">
-        Tags
-        <a href="classes/chillerlan-OAuth-Storage-MemoryStorage.html#method_storeCSRFState#tags" class="headerlink"><i class="fas fa-link"></i></a>
-
-    </h5>
-    <dl class="phpdocumentor-tag-list">
-                                    <dt class="phpdocumentor-tag-list__entry">
-                    <span class="phpdocumentor-tag__name">inheritDoc</span>
-                </dt>
-                <dd class="phpdocumentor-tag-list__definition">
-                                                                                
-                                             
-                                    </dd>
-                                            </dl>
 
     
 
@@ -1800,7 +1575,7 @@ and returns a value that is suited for the underlying storage engine</dd>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Storage/OAuthStorageAbstract.php"><a href="files/src-storage-oauthstorageabstract.html"><abbr title="src/Storage/OAuthStorageAbstract.php">OAuthStorageAbstract.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">90</span>
+    <span class="phpdocumentor-element-found-in__line">84</span>
 
     </aside>
 
@@ -1827,20 +1602,6 @@ and returns a value that is suited for the underlying storage engine</p>
             </dl>
 
     
-    <h5 class="phpdocumentor-tag-list__heading" id="tags">
-        Tags
-        <a href="classes/chillerlan-OAuth-Storage-OAuthStorageAbstract.html#method_toStorage#tags" class="headerlink"><i class="fas fa-link"></i></a>
-
-    </h5>
-    <dl class="phpdocumentor-tag-list">
-                                    <dt class="phpdocumentor-tag-list__entry">
-                    <span class="phpdocumentor-tag__name">inheritDoc</span>
-                </dt>
-                <dd class="phpdocumentor-tag-list__definition">
-                                                                                
-                                             
-                                    </dd>
-                                            </dl>
 
     
 
@@ -1860,7 +1621,7 @@ and returns a value that is suited for the underlying storage engine</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Storage/OAuthStorageAbstract.php"><a href="files/src-storage-oauthstorageabstract.html"><abbr title="src/Storage/OAuthStorageAbstract.php">OAuthStorageAbstract.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">122</span>
+    <span class="phpdocumentor-element-found-in__line">113</span>
 
     </aside>
 
@@ -1909,7 +1670,7 @@ and returns a value that is suited for the underlying storage engine</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Storage/OAuthStorageAbstract.php"><a href="files/src-storage-oauthstorageabstract.html"><abbr title="src/Storage/OAuthStorageAbstract.php">OAuthStorageAbstract.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">115</span>
+    <span class="phpdocumentor-element-found-in__line">106</span>
 
     </aside>
 
@@ -1958,7 +1719,7 @@ and returns a value that is suited for the underlying storage engine</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Storage/OAuthStorageAbstract.php"><a href="files/src-storage-oauthstorageabstract.html"><abbr title="src/Storage/OAuthStorageAbstract.php">OAuthStorageAbstract.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">77</span>
+    <span class="phpdocumentor-element-found-in__line">74</span>
 
     </aside>
 

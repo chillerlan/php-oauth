@@ -328,7 +328,7 @@ Search.appendIndex(
         },                {
             "fqsen": "\\chillerlan\\OAuth\\Core\\OAuth2Provider\u003A\u003AgetClientCredentialsToken\u0028\u0029",
             "name": "getClientCredentialsToken",
-            "summary": "",
+            "summary": "implements\u0020ClientCredentials\u003A\u003AgetClientCredentialsToken\u0028\u0029",
             "url": "classes/chillerlan-OAuth-Core-OAuth2Provider.html#method_getClientCredentialsToken"
         },                {
             "fqsen": "\\chillerlan\\OAuth\\Core\\OAuth2Provider\u003A\u003AgetClientCredentialsTokenRequestBodyParams\u0028\u0029",
@@ -343,7 +343,7 @@ Search.appendIndex(
         },                {
             "fqsen": "\\chillerlan\\OAuth\\Core\\OAuth2Provider\u003A\u003ArefreshAccessToken\u0028\u0029",
             "name": "refreshAccessToken",
-            "summary": "",
+            "summary": "implements\u0020TokenRefresh\u003A\u003ArefreshAccessToken\u0028\u0029",
             "url": "classes/chillerlan-OAuth-Core-OAuth2Provider.html#method_refreshAccessToken"
         },                {
             "fqsen": "\\chillerlan\\OAuth\\Core\\OAuth2Provider\u003A\u003AgetRefreshAccessTokenRequestBodyParams\u0028\u0029",
@@ -353,7 +353,7 @@ Search.appendIndex(
         },                {
             "fqsen": "\\chillerlan\\OAuth\\Core\\OAuth2Provider\u003A\u003AinvalidateAccessToken\u0028\u0029",
             "name": "invalidateAccessToken",
-            "summary": "",
+            "summary": "implements\u0020TokenInvalidate\u003A\u003AinvalidateAccessToken\u0028\u0029",
             "url": "classes/chillerlan-OAuth-Core-OAuth2Provider.html#method_invalidateAccessToken"
         },                {
             "fqsen": "\\chillerlan\\OAuth\\Core\\OAuth2Provider\u003A\u003AsendTokenInvalidateRequest\u0028\u0029",
@@ -368,37 +368,37 @@ Search.appendIndex(
         },                {
             "fqsen": "\\chillerlan\\OAuth\\Core\\OAuth2Provider\u003A\u003AsetState\u0028\u0029",
             "name": "setState",
-            "summary": "",
+            "summary": "implements\u0020CSRFToken\u003A\u003AsetState\u0028\u0029",
             "url": "classes/chillerlan-OAuth-Core-OAuth2Provider.html#method_setState"
         },                {
             "fqsen": "\\chillerlan\\OAuth\\Core\\OAuth2Provider\u003A\u003AcheckState\u0028\u0029",
             "name": "checkState",
-            "summary": "",
+            "summary": "implements\u0020CSRFToken\u003A\u003AcheckState\u0028\u0029",
             "url": "classes/chillerlan-OAuth-Core-OAuth2Provider.html#method_checkState"
         },                {
             "fqsen": "\\chillerlan\\OAuth\\Core\\OAuth2Provider\u003A\u003AsetCodeChallenge\u0028\u0029",
             "name": "setCodeChallenge",
-            "summary": "",
+            "summary": "implements\u0020PKCE\u003A\u003AsetCodeChallenge\u0028\u0029",
             "url": "classes/chillerlan-OAuth-Core-OAuth2Provider.html#method_setCodeChallenge"
         },                {
             "fqsen": "\\chillerlan\\OAuth\\Core\\OAuth2Provider\u003A\u003AsetCodeVerifier\u0028\u0029",
             "name": "setCodeVerifier",
-            "summary": "",
+            "summary": "implements\u0020PKCE\u003A\u003AsetCodeVerifier\u0028\u0029",
             "url": "classes/chillerlan-OAuth-Core-OAuth2Provider.html#method_setCodeVerifier"
         },                {
             "fqsen": "\\chillerlan\\OAuth\\Core\\OAuth2Provider\u003A\u003AgenerateVerifier\u0028\u0029",
             "name": "generateVerifier",
-            "summary": "",
+            "summary": "implements\u0020PKCE\u003A\u003AgenerateVerifier\u0028\u0029",
             "url": "classes/chillerlan-OAuth-Core-OAuth2Provider.html#method_generateVerifier"
         },                {
             "fqsen": "\\chillerlan\\OAuth\\Core\\OAuth2Provider\u003A\u003AgenerateChallenge\u0028\u0029",
             "name": "generateChallenge",
-            "summary": "",
+            "summary": "implements\u0020PKCE\u003A\u003AgenerateChallenge\u0028\u0029",
             "url": "classes/chillerlan-OAuth-Core-OAuth2Provider.html#method_generateChallenge"
         },                {
             "fqsen": "\\chillerlan\\OAuth\\Core\\OAuth2Provider\u003A\u003AgetParRequestUri\u0028\u0029",
             "name": "getParRequestUri",
-            "summary": "",
+            "summary": "implements\u0020PAR\u003A\u003AgetParRequestUri\u0028\u0029",
             "url": "classes/chillerlan-OAuth-Core-OAuth2Provider.html#method_getParRequestUri"
         },                {
             "fqsen": "\\chillerlan\\OAuth\\Core\\OAuth2Provider\u003A\u003AgetParAuthorizationURLRequestParams\u0028\u0029",
@@ -1238,7 +1238,7 @@ Search.appendIndex(
         },                {
             "fqsen": "\\chillerlan\\OAuth\\Providers\\BigCartel\u003A\u003AinvalidateAccessToken\u0028\u0029",
             "name": "invalidateAccessToken",
-            "summary": "",
+            "summary": "implements\u0020TokenInvalidate\u003A\u003AinvalidateAccessToken\u0028\u0029",
             "url": "classes/chillerlan-OAuth-Providers-BigCartel.html#method_invalidateAccessToken"
         },                {
             "fqsen": "\\chillerlan\\OAuth\\Providers\\BigCartel\u003A\u003AgetAccountID\u0028\u0029",
@@ -1633,7 +1633,7 @@ Search.appendIndex(
         },                {
             "fqsen": "\\chillerlan\\OAuth\\Providers\\DeviantArt\u003A\u003AinvalidateAccessToken\u0028\u0029",
             "name": "invalidateAccessToken",
-            "summary": "",
+            "summary": "implements\u0020TokenInvalidate\u003A\u003AinvalidateAccessToken\u0028\u0029",
             "url": "classes/chillerlan-OAuth-Providers-DeviantArt.html#method_invalidateAccessToken"
         },                {
             "fqsen": "\\chillerlan\\OAuth\\Providers\\DeviantArt\u003A\u003AIDENTIFIER",
@@ -5173,7 +5173,7 @@ Search.appendIndex(
         },                {
             "fqsen": "\\chillerlan\\OAuth\\Providers\\Vimeo\u003A\u003AinvalidateAccessToken\u0028\u0029",
             "name": "invalidateAccessToken",
-            "summary": "",
+            "summary": "implements\u0020TokenInvalidate\u003A\u003AinvalidateAccessToken\u0028\u0029",
             "url": "classes/chillerlan-OAuth-Providers-Vimeo.html#method_invalidateAccessToken"
         },                {
             "fqsen": "\\chillerlan\\OAuth\\Providers\\Vimeo\u003A\u003AIDENTIFIER",
@@ -6103,7 +6103,7 @@ Search.appendIndex(
         },                {
             "fqsen": "\\chillerlan\\OAuthTest\\Providers\\DummyOAuth2Provider\u003A\u003AinvalidateAccessToken\u0028\u0029",
             "name": "invalidateAccessToken",
-            "summary": "",
+            "summary": "implements\u0020TokenInvalidate\u003A\u003AinvalidateAccessToken\u0028\u0029",
             "url": "classes/chillerlan-OAuthTest-Providers-DummyOAuth2Provider.html#method_invalidateAccessToken"
         },                {
             "fqsen": "\\chillerlan\\OAuthTest\\Providers\\DummyOAuth2Provider\u003A\u003AIDENTIFIER",

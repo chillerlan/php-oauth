@@ -276,8 +276,7 @@ class LastFM extends OAuthProvider implements UserInfo{
 	 *
 	 * @link https://www.last.fm/api/show/track.scrobble
 	 *
-	 * @param  array<string, scalar> $tracks
-	 * @return array<string, scalar>
+	 * @param  array<string, scalar>|array<int, array<string, scalar>> $tracks
 	 */
 	public function scrobble(array $tracks):array{
 
@@ -416,7 +415,6 @@ class LastFM extends OAuthProvider implements UserInfo{
 
 	/**
 	 * @param array<string, string> $body
-	 * @return array<string, mixed>|null
 	 * @codeCoverageIgnore
 	 */
 	protected function sendScrobbles(array $body):array|null{

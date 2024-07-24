@@ -24,7 +24,7 @@ class SpotifyClient extends Spotify{
 	protected string $market;
 	/** @var array<string, object> */
 	protected array  $artists = [];
-	/** @var array<string, object> */
+	/** @var array<string, array<string, object>> */
 	protected array  $albums = [];
 
 	protected function construct():void{

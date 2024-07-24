@@ -39,8 +39,8 @@ class Steam extends OAuthProvider implements UserInfo{
 	 *
 	 * @inheritDoc
 	 *
-	 * @param array<string, string> $params
-	 * @param string[]              $scopes
+	 * @param array<string, string>|null $params
+	 * @param string[]|null              $scopes
 	 */
 	public function getAuthorizationURL(array|null $params = null, array|null $scopes = null):UriInterface{
 

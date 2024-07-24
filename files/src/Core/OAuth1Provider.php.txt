@@ -33,7 +33,7 @@ abstract class OAuth1Provider extends OAuthProvider implements OAuth1Interface{
 	protected string $requestTokenURL = '';
 
 	/**
-	 * @param array<string, string> $params
+	 * @param array<string, scalar>|null $params
 	 */
 	public function getAuthorizationURL(array|null $params = null, array|null $scopes = null):UriInterface{
 		$response = $this->sendRequestTokenRequest($this->requestTokenURL);
@@ -150,7 +150,7 @@ abstract class OAuth1Provider extends OAuthProvider implements OAuth1Interface{
 	 * @see \chillerlan\OAuth\Core\OAuth1Provider::getRequestTokenRequestParams()
 	 * @see \chillerlan\OAuth\Core\OAuth1Provider::getRequestAuthorization()
 	 *
-	 * @param array<string, string> $params
+	 * @param array<string, scalar> $params
 	 *
 	 * @throws \chillerlan\OAuth\Providers\ProviderException
 	 */
@@ -231,7 +231,7 @@ abstract class OAuth1Provider extends OAuthProvider implements OAuth1Interface{
 	/**
 	 * Adds the "Authorization" header to the given `RequestInterface` using the given array or parameters
 	 *
-	 * @param array<string, string> $params
+	 * @param array<string, scalar> $params
 	 */
 	protected function setAuthorizationHeader(RequestInterface $request, array $params):RequestInterface{
 		return $request->withHeader('Authorization', sprintf('OAuth %s', QueryUtil::build($params, null, ', ', '"')));
@@ -242,7 +242,7 @@ abstract class OAuth1Provider extends OAuthProvider implements OAuth1Interface{
 	 *
 	 * @see \chillerlan\OAuth\Core\OAuth1Provider::getAccessToken()
 	 *
-	 * @param array<string, string> $headerParams
+	 * @param array<string, scalar> $headerParams
 	 */
 	protected function sendAccessTokenRequest(array $headerParams):ResponseInterface{
 

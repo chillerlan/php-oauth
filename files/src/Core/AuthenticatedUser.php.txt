@@ -20,6 +20,14 @@ use function intval, is_int, is_numeric, trim;
  * A simple read-only container for user data responses
  *
  * @see \chillerlan\OAuth\Core\UserInfo::me()
+ *
+ * @property string|null          $handle
+ * @property string|null          $displayName
+ * @property string|null          $email
+ * @property string|int|null      $id
+ * @property string|null          $avatar
+ * @property string|null          $url
+ * @property array<string, mixed> $data
  */
 final class AuthenticatedUser extends SettingsContainerAbstract{
 

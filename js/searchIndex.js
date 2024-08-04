@@ -643,7 +643,7 @@ Search.appendIndex(
         },                {
             "fqsen": "\\chillerlan\\OAuth\\Core\\OAuthProvider\u003A\u003AInvalidateAccessToken\u0028\u0029",
             "name": "InvalidateAccessToken",
-            "summary": "",
+            "summary": "implements\u0020TokenInvalidate",
             "url": "classes/chillerlan-OAuth-Core-OAuthProvider.html#method_InvalidateAccessToken"
         },                {
             "fqsen": "\\chillerlan\\OAuth\\Core\\OAuthProvider\u003A\u003AsendRequest\u0028\u0029",
@@ -853,7 +853,7 @@ Search.appendIndex(
         },                {
             "fqsen": "\\chillerlan\\OAuth\\Core\\Utilities\u003A\u003AcreateEncryptionKey\u0028\u0029",
             "name": "createEncryptionKey",
-            "summary": "Creates\u0020a\u0020new\u0020cryptographically\u0020secure\u0020random\u0020encryption\u0020key\u0020\u0028in\u0020hexadecimal\u0020or\u0020format\u0029",
+            "summary": "Creates\u0020a\u0020new\u0020cryptographically\u0020secure\u0020random\u0020encryption\u0020key\u0020\u0028in\u0020hexadecimal\u0020format\u0029",
             "url": "classes/chillerlan-OAuth-Core-Utilities.html#method_createEncryptionKey"
         },                {
             "fqsen": "\\chillerlan\\OAuth\\Core\\Utilities\u003A\u003Aencrypt\u0028\u0029",
@@ -6010,6 +6010,11 @@ Search.appendIndex(
             "name": "HTTP_CLIENT_FACTORY",
             "summary": "",
             "url": "classes/chillerlan-OAuthTest-Core-OAuthProviderFactoryTest.html#property_HTTP_CLIENT_FACTORY"
+        },                {
+            "fqsen": "\\chillerlan\\OAuthTest\\Core\\OAuthProviderFactoryTest\u003A\u003A\u0024providerFactory",
+            "name": "providerFactory",
+            "summary": "",
+            "url": "classes/chillerlan-OAuthTest-Core-OAuthProviderFactoryTest.html#property_providerFactory"
         },                {
             "fqsen": "\\chillerlan\\OAuthTest\\Core\\UtilitiesTest",
             "name": "UtilitiesTest",

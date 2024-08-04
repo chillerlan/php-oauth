@@ -72,6 +72,8 @@ abstract class OAuth1Provider extends OAuthProvider implements OAuth1Interface{
 	 *
 	 * @see \chillerlan\OAuth\Core\OAuth1Provider::sendRequestTokenRequest()
 	 * @link https://datatracker.ietf.org/doc/html/rfc5849#section-2.1
+	 *
+	 * @return array<string, scalar>
 	 */
 	protected function getRequestTokenRequestParams():array{
 
@@ -102,6 +104,7 @@ abstract class OAuth1Provider extends OAuthProvider implements OAuth1Interface{
 	 * @throws \chillerlan\OAuth\Providers\ProviderException
 	 */
 	protected function parseTokenResponse(ResponseInterface $response, bool|null $checkCallbackConfirmed = null):AccessToken{
+		/** @var array<string, string> $data */
 		$data = QueryUtil::parse(MessageUtil::decompress($response));
 
 		if($data === []){
@@ -205,9 +208,11 @@ abstract class OAuth1Provider extends OAuthProvider implements OAuth1Interface{
 
 	/**
 	 * Prepares the header params for the access token request
+	 *
+	 * @return array<string, scalar>
 	 */
 	protected function getAccessTokenRequestHeaderParams(AccessToken $requestToken, string $verifier):array{
-
+		/** @var array<string, scalar> $params */
 		$params = [
 			'oauth_consumer_key'     => $this->options->key,
 			'oauth_nonce'            => $this->nonce(),
@@ -268,6 +273,7 @@ abstract class OAuth1Provider extends OAuthProvider implements OAuth1Interface{
 			throw new InvalidAccessTokenException;
 		}
 
+		/** @var array<string, scalar> $params */
 		$params = [
 			'oauth_consumer_key'     => $this->options->key,
 			'oauth_nonce'            => $this->nonce(),

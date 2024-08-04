@@ -146,110 +146,74 @@ abstract class OAuthProvider implements OAuthInterface{
 		// noop
 	}
 
-	/**
-	 * @inheritDoc
-	 * @codeCoverageIgnore
-	 */
+	/** @codeCoverageIgnore */
 	final public function getName():string{
 		return $this->name;
 	}
 
-	/**
-	 * @inheritDoc
-	 * @codeCoverageIgnore
-	 */
+	/** @codeCoverageIgnore */
 	final public function getApiDocURL():string|null{
 		return $this->apiDocs;
 	}
 
-	/**
-	 * @inheritDoc
-	 * @codeCoverageIgnore
-	 */
+	/** @codeCoverageIgnore */
 	final public function getApplicationURL():string|null{
 		return $this->applicationURL;
 	}
 
-	/**
-	 * @inheritDoc
-	 * @codeCoverageIgnore
-	 */
+	/** @codeCoverageIgnore */
 	final public function getUserRevokeURL():string|null{
 		return $this->userRevokeURL;
 	}
 
-	/**
-	 * @inheritDoc
-	 * @codeCoverageIgnore
-	 */
+	/** @codeCoverageIgnore */
 	final public function setStorage(OAuthStorageInterface $storage):static{
 		$this->storage = $storage;
 
 		return $this;
 	}
 
-	/**
-	 * @inheritDoc
-	 * @codeCoverageIgnore
-	 */
+	/** @codeCoverageIgnore */
 	final public function getStorage():OAuthStorageInterface{
 		return $this->storage;
 	}
 
-	/**
-	 * @inheritDoc
-	 * @codeCoverageIgnore
-	 */
+	/** @codeCoverageIgnore */
 	final public function setLogger(LoggerInterface $logger):static{
 		$this->logger = $logger;
 
 		return $this;
 	}
 
-	/**
-	 * @inheritDoc
-	 * @codeCoverageIgnore
-	 */
+	/** @codeCoverageIgnore */
 	final public function setRequestFactory(RequestFactoryInterface $requestFactory):static{
 		$this->requestFactory = $requestFactory;
 
 		return $this;
 	}
 
-	/**
-	 * @inheritDoc
-	 * @codeCoverageIgnore
-	 */
+	/** @codeCoverageIgnore */
 	final public function setStreamFactory(StreamFactoryInterface $streamFactory):static{
 		$this->streamFactory = $streamFactory;
 
 		return $this;
 	}
 
-	/**
-	 * @inheritDoc
-	 * @codeCoverageIgnore
-	 */
+	/** @codeCoverageIgnore */
 	final public function setUriFactory(UriFactoryInterface $uriFactory):static{
 		$this->uriFactory = $uriFactory;
 
 		return $this;
 	}
 
-	/**
-	 * @inheritDoc
-	 * @codeCoverageIgnore
-	 */
+	/** @codeCoverageIgnore */
 	final public function storeAccessToken(AccessToken $token):static{
 		$this->storage->storeAccessToken($token, $this->name);
 
 		return $this;
 	}
 
-	/**
-	 * @inheritDoc
-	 * @codeCoverageIgnore
-	 */
+	/** @codeCoverageIgnore */
 	final public function getAccessTokenFromStorage():AccessToken{
 		return $this->storage->getAccessToken($this->name);
 	}
@@ -265,6 +229,9 @@ abstract class OAuthProvider implements OAuthInterface{
 
 	/**
 	 * Prepare request headers
+	 *
+	 * @param array<string, string>|null $headers
+	 * @return array<string, string>
 	 */
 	final protected function getRequestHeaders(array|null $headers = null):array{
 		return array_merge($this::HEADERS_API, ($headers ?? []));
@@ -272,6 +239,8 @@ abstract class OAuthProvider implements OAuthInterface{
 
 	/**
 	 * Prepares the request URL
+	 *
+	 * @param array<string, scalar|bool|null>|null $params
 	 */
 	final protected function getRequestURL(string $path, array|null $params = null):string{
 		return QueryUtil::merge($this->getRequestTarget($path), $this->cleanQueryParams(($params ?? [])));
@@ -280,7 +249,8 @@ abstract class OAuthProvider implements OAuthInterface{
 	/**
 	 * Cleans an array of query parameters
 	 *
-	 * @param array<string, scalar> $params
+	 * @param array<string, scalar|bool|null> $params
+	 * @return array<string, string>
 	 */
 	protected function cleanQueryParams(iterable $params):array{
 		return QueryUtil::cleanParams($params, QueryUtil::BOOLEANS_AS_INT_STRING, true);
@@ -289,7 +259,8 @@ abstract class OAuthProvider implements OAuthInterface{
 	/**
 	 * Cleans an array of body parameters
 	 *
-	 * @param array<string, scalar> $params
+	 * @param array<string, scalar|bool|null> $params
+	 * @return array<string, string>
 	 */
 	protected function cleanBodyParams(iterable $params):array{
 		return QueryUtil::cleanParams($params, QueryUtil::BOOLEANS_AS_BOOL, true);
@@ -315,7 +286,9 @@ abstract class OAuthProvider implements OAuthInterface{
 	}
 
 	/**
-	 * @implements \chillerlan\OAuth\Core\TokenInvalidate
+	 * implements TokenInvalidate
+	 *
+	 * @see \chillerlan\OAuth\Core\TokenInvalidate
 	 * @codeCoverageIgnore
 	 * @throws \chillerlan\OAuth\Providers\ProviderException
 	 */
@@ -324,7 +297,6 @@ abstract class OAuthProvider implements OAuthInterface{
 	}
 
 	/**
-	 * @inheritDoc
 	 * @throws \chillerlan\OAuth\Core\InvalidAccessTokenException
 	 */
 	final public function sendRequest(RequestInterface $request):ResponseInterface{
@@ -341,7 +313,6 @@ abstract class OAuthProvider implements OAuthInterface{
 	}
 
 	/**
-	 * @inheritDoc
 	 * @throws \chillerlan\OAuth\Core\UnauthorizedAccessException
 	 */
 	public function request(
@@ -379,6 +350,7 @@ abstract class OAuthProvider implements OAuthInterface{
 	/**
 	 * Prepares the request body and sets it in the given RequestInterface, along with a Content-Length header
 	 *
+	 * @param StreamInterface|array<string, scalar|bool|null>|string $body
 	 * @throws \chillerlan\OAuth\Providers\ProviderException
 	 */
 	final protected function setRequestBody(StreamInterface|array|string $body, RequestInterface $request):RequestInterface{
@@ -388,15 +360,13 @@ abstract class OAuthProvider implements OAuthInterface{
 			$body        = $this->cleanBodyParams($body);
 			$contentType = strtolower($request->getHeaderLine('content-type'));
 
-			try{
-				$body = match($contentType){
-					'application/x-www-form-urlencoded'            => QueryUtil::build($body, PHP_QUERY_RFC1738),
-					'application/json', 'application/vnd.api+json' => json_encode($body),
-				};
-			}
-			catch(UnhandledMatchError){
-				throw new ProviderException(sprintf('invalid content-type "%s" for the given array body', $contentType));
-			}
+			$body = match($contentType){
+				'application/x-www-form-urlencoded'            => QueryUtil::build($body, PHP_QUERY_RFC1738),
+				'application/json', 'application/vnd.api+json' => json_encode($body),
+				default                                        => throw new ProviderException(
+					sprintf('invalid content-type "%s" for the given array body', $contentType),
+				),
+			};
 
 		}
 
@@ -467,6 +437,8 @@ abstract class OAuthProvider implements OAuthInterface{
 
 	/**
 	 * prepares and sends the request to the provider's "me" endpoint and returns a ResponseInterface
+	 *
+	 * @param array<string, scalar|bool|null>|null $params
 	 */
 	protected function sendMeRequest(string $endpoint, array|null $params = null):ResponseInterface{
 		// we'll bypass the API check here as not all "me" endpoints align with the provider APIs
@@ -488,6 +460,9 @@ abstract class OAuthProvider implements OAuthInterface{
 	 * @see \chillerlan\OAuth\Core\UserInfo::me()
 	 * @see \chillerlan\OAuth\Core\OAuthProvider::sendMeRequest()
 	 * @see \chillerlan\OAuth\Core\OAuthProvider::handleMeResponseError()
+	 *
+	 * @param array<string, scalar|bool|null>|null $params
+	 * @return array<int|string, mixed>
 	 * @throws \chillerlan\OAuth\Providers\ProviderException
 	 */
 	final protected function getMeResponseData(string $endpoint, array|null $params = null):array{
@@ -506,6 +481,9 @@ abstract class OAuthProvider implements OAuthInterface{
 
 		// handle and throw the error
 		$this->handleMeResponseError($response);
+
+		/** @noinspection PhpUnreachableStatementInspection this is here because phpstan silly */
+		return [];
 	}
 
 	/**

@@ -43,10 +43,7 @@ class Google extends OAuth2Provider implements CSRFToken, UserInfo{
 	protected string|null $apiDocs          = 'https://developers.google.com/oauthplayground/';
 	protected string|null $applicationURL   = 'https://console.developers.google.com/apis/credentials';
 
-	/**
-	 * @inheritDoc
-	 * @codeCoverageIgnore
-	 */
+	/** @codeCoverageIgnore */
 	public function me():AuthenticatedUser{
 		$json = $this->getMeResponseData('/userinfo/v2/me');
 

@@ -28,6 +28,9 @@ final class AccessTokenTest extends TestCase{
 		$this->token = new AccessToken;
 	}
 
+	/**
+	 * @return array<string, array{0: string, 1: mixed, 2: mixed}>
+	 */
 	public static function tokenDataProvider():array{
 		return [
 			'accessTokenSecret' => ['accessTokenSecret', null, 'ACCESS_TOKEN'],
@@ -48,6 +51,9 @@ final class AccessTokenTest extends TestCase{
 		$this::assertSame($data, $this->token->{$property});
 	}
 
+	/**
+	 * @return array<string, array{0: DateTime|DateInterval|int|null, 1: int}>
+	 */
 	public static function expiryDataProvider():array{
 		$now = time();
 
@@ -81,6 +87,9 @@ final class AccessTokenTest extends TestCase{
 
 	}
 
+	/**
+	 * @return array<string, array{0: int, 1: bool}>
+	 */
 	public static function isExpiredDataProvider():array{
 		return [
 			'0 (f)'              => [0,                           false],

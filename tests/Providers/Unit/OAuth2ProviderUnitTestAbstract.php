@@ -27,7 +27,7 @@ use function base64_encode, implode, json_decode, json_encode;
 /**
  * OAuth2 unit test
  *
- * @property \chillerlan\OAuth\Core\OAuth2Interface $provider
+ * @property OAuth2Interface & ClientCredentials & CSRFToken & PAR & PKCE & TokenRefresh $provider
  */
 abstract class OAuth2ProviderUnitTestAbstract extends OAuthProviderUnitTestAbstract{
 
@@ -453,7 +453,7 @@ abstract class OAuth2ProviderUnitTestAbstract extends OAuthProviderUnitTestAbstr
 		$this->provider->checkState('unknown_state');
 	}
 
-	public function testSetCSRFStateNotSupportedException(){
+	public function testSetCSRFStateNotSupportedException():void{
 
 		if($this->provider instanceof CSRFToken){
 			$this->markTestSkipped('CSRFToken supported');
@@ -465,7 +465,7 @@ abstract class OAuth2ProviderUnitTestAbstract extends OAuthProviderUnitTestAbstr
 		$this->provider->setState([]);
 	}
 
-	public function testCheckCSRFStateNotSupportedException(){
+	public function testCheckCSRFStateNotSupportedException():void{
 
 		if($this->provider instanceof CSRFToken){
 			$this->markTestSkipped('CSRFToken supported');
@@ -553,6 +553,8 @@ abstract class OAuth2ProviderUnitTestAbstract extends OAuthProviderUnitTestAbstr
 	 * test values from RFC-7636, Appendix B
 	 *
 	 * @link https://datatracker.ietf.org/doc/html/rfc7636#appendix-B
+	 *
+	 * @return array<string, array{0: string, 1: string, 2: string}>
 	 */
 	public static function challengeProvider():array{
 		$verifier = 'dBjftJeZ4CVP-mB92K27uhbUJU1p1r_wW1gFWFOEjXk';

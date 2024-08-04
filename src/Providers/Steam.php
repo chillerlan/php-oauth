@@ -75,6 +75,7 @@ class Steam extends OAuthProvider implements UserInfo{
 	 * prepares the request body parameters for the access token request
 	 *
 	 * @param array<string, string> $received
+	 * @return array<string, string>
 	 */
 	protected function getAccessTokenRequestBodyParams(array $received):array{
 

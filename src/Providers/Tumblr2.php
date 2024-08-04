@@ -40,10 +40,7 @@ class Tumblr2 extends OAuth2Provider implements CSRFToken, TokenRefresh, ClientC
 	protected string|null $apiDocs          = 'https://www.tumblr.com/docs/en/api/v2';
 	protected string|null $applicationURL   = 'https://www.tumblr.com/oauth/apps';
 
-	/**
-	 * @inheritDoc
-	 * @codeCoverageIgnore
-	 */
+	/** @codeCoverageIgnore */
 	public function me():AuthenticatedUser{
 		$json = $this->getMeResponseData('/v2/user/info');
 

@@ -39,7 +39,6 @@ class TwitterCC extends OAuth2Provider implements ClientCredentials{
 	protected string|null $applicationURL            = 'https://developer.twitter.com/apps';
 
 	/**
-	 * @inheritdoc
 	 * @throws \chillerlan\OAuth\Providers\ProviderException
 	 */
 	public function getAuthorizationURL(array|null $params = null, array|null $scopes = null):UriInterface{
@@ -47,7 +46,6 @@ class TwitterCC extends OAuth2Provider implements ClientCredentials{
 	}
 
 	/**
-	 * @inheritdoc
 	 * @throws \chillerlan\OAuth\Providers\ProviderException
 	 */
 	public function getAccessToken(string $code, string|null $state = null):AccessToken{

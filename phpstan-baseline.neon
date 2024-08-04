@@ -1,0 +1,137 @@
+parameters:
+	ignoreErrors:
+		-
+			message: "#^Parameter \\#2 \\$array of function implode expects array\\|null, array\\<string\\>\\|string given\\.$#"
+			count: 2
+			path: src/Core/OAuth1Provider.php
+
+		-
+			message: "#^Parameter \\#1 \\$separator of function explode expects non\\-empty\\-string, string given\\.$#"
+			count: 1
+			path: src/Core/OAuth2Provider.php
+
+		-
+			message: "#^Method chillerlan\\\\OAuth\\\\Core\\\\OAuthProvider\\:\\:cleanBodyParams\\(\\) should return array\\<string, string\\> but returns array\\<int\\|string, bool\\|float\\|int\\|string\\|null\\>\\.$#"
+			count: 1
+			path: src/Core/OAuthProvider.php
+
+		-
+			message: "#^Method chillerlan\\\\OAuth\\\\Core\\\\OAuthProvider\\:\\:cleanQueryParams\\(\\) should return array\\<string, string\\> but returns array\\<int\\|string, bool\\|float\\|int\\|string\\|null\\>\\.$#"
+			count: 1
+			path: src/Core/OAuthProvider.php
+
+		-
+			message: "#^Parameter \\#1 \\$content of method Psr\\\\Http\\\\Message\\\\StreamFactoryInterface\\:\\:createStream\\(\\) expects string, string\\|false given\\.$#"
+			count: 1
+			path: src/Core/OAuthProvider.php
+
+		-
+			message: "#^Parameter \\#1 \\$length of function random_bytes expects int\\<1, max\\>, int given\\.$#"
+			count: 1
+			path: src/Core/OAuthProvider.php
+
+		-
+			message: "#^Parameter \\#1 \\$objectOrClass of class ReflectionClass constructor expects class\\-string\\<T of object\\>\\|T of object, string given\\.$#"
+			count: 1
+			path: src/Core/Utilities.php
+
+		-
+			message: "#^Method chillerlan\\\\OAuth\\\\OAuthProviderFactory\\:\\:getProvider\\(\\) should return chillerlan\\\\OAuth\\\\Core\\\\OAuthInterface but returns object\\.$#"
+			count: 1
+			path: src/OAuthProviderFactory.php
+
+		-
+			message: "#^Access to an undefined property object\\:\\:\\$name\\.$#"
+			count: 1
+			path: src/Providers/GuildWars2.php
+
+		-
+			message: "#^Access to an undefined property object\\:\\:\\$permissions\\.$#"
+			count: 1
+			path: src/Providers/GuildWars2.php
+
+		-
+			message: "#^Method chillerlan\\\\OAuth\\\\Providers\\\\LastFM\\:\\:parseTrack\\(\\) return type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/Providers/LastFM.php
+
+		-
+			message: "#^Method chillerlan\\\\OAuth\\\\Providers\\\\LastFM\\:\\:scrobble\\(\\) has parameter \\$tracks with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/Providers/LastFM.php
+
+		-
+			message: "#^Method chillerlan\\\\OAuth\\\\Providers\\\\LastFM\\:\\:scrobble\\(\\) return type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/Providers/LastFM.php
+
+		-
+			message: "#^Method chillerlan\\\\OAuth\\\\Providers\\\\LastFM\\:\\:sendScrobbles\\(\\) return type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/Providers/LastFM.php
+
+		-
+			message: "#^Parameter \\#1 \\$body of method chillerlan\\\\OAuth\\\\Providers\\\\LastFM\\:\\:sendScrobbles\\(\\) expects array\\<string, string\\>, array\\<string, bool\\|float\\|int\\|string\\> given\\.$#"
+			count: 1
+			path: src/Providers/LastFM.php
+
+		-
+			message: "#^Property chillerlan\\\\OAuth\\\\Core\\\\AccessToken\\:\\:\\$expires \\(int\\) does not accept DateInterval\\|DateTime\\|int\\|null\\.$#"
+			count: 1
+			path: tests/Core/AccessTokenTest.php
+
+		-
+			message: "#^Call to method chillerlan\\\\OAuth\\\\Core\\\\AuthenticatedUser\\:\\:fromIterable\\(\\) on a separate line has no effect\\.$#"
+			count: 1
+			path: tests/Core/AuthenticatedUserTest.php
+
+		-
+			message: "#^Parameter \\#1 \\$objectOrClass of class ReflectionClass constructor expects class\\-string\\<T of object\\>\\|T of object, string given\\.$#"
+			count: 2
+			path: tests/Core/UtilitiesTest.php
+
+		-
+			message: "#^Parameter \\#2 \\$string of static method PHPUnit\\\\Framework\\\\Assert\\:\\:assertMatchesRegularExpression\\(\\) expects string, int\\|string given\\.$#"
+			count: 1
+			path: tests/Providers/Live/AmazonAPITest.php
+
+		-
+			message: "#^Access to an undefined property chillerlan\\\\DotEnv\\\\DotEnv\\:\\:\\$GW2_TOKEN\\.$#"
+			count: 1
+			path: tests/Providers/Live/GuildWars2APITest.php
+
+		-
+			message: "#^Access to an undefined property chillerlan\\\\DotEnv\\\\DotEnv\\:\\:\\$GW2_TOKEN_NAME\\.$#"
+			count: 1
+			path: tests/Providers/Live/GuildWars2APITest.php
+
+		-
+			message: "#^Dead catch \\- chillerlan\\\\OAuth\\\\Providers\\\\ProviderException is never thrown in the try block\\.$#"
+			count: 1
+			path: tests/Providers/Live/MusicBrainzAPITest.php
+
+		-
+			message: """
+				#^Fetching class constant class of deprecated class chillerlan\\\\OAuth\\\\Providers\\\\OpenStreetmap\\:
+				https\\://github\\.com/openstreetmap/operations/issues/867$#
+			"""
+			count: 1
+			path: tests/Providers/Live/OpenStreetmapAPITest.php
+
+		-
+			message: "#^Parameter \\#1 \\$content of method Psr\\\\Http\\\\Message\\\\StreamFactoryInterface\\:\\:createStream\\(\\) expects string, string\\|false given\\.$#"
+			count: 2
+			path: tests/Providers/Unit/OAuth2ProviderUnitTestAbstract.php
+
+		-
+			message: "#^Parameter \\#1 \\$expected of static method PHPUnit\\\\Framework\\\\Assert\\:\\:assertInstanceOf\\(\\) expects class\\-string\\<object\\>, string given\\.$#"
+			count: 1
+			path: tests/Providers/Unit/OAuthProviderUnitTestAbstract.php
+
+		-
+			message: """
+				#^Fetching class constant class of deprecated class chillerlan\\\\OAuth\\\\Providers\\\\OpenStreetmap\\:
+				https\\://github\\.com/openstreetmap/operations/issues/867$#
+			"""
+			count: 1
+			path: tests/Providers/Unit/OpenStreetmapTest.php

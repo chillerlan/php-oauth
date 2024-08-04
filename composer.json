@@ -34,8 +34,8 @@
 		"php": "^8.1",
 		"ext-json": "*",
 		"ext-sodium": "*",
-		"chillerlan/php-http-message-utils": "^2.2.1",
-		"chillerlan/php-settings-container": "^3.2",
+		"chillerlan/php-http-message-utils": "^2.2.2",
+		"chillerlan/php-settings-container": "^3.2.1",
 		"psr/http-client": "^1.0",
 		"psr/http-message": "^1.1 || ^2.0",
 		"psr/log": "^1.1 || ^2.0 || ^3.0"
@@ -43,10 +43,11 @@
 	"require-dev": {
 		"chillerlan/php-dotenv": "^3.0",
 		"chillerlan/phpunit-http": "^1.0",
-		"guzzlehttp/guzzle": "^7.8",
-		"monolog/monolog": "^3.6",
-		"phan/phan": "^5.4",
+		"guzzlehttp/guzzle": "^7.9",
+		"monolog/monolog": "^3.7",
 		"phpmd/phpmd": "^2.15",
+		"phpstan/phpstan": "^1.11",
+		"phpstan/phpstan-deprecation-rules": "^1.2",
 		"phpunit/phpunit": "^10.5",
 		"slevomat/coding-standard": "^8.15",
 		"squizlabs/php_codesniffer": "^3.10"
@@ -56,17 +57,18 @@
 	},
 	"autoload": {
 		"psr-4": {
-			"chillerlan\\OAuth\\": "src/"
+			"chillerlan\\OAuth\\": "src"
 		}
 	},
 	"autoload-dev": {
 		"psr-4": {
-			"chillerlan\\OAuthTest\\": "tests/"
+			"chillerlan\\OAuthTest\\": "tests"
 		}
 	},
 	"scripts": {
-		"phan": "@php vendor/bin/phan",
 		"phpcs": "@php vendor/bin/phpcs",
+		"phpstan": "@php vendor/bin/phpstan",
+		"phpstan-baseline": "@php vendor/bin/phpstan --generate-baseline",
 		"phpunit": "@php vendor/bin/phpunit"
 	},
 	"config": {

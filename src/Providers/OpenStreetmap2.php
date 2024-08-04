@@ -50,10 +50,7 @@ class OpenStreetmap2 extends OAuth2Provider implements CSRFToken, UserInfo{
 	protected string|null $apiDocs          = 'https://wiki.openstreetmap.org/wiki/API';
 	protected string|null $applicationURL   = 'https://www.openstreetmap.org/oauth2/applications';
 
-	/**
-	 * @inheritDoc
-	 * @codeCoverageIgnore
-	 */
+	/** @codeCoverageIgnore */
 	public function me():AuthenticatedUser{
 		$json = $this->getMeResponseData('/api/0.6/user/details.json');
 

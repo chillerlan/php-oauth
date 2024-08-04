@@ -29,7 +29,7 @@ use function sprintf;
 /**
  * abstract OAuth unit test
  *
- * @property \chillerlan\OAuth\Core\OAuthInterface $provider
+ * @property OAuthInterface & TokenInvalidate & UserInfo $provider
  */
 abstract class OAuthProviderUnitTestAbstract extends ProviderUnitTestAbstract{
 
@@ -70,6 +70,9 @@ abstract class OAuthProviderUnitTestAbstract extends ProviderUnitTestAbstract{
 		$this::assertSame($body, $request->getBody()->getContents());
 	}
 
+	/**
+	 * @return array<int, array{0: array<string, string>, 1: string, 2: string}>
+	 */
 	public static function arrayBodyProvider():array{
 		$body = ['test' => 'nope'];
 
@@ -113,6 +116,9 @@ abstract class OAuthProviderUnitTestAbstract extends ProviderUnitTestAbstract{
 	 * request target
 	 */
 
+	/**
+	 * @return array<string, array{0: string, 1: string}>
+	 */
 	public static function requestTargetProvider():array{
 		return [
 			'empty'          => ['', 'https://example.com/api'],
@@ -328,6 +334,9 @@ abstract class OAuthProviderUnitTestAbstract extends ProviderUnitTestAbstract{
 		$this->invokeReflectionMethod('handleMeResponseError', [$response]);
 	}
 
+	/**
+	 * @return array<string, array{0: string, 1: string}>
+	 */
 	public static function jsonErrorProvider():array{
 		$message = 'oh noes';
 

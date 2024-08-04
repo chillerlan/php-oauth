@@ -43,10 +43,7 @@ class PayPal extends OAuth2Provider implements ClientCredentials, CSRFToken, Tok
 	protected string|null $applicationURL   = 'https://developer.paypal.com/developer/applications/';
 	protected string|null $apiDocs          = 'https://developer.paypal.com/docs/connect-with-paypal/reference/';
 
-	/**
-	 * @inheritDoc
-	 * @codeCoverageIgnore
-	 */
+	/** @codeCoverageIgnore */
 	public function me():AuthenticatedUser{
 		$json = $this->getMeResponseData('/v1/identity/oauth2/userinfo', ['schema' => 'paypalv1.1']);
 

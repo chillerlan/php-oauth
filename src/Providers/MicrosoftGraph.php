@@ -37,10 +37,7 @@ class MicrosoftGraph extends AzureActiveDirectory implements UserInfo{
 	protected string      $apiURL  = 'https://graph.microsoft.com';
 	protected string|null $apiDocs = 'https://learn.microsoft.com/graph/overview';
 
-	/**
-	 * @inheritDoc
-	 * @codeCoverageIgnore
-	 */
+	/** @codeCoverageIgnore */
 	public function me():AuthenticatedUser{
 		$json = $this->getMeResponseData('/v1.0/me');
 

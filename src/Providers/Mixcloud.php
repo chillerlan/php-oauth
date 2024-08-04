@@ -33,10 +33,7 @@ class Mixcloud extends OAuth2Provider implements UserInfo{
 	protected string|null $apiDocs          = 'https://www.mixcloud.com/developers/';
 	protected string|null $applicationURL   = 'https://www.mixcloud.com/developers/create/';
 
-	/**
-	 * @inheritDoc
-	 * @codeCoverageIgnore
-	 */
+	/** @codeCoverageIgnore */
 	public function me():AuthenticatedUser{
 		// mixcloud sends "Content-Type: text/javascript" for JSON content (????)
 		$json = $this->getMeResponseData('/me/');

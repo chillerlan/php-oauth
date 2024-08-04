@@ -89,10 +89,7 @@ class Reddit extends OAuth2Provider implements ClientCredentials, CSRFToken, Tok
 	protected string|null $applicationURL   = 'https://www.reddit.com/prefs/apps/';
 	protected string|null $userRevokeURL    = 'https://www.reddit.com/settings/privacy';
 
-	/**
-	 * @inheritDoc
-	 */
-	protected function sendTokenInvalidateRequest(string $url, array $body):ResponseInterface{
+	protected function sendTokenInvalidateRequest(string $url, array $body):ResponseInterface{ // phpcs:ignore
 
 		$request = $this->requestFactory
 			->createRequest('POST', $url)
@@ -105,10 +102,7 @@ class Reddit extends OAuth2Provider implements ClientCredentials, CSRFToken, Tok
 		return $this->http->sendRequest($request);
 	}
 
-	/**
-	 * @inheritDoc
-	 * @codeCoverageIgnore
-	 */
+	/** @codeCoverageIgnore */
 	public function me():AuthenticatedUser{
 		$json = $this->getMeResponseData('/v1/me');
 

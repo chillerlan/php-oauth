@@ -33,7 +33,6 @@ use Throwable;
 use function constant;
 use function defined;
 use function ini_set;
-use function realpath;
 use function sprintf;
 
 /**
@@ -68,7 +67,7 @@ abstract class ProviderUnitTestAbstract extends TestCase{
 
 		try{
 			$this->initConfig();
-			$this->initFactories(realpath($this::CACERT));
+			$this->initFactories($this::CACERT);
 
 			$this->logger  = (new ProviderTestLoggerFactory)->getLogger($this->ENV_IS_CI); // PSR-3 logger
 			$this->options = $this->initOptions();
@@ -213,6 +212,8 @@ abstract class ProviderUnitTestAbstract extends TestCase{
 
 	/**
 	 * Creates a test access token with the given parameters or a set of defaults
+	 *
+	 * @param array<string, scalar|null>|null $params
 	 */
 	protected function getTestToken(array|null $params = null):AccessToken{
 

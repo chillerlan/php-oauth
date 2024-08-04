@@ -65,7 +65,6 @@ class Discord extends OAuth2Provider implements ClientCredentials, CSRFToken, To
 	protected string|null $applicationURL   = 'https://discordapp.com/developers/applications/';
 
 	/**
-	 * @inheritDoc
 	 * @link https://github.com/discord/discord-api-docs/issues/2259#issuecomment-927180184
 	 */
 	protected function getInvalidateAccessTokenBodyParams(AccessToken $token, string $type):array{
@@ -77,10 +76,7 @@ class Discord extends OAuth2Provider implements ClientCredentials, CSRFToken, To
 		];
 	}
 
-	/**
-	 * @inheritDoc
-	 * @codeCoverageIgnore
-	 */
+	/** @codeCoverageIgnore */
 	public function me():AuthenticatedUser{
 		$json = $this->getMeResponseData('/users/@me');
 

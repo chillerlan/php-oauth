@@ -26,7 +26,7 @@ use function explode;
 final class BattleNetAPITest extends OAuth2ProviderLiveTestAbstract{
 
 	protected function assertMeResponse(AuthenticatedUser $user):void{
-		$this::assertSame($this->TEST_USER, explode('#', $user->handle)[0]);
+		$this::assertSame($this->TEST_USER, explode('#', ($user->handle ?? ''))[0]);
 	}
 
 }

@@ -37,10 +37,7 @@ class OpenCaching extends OAuth1Provider implements UserInfo{
 	protected string|null $apiDocs          = 'https://www.opencaching.de/okapi/';
 	protected string|null $applicationURL   = 'https://www.opencaching.de/okapi/signup.html';
 
-	/**
-	 * @inheritDoc
-	 * @codeCoverageIgnore
-	 */
+	/** @codeCoverageIgnore */
 	public function me():AuthenticatedUser{
 		$json = $this->getMeResponseData('/users/user', ['fields' => implode('|', $this::USER_FIELDS)]);
 

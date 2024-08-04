@@ -22,7 +22,7 @@ use function constant, sprintf;
 /**
  * abstract OAuth live API test
  *
- * @property \chillerlan\OAuth\Core\OAuthInterface $provider
+ * @property \chillerlan\OAuth\Core\OAuthInterface & UserInfo $provider
  */
 abstract class OAuthProviderLiveTestAbstract extends ProviderLiveTestAbstract{
 

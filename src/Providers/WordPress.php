@@ -38,10 +38,7 @@ class WordPress extends OAuth2Provider implements CSRFToken, UserInfo{
 	protected string|null $apiDocs          = 'https://developer.wordpress.com/docs/api/';
 	protected string|null $applicationURL   = 'https://developer.wordpress.com/apps/';
 
-	/**
-	 * @inheritDoc
-	 * @codeCoverageIgnore
-	 */
+	/** @codeCoverageIgnore */
 	public function me():AuthenticatedUser{
 		$json = $this->getMeResponseData('/v1/me');
 

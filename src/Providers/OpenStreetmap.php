@@ -32,10 +32,7 @@ class OpenStreetmap extends OAuth1Provider implements UserInfo{
 	protected string|null $apiDocs          = 'https://wiki.openstreetmap.org/wiki/API';
 	protected string|null $applicationURL   = 'https://www.openstreetmap.org/user/{USERNAME}/oauth_clients';
 
-	/**
-	 * @inheritDoc
-	 * @codeCoverageIgnore
-	 */
+	/** @codeCoverageIgnore */
 	public function me():AuthenticatedUser{
 		$json = $this->getMeResponseData('/api/0.6/user/details.json');
 

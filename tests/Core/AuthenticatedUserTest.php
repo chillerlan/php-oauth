@@ -55,6 +55,9 @@ final class AuthenticatedUserTest extends TestCase{
 		$this::assertSame('test@example.com', $user->email);
 	}
 
+	/**
+	 * @return array<string, array<int, scalar|null>>
+	 */
 	public static function idProvider():array{
 		return [
 			'null'    => [null, null],
@@ -71,6 +74,9 @@ final class AuthenticatedUserTest extends TestCase{
 		$this::assertSame($expexted, $user->id);
 	}
 
+	/**
+	 * @return array<string, array<int, string|null>>
+	 */
 	public static function displayNameProvider():array{
 		return [
 			'null'       => [null, null],

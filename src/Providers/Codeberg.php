@@ -67,10 +67,7 @@ class Codeberg extends OAuth2Provider implements CSRFToken, PKCE, TokenRefresh, 
 	protected string|null $applicationURL   = 'https://codeberg.org/user/settings/applications';
 	protected string|null $userRevokeURL    = 'https://codeberg.org/user/settings/applications';
 
-	/**
-	 * @inheritDoc
-	 * @codeCoverageIgnore
-	 */
+	/** @codeCoverageIgnore */
 	public function me():AuthenticatedUser{
 		$json = $this->getMeResponseData('/v1/user');
 

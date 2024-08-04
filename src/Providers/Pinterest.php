@@ -54,10 +54,7 @@ class Pinterest extends OAuth2Provider implements CSRFToken, TokenRefresh, UserI
 	protected string|null $applicationURL   = 'https://developers.pinterest.com/apps/';
 	protected string|null $userRevokeURL    = 'https://www.pinterest.com/settings/security';
 
-	/**
-	 * @inheritDoc
-	 * @codeCoverageIgnore
-	 */
+	/** @codeCoverageIgnore */
 	public function me():AuthenticatedUser{
 		$json = $this->getMeResponseData('/v5/user_account');
 

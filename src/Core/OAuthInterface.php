@@ -43,7 +43,7 @@ interface OAuthInterface extends ClientInterface{
 	 *
 	 * Note: must not contain: Accept-Encoding, Authorization, Content-Length, Content-Type
 	 *
-	 * @var array
+	 * @var array<string, string>
 	 */
 	public const HEADERS_AUTH = [];
 
@@ -52,7 +52,7 @@ interface OAuthInterface extends ClientInterface{
 	 *
 	 * Note: must not contain: Authorization
 	 *
-	 * @var array
+	 * @var array<string, string>
 	 */
 	public const HEADERS_API = [];
 
@@ -102,7 +102,7 @@ interface OAuthInterface extends ClientInterface{
 	 * @link https://datatracker.ietf.org/doc/html/rfc9126
 	 * @see \chillerlan\OAuth\Core\PAR
 	 *
-	 * @param string[]|null $params
+	 * @param array<string, scalar>|null $params
 	 * @param string[]|null $scopes
 	 */
 	public function getAuthorizationURL(array|null $params = null, array|null $scopes = null):UriInterface;
@@ -118,6 +118,10 @@ interface OAuthInterface extends ClientInterface{
 	/**
 	 * Prepares an API request to $path with the given parameters, gets authorization, fires the request
 	 * and returns a PSR-7 ResponseInterface with the corresponding API response
+	 *
+	 * @param array<string, scalar|bool|null>|null                        $params
+	 * @param StreamInterface|array<string, scalar|bool|null>|string|null $body
+	 * @param array<string, string>|null                                  $headers
 	 */
 	public function request(
 		string                            $path,

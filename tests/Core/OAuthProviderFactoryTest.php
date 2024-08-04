@@ -20,7 +20,6 @@ use chillerlan\OAuthTest\Providers\DummyOAuth1Provider;
 use chillerlan\OAuthTest\Providers\ProviderUnitTestHttpClientFactory;
 use chillerlan\PHPUnitHttp\HttpFactoryTrait;
 use PHPUnit\Framework\TestCase;
-use function realpath;
 
 /**
  * Tests the OAuthProviderFactory class
@@ -32,8 +31,10 @@ class OAuthProviderFactoryTest extends TestCase{
 
 	protected string $HTTP_CLIENT_FACTORY = ProviderUnitTestHttpClientFactory::class;
 
+	protected OAuthProviderFactory $providerFactory;
+
 	protected function setUp():void{
-		$this->initFactories(realpath($this::CACERT));
+		$this->initFactories($this::CACERT);
 
 		$this->providerFactory = new OAuthProviderFactory(
 			$this->httpClient,

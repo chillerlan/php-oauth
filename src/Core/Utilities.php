@@ -44,6 +44,8 @@ class Utilities{
 
 	/**
 	 * Fetches a list of provider classes in the given directory
+	 *
+	 * @return array<string, array<string, string>>
 	 */
 	public static function getProviders(string|null $providerDir = null, string|null $namespace = null):array{
 		$providerDir = realpath(($providerDir ?? __DIR__.'/../Providers'));
@@ -54,7 +56,6 @@ class Utilities{
 			throw new InvalidArgumentException('invalid $providerDir');
 		}
 
-		/** @var \SplFileInfo $e */
 		foreach(new DirectoryIterator($providerDir) as $e){
 
 			if($e->getExtension() !== 'php'){
@@ -79,7 +80,7 @@ class Utilities{
 	}
 
 	/**
-	 * Creates a new cryptographically secure random encryption key (in hexadecimal or format)
+	 * Creates a new cryptographically secure random encryption key (in hexadecimal format)
 	 */
 	public static function createEncryptionKey():string{
 		return sodium_bin2hex(sodium_crypto_secretbox_keygen());
@@ -100,6 +101,7 @@ class Utilities{
 			self::ENCRYPT_FORMAT_BINARY => $nonce.$box,
 			self::ENCRYPT_FORMAT_BASE64 => sodium_bin2base64($nonce.$box, SODIUM_BASE64_VARIANT_ORIGINAL),
 			self::ENCRYPT_FORMAT_HEX    => sodium_bin2hex($nonce.$box),
+			default                     => throw new InvalidArgumentException('invalid format'),
 		};
 
 		sodium_memzero($data);
@@ -123,6 +125,7 @@ class Utilities{
 			self::ENCRYPT_FORMAT_BINARY => $encrypted,
 			self::ENCRYPT_FORMAT_BASE64 => sodium_base642bin($encrypted, SODIUM_BASE64_VARIANT_ORIGINAL),
 			self::ENCRYPT_FORMAT_HEX    => sodium_hex2bin($encrypted),
+			default                     => throw new InvalidArgumentException('invalid format'),
 		};
 
 		$nonce = substr($bin, 0, SODIUM_CRYPTO_SECRETBOX_NONCEBYTES);

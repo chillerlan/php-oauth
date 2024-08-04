@@ -86,10 +86,7 @@ class Spotify extends OAuth2Provider implements ClientCredentials, CSRFToken, To
 	protected string|null $apiDocs          = 'https://developer.spotify.com/documentation/web-api/';
 	protected string|null $applicationURL   = 'https://developer.spotify.com/dashboard';
 
-	/**
-	 * @inheritDoc
-	 * @codeCoverageIgnore
-	 */
+	/** @codeCoverageIgnore */
 	public function me():AuthenticatedUser{
 		$json = $this->getMeResponseData('/v1/me');
 

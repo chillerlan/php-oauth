@@ -50,7 +50,6 @@ abstract class ProviderLiveTestAbstract extends ProviderUnitTestAbstract{
 	protected function initConfig():void{
 		parent::initConfig();
 
-		/** @var \chillerlan\OAuth\Core\OAuthInterface $providerFQCN */
 		$providerFQCN = $this->getProviderFQCN();
 
 		$this->dotEnv     = (new DotEnv($this::CFGDIR, constant('TEST_ENVFILE'), false))->load();

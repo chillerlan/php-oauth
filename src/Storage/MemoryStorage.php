@@ -23,7 +23,7 @@ class MemoryStorage extends OAuthStorageAbstract{
 	/**
 	 * the storage array
 	 *
-	 * @var array<string, array<string, mixed>>
+	 * @var array<int|string, array<int|string, mixed>> (the int keys are to keep phpstan silent)
 	 */
 	protected array $storage = [
 		self::KEY_TOKEN    => [],

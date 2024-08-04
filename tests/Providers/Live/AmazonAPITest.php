@@ -25,7 +25,7 @@ use PHPUnit\Framework\Attributes\Group;
 final class AmazonAPITest extends OAuth2ProviderLiveTestAbstract{
 
 	protected function assertMeResponse(AuthenticatedUser $user):void{
-		$this::assertMatchesRegularExpression('/[a-z\d.]+/i', $user->id);
+		$this::assertMatchesRegularExpression('/[a-z\d.]+/i', ($user->id ?? ''));
 	}
 
 	public function testMeUnauthorizedAccessException():void{

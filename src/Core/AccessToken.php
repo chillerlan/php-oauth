@@ -22,6 +22,14 @@ use function time;
  *
  * @link https://datatracker.ietf.org/doc/html/rfc5849#section-2.3
  * @link https://datatracker.ietf.org/doc/html/rfc6749#section-1.4
+ *
+ * @property string|null          $accessToken
+ * @property string|null          $accessTokenSecret
+ * @property string|null          $refreshToken
+ * @property int                  $expires
+ * @property string[]             $scopes
+ * @property array<string, mixed> $extraParams
+ * @property string|null          $provider
  */
 final class AccessToken extends SettingsContainerAbstract{
 

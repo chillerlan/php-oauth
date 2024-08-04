@@ -200,7 +200,13 @@ class FileStorage extends OAuthStorageAbstract{
 		$path = $this->getFilepath($key, $provider);
 
 		if(is_file($path)){
-			return file_get_contents($path);
+			$contents = file_get_contents($path);
+
+			if($contents === false){
+				throw new OAuthStorageException('file_get_contents() error');
+			}
+
+			return $contents;
 		}
 
 		return null;
@@ -239,7 +245,6 @@ class FileStorage extends OAuthStorageAbstract{
 	 * deletes all matching files
 	 */
 	protected function deleteAll(string $key):void{
-		/** @var \SplFileInfo $finfo */
 		foreach(new DirectoryIterator($this->options->fileStoragePath) as $finfo){
 			$name = $finfo->getFilename();
 

@@ -79,6 +79,8 @@ class LastFM extends OAuthProvider implements UserInfo{
 
 	/**
 	 * prepares the request body parameters for the access token request
+	 *
+	 * @return array<string, scalar|bool|null>
 	 */
 	protected function getAccessTokenRequestBodyParams(string $session_token):array{
 
@@ -95,7 +97,7 @@ class LastFM extends OAuthProvider implements UserInfo{
 	/**
 	 * sends a request to the access token endpoint $url with the given $params as URL query
 	 *
-	 * @param array<string, string> $params
+	 * @param array<string, scalar|bool|null> $params
 	 */
 	protected function sendAccessTokenRequest(string $url, array $params):ResponseInterface{
 
@@ -184,7 +186,8 @@ class LastFM extends OAuthProvider implements UserInfo{
 	/**
 	 * adds the authorization parameters to the request parameters
 	 *
-	 * @param array<string, string> $params
+	 * @param array<string, scalar|bool|null> $params
+	 * @return array<string, scalar|bool|null>
 	 */
 	protected function getAuthorization(array $params, AccessToken|null $token = null):array{
 		$token ??= $this->storage->getAccessToken($this->name);
@@ -275,10 +278,8 @@ class LastFM extends OAuthProvider implements UserInfo{
 	 *   - duration    : [optional] The length of the track in seconds.
 	 *
 	 * @link https://www.last.fm/api/show/track.scrobble
-	 *
-	 * @param  array<string, scalar>|array<int, array<string, scalar>> $tracks
 	 */
-	public function scrobble(array $tracks):array{
+	public function scrobble(array $tracks):array{ // phpcs:ignore
 
 		// a single track was given
 		if(isset($tracks['artist'], $tracks['track'], $tracks['timestamp'])){
@@ -328,9 +329,7 @@ class LastFM extends OAuthProvider implements UserInfo{
 		return $this;
 	}
 
-	/**
-	 * @codeCoverageIgnore
-	 */
+	/** @codeCoverageIgnore */
 	public function clearScrobbles():static{
 		$this->scrobbles = [];
 

@@ -34,10 +34,7 @@ class Tumblr extends OAuth1Provider implements UserInfo{
 	protected string|null $apiDocs          = 'https://www.tumblr.com/docs/en/api/v2';
 	protected string|null $applicationURL   = 'https://www.tumblr.com/oauth/apps';
 
-	/**
-	 * @inheritDoc
-	 * @codeCoverageIgnore
-	 */
+	/** @codeCoverageIgnore */
 	public function me():AuthenticatedUser{
 		$json = $this->getMeResponseData('/v2/user/info');
 

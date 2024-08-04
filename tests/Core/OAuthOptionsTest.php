@@ -48,7 +48,7 @@ class OAuthOptionsTest extends TestCase{
 		new OAuthOptions(['fileStoragePath' => '/foo']);
 	}
 
-	public function testClampPKCEVerifierLength(){
+	public function testClampPKCEVerifierLength():void{
 		$options = new OAuthOptions;
 
 		// lower limit = 43

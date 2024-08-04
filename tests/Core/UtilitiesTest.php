@@ -44,6 +44,9 @@ class UtilitiesTest extends TestCase{
 		Utilities::getProviders('/foo');
 	}
 
+	/**
+	 * @return array<string, array<int, int>>
+	 */
 	public static function encryptionFormatProvider():array{
 		return [
 			'binary' => [Utilities::ENCRYPT_FORMAT_BINARY],

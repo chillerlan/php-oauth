@@ -40,10 +40,7 @@ class SoundCloud extends OAuth2Provider implements ClientCredentials, TokenRefre
 	protected string|null $apiDocs          = 'https://developers.soundcloud.com/';
 	protected string|null $applicationURL   = 'https://soundcloud.com/you/apps';
 
-	/**
-	 * @inheritDoc
-	 * @codeCoverageIgnore
-	 */
+	/** @codeCoverageIgnore */
 	public function me():AuthenticatedUser{
 		$json = $this->getMeResponseData('/me');
 

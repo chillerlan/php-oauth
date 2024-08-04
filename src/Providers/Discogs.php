@@ -36,10 +36,7 @@ class Discogs extends OAuth1Provider implements UserInfo{
 	protected string|null $apiDocs          = 'https://www.discogs.com/developers/';
 	protected string|null $applicationURL   = 'https://www.discogs.com/settings/developers';
 
-	/**
-	 * @inheritDoc
-	 * @codeCoverageIgnore
-	 */
+	/** @codeCoverageIgnore */
 	public function me():AuthenticatedUser{
 		$json = $this->getMeResponseData('/oauth/identity');
 

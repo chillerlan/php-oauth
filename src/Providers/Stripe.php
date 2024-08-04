@@ -43,10 +43,7 @@ class Stripe extends OAuth2Provider implements CSRFToken, TokenRefresh, TokenInv
 	protected string|null $apiDocs          = 'https://stripe.com/docs/api';
 	protected string|null $applicationURL   = 'https://dashboard.stripe.com/apikeys';
 
-	/**
-	 * @inheritDoc
-	 * @codeCoverageIgnore
-	 */
+	/** @codeCoverageIgnore */
 	public function me():AuthenticatedUser{
 		$json = $this->getMeResponseData('/accounts');
 
@@ -58,9 +55,6 @@ class Stripe extends OAuth2Provider implements CSRFToken, TokenRefresh, TokenInv
 		return new AuthenticatedUser($userdata);
 	}
 
-	/**
-	 * @inheritDoc
-	 */
 	protected function getInvalidateAccessTokenBodyParams(AccessToken $token, string $type):array{
 		$params = $token->extraParams;
 

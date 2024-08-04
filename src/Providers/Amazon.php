@@ -40,10 +40,7 @@ class Amazon extends OAuth2Provider implements CSRFToken, TokenRefresh, UserInfo
 	protected string|null $applicationURL   = 'https://developer.amazon.com/loginwithamazon/console/site/lwa/overview.html';
 	protected string|null $apiDocs          = 'https://developer.amazon.com/docs/login-with-amazon/web-docs.html';
 
-	/**
-	 * @inheritDoc
-	 * @codeCoverageIgnore
-	 */
+	/** @codeCoverageIgnore */
 	public function me():AuthenticatedUser{
 		$json = $this->getMeResponseData('/user/profile');
 

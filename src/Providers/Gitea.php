@@ -65,10 +65,7 @@ class Gitea extends OAuth2Provider implements CSRFToken, PKCE, TokenRefresh, Use
 	protected string|null $applicationURL = 'https://gitea.com/user/settings/applications';
 	protected string|null $userRevokeURL  = 'https://gitea.com/user/settings/applications';
 
-	/**
-	 * @inheritDoc
-	 * @codeCoverageIgnore
-	 */
+	/** @codeCoverageIgnore */
 	public function me():AuthenticatedUser{
 		$json = $this->getMeResponseData('/v1/user');
 

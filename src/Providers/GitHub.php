@@ -86,10 +86,7 @@ class GitHub extends OAuth2Provider implements CSRFToken, TokenRefresh, UserInfo
 	protected string|null $apiDocs          = 'https://docs.github.com/rest';
 	protected string|null $applicationURL   = 'https://github.com/settings/developers';
 
-	/**
-	 * @inheritDoc
-	 * @codeCoverageIgnore
-	 */
+	/** @codeCoverageIgnore */
 	public function me():AuthenticatedUser{
 		$json = $this->getMeResponseData('/user');
 

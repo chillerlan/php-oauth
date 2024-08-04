@@ -38,10 +38,7 @@ class Twitter extends OAuth1Provider implements UserInfo{
 	protected string|null $apiDocs         = 'https://developer.twitter.com/docs';
 	protected string|null $applicationURL  = 'https://developer.twitter.com/apps';
 
-	/**
-	 * @inheritDoc
-	 * @codeCoverageIgnore
-	 */
+	/** @codeCoverageIgnore */
 	public function me():AuthenticatedUser{
 		$json = $this->getMeResponseData('/1.1/account/verify_credentials.json');
 

@@ -16,6 +16,18 @@ use function is_dir, is_writable, max, min, preg_match, realpath, sprintf, trim;
 
 /**
  * The settings for the OAuth provider
+ *
+ * @property string $key
+ * @property string $secret
+ * @property string $callbackURL
+ * @property bool   $useStorageEncryption
+ * @property string $storageEncryptionKey
+ * @property bool   $tokenAutoRefresh
+ * @property bool   $sessionStart
+ * @property bool   $sessionStop
+ * @property string $sessionStorageVar
+ * @property string $fileStoragePath
+ * @property int    $pkceVerifierLength
  */
 trait OAuthOptionsTrait{
 

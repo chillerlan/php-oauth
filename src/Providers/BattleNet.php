@@ -113,10 +113,7 @@ class BattleNet extends OAuth2Provider implements ClientCredentials, CSRFToken, 
 		return $this;
 	}
 
-	/**
-	 * @inheritDoc
-	 * @codeCoverageIgnore
-	 */
+	/** @codeCoverageIgnore */
 	public function me():AuthenticatedUser{
 		$json = $this->getMeResponseData($this->battleNetOauth.'/oauth/userinfo');
 

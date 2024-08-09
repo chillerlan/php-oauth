@@ -46,7 +46,7 @@ fully [PSR-7](https://www.php-fig.org/psr/psr-7/)/[PSR-17](https://www.php-fig.o
 | [OpenCaching](https://www.opencaching.de/okapi/) | [link](https://www.opencaching.de/okapi/signup.html) | [link](https://www.opencaching.de/okapi/apps/) | 1 | ✓ |  |  |  |  |  |
 | [OpenStreetmap2](https://wiki.openstreetmap.org/wiki/API) | [link](https://www.openstreetmap.org/oauth2/applications) |  | 2 | ✓ | ✓ |  |  |  |  |
 | [Mastodon](https://docs.joinmastodon.org/api/) | [link](https://mastodon.social/settings/applications) | [link](https://mastodon.social/oauth/authorized_applications) | 2 | ✓ | ✓ |  |  | ✓ |  |
-| [Google](https://developers.google.com/oauthplayground/) | [link](https://console.developers.google.com/apis/credentials) | [link](https://myaccount.google.com/connections) | 2 | ✓ | ✓ |  |  |  |  |
+| [Google](https://developers.google.com/oauthplayground/) | [link](https://console.developers.google.com/apis/credentials) | [link](https://myaccount.google.com/connections) | 2 | ✓ | ✓ | ✓ |  |  | ✓ |
 | [Codeberg](https://codeberg.org/api/swagger) | [link](https://codeberg.org/user/settings/applications) | [link](https://codeberg.org/user/settings/applications) | 2 | ✓ | ✓ | ✓ |  | ✓ |  |
 | [Discord](https://discord.com/developers/) | [link](https://discordapp.com/developers/applications/) |  | 2 | ✓ | ✓ |  | ✓ | ✓ | ✓ |
 | [Imgur](https://apidocs.imgur.com) | [link](https://api.imgur.com/oauth2/addclient) | [link](https://imgur.com/account/settings/apps) | 2 | ✓ | ✓ |  |  | ✓ |  |
@@ -77,7 +77,7 @@ fully [PSR-7](https://www.php-fig.org/psr/psr-7/)/[PSR-17](https://www.php-fig.o
 | [GitHub](https://docs.github.com/rest) | [link](https://github.com/settings/developers) | [link](https://github.com/settings/applications) | 2 | ✓ | ✓ |  |  | ✓ |  |
 | [Gitea](https://docs.gitea.com/api/1.20/) | [link](https://gitea.com/user/settings/applications) | [link](https://gitea.com/user/settings/applications) | 2 | ✓ | ✓ | ✓ |  | ✓ |  |
 | [TwitterCC](https://developer.twitter.com/en/docs/basics/authentication/overview/application-only) | [link](https://developer.twitter.com/apps) | [link](https://twitter.com/settings/applications) | 2 |  |  |  | ✓ |  |  |
-| [YouTube](https://developers.google.com/oauthplayground/) | [link](https://console.developers.google.com/apis/credentials) | [link](https://myaccount.google.com/connections) | 2 | ✓ | ✓ |  |  |  |  |
+| [YouTube](https://developers.google.com/oauthplayground/) | [link](https://console.developers.google.com/apis/credentials) | [link](https://myaccount.google.com/connections) | 2 | ✓ | ✓ | ✓ |  |  | ✓ |
 | [Vimeo](https://developer.vimeo.com) | [link](https://developer.vimeo.com/apps) | [link](https://vimeo.com/settings/apps) | 2 | ✓ | ✓ |  | ✓ |  | ✓ |
 | [Bitbucket](https://developer.atlassian.com/bitbucket/api/2/reference/) | [link](https://developer.atlassian.com/apps/) |  | 2 | ✓ | ✓ |  | ✓ | ✓ |  |
 | [Foursquare](https://location.foursquare.com/developer/reference/foursquare-apis-overview) | [link](https://foursquare.com/developers/apps) | [link](https://foursquare.com/settings/connections) | 2 | ✓ |  |  |  |  |  |

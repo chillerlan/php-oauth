@@ -140,7 +140,7 @@
     
             <span class="phpdocumentor-element__implements">
             implements
-                            <a href="classes/chillerlan-OAuth-Core-ClientCredentials.html"><abbr title="\chillerlan\OAuth\Core\ClientCredentials">ClientCredentials</abbr></a>,                             <a href="classes/chillerlan-OAuth-Core-CSRFToken.html"><abbr title="\chillerlan\OAuth\Core\CSRFToken">CSRFToken</abbr></a>,                             <a href="classes/chillerlan-OAuth-Core-TokenRefresh.html"><abbr title="\chillerlan\OAuth\Core\TokenRefresh">TokenRefresh</abbr></a>,                             <a href="classes/chillerlan-OAuth-Core-UserInfo.html"><abbr title="\chillerlan\OAuth\Core\UserInfo">UserInfo</abbr></a>                    </span>
+                            <a href="classes/chillerlan-OAuth-Core-ClientCredentials.html"><abbr title="\chillerlan\OAuth\Core\ClientCredentials">ClientCredentials</abbr></a>,                             <a href="classes/chillerlan-OAuth-Core-CSRFToken.html"><abbr title="\chillerlan\OAuth\Core\CSRFToken">CSRFToken</abbr></a>,                             <a href="classes/chillerlan-OAuth-Core-PKCE.html"><abbr title="\chillerlan\OAuth\Core\PKCE">PKCE</abbr></a>,                             <a href="classes/chillerlan-OAuth-Core-TokenRefresh.html"><abbr title="\chillerlan\OAuth\Core\TokenRefresh">TokenRefresh</abbr></a>,                             <a href="classes/chillerlan-OAuth-Core-UserInfo.html"><abbr title="\chillerlan\OAuth\Core\UserInfo">UserInfo</abbr></a>                    </span>
     
     </h2>
 
@@ -152,7 +152,7 @@
         <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Providers/Spotify.php"><a href="files/src-providers-spotify.html"><abbr title="src/Providers/Spotify.php">Spotify.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">25</span>
+    <span class="phpdocumentor-element-found-in__line">26</span>
 
     </aside>
 
@@ -188,6 +188,13 @@
                                                                                                         <a class="phpdocumentor-tag-link" href="https://developer.spotify.com/documentation/web-api/tutorials/client-credentials-flow"> https://developer.spotify.com/documentation/web-api/tutorials/client-credentials-flow </a>
                     
                                     </dd>
+                            <dt class="phpdocumentor-tag-list__entry">
+                    <span class="phpdocumentor-tag__name">link</span>
+                </dt>
+                <dd class="phpdocumentor-tag-list__definition">
+                                                                                                        <a class="phpdocumentor-tag-link" href="https://developer.spotify.com/documentation/web-api/tutorials/code-pkce-flow"> https://developer.spotify.com/documentation/web-api/tutorials/code-pkce-flow </a>
+                    
+                                    </dd>
                                             </dl>
 
 
@@ -208,7 +215,7 @@
 
     </h4>
     <dl class="phpdocumentor-table-of-contents">
-                    <dt class="phpdocumentor-table-of-contents__entry -interface"><a href="classes/chillerlan-OAuth-Core-ClientCredentials.html"><abbr title="\chillerlan\OAuth\Core\ClientCredentials">ClientCredentials</abbr></a></dt><dd>Indicates whether the provider is capable of the OAuth2 client credentials authentication flow.</dd>            <dt class="phpdocumentor-table-of-contents__entry -interface"><a href="classes/chillerlan-OAuth-Core-CSRFToken.html"><abbr title="\chillerlan\OAuth\Core\CSRFToken">CSRFToken</abbr></a></dt><dd>Specifies the methods required for the OAuth2 CSRF token validation (&quot;state parameter&quot;)</dd>            <dt class="phpdocumentor-table-of-contents__entry -interface"><a href="classes/chillerlan-OAuth-Core-TokenRefresh.html"><abbr title="\chillerlan\OAuth\Core\TokenRefresh">TokenRefresh</abbr></a></dt><dd>Indicates whether the provider is capable of the OAuth2 token refresh.</dd>            <dt class="phpdocumentor-table-of-contents__entry -interface"><a href="classes/chillerlan-OAuth-Core-UserInfo.html"><abbr title="\chillerlan\OAuth\Core\UserInfo">UserInfo</abbr></a></dt><dd>Indicates whether the service can provide information about the currently authenticated user,
+                    <dt class="phpdocumentor-table-of-contents__entry -interface"><a href="classes/chillerlan-OAuth-Core-ClientCredentials.html"><abbr title="\chillerlan\OAuth\Core\ClientCredentials">ClientCredentials</abbr></a></dt><dd>Indicates whether the provider is capable of the OAuth2 client credentials authentication flow.</dd>            <dt class="phpdocumentor-table-of-contents__entry -interface"><a href="classes/chillerlan-OAuth-Core-CSRFToken.html"><abbr title="\chillerlan\OAuth\Core\CSRFToken">CSRFToken</abbr></a></dt><dd>Specifies the methods required for the OAuth2 CSRF token validation (&quot;state parameter&quot;)</dd>            <dt class="phpdocumentor-table-of-contents__entry -interface"><a href="classes/chillerlan-OAuth-Core-PKCE.html"><abbr title="\chillerlan\OAuth\Core\PKCE">PKCE</abbr></a></dt><dd>Specifies the methods required for the OAuth2 Proof Key for Code Exchange (PKCE)</dd>            <dt class="phpdocumentor-table-of-contents__entry -interface"><a href="classes/chillerlan-OAuth-Core-TokenRefresh.html"><abbr title="\chillerlan\OAuth\Core\TokenRefresh">TokenRefresh</abbr></a></dt><dd>Indicates whether the provider is capable of the OAuth2 token refresh.</dd>            <dt class="phpdocumentor-table-of-contents__entry -interface"><a href="classes/chillerlan-OAuth-Core-UserInfo.html"><abbr title="\chillerlan\OAuth\Core\UserInfo">UserInfo</abbr></a></dt><dd>Indicates whether the service can provide information about the currently authenticated user,
 usually via a &quot;/me&quot;, &quot;/user&quot; or &quot;/tokeninfo&quot; endpoint.</dd>    </dl>
 
 
@@ -911,7 +918,7 @@ anything except host and path will be ignored, scheme will always be set to &quo
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Providers/Spotify.php"><a href="files/src-providers-spotify.html"><abbr title="src/Providers/Spotify.php">Spotify.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">66</span>
+    <span class="phpdocumentor-element-found-in__line">67</span>
 
     </aside>
 
@@ -942,7 +949,7 @@ anything except host and path will be ignored, scheme will always be set to &quo
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Providers/Spotify.php"><a href="files/src-providers-spotify.html"><abbr title="src/Providers/Spotify.php">Spotify.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">27</span>
+    <span class="phpdocumentor-element-found-in__line">28</span>
 
     </aside>
 
@@ -973,7 +980,7 @@ anything except host and path will be ignored, scheme will always be set to &quo
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Providers/Spotify.php"><a href="files/src-providers-spotify.html"><abbr title="src/Providers/Spotify.php">Spotify.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">44</span>
+    <span class="phpdocumentor-element-found-in__line">45</span>
 
     </aside>
 
@@ -1004,7 +1011,7 @@ anything except host and path will be ignored, scheme will always be set to &quo
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Providers/Spotify.php"><a href="files/src-providers-spotify.html"><abbr title="src/Providers/Spotify.php">Spotify.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">45</span>
+    <span class="phpdocumentor-element-found-in__line">46</span>
 
     </aside>
 
@@ -1035,7 +1042,7 @@ anything except host and path will be ignored, scheme will always be set to &quo
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Providers/Spotify.php"><a href="files/src-providers-spotify.html"><abbr title="src/Providers/Spotify.php">Spotify.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">43</span>
+    <span class="phpdocumentor-element-found-in__line">44</span>
 
     </aside>
 
@@ -1066,7 +1073,7 @@ anything except host and path will be ignored, scheme will always be set to &quo
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Providers/Spotify.php"><a href="files/src-providers-spotify.html"><abbr title="src/Providers/Spotify.php">Spotify.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">42</span>
+    <span class="phpdocumentor-element-found-in__line">43</span>
 
     </aside>
 
@@ -1097,7 +1104,7 @@ anything except host and path will be ignored, scheme will always be set to &quo
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Providers/Spotify.php"><a href="files/src-providers-spotify.html"><abbr title="src/Providers/Spotify.php">Spotify.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">40</span>
+    <span class="phpdocumentor-element-found-in__line">41</span>
 
     </aside>
 
@@ -1128,7 +1135,7 @@ anything except host and path will be ignored, scheme will always be set to &quo
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Providers/Spotify.php"><a href="files/src-providers-spotify.html"><abbr title="src/Providers/Spotify.php">Spotify.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">33</span>
+    <span class="phpdocumentor-element-found-in__line">34</span>
 
     </aside>
 
@@ -1173,7 +1180,7 @@ anything except host and path will be ignored, scheme will always be set to &quo
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Providers/Spotify.php"><a href="files/src-providers-spotify.html"><abbr title="src/Providers/Spotify.php">Spotify.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">64</span>
+    <span class="phpdocumentor-element-found-in__line">65</span>
 
     </aside>
 
@@ -1204,7 +1211,7 @@ anything except host and path will be ignored, scheme will always be set to &quo
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Providers/Spotify.php"><a href="files/src-providers-spotify.html"><abbr title="src/Providers/Spotify.php">Spotify.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">47</span>
+    <span class="phpdocumentor-element-found-in__line">48</span>
 
     </aside>
 
@@ -1235,7 +1242,7 @@ anything except host and path will be ignored, scheme will always be set to &quo
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Providers/Spotify.php"><a href="files/src-providers-spotify.html"><abbr title="src/Providers/Spotify.php">Spotify.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">48</span>
+    <span class="phpdocumentor-element-found-in__line">49</span>
 
     </aside>
 
@@ -1266,7 +1273,7 @@ anything except host and path will be ignored, scheme will always be set to &quo
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Providers/Spotify.php"><a href="files/src-providers-spotify.html"><abbr title="src/Providers/Spotify.php">Spotify.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">54</span>
+    <span class="phpdocumentor-element-found-in__line">55</span>
 
     </aside>
 
@@ -1297,7 +1304,7 @@ anything except host and path will be ignored, scheme will always be set to &quo
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Providers/Spotify.php"><a href="files/src-providers-spotify.html"><abbr title="src/Providers/Spotify.php">Spotify.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">55</span>
+    <span class="phpdocumentor-element-found-in__line">56</span>
 
     </aside>
 
@@ -1328,7 +1335,7 @@ anything except host and path will be ignored, scheme will always be set to &quo
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Providers/Spotify.php"><a href="files/src-providers-spotify.html"><abbr title="src/Providers/Spotify.php">Spotify.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">62</span>
+    <span class="phpdocumentor-element-found-in__line">63</span>
 
     </aside>
 
@@ -1359,7 +1366,7 @@ anything except host and path will be ignored, scheme will always be set to &quo
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Providers/Spotify.php"><a href="files/src-providers-spotify.html"><abbr title="src/Providers/Spotify.php">Spotify.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">63</span>
+    <span class="phpdocumentor-element-found-in__line">64</span>
 
     </aside>
 
@@ -1390,7 +1397,7 @@ anything except host and path will be ignored, scheme will always be set to &quo
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Providers/Spotify.php"><a href="files/src-providers-spotify.html"><abbr title="src/Providers/Spotify.php">Spotify.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">36</span>
+    <span class="phpdocumentor-element-found-in__line">37</span>
 
     </aside>
 
@@ -1421,7 +1428,7 @@ anything except host and path will be ignored, scheme will always be set to &quo
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Providers/Spotify.php"><a href="files/src-providers-spotify.html"><abbr title="src/Providers/Spotify.php">Spotify.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">37</span>
+    <span class="phpdocumentor-element-found-in__line">38</span>
 
     </aside>
 
@@ -1452,7 +1459,7 @@ anything except host and path will be ignored, scheme will always be set to &quo
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Providers/Spotify.php"><a href="files/src-providers-spotify.html"><abbr title="src/Providers/Spotify.php">Spotify.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">57</span>
+    <span class="phpdocumentor-element-found-in__line">58</span>
 
     </aside>
 
@@ -1483,7 +1490,7 @@ anything except host and path will be ignored, scheme will always be set to &quo
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Providers/Spotify.php"><a href="files/src-providers-spotify.html"><abbr title="src/Providers/Spotify.php">Spotify.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">50</span>
+    <span class="phpdocumentor-element-found-in__line">51</span>
 
     </aside>
 
@@ -1514,7 +1521,7 @@ anything except host and path will be ignored, scheme will always be set to &quo
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Providers/Spotify.php"><a href="files/src-providers-spotify.html"><abbr title="src/Providers/Spotify.php">Spotify.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">35</span>
+    <span class="phpdocumentor-element-found-in__line">36</span>
 
     </aside>
 
@@ -1545,7 +1552,7 @@ anything except host and path will be ignored, scheme will always be set to &quo
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Providers/Spotify.php"><a href="files/src-providers-spotify.html"><abbr title="src/Providers/Spotify.php">Spotify.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">58</span>
+    <span class="phpdocumentor-element-found-in__line">59</span>
 
     </aside>
 
@@ -1576,7 +1583,7 @@ anything except host and path will be ignored, scheme will always be set to &quo
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Providers/Spotify.php"><a href="files/src-providers-spotify.html"><abbr title="src/Providers/Spotify.php">Spotify.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">52</span>
+    <span class="phpdocumentor-element-found-in__line">53</span>
 
     </aside>
 
@@ -1607,7 +1614,7 @@ anything except host and path will be ignored, scheme will always be set to &quo
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Providers/Spotify.php"><a href="files/src-providers-spotify.html"><abbr title="src/Providers/Spotify.php">Spotify.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">60</span>
+    <span class="phpdocumentor-element-found-in__line">61</span>
 
     </aside>
 
@@ -1638,7 +1645,7 @@ anything except host and path will be ignored, scheme will always be set to &quo
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Providers/Spotify.php"><a href="files/src-providers-spotify.html"><abbr title="src/Providers/Spotify.php">Spotify.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">61</span>
+    <span class="phpdocumentor-element-found-in__line">62</span>
 
     </aside>
 
@@ -1669,7 +1676,7 @@ anything except host and path will be ignored, scheme will always be set to &quo
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Providers/Spotify.php"><a href="files/src-providers-spotify.html"><abbr title="src/Providers/Spotify.php">Spotify.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">51</span>
+    <span class="phpdocumentor-element-found-in__line">52</span>
 
     </aside>
 
@@ -1716,7 +1723,7 @@ anything except host and path will be ignored, scheme will always be set to &quo
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Providers/Spotify.php"><a href="files/src-providers-spotify.html"><abbr title="src/Providers/Spotify.php">Spotify.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">83</span>
+    <span class="phpdocumentor-element-found-in__line">84</span>
 
     </aside>
 
@@ -1752,7 +1759,7 @@ anything except host and path will be ignored, scheme will always be set to &quo
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Providers/Spotify.php"><a href="files/src-providers-spotify.html"><abbr title="src/Providers/Spotify.php">Spotify.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">86</span>
+    <span class="phpdocumentor-element-found-in__line">87</span>
 
     </aside>
 
@@ -1788,7 +1795,7 @@ anything except host and path will be ignored, scheme will always be set to &quo
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Providers/Spotify.php"><a href="files/src-providers-spotify.html"><abbr title="src/Providers/Spotify.php">Spotify.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">84</span>
+    <span class="phpdocumentor-element-found-in__line">85</span>
 
     </aside>
 
@@ -1824,7 +1831,7 @@ anything except host and path will be ignored, scheme will always be set to &quo
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Providers/Spotify.php"><a href="files/src-providers-spotify.html"><abbr title="src/Providers/Spotify.php">Spotify.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">87</span>
+    <span class="phpdocumentor-element-found-in__line">88</span>
 
     </aside>
 
@@ -1860,7 +1867,7 @@ anything except host and path will be ignored, scheme will always be set to &quo
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Providers/Spotify.php"><a href="files/src-providers-spotify.html"><abbr title="src/Providers/Spotify.php">Spotify.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">82</span>
+    <span class="phpdocumentor-element-found-in__line">83</span>
 
     </aside>
 
@@ -2416,7 +2423,7 @@ anything except host and path will be ignored, scheme will always be set to &quo
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Providers/Spotify.php"><a href="files/src-providers-spotify.html"><abbr title="src/Providers/Spotify.php">Spotify.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">85</span>
+    <span class="phpdocumentor-element-found-in__line">86</span>
 
     </aside>
 
@@ -3606,7 +3613,7 @@ and returns a PSR-7 RequestInterface with all necessary headers and/or parameter
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Providers/Spotify.php"><a href="files/src-providers-spotify.html"><abbr title="src/Providers/Spotify.php">Spotify.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">90</span>
+    <span class="phpdocumentor-element-found-in__line">91</span>
 
     </aside>
 

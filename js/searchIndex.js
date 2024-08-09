@@ -2576,6 +2576,11 @@ Search.appendIndex(
             "summary": "",
             "url": "classes/chillerlan-OAuth-Providers-Google.html#property_accessTokenURL"
         },                {
+            "fqsen": "\\chillerlan\\OAuth\\Providers\\Google\u003A\u003A\u0024revokeURL",
+            "name": "revokeURL",
+            "summary": "",
+            "url": "classes/chillerlan-OAuth-Providers-Google.html#property_revokeURL"
+        },                {
             "fqsen": "\\chillerlan\\OAuth\\Providers\\Google\u003A\u003A\u0024apiURL",
             "name": "apiURL",
             "summary": "",

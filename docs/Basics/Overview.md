@@ -55,7 +55,7 @@ fully [PSR-7](https://www.php-fig.org/psr/psr-7/)/[PSR-17](https://www.php-fig.o
 | [Gitea](https://docs.gitea.com/api/1.20/) | [link](https://gitea.com/user/settings/applications) | [link](https://gitea.com/user/settings/applications) | 2 | ✓ | ✓ | ✓ |  | ✓ |  |
 | [GitHub](https://docs.github.com/rest) | [link](https://github.com/settings/developers) | [link](https://github.com/settings/applications) | 2 | ✓ | ✓ |  |  | ✓ |  |
 | [GitLab](https://docs.gitlab.com/ee/api/rest/) | [link](https://gitlab.com/profile/applications) |  | 2 | ✓ | ✓ |  | ✓ | ✓ |  |
-| [Google](https://developers.google.com/oauthplayground/) | [link](https://console.developers.google.com/apis/credentials) | [link](https://myaccount.google.com/connections) | 2 | ✓ | ✓ |  |  |  |  |
+| [Google](https://developers.google.com/oauthplayground/) | [link](https://console.developers.google.com/apis/credentials) | [link](https://myaccount.google.com/connections) | 2 | ✓ | ✓ | ✓ |  |  | ✓ |
 | [GuildWars2](https://wiki.guildwars2.com/wiki/API:Main) | [link](https://account.arena.net/applications) | [link](https://account.arena.net/applications) | 2 | ✓ |  |  |  |  |  |
 | [Imgur](https://apidocs.imgur.com) | [link](https://api.imgur.com/oauth2/addclient) | [link](https://imgur.com/account/settings/apps) | 2 | ✓ | ✓ |  |  | ✓ |  |
 | [LastFM](https://www.last.fm/api/) | [link](https://www.last.fm/api/account/create) | [link](https://www.last.fm/settings/applications) | - | ✓ |  |  |  |  |  |
@@ -85,7 +85,7 @@ fully [PSR-7](https://www.php-fig.org/psr/psr-7/)/[PSR-17](https://www.php-fig.o
 | [TwitterCC](https://developer.twitter.com/en/docs/basics/authentication/overview/application-only) | [link](https://developer.twitter.com/apps) | [link](https://twitter.com/settings/applications) | 2 |  |  |  | ✓ |  |  |
 | [Vimeo](https://developer.vimeo.com) | [link](https://developer.vimeo.com/apps) | [link](https://vimeo.com/settings/apps) | 2 | ✓ | ✓ |  | ✓ |  | ✓ |
 | [WordPress](https://developer.wordpress.com/docs/api/) | [link](https://developer.wordpress.com/apps/) | [link](https://wordpress.com/me/security/connected-applications) | 2 | ✓ | ✓ |  |  |  |  |
-| [YouTube](https://developers.google.com/oauthplayground/) | [link](https://console.developers.google.com/apis/credentials) | [link](https://myaccount.google.com/connections) | 2 | ✓ | ✓ |  |  |  |  |
+| [YouTube](https://developers.google.com/oauthplayground/) | [link](https://console.developers.google.com/apis/credentials) | [link](https://myaccount.google.com/connections) | 2 | ✓ | ✓ | ✓ |  |  | ✓ |
 
 **Legend:**
 - **Provider**: the name of the provider class and link to their API documentation

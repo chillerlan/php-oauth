@@ -13,7 +13,7 @@ declare(strict_types=1);
 
 namespace chillerlan\OAuth\Providers;
 
-use chillerlan\OAuth\Core\{AuthenticatedUser, CSRFToken, OAuth2Provider, UserInfo};
+use chillerlan\OAuth\Core\{AuthenticatedUser, CSRFToken, OAuth2Provider, PKCE, TokenInvalidate, UserInfo};
 
 /**
  * Google OAuth2
@@ -22,7 +22,7 @@ use chillerlan\OAuth\Core\{AuthenticatedUser, CSRFToken, OAuth2Provider, UserInf
  * @link https://developers.google.com/identity/protocols/oauth2/service-account
  * @link https://developers.google.com/oauthplayground/
  */
-class Google extends OAuth2Provider implements CSRFToken, UserInfo{
+class Google extends OAuth2Provider implements CSRFToken, PKCE, TokenInvalidate, UserInfo{
 
 	public const IDENTIFIER = 'GOOGLE';
 
@@ -37,7 +37,8 @@ class Google extends OAuth2Provider implements CSRFToken, UserInfo{
 	];
 
 	protected string      $authorizationURL = 'https://accounts.google.com/o/oauth2/auth';
-	protected string      $accessTokenURL   = 'https://accounts.google.com/o/oauth2/token';
+	protected string      $accessTokenURL   = 'https://oauth2.googleapis.com/token';
+	protected string      $revokeURL        = 'https://oauth2.googleapis.com/revoke';
 	protected string      $apiURL           = 'https://www.googleapis.com';
 	protected string|null $userRevokeURL    = 'https://myaccount.google.com/connections';
 	protected string|null $apiDocs          = 'https://developers.google.com/oauthplayground/';

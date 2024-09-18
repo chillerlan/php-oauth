@@ -4,6 +4,7 @@
 /.idea                  export-ignore
 /.phan                  export-ignore
 /.phpdoc                export-ignore
+/.phpstan               export-ignore
 /docs                   export-ignore
 /examples               export-ignore
 /public                 export-ignore

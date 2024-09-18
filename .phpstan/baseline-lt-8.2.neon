@@ -1,0 +1,17 @@
+parameters:
+	ignoreErrors:
+		-
+			message: "#^Call to method getBytesFromString\\(\\) on an unknown class Random\\\\Randomizer\\.$#"
+			count: 1
+			path: ../src/Core/OAuth2Provider.php
+
+		-
+			message: "#^Instantiated class Random\\\\Engine\\\\Secure not found\\.$#"
+			count: 1
+			path: ../src/Core/OAuth2Provider.php
+
+		-
+			message: "#^Instantiated class Random\\\\Randomizer not found\\.$#"
+			count: 1
+			path: ../src/Core/OAuth2Provider.php
+

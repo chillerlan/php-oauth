@@ -635,6 +635,7 @@ abstract class OAuth2Provider extends OAuthProvider implements OAuth2Interface{
 	final public function generateVerifier(int $length):string{
 
 		// use the Randomizer if available
+		// https://github.com/phpstan/phpstan/issues/7843
 		if(PHP_VERSION_ID >= 80300){
 			$randomizer = new \Random\Randomizer(new \Random\Engine\Secure);
 

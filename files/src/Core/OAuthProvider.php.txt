@@ -484,7 +484,7 @@ abstract class OAuthProvider implements OAuthInterface{
 		$this->handleMeResponseError($response);
 
 		/** @noinspection PhpUnreachableStatementInspection this is here because phpstan silly */
-		return [];
+		return []; // @codeCoverageIgnore
 	}
 
 	/**

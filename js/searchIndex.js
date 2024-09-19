@@ -6836,6 +6836,11 @@ Search.appendIndex(
             "summary": "",
             "url": "classes/chillerlan-OAuthTest-Providers-Unit-BigCartelTest.html#method_testTokenInvalidate"
         },                {
+            "fqsen": "\\chillerlan\\OAuthTest\\Providers\\Unit\\BigCartelTest\u003A\u003AtestTokenInvalidateFailed\u0028\u0029",
+            "name": "testTokenInvalidateFailed",
+            "summary": "",
+            "url": "classes/chillerlan-OAuthTest-Providers-Unit-BigCartelTest.html#method_testTokenInvalidateFailed"
+        },                {
             "fqsen": "\\chillerlan\\OAuthTest\\Providers\\Unit\\BitbucketTest",
             "name": "BitbucketTest",
             "summary": "OAuth2\u0020unit\u0020test",
@@ -6905,6 +6910,11 @@ Search.appendIndex(
             "name": "testTokenInvalidate",
             "summary": "",
             "url": "classes/chillerlan-OAuthTest-Providers-Unit-DeviantArtTest.html#method_testTokenInvalidate"
+        },                {
+            "fqsen": "\\chillerlan\\OAuthTest\\Providers\\Unit\\DeviantArtTest\u003A\u003AtestTokenInvalidateFailedWithException\u0028\u0029",
+            "name": "testTokenInvalidateFailedWithException",
+            "summary": "",
+            "url": "classes/chillerlan-OAuthTest-Providers-Unit-DeviantArtTest.html#method_testTokenInvalidateFailedWithException"
         },                {
             "fqsen": "\\chillerlan\\OAuthTest\\Providers\\Unit\\DiscogsTest",
             "name": "DiscogsTest",
@@ -7221,6 +7231,11 @@ Search.appendIndex(
             "summary": "",
             "url": "classes/chillerlan-OAuthTest-Providers-Unit-OAuth1Test.html#method_testMeUnknownErrorException"
         },                {
+            "fqsen": "\\chillerlan\\OAuthTest\\Providers\\Unit\\OAuth1Test\u003A\u003AtestTokenInvalidateFailedWithException\u0028\u0029",
+            "name": "testTokenInvalidateFailedWithException",
+            "summary": "",
+            "url": "classes/chillerlan-OAuthTest-Providers-Unit-OAuth1Test.html#method_testTokenInvalidateFailedWithException"
+        },                {
             "fqsen": "\\chillerlan\\OAuthTest\\Providers\\Unit\\OAuth2ProviderUnitTestAbstract",
             "name": "OAuth2ProviderUnitTestAbstract",
             "summary": "OAuth2\u0020unit\u0020test",
@@ -7411,6 +7426,11 @@ Search.appendIndex(
             "summary": "",
             "url": "classes/chillerlan-OAuthTest-Providers-Unit-OAuth2Test.html#method_testMeUnknownErrorException"
         },                {
+            "fqsen": "\\chillerlan\\OAuthTest\\Providers\\Unit\\OAuth2Test\u003A\u003AtestTokenInvalidateFailedWithException\u0028\u0029",
+            "name": "testTokenInvalidateFailedWithException",
+            "summary": "",
+            "url": "classes/chillerlan-OAuthTest-Providers-Unit-OAuth2Test.html#method_testTokenInvalidateFailedWithException"
+        },                {
             "fqsen": "\\chillerlan\\OAuthTest\\Providers\\Unit\\OAuthProviderUnitTestAbstract",
             "name": "OAuthProviderUnitTestAbstract",
             "summary": "abstract\u0020OAuth\u0020unit\u0020test",
@@ -7490,6 +7510,16 @@ Search.appendIndex(
             "name": "testTokenInvalidate",
             "summary": "",
             "url": "classes/chillerlan-OAuthTest-Providers-Unit-OAuthProviderUnitTestAbstract.html#method_testTokenInvalidate"
+        },                {
+            "fqsen": "\\chillerlan\\OAuthTest\\Providers\\Unit\\OAuthProviderUnitTestAbstract\u003A\u003AtestTokenInvalidateFailed\u0028\u0029",
+            "name": "testTokenInvalidateFailed",
+            "summary": "",
+            "url": "classes/chillerlan-OAuthTest-Providers-Unit-OAuthProviderUnitTestAbstract.html#method_testTokenInvalidateFailed"
+        },                {
+            "fqsen": "\\chillerlan\\OAuthTest\\Providers\\Unit\\OAuthProviderUnitTestAbstract\u003A\u003AtestTokenInvalidateFailedWithException\u0028\u0029",
+            "name": "testTokenInvalidateFailedWithException",
+            "summary": "",
+            "url": "classes/chillerlan-OAuthTest-Providers-Unit-OAuthProviderUnitTestAbstract.html#method_testTokenInvalidateFailedWithException"
         },                {
             "fqsen": "\\chillerlan\\OAuthTest\\Providers\\Unit\\OAuthProviderUnitTestAbstract\u003A\u003AtestTokenInvalidateNoTokenException\u0028\u0029",
             "name": "testTokenInvalidateNoTokenException",
@@ -7661,6 +7691,16 @@ Search.appendIndex(
             "summary": "",
             "url": "classes/chillerlan-OAuthTest-Providers-Unit-StripeTest.html#method_testTokenInvalidate"
         },                {
+            "fqsen": "\\chillerlan\\OAuthTest\\Providers\\Unit\\StripeTest\u003A\u003AtestTokenInvalidateFailed\u0028\u0029",
+            "name": "testTokenInvalidateFailed",
+            "summary": "",
+            "url": "classes/chillerlan-OAuthTest-Providers-Unit-StripeTest.html#method_testTokenInvalidateFailed"
+        },                {
+            "fqsen": "\\chillerlan\\OAuthTest\\Providers\\Unit\\StripeTest\u003A\u003AtestTokenInvalidateFailedWithException\u0028\u0029",
+            "name": "testTokenInvalidateFailedWithException",
+            "summary": "",
+            "url": "classes/chillerlan-OAuthTest-Providers-Unit-StripeTest.html#method_testTokenInvalidateFailedWithException"
+        },                {
             "fqsen": "\\chillerlan\\OAuthTest\\Providers\\Unit\\Tumblr2Test",
             "name": "Tumblr2Test",
             "summary": "OAuth2\u0020unit\u0020test",
@@ -7720,6 +7760,11 @@ Search.appendIndex(
             "name": "testTokenInvalidate",
             "summary": "",
             "url": "classes/chillerlan-OAuthTest-Providers-Unit-VimeoTest.html#method_testTokenInvalidate"
+        },                {
+            "fqsen": "\\chillerlan\\OAuthTest\\Providers\\Unit\\VimeoTest\u003A\u003AtestTokenInvalidateFailedWithException\u0028\u0029",
+            "name": "testTokenInvalidateFailedWithException",
+            "summary": "",
+            "url": "classes/chillerlan-OAuthTest-Providers-Unit-VimeoTest.html#method_testTokenInvalidateFailedWithException"
         },                {
             "fqsen": "\\chillerlan\\OAuthTest\\Providers\\Unit\\WordPressTest",
             "name": "WordPressTest",

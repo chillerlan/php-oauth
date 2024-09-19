@@ -101,7 +101,7 @@ class Utilities{
 			self::ENCRYPT_FORMAT_BINARY => $nonce.$box,
 			self::ENCRYPT_FORMAT_BASE64 => sodium_bin2base64($nonce.$box, SODIUM_BASE64_VARIANT_ORIGINAL),
 			self::ENCRYPT_FORMAT_HEX    => sodium_bin2hex($nonce.$box),
-			default                     => throw new InvalidArgumentException('invalid format'),
+			default                     => throw new InvalidArgumentException('invalid format'), // @codeCoverageIgnore
 		};
 
 		sodium_memzero($data);
@@ -125,7 +125,7 @@ class Utilities{
 			self::ENCRYPT_FORMAT_BINARY => $encrypted,
 			self::ENCRYPT_FORMAT_BASE64 => sodium_base642bin($encrypted, SODIUM_BASE64_VARIANT_ORIGINAL),
 			self::ENCRYPT_FORMAT_HEX    => sodium_hex2bin($encrypted),
-			default                     => throw new InvalidArgumentException('invalid format'),
+			default                     => throw new InvalidArgumentException('invalid format'), // @codeCoverageIgnore
 		};
 
 		$nonce = substr($bin, 0, SODIUM_CRYPTO_SECRETBOX_NONCEBYTES);

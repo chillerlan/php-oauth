@@ -14,7 +14,8 @@ declare(strict_types=1);
 namespace chillerlan\OAuth\Providers;
 
 use chillerlan\OAuth\Core\{
-	AccessToken, AuthenticatedUser, ClientCredentials, CSRFToken, OAuth2Provider, TokenInvalidate, TokenRefresh, UserInfo
+	AccessToken, AuthenticatedUser, ClientCredentials, ClientCredentialsTrait, CSRFToken,
+	OAuth2Provider, TokenInvalidate, TokenInvalidateTrait, TokenRefresh, UserInfo,
 };
 use function sprintf;
 
@@ -24,6 +25,7 @@ use function sprintf;
  * @link https://discord.com/developers/docs/topics/oauth2
  */
 class Discord extends OAuth2Provider implements ClientCredentials, CSRFToken, TokenInvalidate, TokenRefresh, UserInfo{
+	use ClientCredentialsTrait, TokenInvalidateTrait;
 
 	public const IDENTIFIER = 'DISCORD';
 
@@ -66,6 +68,7 @@ class Discord extends OAuth2Provider implements ClientCredentials, CSRFToken, To
 
 	/**
 	 * @link https://github.com/discord/discord-api-docs/issues/2259#issuecomment-927180184
+	 * @return array<string, scalar|bool|null>
 	 */
 	protected function getInvalidateAccessTokenBodyParams(AccessToken $token, string $type):array{
 		return [

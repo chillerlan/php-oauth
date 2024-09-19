@@ -13,7 +13,9 @@ declare(strict_types=1);
 
 namespace chillerlan\OAuth\Providers;
 
-use chillerlan\OAuth\Core\{AuthenticatedUser, CSRFToken, OAuth2Provider, PKCE, TokenInvalidate, UserInfo};
+use chillerlan\OAuth\Core\{
+	AuthenticatedUser, CSRFToken, OAuth2Provider, PKCE, PKCETrait, TokenInvalidate, TokenInvalidateTrait, UserInfo,
+};
 
 /**
  * Google OAuth2
@@ -23,6 +25,7 @@ use chillerlan\OAuth\Core\{AuthenticatedUser, CSRFToken, OAuth2Provider, PKCE, T
  * @link https://developers.google.com/oauthplayground/
  */
 class Google extends OAuth2Provider implements CSRFToken, PKCE, TokenInvalidate, UserInfo{
+	use PKCETrait, TokenInvalidateTrait;
 
 	public const IDENTIFIER = 'GOOGLE';
 

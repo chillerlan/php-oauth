@@ -13,7 +13,9 @@ declare(strict_types=1);
 
 namespace chillerlan\OAuth\Providers;
 
-use chillerlan\OAuth\Core\{AuthenticatedUser, CSRFToken, OAuth2Provider, TokenInvalidate, TokenRefresh, UserInfo};
+use chillerlan\OAuth\Core\{
+	AuthenticatedUser, CSRFToken, OAuth2Provider, TokenInvalidate, TokenInvalidateTrait, TokenRefresh, UserInfo,
+};
 use function in_array, sprintf, strtolower;
 
 /**
@@ -23,6 +25,7 @@ use function in_array, sprintf, strtolower;
  * @link https://github.com/npr/npr-one-backend-proxy-php
  */
 class NPROne extends OAuth2Provider implements CSRFToken, TokenRefresh, TokenInvalidate, UserInfo{
+	use TokenInvalidateTrait;
 
 	public const IDENTIFIER = 'NPRONE';
 

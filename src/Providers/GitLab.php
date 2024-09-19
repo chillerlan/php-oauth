@@ -11,7 +11,9 @@ declare(strict_types=1);
 
 namespace chillerlan\OAuth\Providers;
 
-use chillerlan\OAuth\Core\{AuthenticatedUser, ClientCredentials, CSRFToken, OAuth2Provider, TokenRefresh, UserInfo};
+use chillerlan\OAuth\Core\{
+	AuthenticatedUser, ClientCredentials, ClientCredentialsTrait, CSRFToken, OAuth2Provider, TokenRefresh, UserInfo,
+};
 
 /**
  * GitLab OAuth2
@@ -19,6 +21,7 @@ use chillerlan\OAuth\Core\{AuthenticatedUser, ClientCredentials, CSRFToken, OAut
  * @link https://docs.gitlab.com/ee/api/oauth2.html
  */
 class GitLab extends OAuth2Provider implements ClientCredentials, CSRFToken, TokenRefresh, UserInfo{
+	use ClientCredentialsTrait;
 
 	public const IDENTIFIER = 'GITLAB';
 

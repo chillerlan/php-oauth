@@ -11,12 +11,13 @@ declare(strict_types=1);
 
 namespace chillerlan\OAuthTest\Providers;
 
-use chillerlan\OAuth\Core\{AccessToken, OAuth1Provider, TokenInvalidate};
+use chillerlan\OAuth\Core\{AccessToken, OAuth1Provider, TokenInvalidate, TokenInvalidateTrait};
 
 /**
  * An OAuth1 provider implementation
  */
 final class DummyOAuth1Provider extends OAuth1Provider implements TokenInvalidate{
+	use TokenInvalidateTrait;
 
 	public const IDENTIFIER = 'DUMMYOAUTH1PROVIDER';
 

@@ -11,7 +11,7 @@ declare(strict_types=1);
 
 namespace chillerlan\OAuth\Providers;
 
-use chillerlan\OAuth\Core\{AccessToken, ClientCredentials, OAuth2Provider};
+use chillerlan\OAuth\Core\{AccessToken, ClientCredentials, ClientCredentialsTrait, OAuth2Provider};
 use Psr\Http\Message\UriInterface;
 
 /**
@@ -25,6 +25,7 @@ use Psr\Http\Message\UriInterface;
  * @todo: https://developer.twitter.com/en/docs/basics/authentication/api-reference/invalidate_token
  */
 class TwitterCC extends OAuth2Provider implements ClientCredentials{
+	use ClientCredentialsTrait;
 
 	public const IDENTIFIER = 'TWITTERCC';
 

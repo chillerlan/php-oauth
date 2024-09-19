@@ -13,7 +13,9 @@ declare(strict_types=1);
 
 namespace chillerlan\OAuth\Providers;
 
-use chillerlan\OAuth\Core\{AccessToken, AuthenticatedUser, CSRFToken, OAuth2Provider, TokenInvalidate, TokenRefresh, UserInfo};
+use chillerlan\OAuth\Core\{
+	AccessToken, AuthenticatedUser, CSRFToken, OAuth2Provider, TokenInvalidate, TokenInvalidateTrait, TokenRefresh, UserInfo,
+};
 
 /**
  * Stripe OAuth2
@@ -25,6 +27,7 @@ use chillerlan\OAuth\Core\{AccessToken, AuthenticatedUser, CSRFToken, OAuth2Prov
  * @link https://gist.github.com/amfeng/3507366
  */
 class Stripe extends OAuth2Provider implements CSRFToken, TokenRefresh, TokenInvalidate, UserInfo{
+	use TokenInvalidateTrait;
 
 	public const IDENTIFIER = 'STRIPE';
 
@@ -55,6 +58,9 @@ class Stripe extends OAuth2Provider implements CSRFToken, TokenRefresh, TokenInv
 		return new AuthenticatedUser($userdata);
 	}
 
+	/**
+	 * @return array<string, scalar|bool|null>
+	 */
 	protected function getInvalidateAccessTokenBodyParams(AccessToken $token, string $type):array{
 		$params = $token->extraParams;
 

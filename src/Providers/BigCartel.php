@@ -11,7 +11,9 @@ declare(strict_types=1);
 
 namespace chillerlan\OAuth\Providers;
 
-use chillerlan\OAuth\Core\{AccessToken, AuthenticatedUser, CSRFToken, OAuth2Provider, TokenInvalidate, UserInfo};
+use chillerlan\OAuth\Core\{
+	AccessToken, AuthenticatedUser, CSRFToken, OAuth2Provider, TokenInvalidate, TokenInvalidateTrait, UserInfo,
+};
 use function sprintf;
 
 /**
@@ -21,6 +23,7 @@ use function sprintf;
  * @link https://bigcartel.wufoo.com/confirm/big-cartel-api-application/
  */
 class BigCartel extends OAuth2Provider implements CSRFToken, TokenInvalidate, UserInfo{
+	use TokenInvalidateTrait;
 
 	public const IDENTIFIER = 'BIGCARTEL';
 

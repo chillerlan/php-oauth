@@ -13,7 +13,7 @@ declare(strict_types=1);
 
 namespace chillerlan\OAuth\Providers;
 
-use chillerlan\OAuth\Core\{AuthenticatedUser, CSRFToken, OAuth2Provider, PKCE, TokenRefresh, UserInfo};
+use chillerlan\OAuth\Core\{AuthenticatedUser, CSRFToken, OAuth2Provider, PKCE, PKCETrait, TokenRefresh, UserInfo};
 use function sprintf;
 
 /**
@@ -22,6 +22,7 @@ use function sprintf;
  * @link https://docs.gitea.com/development/oauth2-provider
  */
 class Gitea extends OAuth2Provider implements CSRFToken, PKCE, TokenRefresh, UserInfo{
+	use PKCETrait;
 
 	public const IDENTIFIER = 'GITEA';
 

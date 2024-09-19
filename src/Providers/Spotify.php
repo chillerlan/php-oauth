@@ -13,7 +13,10 @@ declare(strict_types=1);
 
 namespace chillerlan\OAuth\Providers;
 
-use chillerlan\OAuth\Core\{AuthenticatedUser, ClientCredentials, CSRFToken, OAuth2Provider, PKCE, TokenRefresh, UserInfo};
+use chillerlan\OAuth\Core\{
+	AuthenticatedUser, ClientCredentials, ClientCredentialsTrait, CSRFToken,
+	OAuth2Provider, PKCE, PKCETrait, TokenRefresh, UserInfo,
+};
 
 /**
  * Spotify OAuth2
@@ -24,6 +27,7 @@ use chillerlan\OAuth\Core\{AuthenticatedUser, ClientCredentials, CSRFToken, OAut
  * @link https://developer.spotify.com/documentation/web-api/tutorials/code-pkce-flow
  */
 class Spotify extends OAuth2Provider implements ClientCredentials, CSRFToken, PKCE, TokenRefresh, UserInfo{
+	use ClientCredentialsTrait, PKCETrait;
 
 	public const IDENTIFIER = 'SPOTIFY';
 

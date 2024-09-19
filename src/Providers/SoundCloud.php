@@ -11,7 +11,7 @@ declare(strict_types=1);
 
 namespace chillerlan\OAuth\Providers;
 
-use chillerlan\OAuth\Core\{AuthenticatedUser, ClientCredentials, OAuth2Provider, TokenRefresh, UserInfo};
+use chillerlan\OAuth\Core\{AuthenticatedUser, ClientCredentials, ClientCredentialsTrait, OAuth2Provider, TokenRefresh, UserInfo};
 
 /**
  * SoundCloud OAuth2
@@ -21,6 +21,7 @@ use chillerlan\OAuth\Core\{AuthenticatedUser, ClientCredentials, OAuth2Provider,
  * @link https://developers.soundcloud.com/blog/security-updates-api
  */
 class SoundCloud extends OAuth2Provider implements ClientCredentials, TokenRefresh, UserInfo{
+	use ClientCredentialsTrait;
 
 	public const IDENTIFIER = 'SOUNDCLOUD';
 

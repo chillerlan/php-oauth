@@ -14,7 +14,7 @@ declare(strict_types=1);
 namespace chillerlan\OAuth\Providers;
 
 use chillerlan\OAuth\Core\{
-	AccessToken, AuthenticatedUser, CSRFToken, OAuth2Provider, TokenInvalidate, TokenRefresh, UserInfo
+	AccessToken, AuthenticatedUser, CSRFToken, OAuth2Provider, TokenInvalidate, TokenInvalidateTrait, TokenRefresh, UserInfo,
 };
 use Psr\Http\Message\{ResponseInterface, StreamInterface};
 use function in_array, strtoupper;
@@ -26,6 +26,7 @@ use function in_array, strtoupper;
  * @link https://musicbrainz.org/doc/Development/OAuth2
  */
 class MusicBrainz extends OAuth2Provider implements CSRFToken, TokenInvalidate, TokenRefresh, UserInfo{
+	use TokenInvalidateTrait;
 
 	public const IDENTIFIER = 'MUSICBRAINZ';
 
@@ -62,6 +63,9 @@ class MusicBrainz extends OAuth2Provider implements CSRFToken, TokenInvalidate, 
 		];
 	}
 
+	/**
+	 * @return array<string, scalar|bool|null>
+	 */
 	protected function getInvalidateAccessTokenBodyParams(AccessToken $token, string $type):array{
 		return [
 			'client_id'       => $this->options->key,

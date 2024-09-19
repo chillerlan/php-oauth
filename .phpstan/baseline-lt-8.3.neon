@@ -1,7 +1,3 @@
 parameters:
 	ignoreErrors:
-		-
-			message: "#^Call to an undefined method Random\\\\Randomizer\\:\\:getBytesFromString\\(\\)\\.$#"
-			count: 1
-			path: ../src/Core/OAuth2Provider.php
-
+		- message: "#^Call to an undefined method Random\\\\Randomizer\\:\\:getBytesFromString\\(\\)\\.$#"

@@ -14,7 +14,8 @@ declare(strict_types=1);
 namespace chillerlan\OAuth\Providers;
 
 use chillerlan\OAuth\Core\{
-	AccessToken, AuthenticatedUser, ClientCredentials, CSRFToken, OAuth2Provider, TokenInvalidate, UserInfo
+	AccessToken, AuthenticatedUser, ClientCredentials, ClientCredentialsTrait,
+	CSRFToken, OAuth2Provider, TokenInvalidate, UserInfo,
 };
 use chillerlan\OAuth\Storage\MemoryStorage;
 use function str_replace;
@@ -26,6 +27,7 @@ use function str_replace;
  * @link https://developer.vimeo.com/api/authentication
  */
 class Vimeo extends OAuth2Provider implements ClientCredentials, CSRFToken, TokenInvalidate, UserInfo{
+	use ClientCredentialsTrait;
 
 	public const IDENTIFIER = 'VIMEO';
 

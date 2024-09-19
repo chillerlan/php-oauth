@@ -11,13 +11,17 @@ declare(strict_types=1);
 
 namespace chillerlan\OAuthTest\Providers;
 
-use chillerlan\OAuth\Core\{AccessToken, ClientCredentials, CSRFToken, OAuth2Provider, PAR, PKCE, TokenInvalidate, TokenRefresh};
+use chillerlan\OAuth\Core\{
+	AccessToken, ClientCredentials, ClientCredentialsTrait, CSRFToken, OAuth2Provider, PAR, PARTrait,
+	PKCE, PKCETrait, TokenInvalidate, TokenInvalidateTrait, TokenRefresh
+};
 
 /**
  * An OAuth2 provider implementation that supports token refresh, csrf tokens and client credentials
  */
 final class DummyOAuth2Provider extends OAuth2Provider
 	implements ClientCredentials, CSRFToken, PAR, PKCE, TokenRefresh, TokenInvalidate{
+	use ClientCredentialsTrait, PARTrait, PKCETrait, TokenInvalidateTrait;
 
 	public const IDENTIFIER = 'DUMMYOAUTH2PROVIDER';
 

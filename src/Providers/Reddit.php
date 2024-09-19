@@ -14,8 +14,8 @@ declare(strict_types=1);
 namespace chillerlan\OAuth\Providers;
 
 use chillerlan\OAuth\Core\{
-	AuthenticatedUser, ClientCredentials, CSRFToken, OAuth2Interface,
-	OAuth2Provider, TokenInvalidate, TokenRefresh, UserInfo
+	AuthenticatedUser, ClientCredentials, ClientCredentialsTrait, CSRFToken, OAuth2Interface,
+	OAuth2Provider, TokenInvalidate, TokenInvalidateTrait, TokenRefresh, UserInfo,
 };
 use Psr\Http\Message\ResponseInterface;
 use function sprintf;
@@ -30,6 +30,7 @@ use function sprintf;
  * @link https://www.reddit.com/dev/api
  */
 class Reddit extends OAuth2Provider implements ClientCredentials, CSRFToken, TokenRefresh, TokenInvalidate, UserInfo{
+	use ClientCredentialsTrait, TokenInvalidateTrait;
 
 	public const IDENTIFIER = 'REDDIT';
 
@@ -89,6 +90,9 @@ class Reddit extends OAuth2Provider implements ClientCredentials, CSRFToken, Tok
 	protected string|null $applicationURL   = 'https://www.reddit.com/prefs/apps/';
 	protected string|null $userRevokeURL    = 'https://www.reddit.com/settings/privacy';
 
+	/**
+	 * @param array<string, scalar|bool|null> $body
+	 */
 	protected function sendTokenInvalidateRequest(string $url, array $body):ResponseInterface{ // phpcs:ignore
 
 		$request = $this->requestFactory

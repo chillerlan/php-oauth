@@ -11,7 +11,9 @@ declare(strict_types=1);
 
 namespace chillerlan\OAuth\Providers;
 
-use chillerlan\OAuth\Core\{AuthenticatedUser, ClientCredentials, CSRFToken, OAuth2Provider, TokenRefresh, UserInfo};
+use chillerlan\OAuth\Core\{
+	AuthenticatedUser, ClientCredentials, ClientCredentialsTrait, CSRFToken, OAuth2Provider, TokenRefresh, UserInfo,
+};
 use function sprintf;
 
 /**
@@ -20,6 +22,7 @@ use function sprintf;
  * @link https://www.tumblr.com/docs/en/api/v2#oauth2-authorization
  */
 class Tumblr2 extends OAuth2Provider implements CSRFToken, TokenRefresh, ClientCredentials, UserInfo{
+	use ClientCredentialsTrait;
 
 	public const IDENTIFIER = 'TUMBLR2';
 

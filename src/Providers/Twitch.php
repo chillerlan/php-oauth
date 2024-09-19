@@ -15,8 +15,8 @@ namespace chillerlan\OAuth\Providers;
 
 use chillerlan\HTTP\Utils\QueryUtil;
 use chillerlan\OAuth\Core\{
-	AccessToken, AuthenticatedUser, ClientCredentials, CSRFToken, InvalidAccessTokenException,
-	OAuth2Provider, TokenInvalidate, TokenRefresh, UserInfo
+	AccessToken, AuthenticatedUser, ClientCredentials, ClientCredentialsTrait, CSRFToken, InvalidAccessTokenException,
+	OAuth2Provider, TokenInvalidate, TokenInvalidateTrait, TokenRefresh, UserInfo,
 };
 use Psr\Http\Message\{RequestInterface, ResponseInterface};
 use function implode, sprintf;
@@ -30,6 +30,7 @@ use const PHP_QUERY_RFC1738;
  * @link https://dev.twitch.tv/docs/authentication#oauth-client-credentials-flow-app-access-tokens
  */
 class Twitch extends OAuth2Provider implements ClientCredentials, CSRFToken, TokenInvalidate, TokenRefresh, UserInfo{
+	use ClientCredentialsTrait, TokenInvalidateTrait;
 
 	public const IDENTIFIER = 'TWITCH';
 
@@ -76,6 +77,10 @@ class Twitch extends OAuth2Provider implements ClientCredentials, CSRFToken, Tok
 	protected string|null $apiDocs          = 'https://dev.twitch.tv/docs/api/reference/';
 	protected string|null $applicationURL   = 'https://dev.twitch.tv/console/apps/create';
 
+	/**
+	 * @param string[]|null $scopes
+	 * @return array<string, string>
+	 */
 	protected function getClientCredentialsTokenRequestBodyParams(array|null $scopes):array{
 
 		$params = [
@@ -110,6 +115,9 @@ class Twitch extends OAuth2Provider implements ClientCredentials, CSRFToken, Tok
 		return $this->http->sendRequest($request);
 	}
 
+	/**
+	 * @return array<string, scalar|bool|null>
+	 */
 	protected function getInvalidateAccessTokenBodyParams(AccessToken $token, string $type):array{
 		return [
 			'client_id'       => $this->options->key,

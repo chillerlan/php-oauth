@@ -229,9 +229,13 @@ abstract class OAuth2ProviderUnitTestAbstract extends OAuthProviderUnitTestAbstr
 	}
 
 	public function testGetAccessTokenRequestBodyParams():void{
-		$verifier = $this->provider->generateVerifier($this->options->pkceVerifierLength);
+		$verifier = '';
 
-		$this->storage->storeCodeVerifier($verifier, $this->provider->getName());
+		if($this->provider instanceof PKCE){
+			$verifier = $this->provider->generateVerifier($this->options->pkceVerifierLength);
+
+			$this->storage->storeCodeVerifier($verifier, $this->provider->getName());
+		}
 
 		$params = $this->invokeReflectionMethod('getAccessTokenRequestBodyParams', ['*test_code*']);
 
@@ -371,17 +375,6 @@ abstract class OAuth2ProviderUnitTestAbstract extends OAuthProviderUnitTestAbstr
 		$this::assertSame('foo=bar', $json->body);
 	}
 
-	public function testGetClientCredentialsNotSupportedException():void{
-
-		if($this->provider instanceof ClientCredentials){
-			$this->markTestSkipped('ClientCredentials supported');
-		}
-
-		$this->expectException(ProviderException::class);
-		$this->expectExceptionMessage('client credentials token not supported');
-
-		$this->provider->getClientCredentialsToken();
-	}
 
 	/*
 	 * CSRF state
@@ -597,30 +590,6 @@ abstract class OAuth2ProviderUnitTestAbstract extends OAuthProviderUnitTestAbstr
 		$this->expectExceptionMessage('invalid authorization request body');
 
 		$this->provider->setCodeVerifier(['param' => 'value']);
-	}
-
-	public function testSetCodeChallengeNotSupportedException():void{
-
-		if($this->provider instanceof PKCE){
-			$this->markTestSkipped('PKCE supported');
-		}
-
-		$this->expectException(ProviderException::class);
-		$this->expectExceptionMessage('PKCE challenge not supported');
-
-		$this->provider->setCodeChallenge([], PKCE::CHALLENGE_METHOD_S256);
-	}
-
-	public function testSetCodeVerifierNotSupportedException():void{
-
-		if($this->provider instanceof PKCE){
-			$this->markTestSkipped('PKCE supported');
-		}
-
-		$this->expectException(ProviderException::class);
-		$this->expectExceptionMessage('PKCE challenge not supported');
-
-		$this->provider->setCodeVerifier([]);
 	}
 
 }

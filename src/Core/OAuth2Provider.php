@@ -628,7 +628,6 @@ abstract class OAuth2Provider extends OAuthProvider implements OAuth2Interface{
 	 * @see \chillerlan\OAuth\Core\PKCE::generateVerifier()
 	 * @see \chillerlan\OAuth\Core\OAuth2Provider::setCodeChallenge()
 	 *
-	 * @phan-suppress PhanUndeclaredClassMethod, PhanUndeclaredMethod
 	 * @noinspection PhpFullyQualifiedNameUsageInspection
 	 * @SuppressWarnings(PHPMD.MissingImport)
 	 */

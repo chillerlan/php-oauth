@@ -56,7 +56,6 @@ class Flickr extends OAuth1Provider implements UserInfo{
 		]);
 
 		$request = $this->getRequestAuthorization(
-			/** @phan-suppress-next-line PhanTypeMismatchArgumentNullable */
 			$this->requestFactory->createRequest(($method ?? 'POST'), QueryUtil::merge($this->apiURL, $params)),
 		);
 

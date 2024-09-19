@@ -146,6 +146,26 @@ Search.appendIndex(
             "summary": "Obtains\u0020an\u0020OAuth2\u0020client\u0020credentials\u0020token\u0020and\u0020returns\u0020an\u0020AccessToken",
             "url": "classes/chillerlan-OAuth-Core-ClientCredentials.html#method_getClientCredentialsToken"
         },                {
+            "fqsen": "\\chillerlan\\OAuth\\Core\\ClientCredentialsTrait",
+            "name": "ClientCredentialsTrait",
+            "summary": "Implements\u0020Client\u0020Credentials\u0020functionality",
+            "url": "classes/chillerlan-OAuth-Core-ClientCredentialsTrait.html"
+        },                {
+            "fqsen": "\\chillerlan\\OAuth\\Core\\ClientCredentialsTrait\u003A\u003AgetClientCredentialsToken\u0028\u0029",
+            "name": "getClientCredentialsToken",
+            "summary": "implements\u0020ClientCredentials\u003A\u003AgetClientCredentialsToken\u0028\u0029",
+            "url": "classes/chillerlan-OAuth-Core-ClientCredentialsTrait.html#method_getClientCredentialsToken"
+        },                {
+            "fqsen": "\\chillerlan\\OAuth\\Core\\ClientCredentialsTrait\u003A\u003AgetClientCredentialsTokenRequestBodyParams\u0028\u0029",
+            "name": "getClientCredentialsTokenRequestBodyParams",
+            "summary": "prepares\u0020the\u0020request\u0020body\u0020parameters\u0020for\u0020the\u0020client\u0020credentials\u0020token\u0020request",
+            "url": "classes/chillerlan-OAuth-Core-ClientCredentialsTrait.html#method_getClientCredentialsTokenRequestBodyParams"
+        },                {
+            "fqsen": "\\chillerlan\\OAuth\\Core\\ClientCredentialsTrait\u003A\u003AsendClientCredentialsTokenRequest\u0028\u0029",
+            "name": "sendClientCredentialsTokenRequest",
+            "summary": "sends\u0020a\u0020request\u0020to\u0020the\u0020client\u0020credentials\u0020endpoint,\u0020using\u0020basic\u0020authentication",
+            "url": "classes/chillerlan-OAuth-Core-ClientCredentialsTrait.html#method_sendClientCredentialsTokenRequest"
+        },                {
             "fqsen": "\\chillerlan\\OAuth\\Core\\CSRFStateMismatchException",
             "name": "CSRFStateMismatchException",
             "summary": "Thrown\u0020on\u0020mismatching\u0020CSRF\u0020\u0028\u0022state\u0022\u0029\u0020token",
@@ -326,21 +346,6 @@ Search.appendIndex(
             "summary": "Authorizes\u0020the\u0020\u0024request\u0020with\u0020the\u0020credentials\u0020from\u0020the\u0020given\u0020\u0024token\nand\u0020returns\u0020a\u0020PSR\u002D7\u0020RequestInterface\u0020with\u0020all\u0020necessary\u0020headers\u0020and\/or\u0020parameters\u0020set",
             "url": "classes/chillerlan-OAuth-Core-OAuth2Provider.html#method_getRequestAuthorization"
         },                {
-            "fqsen": "\\chillerlan\\OAuth\\Core\\OAuth2Provider\u003A\u003AgetClientCredentialsToken\u0028\u0029",
-            "name": "getClientCredentialsToken",
-            "summary": "implements\u0020ClientCredentials\u003A\u003AgetClientCredentialsToken\u0028\u0029",
-            "url": "classes/chillerlan-OAuth-Core-OAuth2Provider.html#method_getClientCredentialsToken"
-        },                {
-            "fqsen": "\\chillerlan\\OAuth\\Core\\OAuth2Provider\u003A\u003AgetClientCredentialsTokenRequestBodyParams\u0028\u0029",
-            "name": "getClientCredentialsTokenRequestBodyParams",
-            "summary": "prepares\u0020the\u0020request\u0020body\u0020parameters\u0020for\u0020the\u0020client\u0020credentials\u0020token\u0020request",
-            "url": "classes/chillerlan-OAuth-Core-OAuth2Provider.html#method_getClientCredentialsTokenRequestBodyParams"
-        },                {
-            "fqsen": "\\chillerlan\\OAuth\\Core\\OAuth2Provider\u003A\u003AsendClientCredentialsTokenRequest\u0028\u0029",
-            "name": "sendClientCredentialsTokenRequest",
-            "summary": "sends\u0020a\u0020request\u0020to\u0020the\u0020client\u0020credentials\u0020endpoint,\u0020using\u0020basic\u0020authentication",
-            "url": "classes/chillerlan-OAuth-Core-OAuth2Provider.html#method_sendClientCredentialsTokenRequest"
-        },                {
             "fqsen": "\\chillerlan\\OAuth\\Core\\OAuth2Provider\u003A\u003ArefreshAccessToken\u0028\u0029",
             "name": "refreshAccessToken",
             "summary": "implements\u0020TokenRefresh\u003A\u003ArefreshAccessToken\u0028\u0029",
@@ -351,21 +356,6 @@ Search.appendIndex(
             "summary": "prepares\u0020the\u0020request\u0020body\u0020parameters\u0020for\u0020the\u0020token\u0020refresh",
             "url": "classes/chillerlan-OAuth-Core-OAuth2Provider.html#method_getRefreshAccessTokenRequestBodyParams"
         },                {
-            "fqsen": "\\chillerlan\\OAuth\\Core\\OAuth2Provider\u003A\u003AinvalidateAccessToken\u0028\u0029",
-            "name": "invalidateAccessToken",
-            "summary": "implements\u0020TokenInvalidate\u003A\u003AinvalidateAccessToken\u0028\u0029",
-            "url": "classes/chillerlan-OAuth-Core-OAuth2Provider.html#method_invalidateAccessToken"
-        },                {
-            "fqsen": "\\chillerlan\\OAuth\\Core\\OAuth2Provider\u003A\u003AsendTokenInvalidateRequest\u0028\u0029",
-            "name": "sendTokenInvalidateRequest",
-            "summary": "Prepares\u0020and\u0020sends\u0020a\u0020request\u0020to\u0020the\u0020token\u0020invalidation\u0020endpoint",
-            "url": "classes/chillerlan-OAuth-Core-OAuth2Provider.html#method_sendTokenInvalidateRequest"
-        },                {
-            "fqsen": "\\chillerlan\\OAuth\\Core\\OAuth2Provider\u003A\u003AgetInvalidateAccessTokenBodyParams\u0028\u0029",
-            "name": "getInvalidateAccessTokenBodyParams",
-            "summary": "Prepares\u0020the\u0020body\u0020for\u0020a\u0020token\u0020revocation\u0020request",
-            "url": "classes/chillerlan-OAuth-Core-OAuth2Provider.html#method_getInvalidateAccessTokenBodyParams"
-        },                {
             "fqsen": "\\chillerlan\\OAuth\\Core\\OAuth2Provider\u003A\u003AsetState\u0028\u0029",
             "name": "setState",
             "summary": "implements\u0020CSRFToken\u003A\u003AsetState\u0028\u0029",
@@ -375,36 +365,6 @@ Search.appendIndex(
             "name": "checkState",
             "summary": "implements\u0020CSRFToken\u003A\u003AcheckState\u0028\u0029",
             "url": "classes/chillerlan-OAuth-Core-OAuth2Provider.html#method_checkState"
-        },                {
-            "fqsen": "\\chillerlan\\OAuth\\Core\\OAuth2Provider\u003A\u003AsetCodeChallenge\u0028\u0029",
-            "name": "setCodeChallenge",
-            "summary": "implements\u0020PKCE\u003A\u003AsetCodeChallenge\u0028\u0029",
-            "url": "classes/chillerlan-OAuth-Core-OAuth2Provider.html#method_setCodeChallenge"
-        },                {
-            "fqsen": "\\chillerlan\\OAuth\\Core\\OAuth2Provider\u003A\u003AsetCodeVerifier\u0028\u0029",
-            "name": "setCodeVerifier",
-            "summary": "implements\u0020PKCE\u003A\u003AsetCodeVerifier\u0028\u0029",
-            "url": "classes/chillerlan-OAuth-Core-OAuth2Provider.html#method_setCodeVerifier"
-        },                {
-            "fqsen": "\\chillerlan\\OAuth\\Core\\OAuth2Provider\u003A\u003AgenerateVerifier\u0028\u0029",
-            "name": "generateVerifier",
-            "summary": "implements\u0020PKCE\u003A\u003AgenerateVerifier\u0028\u0029",
-            "url": "classes/chillerlan-OAuth-Core-OAuth2Provider.html#method_generateVerifier"
-        },                {
-            "fqsen": "\\chillerlan\\OAuth\\Core\\OAuth2Provider\u003A\u003AgenerateChallenge\u0028\u0029",
-            "name": "generateChallenge",
-            "summary": "implements\u0020PKCE\u003A\u003AgenerateChallenge\u0028\u0029",
-            "url": "classes/chillerlan-OAuth-Core-OAuth2Provider.html#method_generateChallenge"
-        },                {
-            "fqsen": "\\chillerlan\\OAuth\\Core\\OAuth2Provider\u003A\u003AgetParRequestUri\u0028\u0029",
-            "name": "getParRequestUri",
-            "summary": "implements\u0020PAR\u003A\u003AgetParRequestUri\u0028\u0029",
-            "url": "classes/chillerlan-OAuth-Core-OAuth2Provider.html#method_getParRequestUri"
-        },                {
-            "fqsen": "\\chillerlan\\OAuth\\Core\\OAuth2Provider\u003A\u003AgetParAuthorizationURLRequestParams\u0028\u0029",
-            "name": "getParAuthorizationURLRequestParams",
-            "summary": "Parses\u0020the\u0020response\u0020from\u0020the\u0020PAR\u0020request\u0020and\u0020returns\u0020the\u0020query\u0020parameters\u0020for\u0020the\u0020authorization\u0020URL",
-            "url": "classes/chillerlan-OAuth-Core-OAuth2Provider.html#method_getParAuthorizationURLRequestParams"
         },                {
             "fqsen": "\\chillerlan\\OAuth\\Core\\OAuth2Provider\u003A\u003A\u0024refreshTokenURL",
             "name": "refreshTokenURL",
@@ -766,6 +726,21 @@ Search.appendIndex(
             "summary": "Sends\u0020the\u0020given\u0020authorization\u0020request\u0020parameters\u0020to\u0020the\u0020PAR\u0020endpoint\u0020and\u0020returns\nthe\u0020full\u0020authorization\u0020URL\u0020including\u0020the\u0020URN\u0020obtained\u0020from\u0020the\u0020PAR\u0020request",
             "url": "classes/chillerlan-OAuth-Core-PAR.html#method_getParRequestUri"
         },                {
+            "fqsen": "\\chillerlan\\OAuth\\Core\\PARTrait",
+            "name": "PARTrait",
+            "summary": "Implements\u0020PAR\u0020\u0028Pushed\u0020Authorization\u0020Requests\u0029\u0020functionality",
+            "url": "classes/chillerlan-OAuth-Core-PARTrait.html"
+        },                {
+            "fqsen": "\\chillerlan\\OAuth\\Core\\PARTrait\u003A\u003AgetParRequestUri\u0028\u0029",
+            "name": "getParRequestUri",
+            "summary": "implements\u0020PAR\u003A\u003AgetParRequestUri\u0028\u0029",
+            "url": "classes/chillerlan-OAuth-Core-PARTrait.html#method_getParRequestUri"
+        },                {
+            "fqsen": "\\chillerlan\\OAuth\\Core\\PARTrait\u003A\u003AgetParAuthorizationURLRequestParams\u0028\u0029",
+            "name": "getParAuthorizationURLRequestParams",
+            "summary": "Parses\u0020the\u0020response\u0020from\u0020the\u0020PAR\u0020request\u0020and\u0020returns\u0020the\u0020query\u0020parameters\u0020for\u0020the\u0020authorization\u0020URL",
+            "url": "classes/chillerlan-OAuth-Core-PARTrait.html#method_getParAuthorizationURLRequestParams"
+        },                {
             "fqsen": "\\chillerlan\\OAuth\\Core\\PKCE",
             "name": "PKCE",
             "summary": "Specifies\u0020the\u0020methods\u0020required\u0020for\u0020the\u0020OAuth2\u0020Proof\u0020Key\u0020for\u0020Code\u0020Exchange\u0020\u0028PKCE\u0029",
@@ -806,6 +781,31 @@ Search.appendIndex(
             "summary": "",
             "url": "classes/chillerlan-OAuth-Core-PKCE.html#constant_VERIFIER_CHARSET"
         },                {
+            "fqsen": "\\chillerlan\\OAuth\\Core\\PKCETrait",
+            "name": "PKCETrait",
+            "summary": "Implements\u0020PKCE\u0020\u0028Proof\u0020Key\u0020for\u0020Code\u0020Exchange\u0029\u0020functionality",
+            "url": "classes/chillerlan-OAuth-Core-PKCETrait.html"
+        },                {
+            "fqsen": "\\chillerlan\\OAuth\\Core\\PKCETrait\u003A\u003AsetCodeChallenge\u0028\u0029",
+            "name": "setCodeChallenge",
+            "summary": "implements\u0020PKCE\u003A\u003AsetCodeChallenge\u0028\u0029",
+            "url": "classes/chillerlan-OAuth-Core-PKCETrait.html#method_setCodeChallenge"
+        },                {
+            "fqsen": "\\chillerlan\\OAuth\\Core\\PKCETrait\u003A\u003AsetCodeVerifier\u0028\u0029",
+            "name": "setCodeVerifier",
+            "summary": "implements\u0020PKCE\u003A\u003AsetCodeVerifier\u0028\u0029",
+            "url": "classes/chillerlan-OAuth-Core-PKCETrait.html#method_setCodeVerifier"
+        },                {
+            "fqsen": "\\chillerlan\\OAuth\\Core\\PKCETrait\u003A\u003AgenerateVerifier\u0028\u0029",
+            "name": "generateVerifier",
+            "summary": "implements\u0020PKCE\u003A\u003AgenerateVerifier\u0028\u0029",
+            "url": "classes/chillerlan-OAuth-Core-PKCETrait.html#method_generateVerifier"
+        },                {
+            "fqsen": "\\chillerlan\\OAuth\\Core\\PKCETrait\u003A\u003AgenerateChallenge\u0028\u0029",
+            "name": "generateChallenge",
+            "summary": "implements\u0020PKCE\u003A\u003AgenerateChallenge\u0028\u0029",
+            "url": "classes/chillerlan-OAuth-Core-PKCETrait.html#method_generateChallenge"
+        },                {
             "fqsen": "\\chillerlan\\OAuth\\Core\\TokenInvalidate",
             "name": "TokenInvalidate",
             "summary": "Indicates\u0020whether\u0020the\u0020provider\u0020is\u0020capable\u0020of\u0020invalidating\u0020access\u0020tokens\u0020\u0028RFC\u002D7009\u0020or\u0020proprietary\u0029",
@@ -815,6 +815,26 @@ Search.appendIndex(
             "name": "invalidateAccessToken",
             "summary": "Allows\u0020to\u0020invalidate\u0020an\u0020access\u0020token",
             "url": "classes/chillerlan-OAuth-Core-TokenInvalidate.html#method_invalidateAccessToken"
+        },                {
+            "fqsen": "\\chillerlan\\OAuth\\Core\\TokenInvalidateTrait",
+            "name": "TokenInvalidateTrait",
+            "summary": "Implements\u0020token\u0020invalidation\u0020functionality",
+            "url": "classes/chillerlan-OAuth-Core-TokenInvalidateTrait.html"
+        },                {
+            "fqsen": "\\chillerlan\\OAuth\\Core\\TokenInvalidateTrait\u003A\u003AinvalidateAccessToken\u0028\u0029",
+            "name": "invalidateAccessToken",
+            "summary": "implements\u0020TokenInvalidate\u003A\u003AinvalidateAccessToken\u0028\u0029",
+            "url": "classes/chillerlan-OAuth-Core-TokenInvalidateTrait.html#method_invalidateAccessToken"
+        },                {
+            "fqsen": "\\chillerlan\\OAuth\\Core\\TokenInvalidateTrait\u003A\u003AgetInvalidateAccessTokenBodyParams\u0028\u0029",
+            "name": "getInvalidateAccessTokenBodyParams",
+            "summary": "Prepares\u0020the\u0020body\u0020for\u0020a\u0020token\u0020revocation\u0020request",
+            "url": "classes/chillerlan-OAuth-Core-TokenInvalidateTrait.html#method_getInvalidateAccessTokenBodyParams"
+        },                {
+            "fqsen": "\\chillerlan\\OAuth\\Core\\TokenInvalidateTrait\u003A\u003AsendTokenInvalidateRequest\u0028\u0029",
+            "name": "sendTokenInvalidateRequest",
+            "summary": "Prepares\u0020and\u0020sends\u0020a\u0020request\u0020to\u0020the\u0020token\u0020invalidation\u0020endpoint",
+            "url": "classes/chillerlan-OAuth-Core-TokenInvalidateTrait.html#method_sendTokenInvalidateRequest"
         },                {
             "fqsen": "\\chillerlan\\OAuth\\Core\\TokenRefresh",
             "name": "TokenRefresh",
@@ -1238,7 +1258,7 @@ Search.appendIndex(
         },                {
             "fqsen": "\\chillerlan\\OAuth\\Providers\\BigCartel\u003A\u003AinvalidateAccessToken\u0028\u0029",
             "name": "invalidateAccessToken",
-            "summary": "implements\u0020TokenInvalidate\u003A\u003AinvalidateAccessToken\u0028\u0029",
+            "summary": "Allows\u0020to\u0020invalidate\u0020an\u0020access\u0020token",
             "url": "classes/chillerlan-OAuth-Providers-BigCartel.html#method_invalidateAccessToken"
         },                {
             "fqsen": "\\chillerlan\\OAuth\\Providers\\BigCartel\u003A\u003AgetAccountID\u0028\u0029",
@@ -1633,7 +1653,7 @@ Search.appendIndex(
         },                {
             "fqsen": "\\chillerlan\\OAuth\\Providers\\DeviantArt\u003A\u003AinvalidateAccessToken\u0028\u0029",
             "name": "invalidateAccessToken",
-            "summary": "implements\u0020TokenInvalidate\u003A\u003AinvalidateAccessToken\u0028\u0029",
+            "summary": "Allows\u0020to\u0020invalidate\u0020an\u0020access\u0020token",
             "url": "classes/chillerlan-OAuth-Providers-DeviantArt.html#method_invalidateAccessToken"
         },                {
             "fqsen": "\\chillerlan\\OAuth\\Providers\\DeviantArt\u003A\u003AIDENTIFIER",
@@ -1803,7 +1823,7 @@ Search.appendIndex(
         },                {
             "fqsen": "\\chillerlan\\OAuth\\Providers\\Discord\u003A\u003AgetInvalidateAccessTokenBodyParams\u0028\u0029",
             "name": "getInvalidateAccessTokenBodyParams",
-            "summary": "Prepares\u0020the\u0020body\u0020for\u0020a\u0020token\u0020revocation\u0020request",
+            "summary": "",
             "url": "classes/chillerlan-OAuth-Providers-Discord.html#method_getInvalidateAccessTokenBodyParams"
         },                {
             "fqsen": "\\chillerlan\\OAuth\\Providers\\Discord\u003A\u003Ame\u0028\u0029",
@@ -3173,7 +3193,7 @@ Search.appendIndex(
         },                {
             "fqsen": "\\chillerlan\\OAuth\\Providers\\MusicBrainz\u003A\u003AgetInvalidateAccessTokenBodyParams\u0028\u0029",
             "name": "getInvalidateAccessTokenBodyParams",
-            "summary": "Prepares\u0020the\u0020body\u0020for\u0020a\u0020token\u0020revocation\u0020request",
+            "summary": "",
             "url": "classes/chillerlan-OAuth-Providers-MusicBrainz.html#method_getInvalidateAccessTokenBodyParams"
         },                {
             "fqsen": "\\chillerlan\\OAuth\\Providers\\MusicBrainz\u003A\u003Arequest\u0028\u0029",
@@ -3868,7 +3888,7 @@ Search.appendIndex(
         },                {
             "fqsen": "\\chillerlan\\OAuth\\Providers\\Reddit\u003A\u003AsendTokenInvalidateRequest\u0028\u0029",
             "name": "sendTokenInvalidateRequest",
-            "summary": "Prepares\u0020and\u0020sends\u0020a\u0020request\u0020to\u0020the\u0020token\u0020invalidation\u0020endpoint",
+            "summary": "",
             "url": "classes/chillerlan-OAuth-Providers-Reddit.html#method_sendTokenInvalidateRequest"
         },                {
             "fqsen": "\\chillerlan\\OAuth\\Providers\\Reddit\u003A\u003Ame\u0028\u0029",
@@ -4693,7 +4713,7 @@ Search.appendIndex(
         },                {
             "fqsen": "\\chillerlan\\OAuth\\Providers\\Stripe\u003A\u003AgetInvalidateAccessTokenBodyParams\u0028\u0029",
             "name": "getInvalidateAccessTokenBodyParams",
-            "summary": "Prepares\u0020the\u0020body\u0020for\u0020a\u0020token\u0020revocation\u0020request",
+            "summary": "",
             "url": "classes/chillerlan-OAuth-Providers-Stripe.html#method_getInvalidateAccessTokenBodyParams"
         },                {
             "fqsen": "\\chillerlan\\OAuth\\Providers\\Stripe\u003A\u003AIDENTIFIER",
@@ -4878,17 +4898,17 @@ Search.appendIndex(
         },                {
             "fqsen": "\\chillerlan\\OAuth\\Providers\\Twitch\u003A\u003AgetClientCredentialsTokenRequestBodyParams\u0028\u0029",
             "name": "getClientCredentialsTokenRequestBodyParams",
-            "summary": "prepares\u0020the\u0020request\u0020body\u0020parameters\u0020for\u0020the\u0020client\u0020credentials\u0020token\u0020request",
+            "summary": "",
             "url": "classes/chillerlan-OAuth-Providers-Twitch.html#method_getClientCredentialsTokenRequestBodyParams"
         },                {
             "fqsen": "\\chillerlan\\OAuth\\Providers\\Twitch\u003A\u003AsendClientCredentialsTokenRequest\u0028\u0029",
             "name": "sendClientCredentialsTokenRequest",
-            "summary": "sends\u0020a\u0020request\u0020to\u0020the\u0020client\u0020credentials\u0020endpoint,\u0020using\u0020basic\u0020authentication",
+            "summary": "",
             "url": "classes/chillerlan-OAuth-Providers-Twitch.html#method_sendClientCredentialsTokenRequest"
         },                {
             "fqsen": "\\chillerlan\\OAuth\\Providers\\Twitch\u003A\u003AgetInvalidateAccessTokenBodyParams\u0028\u0029",
             "name": "getInvalidateAccessTokenBodyParams",
-            "summary": "Prepares\u0020the\u0020body\u0020for\u0020a\u0020token\u0020revocation\u0020request",
+            "summary": "",
             "url": "classes/chillerlan-OAuth-Providers-Twitch.html#method_getInvalidateAccessTokenBodyParams"
         },                {
             "fqsen": "\\chillerlan\\OAuth\\Providers\\Twitch\u003A\u003AgetRequestAuthorization\u0028\u0029",
@@ -5178,7 +5198,7 @@ Search.appendIndex(
         },                {
             "fqsen": "\\chillerlan\\OAuth\\Providers\\Vimeo\u003A\u003AinvalidateAccessToken\u0028\u0029",
             "name": "invalidateAccessToken",
-            "summary": "implements\u0020TokenInvalidate\u003A\u003AinvalidateAccessToken\u0028\u0029",
+            "summary": "Allows\u0020to\u0020invalidate\u0020an\u0020access\u0020token",
             "url": "classes/chillerlan-OAuth-Providers-Vimeo.html#method_invalidateAccessToken"
         },                {
             "fqsen": "\\chillerlan\\OAuth\\Providers\\Vimeo\u003A\u003AIDENTIFIER",
@@ -6113,7 +6133,7 @@ Search.appendIndex(
         },                {
             "fqsen": "\\chillerlan\\OAuthTest\\Providers\\DummyOAuth2Provider\u003A\u003AinvalidateAccessToken\u0028\u0029",
             "name": "invalidateAccessToken",
-            "summary": "implements\u0020TokenInvalidate\u003A\u003AinvalidateAccessToken\u0028\u0029",
+            "summary": "Allows\u0020to\u0020invalidate\u0020an\u0020access\u0020token",
             "url": "classes/chillerlan-OAuthTest-Providers-DummyOAuth2Provider.html#method_invalidateAccessToken"
         },                {
             "fqsen": "\\chillerlan\\OAuthTest\\Providers\\DummyOAuth2Provider\u003A\u003AIDENTIFIER",
@@ -7301,11 +7321,6 @@ Search.appendIndex(
             "summary": "",
             "url": "classes/chillerlan-OAuthTest-Providers-Unit-OAuth2ProviderUnitTestAbstract.html#method_testClientCredentialsTokenRequest"
         },                {
-            "fqsen": "\\chillerlan\\OAuthTest\\Providers\\Unit\\OAuth2ProviderUnitTestAbstract\u003A\u003AtestGetClientCredentialsNotSupportedException\u0028\u0029",
-            "name": "testGetClientCredentialsNotSupportedException",
-            "summary": "",
-            "url": "classes/chillerlan-OAuthTest-Providers-Unit-OAuth2ProviderUnitTestAbstract.html#method_testGetClientCredentialsNotSupportedException"
-        },                {
             "fqsen": "\\chillerlan\\OAuthTest\\Providers\\Unit\\OAuth2ProviderUnitTestAbstract\u003A\u003AtestSetCSRFState\u0028\u0029",
             "name": "testSetCSRFState",
             "summary": "",
@@ -7380,16 +7395,6 @@ Search.appendIndex(
             "name": "testSetCodeVerifierInvalidParams",
             "summary": "",
             "url": "classes/chillerlan-OAuthTest-Providers-Unit-OAuth2ProviderUnitTestAbstract.html#method_testSetCodeVerifierInvalidParams"
-        },                {
-            "fqsen": "\\chillerlan\\OAuthTest\\Providers\\Unit\\OAuth2ProviderUnitTestAbstract\u003A\u003AtestSetCodeChallengeNotSupportedException\u0028\u0029",
-            "name": "testSetCodeChallengeNotSupportedException",
-            "summary": "",
-            "url": "classes/chillerlan-OAuthTest-Providers-Unit-OAuth2ProviderUnitTestAbstract.html#method_testSetCodeChallengeNotSupportedException"
-        },                {
-            "fqsen": "\\chillerlan\\OAuthTest\\Providers\\Unit\\OAuth2ProviderUnitTestAbstract\u003A\u003AtestSetCodeVerifierNotSupportedException\u0028\u0029",
-            "name": "testSetCodeVerifierNotSupportedException",
-            "summary": "",
-            "url": "classes/chillerlan-OAuthTest-Providers-Unit-OAuth2ProviderUnitTestAbstract.html#method_testSetCodeVerifierNotSupportedException"
         },                {
             "fqsen": "\\chillerlan\\OAuthTest\\Providers\\Unit\\OAuth2ProviderUnitTestAbstract\u003A\u003ATEST_TOKEN",
             "name": "TEST_TOKEN",

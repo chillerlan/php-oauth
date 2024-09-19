@@ -142,6 +142,9 @@
             implements
                             <a href="classes/chillerlan-OAuth-Core-CSRFToken.html"><abbr title="\chillerlan\OAuth\Core\CSRFToken">CSRFToken</abbr></a>,                             <a href="classes/chillerlan-OAuth-Core-TokenInvalidate.html"><abbr title="\chillerlan\OAuth\Core\TokenInvalidate">TokenInvalidate</abbr></a>,                             <a href="classes/chillerlan-OAuth-Core-TokenRefresh.html"><abbr title="\chillerlan\OAuth\Core\TokenRefresh">TokenRefresh</abbr></a>,                             <a href="classes/chillerlan-OAuth-Core-UserInfo.html"><abbr title="\chillerlan\OAuth\Core\UserInfo">UserInfo</abbr></a>                    </span>
     
+            <span class="phpdocumentor-element__extends">
+            uses
+                            <a href="classes/chillerlan-OAuth-Core-TokenInvalidateTrait.html"><abbr title="\chillerlan\OAuth\Core\TokenInvalidateTrait">TokenInvalidateTrait</abbr></a>                    </span>
     </h2>
 
 <div class="phpdocumentor-label-line">
@@ -418,20 +421,6 @@ usually via a &quot;/me&quot;, &quot;/user&quot; or &quot;/tokeninfo&quot; endpo
 <dd>implements CSRFToken::checkState()</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a class="" href="classes/chillerlan-OAuth-Core-OAuth2Provider.html#method_generateChallenge">generateChallenge()</a>
-    <span>
-                                &nbsp;: string    </span>
-</dt>
-<dd>implements PKCE::generateChallenge()</dd>
-
-            <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a class="" href="classes/chillerlan-OAuth-Core-OAuth2Provider.html#method_generateVerifier">generateVerifier()</a>
-    <span>
-                                &nbsp;: string    </span>
-</dt>
-<dd>implements PKCE::generateVerifier()</dd>
-
-            <dt class="phpdocumentor-table-of-contents__entry -method -public">
     <a class="" href="classes/chillerlan-OAuth-Core-OAuth2Provider.html#method_getAccessToken">getAccessToken()</a>
     <span>
                                 &nbsp;: <a href="classes/chillerlan-OAuth-Core-AccessToken.html"><abbr title="\chillerlan\OAuth\Core\AccessToken">AccessToken</abbr></a>    </span>
@@ -469,25 +458,11 @@ if the provider implements the CSRFToken interface, and returns an AccessToken o
 and returns a PSR-7 UriInterface with all necessary parameters set.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a class="" href="classes/chillerlan-OAuth-Core-OAuth2Provider.html#method_getClientCredentialsToken">getClientCredentialsToken()</a>
-    <span>
-                                &nbsp;: <a href="classes/chillerlan-OAuth-Core-AccessToken.html"><abbr title="\chillerlan\OAuth\Core\AccessToken">AccessToken</abbr></a>    </span>
-</dt>
-<dd>implements ClientCredentials::getClientCredentialsToken()</dd>
-
-            <dt class="phpdocumentor-table-of-contents__entry -method -public">
     <a class="" href="classes/chillerlan-OAuth-Core-OAuthProvider.html#method_getName">getName()</a>
     <span>
                                 &nbsp;: string    </span>
 </dt>
 <dd>Returns the name of the provider/class</dd>
-
-            <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a class="" href="classes/chillerlan-OAuth-Core-OAuth2Provider.html#method_getParRequestUri">getParRequestUri()</a>
-    <span>
-                                &nbsp;: <abbr title="\Psr\Http\Message\UriInterface">UriInterface</abbr>    </span>
-</dt>
-<dd>implements PAR::getParRequestUri()</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
     <a class="" href="classes/chillerlan-OAuth-Core-OAuth2Provider.html#method_getRequestAuthorization">getRequestAuthorization()</a>
@@ -519,7 +494,7 @@ and returns a PSR-7 RequestInterface with all necessary headers and/or parameter
 <dd>implements TokenInvalidate</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a class="" href="classes/chillerlan-OAuth-Core-OAuth2Provider.html#method_invalidateAccessToken">invalidateAccessToken()</a>
+    <a class="" href="classes/chillerlan-OAuth-Core-TokenInvalidateTrait.html#method_invalidateAccessToken">invalidateAccessToken()</a>
     <span>
                                 &nbsp;: bool    </span>
 </dt>
@@ -552,20 +527,6 @@ and returns a PSR-7 ResponseInterface with the corresponding API response</dd>
     <span>
                                 &nbsp;: <abbr title="\Psr\Http\Message\ResponseInterface">ResponseInterface</abbr>    </span>
 </dt>
-
-            <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a class="" href="classes/chillerlan-OAuth-Core-OAuth2Provider.html#method_setCodeChallenge">setCodeChallenge()</a>
-    <span>
-                                &nbsp;: array&lt;string, string&gt;    </span>
-</dt>
-<dd>implements PKCE::setCodeChallenge()</dd>
-
-            <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a class="" href="classes/chillerlan-OAuth-Core-OAuth2Provider.html#method_setCodeVerifier">setCodeVerifier()</a>
-    <span>
-                                &nbsp;: array&lt;string, string&gt;    </span>
-</dt>
-<dd>implements PKCE::setCodeVerifier()</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
     <a class="" href="classes/chillerlan-OAuth-Core-OAuthProvider.html#method_setLogger">setLogger()</a>
@@ -667,18 +628,10 @@ so that you don&#039;t have to implement the monstrous original `__construct()`<
 <dd>prepares the query parameters for the auth URL</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -protected">
-    <a class="" href="classes/chillerlan-OAuth-Core-OAuth2Provider.html#method_getClientCredentialsTokenRequestBodyParams">getClientCredentialsTokenRequestBodyParams()</a>
-    <span>
-                                &nbsp;: array&lt;string, string&gt;    </span>
-</dt>
-<dd>prepares the request body parameters for the client credentials token request</dd>
-
-            <dt class="phpdocumentor-table-of-contents__entry -method -protected">
     <a class="" href="classes/chillerlan-OAuth-Providers-MusicBrainz.html#method_getInvalidateAccessTokenBodyParams">getInvalidateAccessTokenBodyParams()</a>
     <span>
                                 &nbsp;: array&lt;string, scalar|bool|null&gt;    </span>
 </dt>
-<dd>Prepares the body for a token revocation request</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -protected">
     <a class="" href="classes/chillerlan-OAuth-Core-OAuthProvider.html#method_getMeResponseData">getMeResponseData()</a>
@@ -686,13 +639,6 @@ so that you don&#039;t have to implement the monstrous original `__construct()`<
                                 &nbsp;: array&lt;int|string, mixed&gt;    </span>
 </dt>
 <dd>fetches the provider&#039;s &quot;me&quot; endpoint and returns the JSON data as an array</dd>
-
-            <dt class="phpdocumentor-table-of-contents__entry -method -protected">
-    <a class="" href="classes/chillerlan-OAuth-Core-OAuth2Provider.html#method_getParAuthorizationURLRequestParams">getParAuthorizationURLRequestParams()</a>
-    <span>
-                                &nbsp;: array&lt;string, string&gt;    </span>
-</dt>
-<dd>Parses the response from the PAR request and returns the query parameters for the authorization URL</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -protected">
     <a class="" href="classes/chillerlan-OAuth-Providers-MusicBrainz.html#method_getRefreshAccessTokenRequestBodyParams">getRefreshAccessTokenRequestBodyParams()</a>
@@ -759,13 +705,6 @@ anything except host and path will be ignored, scheme will always be set to &quo
 <dd>sends a request to the access/refresh token endpoint $url with the given $body as form data</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -protected">
-    <a class="" href="classes/chillerlan-OAuth-Core-OAuth2Provider.html#method_sendClientCredentialsTokenRequest">sendClientCredentialsTokenRequest()</a>
-    <span>
-                                &nbsp;: <abbr title="\Psr\Http\Message\ResponseInterface">ResponseInterface</abbr>    </span>
-</dt>
-<dd>sends a request to the client credentials endpoint, using basic authentication</dd>
-
-            <dt class="phpdocumentor-table-of-contents__entry -method -protected">
     <a class="" href="classes/chillerlan-OAuth-Core-OAuthProvider.html#method_sendMeRequest">sendMeRequest()</a>
     <span>
                                 &nbsp;: <abbr title="\Psr\Http\Message\ResponseInterface">ResponseInterface</abbr>    </span>
@@ -773,7 +712,7 @@ anything except host and path will be ignored, scheme will always be set to &quo
 <dd>prepares and sends the request to the provider&#039;s &quot;me&quot; endpoint and returns a ResponseInterface</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -protected">
-    <a class="" href="classes/chillerlan-OAuth-Core-OAuth2Provider.html#method_sendTokenInvalidateRequest">sendTokenInvalidateRequest()</a>
+    <a class="" href="classes/chillerlan-OAuth-Core-TokenInvalidateTrait.html#method_sendTokenInvalidateRequest">sendTokenInvalidateRequest()</a>
     <span>
                                 &nbsp;: <abbr title="\Psr\Http\Message\ResponseInterface">ResponseInterface</abbr>    </span>
 </dt>
@@ -807,7 +746,7 @@ anything except host and path will be ignored, scheme will always be set to &quo
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Providers/MusicBrainz.php"><a href="files/src-providers-musicbrainz.html"><abbr title="src/Providers/MusicBrainz.php">MusicBrainz.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">40</span>
+    <span class="phpdocumentor-element-found-in__line">41</span>
 
     </aside>
 
@@ -838,7 +777,7 @@ anything except host and path will be ignored, scheme will always be set to &quo
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Providers/MusicBrainz.php"><a href="files/src-providers-musicbrainz.html"><abbr title="src/Providers/MusicBrainz.php">MusicBrainz.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">30</span>
+    <span class="phpdocumentor-element-found-in__line">31</span>
 
     </aside>
 
@@ -869,7 +808,7 @@ anything except host and path will be ignored, scheme will always be set to &quo
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Providers/MusicBrainz.php"><a href="files/src-providers-musicbrainz.html"><abbr title="src/Providers/MusicBrainz.php">MusicBrainz.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">36</span>
+    <span class="phpdocumentor-element-found-in__line">37</span>
 
     </aside>
 
@@ -900,7 +839,7 @@ anything except host and path will be ignored, scheme will always be set to &quo
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Providers/MusicBrainz.php"><a href="files/src-providers-musicbrainz.html"><abbr title="src/Providers/MusicBrainz.php">MusicBrainz.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">33</span>
+    <span class="phpdocumentor-element-found-in__line">34</span>
 
     </aside>
 
@@ -931,7 +870,7 @@ anything except host and path will be ignored, scheme will always be set to &quo
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Providers/MusicBrainz.php"><a href="files/src-providers-musicbrainz.html"><abbr title="src/Providers/MusicBrainz.php">MusicBrainz.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">32</span>
+    <span class="phpdocumentor-element-found-in__line">33</span>
 
     </aside>
 
@@ -962,7 +901,7 @@ anything except host and path will be ignored, scheme will always be set to &quo
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Providers/MusicBrainz.php"><a href="files/src-providers-musicbrainz.html"><abbr title="src/Providers/MusicBrainz.php">MusicBrainz.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">35</span>
+    <span class="phpdocumentor-element-found-in__line">36</span>
 
     </aside>
 
@@ -993,7 +932,7 @@ anything except host and path will be ignored, scheme will always be set to &quo
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Providers/MusicBrainz.php"><a href="files/src-providers-musicbrainz.html"><abbr title="src/Providers/MusicBrainz.php">MusicBrainz.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">38</span>
+    <span class="phpdocumentor-element-found-in__line">39</span>
 
     </aside>
 
@@ -1024,7 +963,7 @@ anything except host and path will be ignored, scheme will always be set to &quo
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Providers/MusicBrainz.php"><a href="files/src-providers-musicbrainz.html"><abbr title="src/Providers/MusicBrainz.php">MusicBrainz.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">37</span>
+    <span class="phpdocumentor-element-found-in__line">38</span>
 
     </aside>
 
@@ -1055,7 +994,7 @@ anything except host and path will be ignored, scheme will always be set to &quo
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Providers/MusicBrainz.php"><a href="files/src-providers-musicbrainz.html"><abbr title="src/Providers/MusicBrainz.php">MusicBrainz.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">34</span>
+    <span class="phpdocumentor-element-found-in__line">35</span>
 
     </aside>
 
@@ -1102,7 +1041,7 @@ anything except host and path will be ignored, scheme will always be set to &quo
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Providers/MusicBrainz.php"><a href="files/src-providers-musicbrainz.html"><abbr title="src/Providers/MusicBrainz.php">MusicBrainz.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">49</span>
+    <span class="phpdocumentor-element-found-in__line">50</span>
 
     </aside>
 
@@ -1138,7 +1077,7 @@ anything except host and path will be ignored, scheme will always be set to &quo
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Providers/MusicBrainz.php"><a href="files/src-providers-musicbrainz.html"><abbr title="src/Providers/MusicBrainz.php">MusicBrainz.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">53</span>
+    <span class="phpdocumentor-element-found-in__line">54</span>
 
     </aside>
 
@@ -1174,7 +1113,7 @@ anything except host and path will be ignored, scheme will always be set to &quo
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Providers/MusicBrainz.php"><a href="files/src-providers-musicbrainz.html"><abbr title="src/Providers/MusicBrainz.php">MusicBrainz.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">51</span>
+    <span class="phpdocumentor-element-found-in__line">52</span>
 
     </aside>
 
@@ -1210,7 +1149,7 @@ anything except host and path will be ignored, scheme will always be set to &quo
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Providers/MusicBrainz.php"><a href="files/src-providers-musicbrainz.html"><abbr title="src/Providers/MusicBrainz.php">MusicBrainz.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">54</span>
+    <span class="phpdocumentor-element-found-in__line">55</span>
 
     </aside>
 
@@ -1246,7 +1185,7 @@ anything except host and path will be ignored, scheme will always be set to &quo
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Providers/MusicBrainz.php"><a href="files/src-providers-musicbrainz.html"><abbr title="src/Providers/MusicBrainz.php">MusicBrainz.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">48</span>
+    <span class="phpdocumentor-element-found-in__line">49</span>
 
     </aside>
 
@@ -1282,9 +1221,9 @@ anything except host and path will be ignored, scheme will always be set to &quo
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Core/OAuth2Provider.php"><a href="files/src-core-oauth2provider.html"><abbr title="src/Core/OAuth2Provider.php">OAuth2Provider.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">49</span>
+    <span class="phpdocumentor-element-found-in__line">48</span>
 
-            <a href="classes/chillerlan-OAuth-Providers-MusicBrainz.html#source-view.49" class="phpdocumentor-element-found-in__source" data-line="49" data-modal="source-view" data-src="files/src/Core/OAuth2Provider.php.txt"></a>
+            <a href="classes/chillerlan-OAuth-Providers-MusicBrainz.html#source-view.48" class="phpdocumentor-element-found-in__source" data-line="48" data-modal="source-view" data-src="files/src/Core/OAuth2Provider.php.txt"></a>
     </aside>
 
         <p class="phpdocumentor-summary">An optional client credentials token endpoint in case the provider supports ClientCredentials.</p>
@@ -1413,9 +1352,9 @@ anything except host and path will be ignored, scheme will always be set to &quo
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Core/OAuthProvider.php"><a href="files/src-core-oauthprovider.html"><abbr title="src/Core/OAuthProvider.php">OAuthProvider.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">99</span>
+    <span class="phpdocumentor-element-found-in__line">100</span>
 
-            <a href="classes/chillerlan-OAuth-Providers-MusicBrainz.html#source-view.99" class="phpdocumentor-element-found-in__source" data-line="99" data-modal="source-view" data-src="files/src/Core/OAuthProvider.php.txt"></a>
+            <a href="classes/chillerlan-OAuth-Providers-MusicBrainz.html#source-view.100" class="phpdocumentor-element-found-in__source" data-line="100" data-modal="source-view" data-src="files/src/Core/OAuthProvider.php.txt"></a>
     </aside>
 
         <p class="phpdocumentor-summary">The name of the provider/class</p>
@@ -1520,6 +1459,14 @@ anything except host and path will be ignored, scheme will always be set to &quo
                                         
                                              
                                     </dd>
+                            <dt class="phpdocumentor-tag-list__entry">
+                    <span class="phpdocumentor-tag__name">see</span>
+                </dt>
+                <dd class="phpdocumentor-tag-list__definition">
+                                                                                    <span class="phpdocumentor-tag-link"><a href="classes/chillerlan-OAuth-Core-PARTrait.html#method_getParRequestUri"><abbr title="\chillerlan\OAuth\Core\PARTrait::getParRequestUri()">PARTrait::getParRequestUri()</abbr></a></span>
+                                        
+                                             
+                                    </dd>
                                             </dl>
 
     
@@ -1542,9 +1489,9 @@ anything except host and path will be ignored, scheme will always be set to &quo
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Core/OAuth2Provider.php"><a href="files/src-core-oauth2provider.html"><abbr title="src/Core/OAuth2Provider.php">OAuth2Provider.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">41</span>
+    <span class="phpdocumentor-element-found-in__line">40</span>
 
-            <a href="classes/chillerlan-OAuth-Providers-MusicBrainz.html#source-view.41" class="phpdocumentor-element-found-in__source" data-line="41" data-modal="source-view" data-src="files/src/Core/OAuth2Provider.php.txt"></a>
+            <a href="classes/chillerlan-OAuth-Providers-MusicBrainz.html#source-view.40" class="phpdocumentor-element-found-in__source" data-line="40" data-modal="source-view" data-src="files/src/Core/OAuth2Provider.php.txt"></a>
     </aside>
 
         <p class="phpdocumentor-summary">An optional refresh token endpoint in case the provider supports TokenRefresh.</p>
@@ -1635,7 +1582,7 @@ anything except host and path will be ignored, scheme will always be set to &quo
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Providers/MusicBrainz.php"><a href="files/src-providers-musicbrainz.html"><abbr title="src/Providers/MusicBrainz.php">MusicBrainz.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">50</span>
+    <span class="phpdocumentor-element-found-in__line">51</span>
 
     </aside>
 
@@ -1785,7 +1732,7 @@ anything except host and path will be ignored, scheme will always be set to &quo
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Providers/MusicBrainz.php"><a href="files/src-providers-musicbrainz.html"><abbr title="src/Providers/MusicBrainz.php">MusicBrainz.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">52</span>
+    <span class="phpdocumentor-element-found-in__line">53</span>
 
     </aside>
 
@@ -1826,9 +1773,9 @@ anything except host and path will be ignored, scheme will always be set to &quo
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Core/OAuthProvider.php"><a href="files/src-core-oauthprovider.html"><abbr title="src/Core/OAuthProvider.php">OAuthProvider.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">119</span>
+    <span class="phpdocumentor-element-found-in__line">120</span>
 
-            <a href="classes/chillerlan-OAuth-Providers-MusicBrainz.html#source-view.119" class="phpdocumentor-element-found-in__source" data-line="119" data-modal="source-view" data-src="files/src/Core/OAuthProvider.php.txt"></a>
+            <a href="classes/chillerlan-OAuth-Providers-MusicBrainz.html#source-view.120" class="phpdocumentor-element-found-in__source" data-line="120" data-modal="source-view" data-src="files/src/Core/OAuthProvider.php.txt"></a>
     </aside>
 
         <p class="phpdocumentor-summary">OAuthProvider constructor.</p>
@@ -1914,9 +1861,9 @@ anything except host and path will be ignored, scheme will always be set to &quo
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Core/OAuth2Provider.php"><a href="files/src-core-oauth2provider.html"><abbr title="src/Core/OAuth2Provider.php">OAuth2Provider.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">544</span>
+    <span class="phpdocumentor-element-found-in__line">386</span>
 
-            <a href="classes/chillerlan-OAuth-Providers-MusicBrainz.html#source-view.544" class="phpdocumentor-element-found-in__source" data-line="544" data-modal="source-view" data-src="files/src/Core/OAuth2Provider.php.txt"></a>
+            <a href="classes/chillerlan-OAuth-Providers-MusicBrainz.html#source-view.386" class="phpdocumentor-element-found-in__source" data-line="386" data-modal="source-view" data-src="files/src/Core/OAuth2Provider.php.txt"></a>
     </aside>
 
         <p class="phpdocumentor-summary">implements CSRFToken::checkState()</p>
@@ -1976,186 +1923,6 @@ anything except host and path will be ignored, scheme will always be set to &quo
     
 
     
-</article>
-                    <article
-        class="phpdocumentor-element
-            -method
-            -public
-                                                -final        "
->
-    <h4 class="phpdocumentor-element__name" id="method_generateChallenge">
-        generateChallenge()
-        <a href="classes/chillerlan-OAuth-Core-OAuth2Provider.html#method_generateChallenge" class="headerlink"><i class="fas fa-link"></i></a>
-
-    </h4>
-    <aside class="phpdocumentor-element-found-in">
-    <abbr class="phpdocumentor-element-found-in__file" title="src/Core/OAuth2Provider.php"><a href="files/src-core-oauth2provider.html"><abbr title="src/Core/OAuth2Provider.php">OAuth2Provider.php</abbr></a></abbr>
-    :
-    <span class="phpdocumentor-element-found-in__line">660</span>
-
-            <a href="classes/chillerlan-OAuth-Providers-MusicBrainz.html#source-view.660" class="phpdocumentor-element-found-in__source" data-line="660" data-modal="source-view" data-src="files/src/Core/OAuth2Provider.php.txt"></a>
-    </aside>
-
-        <p class="phpdocumentor-summary">implements PKCE::generateChallenge()</p>
-
-    <code class="phpdocumentor-code phpdocumentor-signature ">
-    <span class="phpdocumentor-signature__visibility">public</span>
-        <span class="phpdocumentor-signature__final">final</span>            <span class="phpdocumentor-signature__name">generateChallenge</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$verifier</span></span><span class="phpdocumentor-signature__argument"><span>, </span><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$challengeMethod</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">string</span></code>
-
-    <div class="phpdocumentor-label-line">
-        </div>
-    
-    
-        <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
-    <dl class="phpdocumentor-argument-list">
-                    <dt class="phpdocumentor-argument-list__entry">
-                <span class="phpdocumentor-signature__argument__name">$verifier</span>
-                : <span class="phpdocumentor-signature__argument__return-type">string</span>
-                            </dt>
-            <dd class="phpdocumentor-argument-list__definition">
-                
-            </dd>
-                    <dt class="phpdocumentor-argument-list__entry">
-                <span class="phpdocumentor-signature__argument__name">$challengeMethod</span>
-                : <span class="phpdocumentor-signature__argument__return-type">string</span>
-                            </dt>
-            <dd class="phpdocumentor-argument-list__definition">
-                
-            </dd>
-            </dl>
-
-    
-    <h5 class="phpdocumentor-tag-list__heading" id="tags">
-        Tags
-        <a href="classes/chillerlan-OAuth-Core-OAuth2Provider.html#method_generateChallenge#tags" class="headerlink"><i class="fas fa-link"></i></a>
-
-    </h5>
-    <dl class="phpdocumentor-tag-list">
-                                    <dt class="phpdocumentor-tag-list__entry">
-                    <span class="phpdocumentor-tag__name">see</span>
-                </dt>
-                <dd class="phpdocumentor-tag-list__definition">
-                                                                                    <span class="phpdocumentor-tag-link"><a href="classes/chillerlan-OAuth-Core-PKCE.html#method_generateChallenge"><abbr title="\chillerlan\OAuth\Core\PKCE::generateChallenge()">PKCE::generateChallenge()</abbr></a></span>
-                                        
-                                             
-                                    </dd>
-                            <dt class="phpdocumentor-tag-list__entry">
-                    <span class="phpdocumentor-tag__name">see</span>
-                </dt>
-                <dd class="phpdocumentor-tag-list__definition">
-                                                                                    <span class="phpdocumentor-tag-link"><a href="classes/chillerlan-OAuth-Core-OAuth2Provider.html#method_setCodeChallenge"><abbr title="\chillerlan\OAuth\Core\OAuth2Provider::setCodeChallenge()">OAuth2Provider::setCodeChallenge()</abbr></a></span>
-                                        
-                                             
-                                    </dd>
-                                            </dl>
-
-    
-
-            <section>
-        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
-        <span class="phpdocumentor-signature__response_type">string</span>
-            </section>
-
-</article>
-                    <article
-        class="phpdocumentor-element
-            -method
-            -public
-                                                -final        "
->
-    <h4 class="phpdocumentor-element__name" id="method_generateVerifier">
-        generateVerifier()
-        <a href="classes/chillerlan-OAuth-Core-OAuth2Provider.html#method_generateVerifier" class="headerlink"><i class="fas fa-link"></i></a>
-
-    </h4>
-    <aside class="phpdocumentor-element-found-in">
-    <abbr class="phpdocumentor-element-found-in__file" title="src/Core/OAuth2Provider.php"><a href="files/src-core-oauth2provider.html"><abbr title="src/Core/OAuth2Provider.php">OAuth2Provider.php</abbr></a></abbr>
-    :
-    <span class="phpdocumentor-element-found-in__line">635</span>
-
-            <a href="classes/chillerlan-OAuth-Providers-MusicBrainz.html#source-view.635" class="phpdocumentor-element-found-in__source" data-line="635" data-modal="source-view" data-src="files/src/Core/OAuth2Provider.php.txt"></a>
-    </aside>
-
-        <p class="phpdocumentor-summary">implements PKCE::generateVerifier()</p>
-
-    <code class="phpdocumentor-code phpdocumentor-signature ">
-    <span class="phpdocumentor-signature__visibility">public</span>
-        <span class="phpdocumentor-signature__final">final</span>            <span class="phpdocumentor-signature__name">generateVerifier</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">int&nbsp;</span><span class="phpdocumentor-signature__argument__name">$length</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">string</span></code>
-
-    <div class="phpdocumentor-label-line">
-        </div>
-    
-    
-        <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
-    <dl class="phpdocumentor-argument-list">
-                    <dt class="phpdocumentor-argument-list__entry">
-                <span class="phpdocumentor-signature__argument__name">$length</span>
-                : <span class="phpdocumentor-signature__argument__return-type">int</span>
-                            </dt>
-            <dd class="phpdocumentor-argument-list__definition">
-                
-            </dd>
-            </dl>
-
-    
-    <h5 class="phpdocumentor-tag-list__heading" id="tags">
-        Tags
-        <a href="classes/chillerlan-OAuth-Core-OAuth2Provider.html#method_generateVerifier#tags" class="headerlink"><i class="fas fa-link"></i></a>
-
-    </h5>
-    <dl class="phpdocumentor-tag-list">
-                                    <dt class="phpdocumentor-tag-list__entry">
-                    <span class="phpdocumentor-tag__name">see</span>
-                </dt>
-                <dd class="phpdocumentor-tag-list__definition">
-                                                                                    <span class="phpdocumentor-tag-link"><a href="classes/chillerlan-OAuth-Core-PKCE.html#method_generateVerifier"><abbr title="\chillerlan\OAuth\Core\PKCE::generateVerifier()">PKCE::generateVerifier()</abbr></a></span>
-                                        
-                                             
-                                    </dd>
-                            <dt class="phpdocumentor-tag-list__entry">
-                    <span class="phpdocumentor-tag__name">see</span>
-                </dt>
-                <dd class="phpdocumentor-tag-list__definition">
-                                                                                    <span class="phpdocumentor-tag-link"><a href="classes/chillerlan-OAuth-Core-OAuth2Provider.html#method_setCodeChallenge"><abbr title="\chillerlan\OAuth\Core\OAuth2Provider::setCodeChallenge()">OAuth2Provider::setCodeChallenge()</abbr></a></span>
-                                        
-                                             
-                                    </dd>
-                                                <dt class="phpdocumentor-tag-list__entry">
-                    <span class="phpdocumentor-tag__name">phan-suppress</span>
-                </dt>
-                <dd class="phpdocumentor-tag-list__definition">
-                                                                                
-                                                 <section class="phpdocumentor-description"><p>PhanUndeclaredClassMethod, PhanUndeclaredMethod</p>
-</section>
-
-                                    </dd>
-                                                <dt class="phpdocumentor-tag-list__entry">
-                    <span class="phpdocumentor-tag__name">noinspection</span>
-                </dt>
-                <dd class="phpdocumentor-tag-list__definition">
-                                                                                
-                                                 <section class="phpdocumentor-description"><p>PhpFullyQualifiedNameUsageInspection</p>
-</section>
-
-                                    </dd>
-                                                <dt class="phpdocumentor-tag-list__entry">
-                    <span class="phpdocumentor-tag__name">SuppressWarnings</span>
-                </dt>
-                <dd class="phpdocumentor-tag-list__definition">
-                                                                                
-                                                 <section class="phpdocumentor-description"><p>(PHPMD.MissingImport)</p>
-</section>
-
-                                    </dd>
-                                            </dl>
-
-    
-
-            <section>
-        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
-        <span class="phpdocumentor-signature__response_type">string</span>
-            </section>
-
 </article>
                     <article
         class="phpdocumentor-element
@@ -2229,9 +1996,9 @@ if the provider implements the CSRFToken interface, and returns an AccessToken o
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Core/OAuthProvider.php"><a href="files/src-core-oauthprovider.html"><abbr title="src/Core/OAuthProvider.php">OAuthProvider.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">217</span>
+    <span class="phpdocumentor-element-found-in__line">218</span>
 
-            <a href="classes/chillerlan-OAuth-Providers-MusicBrainz.html#source-view.217" class="phpdocumentor-element-found-in__source" data-line="217" data-modal="source-view" data-src="files/src/Core/OAuthProvider.php.txt"></a>
+            <a href="classes/chillerlan-OAuth-Providers-MusicBrainz.html#source-view.218" class="phpdocumentor-element-found-in__source" data-line="218" data-modal="source-view" data-src="files/src/Core/OAuthProvider.php.txt"></a>
     </aside>
 
         <p class="phpdocumentor-summary">Gets an access token from the current OAuthStorageInterface (shorthand/convenience)</p>
@@ -2283,9 +2050,9 @@ if the provider implements the CSRFToken interface, and returns an AccessToken o
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Core/OAuthProvider.php"><a href="files/src-core-oauthprovider.html"><abbr title="src/Core/OAuthProvider.php">OAuthProvider.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">155</span>
+    <span class="phpdocumentor-element-found-in__line">156</span>
 
-            <a href="classes/chillerlan-OAuth-Providers-MusicBrainz.html#source-view.155" class="phpdocumentor-element-found-in__source" data-line="155" data-modal="source-view" data-src="files/src/Core/OAuthProvider.php.txt"></a>
+            <a href="classes/chillerlan-OAuth-Providers-MusicBrainz.html#source-view.156" class="phpdocumentor-element-found-in__source" data-line="156" data-modal="source-view" data-src="files/src/Core/OAuthProvider.php.txt"></a>
     </aside>
 
         <p class="phpdocumentor-summary">Returns the link to the provider&#039;s API docs, or null if the value is not set</p>
@@ -2337,9 +2104,9 @@ if the provider implements the CSRFToken interface, and returns an AccessToken o
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Core/OAuthProvider.php"><a href="files/src-core-oauthprovider.html"><abbr title="src/Core/OAuthProvider.php">OAuthProvider.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">160</span>
+    <span class="phpdocumentor-element-found-in__line">161</span>
 
-            <a href="classes/chillerlan-OAuth-Providers-MusicBrainz.html#source-view.160" class="phpdocumentor-element-found-in__source" data-line="160" data-modal="source-view" data-src="files/src/Core/OAuthProvider.php.txt"></a>
+            <a href="classes/chillerlan-OAuth-Providers-MusicBrainz.html#source-view.161" class="phpdocumentor-element-found-in__source" data-line="161" data-modal="source-view" data-src="files/src/Core/OAuthProvider.php.txt"></a>
     </aside>
 
         <p class="phpdocumentor-summary">Returns the link to the provider&#039;s credential registration/application page, or null if the value is not set</p>
@@ -2439,79 +2206,6 @@ and returns a PSR-7 UriInterface with all necessary parameters set.</p>
         class="phpdocumentor-element
             -method
             -public
-                                                        "
->
-    <h4 class="phpdocumentor-element__name" id="method_getClientCredentialsToken">
-        getClientCredentialsToken()
-        <a href="classes/chillerlan-OAuth-Core-OAuth2Provider.html#method_getClientCredentialsToken" class="headerlink"><i class="fas fa-link"></i></a>
-
-    </h4>
-    <aside class="phpdocumentor-element-found-in">
-    <abbr class="phpdocumentor-element-found-in__file" title="src/Core/OAuth2Provider.php"><a href="files/src-core-oauth2provider.html"><abbr title="src/Core/OAuth2Provider.php">OAuth2Provider.php</abbr></a></abbr>
-    :
-    <span class="phpdocumentor-element-found-in__line">305</span>
-
-            <a href="classes/chillerlan-OAuth-Providers-MusicBrainz.html#source-view.305" class="phpdocumentor-element-found-in__source" data-line="305" data-modal="source-view" data-src="files/src/Core/OAuth2Provider.php.txt"></a>
-    </aside>
-
-        <p class="phpdocumentor-summary">implements ClientCredentials::getClientCredentialsToken()</p>
-
-    <code class="phpdocumentor-code phpdocumentor-signature ">
-    <span class="phpdocumentor-signature__visibility">public</span>
-                    <span class="phpdocumentor-signature__name">getClientCredentialsToken</span><span>(</span><span class="phpdocumentor-signature__argument"><span>[</span><span class="phpdocumentor-signature__argument__return-type">array&lt;string|int, string&gt;|null&nbsp;</span><span class="phpdocumentor-signature__argument__name">$scopes</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">null</span><span> ]</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type"><a href="classes/chillerlan-OAuth-Core-AccessToken.html"><abbr title="\chillerlan\OAuth\Core\AccessToken">AccessToken</abbr></a></span></code>
-
-    <div class="phpdocumentor-label-line">
-        </div>
-    
-    
-        <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
-    <dl class="phpdocumentor-argument-list">
-                    <dt class="phpdocumentor-argument-list__entry">
-                <span class="phpdocumentor-signature__argument__name">$scopes</span>
-                : <span class="phpdocumentor-signature__argument__return-type">array&lt;string|int, string&gt;|null</span>
-                 = <span class="phpdocumentor-signature__argument__default-value">null</span>            </dt>
-            <dd class="phpdocumentor-argument-list__definition">
-                
-            </dd>
-            </dl>
-
-    
-    <h5 class="phpdocumentor-tag-list__heading" id="tags">
-        Tags
-        <a href="classes/chillerlan-OAuth-Core-OAuth2Provider.html#method_getClientCredentialsToken#tags" class="headerlink"><i class="fas fa-link"></i></a>
-
-    </h5>
-    <dl class="phpdocumentor-tag-list">
-                                    <dt class="phpdocumentor-tag-list__entry">
-                    <span class="phpdocumentor-tag__name">see</span>
-                </dt>
-                <dd class="phpdocumentor-tag-list__definition">
-                                                                                    <span class="phpdocumentor-tag-link"><a href="classes/chillerlan-OAuth-Core-ClientCredentials.html#method_getClientCredentialsToken"><abbr title="\chillerlan\OAuth\Core\ClientCredentials::getClientCredentialsToken()">ClientCredentials::getClientCredentialsToken()</abbr></a></span>
-                                        
-                                             
-                                    </dd>
-                                                <dt class="phpdocumentor-tag-list__entry">
-                    <span class="phpdocumentor-tag__name">throws</span>
-                </dt>
-                <dd class="phpdocumentor-tag-list__definition">
-                                                                <span class="phpdocumentor-tag-link"><a href="classes/chillerlan-OAuth-Providers-ProviderException.html"><abbr title="\chillerlan\OAuth\Providers\ProviderException">ProviderException</abbr></a></span>
-                                                            
-                                             
-                                    </dd>
-                                            </dl>
-
-    
-
-            <section>
-        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
-        <span class="phpdocumentor-signature__response_type"><a href="classes/chillerlan-OAuth-Core-AccessToken.html"><abbr title="\chillerlan\OAuth\Core\AccessToken">AccessToken</abbr></a></span>
-            </section>
-
-</article>
-                    <article
-        class="phpdocumentor-element
-            -method
-            -public
                                                 -final        "
 >
     <h4 class="phpdocumentor-element__name" id="method_getName">
@@ -2522,9 +2216,9 @@ and returns a PSR-7 UriInterface with all necessary parameters set.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Core/OAuthProvider.php"><a href="files/src-core-oauthprovider.html"><abbr title="src/Core/OAuthProvider.php">OAuthProvider.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">150</span>
+    <span class="phpdocumentor-element-found-in__line">151</span>
 
-            <a href="classes/chillerlan-OAuth-Providers-MusicBrainz.html#source-view.150" class="phpdocumentor-element-found-in__source" data-line="150" data-modal="source-view" data-src="files/src/Core/OAuthProvider.php.txt"></a>
+            <a href="classes/chillerlan-OAuth-Providers-MusicBrainz.html#source-view.151" class="phpdocumentor-element-found-in__source" data-line="151" data-modal="source-view" data-src="files/src/Core/OAuthProvider.php.txt"></a>
     </aside>
 
         <p class="phpdocumentor-summary">Returns the name of the provider/class</p>
@@ -2559,79 +2253,6 @@ and returns a PSR-7 UriInterface with all necessary parameters set.</p>
             <section>
         <h5 class="phpdocumentor-return-value__heading">Return values</h5>
         <span class="phpdocumentor-signature__response_type">string</span>
-            </section>
-
-</article>
-                    <article
-        class="phpdocumentor-element
-            -method
-            -public
-                                                        "
->
-    <h4 class="phpdocumentor-element__name" id="method_getParRequestUri">
-        getParRequestUri()
-        <a href="classes/chillerlan-OAuth-Core-OAuth2Provider.html#method_getParRequestUri" class="headerlink"><i class="fas fa-link"></i></a>
-
-    </h4>
-    <aside class="phpdocumentor-element-found-in">
-    <abbr class="phpdocumentor-element-found-in__file" title="src/Core/OAuth2Provider.php"><a href="files/src-core-oauth2provider.html"><abbr title="src/Core/OAuth2Provider.php">OAuth2Provider.php</abbr></a></abbr>
-    :
-    <span class="phpdocumentor-element-found-in__line">688</span>
-
-            <a href="classes/chillerlan-OAuth-Providers-MusicBrainz.html#source-view.688" class="phpdocumentor-element-found-in__source" data-line="688" data-modal="source-view" data-src="files/src/Core/OAuth2Provider.php.txt"></a>
-    </aside>
-
-        <p class="phpdocumentor-summary">implements PAR::getParRequestUri()</p>
-
-    <code class="phpdocumentor-code phpdocumentor-signature ">
-    <span class="phpdocumentor-signature__visibility">public</span>
-                    <span class="phpdocumentor-signature__name">getParRequestUri</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">array&lt;string, string&gt;&nbsp;</span><span class="phpdocumentor-signature__argument__name">$body</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type"><abbr title="\Psr\Http\Message\UriInterface">UriInterface</abbr></span></code>
-
-    <div class="phpdocumentor-label-line">
-        </div>
-    
-    
-        <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
-    <dl class="phpdocumentor-argument-list">
-                    <dt class="phpdocumentor-argument-list__entry">
-                <span class="phpdocumentor-signature__argument__name">$body</span>
-                : <span class="phpdocumentor-signature__argument__return-type">array&lt;string, string&gt;</span>
-                            </dt>
-            <dd class="phpdocumentor-argument-list__definition">
-                
-            </dd>
-            </dl>
-
-    
-    <h5 class="phpdocumentor-tag-list__heading" id="tags">
-        Tags
-        <a href="classes/chillerlan-OAuth-Core-OAuth2Provider.html#method_getParRequestUri#tags" class="headerlink"><i class="fas fa-link"></i></a>
-
-    </h5>
-    <dl class="phpdocumentor-tag-list">
-                                    <dt class="phpdocumentor-tag-list__entry">
-                    <span class="phpdocumentor-tag__name">see</span>
-                </dt>
-                <dd class="phpdocumentor-tag-list__definition">
-                                                                                    <span class="phpdocumentor-tag-link"><a href="classes/chillerlan-OAuth-Core-PAR.html#method_getParRequestUri"><abbr title="\chillerlan\OAuth\Core\PAR::getParRequestUri()">PAR::getParRequestUri()</abbr></a></span>
-                                        
-                                             
-                                    </dd>
-                            <dt class="phpdocumentor-tag-list__entry">
-                    <span class="phpdocumentor-tag__name">see</span>
-                </dt>
-                <dd class="phpdocumentor-tag-list__definition">
-                                                                                    <span class="phpdocumentor-tag-link"><a href="classes/chillerlan-OAuth-Core-OAuth2Provider.html#method_getAuthorizationURL"><abbr title="\chillerlan\OAuth\Core\OAuth2Provider::getAuthorizationURL()">OAuth2Provider::getAuthorizationURL()</abbr></a></span>
-                                        
-                                             
-                                    </dd>
-                                            </dl>
-
-    
-
-            <section>
-        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
-        <span class="phpdocumentor-signature__response_type"><abbr title="\Psr\Http\Message\UriInterface">UriInterface</abbr></span>
             </section>
 
 </article>
@@ -2707,9 +2328,9 @@ and returns a PSR-7 RequestInterface with all necessary headers and/or parameter
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Core/OAuthProvider.php"><a href="files/src-core-oauthprovider.html"><abbr title="src/Core/OAuthProvider.php">OAuthProvider.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">177</span>
+    <span class="phpdocumentor-element-found-in__line">178</span>
 
-            <a href="classes/chillerlan-OAuth-Providers-MusicBrainz.html#source-view.177" class="phpdocumentor-element-found-in__source" data-line="177" data-modal="source-view" data-src="files/src/Core/OAuthProvider.php.txt"></a>
+            <a href="classes/chillerlan-OAuth-Providers-MusicBrainz.html#source-view.178" class="phpdocumentor-element-found-in__source" data-line="178" data-modal="source-view" data-src="files/src/Core/OAuthProvider.php.txt"></a>
     </aside>
 
         <p class="phpdocumentor-summary">Returns the current OAuthStorageInterface</p>
@@ -2761,9 +2382,9 @@ and returns a PSR-7 RequestInterface with all necessary headers and/or parameter
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Core/OAuthProvider.php"><a href="files/src-core-oauthprovider.html"><abbr title="src/Core/OAuthProvider.php">OAuthProvider.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">165</span>
+    <span class="phpdocumentor-element-found-in__line">166</span>
 
-            <a href="classes/chillerlan-OAuth-Providers-MusicBrainz.html#source-view.165" class="phpdocumentor-element-found-in__source" data-line="165" data-modal="source-view" data-src="files/src/Core/OAuthProvider.php.txt"></a>
+            <a href="classes/chillerlan-OAuth-Providers-MusicBrainz.html#source-view.166" class="phpdocumentor-element-found-in__source" data-line="166" data-modal="source-view" data-src="files/src/Core/OAuthProvider.php.txt"></a>
     </aside>
 
         <p class="phpdocumentor-summary">Returns the link to the page where a user can revoke access tokens, or null if the value is not set</p>
@@ -2815,9 +2436,9 @@ and returns a PSR-7 RequestInterface with all necessary headers and/or parameter
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Core/OAuthProvider.php"><a href="files/src-core-oauthprovider.html"><abbr title="src/Core/OAuthProvider.php">OAuthProvider.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">295</span>
+    <span class="phpdocumentor-element-found-in__line">296</span>
 
-            <a href="classes/chillerlan-OAuth-Providers-MusicBrainz.html#source-view.295" class="phpdocumentor-element-found-in__source" data-line="295" data-modal="source-view" data-src="files/src/Core/OAuthProvider.php.txt"></a>
+            <a href="classes/chillerlan-OAuth-Providers-MusicBrainz.html#source-view.296" class="phpdocumentor-element-found-in__source" data-line="296" data-modal="source-view" data-src="files/src/Core/OAuthProvider.php.txt"></a>
     </aside>
 
         <p class="phpdocumentor-summary">implements TokenInvalidate</p>
@@ -2889,15 +2510,14 @@ and returns a PSR-7 RequestInterface with all necessary headers and/or parameter
 >
     <h4 class="phpdocumentor-element__name" id="method_invalidateAccessToken">
         invalidateAccessToken()
-        <a href="classes/chillerlan-OAuth-Core-OAuth2Provider.html#method_invalidateAccessToken" class="headerlink"><i class="fas fa-link"></i></a>
+        <a href="classes/chillerlan-OAuth-Core-TokenInvalidateTrait.html#method_invalidateAccessToken" class="headerlink"><i class="fas fa-link"></i></a>
 
     </h4>
     <aside class="phpdocumentor-element-found-in">
-    <abbr class="phpdocumentor-element-found-in__file" title="src/Core/OAuth2Provider.php"><a href="files/src-core-oauth2provider.html"><abbr title="src/Core/OAuth2Provider.php">OAuth2Provider.php</abbr></a></abbr>
+    <abbr class="phpdocumentor-element-found-in__file" title="src/Core/TokenInvalidateTrait.php"><a href="files/src-core-tokeninvalidatetrait.html"><abbr title="src/Core/TokenInvalidateTrait.php">TokenInvalidateTrait.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">436</span>
+    <span class="phpdocumentor-element-found-in__line">36</span>
 
-            <a href="classes/chillerlan-OAuth-Providers-MusicBrainz.html#source-view.436" class="phpdocumentor-element-found-in__source" data-line="436" data-modal="source-view" data-src="files/src/Core/OAuth2Provider.php.txt"></a>
     </aside>
 
         <p class="phpdocumentor-summary">implements TokenInvalidate::invalidateAccessToken()</p>
@@ -2931,7 +2551,7 @@ and returns a PSR-7 RequestInterface with all necessary headers and/or parameter
     
     <h5 class="phpdocumentor-tag-list__heading" id="tags">
         Tags
-        <a href="classes/chillerlan-OAuth-Core-OAuth2Provider.html#method_invalidateAccessToken#tags" class="headerlink"><i class="fas fa-link"></i></a>
+        <a href="classes/chillerlan-OAuth-Core-TokenInvalidateTrait.html#method_invalidateAccessToken#tags" class="headerlink"><i class="fas fa-link"></i></a>
 
     </h5>
     <dl class="phpdocumentor-tag-list">
@@ -2975,7 +2595,7 @@ and returns a PSR-7 RequestInterface with all necessary headers and/or parameter
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Providers/MusicBrainz.php"><a href="files/src-providers-musicbrainz.html"><abbr title="src/Providers/MusicBrainz.php">MusicBrainz.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">97</span>
+    <span class="phpdocumentor-element-found-in__line">101</span>
 
     </aside>
 
@@ -3028,9 +2648,9 @@ and returns a PSR-7 RequestInterface with all necessary headers and/or parameter
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Core/OAuth2Provider.php"><a href="files/src-core-oauth2provider.html"><abbr title="src/Core/OAuth2Provider.php">OAuth2Provider.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">380</span>
+    <span class="phpdocumentor-element-found-in__line">303</span>
 
-            <a href="classes/chillerlan-OAuth-Providers-MusicBrainz.html#source-view.380" class="phpdocumentor-element-found-in__source" data-line="380" data-modal="source-view" data-src="files/src/Core/OAuth2Provider.php.txt"></a>
+            <a href="classes/chillerlan-OAuth-Providers-MusicBrainz.html#source-view.303" class="phpdocumentor-element-found-in__source" data-line="303" data-modal="source-view" data-src="files/src/Core/OAuth2Provider.php.txt"></a>
     </aside>
 
         <p class="phpdocumentor-summary">implements TokenRefresh::refreshAccessToken()</p>
@@ -3101,7 +2721,7 @@ and returns a PSR-7 RequestInterface with all necessary headers and/or parameter
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Providers/MusicBrainz.php"><a href="files/src-providers-musicbrainz.html"><abbr title="src/Providers/MusicBrainz.php">MusicBrainz.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">74</span>
+    <span class="phpdocumentor-element-found-in__line">78</span>
 
     </aside>
 
@@ -3186,9 +2806,9 @@ and returns a PSR-7 ResponseInterface with the corresponding API response</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Core/OAuthProvider.php"><a href="files/src-core-oauthprovider.html"><abbr title="src/Core/OAuthProvider.php">OAuthProvider.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">302</span>
+    <span class="phpdocumentor-element-found-in__line">303</span>
 
-            <a href="classes/chillerlan-OAuth-Providers-MusicBrainz.html#source-view.302" class="phpdocumentor-element-found-in__source" data-line="302" data-modal="source-view" data-src="files/src/Core/OAuthProvider.php.txt"></a>
+            <a href="classes/chillerlan-OAuth-Providers-MusicBrainz.html#source-view.303" class="phpdocumentor-element-found-in__source" data-line="303" data-modal="source-view" data-src="files/src/Core/OAuthProvider.php.txt"></a>
     </aside>
 
     
@@ -3242,159 +2862,6 @@ and returns a PSR-7 ResponseInterface with the corresponding API response</p>
             -public
                                                 -final        "
 >
-    <h4 class="phpdocumentor-element__name" id="method_setCodeChallenge">
-        setCodeChallenge()
-        <a href="classes/chillerlan-OAuth-Core-OAuth2Provider.html#method_setCodeChallenge" class="headerlink"><i class="fas fa-link"></i></a>
-
-    </h4>
-    <aside class="phpdocumentor-element-found-in">
-    <abbr class="phpdocumentor-element-found-in__file" title="src/Core/OAuth2Provider.php"><a href="files/src-core-oauth2provider.html"><abbr title="src/Core/OAuth2Provider.php">OAuth2Provider.php</abbr></a></abbr>
-    :
-    <span class="phpdocumentor-element-found-in__line">578</span>
-
-            <a href="classes/chillerlan-OAuth-Providers-MusicBrainz.html#source-view.578" class="phpdocumentor-element-found-in__source" data-line="578" data-modal="source-view" data-src="files/src/Core/OAuth2Provider.php.txt"></a>
-    </aside>
-
-        <p class="phpdocumentor-summary">implements PKCE::setCodeChallenge()</p>
-
-    <code class="phpdocumentor-code phpdocumentor-signature ">
-    <span class="phpdocumentor-signature__visibility">public</span>
-        <span class="phpdocumentor-signature__final">final</span>            <span class="phpdocumentor-signature__name">setCodeChallenge</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">array&lt;string, string&gt;&nbsp;</span><span class="phpdocumentor-signature__argument__name">$params</span></span><span class="phpdocumentor-signature__argument"><span>, </span><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$challengeMethod</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">array&lt;string, string&gt;</span></code>
-
-    <div class="phpdocumentor-label-line">
-        </div>
-    
-    
-        <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
-    <dl class="phpdocumentor-argument-list">
-                    <dt class="phpdocumentor-argument-list__entry">
-                <span class="phpdocumentor-signature__argument__name">$params</span>
-                : <span class="phpdocumentor-signature__argument__return-type">array&lt;string, string&gt;</span>
-                            </dt>
-            <dd class="phpdocumentor-argument-list__definition">
-                
-            </dd>
-                    <dt class="phpdocumentor-argument-list__entry">
-                <span class="phpdocumentor-signature__argument__name">$challengeMethod</span>
-                : <span class="phpdocumentor-signature__argument__return-type">string</span>
-                            </dt>
-            <dd class="phpdocumentor-argument-list__definition">
-                
-            </dd>
-            </dl>
-
-    
-    <h5 class="phpdocumentor-tag-list__heading" id="tags">
-        Tags
-        <a href="classes/chillerlan-OAuth-Core-OAuth2Provider.html#method_setCodeChallenge#tags" class="headerlink"><i class="fas fa-link"></i></a>
-
-    </h5>
-    <dl class="phpdocumentor-tag-list">
-                                    <dt class="phpdocumentor-tag-list__entry">
-                    <span class="phpdocumentor-tag__name">see</span>
-                </dt>
-                <dd class="phpdocumentor-tag-list__definition">
-                                                                                    <span class="phpdocumentor-tag-link"><a href="classes/chillerlan-OAuth-Core-PKCE.html#method_setCodeChallenge"><abbr title="\chillerlan\OAuth\Core\PKCE::setCodeChallenge()">PKCE::setCodeChallenge()</abbr></a></span>
-                                        
-                                             
-                                    </dd>
-                            <dt class="phpdocumentor-tag-list__entry">
-                    <span class="phpdocumentor-tag__name">see</span>
-                </dt>
-                <dd class="phpdocumentor-tag-list__definition">
-                                                                                    <span class="phpdocumentor-tag-link"><a href="classes/chillerlan-OAuth-Core-OAuth2Provider.html#method_getAuthorizationURLRequestParams"><abbr title="\chillerlan\OAuth\Core\OAuth2Provider::getAuthorizationURLRequestParams()">OAuth2Provider::getAuthorizationURLRequestParams()</abbr></a></span>
-                                        
-                                             
-                                    </dd>
-                                            </dl>
-
-    
-
-            <section>
-        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
-        <span class="phpdocumentor-signature__response_type">array&lt;string, string&gt;</span>
-            </section>
-
-</article>
-                    <article
-        class="phpdocumentor-element
-            -method
-            -public
-                                                -final        "
->
-    <h4 class="phpdocumentor-element__name" id="method_setCodeVerifier">
-        setCodeVerifier()
-        <a href="classes/chillerlan-OAuth-Core-OAuth2Provider.html#method_setCodeVerifier" class="headerlink"><i class="fas fa-link"></i></a>
-
-    </h4>
-    <aside class="phpdocumentor-element-found-in">
-    <abbr class="phpdocumentor-element-found-in__file" title="src/Core/OAuth2Provider.php"><a href="files/src-core-oauth2provider.html"><abbr title="src/Core/OAuth2Provider.php">OAuth2Provider.php</abbr></a></abbr>
-    :
-    <span class="phpdocumentor-element-found-in__line">607</span>
-
-            <a href="classes/chillerlan-OAuth-Providers-MusicBrainz.html#source-view.607" class="phpdocumentor-element-found-in__source" data-line="607" data-modal="source-view" data-src="files/src/Core/OAuth2Provider.php.txt"></a>
-    </aside>
-
-        <p class="phpdocumentor-summary">implements PKCE::setCodeVerifier()</p>
-
-    <code class="phpdocumentor-code phpdocumentor-signature ">
-    <span class="phpdocumentor-signature__visibility">public</span>
-        <span class="phpdocumentor-signature__final">final</span>            <span class="phpdocumentor-signature__name">setCodeVerifier</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">array&lt;string, string&gt;&nbsp;</span><span class="phpdocumentor-signature__argument__name">$params</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">array&lt;string, string&gt;</span></code>
-
-    <div class="phpdocumentor-label-line">
-        </div>
-    
-    
-        <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
-    <dl class="phpdocumentor-argument-list">
-                    <dt class="phpdocumentor-argument-list__entry">
-                <span class="phpdocumentor-signature__argument__name">$params</span>
-                : <span class="phpdocumentor-signature__argument__return-type">array&lt;string, string&gt;</span>
-                            </dt>
-            <dd class="phpdocumentor-argument-list__definition">
-                
-            </dd>
-            </dl>
-
-    
-    <h5 class="phpdocumentor-tag-list__heading" id="tags">
-        Tags
-        <a href="classes/chillerlan-OAuth-Core-OAuth2Provider.html#method_setCodeVerifier#tags" class="headerlink"><i class="fas fa-link"></i></a>
-
-    </h5>
-    <dl class="phpdocumentor-tag-list">
-                                    <dt class="phpdocumentor-tag-list__entry">
-                    <span class="phpdocumentor-tag__name">see</span>
-                </dt>
-                <dd class="phpdocumentor-tag-list__definition">
-                                                                                    <span class="phpdocumentor-tag-link"><a href="classes/chillerlan-OAuth-Core-PKCE.html#method_setCodeVerifier"><abbr title="\chillerlan\OAuth\Core\PKCE::setCodeVerifier()">PKCE::setCodeVerifier()</abbr></a></span>
-                                        
-                                             
-                                    </dd>
-                            <dt class="phpdocumentor-tag-list__entry">
-                    <span class="phpdocumentor-tag__name">see</span>
-                </dt>
-                <dd class="phpdocumentor-tag-list__definition">
-                                                                                    <span class="phpdocumentor-tag-link"><a href="classes/chillerlan-OAuth-Core-OAuth2Provider.html#method_getAccessTokenRequestBodyParams"><abbr title="\chillerlan\OAuth\Core\OAuth2Provider::getAccessTokenRequestBodyParams()">OAuth2Provider::getAccessTokenRequestBodyParams()</abbr></a></span>
-                                        
-                                             
-                                    </dd>
-                                            </dl>
-
-    
-
-            <section>
-        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
-        <span class="phpdocumentor-signature__response_type">array&lt;string, string&gt;</span>
-            </section>
-
-</article>
-                    <article
-        class="phpdocumentor-element
-            -method
-            -public
-                                                -final        "
->
     <h4 class="phpdocumentor-element__name" id="method_setLogger">
         setLogger()
         <a href="classes/chillerlan-OAuth-Core-OAuthProvider.html#method_setLogger" class="headerlink"><i class="fas fa-link"></i></a>
@@ -3403,9 +2870,9 @@ and returns a PSR-7 ResponseInterface with the corresponding API response</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Core/OAuthProvider.php"><a href="files/src-core-oauthprovider.html"><abbr title="src/Core/OAuthProvider.php">OAuthProvider.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">182</span>
+    <span class="phpdocumentor-element-found-in__line">183</span>
 
-            <a href="classes/chillerlan-OAuth-Providers-MusicBrainz.html#source-view.182" class="phpdocumentor-element-found-in__source" data-line="182" data-modal="source-view" data-src="files/src/Core/OAuthProvider.php.txt"></a>
+            <a href="classes/chillerlan-OAuth-Providers-MusicBrainz.html#source-view.183" class="phpdocumentor-element-found-in__source" data-line="183" data-modal="source-view" data-src="files/src/Core/OAuthProvider.php.txt"></a>
     </aside>
 
         <p class="phpdocumentor-summary">Sets an optional PSR-3 LoggerInterface</p>
@@ -3467,9 +2934,9 @@ and returns a PSR-7 ResponseInterface with the corresponding API response</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Core/OAuthProvider.php"><a href="files/src-core-oauthprovider.html"><abbr title="src/Core/OAuthProvider.php">OAuthProvider.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">189</span>
+    <span class="phpdocumentor-element-found-in__line">190</span>
 
-            <a href="classes/chillerlan-OAuth-Providers-MusicBrainz.html#source-view.189" class="phpdocumentor-element-found-in__source" data-line="189" data-modal="source-view" data-src="files/src/Core/OAuthProvider.php.txt"></a>
+            <a href="classes/chillerlan-OAuth-Providers-MusicBrainz.html#source-view.190" class="phpdocumentor-element-found-in__source" data-line="190" data-modal="source-view" data-src="files/src/Core/OAuthProvider.php.txt"></a>
     </aside>
 
         <p class="phpdocumentor-summary">Sets an optional PSR-17 RequestFactoryInterface</p>
@@ -3531,9 +2998,9 @@ and returns a PSR-7 ResponseInterface with the corresponding API response</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Core/OAuth2Provider.php"><a href="files/src-core-oauth2provider.html"><abbr title="src/Core/OAuth2Provider.php">OAuth2Provider.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">521</span>
+    <span class="phpdocumentor-element-found-in__line">363</span>
 
-            <a href="classes/chillerlan-OAuth-Providers-MusicBrainz.html#source-view.521" class="phpdocumentor-element-found-in__source" data-line="521" data-modal="source-view" data-src="files/src/Core/OAuth2Provider.php.txt"></a>
+            <a href="classes/chillerlan-OAuth-Providers-MusicBrainz.html#source-view.363" class="phpdocumentor-element-found-in__source" data-line="363" data-modal="source-view" data-src="files/src/Core/OAuth2Provider.php.txt"></a>
     </aside>
 
         <p class="phpdocumentor-summary">implements CSRFToken::setState()</p>
@@ -3612,9 +3079,9 @@ and returns a PSR-7 ResponseInterface with the corresponding API response</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Core/OAuthProvider.php"><a href="files/src-core-oauthprovider.html"><abbr title="src/Core/OAuthProvider.php">OAuthProvider.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">170</span>
+    <span class="phpdocumentor-element-found-in__line">171</span>
 
-            <a href="classes/chillerlan-OAuth-Providers-MusicBrainz.html#source-view.170" class="phpdocumentor-element-found-in__source" data-line="170" data-modal="source-view" data-src="files/src/Core/OAuthProvider.php.txt"></a>
+            <a href="classes/chillerlan-OAuth-Providers-MusicBrainz.html#source-view.171" class="phpdocumentor-element-found-in__source" data-line="171" data-modal="source-view" data-src="files/src/Core/OAuthProvider.php.txt"></a>
     </aside>
 
         <p class="phpdocumentor-summary">Sets an optional OAuthStorageInterface</p>
@@ -3676,9 +3143,9 @@ and returns a PSR-7 ResponseInterface with the corresponding API response</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Core/OAuthProvider.php"><a href="files/src-core-oauthprovider.html"><abbr title="src/Core/OAuthProvider.php">OAuthProvider.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">196</span>
+    <span class="phpdocumentor-element-found-in__line">197</span>
 
-            <a href="classes/chillerlan-OAuth-Providers-MusicBrainz.html#source-view.196" class="phpdocumentor-element-found-in__source" data-line="196" data-modal="source-view" data-src="files/src/Core/OAuthProvider.php.txt"></a>
+            <a href="classes/chillerlan-OAuth-Providers-MusicBrainz.html#source-view.197" class="phpdocumentor-element-found-in__source" data-line="197" data-modal="source-view" data-src="files/src/Core/OAuthProvider.php.txt"></a>
     </aside>
 
         <p class="phpdocumentor-summary">Sets an optional PSR-17 StreamFactoryInterface</p>
@@ -3740,9 +3207,9 @@ and returns a PSR-7 ResponseInterface with the corresponding API response</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Core/OAuthProvider.php"><a href="files/src-core-oauthprovider.html"><abbr title="src/Core/OAuthProvider.php">OAuthProvider.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">203</span>
+    <span class="phpdocumentor-element-found-in__line">204</span>
 
-            <a href="classes/chillerlan-OAuth-Providers-MusicBrainz.html#source-view.203" class="phpdocumentor-element-found-in__source" data-line="203" data-modal="source-view" data-src="files/src/Core/OAuthProvider.php.txt"></a>
+            <a href="classes/chillerlan-OAuth-Providers-MusicBrainz.html#source-view.204" class="phpdocumentor-element-found-in__source" data-line="204" data-modal="source-view" data-src="files/src/Core/OAuthProvider.php.txt"></a>
     </aside>
 
         <p class="phpdocumentor-summary">Sets an optional PSR-17 UriFactoryInterface</p>
@@ -3804,9 +3271,9 @@ and returns a PSR-7 ResponseInterface with the corresponding API response</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Core/OAuthProvider.php"><a href="files/src-core-oauthprovider.html"><abbr title="src/Core/OAuthProvider.php">OAuthProvider.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">210</span>
+    <span class="phpdocumentor-element-found-in__line">211</span>
 
-            <a href="classes/chillerlan-OAuth-Providers-MusicBrainz.html#source-view.210" class="phpdocumentor-element-found-in__source" data-line="210" data-modal="source-view" data-src="files/src/Core/OAuthProvider.php.txt"></a>
+            <a href="classes/chillerlan-OAuth-Providers-MusicBrainz.html#source-view.211" class="phpdocumentor-element-found-in__source" data-line="211" data-modal="source-view" data-src="files/src/Core/OAuthProvider.php.txt"></a>
     </aside>
 
         <p class="phpdocumentor-summary">Sets an access token in the current OAuthStorageInterface (shorthand/convenience)</p>
@@ -3868,9 +3335,9 @@ and returns a PSR-7 ResponseInterface with the corresponding API response</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Core/OAuthProvider.php"><a href="files/src-core-oauthprovider.html"><abbr title="src/Core/OAuthProvider.php">OAuthProvider.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">272</span>
+    <span class="phpdocumentor-element-found-in__line">273</span>
 
-            <a href="classes/chillerlan-OAuth-Providers-MusicBrainz.html#source-view.272" class="phpdocumentor-element-found-in__source" data-line="272" data-modal="source-view" data-src="files/src/Core/OAuthProvider.php.txt"></a>
+            <a href="classes/chillerlan-OAuth-Providers-MusicBrainz.html#source-view.273" class="phpdocumentor-element-found-in__source" data-line="273" data-modal="source-view" data-src="files/src/Core/OAuthProvider.php.txt"></a>
     </aside>
 
         <p class="phpdocumentor-summary">Adds an &quot;Authorization: Basic &lt;base64(key:secret)&gt;&quot; header to the given request</p>
@@ -3918,9 +3385,9 @@ and returns a PSR-7 ResponseInterface with the corresponding API response</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Core/OAuthProvider.php"><a href="files/src-core-oauthprovider.html"><abbr title="src/Core/OAuthProvider.php">OAuthProvider.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">265</span>
+    <span class="phpdocumentor-element-found-in__line">266</span>
 
-            <a href="classes/chillerlan-OAuth-Providers-MusicBrainz.html#source-view.265" class="phpdocumentor-element-found-in__source" data-line="265" data-modal="source-view" data-src="files/src/Core/OAuthProvider.php.txt"></a>
+            <a href="classes/chillerlan-OAuth-Providers-MusicBrainz.html#source-view.266" class="phpdocumentor-element-found-in__source" data-line="266" data-modal="source-view" data-src="files/src/Core/OAuthProvider.php.txt"></a>
     </aside>
 
         <p class="phpdocumentor-summary">Cleans an array of body parameters</p>
@@ -3968,9 +3435,9 @@ and returns a PSR-7 ResponseInterface with the corresponding API response</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Core/OAuthProvider.php"><a href="files/src-core-oauthprovider.html"><abbr title="src/Core/OAuthProvider.php">OAuthProvider.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">255</span>
+    <span class="phpdocumentor-element-found-in__line">256</span>
 
-            <a href="classes/chillerlan-OAuth-Providers-MusicBrainz.html#source-view.255" class="phpdocumentor-element-found-in__source" data-line="255" data-modal="source-view" data-src="files/src/Core/OAuthProvider.php.txt"></a>
+            <a href="classes/chillerlan-OAuth-Providers-MusicBrainz.html#source-view.256" class="phpdocumentor-element-found-in__source" data-line="256" data-modal="source-view" data-src="files/src/Core/OAuthProvider.php.txt"></a>
     </aside>
 
         <p class="phpdocumentor-summary">Cleans an array of query parameters</p>
@@ -4018,9 +3485,9 @@ and returns a PSR-7 ResponseInterface with the corresponding API response</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Core/OAuthProvider.php"><a href="files/src-core-oauthprovider.html"><abbr title="src/Core/OAuthProvider.php">OAuthProvider.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">145</span>
+    <span class="phpdocumentor-element-found-in__line">146</span>
 
-            <a href="classes/chillerlan-OAuth-Providers-MusicBrainz.html#source-view.145" class="phpdocumentor-element-found-in__source" data-line="145" data-modal="source-view" data-src="files/src/Core/OAuthProvider.php.txt"></a>
+            <a href="classes/chillerlan-OAuth-Providers-MusicBrainz.html#source-view.146" class="phpdocumentor-element-found-in__source" data-line="146" data-modal="source-view" data-src="files/src/Core/OAuthProvider.php.txt"></a>
     </aside>
 
         <p class="phpdocumentor-summary">A replacement constructor that you can call in extended classes,
@@ -4055,9 +3522,9 @@ so that you don&#039;t have to implement the monstrous original `__construct()`<
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Core/OAuthProvider.php"><a href="files/src-core-oauthprovider.html"><abbr title="src/Core/OAuthProvider.php">OAuthProvider.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">226</span>
+    <span class="phpdocumentor-element-found-in__line">227</span>
 
-            <a href="classes/chillerlan-OAuth-Providers-MusicBrainz.html#source-view.226" class="phpdocumentor-element-found-in__source" data-line="226" data-modal="source-view" data-src="files/src/Core/OAuthProvider.php.txt"></a>
+            <a href="classes/chillerlan-OAuth-Providers-MusicBrainz.html#source-view.227" class="phpdocumentor-element-found-in__source" data-line="227" data-modal="source-view" data-src="files/src/Core/OAuthProvider.php.txt"></a>
     </aside>
 
         <p class="phpdocumentor-summary">Creates an access token with the provider set to $this-&gt;name</p>
@@ -4238,71 +3705,6 @@ so that you don&#039;t have to implement the monstrous original `__construct()`<
             -protected
                                                         "
 >
-    <h4 class="phpdocumentor-element__name" id="method_getClientCredentialsTokenRequestBodyParams">
-        getClientCredentialsTokenRequestBodyParams()
-        <a href="classes/chillerlan-OAuth-Core-OAuth2Provider.html#method_getClientCredentialsTokenRequestBodyParams" class="headerlink"><i class="fas fa-link"></i></a>
-
-    </h4>
-    <aside class="phpdocumentor-element-found-in">
-    <abbr class="phpdocumentor-element-found-in__file" title="src/Core/OAuth2Provider.php"><a href="files/src-core-oauth2provider.html"><abbr title="src/Core/OAuth2Provider.php">OAuth2Provider.php</abbr></a></abbr>
-    :
-    <span class="phpdocumentor-element-found-in__line">333</span>
-
-            <a href="classes/chillerlan-OAuth-Providers-MusicBrainz.html#source-view.333" class="phpdocumentor-element-found-in__source" data-line="333" data-modal="source-view" data-src="files/src/Core/OAuth2Provider.php.txt"></a>
-    </aside>
-
-        <p class="phpdocumentor-summary">prepares the request body parameters for the client credentials token request</p>
-
-    <code class="phpdocumentor-code phpdocumentor-signature ">
-    <span class="phpdocumentor-signature__visibility">protected</span>
-                    <span class="phpdocumentor-signature__name">getClientCredentialsTokenRequestBodyParams</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">array&lt;string|int, string&gt;|null&nbsp;</span><span class="phpdocumentor-signature__argument__name">$scopes</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">array&lt;string, string&gt;</span></code>
-
-    <div class="phpdocumentor-label-line">
-        </div>
-    
-    
-        <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
-    <dl class="phpdocumentor-argument-list">
-                    <dt class="phpdocumentor-argument-list__entry">
-                <span class="phpdocumentor-signature__argument__name">$scopes</span>
-                : <span class="phpdocumentor-signature__argument__return-type">array&lt;string|int, string&gt;|null</span>
-                            </dt>
-            <dd class="phpdocumentor-argument-list__definition">
-                
-            </dd>
-            </dl>
-
-    
-    <h5 class="phpdocumentor-tag-list__heading" id="tags">
-        Tags
-        <a href="classes/chillerlan-OAuth-Core-OAuth2Provider.html#method_getClientCredentialsTokenRequestBodyParams#tags" class="headerlink"><i class="fas fa-link"></i></a>
-
-    </h5>
-    <dl class="phpdocumentor-tag-list">
-                                    <dt class="phpdocumentor-tag-list__entry">
-                    <span class="phpdocumentor-tag__name">see</span>
-                </dt>
-                <dd class="phpdocumentor-tag-list__definition">
-                                                                                    <span class="phpdocumentor-tag-link"><a href="classes/chillerlan-OAuth-Core-OAuth2Provider.html#method_getClientCredentialsToken"><abbr title="\chillerlan\OAuth\Core\OAuth2Provider::getClientCredentialsToken()">OAuth2Provider::getClientCredentialsToken()</abbr></a></span>
-                                        
-                                             
-                                    </dd>
-                                            </dl>
-
-    
-
-            <section>
-        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
-        <span class="phpdocumentor-signature__response_type">array&lt;string, string&gt;</span>
-            </section>
-
-</article>
-                    <article
-        class="phpdocumentor-element
-            -method
-            -protected
-                                                        "
->
     <h4 class="phpdocumentor-element__name" id="method_getInvalidateAccessTokenBodyParams">
         getInvalidateAccessTokenBodyParams()
         <a href="classes/chillerlan-OAuth-Providers-MusicBrainz.html#method_getInvalidateAccessTokenBodyParams" class="headerlink"><i class="fas fa-link"></i></a>
@@ -4311,12 +3713,11 @@ so that you don&#039;t have to implement the monstrous original `__construct()`<
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Providers/MusicBrainz.php"><a href="files/src-providers-musicbrainz.html"><abbr title="src/Providers/MusicBrainz.php">MusicBrainz.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">65</span>
+    <span class="phpdocumentor-element-found-in__line">69</span>
 
     </aside>
 
-        <p class="phpdocumentor-summary">Prepares the body for a token revocation request</p>
-
+    
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">protected</span>
                     <span class="phpdocumentor-signature__name">getInvalidateAccessTokenBodyParams</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type"><a href="classes/chillerlan-OAuth-Core-AccessToken.html"><abbr title="\chillerlan\OAuth\Core\AccessToken">AccessToken</abbr></a>&nbsp;</span><span class="phpdocumentor-signature__argument__name">$token</span></span><span class="phpdocumentor-signature__argument"><span>, </span><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$type</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">array&lt;string, scalar|bool|null&gt;</span></code>
@@ -4367,9 +3768,9 @@ so that you don&#039;t have to implement the monstrous original `__construct()`<
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Core/OAuthProvider.php"><a href="files/src-core-oauthprovider.html"><abbr title="src/Core/OAuthProvider.php">OAuthProvider.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">468</span>
+    <span class="phpdocumentor-element-found-in__line">469</span>
 
-            <a href="classes/chillerlan-OAuth-Providers-MusicBrainz.html#source-view.468" class="phpdocumentor-element-found-in__source" data-line="468" data-modal="source-view" data-src="files/src/Core/OAuthProvider.php.txt"></a>
+            <a href="classes/chillerlan-OAuth-Providers-MusicBrainz.html#source-view.469" class="phpdocumentor-element-found-in__source" data-line="469" data-modal="source-view" data-src="files/src/Core/OAuthProvider.php.txt"></a>
     </aside>
 
         <p class="phpdocumentor-summary">fetches the provider&#039;s &quot;me&quot; endpoint and returns the JSON data as an array</p>
@@ -4455,78 +3856,6 @@ so that you don&#039;t have to implement the monstrous original `__construct()`<
             -protected
                                                         "
 >
-    <h4 class="phpdocumentor-element__name" id="method_getParAuthorizationURLRequestParams">
-        getParAuthorizationURLRequestParams()
-        <a href="classes/chillerlan-OAuth-Core-OAuth2Provider.html#method_getParAuthorizationURLRequestParams" class="headerlink"><i class="fas fa-link"></i></a>
-
-    </h4>
-    <aside class="phpdocumentor-element-found-in">
-    <abbr class="phpdocumentor-element-found-in__file" title="src/Core/OAuth2Provider.php"><a href="files/src-core-oauth2provider.html"><abbr title="src/Core/OAuth2Provider.php">OAuth2Provider.php</abbr></a></abbr>
-    :
-    <span class="phpdocumentor-element-found-in__line">726</span>
-
-            <a href="classes/chillerlan-OAuth-Providers-MusicBrainz.html#source-view.726" class="phpdocumentor-element-found-in__source" data-line="726" data-modal="source-view" data-src="files/src/Core/OAuth2Provider.php.txt"></a>
-    </aside>
-
-        <p class="phpdocumentor-summary">Parses the response from the PAR request and returns the query parameters for the authorization URL</p>
-
-    <code class="phpdocumentor-code phpdocumentor-signature ">
-    <span class="phpdocumentor-signature__visibility">protected</span>
-                    <span class="phpdocumentor-signature__name">getParAuthorizationURLRequestParams</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">array&lt;string, string&gt;&nbsp;</span><span class="phpdocumentor-signature__argument__name">$response</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">array&lt;string, string&gt;</span></code>
-
-    <div class="phpdocumentor-label-line">
-        </div>
-    
-    
-        <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
-    <dl class="phpdocumentor-argument-list">
-                    <dt class="phpdocumentor-argument-list__entry">
-                <span class="phpdocumentor-signature__argument__name">$response</span>
-                : <span class="phpdocumentor-signature__argument__return-type">array&lt;string, string&gt;</span>
-                            </dt>
-            <dd class="phpdocumentor-argument-list__definition">
-                
-            </dd>
-            </dl>
-
-    
-    <h5 class="phpdocumentor-tag-list__heading" id="tags">
-        Tags
-        <a href="classes/chillerlan-OAuth-Core-OAuth2Provider.html#method_getParAuthorizationURLRequestParams#tags" class="headerlink"><i class="fas fa-link"></i></a>
-
-    </h5>
-    <dl class="phpdocumentor-tag-list">
-                                    <dt class="phpdocumentor-tag-list__entry">
-                    <span class="phpdocumentor-tag__name">see</span>
-                </dt>
-                <dd class="phpdocumentor-tag-list__definition">
-                                                                                    <span class="phpdocumentor-tag-link"><a href="classes/chillerlan-OAuth-Core-OAuth2Provider.html#method_getParRequestUri"><abbr title="\chillerlan\OAuth\Core\OAuth2Provider::getParRequestUri()">OAuth2Provider::getParRequestUri()</abbr></a></span>
-                                        
-                                             
-                                    </dd>
-                                                <dt class="phpdocumentor-tag-list__entry">
-                    <span class="phpdocumentor-tag__name">codeCoverageIgnore</span>
-                </dt>
-                <dd class="phpdocumentor-tag-list__definition">
-                                                                                
-                                             
-                                    </dd>
-                                            </dl>
-
-    
-
-            <section>
-        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
-        <span class="phpdocumentor-signature__response_type">array&lt;string, string&gt;</span>
-            </section>
-
-</article>
-                    <article
-        class="phpdocumentor-element
-            -method
-            -protected
-                                                        "
->
     <h4 class="phpdocumentor-element__name" id="method_getRefreshAccessTokenRequestBodyParams">
         getRefreshAccessTokenRequestBodyParams()
         <a href="classes/chillerlan-OAuth-Providers-MusicBrainz.html#method_getRefreshAccessTokenRequestBodyParams" class="headerlink"><i class="fas fa-link"></i></a>
@@ -4535,7 +3864,7 @@ so that you don&#039;t have to implement the monstrous original `__construct()`<
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Providers/MusicBrainz.php"><a href="files/src-providers-musicbrainz.html"><abbr title="src/Providers/MusicBrainz.php">MusicBrainz.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">56</span>
+    <span class="phpdocumentor-element-found-in__line">57</span>
 
     </aside>
 
@@ -4584,9 +3913,9 @@ so that you don&#039;t have to implement the monstrous original `__construct()`<
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Core/OAuthProvider.php"><a href="files/src-core-oauthprovider.html"><abbr title="src/Core/OAuthProvider.php">OAuthProvider.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">236</span>
+    <span class="phpdocumentor-element-found-in__line">237</span>
 
-            <a href="classes/chillerlan-OAuth-Providers-MusicBrainz.html#source-view.236" class="phpdocumentor-element-found-in__source" data-line="236" data-modal="source-view" data-src="files/src/Core/OAuthProvider.php.txt"></a>
+            <a href="classes/chillerlan-OAuth-Providers-MusicBrainz.html#source-view.237" class="phpdocumentor-element-found-in__source" data-line="237" data-modal="source-view" data-src="files/src/Core/OAuthProvider.php.txt"></a>
     </aside>
 
         <p class="phpdocumentor-summary">Prepare request headers</p>
@@ -4634,9 +3963,9 @@ so that you don&#039;t have to implement the monstrous original `__construct()`<
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Core/OAuthProvider.php"><a href="files/src-core-oauthprovider.html"><abbr title="src/Core/OAuthProvider.php">OAuthProvider.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">393</span>
+    <span class="phpdocumentor-element-found-in__line">394</span>
 
-            <a href="classes/chillerlan-OAuth-Providers-MusicBrainz.html#source-view.393" class="phpdocumentor-element-found-in__source" data-line="393" data-modal="source-view" data-src="files/src/Core/OAuthProvider.php.txt"></a>
+            <a href="classes/chillerlan-OAuth-Providers-MusicBrainz.html#source-view.394" class="phpdocumentor-element-found-in__source" data-line="394" data-modal="source-view" data-src="files/src/Core/OAuthProvider.php.txt"></a>
     </aside>
 
         <p class="phpdocumentor-summary">Determine the request target from the given URI (path segment or URL) with respect to $apiURL,
@@ -4710,9 +4039,9 @@ anything except host and path will be ignored, scheme will always be set to &quo
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Core/OAuthProvider.php"><a href="files/src-core-oauthprovider.html"><abbr title="src/Core/OAuthProvider.php">OAuthProvider.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">245</span>
+    <span class="phpdocumentor-element-found-in__line">246</span>
 
-            <a href="classes/chillerlan-OAuth-Providers-MusicBrainz.html#source-view.245" class="phpdocumentor-element-found-in__source" data-line="245" data-modal="source-view" data-src="files/src/Core/OAuthProvider.php.txt"></a>
+            <a href="classes/chillerlan-OAuth-Providers-MusicBrainz.html#source-view.246" class="phpdocumentor-element-found-in__source" data-line="246" data-modal="source-view" data-src="files/src/Core/OAuthProvider.php.txt"></a>
     </aside>
 
         <p class="phpdocumentor-summary">Prepares the request URL</p>
@@ -4848,9 +4177,9 @@ the spec mandates a JSON body which is what almost all providers send - weird ex
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Core/OAuthProvider.php"><a href="files/src-core-oauthprovider.html"><abbr title="src/Core/OAuthProvider.php">OAuthProvider.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">496</span>
+    <span class="phpdocumentor-element-found-in__line">497</span>
 
-            <a href="classes/chillerlan-OAuth-Providers-MusicBrainz.html#source-view.496" class="phpdocumentor-element-found-in__source" data-line="496" data-modal="source-view" data-src="files/src/Core/OAuthProvider.php.txt"></a>
+            <a href="classes/chillerlan-OAuth-Providers-MusicBrainz.html#source-view.497" class="phpdocumentor-element-found-in__source" data-line="497" data-modal="source-view" data-src="files/src/Core/OAuthProvider.php.txt"></a>
     </aside>
 
         <p class="phpdocumentor-summary">handles errors for the `me()` endpoints - one horrible block of code to catch them all</p>
@@ -4911,9 +4240,9 @@ the spec mandates a JSON body which is what almost all providers send - weird ex
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Core/OAuthProvider.php"><a href="files/src-core-oauthprovider.html"><abbr title="src/Core/OAuthProvider.php">OAuthProvider.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">284</span>
+    <span class="phpdocumentor-element-found-in__line">285</span>
 
-            <a href="classes/chillerlan-OAuth-Providers-MusicBrainz.html#source-view.284" class="phpdocumentor-element-found-in__source" data-line="284" data-modal="source-view" data-src="files/src/Core/OAuthProvider.php.txt"></a>
+            <a href="classes/chillerlan-OAuth-Providers-MusicBrainz.html#source-view.285" class="phpdocumentor-element-found-in__source" data-line="285" data-modal="source-view" data-src="files/src/Core/OAuthProvider.php.txt"></a>
     </aside>
 
         <p class="phpdocumentor-summary">returns a 32 byte random string (in hexadecimal representation) for use as a nonce</p>
@@ -5049,7 +4378,7 @@ the spec mandates a JSON body which is what almost all providers send - weird ex
                     <span class="phpdocumentor-tag__name">see</span>
                 </dt>
                 <dd class="phpdocumentor-tag-list__definition">
-                                                                                    <span class="phpdocumentor-tag-link"><a href="classes/chillerlan-OAuth-Core-OAuth2Provider.html#method_getClientCredentialsToken"><abbr title="\chillerlan\OAuth\Core\OAuth2Provider::getClientCredentialsToken()">OAuth2Provider::getClientCredentialsToken()</abbr></a></span>
+                                                                                    <span class="phpdocumentor-tag-link"><abbr title="\chillerlan\OAuth\Core\OAuth2Provider::getClientCredentialsToken()">OAuth2Provider::getClientCredentialsToken()</abbr></span>
                                         
                                              
                                     </dd>
@@ -5145,79 +4474,7 @@ the spec mandates a JSON body which is what almost all providers send - weird ex
                     <span class="phpdocumentor-tag__name">see</span>
                 </dt>
                 <dd class="phpdocumentor-tag-list__definition">
-                                                                                    <span class="phpdocumentor-tag-link"><a href="classes/chillerlan-OAuth-Core-OAuth2Provider.html#method_getParRequestUri"><abbr title="\chillerlan\OAuth\Core\OAuth2Provider::getParRequestUri()">OAuth2Provider::getParRequestUri()</abbr></a></span>
-                                        
-                                             
-                                    </dd>
-                                            </dl>
-
-    
-
-            <section>
-        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
-        <span class="phpdocumentor-signature__response_type"><abbr title="\Psr\Http\Message\ResponseInterface">ResponseInterface</abbr></span>
-            </section>
-
-</article>
-                    <article
-        class="phpdocumentor-element
-            -method
-            -protected
-                                                        "
->
-    <h4 class="phpdocumentor-element__name" id="method_sendClientCredentialsTokenRequest">
-        sendClientCredentialsTokenRequest()
-        <a href="classes/chillerlan-OAuth-Core-OAuth2Provider.html#method_sendClientCredentialsTokenRequest" class="headerlink"><i class="fas fa-link"></i></a>
-
-    </h4>
-    <aside class="phpdocumentor-element-found-in">
-    <abbr class="phpdocumentor-element-found-in__file" title="src/Core/OAuth2Provider.php"><a href="files/src-core-oauth2provider.html"><abbr title="src/Core/OAuth2Provider.php">OAuth2Provider.php</abbr></a></abbr>
-    :
-    <span class="phpdocumentor-element-found-in__line">350</span>
-
-            <a href="classes/chillerlan-OAuth-Providers-MusicBrainz.html#source-view.350" class="phpdocumentor-element-found-in__source" data-line="350" data-modal="source-view" data-src="files/src/Core/OAuth2Provider.php.txt"></a>
-    </aside>
-
-        <p class="phpdocumentor-summary">sends a request to the client credentials endpoint, using basic authentication</p>
-
-    <code class="phpdocumentor-code phpdocumentor-signature ">
-    <span class="phpdocumentor-signature__visibility">protected</span>
-                    <span class="phpdocumentor-signature__name">sendClientCredentialsTokenRequest</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$url</span></span><span class="phpdocumentor-signature__argument"><span>, </span><span class="phpdocumentor-signature__argument__return-type">array&lt;string, scalar&gt;&nbsp;</span><span class="phpdocumentor-signature__argument__name">$body</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type"><abbr title="\Psr\Http\Message\ResponseInterface">ResponseInterface</abbr></span></code>
-
-    <div class="phpdocumentor-label-line">
-        </div>
-    
-    
-        <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
-    <dl class="phpdocumentor-argument-list">
-                    <dt class="phpdocumentor-argument-list__entry">
-                <span class="phpdocumentor-signature__argument__name">$url</span>
-                : <span class="phpdocumentor-signature__argument__return-type">string</span>
-                            </dt>
-            <dd class="phpdocumentor-argument-list__definition">
-                
-            </dd>
-                    <dt class="phpdocumentor-argument-list__entry">
-                <span class="phpdocumentor-signature__argument__name">$body</span>
-                : <span class="phpdocumentor-signature__argument__return-type">array&lt;string, scalar&gt;</span>
-                            </dt>
-            <dd class="phpdocumentor-argument-list__definition">
-                
-            </dd>
-            </dl>
-
-    
-    <h5 class="phpdocumentor-tag-list__heading" id="tags">
-        Tags
-        <a href="classes/chillerlan-OAuth-Core-OAuth2Provider.html#method_sendClientCredentialsTokenRequest#tags" class="headerlink"><i class="fas fa-link"></i></a>
-
-    </h5>
-    <dl class="phpdocumentor-tag-list">
-                                    <dt class="phpdocumentor-tag-list__entry">
-                    <span class="phpdocumentor-tag__name">see</span>
-                </dt>
-                <dd class="phpdocumentor-tag-list__definition">
-                                                                                    <span class="phpdocumentor-tag-link"><a href="classes/chillerlan-OAuth-Core-OAuth2Provider.html#method_getClientCredentialsToken"><abbr title="\chillerlan\OAuth\Core\OAuth2Provider::getClientCredentialsToken()">OAuth2Provider::getClientCredentialsToken()</abbr></a></span>
+                                                                                    <span class="phpdocumentor-tag-link"><abbr title="\chillerlan\OAuth\Core\OAuth2Provider::getParRequestUri()">OAuth2Provider::getParRequestUri()</abbr></span>
                                         
                                              
                                     </dd>
@@ -5245,9 +4502,9 @@ the spec mandates a JSON body which is what almost all providers send - weird ex
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Core/OAuthProvider.php"><a href="files/src-core-oauthprovider.html"><abbr title="src/Core/OAuthProvider.php">OAuthProvider.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">443</span>
+    <span class="phpdocumentor-element-found-in__line">444</span>
 
-            <a href="classes/chillerlan-OAuth-Providers-MusicBrainz.html#source-view.443" class="phpdocumentor-element-found-in__source" data-line="443" data-modal="source-view" data-src="files/src/Core/OAuthProvider.php.txt"></a>
+            <a href="classes/chillerlan-OAuth-Providers-MusicBrainz.html#source-view.444" class="phpdocumentor-element-found-in__source" data-line="444" data-modal="source-view" data-src="files/src/Core/OAuthProvider.php.txt"></a>
     </aside>
 
         <p class="phpdocumentor-summary">prepares and sends the request to the provider&#039;s &quot;me&quot; endpoint and returns a ResponseInterface</p>
@@ -5296,15 +4553,14 @@ the spec mandates a JSON body which is what almost all providers send - weird ex
 >
     <h4 class="phpdocumentor-element__name" id="method_sendTokenInvalidateRequest">
         sendTokenInvalidateRequest()
-        <a href="classes/chillerlan-OAuth-Core-OAuth2Provider.html#method_sendTokenInvalidateRequest" class="headerlink"><i class="fas fa-link"></i></a>
+        <a href="classes/chillerlan-OAuth-Core-TokenInvalidateTrait.html#method_sendTokenInvalidateRequest" class="headerlink"><i class="fas fa-link"></i></a>
 
     </h4>
     <aside class="phpdocumentor-element-found-in">
-    <abbr class="phpdocumentor-element-found-in__file" title="src/Core/OAuth2Provider.php"><a href="files/src-core-oauth2provider.html"><abbr title="src/Core/OAuth2Provider.php">OAuth2Provider.php</abbr></a></abbr>
+    <abbr class="phpdocumentor-element-found-in__file" title="src/Core/TokenInvalidateTrait.php"><a href="files/src-core-tokeninvalidatetrait.html"><abbr title="src/Core/TokenInvalidateTrait.php">TokenInvalidateTrait.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">479</span>
+    <span class="phpdocumentor-element-found-in__line">93</span>
 
-            <a href="classes/chillerlan-OAuth-Providers-MusicBrainz.html#source-view.479" class="phpdocumentor-element-found-in__source" data-line="479" data-modal="source-view" data-src="files/src/Core/OAuth2Provider.php.txt"></a>
     </aside>
 
         <p class="phpdocumentor-summary">Prepares and sends a request to the token invalidation endpoint</p>
@@ -5338,7 +4594,7 @@ the spec mandates a JSON body which is what almost all providers send - weird ex
     
     <h5 class="phpdocumentor-tag-list__heading" id="tags">
         Tags
-        <a href="classes/chillerlan-OAuth-Core-OAuth2Provider.html#method_sendTokenInvalidateRequest#tags" class="headerlink"><i class="fas fa-link"></i></a>
+        <a href="classes/chillerlan-OAuth-Core-TokenInvalidateTrait.html#method_sendTokenInvalidateRequest#tags" class="headerlink"><i class="fas fa-link"></i></a>
 
     </h5>
     <dl class="phpdocumentor-tag-list">
@@ -5346,7 +4602,7 @@ the spec mandates a JSON body which is what almost all providers send - weird ex
                     <span class="phpdocumentor-tag__name">see</span>
                 </dt>
                 <dd class="phpdocumentor-tag-list__definition">
-                                                                                    <span class="phpdocumentor-tag-link"><a href="classes/chillerlan-OAuth-Core-OAuth2Provider.html#method_invalidateAccessToken"><abbr title="\chillerlan\OAuth\Core\OAuth2Provider::invalidateAccessToken()">OAuth2Provider::invalidateAccessToken()</abbr></a></span>
+                                                                                    <span class="phpdocumentor-tag-link"><abbr title="\chillerlan\OAuth\Core\OAuth2Provider::invalidateAccessToken()">OAuth2Provider::invalidateAccessToken()</abbr></span>
                                         
                                              
                                     </dd>
@@ -5374,9 +4630,9 @@ the spec mandates a JSON body which is what almost all providers send - weird ex
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Core/OAuthProvider.php"><a href="files/src-core-oauthprovider.html"><abbr title="src/Core/OAuthProvider.php">OAuthProvider.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">356</span>
+    <span class="phpdocumentor-element-found-in__line">357</span>
 
-            <a href="classes/chillerlan-OAuth-Providers-MusicBrainz.html#source-view.356" class="phpdocumentor-element-found-in__source" data-line="356" data-modal="source-view" data-src="files/src/Core/OAuthProvider.php.txt"></a>
+            <a href="classes/chillerlan-OAuth-Providers-MusicBrainz.html#source-view.357" class="phpdocumentor-element-found-in__source" data-line="357" data-modal="source-view" data-src="files/src/Core/OAuthProvider.php.txt"></a>
     </aside>
 
         <p class="phpdocumentor-summary">Prepares the request body and sets it in the given RequestInterface, along with a Content-Length header</p>
@@ -5586,27 +4842,21 @@ the spec mandates a JSON body which is what almost all providers send - weird ex
                 <ul class="phpdocumentor-list -clean">
                                             <li class=""><a href="classes/chillerlan-OAuth-Core-OAuthProvider.html#method___construct">__construct()</a></li>
                                             <li class=""><a href="classes/chillerlan-OAuth-Core-OAuth2Provider.html#method_checkState">checkState()</a></li>
-                                            <li class=""><a href="classes/chillerlan-OAuth-Core-OAuth2Provider.html#method_generateChallenge">generateChallenge()</a></li>
-                                            <li class=""><a href="classes/chillerlan-OAuth-Core-OAuth2Provider.html#method_generateVerifier">generateVerifier()</a></li>
                                             <li class=""><a href="classes/chillerlan-OAuth-Core-OAuth2Provider.html#method_getAccessToken">getAccessToken()</a></li>
                                             <li class=""><a href="classes/chillerlan-OAuth-Core-OAuthProvider.html#method_getAccessTokenFromStorage">getAccessTokenFromStorage()</a></li>
                                             <li class=""><a href="classes/chillerlan-OAuth-Core-OAuthProvider.html#method_getApiDocURL">getApiDocURL()</a></li>
                                             <li class=""><a href="classes/chillerlan-OAuth-Core-OAuthProvider.html#method_getApplicationURL">getApplicationURL()</a></li>
                                             <li class=""><a href="classes/chillerlan-OAuth-Core-OAuth2Provider.html#method_getAuthorizationURL">getAuthorizationURL()</a></li>
-                                            <li class=""><a href="classes/chillerlan-OAuth-Core-OAuth2Provider.html#method_getClientCredentialsToken">getClientCredentialsToken()</a></li>
                                             <li class=""><a href="classes/chillerlan-OAuth-Core-OAuthProvider.html#method_getName">getName()</a></li>
-                                            <li class=""><a href="classes/chillerlan-OAuth-Core-OAuth2Provider.html#method_getParRequestUri">getParRequestUri()</a></li>
                                             <li class=""><a href="classes/chillerlan-OAuth-Core-OAuth2Provider.html#method_getRequestAuthorization">getRequestAuthorization()</a></li>
                                             <li class=""><a href="classes/chillerlan-OAuth-Core-OAuthProvider.html#method_getStorage">getStorage()</a></li>
                                             <li class=""><a href="classes/chillerlan-OAuth-Core-OAuthProvider.html#method_getUserRevokeURL">getUserRevokeURL()</a></li>
                                             <li class=""><a href="classes/chillerlan-OAuth-Core-OAuthProvider.html#method_InvalidateAccessToken">InvalidateAccessToken()</a></li>
-                                            <li class=""><a href="classes/chillerlan-OAuth-Core-OAuth2Provider.html#method_invalidateAccessToken">invalidateAccessToken()</a></li>
+                                            <li class=""><a href="classes/chillerlan-OAuth-Core-TokenInvalidateTrait.html#method_invalidateAccessToken">invalidateAccessToken()</a></li>
                                             <li class=""><a href="classes/chillerlan-OAuth-Providers-MusicBrainz.html#method_me">me()</a></li>
                                             <li class=""><a href="classes/chillerlan-OAuth-Core-OAuth2Provider.html#method_refreshAccessToken">refreshAccessToken()</a></li>
                                             <li class=""><a href="classes/chillerlan-OAuth-Providers-MusicBrainz.html#method_request">request()</a></li>
                                             <li class=""><a href="classes/chillerlan-OAuth-Core-OAuthProvider.html#method_sendRequest">sendRequest()</a></li>
-                                            <li class=""><a href="classes/chillerlan-OAuth-Core-OAuth2Provider.html#method_setCodeChallenge">setCodeChallenge()</a></li>
-                                            <li class=""><a href="classes/chillerlan-OAuth-Core-OAuth2Provider.html#method_setCodeVerifier">setCodeVerifier()</a></li>
                                             <li class=""><a href="classes/chillerlan-OAuth-Core-OAuthProvider.html#method_setLogger">setLogger()</a></li>
                                             <li class=""><a href="classes/chillerlan-OAuth-Core-OAuthProvider.html#method_setRequestFactory">setRequestFactory()</a></li>
                                             <li class=""><a href="classes/chillerlan-OAuth-Core-OAuth2Provider.html#method_setState">setState()</a></li>
@@ -5621,10 +4871,8 @@ the spec mandates a JSON body which is what almost all providers send - weird ex
                                             <li class=""><a href="classes/chillerlan-OAuth-Core-OAuthProvider.html#method_createAccessToken">createAccessToken()</a></li>
                                             <li class=""><a href="classes/chillerlan-OAuth-Core-OAuth2Provider.html#method_getAccessTokenRequestBodyParams">getAccessTokenRequestBodyParams()</a></li>
                                             <li class=""><a href="classes/chillerlan-OAuth-Core-OAuth2Provider.html#method_getAuthorizationURLRequestParams">getAuthorizationURLRequestParams()</a></li>
-                                            <li class=""><a href="classes/chillerlan-OAuth-Core-OAuth2Provider.html#method_getClientCredentialsTokenRequestBodyParams">getClientCredentialsTokenRequestBodyParams()</a></li>
                                             <li class=""><a href="classes/chillerlan-OAuth-Providers-MusicBrainz.html#method_getInvalidateAccessTokenBodyParams">getInvalidateAccessTokenBodyParams()</a></li>
                                             <li class=""><a href="classes/chillerlan-OAuth-Core-OAuthProvider.html#method_getMeResponseData">getMeResponseData()</a></li>
-                                            <li class=""><a href="classes/chillerlan-OAuth-Core-OAuth2Provider.html#method_getParAuthorizationURLRequestParams">getParAuthorizationURLRequestParams()</a></li>
                                             <li class=""><a href="classes/chillerlan-OAuth-Providers-MusicBrainz.html#method_getRefreshAccessTokenRequestBodyParams">getRefreshAccessTokenRequestBodyParams()</a></li>
                                             <li class=""><a href="classes/chillerlan-OAuth-Core-OAuthProvider.html#method_getRequestHeaders">getRequestHeaders()</a></li>
                                             <li class=""><a href="classes/chillerlan-OAuth-Core-OAuthProvider.html#method_getRequestTarget">getRequestTarget()</a></li>
@@ -5634,9 +4882,8 @@ the spec mandates a JSON body which is what almost all providers send - weird ex
                                             <li class=""><a href="classes/chillerlan-OAuth-Core-OAuthProvider.html#method_nonce">nonce()</a></li>
                                             <li class=""><a href="classes/chillerlan-OAuth-Core-OAuth2Provider.html#method_parseTokenResponse">parseTokenResponse()</a></li>
                                             <li class=""><a href="classes/chillerlan-OAuth-Core-OAuth2Provider.html#method_sendAccessTokenRequest">sendAccessTokenRequest()</a></li>
-                                            <li class=""><a href="classes/chillerlan-OAuth-Core-OAuth2Provider.html#method_sendClientCredentialsTokenRequest">sendClientCredentialsTokenRequest()</a></li>
                                             <li class=""><a href="classes/chillerlan-OAuth-Core-OAuthProvider.html#method_sendMeRequest">sendMeRequest()</a></li>
-                                            <li class=""><a href="classes/chillerlan-OAuth-Core-OAuth2Provider.html#method_sendTokenInvalidateRequest">sendTokenInvalidateRequest()</a></li>
+                                            <li class=""><a href="classes/chillerlan-OAuth-Core-TokenInvalidateTrait.html#method_sendTokenInvalidateRequest">sendTokenInvalidateRequest()</a></li>
                                             <li class=""><a href="classes/chillerlan-OAuth-Core-OAuthProvider.html#method_setRequestBody">setRequestBody()</a></li>
                                     </ul>
             </li>

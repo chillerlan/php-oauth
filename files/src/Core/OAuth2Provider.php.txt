@@ -17,9 +17,8 @@ use chillerlan\HTTP\Utils\{MessageUtil, QueryUtil, UriUtil};
 use chillerlan\OAuth\Providers\ProviderException;
 use Psr\Http\Message\{RequestInterface, ResponseInterface, UriInterface};
 use Throwable;
-use function array_merge, date, explode, hash, hash_equals, implode, in_array, is_array, random_int,
-	sodium_bin2base64, sprintf, str_contains, strtolower, trim;
-use const PHP_QUERY_RFC1738, PHP_VERSION_ID, SODIUM_BASE64_VARIANT_URLSAFE_NO_PADDING;
+use function array_merge, date, explode, hash_equals, implode, in_array, is_array, sprintf;
+use const PHP_QUERY_RFC1738;
 
 /**
  * Implements an abstract OAuth2 provider with all methods required by the OAuth2Interface.
@@ -52,6 +51,7 @@ abstract class OAuth2Provider extends OAuthProvider implements OAuth2Interface{
 	 * An optional PAR (Pushed Authorization Request) endpoint URL
 	 *
 	 * @see \chillerlan\OAuth\Core\PAR::getParRequestUri()
+	 * @see \chillerlan\OAuth\Core\PARTrait::getParRequestUri()
 	 */
 	protected string $parAuthorizationURL = '';
 
@@ -291,83 +291,6 @@ abstract class OAuth2Provider extends OAuthProvider implements OAuth2Interface{
 
 
 	/*
-	 * ClientCredentials
-	 */
-
-	/**
-	 * implements ClientCredentials::getClientCredentialsToken()
-	 *
-	 * @see \chillerlan\OAuth\Core\ClientCredentials::getClientCredentialsToken()
-	 *
-	 * @param string[]|null $scopes
-	 * @throws \chillerlan\OAuth\Providers\ProviderException
-	 */
-	public function getClientCredentialsToken(array|null $scopes = null):AccessToken{
-
-		if(!$this instanceof ClientCredentials){
-			throw new ProviderException('client credentials token not supported');
-		}
-
-		$body     = $this->getClientCredentialsTokenRequestBodyParams($scopes);
-		$response = $this->sendClientCredentialsTokenRequest(($this->clientCredentialsTokenURL ?? $this->accessTokenURL), $body);
-		$token    = $this->parseTokenResponse($response);
-
-		// provider didn't send a set of scopes with the token response, so add the given ones manually
-		if(empty($token->scopes)){
-			$token->scopes = ($scopes ?? []);
-		}
-
-		$this->storage->storeAccessToken($token, $this->name);
-
-		return $token;
-	}
-
-	/**
-	 * prepares the request body parameters for the client credentials token request
-	 *
-	 * @see \chillerlan\OAuth\Core\OAuth2Provider::getClientCredentialsToken()
-	 *
-	 * @param string[]|null $scopes
-	 * @return array<string, string>
-	 */
-	protected function getClientCredentialsTokenRequestBodyParams(array|null $scopes):array{
-		$body = ['grant_type' => 'client_credentials'];
-
-		if(!empty($scopes)){
-			$body['scope'] = implode($this::SCOPES_DELIMITER, $scopes);
-		}
-
-		return $body;
-	}
-
-	/**
-	 * sends a request to the client credentials endpoint, using basic authentication
-	 *
-	 * @see \chillerlan\OAuth\Core\OAuth2Provider::getClientCredentialsToken()
-	 *
-	 * @param array<string, scalar> $body
-	 */
-	protected function sendClientCredentialsTokenRequest(string $url, array $body):ResponseInterface{
-
-		$request = $this->requestFactory
-			->createRequest('POST', $url)
-			->withHeader('Accept', 'application/json')
-			->withHeader('Accept-Encoding', 'identity')
-			->withHeader('Content-Type', 'application/x-www-form-urlencoded')
-			->withBody($this->streamFactory->createStream(QueryUtil::build($body, PHP_QUERY_RFC1738)))
-		;
-
-		foreach($this::HEADERS_AUTH as $header => $value){
-			$request = $request->withHeader($header, $value);
-		}
-
-		$request = $this->addBasicAuthHeader($request);
-
-		return $this->http->sendRequest($request);
-	}
-
-
-	/*
 	 * TokenRefresh
 	 */
 
@@ -419,87 +342,6 @@ abstract class OAuth2Provider extends OAuthProvider implements OAuth2Interface{
 			'grant_type'    => 'refresh_token',
 			'refresh_token' => $refreshToken,
 			'type'          => 'web_server',
-		];
-	}
-
-
-	/*
-	 * TokenInvalidate
-	 */
-
-	/**
-	 * implements TokenInvalidate::invalidateAccessToken()
-	 *
-	 * @see \chillerlan\OAuth\Core\TokenInvalidate::invalidateAccessToken()
-	 * @throws \chillerlan\OAuth\Providers\ProviderException
-	 */
-	public function invalidateAccessToken(AccessToken|null $token = null, string|null $type = null):bool{
-		$type = strtolower(trim(($type ?? 'access_token')));
-
-		// @link https://datatracker.ietf.org/doc/html/rfc7009#section-2.1
-		if(!in_array($type, ['access_token', 'refresh_token'], true)){
-			throw new ProviderException(sprintf('invalid token type "%s"', $type));
-		}
-
-		$tokenToInvalidate = ($token ?? $this->storage->getAccessToken($this->name));
-		$body              = $this->getInvalidateAccessTokenBodyParams($tokenToInvalidate, $type);
-		$response          = $this->sendTokenInvalidateRequest($this->revokeURL, $body);
-
-		// some endpoints may return 204, others 200 with empty body
-		if(in_array($response->getStatusCode(), [200, 204], true)){
-
-			// if the token was given via parameter it cannot be deleted from storage
-			if($token === null){
-				$this->storage->clearAccessToken($this->name);
-			}
-
-			return true;
-		}
-
-		// ok, let's see if we got a response body
-		// @link https://datatracker.ietf.org/doc/html/rfc7009#section-2.2.1
-		if(str_contains($response->getHeaderLine('content-type'), 'json')){
-			$json = MessageUtil::decodeJSON($response);
-
-			if(isset($json['error'])){
-				throw new ProviderException($json['error']);
-			}
-		}
-
-		return false;
-	}
-
-	/**
-	 * Prepares and sends a request to the token invalidation endpoint
-	 *
-	 * @see \chillerlan\OAuth\Core\OAuth2Provider::invalidateAccessToken()
-	 *
-	 * @param array<string, scalar|bool|null> $body
-	 */
-	protected function sendTokenInvalidateRequest(string $url, array $body):ResponseInterface{
-
-		$request = $this->requestFactory
-			->createRequest('POST', $url)
-			->withHeader('Content-Type', 'application/x-www-form-urlencoded')
-		;
-
-		// some enpoints may require a basic auth header here
-		$request  = $this->setRequestBody($body, $request);
-
-		return $this->http->sendRequest($request);
-	}
-
-	/**
-	 * Prepares the body for a token revocation request
-	 *
-	 * @see \chillerlan\OAuth\Core\OAuth2Provider::invalidateAccessToken()
-	 *
-	 * @return array<string, scalar|bool|null>
-	 */
-	protected function getInvalidateAccessTokenBodyParams(AccessToken $token, string $type):array{
-		return [
-			'token'           => $token->accessToken,
-			'token_type_hint' => $type,
 		];
 	}
 
@@ -559,180 +401,6 @@ abstract class OAuth2Provider extends OAuthProvider implements OAuth2Interface{
 			throw new CSRFStateMismatchException(sprintf('CSRF state mismatch for provider "%s": %s', $this->name, $state));
 		}
 
-	}
-
-
-	/*
-	 * PKCE
-	 */
-
-	/**
-	 * implements PKCE::setCodeChallenge()
-	 *
-	 * @see \chillerlan\OAuth\Core\PKCE::setCodeChallenge()
-	 * @see \chillerlan\OAuth\Core\OAuth2Provider::getAuthorizationURLRequestParams()
-	 *
-	 * @param array<string, string> $params
-	 * @return array<string, string>
-	 */
-	final public function setCodeChallenge(array $params, string $challengeMethod):array{
-
-		if(!$this instanceof PKCE){
-			throw new ProviderException('PKCE challenge not supported');
-		}
-
-		if(!isset($params['response_type']) || $params['response_type'] !== 'code'){
-			throw new ProviderException('invalid authorization request params');
-		}
-
-		$verifier = $this->generateVerifier($this->options->pkceVerifierLength);
-
-		$params['code_challenge']        = $this->generateChallenge($verifier, $challengeMethod);
-		$params['code_challenge_method'] = $challengeMethod;
-
-		$this->storage->storeCodeVerifier($verifier, $this->name);
-
-		return $params;
-	}
-
-	/**
-	 * implements PKCE::setCodeVerifier()
-	 *
-	 * @see \chillerlan\OAuth\Core\PKCE::setCodeVerifier()
-	 * @see \chillerlan\OAuth\Core\OAuth2Provider::getAccessTokenRequestBodyParams()
-	 *
-	 * @param array<string, string> $params
-	 * @return array<string, string>
-	 */
-	final public function setCodeVerifier(array $params):array{
-
-		if(!$this instanceof PKCE){
-			throw new ProviderException('PKCE challenge not supported');
-		}
-
-		if(!isset($params['grant_type'], $params['code']) || $params['grant_type'] !== 'authorization_code'){
-			throw new ProviderException('invalid authorization request body');
-		}
-
-		$params['code_verifier'] = $this->storage->getCodeVerifier($this->name);
-
-		// delete verifier after use
-		$this->storage->clearCodeVerifier($this->name);
-
-		return $params;
-	}
-
-	/**
-	 * implements PKCE::generateVerifier()
-	 *
-	 * @see \chillerlan\OAuth\Core\PKCE::generateVerifier()
-	 * @see \chillerlan\OAuth\Core\OAuth2Provider::setCodeChallenge()
-	 *
-	 * @phan-suppress PhanUndeclaredClassMethod, PhanUndeclaredMethod
-	 * @noinspection PhpFullyQualifiedNameUsageInspection
-	 * @SuppressWarnings(PHPMD.MissingImport)
-	 */
-	final public function generateVerifier(int $length):string{
-
-		// use the Randomizer if available
-		// https://github.com/phpstan/phpstan/issues/7843
-		if(PHP_VERSION_ID >= 80300){
-			$randomizer = new \Random\Randomizer(new \Random\Engine\Secure);
-
-			return $randomizer->getBytesFromString(PKCE::VERIFIER_CHARSET, $length);
-		}
-
-		$str = '';
-
-		for($i = 0; $i < $length; $i++){
-			$str .= PKCE::VERIFIER_CHARSET[random_int(0, 65)];
-		}
-
-		return $str;
-	}
-
-	/**
-	 * implements PKCE::generateChallenge()
-	 *
-	 * @see \chillerlan\OAuth\Core\PKCE::generateChallenge()
-	 * @see \chillerlan\OAuth\Core\OAuth2Provider::setCodeChallenge()
-	 */
-	final public function generateChallenge(string $verifier, string $challengeMethod):string{
-
-		if($challengeMethod === PKCE::CHALLENGE_METHOD_PLAIN){
-			return $verifier;
-		}
-
-		$verifier = match($challengeMethod){
-			PKCE::CHALLENGE_METHOD_S256 => hash('sha256', $verifier, true),
-			// no other hash methods yet
-			default                     => throw new ProviderException('invalid PKCE challenge method'),
-		};
-
-		return sodium_bin2base64($verifier, SODIUM_BASE64_VARIANT_URLSAFE_NO_PADDING);
-	}
-
-
-	/*
-	 * PAR
-	 */
-
-	/**
-	 * implements PAR::getParRequestUri()
-	 *
-	 * @see \chillerlan\OAuth\Core\PAR::getParRequestUri()
-	 * @see \chillerlan\OAuth\Core\OAuth2Provider::getAuthorizationURL()
-	 *
-	 * @param array<string, string> $body
-	 */
-	public function getParRequestUri(array $body):UriInterface{
-
-		if(!$this instanceof PAR){
-			throw new ProviderException('PKCE challenge not supported');
-		}
-
-		// send the request with the same method and parameters as the token requests
-		// @link https://datatracker.ietf.org/doc/html/rfc9126#name-request
-		$response = $this->sendAccessTokenRequest($this->parAuthorizationURL, $body);
-		$status   = $response->getStatusCode();
-		$json     = MessageUtil::decodeJSON($response, true);
-
-		// something went horribly wrong
-		if($status !== 200){
-
-			// @link https://datatracker.ietf.org/doc/html/rfc9126#section-2.3
-			if(isset($json['error'], $json['error_description'])){
-				throw new ProviderException(sprintf('PAR error: "%s" (%s)', $json['error'], $json['error_description']));
-			}
-
-			throw new ProviderException(sprintf('PAR request error: (HTTP/%s)', $status)); // @codeCoverageIgnore
-		}
-
-		$url = QueryUtil::merge($this->authorizationURL, $this->getParAuthorizationURLRequestParams($json));
-
-		return $this->uriFactory->createUri($url);
-	}
-
-	/**
-	 * Parses the response from the PAR request and returns the query parameters for the authorization URL
-	 *
-	 * @see \chillerlan\OAuth\Core\OAuth2Provider::getParRequestUri()
-	 *
-	 * @param array<string, string> $response
-	 * @return array<string, string>
-	 *
-	 * @codeCoverageIgnore
-	 */
-	protected function getParAuthorizationURLRequestParams(array $response):array{
-
-		if(!isset($response['request_uri'])){
-			throw new ProviderException('PAR response error: "request_uri" missing');
-		}
-
-		return [
-			'client_id'   => $this->options->key,
-			'request_uri' => $response['request_uri'],
-		];
 	}
 
 }

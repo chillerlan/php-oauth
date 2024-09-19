@@ -85,6 +85,7 @@ abstract class OAuthProvider implements OAuthInterface{
 	 * An optional URL for application side token revocation
 	 *
 	 * @see \chillerlan\OAuth\Core\TokenInvalidate
+	 * @see \chillerlan\OAuth\Core\TokenInvalidateTrait::invalidateAccessToken()
 	 */
 	protected string $revokeURL = '';
 

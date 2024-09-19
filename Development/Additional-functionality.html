@@ -205,7 +205,7 @@
 <h1>Additional provider functionality<a class="headerlink" href="#additional-provider-functionality" title="Link to this heading"></a></h1>
 <p>Services may support additional features, such as token refresh or invalidation, among other things. You can add these features
 by implementing one or more of the feature interfaces. Some of the methods for these interfaces are already implemented in the
-abstract providers, so that you only rarely need to re-implement them.</p>
+abstract providers, so that you only rarely need to re-implement them - for others, especially newer RFCs, there are traits that can be used.</p>
 <section id="userinfo">
 <h2><code class="docutils literal notranslate"><span class="pre">UserInfo</span></code><a class="headerlink" href="#userinfo" title="Link to this heading"></a></h2>
 <p>The <code class="docutils literal notranslate"><span class="pre">UserInfo</span></code> interface implements a method <code class="docutils literal notranslate"><span class="pre">me()</span></code> that returns basic information about the currently authenticated user from a <code class="docutils literal notranslate"><span class="pre">/me</span></code>,
@@ -279,6 +279,7 @@ In that case you can override the method <code class="docutils literal notransla
 This allows the creation of access tokens without user context via the method <code class="docutils literal notranslate"><span class="pre">ClientCredentials::getClientCredentialsToken()</span></code> that is already implemented in <code class="docutils literal notranslate"><span class="pre">OAuth2Provider</span></code>.
 Similar to the user authorization request, an optional set of scopes can be supplied via the <code class="docutils literal notranslate"><span class="pre">$scopes</span></code> parameter.</p>
 <div class="highlight-php notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">MyOAuth2Provider</span> <span class="k">extends</span> <span class="nx">OAuth2Provider</span> <span class="k">implements</span> <span class="nx">ClientCredentials</span><span class="p">{</span>
+	<span class="k">use</span> <span class="nx">ClientCredentialsTrait</span><span class="p">;</span>
 
 	<span class="cm">/*</span>
 <span class="cm">	 * ...</span>
@@ -366,6 +367,7 @@ It shouldn’t be necessary to re-implement the method <code class="docutils lit
 It implements the methods <code class="docutils literal notranslate"><span class="pre">PKCE::setCodeChallenge()</span></code> and <code class="docutils literal notranslate"><span class="pre">PKCE::setCodeVerifier()</span></code> that are called during the <em>authorization</em> and <em>access token</em> requests, respectively.</p>
 <p>If you need to override either of the aforementioned request methods, don’t forget to add the PKCE parameters:</p>
 <div class="highlight-php notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">MyOAuth2Provider</span> <span class="k">extends</span> <span class="nx">OAuth2Provider</span> <span class="k">implements</span> <span class="nx">PKCE</span><span class="p">{</span>
+	<span class="k">use</span> <span class="nx">PKCETrait</span><span class="p">;</span>
 
 	<span class="cm">/*</span>
 <span class="cm">	 * ...</span>
@@ -425,6 +427,7 @@ When this interface is implemented, the method <code class="docutils literal not
 to the PAR endpoint of the service and gets a temporary request URI in return, which is then used in the actual authorization URL to redirect the user.</p>
 <p>In case the service needs additional parameters in the final authorization URL, you can override the method <code class="docutils literal notranslate"><span class="pre">OAuth2Provider::getParAuthorizationURLRequestParams()</span></code>:</p>
 <div class="highlight-php notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">MyOAuth2Provider</span> <span class="k">extends</span> <span class="nx">OAuth2Provider</span> <span class="k">implements</span> <span class="nx">PAR</span><span class="p">{</span>
+	<span class="k">use</span> <span class="nx">PARTrait</span><span class="p">;</span>
 
 	<span class="cm">/*</span>
 <span class="cm">	 * ...</span>
@@ -457,6 +460,7 @@ with a <code class="docutils literal notranslate"><span class="pre">POST</span><
 body or an HTTP 204. On a successful response, the token should be deleted from the storage.</p>
 <p>The implementation in <code class="docutils literal notranslate"><span class="pre">OAuth2Provider</span></code> is divided in parts that can be overridden separately:</p>
 <div class="highlight-php notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">MyOAuth2Provider</span> <span class="k">extends</span> <span class="nx">OAuth2Provider</span> <span class="k">implements</span> <span class="nx">TokenInvalidate</span><span class="p">{</span>
+	<span class="k">use</span> <span class="nx">TokenInvalidateTrait</span><span class="p">;</span>
 
 	<span class="cm">/*</span>
 <span class="cm">	 * ...</span>
@@ -499,6 +503,7 @@ body or an HTTP 204. On a successful response, the token should be deleted from 
 The problem here is that a token given via parameter can’t just be revoked that easily without overwriting the currently stored token (if any).
 This can be solved by simply cloning the current provider instance, feed the given token to the clone and call <code class="docutils literal notranslate"><span class="pre">invalidateAccessToken()</span></code> on it:</p>
 <div class="highlight-php notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">MyOAuth2Provider</span> <span class="k">extends</span> <span class="nx">OAuth2Provider</span> <span class="k">implements</span> <span class="nx">TokenInvalidate</span><span class="p">{</span>
+	<span class="k">use</span> <span class="nx">TokenInvalidateTrait</span><span class="p">;</span>
 
 	<span class="cm">/*</span>
 <span class="cm">	 * ...</span>

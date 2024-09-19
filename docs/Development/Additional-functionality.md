@@ -2,7 +2,7 @@
 
 Services may support additional features, such as token refresh or invalidation, among other things. You can add these features
 by implementing one or more of the feature interfaces. Some of the methods for these interfaces are already implemented in the
-abstract providers, so that you only rarely need to re-implement them.
+abstract providers, so that you only rarely need to re-implement them - for others, especially newer RFCs, there are traits that can be used.
 
 
 ## `UserInfo`
@@ -82,9 +82,9 @@ The `ClientCredentials` interface indicates that the provider supports the OAuth
 This allows the creation of access tokens without user context via the method `ClientCredentials::getClientCredentialsToken()` that is already implemented in `OAuth2Provider`.
 Similar to the user authorization request, an optional set of scopes can be supplied via the `$scopes` parameter.
 
-
 ```php
 class MyOAuth2Provider extends OAuth2Provider implements ClientCredentials{
+	use ClientCredentialsTrait;
 
 	/*
 	 * ...
@@ -181,6 +181,7 @@ If you need to override either of the aforementioned request methods, don't forg
 
 ```php
 class MyOAuth2Provider extends OAuth2Provider implements PKCE{
+	use PKCETrait;
 
 	/*
 	 * ...
@@ -243,6 +244,7 @@ In case the service needs additional parameters in the final authorization URL, 
 
 ```php
 class MyOAuth2Provider extends OAuth2Provider implements PAR{
+	use PARTrait;
 
 	/*
 	 * ...
@@ -279,6 +281,7 @@ The implementation in `OAuth2Provider` is divided in parts that can be overridde
 
 ```php
 class MyOAuth2Provider extends OAuth2Provider implements TokenInvalidate{
+	use TokenInvalidateTrait;
 
 	/*
 	 * ...
@@ -323,6 +326,7 @@ This can be solved by simply cloning the current provider instance, feed the giv
 
 ```php
 class MyOAuth2Provider extends OAuth2Provider implements TokenInvalidate{
+	use TokenInvalidateTrait;
 
 	/*
 	 * ...

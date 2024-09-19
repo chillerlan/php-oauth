@@ -61,10 +61,6 @@ trait PKCETrait{
 	 */
 	final public function setCodeVerifier(array $params):array{
 
-		if(!$this instanceof PKCE){
-			throw new ProviderException('PKCE challenge not supported');
-		}
-
 		if(!isset($params['grant_type'], $params['code']) || $params['grant_type'] !== 'authorization_code'){
 			throw new ProviderException('invalid authorization request body');
 		}
@@ -120,7 +116,7 @@ trait PKCETrait{
 		$verifier = match($challengeMethod){
 			PKCE::CHALLENGE_METHOD_S256 => hash('sha256', $verifier, true),
 			// no other hash methods yet
-			default                     => throw new ProviderException('invalid PKCE challenge method'),
+			default                     => throw new ProviderException('invalid PKCE challenge method'), // @codeCoverageIgnore
 		};
 
 		return sodium_bin2base64($verifier, SODIUM_BASE64_VARIANT_URLSAFE_NO_PADDING);

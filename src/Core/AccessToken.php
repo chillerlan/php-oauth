@@ -122,7 +122,7 @@ final class AccessToken extends SettingsContainerAbstract{
 
 		// clamp max expiry
 		if($this->expires > $max){
-			$this->expires = $max;
+			$this->expires = $max; // @codeCoverageIgnore
 		}
 
 	}

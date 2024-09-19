@@ -213,7 +213,7 @@ abstract class OAuthProviderUnitTestAbstract extends ProviderUnitTestAbstract{
 
 		$token = $this->getTestToken();
 
-		$this->provider->storeAccessToken($this->getTestToken());
+		$this->provider->storeAccessToken($token);
 
 		$this::assertTrue($this->storage->hasAccessToken($this->provider->getName()));
 		$this::assertTrue($this->provider->invalidateAccessToken());
@@ -229,6 +229,44 @@ abstract class OAuthProviderUnitTestAbstract extends ProviderUnitTestAbstract{
 
 		$this::assertTrue($this->provider->invalidateAccessToken($token));
 		$this::assertSame('still here', $this->provider->getStorage()->getAccessToken($this->provider->getName())->accessToken);
+	}
+
+	public function testTokenInvalidateFailed():void{
+
+		if(!$this->provider instanceof TokenInvalidate){
+			$this::markTestSkipped('TokenInvalidate N/A');
+		}
+
+		$token = $this->getTestToken();
+
+		$this->provider->storeAccessToken($token);
+
+		$this->setMockResponse($this->responseFactory->createResponse(404));
+
+		$this::assertFalse($this->provider->invalidateAccessToken());
+	}
+
+	public function testTokenInvalidateFailedWithException():void{
+
+		if(!$this->provider instanceof TokenInvalidate){
+			$this::markTestSkipped('TokenInvalidate N/A');
+		}
+
+		$this->expectException(ProviderException::class);
+		$this->expectExceptionMessage('whatever');
+
+		$token = $this->getTestToken();
+
+		$this->provider->storeAccessToken($token);
+
+		$response = $this->responseFactory
+			->createResponse(404)
+			->withHeader('Content-Type', 'application/json')
+			->withBody($this->streamFactory->createStream('{"error":"whatever"}'));
+
+		$this->setMockResponse($response);
+
+		$this->provider->invalidateAccessToken();
 	}
 
 	public function testTokenInvalidateNoTokenException():void{

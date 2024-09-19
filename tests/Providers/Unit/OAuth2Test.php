@@ -26,4 +26,8 @@ final class OAuth2Test extends OAuth2ProviderUnitTestAbstract{
 		$this->markTestSkipped('N/A');
 	}
 
+	public function testTokenInvalidateFailedWithException():void{
+		$this->markTestSkipped('N/A');
+	}
+
 }

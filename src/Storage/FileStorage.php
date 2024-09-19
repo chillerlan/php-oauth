@@ -203,7 +203,7 @@ class FileStorage extends OAuthStorageAbstract{
 			$contents = file_get_contents($path);
 
 			if($contents === false){
-				throw new OAuthStorageException('file_get_contents() error');
+				throw new OAuthStorageException('file_get_contents() error'); // @codeCoverageIgnore
 			}
 
 			return $contents;

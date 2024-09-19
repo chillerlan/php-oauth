@@ -50,4 +50,8 @@ final class VimeoTest extends OAuth2ProviderUnitTestAbstract{
 		$this::assertSame('still here', $this->provider->getStorage()->getAccessToken($this->provider->getName())->accessToken);
 	}
 
+	public function testTokenInvalidateFailedWithException():void{
+		$this->markTestSkipped('N/A');
+	}
+
 }

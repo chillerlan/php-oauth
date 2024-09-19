@@ -105,7 +105,7 @@ class DeviantArt extends OAuth2Provider implements ClientCredentials, CSRFToken,
 			return true;
 		}
 
-		return false;
+		return false; // @codeCoverageIgnore
 	}
 
 }

@@ -38,7 +38,7 @@ trait TokenInvalidateTrait{
 
 		// @link https://datatracker.ietf.org/doc/html/rfc7009#section-2.1
 		if(!in_array($type, ['access_token', 'refresh_token'], true)){
-			throw new ProviderException(sprintf('invalid token type "%s"', $type));
+			throw new ProviderException(sprintf('invalid token type "%s"', $type)); // @codeCoverageIgnore
 		}
 
 		$tokenToInvalidate = ($token ?? $this->storage->getAccessToken($this->name));
@@ -59,7 +59,7 @@ trait TokenInvalidateTrait{
 		// ok, let's see if we got a response body
 		// @link https://datatracker.ietf.org/doc/html/rfc7009#section-2.2.1
 		if(str_contains($response->getHeaderLine('content-type'), 'json')){
-			$json = MessageUtil::decodeJSON($response);
+			$json = MessageUtil::decodeJSON($response, true);
 
 			if(isset($json['error'])){
 				throw new ProviderException($json['error']);

@@ -24,4 +24,12 @@ final class StripeTest extends OAuth2ProviderUnitTestAbstract{
 		$this::markTestIncomplete();
 	}
 
+	public function testTokenInvalidateFailed():void{
+		$this::markTestIncomplete();
+	}
+
+	public function testTokenInvalidateFailedWithException():void{
+		$this::markTestIncomplete();
+	}
+
 }

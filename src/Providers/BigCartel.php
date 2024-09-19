@@ -72,7 +72,7 @@ class BigCartel extends OAuth2Provider implements CSRFToken, TokenInvalidate, Us
 			return true;
 		}
 
-		return false;
+		return false; // @codeCoverageIgnore
 	}
 
 	/**

@@ -26,4 +26,8 @@ final class OAuth1Test extends OAuth1ProviderUnitTestAbstract{
 		$this->markTestSkipped('N/A');
 	}
 
+	public function testTokenInvalidateFailedWithException():void{
+		$this->markTestSkipped('N/A');
+	}
+
 }

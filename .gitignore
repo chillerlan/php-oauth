@@ -12,8 +12,8 @@
 
 # Project
 .build/*
-.config/.env
-.config/**/*.token*
+.config/*
+!.config/.env_example
 vendor/*
 *cacert.pem
 composer.lock

@@ -1,3 +1,0 @@
-parameters:
-	ignoreErrors:
-		- message: "#^Call to an undefined method Random\\\\Randomizer\\:\\:getBytesFromString\\(\\)\\.$#"

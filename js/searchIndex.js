@@ -871,36 +871,6 @@ Search.appendIndex(
             "summary": "Fetches\u0020a\u0020list\u0020of\u0020provider\u0020classes\u0020in\u0020the\u0020given\u0020directory",
             "url": "classes/chillerlan-OAuth-Core-Utilities.html#method_getProviders"
         },                {
-            "fqsen": "\\chillerlan\\OAuth\\Core\\Utilities\u003A\u003AcreateEncryptionKey\u0028\u0029",
-            "name": "createEncryptionKey",
-            "summary": "Creates\u0020a\u0020new\u0020cryptographically\u0020secure\u0020random\u0020encryption\u0020key\u0020\u0028in\u0020hexadecimal\u0020format\u0029",
-            "url": "classes/chillerlan-OAuth-Core-Utilities.html#method_createEncryptionKey"
-        },                {
-            "fqsen": "\\chillerlan\\OAuth\\Core\\Utilities\u003A\u003Aencrypt\u0028\u0029",
-            "name": "encrypt",
-            "summary": "encrypts\u0020the\u0020given\u0020\u0024data\u0020with\u0020\u0024key,\u0020\u0024format\u0020output\u0020\u005Bbinary,\u0020base64,\u0020hex\u005D",
-            "url": "classes/chillerlan-OAuth-Core-Utilities.html#method_encrypt"
-        },                {
-            "fqsen": "\\chillerlan\\OAuth\\Core\\Utilities\u003A\u003Adecrypt\u0028\u0029",
-            "name": "decrypt",
-            "summary": "decrypts\u0020the\u0020given\u0020\u0024encrypted\u0020data\u0020with\u0020\u0024key\u0020from\u0020\u0024format\u0020input\u0020\u005Bbinary,\u0020base64,\u0020hex\u005D",
-            "url": "classes/chillerlan-OAuth-Core-Utilities.html#method_decrypt"
-        },                {
-            "fqsen": "\\chillerlan\\OAuth\\Core\\Utilities\u003A\u003AENCRYPT_FORMAT_BINARY",
-            "name": "ENCRYPT_FORMAT_BINARY",
-            "summary": "",
-            "url": "classes/chillerlan-OAuth-Core-Utilities.html#constant_ENCRYPT_FORMAT_BINARY"
-        },                {
-            "fqsen": "\\chillerlan\\OAuth\\Core\\Utilities\u003A\u003AENCRYPT_FORMAT_BASE64",
-            "name": "ENCRYPT_FORMAT_BASE64",
-            "summary": "",
-            "url": "classes/chillerlan-OAuth-Core-Utilities.html#constant_ENCRYPT_FORMAT_BASE64"
-        },                {
-            "fqsen": "\\chillerlan\\OAuth\\Core\\Utilities\u003A\u003AENCRYPT_FORMAT_HEX",
-            "name": "ENCRYPT_FORMAT_HEX",
-            "summary": "",
-            "url": "classes/chillerlan-OAuth-Core-Utilities.html#constant_ENCRYPT_FORMAT_HEX"
-        },                {
             "fqsen": "\\chillerlan\\OAuth\\OAuthException",
             "name": "OAuthException",
             "summary": "Generic\u0020exception\u0020container",
@@ -6060,16 +6030,6 @@ Search.appendIndex(
             "name": "testGetProvidersInvalidPathException",
             "summary": "",
             "url": "classes/chillerlan-OAuthTest-Core-UtilitiesTest.html#method_testGetProvidersInvalidPathException"
-        },                {
-            "fqsen": "\\chillerlan\\OAuthTest\\Core\\UtilitiesTest\u003A\u003AencryptionFormatProvider\u0028\u0029",
-            "name": "encryptionFormatProvider",
-            "summary": "",
-            "url": "classes/chillerlan-OAuthTest-Core-UtilitiesTest.html#method_encryptionFormatProvider"
-        },                {
-            "fqsen": "\\chillerlan\\OAuthTest\\Core\\UtilitiesTest\u003A\u003AtestEncryptDecrypt\u0028\u0029",
-            "name": "testEncryptDecrypt",
-            "summary": "",
-            "url": "classes/chillerlan-OAuthTest-Core-UtilitiesTest.html#method_testEncryptDecrypt"
         },                {
             "fqsen": "\\chillerlan\\OAuthTest\\Providers\\DummyOAuth1Provider",
             "name": "DummyOAuth1Provider",

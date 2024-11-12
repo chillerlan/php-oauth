@@ -15,7 +15,6 @@ namespace chillerlan\OAuth\Core;
 
 use chillerlan\Utilities\File;
 use DirectoryIterator;
-use InvalidArgumentException;
 use ReflectionClass;
 use function hash;
 use function substr;

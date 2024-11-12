@@ -13,7 +13,6 @@ parameters:
 # see https://github.com/phpstan/phpstan-src/blob/1.8.x/build/ignore-by-php-version.neon.php
 includes:
 	- phpstan-baseline.neon
-	- .phpstan/ignore-by-php-version.php
 	- vendor/phpstan/phpstan/conf/bleedingEdge.neon
 	- vendor/phpstan/phpstan-deprecation-rules/rules.neon
 	- vendor/chillerlan/php-settings-container/rules-magic-access.neon

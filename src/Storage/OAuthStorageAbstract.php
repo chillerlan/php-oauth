@@ -12,8 +12,9 @@ declare(strict_types=1);
 namespace chillerlan\OAuth\Storage;
 
 use chillerlan\OAuth\OAuthOptions;
-use chillerlan\OAuth\Core\{AccessToken, Utilities};
+use chillerlan\OAuth\Core\AccessToken;
 use chillerlan\Settings\SettingsContainerInterface;
+use chillerlan\Utilities\Crypto;
 use Psr\Log\{LoggerInterface, NullLogger};
 use function trim;
 
@@ -31,7 +32,7 @@ abstract class OAuthStorageAbstract implements OAuthStorageInterface{
 	 *
 	 * @var int
 	 */
-	protected const ENCRYPT_FORMAT = Utilities::ENCRYPT_FORMAT_HEX;
+	protected const ENCRYPT_FORMAT = Crypto::ENCRYPT_FORMAT_HEX;
 
 	/**
 	 * The options instance
@@ -104,14 +105,14 @@ abstract class OAuthStorageAbstract implements OAuthStorageInterface{
 	 * encrypts the given $data
 	 */
 	protected function encrypt(string $data):string{
-		return Utilities::encrypt($data, $this->options->storageEncryptionKey, $this::ENCRYPT_FORMAT);
+		return Crypto::encrypt($data, $this->options->storageEncryptionKey, $this::ENCRYPT_FORMAT);
 	}
 
 	/**
 	 * decrypts the given $encrypted data
 	 */
 	protected function decrypt(string $encrypted):string{
-		return Utilities::decrypt($encrypted, $this->options->storageEncryptionKey, $this::ENCRYPT_FORMAT);
+		return Crypto::decrypt($encrypted, $this->options->storageEncryptionKey, $this::ENCRYPT_FORMAT);
 	}
 
 }

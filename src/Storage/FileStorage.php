@@ -12,12 +12,13 @@ declare(strict_types=1);
 namespace chillerlan\OAuth\Storage;
 
 use chillerlan\OAuth\OAuthOptions;
-use chillerlan\OAuth\Core\{AccessToken, Utilities};
+use chillerlan\OAuth\Core\AccessToken;
 use chillerlan\Settings\SettingsContainerInterface;
+use chillerlan\Utilities\{Crypto, Directory, File};
 use Psr\Log\{LoggerInterface, NullLogger};
 use DirectoryIterator;
-use function dirname, file_exists, file_get_contents, file_put_contents, hash, implode,
-	is_dir, is_file, mkdir, sprintf, str_starts_with, substr, trim, unlink;
+use Throwable;
+use function dirname, implode, str_starts_with, substr, trim;
 use const DIRECTORY_SEPARATOR;
 
 /**
@@ -31,7 +32,7 @@ use const DIRECTORY_SEPARATOR;
  */
 class FileStorage extends OAuthStorageAbstract{
 
-	final protected const ENCRYPT_FORMAT = Utilities::ENCRYPT_FORMAT_BINARY;
+	final protected const ENCRYPT_FORMAT = Crypto::ENCRYPT_FORMAT_BINARY;
 
 	/**
 	 * A *unique* ID to identify the user within your application, e.g. database row id or UUID
@@ -57,6 +58,7 @@ class FileStorage extends OAuthStorageAbstract{
 		if(empty($this->options->fileStoragePath)){
 			throw new OAuthStorageException('no storage path given');
 		}
+
 	}
 
 
@@ -71,17 +73,11 @@ class FileStorage extends OAuthStorageAbstract{
 	}
 
 	public function getAccessToken(string $provider):AccessToken{
-		$tokenData = $this->loadFile($this::KEY_TOKEN, $provider);
-
-		if($tokenData === null){
-			throw new ItemNotFoundException($this::KEY_TOKEN);
-		}
-
-		return $this->fromStorage($tokenData);
+		return $this->fromStorage($this->loadFile($this::KEY_TOKEN, $provider));
 	}
 
 	public function hasAccessToken(string $provider):bool{
-		return file_exists($this->getFilepath($this::KEY_TOKEN, $provider));
+		return File::exists($this->getFilepath($this::KEY_TOKEN, $provider));
 	}
 
 	public function clearAccessToken(string $provider):static{
@@ -115,10 +111,6 @@ class FileStorage extends OAuthStorageAbstract{
 	public function getCSRFState(string $provider):string{
 		$state = $this->loadFile($this::KEY_STATE, $provider);
 
-		if($state === null){
-			throw new ItemNotFoundException($this::KEY_STATE);
-		}
-
 		if($this->options->useStorageEncryption === true){
 			return $this->decrypt($state);
 		}
@@ -127,7 +119,7 @@ class FileStorage extends OAuthStorageAbstract{
 	}
 
 	public function hasCSRFState(string $provider):bool{
-		return file_exists($this->getFilepath($this::KEY_STATE, $provider));
+		return File::exists($this->getFilepath($this::KEY_STATE, $provider));
 	}
 
 	public function clearCSRFState(string $provider):static{
@@ -161,10 +153,6 @@ class FileStorage extends OAuthStorageAbstract{
 	public function getCodeVerifier(string $provider):string{
 		$verifier = $this->loadFile($this::KEY_VERIFIER, $provider);
 
-		if($verifier === null){
-			throw new ItemNotFoundException($this::KEY_VERIFIER);
-		}
-
 		if($this->options->useStorageEncryption === true){
 			return $this->decrypt($verifier);
 		}
@@ -173,7 +161,7 @@ class FileStorage extends OAuthStorageAbstract{
 	}
 
 	public function hasCodeVerifier(string $provider):bool{
-		return file_exists($this->getFilepath($this::KEY_VERIFIER, $provider));
+		return File::exists($this->getFilepath($this::KEY_VERIFIER, $provider));
 	}
 
 	public function clearCodeVerifier(string $provider):static{
@@ -196,20 +184,16 @@ class FileStorage extends OAuthStorageAbstract{
 	/**
 	 * fetched the content from a file
 	 */
-	protected function loadFile(string $key, string $provider):string|null{
+	protected function loadFile(string $key, string $provider):string{
 		$path = $this->getFilepath($key, $provider);
 
-		if(is_file($path)){
-			$contents = file_get_contents($path);
-
-			if($contents === false){
-				throw new OAuthStorageException('file_get_contents() error'); // @codeCoverageIgnore
-			}
-
-			return $contents;
+		try{
+			return File::load($path);
+		}
+		catch(Throwable){
+			throw new ItemNotFoundException($key);
 		}
 
-		return null;
 	}
 
 	/**
@@ -219,26 +203,18 @@ class FileStorage extends OAuthStorageAbstract{
 		$path = $this->getFilepath($key, $provider);
 		$dir  = dirname($path);
 
-		if(!is_dir($dir) && !mkdir($dir, 0o755, true)){
-			throw new OAuthStorageException(sprintf('could not create directory "%s"', $dir)); // @codeCoverageIgnore
+		if(!Directory::exists($dir)){
+			Directory::create($dir, 0o755, true); // @codeCoverageIgnore
 		}
 
-		if(file_put_contents($path, $data) === false){
-			throw new OAuthStorageException('saving to file failed'); // @codeCoverageIgnore
-		}
-
+		File::save($path, $data);
 	}
 
 	/**
 	 * deletes an existing file
 	 */
 	protected function deleteFile(string $key, string $provider):void{
-		$path = $this->getFilepath($key, $provider);
-
-		if(is_file($path) && !unlink($path)){
-			throw new OAuthStorageException(sprintf('error deleting file "%s"', $path)); // @codeCoverageIgnore
-		}
-
+		File::delete($this->getFilepath($key, $provider));
 	}
 
 	/**
@@ -261,7 +237,7 @@ class FileStorage extends OAuthStorageAbstract{
 	 */
 	protected function getFilepath(string $key, string $provider):string{
 		$provider = $this->getProviderName($provider);
-		$hash     = hash('sha256', $provider.$this->oauthUser.$key);
+		$hash     = Crypto::sha256($provider.$this->oauthUser.$key);
 		$path     = [$this->options->fileStoragePath, $provider];
 
 		for($i = 1; $i <= 2; $i++){ // @todo: subdir depth to options?

@@ -12,10 +12,7 @@ declare(strict_types=1);
 namespace chillerlan\OAuth\Core;
 
 use chillerlan\OAuth\Providers\ProviderException;
-use function hash;
-use function random_int;
-use function sodium_bin2base64;
-use const PHP_VERSION_ID;
+use chillerlan\Utilities\{Crypto, Str};
 use const SODIUM_BASE64_VARIANT_URLSAFE_NO_PADDING;
 
 /**
@@ -78,27 +75,9 @@ trait PKCETrait{
 	 *
 	 * @see \chillerlan\OAuth\Core\PKCE::generateVerifier()
 	 * @see \chillerlan\OAuth\Core\OAuth2Provider::setCodeChallenge()
-	 *
-	 * @noinspection PhpFullyQualifiedNameUsageInspection
-	 * @SuppressWarnings(PHPMD.MissingImport)
 	 */
 	final public function generateVerifier(int $length):string{
-
-		// use the Randomizer if available
-		// https://github.com/phpstan/phpstan/issues/7843
-		if(PHP_VERSION_ID >= 80300){
-			$randomizer = new \Random\Randomizer(new \Random\Engine\Secure);
-
-			return $randomizer->getBytesFromString(PKCE::VERIFIER_CHARSET, $length);
-		}
-
-		$str = '';
-
-		for($i = 0; $i < $length; $i++){
-			$str .= PKCE::VERIFIER_CHARSET[random_int(0, 65)];
-		}
-
-		return $str;
+		return Crypto::randomString($length, PKCE::VERIFIER_CHARSET);
 	}
 
 	/**
@@ -114,12 +93,12 @@ trait PKCETrait{
 		}
 
 		$verifier = match($challengeMethod){
-			PKCE::CHALLENGE_METHOD_S256 => hash('sha256', $verifier, true),
+			PKCE::CHALLENGE_METHOD_S256 => Crypto::sha256($verifier, true),
 			// no other hash methods yet
 			default                     => throw new ProviderException('invalid PKCE challenge method'), // @codeCoverageIgnore
 		};
 
-		return sodium_bin2base64($verifier, SODIUM_BASE64_VARIANT_URLSAFE_NO_PADDING);
+		return Str::base64encode($verifier, SODIUM_BASE64_VARIANT_URLSAFE_NO_PADDING);
 	}
 
 }

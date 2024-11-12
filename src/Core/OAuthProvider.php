@@ -18,17 +18,17 @@ use chillerlan\OAuth\OAuthOptions;
 use chillerlan\OAuth\Providers\ProviderException;
 use chillerlan\OAuth\Storage\{MemoryStorage, OAuthStorageInterface};
 use chillerlan\Settings\SettingsContainerInterface;
+use chillerlan\Utilities\Str;
 use Psr\Http\Client\ClientInterface;
 use Psr\Http\Message\{
 	RequestFactoryInterface, RequestInterface, ResponseInterface,
 	StreamFactoryInterface, StreamInterface, UriFactoryInterface
 };
 use Psr\Log\{LoggerInterface, NullLogger};
-use ReflectionClass, UnhandledMatchError;
-use function array_merge, array_shift, explode, implode, in_array, is_array, is_string,
-	json_encode, ltrim, random_bytes, rtrim, sodium_bin2hex, sodium_bin2base64,
-	sprintf, str_contains, str_starts_with, strip_tags, strtolower;
-use const PHP_QUERY_RFC1738, SODIUM_BASE64_VARIANT_ORIGINAL;
+use ReflectionClass;
+use function array_merge, array_shift, explode, implode, in_array, is_array, is_string, ltrim,
+	random_bytes, rtrim, sodium_bin2hex, sprintf, str_contains, str_starts_with, strip_tags, strtolower;
+use const PHP_QUERY_RFC1738;
 
 /**
  * Implements an abstract OAuth provider with all methods required by the OAuthInterface.
@@ -271,7 +271,7 @@ abstract class OAuthProvider implements OAuthInterface{
 	 * Adds an "Authorization: Basic <base64(key:secret)>" header to the given request
 	 */
 	protected function addBasicAuthHeader(RequestInterface $request):RequestInterface{
-		$auth = sodium_bin2base64(sprintf('%s:%s', $this->options->key, $this->options->secret), SODIUM_BASE64_VARIANT_ORIGINAL);
+		$auth = Str::base64encode(sprintf('%s:%s', $this->options->key, $this->options->secret));
 
 		return $request->withHeader('Authorization', sprintf('Basic %s', $auth));
 	}
@@ -363,7 +363,7 @@ abstract class OAuthProvider implements OAuthInterface{
 
 			$body = match($contentType){
 				'application/x-www-form-urlencoded'            => QueryUtil::build($body, PHP_QUERY_RFC1738),
-				'application/json', 'application/vnd.api+json' => json_encode($body),
+				'application/json', 'application/vnd.api+json' => Str::jsonEncode($body, 0),
 				default                                        => throw new ProviderException(
 					sprintf('invalid content-type "%s" for the given array body', $contentType),
 				),

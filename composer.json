@@ -1,4 +1,5 @@
 {
+	"$schema": "https://getcomposer.org/schema.json",
 	"name": "chillerlan/php-oauth",
 	"description": "A fully transparent, framework agnostic PSR-18 OAuth client.",
 	"homepage": "https://github.com/chillerlan/php-oauth",
@@ -36,6 +37,7 @@
 		"ext-sodium": "*",
 		"chillerlan/php-http-message-utils": "^2.2.2",
 		"chillerlan/php-settings-container": "^3.2.1",
+		"chillerlan/php-standard-utilities": "^1.0",
 		"psr/http-client": "^1.0",
 		"psr/http-message": "^1.1 || ^2.0",
 		"psr/log": "^1.1 || ^2.0 || ^3.0"

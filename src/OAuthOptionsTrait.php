@@ -12,7 +12,8 @@ declare(strict_types=1);
 namespace chillerlan\OAuth;
 
 use chillerlan\OAuth\Storage\OAuthStorageException;
-use function is_dir, is_writable, max, min, preg_match, realpath, sprintf, trim;
+use chillerlan\Utilities\{Directory, File};
+use function max, min, preg_match, sprintf, trim;
 
 /**
  * The settings for the OAuth provider
@@ -126,9 +127,9 @@ trait OAuthOptionsTrait{
 	 * sets and verifies the file storage path
 	 */
 	protected function set_fileStoragePath(string $fileStoragePath):void{
-		$path = realpath(trim($fileStoragePath));
+		$path = File::realpath(trim($fileStoragePath));
 
-		if($path === false || !is_dir($path) || !is_writable($path)){
+		if(!Directory::isWritable($path) || !Directory::isReadable($path)){
 			throw new OAuthStorageException(sprintf('invalid storage path "%s"', $fileStoragePath));
 		}
 

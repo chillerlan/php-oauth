@@ -12,7 +12,6 @@ declare(strict_types=1);
 namespace chillerlan\OAuthTest\Core;
 
 use chillerlan\OAuth\Core\{OAuthInterface, Utilities};
-use PHPUnit\Framework\Attributes\DataProvider;
 use PHPUnit\Framework\TestCase;
 use InvalidArgumentException, ReflectionClass;
 
@@ -39,31 +38,9 @@ class UtilitiesTest extends TestCase{
 
 	public function testGetProvidersInvalidPathException():void{
 		$this->expectException(InvalidArgumentException::class);
-		$this->expectExceptionMessage('invalid $providerDir');
+		$this->expectExceptionMessage('invalid file path');
 
 		Utilities::getProviders('/foo');
-	}
-
-	/**
-	 * @return array<string, array<int, int>>
-	 */
-	public static function encryptionFormatProvider():array{
-		return [
-			'binary' => [Utilities::ENCRYPT_FORMAT_BINARY],
-			'base64' => [Utilities::ENCRYPT_FORMAT_BASE64],
-			'hex'    => [Utilities::ENCRYPT_FORMAT_HEX],
-		];
-	}
-
-	#[DataProvider('encryptionFormatProvider')]
-	public function testEncryptDecrypt(int $format):void{
-		$data = 'hello this is a test string!';
-		$key  = Utilities::createEncryptionKey();
-
-		$encrypted = Utilities::encrypt($data, $key, $format);
-		$decrypted = Utilities::decrypt($encrypted, $key, $format);
-
-		$this::assertSame($data, $decrypted);
 	}
 
 }

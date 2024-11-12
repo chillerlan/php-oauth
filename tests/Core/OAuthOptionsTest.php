@@ -13,6 +13,7 @@ namespace chillerlan\OAuthTest\Core;
 
 use chillerlan\OAuth\OAuthOptions;
 use chillerlan\OAuth\Storage\OAuthStorageException;
+use InvalidArgumentException;
 use PHPUnit\Framework\TestCase;
 
 /**
@@ -42,8 +43,8 @@ class OAuthOptionsTest extends TestCase{
 	}
 
 	public function testSetFileStoragePathInvalidException():void{
-		$this->expectException(OAuthStorageException::class);
-		$this->expectExceptionMessage('invalid storage path "/foo"');
+		$this->expectException(InvalidArgumentException::class);
+		$this->expectExceptionMessage('invalid file path');
 		/** @phan-suppress-next-line PhanNoopNew */
 		new OAuthOptions(['fileStoragePath' => '/foo']);
 	}

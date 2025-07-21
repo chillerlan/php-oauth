@@ -37,7 +37,7 @@
 		"ext-sodium": "*",
 		"chillerlan/php-http-message-utils": "^2.2.2",
 		"chillerlan/php-settings-container": "^3.2.1",
-		"chillerlan/php-standard-utilities": "^1.0",
+		"chillerlan/php-standard-utilities": "^1.0.1",
 		"psr/http-client": "^1.0",
 		"psr/http-message": "^1.1 || ^2.0",
 		"psr/log": "^1.1 || ^2.0 || ^3.0"
@@ -48,10 +48,10 @@
 		"guzzlehttp/guzzle": "^7.9",
 		"monolog/monolog": "^3.7",
 		"phpmd/phpmd": "^2.15",
-		"phpstan/phpstan": "^1.12",
-		"phpstan/phpstan-deprecation-rules": "^1.2",
+		"phpstan/phpstan": "^2.1.18",
+		"phpstan/phpstan-deprecation-rules": "^2.0.3",
 		"phpunit/phpunit": "^10.5",
-		"slevomat/coding-standard": "^8.15",
+		"slevomat/coding-standard": "^8.19",
 		"squizlabs/php_codesniffer": "^3.10"
 	},
 	"suggest": {

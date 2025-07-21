@@ -38,7 +38,7 @@ class UtilitiesTest extends TestCase{
 
 	public function testGetProvidersInvalidPathException():void{
 		$this->expectException(InvalidArgumentException::class);
-		$this->expectExceptionMessage('invalid file path');
+		$this->expectExceptionMessage('invalid path');
 
 		Utilities::getProviders('/foo');
 	}

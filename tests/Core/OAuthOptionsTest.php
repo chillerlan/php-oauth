@@ -44,7 +44,7 @@ class OAuthOptionsTest extends TestCase{
 
 	public function testSetFileStoragePathInvalidException():void{
 		$this->expectException(InvalidArgumentException::class);
-		$this->expectExceptionMessage('invalid file path');
+		$this->expectExceptionMessage('invalid path');
 		/** @phan-suppress-next-line PhanNoopNew */
 		new OAuthOptions(['fileStoragePath' => '/foo']);
 	}

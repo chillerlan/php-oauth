@@ -75,6 +75,7 @@ final class AccessTokenTest extends TestCase{
 
 	#[DataProvider('expiryDataProvider')]
 	public function testSetExpiry(DateTime|DateInterval|int|null $expires, int $expected):void{
+		/** @phan-suppress-next-line PhanPossiblyNullTypeMismatchProperty */
 		$this->token->expires = $expires;
 
 		// time tests are a bit wonky sometimes

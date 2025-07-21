@@ -47,6 +47,7 @@
 		"chillerlan/phpunit-http": "^1.0",
 		"guzzlehttp/guzzle": "^7.9",
 		"monolog/monolog": "^3.7",
+		"phan/phan": "^5.5.0",
 		"phpmd/phpmd": "^2.15",
 		"phpstan/phpstan": "^2.1.18",
 		"phpstan/phpstan-deprecation-rules": "^2.0.3",
@@ -68,6 +69,7 @@
 		}
 	},
 	"scripts": {
+		"phan": "@php vendor/bin/phan",
 		"phpcs": "@php vendor/bin/phpcs",
 		"phpstan": "@php vendor/bin/phpstan",
 		"phpstan-baseline": "@php vendor/bin/phpstan --generate-baseline",

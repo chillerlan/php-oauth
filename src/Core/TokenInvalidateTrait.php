@@ -6,6 +6,8 @@
  * @author       smiley <smiley@chillerlan.net>
  * @copyright    2024 smiley
  * @license      MIT
+ *
+ * @phan-file-suppress PhanUndeclaredProperty, PhanUndeclaredMethod
  */
 declare(strict_types=1);
 
@@ -42,6 +44,7 @@ trait TokenInvalidateTrait{
 		}
 
 		$tokenToInvalidate = ($token ?? $this->storage->getAccessToken($this->name));
+		/** @phan-suppress-next-line PhanTypeMismatchArgumentNullable */
 		$body              = $this->getInvalidateAccessTokenBodyParams($tokenToInvalidate, $type);
 		$response          = $this->sendTokenInvalidateRequest($this->revokeURL, $body);
 

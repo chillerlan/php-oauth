@@ -780,12 +780,8 @@ in the access token request, rather than the key and secret in the request body.
 
         <section class="phpdocumentor-description"><p>It saves provider inplementations from the hassle to override the respective methods:</p>
 <ul>
-<li>
-<code class="prettyprint">OAuth2Provider::getAccessTokenRequestBodyParams()</code>
-</li>
-<li>
-<code class="prettyprint">OAuth2Provider::sendAccessTokenRequest()</code>
-</li>
+<li><code class="prettyprint">OAuth2Provider::getAccessTokenRequestBodyParams()</code></li>
+<li><code class="prettyprint">OAuth2Provider::sendAccessTokenRequest()</code></li>
 </ul>
 <p>I'm not sure where to put this: here or a feature interface (it's not exactly a feature).
 I'll leave it here for now, subject to change.</p>

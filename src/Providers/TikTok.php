@@ -12,7 +12,7 @@
 
 namespace chillerlan\OAuth\Providers;
 
-use chillerlan\OAuth\Core\{CSRFToken, OAuth2Provider, PKCE, TokenRefresh};
+use chillerlan\OAuth\Core\{CSRFToken, OAuth2Provider, PKCE, PKCETrait, TokenRefresh};
 use function array_merge, implode;
 
 /**
@@ -20,6 +20,7 @@ use function array_merge, implode;
  * @see https://developers.tiktok.com/doc/oauth-user-access-token-management/
  */
 class TikTok extends OAuth2Provider implements CSRFToken, PKCE, TokenRefresh{
+	use PKCETrait;
 
 	public const IDENTIFIER = 'TIKTOK';
 

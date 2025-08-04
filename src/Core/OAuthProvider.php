@@ -26,7 +26,7 @@ use Psr\Http\Message\{
 };
 use Psr\Log\{LoggerInterface, NullLogger};
 use ReflectionClass;
-use function array_merge, array_shift, explode, implode, in_array, is_array, is_string, ltrim,
+use function array_key_exists, array_merge, array_shift, explode, implode, in_array, is_array, is_string, ltrim,
 	random_bytes, rtrim, sodium_bin2hex, sprintf, str_contains, str_starts_with, strip_tags, strtolower;
 use const PHP_QUERY_RFC1738;
 
@@ -515,12 +515,21 @@ abstract class OAuthProvider implements OAuthInterface{
 		// let's try the common fields
 		foreach(['error_description', 'message', 'error', 'meta', 'data', 'detail', 'status', 'text'] as $err){
 
-			if(isset($json[$err]) && is_string($json[$err])){
+			if(!array_key_exists($err, $json)){
+				continue;
+			}
+
+			if(is_string($json[$err])){
 				throw new ProviderException($json[$err]);
 			}
 			elseif(is_array($json[$err])){
 				foreach(['message', 'error', 'errorDetail', 'developer_message', 'msg', 'code'] as $errDetail){
-					if(isset($json[$err][$errDetail]) && is_string($json[$err][$errDetail])){
+
+					if(!array_key_exists($errDetail, $json[$err])){
+						continue;
+					}
+
+					if(is_string($json[$err][$errDetail])){
 						throw new ProviderException($json[$err][$errDetail]);
 					}
 				}

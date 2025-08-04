@@ -261,6 +261,16 @@ Search.appendIndex(
             "summary": "The\u0020request\u0020token\u0020URL",
             "url": "classes/chillerlan-OAuth-Core-OAuth1Provider.html#property_requestTokenURL"
         },                {
+            "fqsen": "\\chillerlan\\OAuth\\Core\\OAuth21Interface",
+            "name": "OAuth21Interface",
+            "summary": "Specifies\u0020the\u0020basic\u0020methods\u0020for\u0020an\u0020OAuth2.1\u0020provider.\u0020\u0028WIP\u0029",
+            "url": "classes/chillerlan-OAuth-Core-OAuth21Interface.html"
+        },                {
+            "fqsen": "\\chillerlan\\OAuth\\Core\\OAuth21Provider",
+            "name": "OAuth21Provider",
+            "summary": "Implements\u0020an\u0020abstract\u0020OAuth\u00202.1\u0020provider\u0020\u0028WIP\u0029",
+            "url": "classes/chillerlan-OAuth-Core-OAuth21Provider.html"
+        },                {
             "fqsen": "\\chillerlan\\OAuth\\Core\\OAuth2Interface",
             "name": "OAuth2Interface",
             "summary": "Specifies\u0020the\u0020basic\u0020methods\u0020for\u0020an\u0020OAuth2\u0020provider.",
@@ -4741,6 +4751,116 @@ Search.appendIndex(
             "summary": "",
             "url": "classes/chillerlan-OAuth-Providers-Stripe.html#property_applicationURL"
         },                {
+            "fqsen": "\\chillerlan\\OAuth\\Providers\\Tidal",
+            "name": "Tidal",
+            "summary": "Tidal\u0020OAuth2\u0020\u0028OAuth\u00202.1\u0029",
+            "url": "classes/chillerlan-OAuth-Providers-Tidal.html"
+        },                {
+            "fqsen": "\\chillerlan\\OAuth\\Providers\\Tidal\u003A\u003Ame\u0028\u0029",
+            "name": "me",
+            "summary": "Returns\u0020information\u0020about\u0020the\u0020currently\u0020authenticated\u0020user\u0020\u0028usually\u0020a\u0020\/me\u0020or\u0020\/user\u0020endpoint\u0029.",
+            "url": "classes/chillerlan-OAuth-Providers-Tidal.html#method_me"
+        },                {
+            "fqsen": "\\chillerlan\\OAuth\\Providers\\Tidal\u003A\u003AIDENTIFIER",
+            "name": "IDENTIFIER",
+            "summary": "",
+            "url": "classes/chillerlan-OAuth-Providers-Tidal.html#constant_IDENTIFIER"
+        },                {
+            "fqsen": "\\chillerlan\\OAuth\\Providers\\Tidal\u003A\u003ASCOPE_COLLECTION_READ",
+            "name": "SCOPE_COLLECTION_READ",
+            "summary": "",
+            "url": "classes/chillerlan-OAuth-Providers-Tidal.html#constant_SCOPE_COLLECTION_READ"
+        },                {
+            "fqsen": "\\chillerlan\\OAuth\\Providers\\Tidal\u003A\u003ASCOPE_COLLECTION_WRITE",
+            "name": "SCOPE_COLLECTION_WRITE",
+            "summary": "",
+            "url": "classes/chillerlan-OAuth-Providers-Tidal.html#constant_SCOPE_COLLECTION_WRITE"
+        },                {
+            "fqsen": "\\chillerlan\\OAuth\\Providers\\Tidal\u003A\u003ASCOPE_ENTITLEMENTS_READ",
+            "name": "SCOPE_ENTITLEMENTS_READ",
+            "summary": "",
+            "url": "classes/chillerlan-OAuth-Providers-Tidal.html#constant_SCOPE_ENTITLEMENTS_READ"
+        },                {
+            "fqsen": "\\chillerlan\\OAuth\\Providers\\Tidal\u003A\u003ASCOPE_PLAYBACK",
+            "name": "SCOPE_PLAYBACK",
+            "summary": "",
+            "url": "classes/chillerlan-OAuth-Providers-Tidal.html#constant_SCOPE_PLAYBACK"
+        },                {
+            "fqsen": "\\chillerlan\\OAuth\\Providers\\Tidal\u003A\u003ASCOPE_PLAYLISTS_READ",
+            "name": "SCOPE_PLAYLISTS_READ",
+            "summary": "",
+            "url": "classes/chillerlan-OAuth-Providers-Tidal.html#constant_SCOPE_PLAYLISTS_READ"
+        },                {
+            "fqsen": "\\chillerlan\\OAuth\\Providers\\Tidal\u003A\u003ASCOPE_PLAYLISTS_WRITE",
+            "name": "SCOPE_PLAYLISTS_WRITE",
+            "summary": "",
+            "url": "classes/chillerlan-OAuth-Providers-Tidal.html#constant_SCOPE_PLAYLISTS_WRITE"
+        },                {
+            "fqsen": "\\chillerlan\\OAuth\\Providers\\Tidal\u003A\u003ASCOPE_RECOMMENDATIONS_READ",
+            "name": "SCOPE_RECOMMENDATIONS_READ",
+            "summary": "",
+            "url": "classes/chillerlan-OAuth-Providers-Tidal.html#constant_SCOPE_RECOMMENDATIONS_READ"
+        },                {
+            "fqsen": "\\chillerlan\\OAuth\\Providers\\Tidal\u003A\u003ASCOPE_SEARCH_READ",
+            "name": "SCOPE_SEARCH_READ",
+            "summary": "",
+            "url": "classes/chillerlan-OAuth-Providers-Tidal.html#constant_SCOPE_SEARCH_READ"
+        },                {
+            "fqsen": "\\chillerlan\\OAuth\\Providers\\Tidal\u003A\u003ASCOPE_SEARCH_WRITE",
+            "name": "SCOPE_SEARCH_WRITE",
+            "summary": "",
+            "url": "classes/chillerlan-OAuth-Providers-Tidal.html#constant_SCOPE_SEARCH_WRITE"
+        },                {
+            "fqsen": "\\chillerlan\\OAuth\\Providers\\Tidal\u003A\u003ASCOPE_USER_READ",
+            "name": "SCOPE_USER_READ",
+            "summary": "",
+            "url": "classes/chillerlan-OAuth-Providers-Tidal.html#constant_SCOPE_USER_READ"
+        },                {
+            "fqsen": "\\chillerlan\\OAuth\\Providers\\Tidal\u003A\u003ADEFAULT_SCOPES",
+            "name": "DEFAULT_SCOPES",
+            "summary": "",
+            "url": "classes/chillerlan-OAuth-Providers-Tidal.html#constant_DEFAULT_SCOPES"
+        },                {
+            "fqsen": "\\chillerlan\\OAuth\\Providers\\Tidal\u003A\u003AHEADERS_API",
+            "name": "HEADERS_API",
+            "summary": "",
+            "url": "classes/chillerlan-OAuth-Providers-Tidal.html#constant_HEADERS_API"
+        },                {
+            "fqsen": "\\chillerlan\\OAuth\\Providers\\Tidal\u003A\u003AUSES_BASIC_AUTH_IN_ACCESS_TOKEN_REQUEST",
+            "name": "USES_BASIC_AUTH_IN_ACCESS_TOKEN_REQUEST",
+            "summary": "",
+            "url": "classes/chillerlan-OAuth-Providers-Tidal.html#constant_USES_BASIC_AUTH_IN_ACCESS_TOKEN_REQUEST"
+        },                {
+            "fqsen": "\\chillerlan\\OAuth\\Providers\\Tidal\u003A\u003A\u0024authorizationURL",
+            "name": "authorizationURL",
+            "summary": "",
+            "url": "classes/chillerlan-OAuth-Providers-Tidal.html#property_authorizationURL"
+        },                {
+            "fqsen": "\\chillerlan\\OAuth\\Providers\\Tidal\u003A\u003A\u0024accessTokenURL",
+            "name": "accessTokenURL",
+            "summary": "",
+            "url": "classes/chillerlan-OAuth-Providers-Tidal.html#property_accessTokenURL"
+        },                {
+            "fqsen": "\\chillerlan\\OAuth\\Providers\\Tidal\u003A\u003A\u0024apiURL",
+            "name": "apiURL",
+            "summary": "",
+            "url": "classes/chillerlan-OAuth-Providers-Tidal.html#property_apiURL"
+        },                {
+            "fqsen": "\\chillerlan\\OAuth\\Providers\\Tidal\u003A\u003A\u0024userRevokeURL",
+            "name": "userRevokeURL",
+            "summary": "",
+            "url": "classes/chillerlan-OAuth-Providers-Tidal.html#property_userRevokeURL"
+        },                {
+            "fqsen": "\\chillerlan\\OAuth\\Providers\\Tidal\u003A\u003A\u0024apiDocs",
+            "name": "apiDocs",
+            "summary": "",
+            "url": "classes/chillerlan-OAuth-Providers-Tidal.html#property_apiDocs"
+        },                {
+            "fqsen": "\\chillerlan\\OAuth\\Providers\\Tidal\u003A\u003A\u0024applicationURL",
+            "name": "applicationURL",
+            "summary": "",
+            "url": "classes/chillerlan-OAuth-Providers-Tidal.html#property_applicationURL"
+        },                {
             "fqsen": "\\chillerlan\\OAuth\\Providers\\Tumblr",
             "name": "Tumblr",
             "summary": "Tumblr\u0020OAuth1",
@@ -6501,6 +6621,11 @@ Search.appendIndex(
             "summary": "",
             "url": "classes/chillerlan-OAuthTest-Providers-Live-StripeAPITest.html#method_assertMeResponse"
         },                {
+            "fqsen": "\\chillerlan\\OAuthTest\\Providers\\Live\\TidalAPITest",
+            "name": "TidalAPITest",
+            "summary": "OAuth2\u0020live\u0020API\u0020test",
+            "url": "classes/chillerlan-OAuthTest-Providers-Live-TidalAPITest.html"
+        },                {
             "fqsen": "\\chillerlan\\OAuthTest\\Providers\\Live\\Tumblr2APITest",
             "name": "Tumblr2APITest",
             "summary": "OAuth2\u0020live\u0020API\u0020test",
@@ -7660,6 +7785,11 @@ Search.appendIndex(
             "name": "testTokenInvalidateFailedWithException",
             "summary": "",
             "url": "classes/chillerlan-OAuthTest-Providers-Unit-StripeTest.html#method_testTokenInvalidateFailedWithException"
+        },                {
+            "fqsen": "\\chillerlan\\OAuthTest\\Providers\\Unit\\TidalTest",
+            "name": "TidalTest",
+            "summary": "OAuth2\u0020unit\u0020test",
+            "url": "classes/chillerlan-OAuthTest-Providers-Unit-TidalTest.html"
         },                {
             "fqsen": "\\chillerlan\\OAuthTest\\Providers\\Unit\\Tumblr2Test",
             "name": "Tumblr2Test",

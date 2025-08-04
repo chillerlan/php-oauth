@@ -845,6 +845,8 @@ that are in the past set the expiry to <code class="prettyprint">EXPIRY_UNKNOWN<
                         if (xhr.status < 400 && xhr.responseText) {
                             code.textContent = xhr.responseText;
                             Prism.highlightElement(code);
+                            d=document.getElementsByClassName("line-numbers");
+                            d[0].scrollTop = d[0].children[1].offsetTop;
                             return;
                         }
 

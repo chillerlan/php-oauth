@@ -85,7 +85,6 @@
 	<rule ref="SlevomatCodingStandard.TypeHints.NullableTypeForNullDefaultValue"/>
 	<rule ref="SlevomatCodingStandard.TypeHints.ParameterTypeHint"/>
 	<rule ref="SlevomatCodingStandard.TypeHints.PropertyTypeHint"/>
-
 	<!--<rule ref="SlevomatCodingStandard.TypeHints.ReturnTypeHint"/>-->
 
 	<rule ref="SlevomatCodingStandard.Variables.DisallowVariableVariable"/>
@@ -112,9 +111,8 @@
 		<exclude-pattern>tests/Storage/SessionStorageTest.php</exclude-pattern>
 	</rule>
 
-	<rule ref="SlevomatCodingStandard.TypeHints.UnionTypeHintFormat">
+	<rule ref="SlevomatCodingStandard.TypeHints.DNFTypeHintFormat">
 		<properties>
-			<property name="withSpaces" value="no"/>
 			<property name="shortNullable" value="no"/>
 			<property name="nullPosition" value="last"/>
 		</properties>
@@ -147,8 +145,6 @@
 	<rule ref="Generic.ControlStructures.InlineControlStructure"/>
 	<rule ref="Generic.Formatting.DisallowMultipleStatements"/>
 	<!--<rule ref="Generic.Formatting.MultipleStatementAlignment"/>-->
-	<rule ref="Generic.Formatting.NoSpaceAfterCast"/>
-	<rule ref="Generic.Functions.CallTimePassByReference"/>
 	<!--<rule ref="Generic.NamingConventions.InterfaceNameSuffix"/>-->
 	<rule ref="Generic.NamingConventions.TraitNameSuffix"/>
 	<rule ref="Generic.PHP.BacktickOperator"/>
@@ -183,7 +179,6 @@
 
 
 	<rule ref="Squiz.Arrays.ArrayBracketSpacing"/>
-	<rule ref="Squiz.Classes.DuplicateProperty"/>
 	<rule ref="Squiz.Classes.LowercaseClassKeywords"/>
 	<rule ref="Squiz.Classes.SelfMemberReference"/>
 	<rule ref="Squiz.Commenting.DocCommentAlignment"/>

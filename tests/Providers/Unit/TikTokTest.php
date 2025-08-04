@@ -13,16 +13,14 @@ namespace chillerlan\OAuthTest\Providers\Unit;
 
 use chillerlan\HTTP\Utils\QueryUtil;
 use chillerlan\OAuth\Providers\TikTok;
+use chillerlan\OAuthTest\Attributes\Provider;
 use function implode;
 
 /**
  * @property \chillerlan\OAuth\Providers\TikTok $provider
  */
+#[Provider(TikTok::class)]
 final class TikTokTest extends OAuth2ProviderUnitTestAbstract{
-
-	protected function getProviderFQCN():string{
-		return TikTok::class;
-	}
 
 	public function testGetAuthURL():void{
 		$uri    = $this->provider->getAuthorizationURL();
@@ -53,7 +51,7 @@ final class TikTokTest extends OAuth2ProviderUnitTestAbstract{
 	public function testGetAccessTokenRequestBodyParams():void{
 		$verifier = $this->provider->generateVerifier($this->options->pkceVerifierLength);
 
-		$this->storage->storeCodeVerifier($verifier, $this->provider->name);
+		$this->storage->storeCodeVerifier($verifier, $this->provider->getName());
 
 		$params = $this->invokeReflectionMethod('getAccessTokenRequestBodyParams', ['*test_code*']);
 
@@ -75,6 +73,5 @@ final class TikTokTest extends OAuth2ProviderUnitTestAbstract{
 		$this::assertSame($this->options->secret, $params['client_secret']);
 		$this::assertSame('refresh_token', $params['grant_type']);
 	}
-
 
 }

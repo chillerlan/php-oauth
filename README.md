@@ -143,6 +143,7 @@ Note: check the [releases](https://github.com/chillerlan/php-oauth/releases) for
 | [Spotify](https://developer.spotify.com/documentation/web-api/) | [link](https://developer.spotify.com/dashboard) | [link](https://www.spotify.com/account/apps/) | 2 | ✓ | ✓ | ✓ | ✓ | ✓ |  |
 | [Steam](https://developer.valvesoftware.com/wiki/Steam_Web_API) | [link](https://steamcommunity.com/dev/apikey) |  | - | ✓ |  |  |  |  |  |
 | [Stripe](https://stripe.com/docs/api) | [link](https://dashboard.stripe.com/apikeys) | [link](https://dashboard.stripe.com/account/applications) | 2 | ✓ | ✓ |  |  | ✓ | ✓ |
+| [Tidal](https://developer.tidal.com/documentation) | [link](https://developer.tidal.com/dashboard) | [link](https://account.tidal.com/third-party-apps) | 2 | ✓ | ✓ | ✓ | ✓ | ✓ |  |
 | [Tumblr](https://www.tumblr.com/docs/en/api/v2) | [link](https://www.tumblr.com/oauth/apps) | [link](https://www.tumblr.com/settings/apps) | 1 | ✓ |  |  |  |  |  |
 | [Tumblr2](https://www.tumblr.com/docs/en/api/v2) | [link](https://www.tumblr.com/oauth/apps) | [link](https://www.tumblr.com/settings/apps) | 2 | ✓ | ✓ |  | ✓ | ✓ |  |
 | [Twitch](https://dev.twitch.tv/docs/api/reference/) | [link](https://dev.twitch.tv/console/apps/create) | [link](https://www.twitch.tv/settings/connections) | 2 | ✓ | ✓ |  | ✓ | ✓ | ✓ |

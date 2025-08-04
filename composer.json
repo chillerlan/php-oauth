@@ -14,6 +14,10 @@
 			"name": "smiley",
 			"email": "smiley@chillerlan.net",
 			"homepage": "https://github.com/codemasher"
+		},
+		{
+			"name": "Contributors",
+			"homepage":"https://github.com/chillerlan/php-oauth/graphs/contributors"
 		}
 	],
 	"funding": [

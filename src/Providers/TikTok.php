@@ -13,17 +13,19 @@ declare(strict_types=1);
 
 namespace chillerlan\OAuth\Providers;
 
-use chillerlan\OAuth\Core\{CSRFToken, OAuth2Provider, PKCE, PKCETrait, TokenRefresh};
+use chillerlan\OAuth\Core\{AuthenticatedUser, CSRFToken, OAuth2Provider, PKCE, PKCETrait, TokenRefresh, UserInfo};
 use function array_merge, implode;
 
 /**
  * @see https://developers.tiktok.com/doc/login-kit-web/
  * @see https://developers.tiktok.com/doc/oauth-user-access-token-management/
  */
-class TikTok extends OAuth2Provider implements CSRFToken, PKCE, TokenRefresh{
+class TikTok extends OAuth2Provider implements CSRFToken, PKCE, TokenRefresh, UserInfo{
 	use PKCETrait;
 
 	public const IDENTIFIER = 'TIKTOK';
+
+	public const SCOPES_DELIMITER = ',';
 
 	public const SCOPE_VIDEO_UPLOAD                       = 'video.upload';
 	public const SCOPE_VIDEO_LIST                         = 'video.list';
@@ -42,6 +44,9 @@ class TikTok extends OAuth2Provider implements CSRFToken, PKCE, TokenRefresh{
 
 	public const DEFAULT_SCOPES = [
 		self::SCOPE_USER_INFO_BASIC,
+		self::SCOPE_USER_INFO_PROFILE,
+		self::SCOPE_USER_INFO_STATS,
+		self::SCOPE_VIDEO_LIST,
 	];
 
 	protected string      $authorizationURL = 'https://www.tiktok.com/v2/auth/authorize/';
@@ -52,9 +57,6 @@ class TikTok extends OAuth2Provider implements CSRFToken, PKCE, TokenRefresh{
 	protected string|null $applicationURL   = 'https://developers.tiktok.com/apps/';
 	protected string|null $userRevokeURL    = 'https://example.com/user/settings/connections';
 
-	/**
-	 * @inheritDoc
-	 */
 	protected function getAuthorizationURLRequestParams(array $params, array $scopes):array{
 
 		unset($params['client_secret']);
@@ -74,9 +76,6 @@ class TikTok extends OAuth2Provider implements CSRFToken, PKCE, TokenRefresh{
 		return $this->setState($params);
 	}
 
-	/**
-	 * @inheritDoc
-	 */
 	protected function getAccessTokenRequestBodyParams(string $code):array{
 
 		$params = [
@@ -90,9 +89,6 @@ class TikTok extends OAuth2Provider implements CSRFToken, PKCE, TokenRefresh{
 		return $this->setCodeVerifier($params);
 	}
 
-	/**
-	 * @inheritDoc
-	 */
 	protected function getRefreshAccessTokenRequestBodyParams(string $refreshToken):array{
 		return [
 			'client_key'    => $this->options->key,
@@ -100,6 +96,21 @@ class TikTok extends OAuth2Provider implements CSRFToken, PKCE, TokenRefresh{
 			'grant_type'    => 'refresh_token',
 			'refresh_token' => $refreshToken,
 		];
+	}
+
+	public function me():AuthenticatedUser{
+		$json = $this->getMeResponseData('/v2/user/info/', ['fields' => 'open_id,avatar_url,display_name,profile_deep_link,username,is_verified']);
+
+		$userdata = [
+			'avatar'      => $json['data']['user']['avatar_url'],
+			'data'        => $json,
+			'displayName' => $json['data']['user']['display_name'],
+			'handle'      => $json['data']['user']['username'],
+			'id'          => $json['data']['user']['open_id'],
+			'url'         => $json['data']['user']['profile_deep_link'],
+		];
+
+		return new AuthenticatedUser($userdata);
 	}
 
 }

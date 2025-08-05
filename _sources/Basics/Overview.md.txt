@@ -51,6 +51,7 @@ fully [PSR-7](https://www.php-fig.org/psr/psr-7/)/[PSR-17](https://www.php-fig.o
 | [Mastodon](https://docs.joinmastodon.org/api/) | [link](https://mastodon.social/settings/applications) | [link](https://mastodon.social/oauth/authorized_applications) | 2 | ✓ | ✓ |  |  | ✓ |  |
 | [Foursquare](https://location.foursquare.com/developer/reference/foursquare-apis-overview) | [link](https://foursquare.com/developers/apps) | [link](https://foursquare.com/settings/connections) | 2 | ✓ |  |  |  |  |  |
 | [DeviantArt](https://www.deviantart.com/developers/) | [link](https://www.deviantart.com/developers/apps) | [link](https://www.deviantart.com/settings/applications) | 2 | ✓ | ✓ |  | ✓ | ✓ | ✓ |
+| [TikTok](https://developers.tiktok.com/doc/overview/) | [link](https://developers.tiktok.com/apps/) | [link](https://example.com/user/settings/connections) | 2 | ✓ | ✓ | ✓ |  | ✓ |  |
 | [Tumblr2](https://www.tumblr.com/docs/en/api/v2) | [link](https://www.tumblr.com/oauth/apps) | [link](https://www.tumblr.com/settings/apps) | 2 | ✓ | ✓ |  | ✓ | ✓ |  |
 | [Reddit](https://www.reddit.com/dev/api) | [link](https://www.reddit.com/prefs/apps/) | [link](https://www.reddit.com/settings/privacy) | 2 | ✓ | ✓ |  | ✓ | ✓ | ✓ |
 | [PayPal](https://developer.paypal.com/docs/connect-with-paypal/reference/) | [link](https://developer.paypal.com/developer/applications/) |  | 2 | ✓ | ✓ |  | ✓ | ✓ |  |

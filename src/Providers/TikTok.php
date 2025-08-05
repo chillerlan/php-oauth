@@ -108,7 +108,8 @@ class TikTok extends OAuth2Provider implements CSRFToken, PKCE, TokenRefresh, Us
 	}
 
 	public function me():AuthenticatedUser{
-		$json = $this->getMeResponseData('/v2/user/info/', ['fields' => 'open_id,avatar_url,display_name,profile_deep_link,username,is_verified']);
+		$params = ['fields' => 'open_id,avatar_url,display_name,profile_deep_link,username,is_verified'];
+		$json   = $this->getMeResponseData('/v2/user/info/', $params);
 
 		$userdata = [
 			'avatar'      => $json['data']['user']['avatar_url'],

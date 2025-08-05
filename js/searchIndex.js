@@ -4861,6 +4861,151 @@ Search.appendIndex(
             "summary": "",
             "url": "classes/chillerlan-OAuth-Providers-Tidal.html#property_applicationURL"
         },                {
+            "fqsen": "\\chillerlan\\OAuth\\Providers\\TikTok",
+            "name": "TikTok",
+            "summary": "Implements\u0020an\u0020abstract\u0020OAuth2\u0020provider\u0020with\u0020all\u0020methods\u0020required\u0020by\u0020the\u0020OAuth2Interface.",
+            "url": "classes/chillerlan-OAuth-Providers-TikTok.html"
+        },                {
+            "fqsen": "\\chillerlan\\OAuth\\Providers\\TikTok\u003A\u003AgetAuthorizationURLRequestParams\u0028\u0029",
+            "name": "getAuthorizationURLRequestParams",
+            "summary": "prepares\u0020the\u0020query\u0020parameters\u0020for\u0020the\u0020auth\u0020URL",
+            "url": "classes/chillerlan-OAuth-Providers-TikTok.html#method_getAuthorizationURLRequestParams"
+        },                {
+            "fqsen": "\\chillerlan\\OAuth\\Providers\\TikTok\u003A\u003AgetAccessTokenRequestBodyParams\u0028\u0029",
+            "name": "getAccessTokenRequestBodyParams",
+            "summary": "prepares\u0020the\u0020request\u0020body\u0020parameters\u0020for\u0020the\u0020access\u0020token\u0020request",
+            "url": "classes/chillerlan-OAuth-Providers-TikTok.html#method_getAccessTokenRequestBodyParams"
+        },                {
+            "fqsen": "\\chillerlan\\OAuth\\Providers\\TikTok\u003A\u003AgetRefreshAccessTokenRequestBodyParams\u0028\u0029",
+            "name": "getRefreshAccessTokenRequestBodyParams",
+            "summary": "prepares\u0020the\u0020request\u0020body\u0020parameters\u0020for\u0020the\u0020token\u0020refresh",
+            "url": "classes/chillerlan-OAuth-Providers-TikTok.html#method_getRefreshAccessTokenRequestBodyParams"
+        },                {
+            "fqsen": "\\chillerlan\\OAuth\\Providers\\TikTok\u003A\u003Ame\u0028\u0029",
+            "name": "me",
+            "summary": "Returns\u0020information\u0020about\u0020the\u0020currently\u0020authenticated\u0020user\u0020\u0028usually\u0020a\u0020\/me\u0020or\u0020\/user\u0020endpoint\u0029.",
+            "url": "classes/chillerlan-OAuth-Providers-TikTok.html#method_me"
+        },                {
+            "fqsen": "\\chillerlan\\OAuth\\Providers\\TikTok\u003A\u003AIDENTIFIER",
+            "name": "IDENTIFIER",
+            "summary": "",
+            "url": "classes/chillerlan-OAuth-Providers-TikTok.html#constant_IDENTIFIER"
+        },                {
+            "fqsen": "\\chillerlan\\OAuth\\Providers\\TikTok\u003A\u003ASCOPES_DELIMITER",
+            "name": "SCOPES_DELIMITER",
+            "summary": "",
+            "url": "classes/chillerlan-OAuth-Providers-TikTok.html#constant_SCOPES_DELIMITER"
+        },                {
+            "fqsen": "\\chillerlan\\OAuth\\Providers\\TikTok\u003A\u003ASCOPE_VIDEO_UPLOAD",
+            "name": "SCOPE_VIDEO_UPLOAD",
+            "summary": "",
+            "url": "classes/chillerlan-OAuth-Providers-TikTok.html#constant_SCOPE_VIDEO_UPLOAD"
+        },                {
+            "fqsen": "\\chillerlan\\OAuth\\Providers\\TikTok\u003A\u003ASCOPE_VIDEO_LIST",
+            "name": "SCOPE_VIDEO_LIST",
+            "summary": "",
+            "url": "classes/chillerlan-OAuth-Providers-TikTok.html#constant_SCOPE_VIDEO_LIST"
+        },                {
+            "fqsen": "\\chillerlan\\OAuth\\Providers\\TikTok\u003A\u003ASCOPE_VIDEO_PUBLISH",
+            "name": "SCOPE_VIDEO_PUBLISH",
+            "summary": "",
+            "url": "classes/chillerlan-OAuth-Providers-TikTok.html#constant_SCOPE_VIDEO_PUBLISH"
+        },                {
+            "fqsen": "\\chillerlan\\OAuth\\Providers\\TikTok\u003A\u003ASCOPE_USER_INFO_BASIC",
+            "name": "SCOPE_USER_INFO_BASIC",
+            "summary": "",
+            "url": "classes/chillerlan-OAuth-Providers-TikTok.html#constant_SCOPE_USER_INFO_BASIC"
+        },                {
+            "fqsen": "\\chillerlan\\OAuth\\Providers\\TikTok\u003A\u003ASCOPE_USER_INFO_PROFILE",
+            "name": "SCOPE_USER_INFO_PROFILE",
+            "summary": "",
+            "url": "classes/chillerlan-OAuth-Providers-TikTok.html#constant_SCOPE_USER_INFO_PROFILE"
+        },                {
+            "fqsen": "\\chillerlan\\OAuth\\Providers\\TikTok\u003A\u003ASCOPE_USER_INFO_STATS",
+            "name": "SCOPE_USER_INFO_STATS",
+            "summary": "",
+            "url": "classes/chillerlan-OAuth-Providers-TikTok.html#constant_SCOPE_USER_INFO_STATS"
+        },                {
+            "fqsen": "\\chillerlan\\OAuth\\Providers\\TikTok\u003A\u003ASCOPE_PORTABILITY_PPOSTPROFILE_ONGOING",
+            "name": "SCOPE_PORTABILITY_PPOSTPROFILE_ONGOING",
+            "summary": "",
+            "url": "classes/chillerlan-OAuth-Providers-TikTok.html#constant_SCOPE_PORTABILITY_PPOSTPROFILE_ONGOING"
+        },                {
+            "fqsen": "\\chillerlan\\OAuth\\Providers\\TikTok\u003A\u003ASCOPE_PORTABILITY_PPOSTPROFILE_SINGLE",
+            "name": "SCOPE_PORTABILITY_PPOSTPROFILE_SINGLE",
+            "summary": "",
+            "url": "classes/chillerlan-OAuth-Providers-TikTok.html#constant_SCOPE_PORTABILITY_PPOSTPROFILE_SINGLE"
+        },                {
+            "fqsen": "\\chillerlan\\OAuth\\Providers\\TikTok\u003A\u003ASCOPE_PORTABILITY_ALL_ONGOING",
+            "name": "SCOPE_PORTABILITY_ALL_ONGOING",
+            "summary": "",
+            "url": "classes/chillerlan-OAuth-Providers-TikTok.html#constant_SCOPE_PORTABILITY_ALL_ONGOING"
+        },                {
+            "fqsen": "\\chillerlan\\OAuth\\Providers\\TikTok\u003A\u003ASCOPE_PORTABILITY_ALL_SINGLE",
+            "name": "SCOPE_PORTABILITY_ALL_SINGLE",
+            "summary": "",
+            "url": "classes/chillerlan-OAuth-Providers-TikTok.html#constant_SCOPE_PORTABILITY_ALL_SINGLE"
+        },                {
+            "fqsen": "\\chillerlan\\OAuth\\Providers\\TikTok\u003A\u003ASCOPE_PORTABILITY_DIRECTMESSAGES_ONGOING",
+            "name": "SCOPE_PORTABILITY_DIRECTMESSAGES_ONGOING",
+            "summary": "",
+            "url": "classes/chillerlan-OAuth-Providers-TikTok.html#constant_SCOPE_PORTABILITY_DIRECTMESSAGES_ONGOING"
+        },                {
+            "fqsen": "\\chillerlan\\OAuth\\Providers\\TikTok\u003A\u003ASCOPE_PORTABILITY_DIRECTMESSAGES_SINGLE",
+            "name": "SCOPE_PORTABILITY_DIRECTMESSAGES_SINGLE",
+            "summary": "",
+            "url": "classes/chillerlan-OAuth-Providers-TikTok.html#constant_SCOPE_PORTABILITY_DIRECTMESSAGES_SINGLE"
+        },                {
+            "fqsen": "\\chillerlan\\OAuth\\Providers\\TikTok\u003A\u003ASCOPE_PORTABILITY_ACTIVITY_ONGOING",
+            "name": "SCOPE_PORTABILITY_ACTIVITY_ONGOING",
+            "summary": "",
+            "url": "classes/chillerlan-OAuth-Providers-TikTok.html#constant_SCOPE_PORTABILITY_ACTIVITY_ONGOING"
+        },                {
+            "fqsen": "\\chillerlan\\OAuth\\Providers\\TikTok\u003A\u003ASCOPE_PORTABILITY_ACTIVITY_SINGLE",
+            "name": "SCOPE_PORTABILITY_ACTIVITY_SINGLE",
+            "summary": "",
+            "url": "classes/chillerlan-OAuth-Providers-TikTok.html#constant_SCOPE_PORTABILITY_ACTIVITY_SINGLE"
+        },                {
+            "fqsen": "\\chillerlan\\OAuth\\Providers\\TikTok\u003A\u003ADEFAULT_SCOPES",
+            "name": "DEFAULT_SCOPES",
+            "summary": "",
+            "url": "classes/chillerlan-OAuth-Providers-TikTok.html#constant_DEFAULT_SCOPES"
+        },                {
+            "fqsen": "\\chillerlan\\OAuth\\Providers\\TikTok\u003A\u003A\u0024authorizationURL",
+            "name": "authorizationURL",
+            "summary": "",
+            "url": "classes/chillerlan-OAuth-Providers-TikTok.html#property_authorizationURL"
+        },                {
+            "fqsen": "\\chillerlan\\OAuth\\Providers\\TikTok\u003A\u003A\u0024accessTokenURL",
+            "name": "accessTokenURL",
+            "summary": "",
+            "url": "classes/chillerlan-OAuth-Providers-TikTok.html#property_accessTokenURL"
+        },                {
+            "fqsen": "\\chillerlan\\OAuth\\Providers\\TikTok\u003A\u003A\u0024revokeURL",
+            "name": "revokeURL",
+            "summary": "",
+            "url": "classes/chillerlan-OAuth-Providers-TikTok.html#property_revokeURL"
+        },                {
+            "fqsen": "\\chillerlan\\OAuth\\Providers\\TikTok\u003A\u003A\u0024apiURL",
+            "name": "apiURL",
+            "summary": "",
+            "url": "classes/chillerlan-OAuth-Providers-TikTok.html#property_apiURL"
+        },                {
+            "fqsen": "\\chillerlan\\OAuth\\Providers\\TikTok\u003A\u003A\u0024apiDocs",
+            "name": "apiDocs",
+            "summary": "",
+            "url": "classes/chillerlan-OAuth-Providers-TikTok.html#property_apiDocs"
+        },                {
+            "fqsen": "\\chillerlan\\OAuth\\Providers\\TikTok\u003A\u003A\u0024applicationURL",
+            "name": "applicationURL",
+            "summary": "",
+            "url": "classes/chillerlan-OAuth-Providers-TikTok.html#property_applicationURL"
+        },                {
+            "fqsen": "\\chillerlan\\OAuth\\Providers\\TikTok\u003A\u003A\u0024userRevokeURL",
+            "name": "userRevokeURL",
+            "summary": "",
+            "url": "classes/chillerlan-OAuth-Providers-TikTok.html#property_userRevokeURL"
+        },                {
             "fqsen": "\\chillerlan\\OAuth\\Providers\\Tumblr",
             "name": "Tumblr",
             "summary": "Tumblr\u0020OAuth1",
@@ -6626,6 +6771,11 @@ Search.appendIndex(
             "summary": "OAuth2\u0020live\u0020API\u0020test",
             "url": "classes/chillerlan-OAuthTest-Providers-Live-TidalAPITest.html"
         },                {
+            "fqsen": "\\TikTokAPITest",
+            "name": "TikTokAPITest",
+            "summary": "OAuth2\u0020live\u0020API\u0020test",
+            "url": "classes/TikTokAPITest.html"
+        },                {
             "fqsen": "\\chillerlan\\OAuthTest\\Providers\\Live\\Tumblr2APITest",
             "name": "Tumblr2APITest",
             "summary": "OAuth2\u0020live\u0020API\u0020test",
@@ -7790,6 +7940,31 @@ Search.appendIndex(
             "name": "TidalTest",
             "summary": "OAuth2\u0020unit\u0020test",
             "url": "classes/chillerlan-OAuthTest-Providers-Unit-TidalTest.html"
+        },                {
+            "fqsen": "\\chillerlan\\OAuthTest\\Providers\\Unit\\TikTokTest",
+            "name": "TikTokTest",
+            "summary": "OAuth2\u0020unit\u0020test",
+            "url": "classes/chillerlan-OAuthTest-Providers-Unit-TikTokTest.html"
+        },                {
+            "fqsen": "\\chillerlan\\OAuthTest\\Providers\\Unit\\TikTokTest\u003A\u003AtestGetAuthURL\u0028\u0029",
+            "name": "testGetAuthURL",
+            "summary": "",
+            "url": "classes/chillerlan-OAuthTest-Providers-Unit-TikTokTest.html#method_testGetAuthURL"
+        },                {
+            "fqsen": "\\chillerlan\\OAuthTest\\Providers\\Unit\\TikTokTest\u003A\u003AtestGetAuthURLRequestParams\u0028\u0029",
+            "name": "testGetAuthURLRequestParams",
+            "summary": "",
+            "url": "classes/chillerlan-OAuthTest-Providers-Unit-TikTokTest.html#method_testGetAuthURLRequestParams"
+        },                {
+            "fqsen": "\\chillerlan\\OAuthTest\\Providers\\Unit\\TikTokTest\u003A\u003AtestGetAccessTokenRequestBodyParams\u0028\u0029",
+            "name": "testGetAccessTokenRequestBodyParams",
+            "summary": "",
+            "url": "classes/chillerlan-OAuthTest-Providers-Unit-TikTokTest.html#method_testGetAccessTokenRequestBodyParams"
+        },                {
+            "fqsen": "\\chillerlan\\OAuthTest\\Providers\\Unit\\TikTokTest\u003A\u003AtestGetRefreshAccessTokenRequestBodyParams\u0028\u0029",
+            "name": "testGetRefreshAccessTokenRequestBodyParams",
+            "summary": "",
+            "url": "classes/chillerlan-OAuthTest-Providers-Unit-TikTokTest.html#method_testGetRefreshAccessTokenRequestBodyParams"
         },                {
             "fqsen": "\\chillerlan\\OAuthTest\\Providers\\Unit\\Tumblr2Test",
             "name": "Tumblr2Test",

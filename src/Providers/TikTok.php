@@ -57,6 +57,9 @@ class TikTok extends OAuth2Provider implements CSRFToken, PKCE, TokenRefresh, Us
 	protected string|null $applicationURL   = 'https://developers.tiktok.com/apps/';
 	protected string|null $userRevokeURL    = 'https://example.com/user/settings/connections';
 
+	/**
+	 * @inheritDoc
+	 */
 	protected function getAuthorizationURLRequestParams(array $params, array $scopes):array{
 
 		unset($params['client_secret']);
@@ -76,6 +79,9 @@ class TikTok extends OAuth2Provider implements CSRFToken, PKCE, TokenRefresh, Us
 		return $this->setState($params);
 	}
 
+	/**
+	 * @inheritDoc
+	 */
 	protected function getAccessTokenRequestBodyParams(string $code):array{
 
 		$params = [
@@ -89,6 +95,9 @@ class TikTok extends OAuth2Provider implements CSRFToken, PKCE, TokenRefresh, Us
 		return $this->setCodeVerifier($params);
 	}
 
+	/**
+	 * @inheritDoc
+	 */
 	protected function getRefreshAccessTokenRequestBodyParams(string $refreshToken):array{
 		return [
 			'client_key'    => $this->options->key,

@@ -15,7 +15,7 @@ namespace chillerlan\OAuth\Providers;
 
 use chillerlan\OAuth\Core\{
 	AuthenticatedUser, ClientCredentials, ClientCredentialsTrait,
-	OAuth21Provider, TokenRefresh, UserInfo
+	OAuth2Provider, PKCE, PKCETrait, TokenRefresh, UserInfo
 };
 
 /**
@@ -23,8 +23,8 @@ use chillerlan\OAuth\Core\{
  *
  * @link https://developer.tidal.com/documentation/api-sdk/api-sdk-authorization
  */
-class Tidal extends OAuth21Provider implements ClientCredentials, TokenRefresh, UserInfo{
-	use ClientCredentialsTrait;
+class Tidal extends OAuth2Provider implements ClientCredentials, PKCE, TokenRefresh, UserInfo{
+	use ClientCredentialsTrait, PKCETrait;
 
 	public const IDENTIFIER = 'TIDAL';
 

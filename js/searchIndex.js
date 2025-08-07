@@ -261,16 +261,6 @@ Search.appendIndex(
             "summary": "The\u0020request\u0020token\u0020URL",
             "url": "classes/chillerlan-OAuth-Core-OAuth1Provider.html#property_requestTokenURL"
         },                {
-            "fqsen": "\\chillerlan\\OAuth\\Core\\OAuth21Interface",
-            "name": "OAuth21Interface",
-            "summary": "Specifies\u0020the\u0020basic\u0020methods\u0020for\u0020an\u0020OAuth2.1\u0020provider.\u0020\u0028WIP\u0029",
-            "url": "classes/chillerlan-OAuth-Core-OAuth21Interface.html"
-        },                {
-            "fqsen": "\\chillerlan\\OAuth\\Core\\OAuth21Provider",
-            "name": "OAuth21Provider",
-            "summary": "Implements\u0020an\u0020abstract\u0020OAuth\u00202.1\u0020provider\u0020\u0028WIP\u0029",
-            "url": "classes/chillerlan-OAuth-Core-OAuth21Provider.html"
-        },                {
             "fqsen": "\\chillerlan\\OAuth\\Core\\OAuth2Interface",
             "name": "OAuth2Interface",
             "summary": "Specifies\u0020the\u0020basic\u0020methods\u0020for\u0020an\u0020OAuth2\u0020provider.",

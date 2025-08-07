@@ -28,6 +28,7 @@ use const PHP_QUERY_RFC1738;
  * @link https://datatracker.ietf.org/doc/html/rfc6749
  * @link https://datatracker.ietf.org/doc/html/rfc7636
  * @link https://datatracker.ietf.org/doc/html/rfc9126
+ * @link https://datatracker.ietf.org/doc/html/draft-ietf-oauth-v2-1-13
  */
 abstract class OAuth2Provider extends OAuthProvider implements OAuth2Interface{
 

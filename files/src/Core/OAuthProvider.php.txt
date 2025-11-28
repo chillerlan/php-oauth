@@ -254,6 +254,7 @@ abstract class OAuthProvider implements OAuthInterface{
 	 * @return array<string, string>
 	 */
 	protected function cleanQueryParams(iterable $params):array{
+		/** @phan-suppress-next-line PhanTypeMismatchReturn */
 		return QueryUtil::cleanParams($params, QueryUtil::BOOLEANS_AS_INT_STRING, true);
 	}
 
@@ -264,6 +265,7 @@ abstract class OAuthProvider implements OAuthInterface{
 	 * @return array<string, string>
 	 */
 	protected function cleanBodyParams(iterable $params):array{
+		/** @phan-suppress-next-line PhanTypeMismatchReturn */
 		return QueryUtil::cleanParams($params, QueryUtil::BOOLEANS_AS_BOOL, true);
 	}
 

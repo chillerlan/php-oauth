@@ -118,13 +118,11 @@ try{
 				imagesy($img),
 			);
 
-			imagedestroy($img);
 		}
 	}
 
 	// save the image into a file
 	imagejpeg($patchwork, $imagefile, 85);
-	imagedestroy($patchwork);
 
 	if(file_exists($imagefile)){
 		header('HTTP/1.1 200 OK');

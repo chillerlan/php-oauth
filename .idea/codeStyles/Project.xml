@@ -328,7 +328,6 @@
       <option name="PHPDOC_USE_FQCN" value="true" />
       <option name="MULTILINE_CHAINED_CALLS_SEMICOLON_ON_NEW_LINE" value="true" />
       <option name="PREFER_TEMPLATE_INDENTS" value="true" />
-      <option name="ATTRIBUTES_WRAP" value="2" />
       <option name="PARAMETERS_ATTRIBUTES_WRAP" value="1" />
     </PHPCodeStyleSettings>
     <PostgresCodeStyleSettings version="7">

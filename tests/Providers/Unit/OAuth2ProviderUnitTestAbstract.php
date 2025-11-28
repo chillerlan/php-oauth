@@ -93,7 +93,12 @@ abstract class OAuth2ProviderUnitTestAbstract extends OAuthProviderUnitTestAbstr
 		// @link https://datatracker.ietf.org/doc/html/rfc9126#name-successful-response
 		$json = '{"request_uri":"urn:ietf:params:oauth:request_uri:6esc_11ACC5bwc014ltc14eY22c","expires_in":60}';
 
-		$this->setMockResponse($this->streamFactory->createStream($json));
+		$response = $this->responseFactory
+			->createResponse(201)
+			->withBody($this->streamFactory->createStream($json))
+		;
+
+		$this->setMockResponse($response);
 
 		$uri    = $this->provider->getAuthorizationURL();
 		$params = QueryUtil::parse($uri->getQuery());

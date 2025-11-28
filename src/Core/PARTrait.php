@@ -41,8 +41,9 @@ trait PARTrait{
 		$status   = $response->getStatusCode();
 		$json     = MessageUtil::decodeJSON($response, true);
 
+		// the response should be a 201, see: https://github.com/chillerlan/php-oauth/issues/6
 		// something went horribly wrong
-		if($status !== 200){
+		if($status !== 201){
 
 			// @link https://datatracker.ietf.org/doc/html/rfc9126#section-2.3
 			if(isset($json['error'], $json['error_description'])){
